@@ -25,25 +25,14 @@ define( function( require ) {
       locationX2: this.width / 2 + 100,
       ruler: {x: 250, y: 330}
     } );
+    var updateForce = function() {model.force = model.gravityForce( model.mass1, model.mass2, model.distance );};
+    var updateDistance = function() {model.distance = model.calculateDistance( model.locationX1, model.locationX2 );};
 
-
-    this.mass1Property.link( function( value ) {
-      model.force = model.gravityForce( model.mass1, model.mass2, model.distance );
-    } );
-    this.mass2Property.link( function( value ) {
-      model.force = model.gravityForce( model.mass1, model.mass2, model.distance );
-    } );
-    this.distanceProperty.link( function( value ) {
-      model.force = model.gravityForce( model.mass1, model.mass2, model.distance );
-    } );
-    this.forceProperty.link( function( value ) {
-    } );
-    this.locationX1Property.link( function( value ) {
-      model.distance = Math.abs(Math.round( ( model.locationX2 - model.locationX1 ) / 50 * 100 ) / 100);
-    } );
-    this.locationX2Property.link( function( value ) {
-      model.distance =  Math.abs(Math.round( ( model.locationX2 - model.locationX1 ) / 50 * 100 ) / 100);
-    } );
+    this.mass1Property.link( updateForce );
+    this.mass2Property.link( updateForce );
+    this.distanceProperty.link( updateForce );
+    this.locationX1Property.link( updateDistance );
+    this.locationX2Property.link( updateDistance );
 
     this.reset();
   }
@@ -64,6 +53,9 @@ define( function( require ) {
     gravityForce: function( mass1, mass2, distance ) {
       var G = 6.67384E-11;
       return ( G * mass1 * mass2 ) / ( distance * distance );
+    },
+    calculateDistance: function( x1, x2 ) {
+      return Math.abs( Math.round( ( x2 - x1 ) / 50 * 100 ) / 100 );
     }
 
   } );

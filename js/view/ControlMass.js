@@ -111,7 +111,7 @@ define( function( require ) {
       minusButton = new ArrowButton( 'left', function() { options.property.set( Math.max( options.property.get() - 1, 1 ) ); } ),
       valueLabel = new Text( "", { fontSize: 18, centerX: 85, y: -30 } );
 
-    options.property.link( function( value ) {
+    options.property.link( function updateMass( value ) {
       valueLabel.text = options.property.get() + " " + Strings["GFL.unitKg"];
       valueLabel.centerX = 85;
     } );

@@ -17,7 +17,7 @@ define( function( require ) {
   var gravityForceLabImages = require( 'gravity-force-lab-images' );
 
 
-  function PullObject( ) {
+  function PullObject() {
 
     Node.call( this );
 

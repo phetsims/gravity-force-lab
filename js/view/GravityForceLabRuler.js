@@ -18,7 +18,7 @@ define( function( require ) {
     Node.call( this, { cursor: "pointer" } );
     var ruler = new RulerNode( 500, 50, 50, ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"], Strings["GFL.unitMeters"], {minorTicksPerMajorTick: 4, unitsFont: '12px Arial' } );
     this.addChild( ruler );
-    model.rulerProperty.link( function( value ) {
+    model.rulerProperty.link( function updateRulerLocation( value ) {
       ruler.x = model.ruler.x;
       ruler.y = model.ruler.y;
     } );
