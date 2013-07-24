@@ -29,7 +29,12 @@ define( function() {
       "pull_figure_3.png",
       "pull_figure_2.png",
       "pull_figure_1.png",
-      "pull_figure_0.png"
+      "pull_figure_0.png",
+      'reset_button_disabled.png',
+      'reset_button_down.png',
+      'reset_button_over.png',
+      'reset_button_up.png',
+      'rope.png'
     ]
   };
 } );
