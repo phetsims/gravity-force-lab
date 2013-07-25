@@ -68,7 +68,7 @@ define( function( require ) {
     this.addChild( new Path( {
       shape: arrowShape,
       stroke: options.colorGradient[2],
-      "stroke-dasharray": "10 10",
+      lineDash: [10, 10],
       lineWidth: 2
     } ) );
     this.addChild( arrowText );
