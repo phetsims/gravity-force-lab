@@ -41,7 +41,7 @@ define( function( require ) {
     var dragNode = new Node( { cursor: "pointer" } );
     var massCircle = new Node();
     var pull = new PullObject();
-    if ( options.direction == "right" ) {
+    if ( options.direction === "right" ) {
       pull.scale( -1, 1 );
     }
     massCircle.addChild( new Circle( options.radius, {
@@ -92,7 +92,7 @@ define( function( require ) {
       arrowText.centerX = 0;
 
       var arr = forceToArrow( options.model.force );
-      if ( options.direction == "right" ) {
+      if ( options.direction === "right" ) {
         arr *= -1;
       }
 
@@ -105,10 +105,10 @@ define( function( require ) {
       var xMax = options.model.width;
       var xMin = 0;
       var sumRadius = options.radius * massToScale( options.model.mass1 ) + options.radius * massToScale( options.model.mass2 );
-      if ( options.x.get() == options.model.locationX1 ) {
+      if ( options.x.get() === options.model.locationX1 ) {
         xMax = options.model.locationX2 - sumRadius - 5;
       }
-      if ( options.x.get() == options.model.locationX2 ) {
+      if ( options.x.get() === options.model.locationX2 ) {
         xMin = options.model.locationX1 + sumRadius + 5;
       }
       var x = Math.max( Math.min( options.x.get(), xMax ), xMin );
