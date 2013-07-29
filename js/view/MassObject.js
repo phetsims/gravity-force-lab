@@ -62,17 +62,26 @@ define( function( require ) {
     var arrow = new ArrowNode( 0, -options.height, 200, -options.height, 10, 10, 3, {} );
     var arrowText = new Text( options.title, { fontSize: 16, fill: "#000", y: -options.height - 20 } );
     var arrowShape = new Shape();
-    arrowShape.moveTo( 0, -2 );
+    arrowShape.moveTo( 0, -4 );
     arrowShape.lineTo( 0, -options.height );
-
+    this.addChild( new Path( {
+      shape: arrowShape,
+      stroke: "#FFF",
+      lineDash: [4, 4],
+      lineWidth: 2,
+      x:0.5,
+      y:0.5
+    } ) );
     this.addChild( new Path( {
       shape: arrowShape,
       stroke: options.colorGradient[2],
-      lineDash: [10, 10],
+      lineDash: [4, 4],
       lineWidth: 2
     } ) );
+
     this.addChild( arrowText );
     this.addChild( arrow );
+
     // redraw view without shift
     var redrawForce = function() {
       thisNode.x = options.x.get();
