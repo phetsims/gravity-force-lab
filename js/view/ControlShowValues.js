@@ -23,7 +23,7 @@ define( function( require ) {
         x: 0,
         y: 0,
         scale: 0.8,
-        fill: '#eec227',
+        fill: '#FDF498',
         fontSize: 18,
         xMargin: 10,
         yMargin: 10

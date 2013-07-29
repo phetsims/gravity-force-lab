@@ -96,7 +96,7 @@ define( function( require ) {
       {
         title: Strings["GFL.mass1"],
         scale: 0.8,
-        fill: '#eec227',
+        fill: '#FDF498',
         fontSize: 16,
         xMargin: 10,
         yMargin: 10
