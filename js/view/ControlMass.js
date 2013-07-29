@@ -118,6 +118,8 @@ define( function( require ) {
     options.property.link( function updateMass( value ) {
       valueLabel.text = options.property.get() + " " + Strings["GFL.unitKg"];
       valueLabel.centerX = 85;
+      plusButton.setEnabled( options.property.get() < 100 );
+      minusButton.setEnabled( options.property.get() > 1 );
     } );
 
     box.addChild( new Rectangle( ( -thumb.width / 2 - 5 ), 0, ( track.width + thumb.width + 10 ), 1, {} ) );
