@@ -68,10 +68,14 @@ define( function( require ) {
 
     body.left = body.left - body.width / 2;
     body.top = body.top - body.height / 2;
-
     this.addChild( body );
+    // touch area
+    var dx = 0.25 * this.width;
+    var dy = 0.5 * this.height;
+    this.touchArea = Shape.rectangle( ( -this.width / 2 ) - dx, ( -this.height / 2 ) - dy, this.width + dx + dx, this.height + dy + dy );
     this.addInputListener( new SimpleDragHandler(
       {
+        allowTouchSnag:true,
         start: function( event ) {
           clickXOffset = thisNode.globalToParentPoint( event.pointer.point ).x - event.currentTarget.x;
         },
@@ -107,9 +111,9 @@ define( function( require ) {
     var box = new Node(),
       track = new Track( options ),
       thumb = new Thumb( options ),
-      plusButton = new ArrowButton( 'right', function() { options.property.set( Math.min( options.property.get() + 1, 100 ) ); } ),
-      minusButton = new ArrowButton( 'left', function() { options.property.set( Math.max( options.property.get() - 1, 1 ) ); } ),
-      valueLabel = new Text( "", { fontSize: 18, centerX: 85, y: -30 } );
+      plusButton = new ArrowButton( 'right', function propertyPlus() { options.property.set( Math.min( options.property.get() + 1, 100 ) ); } ),
+      minusButton = new ArrowButton( 'left', function propertyMinus() { options.property.set( Math.max( options.property.get() - 1, 1 ) ); } ),
+      valueLabel = new Text( "", { fontSize: 18, centerX: 85, y: -38 } );
 
     options.property.link( function updateMass( value ) {
       valueLabel.text = options.property.get() + " " + Strings["GFL.unitKg"];
@@ -117,9 +121,9 @@ define( function( require ) {
     } );
 
     box.addChild( new Rectangle( ( -thumb.width / 2 - 5 ), 0, ( track.width + thumb.width + 10 ), 1, {} ) );
-    box.addChild( new Rectangle( 0, 0, 100, 30, 3, 3, { fill: "#FFF", stroke: 'black', lineWidth: 1, centerX: 85, centerY: -37 } ) );
+    box.addChild( new Rectangle( 0, 0, 100, 30, 3, 3, { fill: "#FFF", stroke: 'black', lineWidth: 1, centerX: 85, centerY: -45 } ) );
     box.addChild( valueLabel );
-    box.addChild( new Text( options.title, { fontSize: 24, centerX: 85, bottom: -55 } ) );
+    box.addChild( new Text( options.title, { fontSize: 24, centerX: 85, bottom: -63 } ) );
     box.addChild( new Path( { shape: Shape.lineSegment( 0, 0, 0, 18 ), stroke: 'black', lineWidth: 1 } ) );
     box.addChild( new Path( { shape: Shape.lineSegment( 170, 0, 170, 18 ), stroke: 'black', lineWidth: 1 } ) );
     box.addChild( new Text( "1", { fontSize: 14, top: 20, centerX: 0} ) );
@@ -131,7 +135,7 @@ define( function( require ) {
 
     this.addChild( new Panel( box, { fill: options.fill, xMargin: options.xMargin, yMargin: options.yMargin, scale: options.scale } ) );
 
-    minusButton.centerY = plusButton.centerY = -37;
+    minusButton.centerY = plusButton.centerY = -45;
     minusButton.left = 0;
     plusButton.right = 170;
 
