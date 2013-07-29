@@ -77,7 +77,7 @@ define( function( require ) {
         },
         drag: function( event ) {
           var x = thisNode.globalToParentPoint( event.pointer.point ).x - clickXOffset;
-          x = Math.max( Math.min( x, 170 ), 1 );
+          x = Math.max( Math.min( x, 170 ), 0 );
           options.property.set( Math.round( positionToConcentration( x ) ) );
         },
         translate: function() {
