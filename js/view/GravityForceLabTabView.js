@@ -15,7 +15,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
 
   function GravityForceLabTabView( model ) {
-    TabView.call( this );
+    TabView.call( this, { renderer: 'svg' } );
     this.addChild( new ControlPanel( model ) );
     this.addChild( new MassObjects( model ) );
     this.addChild( new GravityForceLabRuler( model ) );
