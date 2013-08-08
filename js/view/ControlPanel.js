@@ -35,8 +35,8 @@ define( function( require ) {
     resetAllButton.centerX = controlShowValues.centerX;
     resetAllButton.bottom = controlMass1.bottom;
 
-    this.right = model.width - 5;
-    this.bottom = model.height - 5;
+    this.right = model.width - 15;
+    this.bottom = model.height - 15;
 
   }
 

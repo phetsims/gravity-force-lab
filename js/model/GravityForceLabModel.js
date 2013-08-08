@@ -23,7 +23,7 @@ define( function( require ) {
       force: 0,
       locationX1: this.width / 2 - 100,
       locationX2: this.width / 2 + 100,
-      ruler: {x: 250, y: 330}
+      ruler: {x: 240, y: 310}
     } );
     var updateForce = function() {model.force = model.gravityForce( model.mass1, model.mass2, model.distance );};
     var updateDistance = function() {model.distance = model.calculateDistance( model.locationX1, model.locationX2 );};
@@ -41,14 +41,15 @@ define( function( require ) {
     step: function() {
     },
     reset: function() {
-      this.mass1 = 38.00;
-      this.mass2 = 25.00;
-      this.locationX1 = this.width / 2 - 100;
-      this.locationX2 = this.width / 2 + 100;
-      this.showValues = true;
-      this.distance = 4;
+
+      this.mass1Property.reset();
+      this.mass2Property.reset();
+      this.locationX1Property.reset();
+      this.locationX2Property.reset();
+      this.showValuesProperty.reset();
+      this.distanceProperty.reset();
       this.force = this.gravityForce( this.mass1, this.mass2, this.distance );
-      this.ruler = { x: 250, y: 330 };
+      this.rulerProperty.reset();
     },
     gravityForce: function( mass1, mass2, distance ) {
       var G = 6.67384E-11;
