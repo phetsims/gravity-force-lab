@@ -81,9 +81,19 @@ define( function( require ) {
 
     this.addChild( arrowText );
     this.addChild( arrow );
+    
+    var forceDirtyFlag = true;
+    var markForceDirty = function() {
+      forceDirtyFlag = true;
+    };
 
     // redraw view without shift
     var redrawForce = function() {
+      if ( !forceDirtyFlag ) {
+        return;
+      }
+      forceDirtyFlag = false;
+      
       thisNode.x = options.x.get();
       //reset scale
       massCircle.matrix = new Matrix3();
@@ -108,9 +118,10 @@ define( function( require ) {
       arrow.path.shape = ArrowNode.createArrowShape( 0, -options.height, arr, -options.height, 3, 10, 10 );
       pull.setPull( Math.round( forceToImage( options.model.force ) ), (massCircle.width / 2) );
     };
+        
     // redraw view with shift
     var redraw = function() {
-      redrawForce();
+      markForceDirty();
       var xMax = options.model.width;
       var xMin = 0;
       var sumRadius = options.radius * massToScale( options.model.mass1 ) + options.radius * massToScale( options.model.mass2 );
@@ -125,8 +136,9 @@ define( function( require ) {
     };
     options.mass.link( redraw );
     options.x.link( redraw );
-    options.model.showValuesProperty.link( redrawForce );
-    options.model.forceProperty.link( redrawForce );
+    options.model.showValuesProperty.link( markForceDirty );
+    options.model.forceProperty.link( markForceDirty );
+    options.model.on( options.massStepEvent, redrawForce );
 
     var massClickXOffset;
     dragNode.addInputListener( new SimpleDragHandler(

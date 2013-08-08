@@ -39,6 +39,8 @@ define( function( require ) {
 
   inherit( PropertySet, GravityForceLabModel, {
     step: function() {
+      this.trigger( 'mass1Step' );
+      this.trigger( 'mass2Step' );
     },
     reset: function() {
 
