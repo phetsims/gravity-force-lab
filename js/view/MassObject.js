@@ -59,7 +59,7 @@ define( function( require ) {
     this.addChild( dragNode );
     this.y = options.y;
 
-    var arrow = new ArrowNode( 0, -options.height, 200, -options.height, 10, 10, 3, {} );
+    var arrow = new ArrowNode( 0, -options.height, 200, -options.height, 10, 10, 3, { stroke: null } );
     var arrowText = new Text( options.title, { fontSize: 16, fill: "#000", y: -options.height - 20 } );
     var arrowShape = new Shape();
     arrowShape.moveTo( 0, -4 );
