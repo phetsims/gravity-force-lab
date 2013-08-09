@@ -52,9 +52,9 @@ define( function( require ) {
 
     dragNode.addChild( pull );
     dragNode.addChild( massCircle );
-    dragNode.addChild( new Circle( 2, {fill: "#000"} ) );
-    dragNode.addChild( new Text( options.label, { fontSize: 12, fill: "#000", x: -6.5, y: 16 } ) );
-    dragNode.addChild( new Text( options.label, { fontSize: 12, fill: "#fff", x: -7, y: 15 } ) );
+    dragNode.addChild( new Circle( 2, { fill: "#000", pickable: false } ) );
+    dragNode.addChild( new Text( options.label, { fontSize: 12, fill: "#000", x: -6.5, y: 16, pickable: false } ) );
+    dragNode.addChild( new Text( options.label, { fontSize: 12, fill: "#fff", x: -7, y: 15, pickable: false } ) );
 
     this.addChild( dragNode );
     this.y = options.y;
