@@ -21,7 +21,7 @@ define( function( require ) {
              'Software Development: Sam Reid\n' +
              'Design Team: Carl Wieman, Trish Loeblein, Wendy Adams\n',
     thanks: 'Thanks -\n' +
-            'Conversation of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
+            'Thanks to Mobile Learner Labs for their work in converting this simulation to HTML5.'
   };
   SimLauncher.launch( gravityForceLabImages, function() {
     //Create and start the sim
@@ -33,6 +33,6 @@ define( function( require ) {
         createView: function( model ) { return new GravityForceLabTabView( model ); },
         backgroundColor: "#FFFFFF"
       }
-    ],simOptions ).start();
+    ], simOptions ).start();
   } );
 } );
