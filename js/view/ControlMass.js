@@ -113,7 +113,7 @@ define( function( require ) {
       thumb = new Thumb( options ),
       plusButton = new ArrowButton( 'right', function propertyPlus() { options.property.set( Math.min( options.property.get() + 1, 100 ) ); } ),
       minusButton = new ArrowButton( 'left', function propertyMinus() { options.property.set( Math.max( options.property.get() - 1, 1 ) ); } ),
-      valueLabel = new Text( "", { fontSize: 18, centerX: 85, y: -38 } );
+      valueLabel = new Text( "", { fontSize: 18, centerX: 85, y: -38, pickable: false } );
 
     options.property.link( function updateMass( value ) {
       valueLabel.text = options.property.get() + " " + Strings["GFL.unitKg"];
@@ -122,14 +122,14 @@ define( function( require ) {
       minusButton.setEnabled( options.property.get() > 1 );
     } );
 
-    box.addChild( new Rectangle( ( -thumb.width / 2 - 5 ), 0, ( track.width + thumb.width + 10 ), 1, {} ) );
-    box.addChild( new Rectangle( 0, 0, 100, 30, 3, 3, { fill: "#FFF", stroke: 'black', lineWidth: 1, centerX: 85, centerY: -45 } ) );
+    box.addChild( new Rectangle( ( -thumb.width / 2 - 5 ), 0, ( track.width + thumb.width + 10 ), 1, { visible: false } ) );
+    box.addChild( new Rectangle( 0, 0, 100, 30, 3, 3, { fill: "#FFF", stroke: 'black', lineWidth: 1, centerX: 85, centerY: -45, pickable: false } ) );
     box.addChild( valueLabel );
-    box.addChild( new Text( options.title, { fontSize: 24, centerX: 85, bottom: -63 } ) );
-    box.addChild( new Path( { shape: Shape.lineSegment( 0, 0, 0, 18 ), stroke: 'black', lineWidth: 1 } ) );
-    box.addChild( new Path( { shape: Shape.lineSegment( 170, 0, 170, 18 ), stroke: 'black', lineWidth: 1 } ) );
-    box.addChild( new Text( "1", { fontSize: 14, top: 20, centerX: 0} ) );
-    box.addChild( new Text( "100", { fontSize: 14, top: 20, centerX: 170 } ) );
+    box.addChild( new Text( options.title, { fontSize: 24, centerX: 85, bottom: -63, pickable: false } ) );
+    box.addChild( new Path( { shape: Shape.lineSegment( 0, 0, 0, 18 ), stroke: 'black', lineWidth: 1, pickable: false } ) );
+    box.addChild( new Path( { shape: Shape.lineSegment( 170, 0, 170, 18 ), stroke: 'black', lineWidth: 1, pickable: false } ) );
+    box.addChild( new Text( "1", { fontSize: 14, top: 20, centerX: 0, pickable: false } ) );
+    box.addChild( new Text( "100", { fontSize: 14, top: 20, centerX: 170, pickable: false } ) );
     box.addChild( track );
     box.addChild( thumb );
     box.addChild( plusButton );
