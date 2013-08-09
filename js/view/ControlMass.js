@@ -75,7 +75,7 @@ define( function( require ) {
     this.touchArea = Shape.rectangle( ( -this.width / 2 ) - dx, ( -this.height / 2 ) - dy, this.width + dx + dx, this.height + dy + dy );
     this.addInputListener( new SimpleDragHandler(
       {
-        allowTouchSnag:true,
+        allowTouchSnag: true,
         start: function( event ) {
           clickXOffset = thisNode.globalToParentPoint( event.pointer.point ).x - event.currentTarget.x;
         },
@@ -138,10 +138,8 @@ define( function( require ) {
     this.addChild( new Panel( box, { fill: options.fill, xMargin: options.xMargin, yMargin: options.yMargin, scale: options.scale } ) );
 
     minusButton.centerY = plusButton.centerY = -45;
-    minusButton.left = 0;
-    plusButton.right = 170;
-
-
+    minusButton.left = -10;
+    plusButton.right = 180;
   }
 
   inherit( Node, ControlMass );
