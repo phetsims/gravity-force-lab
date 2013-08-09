@@ -16,7 +16,6 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Strings = require( 'Strings' );
-  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
 
   function ControlShowValues( model, options ) {
     options = _.extend(
@@ -31,7 +30,7 @@ define( function( require ) {
       }, options );
     Node.call( this );
     var checkShowValuesText = new Text( Strings["GFL.showValues"], { fontSize: options.fontSize } ),
-      checkShowValuesCheckBox = new Node({children:[new Rectangle(0,-26,26,26,5,5,{fill:"#FFF"}),new CheckBox( checkShowValuesText, model.showValuesProperty, {} )]}),
+      checkShowValuesCheckBox = new CheckBox( checkShowValuesText, model.showValuesProperty, {} ),
       checkShowValues = new Panel( checkShowValuesCheckBox, { fill: options.fill, xMargin: options.xMargin, yMargin: options.yMargin, cursor: 'pointer', scale: options.scale } );
     this.addChild( checkShowValues );
     this.x = options.x;
