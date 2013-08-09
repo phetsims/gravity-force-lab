@@ -35,14 +35,13 @@ define( function( require ) {
       pull[i].right = -5 + i;
       pull[i].setVisible( false );
     }
-    pullGroup.addChild( new Path( { shape: Shape.lineSegment( -5, 0, 50, 0 ), stroke: '#666', lineWidth: 2 } ) );
+    pullGroup.addChild( new Path( { shape: Shape.lineSegment( -5, 0, 50, 0 ), stroke: '#666', lineWidth: 2, pickable: false } ) );
     this.addChild( pullGroup );
     //function select image
     this.setPull = function( value, offsetX ) {
       for ( var i = 0; i < 15; i++ ) {
-        pull[i].setVisible( false );
+        pull[i].setVisible( i === value );
       }
-      pull[value].setVisible( true );
       pullGroup.x = -50 - offsetX;
     };
   }
