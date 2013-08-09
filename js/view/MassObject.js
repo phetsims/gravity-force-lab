@@ -139,6 +139,7 @@ define( function( require ) {
     options.model.showValuesProperty.link( markForceDirty );
     options.model.forceProperty.link( markForceDirty );
     options.model.on( options.massStepEvent, redrawForce );
+    redrawForce();
 
     var massClickXOffset;
     dragNode.addInputListener( new SimpleDragHandler(
