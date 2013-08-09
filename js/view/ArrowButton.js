@@ -57,9 +57,9 @@ define( function( require ) {
     var arrowShape = ( direction === 'right' ) ?
                      new Shape().moveTo( 0, 0 ).lineTo( options.arrowWidth, options.arrowHeight / 2 ).lineTo( 0, options.arrowHeight ).close() :
                      new Shape().moveTo( 0, options.arrowHeight / 2 ).lineTo( options.arrowWidth, 0 ).lineTo( options.arrowWidth, options.arrowHeight ).close();
-    var arrowNode = new Path( { fill: options.enabledFill, shape: arrowShape } );
+    var arrowNode = new Path( { fill: options.enabledFill, shape: arrowShape, pickable: false } );
     var background = new Rectangle( 0, 0, arrowNode.width + ( 2 * options.xMargin ), arrowNode.height + ( 2 * options.yMargin ), options.cornerRadius, options.cornerRadius,
-      {stroke: options.stroke, lineWidth: options.lineWidth, fill: options.fill } );
+      {stroke: options.stroke, lineWidth: options.lineWidth, fill: options.fill, pickable: false } );
 
     // rendering order
     thisButton.addChild( background );
@@ -73,6 +73,9 @@ define( function( require ) {
     var dx = 0.25 * thisButton.width;
     var dy = 0.25 * thisButton.height;
     thisButton.touchArea = Shape.rectangle( -dx, -dy, thisButton.width + dx + dx, thisButton.height + dy + dy );
+
+    // mouse area is constrained to the tight rectangle, so that we can make the children unpickable
+    thisButton.mouseArea = Shape.rectangle( 0, 0, thisButton.width, thisButton.height );
 
     // interactivity
     thisButton.cursor = 'pointer';
