@@ -11,5 +11,7 @@ define( {
   "GFL.title2": "Force on m2 by m1",
   "GFL.unitN": "N",
   "GFL.label1": "m1",
-  "GFL.label2": "m2"
+  "GFL.label2": "m2",
+  "pattern_0value_1units": "{0} {1}",
+  "pattern_0title_1value_2units": "{0} = {1} {2}"
 } );

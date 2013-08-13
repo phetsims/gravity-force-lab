@@ -25,6 +25,7 @@ define( function( require ) {
   var Image = require( 'SCENERY/nodes/Image' );
   var Strings = require( 'Strings' );
   var PullObject = require( 'view/PullObject' );
+  var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
 
   //constant
   var FORCE_MIN = ( 2.8287421332465277e-13 );
@@ -103,7 +104,7 @@ define( function( require ) {
       if ( options.model.showValues ) {
         var forceStr = options.model.force.toFixed( 12 );
         forceStr = ( forceStr.substr( 0, 5 ) + " " + forceStr.substr( 5, 3 ) + " " + forceStr.substr( 8, 3 ) + " " + forceStr.substr( 11, 3 ) );
-        arrowText.text = options.title + " = " + forceStr + " " + Strings["GFL.unitN"];
+        arrowText.text = StringUtils.format( Strings['pattern_0title_1value_2units'], options.title, forceStr, Strings["GFL.unitN"] );
       }
       else {
         arrowText.text = options.title;

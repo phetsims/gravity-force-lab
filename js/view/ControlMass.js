@@ -23,6 +23,7 @@ define( function( require ) {
   var Panel = require( 'SUN/Panel' );
   var FillHighlightListener = require( 'SCENERY_PHET/input/FillHighlightListener' );
   var Range = require( 'DOT/Range' );
+  var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
 
   // constants
   var TRACK_SIZE = new Dimension2( 170, 3 );
@@ -194,7 +195,7 @@ define( function( require ) {
       fill: options.fill, xMargin: options.xMargin, yMargin: options.yMargin, scale: options.scale, resize: false } ) );
 
     massProperty.link( function updateMass( value ) {
-      valueLabel.text = value + " " + Strings["GFL.unitKg"]; //TODO order requires i18n
+      valueLabel.text = StringUtils.format( Strings['pattern_0value_1units'], value, Strings['GFL.unitKg'] );
       valueLabel.centerX = valueField.centerX; // keep the value centered in the field
       plusButton.setEnabled( value < massRange.max );
       minusButton.setEnabled( value > massRange.min );
