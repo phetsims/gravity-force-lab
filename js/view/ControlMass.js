@@ -19,15 +19,21 @@ define( function( require ) {
   var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Image = require( 'SCENERY/nodes/Image' );
-  var gravityForceLabImages = require( 'gravity-force-lab-images' );
   var Strings = require( 'Strings' );
   var Panel = require( 'SUN/Panel' );
+  var FillHighlightListener = require( 'SCENERY_PHET/input/FillHighlightListener' );
+
+  // constants
+  var TRACK_SIZE = new Dimension2( 170, 3 );
+  var THUMB_SIZE = new Dimension2( 22, 42 );
+  var THUMB_FILL_ENABLED = 'rgb(50,145,184)';
+  var THUMB_FILL_HIGHLIGHTED = 'rgb(71,207,255)';
+  var THUMB_RADIUS = 0.25 * THUMB_SIZE.width;
 
   function Track( options ) {
-    var width = 170, height = 3;
-    Rectangle.call( this, 0, 0, width, height, { cursor: 'pointer', fill: "black" } );
+    Rectangle.call( this, 0, 0, TRACK_SIZE.width, TRACK_SIZE.height, { cursor: 'pointer', fill: "black" } );
     var thisNode = this,
-      positionToConcentration = new LinearFunction( 0, width, 1, 100, true ),
+      positionToConcentration = new LinearFunction( 0, TRACK_SIZE.width, 1, 100, true ),
       handleEvent = function( event ) {
         options.property.set( Math.round( positionToConcentration( thisNode.globalToLocalPoint( event.pointer.point ).x ) ) );
       };
@@ -45,13 +51,13 @@ define( function( require ) {
       } ) );
     // increase the vertical hit area, so the track is easier to hit
     var hitAreaMargin = 8;
-    thisNode.mouseArea = thisNode.touchArea = Shape.rectangle( 0, -hitAreaMargin, width, height + hitAreaMargin + hitAreaMargin );
+    thisNode.mouseArea = thisNode.touchArea = Shape.rectangle( 0, -hitAreaMargin, TRACK_SIZE.width, TRACK_SIZE.height + hitAreaMargin + hitAreaMargin );
   }
 
   inherit( Rectangle, Track );
 
   function TickLine() {
-    Path.call( this, { shape: Shape.lineSegment( 0, 0, 0, 18 ), stroke: 'black', lineWidth: 1 } );
+    Path.call( this, { shape: Shape.lineSegment( 0, 0, 0, 30 ), stroke: 'black', lineWidth: 1 } );
   }
 
   inherit( Path, TickLine );
@@ -64,15 +70,25 @@ define( function( require ) {
 
   function Thumb( options ) {
     Node.call( this, { cursor: 'pointer' } );
+
     var thisNode = this,
-      body = new Image( gravityForceLabImages.getImage( "slider.png" ) ),
       concentrationToPosition = new LinearFunction( 1, 100, 0, 170, true ),
       positionToConcentration = new LinearFunction( 0, 170, 1, 100, true ),
       clickXOffset;
 
-    body.left = body.left - body.width / 2;
-    body.top = body.top - body.height / 2;
+    // draw the thumb
+    var body = new Rectangle( -THUMB_SIZE.width / 2, -THUMB_SIZE.height / 2, THUMB_SIZE.width, THUMB_SIZE.height, THUMB_RADIUS, THUMB_RADIUS,
+      { cursor: 'pointer', fill: THUMB_FILL_ENABLED, stroke: 'black', lineWidth: 1 } );
+    var CENTER_LINE_Y_MARGIN = 3;
+    body.addChild( new Path( {
+      shape: Shape.lineSegment( 0, -( THUMB_SIZE.height / 2 ) + CENTER_LINE_Y_MARGIN, 0, ( THUMB_SIZE.height / 2 ) - CENTER_LINE_Y_MARGIN ),
+      stroke: 'white' } ) );
+    body.left = -body.width / 2;
     this.addChild( body );
+
+    // make the thumb highlight
+    body.addInputListener( new FillHighlightListener( THUMB_FILL_ENABLED, THUMB_FILL_HIGHLIGHTED ) );
+
     // touch area
     var dx = 0.25 * this.width;
     var dy = 0.5 * this.height;
