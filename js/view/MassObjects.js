@@ -23,12 +23,11 @@ define( function( require ) {
       label: Strings["GFL.label1"],
       direction: "left",
       colorGradient: ["#aaf", "#00f", "#66f"],
-      radius: model.radius,
       y: 250,
       x: model.locationX1Property,
       mass: model.mass1Property,
       massStepEvent: 'mass1Step',
-      height: 150
+      forceArrowHeight: 150
     } ) );
     this.addChild( new MassObject( {
       model: model,
@@ -36,12 +35,11 @@ define( function( require ) {
       label: Strings["GFL.label2"],
       direction: "right",
       colorGradient: ["#faa", "#f00", "#f66"],
-      radius: model.radius,
       y: 250,
       x: model.locationX2Property,
       mass: model.mass2Property,
       massStepEvent: 'mass2Step',
-      height: 200
+      forceArrowHeight: 200
     } ) );
   }
 

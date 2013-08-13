@@ -7,6 +7,7 @@
  */
 define( function( require ) {
   'use strict';
+
   var PropertySet = require( 'AXON/PropertySet' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Range = require( 'DOT/Range' );
@@ -15,9 +16,10 @@ define( function( require ) {
 
     var model = this;
     this.massRange = new Range( 1, 100 );
+
+    // dimensions of the model's space
     this.width = width;
     this.height = height;
-    this.radius = 100;
 
     PropertySet.call( this, {
       mass1: 38.00,
@@ -25,8 +27,8 @@ define( function( require ) {
       showValues: true,
       distance: 4,
       force: 0,
-      locationX1: this.width / 2 - 100,
-      locationX2: this.width / 2 + 100,
+      locationX1: this.width / 2 - 100, // x-coordinate of mass 1
+      locationX2: this.width / 2 + 100, // x-coordinate of mass 2
       ruler: {x: 120, y: 310}
     } );
 

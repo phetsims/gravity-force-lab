@@ -48,8 +48,10 @@ define( function( require ) {
     if ( options.direction === "right" ) {
       pull.scale( -1, 1 );
     }
-    massCircle.addChild( new Circle( options.radius, {
-      fill: new RadialGradient( options.radius * 0.6, -options.radius * 0.6, 1, options.radius * 0.6, -options.radius * 0.6, options.radius )
+
+    var MASS_RADIUS = 100; // radius of the mass when scale is 1.0
+    massCircle.addChild( new Circle( MASS_RADIUS, {
+      fill: new RadialGradient( MASS_RADIUS * 0.6, -MASS_RADIUS * 0.6, 1, MASS_RADIUS * 0.6, -MASS_RADIUS * 0.6, MASS_RADIUS )
         .addColorStop( 0, options.colorGradient[0] )
         .addColorStop( 1, options.colorGradient[1] )
     } ) );
@@ -63,11 +65,11 @@ define( function( require ) {
     this.addChild( dragNode );
     this.y = options.y;
 
-    var arrow = new ArrowNode( 0, -options.height, 200, -options.height, 10, 10, 3, { stroke: null } );
-    var arrowText = new Text( options.title, { fontSize: 16, fill: "#000", y: -options.height - 20 } );
+    var arrow = new ArrowNode( 0, -options.forceArrowHeight, 200, -options.forceArrowHeight, 10, 10, 3, { stroke: null } );
+    var arrowText = new Text( options.title, { fontSize: 16, fill: "#000", y: -options.forceArrowHeight - 20 } );
     var arrowShape = new Shape();
     arrowShape.moveTo( 0, -4 );
-    arrowShape.lineTo( 0, -options.height );
+    arrowShape.lineTo( 0, -options.forceArrowHeight );
     this.addChild( new Path( {
       shape: arrowShape,
       stroke: "#FFF",
@@ -119,7 +121,7 @@ define( function( require ) {
         arr *= -1;
       }
 
-      arrow.path.shape = ArrowNode.createArrowShape( 0, -options.height, arr, -options.height, 3, 10, 10 );
+      arrow.path.shape = ArrowNode.createArrowShape( 0, -options.forceArrowHeight, arr, -options.forceArrowHeight, 3, 10, 10 );
       pull.setPull( Math.round( forceToImage( options.model.force ) ), (massCircle.width / 2) );
     };
         
@@ -128,7 +130,7 @@ define( function( require ) {
       markForceDirty();
       var xMax = options.model.width;
       var xMin = 0;
-      var sumRadius = options.radius * massToScale( options.model.mass1 ) + options.radius * massToScale( options.model.mass2 );
+      var sumRadius = MASS_RADIUS * massToScale( options.model.mass1 ) + MASS_RADIUS * massToScale( options.model.mass2 );
       if ( options.x.get() === options.model.locationX1 ) {
         xMax = options.model.locationX2 - sumRadius - 5;
       }
