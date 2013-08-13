@@ -14,7 +14,6 @@ define( function() {
   return {
     imageNames: [
       "slider.png",
-      "rope-pattern.png",
       "pull_figure_14.png",
       "pull_figure_13.png",
       "pull_figure_12.png",
@@ -33,8 +32,7 @@ define( function() {
       'reset_button_disabled.png',
       'reset_button_down.png',
       'reset_button_over.png',
-      'reset_button_up.png',
-      'rope-pattern.png'
+      'reset_button_up.png'
     ]
   };
 } );
