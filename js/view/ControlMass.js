@@ -96,7 +96,7 @@ define( function( require ) {
     // touch area
     var dx = 0.25 * this.width;
     var dy = 0.5 * this.height;
-    this.mouseArea = Shape.rectangle( ( -this.width / 2 ) - dx, ( -this.height / 2 ) - dy, this.width + dx + dx, this.height + dy + dy );
+    this.touchArea = Shape.rectangle( ( -this.width / 2 ) - dx, ( -this.height / 2 ) - dy, this.width + dx + dx, this.height + dy + dy );
 
     this.addInputListener( new SimpleDragHandler(
       {
