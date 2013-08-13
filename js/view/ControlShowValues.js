@@ -25,10 +25,10 @@ define( function( require ) {
       scale: 0.8
     }, options );
 
-    var checkShowValuesCheckBox = new CheckBox( new Text( Strings["GFL.showValues"], { fontSize: 18 } ), model.showValuesProperty,
-      { cursor: 'pointer' } );
+    var text = new Text( Strings["GFL.showValues"], { fontSize: 18 } );
+    var checkBox = new CheckBox( text, model.showValuesProperty, { cursor: 'pointer' } );
 
-    Panel.call( this, checkShowValuesCheckBox, options );
+    Panel.call( this, checkBox, options );
   }
 
   inherit( Panel, ControlShowValues );
