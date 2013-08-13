@@ -28,7 +28,6 @@ define( function( require ) {
     new Sim( Strings['GFL.name'], [
       {
         name: Strings['GFL.name'],
-        icon: new Rectangle( 0, 0, 50, 50, { fill: 'blue' } ),
         createModel: function() { return new GravityForceLabModel( 768, 504 ); },
         createView: function( model ) { return new GravityForceLabTabView( model ); },
         backgroundColor: "#FFFFFF"
