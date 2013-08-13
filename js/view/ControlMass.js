@@ -197,7 +197,7 @@ define( function( require ) {
       fill: options.fill, xMargin: options.xMargin, yMargin: options.yMargin, scale: options.scale, resize: false } ) );
 
     massProperty.link( function updateMass( value ) {
-      valueLabel.text = StringUtils.format( Strings['pattern_0value_1units'], value, Strings['GFL.unitKg'] );
+      valueLabel.text = StringUtils.format( Strings['GFL.pattern_0value_1units'], value, Strings['GFL.unitKg'] );
       valueLabel.centerX = valueField.centerX; // keep the value centered in the field
       plusButton.setEnabled( value < massRange.max );
       minusButton.setEnabled( value > massRange.min );

@@ -12,6 +12,6 @@ define( {
   "GFL.unitN": "N",
   "GFL.label1": "m1",
   "GFL.label2": "m2",
-  "pattern_0value_1units": "{0} {1}",
-  "pattern_0title_1value_2units": "{0} = {1} {2}"
+  "GFL.pattern_0value_1units": "{0} {1}",
+  "GFL.pattern_0title_1value_2units": "{0} = {1} {2}"
 } );
