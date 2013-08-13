@@ -122,7 +122,7 @@ define( function( require ) {
         scale: 0.8,
         fill: '#FDF498',
         fontSize: 16,
-        xMargin: 10,
+        xMargin: 15,
         yMargin: 10
       }, options );
 
@@ -142,7 +142,6 @@ define( function( require ) {
       minusButton.setEnabled( options.property.get() > 1 );
     } );
 
-    box.addChild( new Rectangle( ( -thumb.width / 2 - 5 ), 0, ( track.width + thumb.width + 10 ), 1, { visible: false } ) );
     box.addChild( new Rectangle( 0, 0, 100, 30, 3, 3, { fill: "#FFF", stroke: 'black', lineWidth: 1, centerX: 85, centerY: -45, pickable: false } ) );
     box.addChild( valueLabel );
     box.addChild( new Text( options.title, { fontSize: 24, centerX: 85, bottom: -63, pickable: false } ) );
