@@ -32,10 +32,12 @@ define( function( require ) {
   var FORCE_MIN = ( 2.8287421332465277e-13 );
   var FORCE_MAX = ( 4.387797501643656e-8 );
 
+  //TODO #28: options contains things that are required and should be additional parameters, default options not provided
   function MassObject( options ) {
     var thisNode = this;
     //Conversion functions
     var forceToArrow = new LinearFunction( FORCE_MIN, FORCE_MAX, 0, 120, true );
+    //TODO #27: image index (0-14) is dependent on the number of puller images, also hardcoded in PullObject
     var forceToImage = new LinearFunction( FORCE_MIN, FORCE_MAX, 0, 14, true );
     var massToScale = new LinearFunction( options.model.massRange.min, options.model.massRange.max, 0.05, 0.95, true );
 
