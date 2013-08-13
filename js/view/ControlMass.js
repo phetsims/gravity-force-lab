@@ -116,15 +116,15 @@ define( function( require ) {
   inherit( Node, Thumb );
 
   function ControlMass( options ) {
-    options = _.extend(
-      {
-        title: Strings["GFL.mass1"],
-        scale: 0.8,
-        fill: '#FDF498',
-        fontSize: 16,
-        xMargin: 15,
-        yMargin: 10
-      }, options );
+
+    options = _.extend( {
+      title: Strings["GFL.mass1"],
+      scale: 0.8,
+      fill: '#FDF498',
+      fontSize: 16,
+      xMargin: 15,
+      yMargin: 10
+    }, options );
 
     Node.call( this );
 
