@@ -128,19 +128,12 @@ define( function( require ) {
 
     Node.call( this );
 
-    var box = new Node(),
-      track = new Track( options ),
-      thumb = new Thumb( options ),
-      plusButton = new ArrowButton( 'right', function propertyPlus() { options.property.set( Math.min( options.property.get() + 1, 100 ) ); } ),
-      minusButton = new ArrowButton( 'left', function propertyMinus() { options.property.set( Math.max( options.property.get() - 1, 1 ) ); } ),
-      valueLabel = new Text( "", { fontSize: 18, centerX: 85, y: -38, pickable: false } );
-
-    options.property.link( function updateMass( value ) {
-      valueLabel.text = options.property.get() + " " + Strings["GFL.unitKg"];
-      valueLabel.centerX = 85;
-      plusButton.setEnabled( options.property.get() < 100 );
-      minusButton.setEnabled( options.property.get() > 1 );
-    } );
+    var box = new Node();
+    var track = new Track( options );
+    var thumb = new Thumb( options );
+    var plusButton = new ArrowButton( 'right', function propertyPlus() { options.property.set( Math.min( options.property.get() + 1, 100 ) ); } );
+    var minusButton = new ArrowButton( 'left', function propertyMinus() { options.property.set( Math.max( options.property.get() - 1, 1 ) ); } );
+    var valueLabel = new Text( "", { fontSize: 18, pickable: false, centerX: 85, y: -38 } );
 
     box.addChild( new Rectangle( 0, 0, 100, 30, 3, 3, { fill: "#FFF", stroke: 'black', lineWidth: 1, centerX: 85, centerY: -45, pickable: false } ) );
     box.addChild( valueLabel );
@@ -159,6 +152,13 @@ define( function( require ) {
     minusButton.centerY = plusButton.centerY = -45;
     minusButton.left = -10;
     plusButton.right = 180;
+
+    options.property.link( function updateMass( value ) {
+      valueLabel.text = options.property.get() + " " + Strings["GFL.unitKg"];
+      valueLabel.centerX = 85;
+      plusButton.setEnabled( options.property.get() < 100 );
+      minusButton.setEnabled( options.property.get() > 1 );
+    } );
   }
 
   inherit( Node, ControlMass );
