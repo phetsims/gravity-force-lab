@@ -11,7 +11,6 @@ define( function( require ) {
   var SimLauncher = require( 'JOIST/SimLauncher' ),
     Sim = require( 'JOIST/Sim' ),
     Strings = require( 'Strings' ),
-    Rectangle = require( 'SCENERY/nodes/Rectangle' ),
     GravityForceLabModel = require( 'model/GravityForceLabModel' ),
     GravityForceLabTabView = require( 'view/GravityForceLabTabView' ),
     gravityForceLabImages = require( 'gravity-force-lab-images' );
