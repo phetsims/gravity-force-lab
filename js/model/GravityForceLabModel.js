@@ -23,7 +23,7 @@ define( function( require ) {
       force: 0,
       locationX1: this.width / 2 - 100,
       locationX2: this.width / 2 + 100,
-      ruler: {x: 240, y: 310}
+      ruler: {x: 120, y: 310}
     } );
     var updateForce = function() {model.force = model.gravityForce( model.mass1, model.mass2, model.distance );};
     var updateDistance = function() {model.distance = model.calculateDistance( model.locationX1, model.locationX2 );};
