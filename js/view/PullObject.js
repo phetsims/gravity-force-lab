@@ -21,14 +21,14 @@ define( function( require ) {
 
     Node.call( this );
 
-    var pullGroup = new Node( {x: -50} );
+    var pullGroup = new Node( {x: -50} ); //TODO #27: 50 appears 3 times, should be factored out
     var pull = [];
     var i;
     for ( i = 0; i < 15; i++ ) {
       pull.push( new Image( gravityForceLabImages.getImage( "pull_figure_" + i + ".png" ) ) );
     }
 
-    for ( i = 0; i < 15; i++ ) {
+    for ( i = 0; i < 15; i++ ) {  //TODO #27: 15 appears twice, should be factored out
       pullGroup.addChild( pull[i] );
       pull[i].scale( -0.3, 0.3 );
       pull[i].bottom = 31;
