@@ -57,7 +57,10 @@ define( function( require ) {
   inherit( Rectangle, Track );
 
   function TickLine() {
-    Path.call( this, { shape: Shape.lineSegment( 0, 0, 0, 30 ), stroke: 'black', lineWidth: 1 } );
+    Path.call( this, {
+      shape: Shape.lineSegment( 0, 0, 0, ( THUMB_SIZE.height / 2 ) + ( TRACK_SIZE.height / 2 ) + 2 ),
+      stroke: 'black',
+      lineWidth: 1 } );
   }
 
   inherit( Path, TickLine );
@@ -128,34 +131,67 @@ define( function( require ) {
 
     Node.call( this );
 
+    // nodes
     var content = new Node();
     var track = new Track( options );
     var thumb = new Thumb( options );
     var plusButton = new ArrowButton( 'right', function propertyPlus() { options.property.set( Math.min( options.property.get() + 1, 100 ) ); } );
     var minusButton = new ArrowButton( 'left', function propertyMinus() { options.property.set( Math.max( options.property.get() - 1, 1 ) ); } );
-    var valueLabel = new Text( "", { fontSize: 18, pickable: false, centerX: 85, y: -38 } );
+    var valueLabel = new Text( "", { fontSize: 18, pickable: false } );
+    var valueField = new Rectangle( 0, 0, 100, 30, 3, 3, { fill: "#FFF", stroke: 'black', lineWidth: 1, pickable: false } );
+    var title = new Text( options.title, { fontSize: 24, pickable: false } );
+    var minLabel = new Text( "1", { fontSize: 14, pickable: false } );
+    var maxLabel = new Text( "100", { fontSize: 14, pickable: false } );
+    var minTickLine = new TickLine();
+    var maxTickLine = new TickLine();
 
-    content.addChild( new Rectangle( 0, 0, 100, 30, 3, 3, { fill: "#FFF", stroke: 'black', lineWidth: 1, centerX: 85, centerY: -45, pickable: false } ) );
+    // rendering order
+    content.addChild( valueField );
     content.addChild( valueLabel );
-    content.addChild( new Text( options.title, { fontSize: 24, centerX: 85, bottom: -63, pickable: false } ) );
-    content.addChild( new Path( { shape: Shape.lineSegment( 0, 0, 0, 18 ), stroke: 'black', lineWidth: 1, pickable: false } ) );
-    content.addChild( new Path( { shape: Shape.lineSegment( 170, 0, 170, 18 ), stroke: 'black', lineWidth: 1, pickable: false } ) );
-    content.addChild( new Text( "1", { fontSize: 14, top: 20, centerX: 0, pickable: false } ) );
-    content.addChild( new Text( "100", { fontSize: 14, top: 20, centerX: 170, pickable: false } ) );
+    content.addChild( title );
+    content.addChild( minTickLine );
+    content.addChild( maxTickLine );
+    content.addChild( minLabel );
+    content.addChild( maxLabel );
     content.addChild( track );
     content.addChild( thumb );
     content.addChild( plusButton );
     content.addChild( minusButton );
 
-    this.addChild( new Panel( content, { fill: options.fill, xMargin: options.xMargin, yMargin: options.yMargin, scale: options.scale, resize: false } ) );
+    // relative layout, everything relative to the track
+    {
+      // value centered above the track
+      valueField.centerX = track.centerX;
+      valueField.bottom = thumb.top - 10;
+      valueLabel.centerX = valueField.centerX;
+      valueLabel.centerY = valueField.centerY;
+      // title centered above the value
+      title.centerX = valueField.centerX;
+      title.bottom = valueField.top - 6;
+      // plus button to the right of the value
+      plusButton.left = valueField.right + 10;
+      plusButton.centerY = valueField.centerY;
+      // minus button to the left of the value
+      minusButton.right = valueField.left - 10;
+      minusButton.centerY = valueField.centerY;
+      // min tick at left end of track
+      minTickLine.top = track.top;
+      minTickLine.left = track.left;
+      minLabel.centerX = minTickLine.centerX;
+      minLabel.top = minTickLine.bottom + 3;
+      // max tick at right end of track
+      maxTickLine.top = track.top;
+      maxTickLine.right = track.right;
+      maxLabel.centerX = maxTickLine.centerX;
+      maxLabel.top = maxTickLine.bottom + 3;
+    }
 
-    minusButton.centerY = plusButton.centerY = -45;
-    minusButton.left = -10;
-    plusButton.right = 180;
+    // wrap in a panel
+    this.addChild( new Panel( content, { fill: options.fill, xMargin: options.xMargin, yMargin: options.yMargin, scale: options.scale, resize: false } ) );
 
     options.property.link( function updateMass( value ) {
       valueLabel.text = options.property.get() + " " + Strings["GFL.unitKg"];
-      valueLabel.centerX = 85;
+      valueLabel.centerX = valueField.centerX; // keep the value centered in the field
       plusButton.setEnabled( options.property.get() < 100 );
       minusButton.setEnabled( options.property.get() > 1 );
     } );
