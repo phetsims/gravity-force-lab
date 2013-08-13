@@ -21,8 +21,8 @@ define( function( require ) {
 
     var resetAllButton = new Node( { scale: 0.8, children: [new ResetAllButton( function() { model.reset(); } )] } ),
       controlShowValues = new ControlShowValues( model ),
-      controlMass1 = new ControlMass( { property: model.mass1Property, title: Strings["GFL.mass1"] } ),
-      controlMass2 = new ControlMass( { property: model.mass2Property, title: Strings["GFL.mass2"] } );
+      controlMass1 = new ControlMass( Strings["GFL.mass1"], model.mass1Property, model.massRange ),
+      controlMass2 = new ControlMass( Strings["GFL.mass2"], model.mass2Property, model.massRange );
 
     this.addChild( controlShowValues );
     this.addChild( controlMass1 );

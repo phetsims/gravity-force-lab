@@ -25,19 +25,18 @@ define( function( require ) {
   var Range = require( 'DOT/Range' );
 
   // constants
-  var MASS_RANGE = new Range( 1, 100 );
   var TRACK_SIZE = new Dimension2( 170, 3 );
   var THUMB_SIZE = new Dimension2( 22, 42 );
   var THUMB_FILL_ENABLED = 'rgb(50,145,184)';
   var THUMB_FILL_HIGHLIGHTED = 'rgb(71,207,255)';
   var THUMB_RADIUS = 0.25 * THUMB_SIZE.width;
 
-  function Track( options ) {
+  function Track( massProperty, massRange ) {
     Rectangle.call( this, 0, 0, TRACK_SIZE.width, TRACK_SIZE.height, { cursor: 'pointer', fill: "black" } );
     var thisNode = this,
-      positionToConcentration = new LinearFunction( 0, TRACK_SIZE.width, MASS_RANGE.min, MASS_RANGE.max, true ),
+      positionToConcentration = new LinearFunction( 0, TRACK_SIZE.width, massRange.min, massRange.max, true ),
       handleEvent = function( event ) {
-        options.property.set( Math.round( positionToConcentration( thisNode.globalToLocalPoint( event.pointer.point ).x ) ) );
+        massProperty.set( Math.round( positionToConcentration( thisNode.globalToLocalPoint( event.pointer.point ).x ) ) );
       };
     this.addInputListener( new SimpleDragHandler(
       {
@@ -73,11 +72,11 @@ define( function( require ) {
 
   inherit( Text, TickLabel );
 
-  function Thumb( options ) {
+  function Thumb( massProperty, massRange ) {
     Node.call( this, { cursor: 'pointer' } );
 
     var thisNode = this;
-    var massToPosition = new LinearFunction( MASS_RANGE.min, MASS_RANGE.max, 0, TRACK_SIZE.width, true );
+    var massToPosition = new LinearFunction( massRange.min, massRange.max, 0, TRACK_SIZE.width, true );
     var clickXOffset;
 
     // draw the thumb
@@ -106,23 +105,22 @@ define( function( require ) {
         drag: function( event ) {
           var x = thisNode.globalToParentPoint( event.pointer.point ).x - clickXOffset;
           x = Math.max( Math.min( x, TRACK_SIZE.width ), 0 );
-          options.property.set( Math.round( massToPosition.inverse( x ) ) );
+          massProperty.set( Math.round( massToPosition.inverse( x ) ) );
         },
         translate: function() {
           // do nothing, override default behavior
         }
       } ) );
-    options.property.link( function( concentration ) {
+    massProperty.link( function( concentration ) {
       thisNode.x = massToPosition( concentration );
     } );
   }
 
   inherit( Node, Thumb );
 
-  function ControlMass( options ) {
+  function ControlMass( titleString, massProperty, massRange, options ) {
 
     options = _.extend( {
-      title: Strings["GFL.mass1"],
       scale: 0.8,
       fill: '#FDF498',
       fontSize: 16,
@@ -134,19 +132,19 @@ define( function( require ) {
 
     // nodes
     var content = new Node();
-    var track = new Track( options );
-    var thumb = new Thumb( options );
+    var track = new Track( massProperty, massRange );
+    var thumb = new Thumb( massProperty, massRange );
     var plusButton = new ArrowButton( 'right', function propertyPlus() {
-      options.property.set( Math.min( options.property.get() + 1, MASS_RANGE.max ) );
+      massProperty.set( Math.min( massProperty.get() + 1, massRange.max ) );
     } );
     var minusButton = new ArrowButton( 'left', function propertyMinus() {
-      options.property.set( Math.max( options.property.get() - 1, MASS_RANGE.min ) );
+      massProperty.set( Math.max( massProperty.get() - 1, massRange.min ) );
     } );
     var valueLabel = new Text( "", { fontSize: 18, pickable: false } );
     var valueField = new Rectangle( 0, 0, 100, 30, 3, 3, { fill: "#FFF", stroke: 'black', lineWidth: 1, pickable: false } );
-    var title = new Text( options.title, { fontSize: 24, pickable: false } );
-    var minLabel = new Text( MASS_RANGE.min.toFixed( 0 ), { fontSize: 14, pickable: false } );
-    var maxLabel = new Text( MASS_RANGE.max.toFixed( 0 ), { fontSize: 14, pickable: false } );
+    var title = new Text( titleString, { fontSize: 24, pickable: false } );
+    var minLabel = new Text( massRange.min.toFixed( 0 ), { fontSize: 14, pickable: false } );
+    var maxLabel = new Text( massRange.max.toFixed( 0 ), { fontSize: 14, pickable: false } );
     var minTickLine = new TickLine();
     var maxTickLine = new TickLine();
 
@@ -192,13 +190,14 @@ define( function( require ) {
     }
 
     // wrap in a panel
-    this.addChild( new Panel( content, { fill: options.fill, xMargin: options.xMargin, yMargin: options.yMargin, scale: options.scale, resize: false } ) );
+    this.addChild( new Panel( content, {
+      fill: options.fill, xMargin: options.xMargin, yMargin: options.yMargin, scale: options.scale, resize: false } ) );
 
-    options.property.link( function updateMass( value ) {
-      valueLabel.text = options.property.get() + " " + Strings["GFL.unitKg"];
+    massProperty.link( function updateMass( value ) {
+      valueLabel.text = value + " " + Strings["GFL.unitKg"]; //TODO order requires i18n
       valueLabel.centerX = valueField.centerX; // keep the value centered in the field
-      plusButton.setEnabled( options.property.get() < MASS_RANGE.max );
-      minusButton.setEnabled( options.property.get() > MASS_RANGE.min );
+      plusButton.setEnabled( value < massRange.max );
+      minusButton.setEnabled( value > massRange.min );
     } );
   }
 

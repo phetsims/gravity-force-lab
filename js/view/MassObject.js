@@ -35,7 +35,7 @@ define( function( require ) {
     //Conversion functions
     var forceToArrow = new LinearFunction( FORCE_MIN, FORCE_MAX, 0, 120, true );
     var forceToImage = new LinearFunction( FORCE_MIN, FORCE_MAX, 0, 14, true );
-    var massToScale = new LinearFunction( 1, 100, 0.05, 0.95, true );
+    var massToScale = new LinearFunction( options.model.massRange.min, options.model.massRange.max, 0.05, 0.95, true );
 
     Node.call( this );
     var dragNode = new Node( { cursor: "pointer" } );

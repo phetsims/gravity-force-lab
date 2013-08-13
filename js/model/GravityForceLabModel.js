@@ -9,12 +9,16 @@ define( function( require ) {
   'use strict';
   var PropertySet = require( 'AXON/PropertySet' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var Range = require( 'DOT/Range' );
 
   function GravityForceLabModel( width, height ) {
+
     var model = this;
+    this.massRange = new Range( 1, 100 );
     this.width = width;
     this.height = height;
     this.radius = 100;
+
     PropertySet.call( this, {
       mass1: 38.00,
       mass2: 25.00,
@@ -25,6 +29,7 @@ define( function( require ) {
       locationX2: this.width / 2 + 100,
       ruler: {x: 120, y: 310}
     } );
+
     var updateForce = function() {model.force = model.gravityForce( model.mass1, model.mass2, model.distance );};
     var updateDistance = function() {model.distance = model.calculateDistance( model.locationX1, model.locationX2 );};
 
