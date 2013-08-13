@@ -33,16 +33,8 @@ require.config( {
     PHETCOMMON: '../../phetcommon/js',
     SCENERY: '../../scenery/js',
     SCENERY_PHET: '../../scenery-phet/js',
-    SUN: '../../sun/js',
-    // contrib dependencies required by common directories
-    stats: '../../phetcommon/contrib/stats-r11'
+    SUN: '../../sun/js'
   },
-  // Configure the dependencies and exports for older, traditional 'browser globals' scripts
-  // that do not use define() to declare the dependencies and set a module value.
-  shim: {
-    stats: {
-      exports: 'Stats'
-    }
-  },
+
   urlArgs: new Date().getTime()  // cache buster to make browser refresh load all included scripts
 } );
