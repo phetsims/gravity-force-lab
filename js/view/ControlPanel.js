@@ -20,7 +20,7 @@ define( function( require ) {
     Node.call( this, { scale: 0.9 } );
 
     var resetAllButton = new Node( { scale: 0.8, children: [new ResetAllButton( function() { model.reset(); } )] } ),
-      controlShowValues = new ControlShowValues( model, {} ),
+      controlShowValues = new ControlShowValues( model ),
       controlMass1 = new ControlMass( { property: model.mass1Property, title: Strings["GFL.mass1"] } ),
       controlMass2 = new ControlMass( { property: model.mass2Property, title: Strings["GFL.mass2"] } );
 
