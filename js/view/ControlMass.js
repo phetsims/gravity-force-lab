@@ -164,9 +164,21 @@ define( function( require ) {
 
     // relative layout, everything relative to the track
     {
+      // thumb centered on track, x location will be computed
+      thumb.centerY = track.centerY;
+      // min tick at left end of track
+      minTickLine.bottom = track.bottom;
+      minTickLine.left = track.left;
+      minLabel.centerX = minTickLine.centerX;
+      minLabel.bottom = minTickLine.top - 3;
+      // max tick at right end of track
+      maxTickLine.bottom = track.bottom;
+      maxTickLine.right = track.right;
+      maxLabel.centerX = maxTickLine.centerX;
+      maxLabel.bottom = maxTickLine.top - 3;
       // value centered above the track
       valueField.centerX = track.centerX;
-      valueField.bottom = thumb.top - 10;
+      valueField.bottom = minLabel.top - 10;
       valueLabel.centerX = valueField.centerX;
       valueLabel.centerY = valueField.centerY;
       // title centered above the value
@@ -178,16 +190,6 @@ define( function( require ) {
       // minus button to the left of the value
       minusButton.right = valueField.left - 10;
       minusButton.centerY = valueField.centerY;
-      // min tick at left end of track
-      minTickLine.top = track.top;
-      minTickLine.left = track.left;
-      minLabel.centerX = minTickLine.centerX;
-      minLabel.top = minTickLine.bottom + 3;
-      // max tick at right end of track
-      maxTickLine.top = track.top;
-      maxTickLine.right = track.right;
-      maxLabel.centerX = maxTickLine.centerX;
-      maxLabel.top = maxTickLine.bottom + 3;
     }
 
     // wrap in a panel
