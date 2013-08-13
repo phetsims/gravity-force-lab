@@ -14,30 +14,24 @@ define( function( require ) {
   var Panel = require( 'SUN/Panel' );
   var CheckBox = require( 'SUN/CheckBox' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var Node = require( 'SCENERY/nodes/Node' );
   var Strings = require( 'Strings' );
 
   function ControlShowValues( model, options ) {
-    options = _.extend(
-      {
-        x: 0,
-        y: 0,
-        scale: 0.8,
-        fill: '#FDF498',
-        fontSize: 18,
-        xMargin: 10,
-        yMargin: 10
-      }, options );
-    Node.call( this );
-    var checkShowValuesText = new Text( Strings["GFL.showValues"], { fontSize: options.fontSize } ),
-      checkShowValuesCheckBox = new CheckBox( checkShowValuesText, model.showValuesProperty, {} ),
-      checkShowValues = new Panel( checkShowValuesCheckBox, { fill: options.fill, xMargin: options.xMargin, yMargin: options.yMargin, cursor: 'pointer', scale: options.scale } );
-    this.addChild( checkShowValues );
-    this.x = options.x;
-    this.y = options.y;
+
+    options = _.extend( {
+      fill: '#FDF498',
+      xMargin: 10,
+      yMargin: 10,
+      scale: 0.8
+    }, options );
+
+    var checkShowValuesCheckBox = new CheckBox( new Text( Strings["GFL.showValues"], { fontSize: 18 } ), model.showValuesProperty,
+      { cursor: 'pointer' } );
+
+    Panel.call( this, checkShowValuesCheckBox, options );
   }
 
-  inherit( Node, ControlShowValues );
+  inherit( Panel, ControlShowValues );
 
   return ControlShowValues;
 } );
