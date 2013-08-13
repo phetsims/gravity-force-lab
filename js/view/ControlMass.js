@@ -24,9 +24,10 @@ define( function( require ) {
   var Panel = require( 'SUN/Panel' );
 
   function Track( options ) {
-    Rectangle.call( this, 0, 0, 170, 3, { cursor: 'pointer', fill: "black" } );
+    var width = 170, height = 3;
+    Rectangle.call( this, 0, 0, width, height, { cursor: 'pointer', fill: "black" } );
     var thisNode = this,
-      positionToConcentration = new LinearFunction( 0, 170, 1, 100, true ),
+      positionToConcentration = new LinearFunction( 0, width, 1, 100, true ),
       handleEvent = function( event ) {
         options.property.set( Math.round( positionToConcentration( thisNode.globalToLocalPoint( event.pointer.point ).x ) ) );
       };
@@ -42,6 +43,9 @@ define( function( require ) {
           // do nothing, override default behavior
         }
       } ) );
+    // increase the vertical hit area, so the track is easier to hit
+    var hitAreaMargin = 8;
+    thisNode.mouseArea = thisNode.touchArea = Shape.rectangle( 0, -hitAreaMargin, width, height + hitAreaMargin + hitAreaMargin );
   }
 
   inherit( Rectangle, Track );
