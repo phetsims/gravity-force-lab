@@ -13,26 +13,26 @@ define( function() {
   "use strict";
   return {
     imageNames: [
-      "slider.png",
-      "pull_figure_14.png",
-      "pull_figure_13.png",
-      "pull_figure_12.png",
-      "pull_figure_11.png",
-      "pull_figure_10.png",
-      "pull_figure_9.png",
-      "pull_figure_8.png",
-      "pull_figure_7.png",
-      "pull_figure_6.png",
-      "pull_figure_5.png",
-      "pull_figure_4.png",
-      "pull_figure_3.png",
-      "pull_figure_2.png",
-      "pull_figure_1.png",
       "pull_figure_0.png",
+      "pull_figure_1.png",
+      "pull_figure_2.png",
+      "pull_figure_3.png",
+      "pull_figure_4.png",
+      "pull_figure_5.png",
+      "pull_figure_6.png",
+      "pull_figure_7.png",
+      "pull_figure_8.png",
+      "pull_figure_9.png",
+      "pull_figure_10.png",
+      "pull_figure_11.png",
+      "pull_figure_12.png",
+      "pull_figure_13.png",
+      "pull_figure_14.png",
       'reset_button_disabled.png',
       'reset_button_down.png',
       'reset_button_over.png',
-      'reset_button_up.png'
+      'reset_button_up.png',
+      "slider.png"
     ]
   };
 } );
