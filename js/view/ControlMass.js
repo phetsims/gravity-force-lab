@@ -155,7 +155,7 @@ define( function( require ) {
     box.addChild( plusButton );
     box.addChild( minusButton );
 
-    this.addChild( new Panel( box, { fill: options.fill, xMargin: options.xMargin, yMargin: options.yMargin, scale: options.scale } ) );
+    this.addChild( new Panel( box, { fill: options.fill, xMargin: options.xMargin, yMargin: options.yMargin, scale: options.scale, resize: false } ) );
 
     minusButton.centerY = plusButton.centerY = -45;
     minusButton.left = -10;
