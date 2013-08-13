@@ -28,6 +28,7 @@ define( function( require ) {
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
 
   //constant
+  //TODO #26: move these constant to model
   var FORCE_MIN = ( 2.8287421332465277e-13 );
   var FORCE_MAX = ( 4.387797501643656e-8 );
 
