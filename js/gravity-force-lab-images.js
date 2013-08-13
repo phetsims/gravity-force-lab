@@ -31,8 +31,7 @@ define( function() {
       'reset_button_disabled.png',
       'reset_button_down.png',
       'reset_button_over.png',
-      'reset_button_up.png',
-      "slider.png"
+      'reset_button_up.png'
     ]
   };
 } );
