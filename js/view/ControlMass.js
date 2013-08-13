@@ -128,26 +128,26 @@ define( function( require ) {
 
     Node.call( this );
 
-    var box = new Node();
+    var content = new Node();
     var track = new Track( options );
     var thumb = new Thumb( options );
     var plusButton = new ArrowButton( 'right', function propertyPlus() { options.property.set( Math.min( options.property.get() + 1, 100 ) ); } );
     var minusButton = new ArrowButton( 'left', function propertyMinus() { options.property.set( Math.max( options.property.get() - 1, 1 ) ); } );
     var valueLabel = new Text( "", { fontSize: 18, pickable: false, centerX: 85, y: -38 } );
 
-    box.addChild( new Rectangle( 0, 0, 100, 30, 3, 3, { fill: "#FFF", stroke: 'black', lineWidth: 1, centerX: 85, centerY: -45, pickable: false } ) );
-    box.addChild( valueLabel );
-    box.addChild( new Text( options.title, { fontSize: 24, centerX: 85, bottom: -63, pickable: false } ) );
-    box.addChild( new Path( { shape: Shape.lineSegment( 0, 0, 0, 18 ), stroke: 'black', lineWidth: 1, pickable: false } ) );
-    box.addChild( new Path( { shape: Shape.lineSegment( 170, 0, 170, 18 ), stroke: 'black', lineWidth: 1, pickable: false } ) );
-    box.addChild( new Text( "1", { fontSize: 14, top: 20, centerX: 0, pickable: false } ) );
-    box.addChild( new Text( "100", { fontSize: 14, top: 20, centerX: 170, pickable: false } ) );
-    box.addChild( track );
-    box.addChild( thumb );
-    box.addChild( plusButton );
-    box.addChild( minusButton );
+    content.addChild( new Rectangle( 0, 0, 100, 30, 3, 3, { fill: "#FFF", stroke: 'black', lineWidth: 1, centerX: 85, centerY: -45, pickable: false } ) );
+    content.addChild( valueLabel );
+    content.addChild( new Text( options.title, { fontSize: 24, centerX: 85, bottom: -63, pickable: false } ) );
+    content.addChild( new Path( { shape: Shape.lineSegment( 0, 0, 0, 18 ), stroke: 'black', lineWidth: 1, pickable: false } ) );
+    content.addChild( new Path( { shape: Shape.lineSegment( 170, 0, 170, 18 ), stroke: 'black', lineWidth: 1, pickable: false } ) );
+    content.addChild( new Text( "1", { fontSize: 14, top: 20, centerX: 0, pickable: false } ) );
+    content.addChild( new Text( "100", { fontSize: 14, top: 20, centerX: 170, pickable: false } ) );
+    content.addChild( track );
+    content.addChild( thumb );
+    content.addChild( plusButton );
+    content.addChild( minusButton );
 
-    this.addChild( new Panel( box, { fill: options.fill, xMargin: options.xMargin, yMargin: options.yMargin, scale: options.scale, resize: false } ) );
+    this.addChild( new Panel( content, { fill: options.fill, xMargin: options.xMargin, yMargin: options.yMargin, scale: options.scale, resize: false } ) );
 
     minusButton.centerY = plusButton.centerY = -45;
     minusButton.left = -10;
