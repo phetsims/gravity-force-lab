@@ -26,6 +26,7 @@ define( function( require ) {
 
     var model = this;
     this.massRange = new Range( 1, 100 );
+    this.forceRange = new Range( ( 2.8287421332465277e-13 ), ( 4.387797501643656e-8 ) );
 
     // dimensions of the model's space
     this.width = width;
