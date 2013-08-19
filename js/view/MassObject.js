@@ -12,17 +12,14 @@ define( function( require ) {
   var ArrowNode = require( 'SCENERY_PHET/ArrowNode' );
   var Matrix3 = require( 'DOT/Matrix3' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var LinearGradient = require( 'SCENERY/util/LinearGradient' );
   var RadialGradient = require( 'SCENERY/util/RadialGradient' );
   var LinearFunction = require( 'DOT/LinearFunction' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
-  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Circle = require( 'SCENERY/nodes/Circle' );
   var Shape = require( 'KITE/Shape' );
   var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var Image = require( 'SCENERY/nodes/Image' );
   var Strings = require( 'Strings' );
   var PullObject = require( 'view/PullObject' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
