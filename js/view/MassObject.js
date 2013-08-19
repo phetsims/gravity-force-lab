@@ -24,29 +24,35 @@ define( function( require ) {
   var PullObject = require( 'view/PullObject' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
 
- //constant
-  var PULL_IMAGES_COUNT = 15;
-
-  //TODO #28: options contains things that are required and should be additional parameters, default options not provided
   function MassObject( options ) {
+    options = _.extend( {
+      title: "",
+      label: "",
+      direction: "left", //direction mass
+      colorGradient: ["#aaf", "#00f", "#66f"], //[<gradient mass light>, <gradient mass dark>, <color vertical line>]
+      y: 250,
+      forceArrowHeight: 150, // arrow height
+      pullImagesCount:15,
+      arrowLenght:120,
+      massRadius:100// radius of the mass when scale is 1.0
+    }, options );
 
     var thisNode = this;
     //Conversion functions
-    var forceToArrow = new LinearFunction( options.model.forceRange.min, options.model.forceRange.max, 0, 120, true );
-    var forceToImage = new LinearFunction( options.model.forceRange.min, options.model.forceRange.max, 0, PULL_IMAGES_COUNT-1, true );
+    var forceToArrow = new LinearFunction( options.model.forceRange.min, options.model.forceRange.max, 0, options.arrowLenght, true );
+    var forceToImage = new LinearFunction( options.model.forceRange.min, options.model.forceRange.max, 0, options.pullImagesCount-1, true );
     var massToScale = new LinearFunction( options.model.massRange.min, options.model.massRange.max, 0.05, 0.95, true );
 
     Node.call( this );
     var dragNode = new Node( { cursor: "pointer" } );
     var massCircle = new Node();
-    var pull = new PullObject({image_count: PULL_IMAGES_COUNT});
+    var pull = new PullObject({image_count: options.pullImagesCount});
     if ( options.direction === "right" ) {
       pull.scale( -1, 1 );
     }
 
-    var MASS_RADIUS = 100; // radius of the mass when scale is 1.0
-    massCircle.addChild( new Circle( MASS_RADIUS, {
-      fill: new RadialGradient( MASS_RADIUS * 0.6, -MASS_RADIUS * 0.6, 1, MASS_RADIUS * 0.6, -MASS_RADIUS * 0.6, MASS_RADIUS )
+    massCircle.addChild( new Circle( options.massRadius, {
+      fill: new RadialGradient( options.massRadius * 0.6, -options.massRadius * 0.6, 1, options.massRadius * 0.6, -options.massRadius * 0.6, options.massRadius )
         .addColorStop( 0, options.colorGradient[0] )
         .addColorStop( 1, options.colorGradient[1] )
     } ) );
@@ -125,7 +131,7 @@ define( function( require ) {
       markForceDirty();
       var xMax = options.model.width;
       var xMin = 0;
-      var sumRadius = MASS_RADIUS * massToScale( options.model.mass1 ) + MASS_RADIUS * massToScale( options.model.mass2 );
+      var sumRadius = options.massRadius * massToScale( options.model.mass1 ) + options.massRadius * massToScale( options.model.mass2 );
       if ( options.x.get() === options.model.locationX1 ) {
         xMax = options.model.locationX2 - sumRadius - 5;
       }
