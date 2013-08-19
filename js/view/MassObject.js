@@ -32,21 +32,21 @@ define( function( require ) {
       colorGradient: ["#aaf", "#00f", "#66f"], //[<gradient mass light>, <gradient mass dark>, <color vertical line>]
       y: 250,
       forceArrowHeight: 150, // arrow height
-      pullImagesCount:15,
-      arrowLenght:120,
-      massRadius:100// radius of the mass when scale is 1.0
+      pullImagesCount: 15,
+      arrowLenght: 120,
+      massRadius: 100// radius of the mass when scale is 1.0
     }, options );
 
     var thisNode = this;
     //Conversion functions
     var forceToArrow = new LinearFunction( options.model.forceRange.min, options.model.forceRange.max, 0, options.arrowLenght, true );
-    var forceToImage = new LinearFunction( options.model.forceRange.min, options.model.forceRange.max, 0, options.pullImagesCount-1, true );
+    var forceToImage = new LinearFunction( options.model.forceRange.min, options.model.forceRange.max, 0, options.pullImagesCount - 1, true );
     var massToScale = new LinearFunction( options.model.massRange.min, options.model.massRange.max, 0.05, 0.95, true );
 
     Node.call( this );
     var dragNode = new Node( { cursor: "pointer" } );
     var massCircle = new Node();
-    var pull = new PullObject({image_count: options.pullImagesCount});
+    var pull = new PullObject( {image_count: options.pullImagesCount} );
     if ( options.direction === "right" ) {
       pull.scale( -1, 1 );
     }
@@ -76,8 +76,8 @@ define( function( require ) {
       stroke: "#FFF",
       lineDash: [4, 4],
       lineWidth: 2,
-      x:0.5,
-      y:0.5
+      x: 0.5,
+      y: 0.5
     } ) );
     this.addChild( new Path( {
       shape: arrowShape,
@@ -88,7 +88,7 @@ define( function( require ) {
 
     this.addChild( arrowText );
     this.addChild( arrow );
-    
+
     var forceDirtyFlag = true;
     var markForceDirty = function() {
       forceDirtyFlag = true;
@@ -100,7 +100,7 @@ define( function( require ) {
         return;
       }
       forceDirtyFlag = false;
-      
+
       thisNode.x = options.x.get();
       //reset scale
       massCircle.matrix = new Matrix3();
@@ -125,7 +125,7 @@ define( function( require ) {
       arrow.path.shape = ArrowNode.createArrowShape( 0, -options.forceArrowHeight, arr, -options.forceArrowHeight, 3, 10, 10 );
       pull.setPull( Math.round( forceToImage( options.model.force ) ), (massCircle.width / 2) );
     };
-        
+
     // redraw view with shift
     var redraw = function() {
       markForceDirty();
