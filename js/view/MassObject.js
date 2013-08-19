@@ -24,19 +24,22 @@ define( function( require ) {
   var PullObject = require( 'view/PullObject' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
 
+ //constant
+  var PULL_IMAGES_COUNT = 15;
+
   //TODO #28: options contains things that are required and should be additional parameters, default options not provided
   function MassObject( options ) {
+
     var thisNode = this;
     //Conversion functions
     var forceToArrow = new LinearFunction( options.model.forceRange.min, options.model.forceRange.max, 0, 120, true );
-    //TODO #27: image index (0-14) is dependent on the number of puller images, also hardcoded in PullObject
-    var forceToImage = new LinearFunction( options.model.forceRange.min, options.model.forceRange.max, 0, 14, true );
+    var forceToImage = new LinearFunction( options.model.forceRange.min, options.model.forceRange.max, 0, PULL_IMAGES_COUNT-1, true );
     var massToScale = new LinearFunction( options.model.massRange.min, options.model.massRange.max, 0.05, 0.95, true );
 
     Node.call( this );
     var dragNode = new Node( { cursor: "pointer" } );
     var massCircle = new Node();
-    var pull = new PullObject();
+    var pull = new PullObject({image_count: PULL_IMAGES_COUNT});
     if ( options.direction === "right" ) {
       pull.scale( -1, 1 );
     }
