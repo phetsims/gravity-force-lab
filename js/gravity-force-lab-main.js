@@ -12,7 +12,7 @@ define( function( require ) {
     Sim = require( 'JOIST/Sim' ),
     Strings = require( 'Strings' ),
     GravityForceLabModel = require( 'model/GravityForceLabModel' ),
-    GravityForceLabTabView = require( 'view/GravityForceLabTabView' ),
+    GravityForceLabView = require( 'view/GravityForceLabView' ),
     gravityForceLabImages = require( 'gravity-force-lab-images' );
 
   var simOptions = {
@@ -28,7 +28,7 @@ define( function( require ) {
       {
         name: Strings['GFL.name'],
         createModel: function() { return new GravityForceLabModel( 768, 504 ); },
-        createView: function( model ) { return new GravityForceLabTabView( model ); },
+        createView: function( model ) { return new GravityForceLabView( model ); },
         backgroundColor: "#FFFFFF"
       }
     ], simOptions ).start();
