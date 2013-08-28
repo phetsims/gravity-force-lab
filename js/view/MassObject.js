@@ -23,6 +23,7 @@ define( function( require ) {
   var Strings = require( 'Strings' );
   var PullObject = require( 'view/PullObject' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
 
   function MassObject( options ) {
     options = _.extend( {
@@ -61,14 +62,15 @@ define( function( require ) {
     dragNode.addChild( massCircle );
     dragNode.addChild( new Circle( 20 ) ); // transparent pickable circle, to make small masses draggable
     dragNode.addChild( new Circle( 2, { fill: "#000", pickable: false } ) );
-    dragNode.addChild( new Text( options.label, { fontSize: 12, fill: "#000", x: -6.5, y: 16, pickable: false } ) );
-    dragNode.addChild( new Text( options.label, { fontSize: 12, fill: "#fff", x: -7, y: 15, pickable: false } ) );
+    var labelFont = new PhetFont( 12 );
+    dragNode.addChild( new Text( options.label, { font: labelFont, fill: "#000", x: -6.5, y: 16, pickable: false } ) );
+    dragNode.addChild( new Text( options.label, { font: labelFont, fill: "#fff", x: -7, y: 15, pickable: false } ) );
 
     this.addChild( dragNode );
     this.y = options.y;
 
     var arrow = new ArrowNode( 0, -options.forceArrowHeight, 200, -options.forceArrowHeight, 10, 10, 3, { stroke: null } );
-    var arrowText = new Text( options.title, { fontSize: 16, fill: "#000", y: -options.forceArrowHeight - 20 } );
+    var arrowText = new Text( options.title, { font: new PhetFont( 16 ), fill: "#000", y: -options.forceArrowHeight - 20 } );
     var arrowShape = new Shape();
     arrowShape.moveTo( 0, -4 );
     arrowShape.lineTo( 0, -options.forceArrowHeight );

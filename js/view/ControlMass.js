@@ -24,6 +24,7 @@ define( function( require ) {
   var FillHighlightListener = require( 'SCENERY_PHET/input/FillHighlightListener' );
   var Range = require( 'DOT/Range' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
 
   // constants
   var TRACK_SIZE = new Dimension2( 170, 3 );
@@ -68,7 +69,7 @@ define( function( require ) {
   inherit( Path, TickLine );
 
   function TickLabel( value ) {
-    Text.call( this, value, { fontSize: 14, fill: 'black' } );
+    Text.call( this, value, { font: new PhetFont( 14 ), fill: 'black' } );
   }
 
   inherit( Text, TickLabel );
@@ -125,7 +126,6 @@ define( function( require ) {
     options = _.extend( {
       scale: 0.8,
       fill: '#FDF498',
-      fontSize: 16,
       xMargin: 15,
       yMargin: 10
     }, options );
@@ -142,11 +142,12 @@ define( function( require ) {
     var minusButton = new ArrowButton( 'left', function propertyMinus() {
       massProperty.set( Math.max( massProperty.get() - 1, massRange.min ) );
     } );
-    var valueLabel = new Text( "", { fontSize: 18, pickable: false } );
+    var valueLabel = new Text( "", { font: new PhetFont( 18 ), pickable: false } );
     var valueField = new Rectangle( 0, 0, 100, 30, 3, 3, { fill: "#FFF", stroke: 'black', lineWidth: 1, pickable: false } );
-    var title = new Text( titleString, { fontSize: 24, pickable: false } );
-    var minLabel = new Text( massRange.min.toFixed( 0 ), { fontSize: 14, pickable: false } );
-    var maxLabel = new Text( massRange.max.toFixed( 0 ), { fontSize: 14, pickable: false } );
+    var title = new Text( titleString, { font: new PhetFont( 24 ), pickable: false } );
+    var labelFont = new PhetFont( 14 );
+    var minLabel = new Text( massRange.min.toFixed( 0 ), { font: labelFont, pickable: false } );
+    var maxLabel = new Text( massRange.max.toFixed( 0 ), { font: labelFont, pickable: false } );
     var minTickLine = new TickLine();
     var maxTickLine = new TickLine();
 
