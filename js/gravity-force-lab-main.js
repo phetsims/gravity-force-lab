@@ -17,10 +17,10 @@ define( function( require ) {
 
   var simOptions = {
     credits: 'PhET Development Team -\n' +
-             'Software Development: Sam Reid\n' +
+             'Software Development: Sam Reid, John Blanco, Chris Malley\n' +
              'Design Team: Carl Wieman, Trish Loeblein, Wendy Adams\n',
     thanks: 'Thanks -\n' +
-            'Thanks to Mobile Learner Labs for their work in converting this simulation to HTML5.'
+            'Thanks to Mobile Learner Labs for working with the PhET development team to convert this simulation to HTML5.'
   };
   SimLauncher.launch( gravityForceLabImages, function() {
     //Create and start the sim
