@@ -69,7 +69,7 @@ define( function( require ) {
     this.addChild( dragNode );
     this.y = options.y;
 
-    var arrow = new ArrowNode( 0, -options.forceArrowHeight, 200, -options.forceArrowHeight, 10, 10, 3, { stroke: null } );
+    var arrow = new ArrowNode( 0, -options.forceArrowHeight, 200, -options.forceArrowHeight, { headHeight: 10, headWidth: 10, tailWidth: 3, stroke: null } );
     var arrowText = new Text( options.title, { font: new PhetFont( 16 ), fill: "#000", y: -options.forceArrowHeight - 20 } );
     var arrowShape = new Shape();
     arrowShape.moveTo( 0, -4 );
@@ -125,7 +125,7 @@ define( function( require ) {
         arr *= -1;
       }
 
-      arrow.path.shape = ArrowNode.createArrowShape( 0, -options.forceArrowHeight, arr, -options.forceArrowHeight, 3, 10, 10 );
+      arrow.shape = ArrowNode.createArrowShape( 0, -options.forceArrowHeight, arr, -options.forceArrowHeight, 3, 10, 10 );
       pull.setPull( Math.round( forceToImage( options.model.force ) ), (massCircle.width / 2) );
     };
 
