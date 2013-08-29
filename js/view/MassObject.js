@@ -69,7 +69,7 @@ define( function( require ) {
     this.addChild( dragNode );
     this.y = options.y;
 
-    var arrow = new ArrowNode( 0, -options.forceArrowHeight, 200, -options.forceArrowHeight, { headHeight: 10, headWidth: 10, tailWidth: 3, stroke: null } );
+    var arrowNode = new ArrowNode( 0, -options.forceArrowHeight, 200, -options.forceArrowHeight, { headHeight: 10, headWidth: 10, tailWidth: 3, stroke: null } );
     var arrowText = new Text( options.title, { font: new PhetFont( 16 ), fill: "#000", y: -options.forceArrowHeight - 20 } );
     var arrowShape = new Shape();
     arrowShape.moveTo( 0, -4 );
@@ -90,7 +90,7 @@ define( function( require ) {
     } ) );
 
     this.addChild( arrowText );
-    this.addChild( arrow );
+    this.addChild( arrowNode );
 
     var forceDirtyFlag = true;
     var markForceDirty = function() {
@@ -125,7 +125,9 @@ define( function( require ) {
         arr *= -1;
       }
 
-      arrow.shape = ArrowNode.createArrowShape( 0, -options.forceArrowHeight, arr, -options.forceArrowHeight, 3, 10, 10 );
+      thisNode.removeChild( arrowNode );
+      arrowNode = new ArrowNode( 0, -options.forceArrowHeight, arr, -options.forceArrowHeight, { headHeight: 10, headWidth: 10, tailWidth: 3, stroke: null } );
+      thisNode.addChild( arrowNode );
       pull.setPull( Math.round( forceToImage( options.model.force ) ), (massCircle.width / 2) );
     };
 
