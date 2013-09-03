@@ -25,9 +25,9 @@ define( function( require ) {
       i;
     for ( i = 0; i < options.image_count; i++ ) {
       var image = new Image( gravityForceLabImages.getImage( "pull_figure_" + i + ".png" ) );
-      pull.push( new Node( {children: [new Path( { shape: Shape.circle( 0, 0, 10 ), fill: '#777', pickable: false, scale: {x: image.width / 20, y: 1}, x: image.width / 2, y: image.height - 5 } ), image]} ) );
+      pull.push( new Node( {children: [new Path( Shape.circle( 0, 0, 10 ), { fill: '#777', pickable: false, scale: {x: image.width / 20, y: 1}, x: image.width / 2, y: image.height - 5 } ), image]} ) );
     }
-    pullGroup.addChild( new Path( { shape: Shape.lineSegment( -options.rope_lenght, 0, 0, 0 ), stroke: '#666', lineWidth: 2, pickable: false } ) );
+    pullGroup.addChild( new Path( Shape.lineSegment( -options.rope_lenght, 0, 0, 0 ),{ stroke: '#666', lineWidth: 2, pickable: false } ) );
     for ( i = 0; i < options.image_count; i++ ) {
       pullGroup.addChild( pull[i] );
       pull[i].scale( -0.3, 0.3 );

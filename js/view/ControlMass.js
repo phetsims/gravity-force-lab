@@ -60,8 +60,7 @@ define( function( require ) {
   inherit( Rectangle, Track );
 
   function TickLine() {
-    Path.call( this, {
-      shape: Shape.lineSegment( 0, 0, 0, ( THUMB_SIZE.height / 2 ) + ( TRACK_SIZE.height / 2 ) + 2 ),
+    Path.call( this, Shape.lineSegment( 0, 0, 0, ( THUMB_SIZE.height / 2 ) + ( TRACK_SIZE.height / 2 ) + 2 ), {
       stroke: 'black',
       lineWidth: 1 } );
   }
@@ -85,8 +84,7 @@ define( function( require ) {
     var body = new Rectangle( -THUMB_SIZE.width / 2, -THUMB_SIZE.height / 2, THUMB_SIZE.width, THUMB_SIZE.height, THUMB_RADIUS, THUMB_RADIUS,
       { cursor: 'pointer', fill: THUMB_FILL_ENABLED, stroke: 'black', lineWidth: 1 } );
     var CENTER_LINE_Y_MARGIN = 3;
-    body.addChild( new Path( {
-      shape: Shape.lineSegment( 0, -( THUMB_SIZE.height / 2 ) + CENTER_LINE_Y_MARGIN, 0, ( THUMB_SIZE.height / 2 ) - CENTER_LINE_Y_MARGIN ),
+    body.addChild( new Path( Shape.lineSegment( 0, -( THUMB_SIZE.height / 2 ) + CENTER_LINE_Y_MARGIN, 0, ( THUMB_SIZE.height / 2 ) - CENTER_LINE_Y_MARGIN ), {
       stroke: 'white' } ) );
     body.left = -body.width / 2;
     this.addChild( body );

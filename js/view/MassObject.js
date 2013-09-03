@@ -74,16 +74,14 @@ define( function( require ) {
     var arrowShape = new Shape();
     arrowShape.moveTo( 0, -4 );
     arrowShape.lineTo( 0, -options.forceArrowHeight );
-    this.addChild( new Path( {
-      shape: arrowShape,
+    this.addChild( new Path( arrowShape, {
       stroke: "#FFF",
       lineDash: [4, 4],
       lineWidth: 2,
       x: 0.5,
       y: 0.5
     } ) );
-    this.addChild( new Path( {
-      shape: arrowShape,
+    this.addChild( new Path( arrowShape, {
       stroke: options.colorGradient[2],
       lineDash: [4, 4],
       lineWidth: 2
