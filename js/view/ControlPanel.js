@@ -10,7 +10,7 @@ define( function( require ) {
   'use strict';
   var Node = require( 'SCENERY/nodes/Node' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var ResetAllButton = require( 'view/ResetAllButton' );
+  var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
   var Strings = require( 'Strings' );
   var ControlShowValues = require( 'view/ControlShowValues' );
   var ControlMass = require( 'view/ControlMass' );

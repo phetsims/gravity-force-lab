@@ -12,8 +12,7 @@ define( function( require ) {
     Sim = require( 'JOIST/Sim' ),
     Strings = require( 'Strings' ),
     GravityForceLabModel = require( 'model/GravityForceLabModel' ),
-    GravityForceLabView = require( 'view/GravityForceLabView' ),
-    gravityForceLabImages = require( 'gravity-force-lab-images' );
+    GravityForceLabView = require( 'view/GravityForceLabView' );
 
   var simOptions = {
     credits: 'PhET Development Team -\n' +
@@ -22,7 +21,7 @@ define( function( require ) {
     thanks: 'Thanks -\n' +
             'Thanks to Mobile Learner Labs for working with the PhET development team to convert this simulation to HTML5.'
   };
-  SimLauncher.launch( gravityForceLabImages, function() {
+  SimLauncher.launch( {imageNames: []}, function() {
     //Create and start the sim
     new Sim( Strings['GFL.name'], [
       {

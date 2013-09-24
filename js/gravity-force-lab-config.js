@@ -20,7 +20,9 @@ require.config( {
   paths: {
 
     // third-party libs
-    i18n: '../lib/i18n-2.0.2',
+    i18n: '../../sherpa/i18n-2.0.4',
+    image: '../../chipper/requirejs-plugins/image',
+    audio: '../../chipper/requirejs-plugins/audio',
 
     // PhET libs, uppercase names to identify them in require.js imports
     ASSERT: '../../assert/js',
@@ -33,7 +35,8 @@ require.config( {
     PHETCOMMON: '../../phetcommon/js',
     SCENERY: '../../scenery/js',
     SCENERY_PHET: '../../scenery-phet/js',
-    SUN: '../../sun/js'
+    SUN: '../../sun/js',
+    GRAVITY_FORCE_LAB: '.'
   },
 
   urlArgs: new Date().getTime()  // cache buster to make browser refresh load all included scripts
