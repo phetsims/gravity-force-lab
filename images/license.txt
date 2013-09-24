@@ -13,7 +13,3 @@ pull_figure_11.png source=phet author=Ron Le Master notes=using Poser
 pull_figure_12.png source=phet author=Ron Le Master notes=using Poser
 pull_figure_13.png source=phet author=Ron Le Master notes=using Poser
 pull_figure_14.png source=phet author=Ron Le Master notes=using Poser
-reset_button_disabled.png source=PhET author=Sharon
-reset_button_down.png source=PhET author=Sharon
-reset_button_over.png source=PhET author=Sharon
-reset_button_up.png source=PhET author=Sharon
