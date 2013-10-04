@@ -8,21 +8,30 @@
 
 define( function( require ) {
   'use strict';
+
+  // Imports
   var Node = require( 'SCENERY/nodes/Node' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
-  var Strings = require( 'Strings' );
   var ControlShowValues = require( 'view/ControlShowValues' );
   var ControlMass = require( 'view/ControlMass' );
 
+  // Resources
+  var m1String = require( 'string!GRAVITY_FORCE_LAB/mass-1' );
+  var m2String = require( 'string!GRAVITY_FORCE_LAB/mass-2' );
+
+  /**
+   * @param model
+   * @constructor
+   */
   function ControlPanel( model ) {
 
     Node.call( this, { scale: 0.9 } );
 
     var resetAllButton = new ResetAllButton( function() { model.reset(); }, { scale: 0.8 } ),
       controlShowValues = new ControlShowValues( model ),
-      controlMass1 = new ControlMass( Strings["GFL.mass1"], model.mass1Property, model.massRange ),
-      controlMass2 = new ControlMass( Strings["GFL.mass2"], model.mass2Property, model.massRange );
+      controlMass1 = new ControlMass( m1String, model.mass1Property, model.massRange ),
+      controlMass2 = new ControlMass( m2String, model.mass2Property, model.massRange );
 
     this.addChild( controlShowValues );
     this.addChild( controlMass1 );
@@ -37,7 +46,6 @@ define( function( require ) {
 
     this.right = model.width - 15;
     this.bottom = model.height - 15;
-
   }
 
   inherit( Node, ControlPanel );

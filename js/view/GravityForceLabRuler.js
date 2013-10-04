@@ -8,15 +8,23 @@
 
 define( function( require ) {
   "use strict";
-  var Strings = require( 'Strings' );
+
+  // Imports
   var Node = require( 'SCENERY/nodes/Node' );
   var inherit = require( 'PHET_CORE/inherit' );
   var RulerNode = require( 'SCENERY_PHET/RulerNode' );
   var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
 
+  // Resources
+  var units_metersString = require( 'string!GRAVITY_FORCE_LAB/units.meters' );
+
+  /**
+   * @param model
+   * @constructor
+   */
   function GravityForceLabRuler( model ) {
     Node.call( this, { cursor: "pointer", renderer: 'svg', cssTransform: true } );
-    var ruler = new RulerNode( 500, 50, 50, ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"], Strings["GFL.unitMeters"], {minorTicksPerMajorTick: 4, unitsFont: '12px Arial' } );
+    var ruler = new RulerNode( 500, 50, 50, ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"], units_metersString, {minorTicksPerMajorTick: 4, unitsFont: '12px Arial' } );
     this.addChild( ruler );
     model.rulerProperty.link( function updateRulerLocation( value ) {
       ruler.x = model.ruler.x;

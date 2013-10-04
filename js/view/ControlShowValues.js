@@ -14,9 +14,16 @@ define( function( require ) {
   var Panel = require( 'SUN/Panel' );
   var CheckBox = require( 'SUN/CheckBox' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var Strings = require( 'Strings' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
 
+  // resources
+  var showValuesString = require( 'string!GRAVITY_FORCE_LAB/showValues' );
+
+  /**
+   * @param model
+   * @param options
+   * @constructor
+   */
   function ControlShowValues( model, options ) {
 
     options = _.extend( {
@@ -26,7 +33,7 @@ define( function( require ) {
       scale: 0.8
     }, options );
 
-    var text = new Text( Strings["GFL.showValues"], { font: new PhetFont( 18 ) } );
+    var text = new Text( showValuesString, { font: new PhetFont( 18 ) } );
     var checkBox = new CheckBox( text, model.showValuesProperty, { cursor: 'pointer' } );
 
     Panel.call( this, checkBox, options );

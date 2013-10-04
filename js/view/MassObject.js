@@ -9,6 +9,8 @@
 
 define( function( require ) {
   'use strict';
+
+  // Imports
   var ArrowNode = require( 'SCENERY_PHET/ArrowNode' );
   var Matrix3 = require( 'DOT/Matrix3' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -20,11 +22,18 @@ define( function( require ) {
   var Shape = require( 'KITE/Shape' );
   var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var Strings = require( 'Strings' );
   var PullObject = require( 'view/PullObject' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
 
+  // Resources
+  var pattern_0title_1value_2units = require( 'string!GRAVITY_FORCE_LAB/pattern_0title_1value_2units' );
+  var units_NString = require( 'string!GRAVITY_FORCE_LAB/units.N' );
+
+  /**
+   * @param options
+   * @constructor
+   */
   function MassObject( options ) {
     options = _.extend( {
       title: "",
@@ -111,7 +120,7 @@ define( function( require ) {
       if ( options.model.showValues ) {
         var forceStr = options.model.force.toFixed( 12 );
         forceStr = ( forceStr.substr( 0, 5 ) + " " + forceStr.substr( 5, 3 ) + " " + forceStr.substr( 8, 3 ) + " " + forceStr.substr( 11, 3 ) );
-        arrowText.text = StringUtils.format( Strings['GFL.pattern_0title_1value_2units'], options.title, forceStr, Strings['GFL.unitN'] );
+        arrowText.text = StringUtils.format( pattern_0title_1value_2units, options.title, forceStr, units_NString );
       }
       else {
         arrowText.text = options.title;

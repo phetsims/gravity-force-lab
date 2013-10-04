@@ -1,0 +1,22 @@
+{
+    "custom": "Personalizar",
+    "readout.pattern-bodyname": "{0} massa",
+    "sun": "Sol",
+    "my.solar.system": "Meu Sistema Solar",
+    "object.size.actual-size": "Realístico",
+    "units.earth.masses": "Massas da Terra",
+    "planet.control.title": "Planeta",
+    "module.force-laws.name": "Leis de Força",
+    "body.name.earth": "Terra",
+    "object.size.cartoon": "Esboço",
+    "planet": "Planeta",
+    "units.light-minutes": "minutos-luz",
+    "sun.planet.controls": "Definições",
+    "object.size": "Tamanho do Objeto",
+    "units": "Unidades",
+    "related.sims": "Simulações Relacionados",
+    "module.sun-planet-system.name": "Sistema Sol-Planeta",
+    "force-description-pattern-target_source_value": "Força sobre {0} por {1} = {2} N",
+    "units.kilometers": "quilômetros",
+    "gravity-force-lab.name": "Laboratório de Força Gravítica"
+}

@@ -8,6 +8,7 @@
 define( function( require ) {
   'use strict';
 
+  // Imports
   var ArrowButton = require( 'SCENERY_PHET/ArrowButton' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -19,14 +20,18 @@ define( function( require ) {
   var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Image = require( 'SCENERY/nodes/Image' );
-  var Strings = require( 'Strings' );
   var Panel = require( 'SUN/Panel' );
   var FillHighlightListener = require( 'SCENERY_PHET/input/FillHighlightListener' );
   var Range = require( 'DOT/Range' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
 
-  // constants
+  // Resources
+  var simTitle = require( 'string!GRAVITY_FORCE_LAB/gravity-force-lab.name' );
+  var pattern_0value_1units = require( 'string!GRAVITY_FORCE_LAB/pattern_0value_1units' );
+  var units_kgString = require( 'string!GRAVITY_FORCE_LAB/units.kg' );
+
+  // Constants
   var TRACK_SIZE = new Dimension2( 170, 3 );
   var THUMB_SIZE = new Dimension2( 22, 42 );
   var THUMB_FILL_ENABLED = 'rgb(50,145,184)';
@@ -119,7 +124,7 @@ define( function( require ) {
 
   inherit( Node, Thumb );
 
-  function ControlMass( titleString, massProperty, massRange, options ) {
+  function ControlMass( simTitle, massProperty, massRange, options ) {
 
     options = _.extend( {
       scale: 0.8,
@@ -142,7 +147,7 @@ define( function( require ) {
     } );
     var valueLabel = new Text( "", { font: new PhetFont( 18 ), pickable: false } );
     var valueField = new Rectangle( 0, 0, 100, 30, 3, 3, { fill: "#FFF", stroke: 'black', lineWidth: 1, pickable: false } );
-    var title = new Text( titleString, { font: new PhetFont( 24 ), pickable: false } );
+    var title = new Text( simTitle, { font: new PhetFont( 24 ), pickable: false } );
     var labelFont = new PhetFont( 14 );
     var minLabel = new Text( massRange.min.toFixed( 0 ), { font: labelFont, pickable: false } );
     var maxLabel = new Text( massRange.max.toFixed( 0 ), { font: labelFont, pickable: false } );
@@ -197,7 +202,7 @@ define( function( require ) {
       fill: options.fill, xMargin: options.xMargin, yMargin: options.yMargin, scale: options.scale, resize: false } ) );
 
     massProperty.link( function updateMass( value ) {
-      valueLabel.text = StringUtils.format( Strings['GFL.pattern_0value_1units'], value, Strings['GFL.unitKg'] );
+      valueLabel.text = StringUtils.format( pattern_0value_1units, value, units_kgString );
       valueLabel.centerX = valueField.centerX; // keep the value centered in the field
       plusButton.setEnabled( value < massRange.max );
       minusButton.setEnabled( value > massRange.min );

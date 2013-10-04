@@ -8,19 +8,29 @@
 
 define( function( require ) {
   'use strict';
+
+  // Imports
   var MassObject = require( 'view/MassObject' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var Strings = require( 'Strings' );
 
+  // Resources
+  var forceOnM1ByM2String = require( 'string!GRAVITY_FORCE_LAB/forceOnM1ByM2' );
+  var forceOnM2ByM1String = require( 'string!GRAVITY_FORCE_LAB/forceOnM2ByM1' );
+  var m1String = require( 'string!GRAVITY_FORCE_LAB/mass-1' );
+  var m2String = require( 'string!GRAVITY_FORCE_LAB/mass-2' );
 
+  /**
+   * @param model
+   * @constructor
+   */
   function MassObjects( model ) {
 
     Node.call( this );
     this.addChild( new MassObject( {
       model: model,
-      title: Strings["GFL.title1"],
-      label: Strings["GFL.label1"],
+      title: forceOnM1ByM2String,
+      label: m1String,
       direction: "left",
       colorGradient: ["#aaf", "#00f", "#66f"],
       y: 250,
@@ -31,8 +41,8 @@ define( function( require ) {
     } ) );
     this.addChild( new MassObject( {
       model: model,
-      title: Strings["GFL.title2"],
-      label: Strings["GFL.label2"],
+      title: forceOnM2ByM1String,
+      label: m2String,
       direction: "right",
       colorGradient: ["#faa", "#f00", "#f66"],
       y: 250,

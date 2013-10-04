@@ -8,11 +8,15 @@
 
 define( function( require ) {
   'use strict';
-  var SimLauncher = require( 'JOIST/SimLauncher' ),
-    Sim = require( 'JOIST/Sim' ),
-    Strings = require( 'Strings' ),
-    GravityForceLabModel = require( 'model/GravityForceLabModel' ),
-    GravityForceLabView = require( 'view/GravityForceLabView' );
+
+  // Imports
+  var SimLauncher = require( 'JOIST/SimLauncher' );
+  var Sim = require( 'JOIST/Sim' );
+  var GravityForceLabModel = require( 'model/GravityForceLabModel' );
+  var GravityForceLabView = require( 'view/GravityForceLabView' );
+
+  // Resources
+  var simTitle = require( 'string!GRAVITY_FORCE_LAB/gravity-force-lab.name' );
 
   var simOptions = {
     credits: 'PhET Development Team -\n' +
@@ -23,9 +27,9 @@ define( function( require ) {
   };
   SimLauncher.launch( function() {
     //Create and start the sim
-    new Sim( Strings['GFL.name'], [
+    new Sim( simTitle, [
       {
-        name: Strings['GFL.name'],
+        name: simTitle,
         createModel: function() { return new GravityForceLabModel( 768, 504 ); },
         createView: function( model ) { return new GravityForceLabView( model ); },
         backgroundColor: "#FFFFFF"
