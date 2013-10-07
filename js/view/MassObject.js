@@ -27,8 +27,8 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
 
   // Resources
-  var forceDescriptionPatternTarget_source_value = require( 'string!GRAVITY_FORCE_LAB/force-description-pattern-target_source_value' );
-  var units_NString = require( 'string!GRAVITY_FORCE_LAB/units.N' );
+  var forceDescriptionPattern_target_source = require( 'string!GRAVITY_FORCE_LAB/force-description-pattern-target_source' );
+  var forceDescriptionPattern_target_source_value = require( 'string!GRAVITY_FORCE_LAB/force-description-pattern-target_source_value' );
 
   /**
    * @param options
@@ -120,10 +120,10 @@ define( function( require ) {
       if ( options.model.showValues ) {
         var forceStr = options.model.force.toFixed( 12 );
         forceStr = ( forceStr.substr( 0, 5 ) + " " + forceStr.substr( 5, 3 ) + " " + forceStr.substr( 8, 3 ) + " " + forceStr.substr( 11, 3 ) );
-        arrowText.text = StringUtils.format( forceDescriptionPatternTarget_source_value, options.label, options.otherMassLabel, forceStr );
+        arrowText.text = StringUtils.format( forceDescriptionPattern_target_source_value, options.label, options.otherMassLabel, forceStr );
       }
       else {
-        arrowText.text = options.title;
+        arrowText.text = StringUtils.format( forceDescriptionPattern_target_source, options.label, options.otherMassLabel );
       }
       arrowText.centerX = 0;
 

@@ -5,11 +5,9 @@
   "showValues": "Show values",
   "units.kg": "kg",
   "units.meters": "meters",
-  "forceOnM1ByM2": "Force on m1 by m2",
-  "forceOnM2ByM1": "Force on m2 by m1",
-  "units.N": "N",
   "mass-1": "m1",
   "mass-2": "m2",
   "pattern_0value_1units": "{0} {1}",
+  "force-description-pattern-target_source": "Force on {0} by {1}",
   "force-description-pattern-target_source_value": "Force on {0} by {1} = {2} N"
 }
