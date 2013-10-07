@@ -1,1 +1,2 @@
+10/7/13 Converted to use the new string plugin
 9/23/13 Converted to use sherpa & image!

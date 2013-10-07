@@ -15,8 +15,6 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
 
   // Resources
-  var forceOnM1ByM2String = require( 'string!GRAVITY_FORCE_LAB/forceOnM1ByM2' );
-  var forceOnM2ByM1String = require( 'string!GRAVITY_FORCE_LAB/forceOnM2ByM1' );
   var m1String = require( 'string!GRAVITY_FORCE_LAB/mass-1' );
   var m2String = require( 'string!GRAVITY_FORCE_LAB/mass-2' );
 
@@ -29,8 +27,8 @@ define( function( require ) {
     Node.call( this );
     this.addChild( new MassObject( {
       model: model,
-      title: forceOnM1ByM2String,
       label: m1String,
+      otherMassLabel: m2String,
       direction: "left",
       colorGradient: ["#aaf", "#00f", "#66f"],
       y: 250,
@@ -41,8 +39,8 @@ define( function( require ) {
     } ) );
     this.addChild( new MassObject( {
       model: model,
-      title: forceOnM2ByM1String,
       label: m2String,
+      otherMassLabel: m1String,
       direction: "right",
       colorGradient: ["#faa", "#f00", "#f66"],
       y: 250,

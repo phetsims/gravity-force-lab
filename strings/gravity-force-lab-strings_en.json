@@ -1,5 +1,4 @@
 {
-  "Comment1------------------------" : "New stuff",
   "gravity-force-lab.name": "Gravity Force Lab",
   "mass1": "Mass 1",
   "mass2": "Mass 2",
@@ -13,7 +12,5 @@
   "mass-2": "m2",
   "pattern_0value_1units": "{0} {1}",
   "pattern_0title_1value_2units": "{0} = {1} {2}",
-
-  "Comment2------------------------" : "Old stuff",
   "force-description-pattern-target_source_value": "Force on {0} by {1} = {2} N"
 }

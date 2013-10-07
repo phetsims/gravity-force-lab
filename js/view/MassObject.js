@@ -28,6 +28,7 @@ define( function( require ) {
 
   // Resources
   var pattern_0title_1value_2units = require( 'string!GRAVITY_FORCE_LAB/pattern_0title_1value_2units' );
+  var forceDescriptionPatternTarget_source_value = require( 'string!GRAVITY_FORCE_LAB/force-description-pattern-target_source_value' );
   var units_NString = require( 'string!GRAVITY_FORCE_LAB/units.N' );
 
   /**
@@ -36,20 +37,20 @@ define( function( require ) {
    */
   function MassObject( options ) {
     options = _.extend( {
-      title: "",
-      label: "",
+      label: "This Mass",
+      otherMassName: "Other Mass",
       direction: "left", //direction mass
       colorGradient: ["#aaf", "#00f", "#66f"], //[<gradient mass light>, <gradient mass dark>, <color vertical line>]
       y: 250,
       forceArrowHeight: 150, // arrow height
       pullImagesCount: 15,
-      arrowLenght: 120,
-      massRadius: 100// radius of the mass when scale is 1.0
+      arrowLength: 120,
+      massRadius: 100 // radius of the mass when scale is 1.0
     }, options );
 
     var thisNode = this;
     //Conversion functions
-    var forceToArrow = new LinearFunction( options.model.forceRange.min, options.model.forceRange.max, 0, options.arrowLenght, true );
+    var forceToArrow = new LinearFunction( options.model.forceRange.min, options.model.forceRange.max, 0, options.arrowLength, true );
     var forceToImage = new LinearFunction( options.model.forceRange.min, options.model.forceRange.max, 0, options.pullImagesCount - 1, true );
     var massToScale = new LinearFunction( options.model.massRange.min, options.model.massRange.max, 0.05, 0.95, true );
 
@@ -120,7 +121,7 @@ define( function( require ) {
       if ( options.model.showValues ) {
         var forceStr = options.model.force.toFixed( 12 );
         forceStr = ( forceStr.substr( 0, 5 ) + " " + forceStr.substr( 5, 3 ) + " " + forceStr.substr( 8, 3 ) + " " + forceStr.substr( 11, 3 ) );
-        arrowText.text = StringUtils.format( pattern_0title_1value_2units, options.title, forceStr, units_NString );
+        arrowText.text = StringUtils.format( forceDescriptionPatternTarget_source_value, options.label, options.otherMassLabel, forceStr );
       }
       else {
         arrowText.text = options.title;
