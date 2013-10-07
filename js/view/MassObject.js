@@ -27,7 +27,6 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
 
   // Resources
-  var pattern_0title_1value_2units = require( 'string!GRAVITY_FORCE_LAB/pattern_0title_1value_2units' );
   var forceDescriptionPatternTarget_source_value = require( 'string!GRAVITY_FORCE_LAB/force-description-pattern-target_source_value' );
   var units_NString = require( 'string!GRAVITY_FORCE_LAB/units.N' );
 

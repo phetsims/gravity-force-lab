@@ -1,6 +1,6 @@
 {
-    "force-description-pattern-target_source_value": "siła przyciągania {0} przez {1} = {2}",
-    "body.name.earth": "Ziemia",
-    "translation.credits": "Andrzej Batorski",
-    "gravity-force-lab.name": "Siły Grawitacyjne Lab"
+  "force-description-pattern-target_source_value": "siła przyciągania {0} przez {1} = {2}",
+  "body.name.earth": "Ziemia",
+  "translation.credits": "Andrzej Batorski",
+  "gravity-force-lab.name": "Siły Grawitacyjne Lab"
 }
