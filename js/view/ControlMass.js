@@ -202,7 +202,6 @@ define( function( require ) {
       fill: options.fill, xMargin: options.xMargin, yMargin: options.yMargin, scale: options.scale, resize: false } ) );
 
     massProperty.link( function updateMass( value ) {
-      debugger;
       valueLabel.text = StringUtils.format( pattern_0value_1units, value, units_kgString );
       valueLabel.centerX = valueField.centerX; // keep the value centered in the field
       plusButton.setEnabled( value < massRange.max );
