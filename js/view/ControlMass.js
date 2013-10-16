@@ -52,9 +52,6 @@ define( function( require ) {
         },
         drag: function( event ) {
           handleEvent( event );
-        },
-        translate: function() {
-          // do nothing, override default behavior
         }
       } ) );
     // increase the vertical hit area, so the track is easier to hit
@@ -112,9 +109,6 @@ define( function( require ) {
           var x = thisNode.globalToParentPoint( event.pointer.point ).x - clickXOffset;
           x = Math.max( Math.min( x, TRACK_SIZE.width ), 0 );
           massProperty.set( Math.round( massToPosition.inverse( x ) ) );
-        },
-        translate: function() {
-          // do nothing, override default behavior
         }
       } ) );
     massProperty.link( function( concentration ) {

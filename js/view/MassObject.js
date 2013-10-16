@@ -172,9 +172,6 @@ define( function( require ) {
           var xMin = 0;
           x = Math.max( Math.min( x, xMax ), xMin );
           options.x.set( x );
-        },
-        translate: function() {
-          // do nothing, override default behavior
         }
       } ) );
   }

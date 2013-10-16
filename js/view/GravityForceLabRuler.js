@@ -42,9 +42,6 @@ define( function( require ) {
           var x = ruler.globalToParentPoint( event.pointer.point ).x - rulerClickOffset.x,
             y = ruler.globalToParentPoint( event.pointer.point ).y - rulerClickOffset.y;
           model.ruler = { x: x, y: y };
-        },
-        translate: function() {
-          // do nothing, override default behavior
         }
       } ) );
   }
