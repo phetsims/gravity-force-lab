@@ -10,6 +10,7 @@ define( function( require ) {
   'use strict';
 
   // Imports
+  var Screen = require( 'JOIST/Screen' );
   var SimLauncher = require( 'JOIST/SimLauncher' );
   var Sim = require( 'JOIST/Sim' );
   var GravityForceLabModel = require( 'model/GravityForceLabModel' );
@@ -28,12 +29,11 @@ define( function( require ) {
   SimLauncher.launch( function() {
     //Create and start the sim
     new Sim( simTitle, [
-      {
-        name: simTitle,
-        createModel: function() { return new GravityForceLabModel( 768, 504 ); },
-        createView: function( model ) { return new GravityForceLabView( model ); },
-        backgroundColor: "#FFFFFF"
-      }
+      new Screen( simTitle, null,
+        function() { return new GravityForceLabModel( 768, 504 ); },
+        function( model ) { return new GravityForceLabView( model ); },
+        { backgroundColor: "#FFFFFF" }
+      )
     ], simOptions ).start();
   } );
 } );
