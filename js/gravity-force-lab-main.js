@@ -20,12 +20,13 @@ define( function( require ) {
   var simTitle = require( 'string!GRAVITY_FORCE_LAB/gravity-force-lab.name' );
 
   var simOptions = {
-    credits: 'PhET Development Team -\n' +
-             'Software Development: Sam Reid, John Blanco, Chris Malley\n' +
-             'Design Team: Carl Wieman, Trish Loeblein, Wendy Adams\n',
-    thanks: 'Thanks -\n' +
-            'Thanks to Mobile Learner Labs for working with the PhET development team to convert this simulation to HTML5.'
+    credits: {
+      softwareDevelopment: 'Sam Reid, John Blanco',
+      designTeam: 'Carl Wieman, Trish Loeblein, Wendy Adams',
+      thanks: 'Thanks to Mobile Learner Labs for working with the PhET development team to convert this simulation to HTML5.'
+    }
   };
+
   SimLauncher.launch( function() {
     //Create and start the sim
     new Sim( simTitle, [
