@@ -19,15 +19,12 @@ define( function( require ) {
   var Shape = require( 'KITE/Shape' );
   var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var Image = require( 'SCENERY/nodes/Image' );
   var Panel = require( 'SUN/Panel' );
   var FillHighlightListener = require( 'SCENERY_PHET/input/FillHighlightListener' );
-  var Range = require( 'DOT/Range' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
 
   // Resources
-  var simTitle = require( 'string!GRAVITY_FORCE_LAB/gravity-force-lab.name' );
   var pattern_0value_1units = require( 'string!GRAVITY_FORCE_LAB/pattern_0value_1units' );
   var units_kgString = require( 'string!GRAVITY_FORCE_LAB/units.kg' );
 
