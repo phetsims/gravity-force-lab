@@ -113,7 +113,7 @@ define( function( require ) {
 
       thisNode.x = options.x.get();
       //reset scale
-      massCircle.matrix = new Matrix3();
+      massCircle.matrix = Matrix3.identity();
       //set scale
       massCircle.scale( massToScale( options.mass.get() ) );
 
