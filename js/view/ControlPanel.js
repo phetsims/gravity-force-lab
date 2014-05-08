@@ -12,7 +12,7 @@ define( function( require ) {
   // Imports
   var Node = require( 'SCENERY/nodes/Node' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var ResetAllButtonDeprecated = require( 'SCENERY_PHET/ResetAllButtonDeprecated' );
+  var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
   var ControlShowValues = require( 'view/ControlShowValues' );
   var ControlMass = require( 'view/ControlMass' );
 
@@ -28,10 +28,13 @@ define( function( require ) {
 
     Node.call( this, { scale: 0.9 } );
 
-    var resetAllButton = new ResetAllButtonDeprecated( function() { model.reset(); }, { scale: 0.8 } ),
-      controlShowValues = new ControlShowValues( model ),
-      controlMass1 = new ControlMass( m1String, model.mass1Property, model.massRange ),
-      controlMass2 = new ControlMass( m2String, model.mass2Property, model.massRange );
+    var resetAllButton = new ResetAllButton( {
+      listener: function() { model.reset(); },
+      scale: 1.1
+    } );
+    var controlShowValues = new ControlShowValues( model );
+    var controlMass1 = new ControlMass( m1String, model.mass1Property, model.massRange );
+    var controlMass2 = new ControlMass( m2String, model.mass2Property, model.massRange );
 
     this.addChild( controlShowValues );
     this.addChild( controlMass1 );
