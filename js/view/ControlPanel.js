@@ -17,8 +17,8 @@ define( function( require ) {
   var ControlMass = require( 'view/ControlMass' );
 
   // Resources
-  var m1String = require( 'string!GRAVITY_FORCE_LAB/mass-1' );
-  var m2String = require( 'string!GRAVITY_FORCE_LAB/mass-2' );
+  var mass1String = require( 'string!GRAVITY_FORCE_LAB/mass1' );
+  var mass2String = require( 'string!GRAVITY_FORCE_LAB/mass2' );
 
   /**
    * @param model
@@ -33,8 +33,8 @@ define( function( require ) {
       scale: 1.1
     } );
     var controlShowValues = new ControlShowValues( model );
-    var controlMass1 = new ControlMass( m1String, model.mass1Property, model.massRange );
-    var controlMass2 = new ControlMass( m2String, model.mass2Property, model.massRange );
+    var controlMass1 = new ControlMass( mass1String, model.mass1Property, model.massRange );
+    var controlMass2 = new ControlMass( mass2String, model.mass2Property, model.massRange );
 
     this.addChild( controlShowValues );
     this.addChild( controlMass1 );
