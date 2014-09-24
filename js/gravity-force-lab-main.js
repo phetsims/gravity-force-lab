@@ -22,7 +22,7 @@ define( function( require ) {
   var simOptions = {
     credits: {
       softwareDevelopment: 'Sam Reid, John Blanco',
-      designTeam: 'Noah Podolefsky, Carl Wieman, Wendy Adams, Trish Loeblein',
+      team: 'Wendy Adams, Trish Loeblein, Noah Podolefsky, Carl Wieman',
       thanks: 'Thanks to Mobile Learner Labs for working with the PhET development team to convert this simulation to HTML5.'
     }
   };
