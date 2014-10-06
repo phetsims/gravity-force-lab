@@ -12,7 +12,7 @@ define( function( require ) {
   // Imports
   var Node = require( 'SCENERY/nodes/Node' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
+  var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   var ControlShowValues = require( 'view/ControlShowValues' );
   var ControlMass = require( 'view/ControlMass' );
 
