@@ -12,8 +12,8 @@ define( function( require ) {
   var Screen = require( 'JOIST/Screen' );
   var SimLauncher = require( 'JOIST/SimLauncher' );
   var Sim = require( 'JOIST/Sim' );
-  var GravityForceLabModel = require( 'GRAVITY_FORCE_LAB/model/GravityForceLabModel' );
-  var GravityForceLabView = require( 'GRAVITY_FORCE_LAB/view/GravityForceLabView' );
+  var GravityForceLabModel = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/model/GravityForceLabModel' );
+  var GravityForceLabView = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabView' );
 
   // strings
   var simTitle = require( 'string!GRAVITY_FORCE_LAB/gravity-force-lab.name' );

@@ -12,8 +12,8 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
-  var ControlShowValues = require( 'GRAVITY_FORCE_LAB/view/ControlShowValues' );
-  var ControlMass = require( 'GRAVITY_FORCE_LAB/view/ControlMass' );
+  var ControlShowValues = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/ControlShowValues' );
+  var ControlMass = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/ControlMass' );
 
   // strings
   var mass1String = require( 'string!GRAVITY_FORCE_LAB/mass1' );

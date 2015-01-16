@@ -9,7 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var MassObject = require( 'GRAVITY_FORCE_LAB/view/MassObject' );
+  var MassObject = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassObject' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
 
