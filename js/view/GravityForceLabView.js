@@ -10,8 +10,8 @@ define( function( require ) {
 
   // modules
   var Bounds2 = require( 'DOT/Bounds2' );
-  var ControlPanel = require( 'view/ControlPanel' );
-  var MassObjects = require( 'view/MassObjects' );
+  var ControlPanel = require( 'GRAVITY_FORCE_LAB/view/ControlPanel' );
+  var MassObjects = require( 'GRAVITY_FORCE_LAB/view/MassObjects' );
   var GravityForceLabRuler = require( 'view/GravityForceLabRuler' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var inherit = require( 'PHET_CORE/inherit' );
