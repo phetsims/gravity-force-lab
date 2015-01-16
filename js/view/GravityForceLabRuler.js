@@ -5,17 +5,16 @@
  *
  * @author Anton Ulyanov (Mlearner)
  */
-
 define( function( require ) {
   "use strict";
 
-  // Imports
+  // modules
   var Node = require( 'SCENERY/nodes/Node' );
   var inherit = require( 'PHET_CORE/inherit' );
   var RulerNode = require( 'SCENERY_PHET/RulerNode' );
   var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
 
-  // Resources
+  // strings
   var units_metersString = require( 'string!GRAVITY_FORCE_LAB/units.meters' );
 
   /**

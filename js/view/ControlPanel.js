@@ -5,18 +5,17 @@
  *
  * Author: Anton Ulyanov (Mlearner)
  */
-
 define( function( require ) {
   'use strict';
 
-  // Imports
+  // modules
   var Node = require( 'SCENERY/nodes/Node' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   var ControlShowValues = require( 'view/ControlShowValues' );
   var ControlMass = require( 'view/ControlMass' );
 
-  // Resources
+  // strings
   var mass1String = require( 'string!GRAVITY_FORCE_LAB/mass1' );
   var mass2String = require( 'string!GRAVITY_FORCE_LAB/mass2' );
 

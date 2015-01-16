@@ -6,7 +6,6 @@
  *
  * @author Anton Ulyanov (Mlearner)
  */
-
 require.config( {
 
   deps: [ 'gravity-force-lab-main' ],

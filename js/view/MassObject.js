@@ -1,6 +1,5 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
-
 /**
  * mass object view
  *
@@ -10,7 +9,7 @@
 define( function( require ) {
   'use strict';
 
-  // Imports
+  // modules
   var ArrowNode = require( 'SCENERY_PHET/ArrowNode' );
   var Matrix3 = require( 'DOT/Matrix3' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -26,7 +25,7 @@ define( function( require ) {
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
 
-  // Resources
+  // strings
   var forceDescriptionPattern_target_source = require( 'string!GRAVITY_FORCE_LAB/force-description-pattern-target_source' );
   var forceDescriptionPattern_target_source_value = require( 'string!GRAVITY_FORCE_LAB/force-description-pattern-target_source_value' );
 

@@ -5,18 +5,17 @@
  *
  * @author Anton Ulyanov (Mlearner)
  */
-
 define( function( require ) {
   'use strict';
 
-  // Imports
+  // modules
   var Screen = require( 'JOIST/Screen' );
   var SimLauncher = require( 'JOIST/SimLauncher' );
   var Sim = require( 'JOIST/Sim' );
   var GravityForceLabModel = require( 'model/GravityForceLabModel' );
   var GravityForceLabView = require( 'view/GravityForceLabView' );
 
-  // Resources
+  // strings
   var simTitle = require( 'string!GRAVITY_FORCE_LAB/gravity-force-lab.name' );
 
   var simOptions = {

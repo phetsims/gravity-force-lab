@@ -1,19 +1,21 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
-
 /**
  * pull view for massObject
  *
  * @author Anton Ulyanov (Mlearner)
  */
-
 define( function( require ) {
   'use strict';
+
+  // modules
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
   var Shape = require( 'KITE/Shape' );
   var Image = require( 'SCENERY/nodes/Image' );
+
+  // images
   var pullImage0 = require( 'image!GRAVITY_FORCE_LAB/pull_figure_0.png' );
   var pullImage1 = require( 'image!GRAVITY_FORCE_LAB/pull_figure_1.png' );
   var pullImage2 = require( 'image!GRAVITY_FORCE_LAB/pull_figure_2.png' );

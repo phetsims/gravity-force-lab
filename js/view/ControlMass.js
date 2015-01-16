@@ -8,7 +8,7 @@
 define( function( require ) {
   'use strict';
 
-  // Imports
+  // modules
   var ArrowButton = require( 'SCENERY_PHET/buttons/ArrowButton' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -24,7 +24,7 @@ define( function( require ) {
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
 
-  // Resources
+  // strings
   var pattern_0value_1units = require( 'string!GRAVITY_FORCE_LAB/pattern_0value_1units' );
   var units_kgString = require( 'string!GRAVITY_FORCE_LAB/units.kg' );
 

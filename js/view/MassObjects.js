@@ -5,16 +5,15 @@
  *
  * @author Anton Ulyanov (Mlearner)
  */
-
 define( function( require ) {
   'use strict';
 
-  // Imports
+  // modules
   var MassObject = require( 'view/MassObject' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
 
-  // Resources
+  // strings
   var m1String = require( 'string!GRAVITY_FORCE_LAB/mass-1' );
   var m2String = require( 'string!GRAVITY_FORCE_LAB/mass-2' );
 

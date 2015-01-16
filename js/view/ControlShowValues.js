@@ -5,7 +5,6 @@
  *
  * @author Anton Ulyanov (Mlearner)
  */
-
 define( function( require ) {
   'use strict';
 
@@ -16,7 +15,7 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
 
-  // resources
+  // strings
   var showValuesString = require( 'string!GRAVITY_FORCE_LAB/showValues' );
 
   /**
