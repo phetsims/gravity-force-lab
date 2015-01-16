@@ -9,7 +9,7 @@
 
 require.config( {
 
-  deps: ['gravity-force-lab-main'],
+  deps: [ 'gravity-force-lab-main' ],
 
   paths: {
 

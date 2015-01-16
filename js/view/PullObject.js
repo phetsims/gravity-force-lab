@@ -30,34 +30,42 @@ define( function( require ) {
   var pullImage13 = require( 'image!GRAVITY_FORCE_LAB/pull_figure_13.png' );
   var pullImage14 = require( 'image!GRAVITY_FORCE_LAB/pull_figure_14.png' );
 
-  var pullImages = [pullImage0, pullImage1, pullImage2, pullImage3, pullImage4, pullImage5, pullImage6, pullImage7, pullImage8, pullImage9, pullImage10,
-    pullImage11, pullImage12, pullImage13, pullImage14];
+  var pullImages = [ pullImage0, pullImage1, pullImage2, pullImage3, pullImage4, pullImage5, pullImage6, pullImage7, pullImage8, pullImage9, pullImage10,
+    pullImage11, pullImage12, pullImage13, pullImage14 ];
 
   function PullObject( options ) {
-    options = _.extend( {rope_lenght: 50}, options );
+    options = _.extend( { rope_lenght: 50 }, options );
     Node.call( this );
 
-    var pullGroup = new Node( {x: -options.rope_lenght} ),
+    var pullGroup = new Node( { x: -options.rope_lenght } ),
       pull = [],
       i;
     for ( i = 0; i < pullImages.length; i++ ) {
-      var image = new Image( pullImages[i] );
-      pull.push( new Node( {children: [new Path( Shape.circle( 0, 0, 10 ), { fill: '#777', pickable: false, scale: {x: image.width / 20, y: 1}, x: image.width / 2, y: image.height - 5 } ), image]} ) );
+      var image = new Image( pullImages[ i ] );
+      pull.push( new Node( {
+        children: [ new Path( Shape.circle( 0, 0, 10 ), {
+          fill: '#777',
+          pickable: false,
+          scale: { x: image.width / 20, y: 1 },
+          x: image.width / 2,
+          y: image.height - 5
+        } ), image ]
+      } ) );
     }
     pullGroup.addChild( new Path( Shape.lineSegment( -options.rope_lenght, 0, 0, 0 ), { stroke: '#666', lineWidth: 2, pickable: false } ) );
     for ( i = 0; i < pullImages.length; i++ ) {
-      pullGroup.addChild( pull[i] );
-      pull[i].scale( -0.3, 0.3 );
-      pull[i].bottom = 33;
-      pull[i].right = i - options.rope_lenght;
-      pull[i].setVisible( false );
+      pullGroup.addChild( pull[ i ] );
+      pull[ i ].scale( -0.3, 0.3 );
+      pull[ i ].bottom = 33;
+      pull[ i ].right = i - options.rope_lenght;
+      pull[ i ].setVisible( false );
     }
 
     this.addChild( pullGroup );
     //function select image
     this.setPull = function( value, offsetX ) {
       for ( var i = 0; i < pullImages.length; i++ ) {
-        pull[i].setVisible( i === value );
+        pull[ i ].setVisible( i === value );
       }
       pullGroup.x = -offsetX;
     };

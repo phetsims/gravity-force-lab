@@ -39,7 +39,7 @@ define( function( require ) {
       label: "This Mass",
       otherMassName: "Other Mass",
       direction: "left", //direction mass
-      colorGradient: ["#aaf", "#00f", "#66f"], //[<gradient mass light>, <gradient mass dark>, <color vertical line>]
+      colorGradient: [ "#aaf", "#00f", "#66f" ], //[<gradient mass light>, <gradient mass dark>, <color vertical line>]
       y: 250,
       forceArrowHeight: 150, // arrow height
       pullImagesCount: 15,
@@ -56,15 +56,15 @@ define( function( require ) {
     Node.call( this );
     var dragNode = new Node( { cursor: "pointer" } );
     var massCircle = new Node();
-    var pull = new PullObject( {image_count: options.pullImagesCount} );
+    var pull = new PullObject( { image_count: options.pullImagesCount } );
     if ( options.direction === "right" ) {
       pull.scale( -1, 1 );
     }
 
     massCircle.addChild( new Circle( options.massRadius, {
       fill: new RadialGradient( options.massRadius * 0.6, -options.massRadius * 0.6, 1, options.massRadius * 0.6, -options.massRadius * 0.6, options.massRadius )
-        .addColorStop( 0, options.colorGradient[0] )
-        .addColorStop( 1, options.colorGradient[1] )
+        .addColorStop( 0, options.colorGradient[ 0 ] )
+        .addColorStop( 1, options.colorGradient[ 1 ] )
     } ) );
 
     dragNode.addChild( pull );
@@ -78,21 +78,26 @@ define( function( require ) {
     this.addChild( dragNode );
     this.y = options.y;
 
-    var arrowNode = new ArrowNode( 0, -options.forceArrowHeight, 200, -options.forceArrowHeight, { headHeight: 10, headWidth: 10, tailWidth: 3, stroke: null } );
+    var arrowNode = new ArrowNode( 0, -options.forceArrowHeight, 200, -options.forceArrowHeight, {
+      headHeight: 10,
+      headWidth: 10,
+      tailWidth: 3,
+      stroke: null
+    } );
     var arrowText = new Text( options.title, { font: new PhetFont( 16 ), fill: "#000", y: -options.forceArrowHeight - 20 } );
     var arrowShape = new Shape();
     arrowShape.moveTo( 0, -4 );
     arrowShape.lineTo( 0, -options.forceArrowHeight );
     this.addChild( new Path( arrowShape, {
       stroke: "#FFF",
-      lineDash: [4, 4],
+      lineDash: [ 4, 4 ],
       lineWidth: 2,
       x: 0.5,
       y: 0.5
     } ) );
     this.addChild( new Path( arrowShape, {
-      stroke: options.colorGradient[2],
-      lineDash: [4, 4],
+      stroke: options.colorGradient[ 2 ],
+      lineDash: [ 4, 4 ],
       lineWidth: 2
     } ) );
 
@@ -133,7 +138,12 @@ define( function( require ) {
       }
 
       thisNode.removeChild( arrowNode );
-      arrowNode = new ArrowNode( 0, -options.forceArrowHeight, arr, -options.forceArrowHeight, { headHeight: 10, headWidth: 10, tailWidth: 3, stroke: null } );
+      arrowNode = new ArrowNode( 0, -options.forceArrowHeight, arr, -options.forceArrowHeight, {
+        headHeight: 10,
+        headWidth: 10,
+        tailWidth: 3,
+        stroke: null
+      } );
       thisNode.addChild( arrowNode );
       pull.setPull( Math.round( forceToImage( options.model.force ) ), (massCircle.width / 2) );
     };

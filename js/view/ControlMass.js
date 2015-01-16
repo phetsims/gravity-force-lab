@@ -61,7 +61,8 @@ define( function( require ) {
   function TickLine() {
     Path.call( this, Shape.lineSegment( 0, 0, 0, ( THUMB_SIZE.height / 2 ) + ( TRACK_SIZE.height / 2 ) + 2 ), {
       stroke: 'black',
-      lineWidth: 1 } );
+      lineWidth: 1
+    } );
   }
 
   inherit( Path, TickLine );
@@ -84,7 +85,8 @@ define( function( require ) {
       { cursor: 'pointer', fill: THUMB_FILL_ENABLED, stroke: 'black', lineWidth: 1 } );
     var CENTER_LINE_Y_MARGIN = 3;
     body.addChild( new Path( Shape.lineSegment( 0, -( THUMB_SIZE.height / 2 ) + CENTER_LINE_Y_MARGIN, 0, ( THUMB_SIZE.height / 2 ) - CENTER_LINE_Y_MARGIN ), {
-      stroke: 'white' } ) );
+      stroke: 'white'
+    } ) );
     body.left = -body.width / 2;
     this.addChild( body );
 
@@ -190,7 +192,8 @@ define( function( require ) {
 
     // wrap in a panel
     this.addChild( new Panel( content, {
-      fill: options.fill, xMargin: options.xMargin, yMargin: options.yMargin, scale: options.scale, resize: false } ) );
+      fill: options.fill, xMargin: options.xMargin, yMargin: options.yMargin, scale: options.scale, resize: false
+    } ) );
 
     massProperty.link( function updateMass( value ) {
       valueLabel.text = StringUtils.format( pattern_0value_1units, value, units_kgString );

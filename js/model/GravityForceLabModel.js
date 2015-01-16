@@ -40,7 +40,7 @@ define( function( require ) {
       force: 0,
       locationX1: this.width / 2 - 100, // x-coordinate of mass 1
       locationX2: this.width / 2 + 100, // x-coordinate of mass 2
-      ruler: {x: 120, y: 310}
+      ruler: { x: 120, y: 310 }
     } );
 
     var updateForce = function() {model.force = calculateForce( model.mass1, model.mass2, model.distance );};
