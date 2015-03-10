@@ -22,7 +22,7 @@ define( function( require ) {
    * @constructor
    */
   function GravityForceLabRuler( model ) {
-    Node.call( this, { cursor: "pointer", renderer: 'svg', cssTransform: true } );
+    Node.call( this, { cursor: "pointer", cssTransform: true } );
     var ruler = new RulerNode( 500, 50, 50, [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" ], units_metersString, {
       minorTicksPerMajorTick: 4,
       unitsFont: '12px Arial'
