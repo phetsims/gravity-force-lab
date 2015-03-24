@@ -30,7 +30,7 @@ define( function( require ) {
   var forceDescriptionPattern_target_source_value = require( 'string!GRAVITY_FORCE_LAB/force-description-pattern-target_source_value' );
 
   /**
-   * @param options
+   * @param {Object} [options]
    * @constructor
    */
   function MassObject( options ) {
