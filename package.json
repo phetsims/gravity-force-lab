@@ -4,21 +4,7 @@
   "license": "GPLv3",
   "simTitleStringKey": "GRAVITY_FORCE_LAB/gravity-force-lab.name",
   "phetLibs": [
-    "gravity-force-lab",
-    "assert",
-    "axon",
-    "babel",
-    "brand",
-    "chipper",
-    "dot",
-    "joist",
-    "kite",
-    "phet-core",
-    "phetcommon",
-    "scenery",
-    "scenery-phet",
-    "sherpa",
-    "sun"
+    "gravity-force-lab"
   ],
   "repository": {
     "type": "git",
