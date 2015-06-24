@@ -9,8 +9,9 @@ define( function( require ) {
   "use strict";
 
   // modules
-  var Node = require( 'SCENERY/nodes/Node' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var RulerNode = require( 'SCENERY_PHET/RulerNode' );
   var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
 
@@ -25,7 +26,8 @@ define( function( require ) {
     Node.call( this, { cursor: "pointer", cssTransform: true } );
     var ruler = new RulerNode( 500, 50, 50, [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" ], units_metersString, {
       minorTicksPerMajorTick: 4,
-      unitsFont: '12px Arial'
+      majorTickFont: new PhetFont( 16 ),
+      unitsFont: new PhetFont( 10 )
     } );
     this.addChild( ruler );
     model.rulerProperty.link( function updateRulerLocation( value ) {
