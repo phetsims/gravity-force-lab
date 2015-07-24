@@ -1,15 +1,122 @@
-pull_figure_0.png source=phet author=Ron Le Master notes=using Poser
-pull_figure_1.png source=phet author=Ron Le Master notes=using Poser
-pull_figure_2.png source=phet author=Ron Le Master notes=using Poser
-pull_figure_3.png source=phet author=Ron Le Master notes=using Poser
-pull_figure_4.png source=phet author=Ron Le Master notes=using Poser
-pull_figure_5.png source=phet author=Ron Le Master notes=using Poser
-pull_figure_6.png source=phet author=Ron Le Master notes=using Poser
-pull_figure_7.png source=phet author=Ron Le Master notes=using Poser
-pull_figure_8.png source=phet author=Ron Le Master notes=using Poser
-pull_figure_9.png source=phet author=Ron Le Master notes=using Poser
-pull_figure_10.png source=phet author=Ron Le Master notes=using Poser
-pull_figure_11.png source=phet author=Ron Le Master notes=using Poser
-pull_figure_12.png source=phet author=Ron Le Master notes=using Poser
-pull_figure_13.png source=phet author=Ron Le Master notes=using Poser
-pull_figure_14.png source=phet author=Ron Le Master notes=using Poser
+{
+  "pull_figure_0.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by Ron Le Master using Poser"
+  },
+  "pull_figure_1.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by Ron Le Master using Poser"
+  },
+  "pull_figure_2.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by Ron Le Master using Poser"
+  },
+  "pull_figure_3.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by Ron Le Master using Poser"
+  },
+  "pull_figure_4.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by Ron Le Master using Poser"
+  },
+  "pull_figure_5.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by Ron Le Master using Poser"
+  },
+  "pull_figure_6.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by Ron Le Master using Poser"
+  },
+  "pull_figure_7.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by Ron Le Master using Poser"
+  },
+  "pull_figure_8.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by Ron Le Master using Poser"
+  },
+  "pull_figure_9.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by Ron Le Master using Poser"
+  },
+  "pull_figure_10.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by Ron Le Master using Poser"
+  },
+  "pull_figure_11.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by Ron Le Master using Poser"
+  },
+  "pull_figure_12.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by Ron Le Master using Poser"
+  },
+  "pull_figure_13.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by Ron Le Master using Poser"
+  },
+  "pull_figure_14.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by Ron Le Master using Poser"
+  }
+}
