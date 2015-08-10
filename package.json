@@ -2,6 +2,7 @@
   "name": "gravity-force-lab",
   "version": "1.2.0-dev.1",
   "license": "GPLv3",
+  "requirejsNamespace": "GRAVITY_FORCE_LAB",
   "simTitleStringKey": "GRAVITY_FORCE_LAB/gravity-force-lab.name",
   "phetLibs": [
     "gravity-force-lab"
