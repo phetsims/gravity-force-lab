@@ -15,9 +15,6 @@
   },
   "phet": {
     "requirejsNamespace": "GRAVITY_FORCE_LAB",
-    "simTitleStringKey": "GRAVITY_FORCE_LAB/gravity-force-lab.name",
-    "phetLibs": [
-      "gravity-force-lab"
-    ]
+    "simTitleStringKey": "GRAVITY_FORCE_LAB/gravity-force-lab.name"
   }
 }
