@@ -2,11 +2,6 @@
   "name": "gravity-force-lab",
   "version": "1.2.0-dev.1",
   "license": "GPLv3",
-  "requirejsNamespace": "GRAVITY_FORCE_LAB",
-  "simTitleStringKey": "GRAVITY_FORCE_LAB/gravity-force-lab.name",
-  "phetLibs": [
-    "gravity-force-lab"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/phetsims/gravity-force-lab.git"
@@ -17,5 +12,12 @@
     "grunt-contrib-jshint": "~0.6.4",
     "uglify-js": "~2.4.0",
     "requirejs": "~2.1.8"
+  },
+  "phet": {
+    "requirejsNamespace": "GRAVITY_FORCE_LAB",
+    "simTitleStringKey": "GRAVITY_FORCE_LAB/gravity-force-lab.name",
+    "phetLibs": [
+      "gravity-force-lab"
+    ]
   }
 }
