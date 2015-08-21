@@ -14,7 +14,6 @@
     "requirejs": "~2.1.8"
   },
   "phet": {
-    "requirejsNamespace": "GRAVITY_FORCE_LAB",
-    "simTitleStringKey": "GRAVITY_FORCE_LAB/gravity-force-lab.name"
+    "requirejsNamespace": "GRAVITY_FORCE_LAB"
   }
 }
