@@ -16,7 +16,7 @@ define( function( require ) {
   var GravityForceLabView = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabView' );
 
   // strings
-  var simTitle = require( 'string!GRAVITY_FORCE_LAB/gravity-force-lab.name' );
+  var simTitle = require( 'string!GRAVITY_FORCE_LAB/gravity-force-lab.title' );
 
   var simOptions = {
     credits: {
