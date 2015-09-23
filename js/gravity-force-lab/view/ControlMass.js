@@ -28,7 +28,7 @@ define( function( require ) {
   var pattern_0value_1units = require( 'string!GRAVITY_FORCE_LAB/pattern_0value_1units' );
   var units_kgString = require( 'string!GRAVITY_FORCE_LAB/units.kg' );
 
-  // Constants
+  // constants
   var TRACK_SIZE = new Dimension2( 170, 3 );
   var THUMB_SIZE = new Dimension2( 22, 42 );
   var THUMB_FILL_ENABLED = 'rgb(50,145,184)';
