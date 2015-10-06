@@ -6,7 +6,7 @@
  * @author Anton Ulyanov (Mlearner)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // modules
   var inherit = require( 'PHET_CORE/inherit' );
@@ -23,8 +23,8 @@ define( function( require ) {
    * @constructor
    */
   function GravityForceLabRuler( model ) {
-    Node.call( this, { cursor: "pointer", cssTransform: true } );
-    var ruler = new RulerNode( 500, 50, 50, [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" ], units_metersString, {
+    Node.call( this, { cursor: 'pointer', cssTransform: true } );
+    var ruler = new RulerNode( 500, 50, 50, [ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10' ], units_metersString, {
       minorTicksPerMajorTick: 4,
       majorTickFont: new PhetFont( 16 ),
       unitsFont: new PhetFont( 10 ),

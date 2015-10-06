@@ -35,10 +35,10 @@ define( function( require ) {
    */
   function MassObject( options ) {
     options = _.extend( {
-      label: "This Mass",
-      otherMassName: "Other Mass",
-      direction: "left", //direction mass
-      colorGradient: [ "#aaf", "#00f", "#66f" ], //[<gradient mass light>, <gradient mass dark>, <color vertical line>]
+      label: 'This Mass',
+      otherMassName: 'Other Mass',
+      direction: 'left', //direction mass
+      colorGradient: [ '#aaf', '#00f', '#66f' ], //[<gradient mass light>, <gradient mass dark>, <color vertical line>]
       y: 250,
       forceArrowHeight: 150, // arrow height
       pullImagesCount: 15,
@@ -53,10 +53,10 @@ define( function( require ) {
     var massToScale = new LinearFunction( options.model.massRange.min, options.model.massRange.max, 0.05, 0.95, true );
 
     Node.call( this );
-    var dragNode = new Node( { cursor: "pointer" } );
+    var dragNode = new Node( { cursor: 'pointer' } );
     var massCircle = new Node();
     var pull = new PullObject( { image_count: options.pullImagesCount } );
-    if ( options.direction === "right" ) {
+    if ( options.direction === 'right' ) {
       pull.scale( -1, 1 );
     }
 
@@ -69,10 +69,10 @@ define( function( require ) {
     dragNode.addChild( pull );
     dragNode.addChild( massCircle );
     dragNode.addChild( new Circle( 20 ) ); // transparent pickable circle, to make small masses draggable
-    dragNode.addChild( new Circle( 2, { fill: "#000", pickable: false } ) );
+    dragNode.addChild( new Circle( 2, { fill: '#000', pickable: false } ) );
     var labelFont = new PhetFont( 12 );
-    dragNode.addChild( new Text( options.label, { font: labelFont, fill: "#000", x: -6.5, y: 16, pickable: false } ) );
-    dragNode.addChild( new Text( options.label, { font: labelFont, fill: "#fff", x: -7, y: 15, pickable: false } ) );
+    dragNode.addChild( new Text( options.label, { font: labelFont, fill: '#000', x: -6.5, y: 16, pickable: false } ) );
+    dragNode.addChild( new Text( options.label, { font: labelFont, fill: '#fff', x: -7, y: 15, pickable: false } ) );
 
     this.addChild( dragNode );
     this.y = options.y;
@@ -83,12 +83,16 @@ define( function( require ) {
       tailWidth: 3,
       stroke: null
     } );
-    var arrowText = new Text( options.title, { font: new PhetFont( 16 ), fill: "#000", y: -options.forceArrowHeight - 20 } );
+    var arrowText = new Text( options.title, {
+      font: new PhetFont( 16 ),
+      fill: '#000',
+      y: -options.forceArrowHeight - 20
+    } );
     var arrowShape = new Shape();
     arrowShape.moveTo( 0, -4 );
     arrowShape.lineTo( 0, -options.forceArrowHeight );
     this.addChild( new Path( arrowShape, {
-      stroke: "#FFF",
+      stroke: '#FFF',
       lineDash: [ 4, 4 ],
       lineWidth: 2,
       x: 0.5,
@@ -123,7 +127,7 @@ define( function( require ) {
 
       if ( options.model.showValues ) {
         var forceStr = options.model.force.toFixed( 12 );
-        forceStr = ( forceStr.substr( 0, 5 ) + " " + forceStr.substr( 5, 3 ) + " " + forceStr.substr( 8, 3 ) + " " + forceStr.substr( 11, 3 ) );
+        forceStr = ( forceStr.substr( 0, 5 ) + ' ' + forceStr.substr( 5, 3 ) + ' ' + forceStr.substr( 8, 3 ) + ' ' + forceStr.substr( 11, 3 ) );
         arrowText.text = StringUtils.format( forceDescriptionPattern_target_source_value, options.label, options.otherMassLabel, forceStr );
       }
       else {
@@ -132,7 +136,7 @@ define( function( require ) {
       arrowText.centerX = 0;
 
       var arr = forceToArrow( options.model.force );
-      if ( options.direction === "right" ) {
+      if ( options.direction === 'right' ) {
         arr *= -1;
       }
 

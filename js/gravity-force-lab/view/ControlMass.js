@@ -36,7 +36,7 @@ define( function( require ) {
   var THUMB_RADIUS = 0.25 * THUMB_SIZE.width;
 
   function Track( massProperty, massRange ) {
-    Rectangle.call( this, 0, 0, TRACK_SIZE.width, TRACK_SIZE.height, { cursor: 'pointer', fill: "black" } );
+    Rectangle.call( this, 0, 0, TRACK_SIZE.width, TRACK_SIZE.height, { cursor: 'pointer', fill: 'black' } );
     var thisNode = this,
       positionToConcentration = new LinearFunction( 0, TRACK_SIZE.width, massRange.min, massRange.max, true ),
       handleEvent = function( event ) {
@@ -138,8 +138,13 @@ define( function( require ) {
     var minusButton = new ArrowButton( 'left', function propertyMinus() {
       massProperty.set( Math.max( massProperty.get() - 1, massRange.min ) );
     } );
-    var valueLabel = new Text( "", { font: new PhetFont( 18 ), pickable: false } );
-    var valueField = new Rectangle( 0, 0, 100, 30, 3, 3, { fill: "#FFF", stroke: 'black', lineWidth: 1, pickable: false } );
+    var valueLabel = new Text( '', { font: new PhetFont( 18 ), pickable: false } );
+    var valueField = new Rectangle( 0, 0, 100, 30, 3, 3, {
+      fill: '#FFF',
+      stroke: 'black',
+      lineWidth: 1,
+      pickable: false
+    } );
     var title = new Text( simTitle, { font: new PhetFont( 24 ), pickable: false } );
     var labelFont = new PhetFont( 14 );
     var minLabel = new Text( massRange.min.toFixed( 0 ), { font: labelFont, pickable: false } );

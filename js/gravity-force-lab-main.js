@@ -32,7 +32,7 @@ define( function( require ) {
       new Screen( simTitle, null,
         function() { return new GravityForceLabModel( 768, 504 ); },
         function( model ) { return new GravityForceLabView( model ); },
-        { backgroundColor: "#FFFFFF" }
+        { backgroundColor: '#FFFFFF' }
       )
     ], simOptions ).start();
   } );
