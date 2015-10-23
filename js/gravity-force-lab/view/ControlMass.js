@@ -37,11 +37,11 @@ define( function( require ) {
 
   function Track( massProperty, massRange ) {
     Rectangle.call( this, 0, 0, TRACK_SIZE.width, TRACK_SIZE.height, { cursor: 'pointer', fill: 'black' } );
-    var thisNode = this,
-      positionToConcentration = new LinearFunction( 0, TRACK_SIZE.width, massRange.min, massRange.max, true ),
-      handleEvent = function( event ) {
-        massProperty.set( Math.round( positionToConcentration( thisNode.globalToLocalPoint( event.pointer.point ).x ) ) );
-      };
+    var thisNode = this;
+    var positionToConcentration = new LinearFunction( 0, TRACK_SIZE.width, massRange.min, massRange.max, true );
+    var handleEvent = function( event ) {
+      massProperty.set( Math.round( positionToConcentration( thisNode.globalToLocalPoint( event.pointer.point ).x ) ) );
+    };
     this.addInputListener( new SimpleDragHandler(
       {
         start: function( event ) {

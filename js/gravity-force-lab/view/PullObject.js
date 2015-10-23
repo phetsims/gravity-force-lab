@@ -39,9 +39,9 @@ define( function( require ) {
     options = _.extend( { rope_lenght: 50 }, options );
     Node.call( this );
 
-    var pullGroup = new Node( { x: -options.rope_lenght } ),
-      pull = [],
-      i;
+    var pullGroup = new Node( { x: -options.rope_lenght } );
+    var pull = [];
+    var i;
     for ( i = 0; i < pullImages.length; i++ ) {
       var image = new Image( pullImages[ i ] );
       pull.push( new Node( {

@@ -44,8 +44,8 @@ define( function( require ) {
           rulerClickOffset.y = ruler.globalToParentPoint( event.pointer.point ).y - event.currentTarget.y;
         },
         drag: function( event ) {
-          var x = ruler.globalToParentPoint( event.pointer.point ).x - rulerClickOffset.x,
-            y = ruler.globalToParentPoint( event.pointer.point ).y - rulerClickOffset.y;
+          var x = ruler.globalToParentPoint( event.pointer.point ).x - rulerClickOffset.x;
+          var y = ruler.globalToParentPoint( event.pointer.point ).y - rulerClickOffset.y;
           model.ruler = { x: x, y: y };
         }
       } ) );
