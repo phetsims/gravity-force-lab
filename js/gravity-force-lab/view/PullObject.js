@@ -36,10 +36,10 @@ define( function( require ) {
     pullImage11, pullImage12, pullImage13, pullImage14 ];
 
   function PullObject( options ) {
-    options = _.extend( { rope_lenght: 50 }, options );
+    options = _.extend( { ropeLength: 50 }, options );
     Node.call( this );
 
-    var pullGroup = new Node( { x: -options.rope_lenght } );
+    var pullGroup = new Node( { x: -options.ropeLength } );
     var pull = [];
     var i;
     for ( i = 0; i < pullImages.length; i++ ) {
@@ -54,12 +54,16 @@ define( function( require ) {
         } ), image ]
       } ) );
     }
-    pullGroup.addChild( new Path( Shape.lineSegment( -options.rope_lenght, 0, 0, 0 ), { stroke: '#666', lineWidth: 2, pickable: false } ) );
+    pullGroup.addChild( new Path( Shape.lineSegment( -options.ropeLength, 0, 0, 0 ), {
+      stroke: '#666',
+      lineWidth: 2,
+      pickable: false
+    } ) );
     for ( i = 0; i < pullImages.length; i++ ) {
       pullGroup.addChild( pull[ i ] );
       pull[ i ].scale( -0.3, 0.3 );
       pull[ i ].bottom = 33;
-      pull[ i ].right = i - options.rope_lenght;
+      pull[ i ].right = i - options.ropeLength;
       pull[ i ].setVisible( false );
     }
 
