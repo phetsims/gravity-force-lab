@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Control ShowValue on/off view
+ * Control that allows the user to show or hide the force values.
  *
  * @author Anton Ulyanov (Mlearner)
  */
@@ -18,6 +18,9 @@ define( function( require ) {
   // strings
   var showValuesString = require( 'string!GRAVITY_FORCE_LAB/showValues' );
 
+  // constants
+  var MAX_CAPTION_WIDTH = 120; // empirically determined through testing with long strings
+
   /**
    * @param model
    * @param {Object} [options]
@@ -28,13 +31,11 @@ define( function( require ) {
     options = _.extend( {
       fill: '#FDF498',
       xMargin: 10,
-      yMargin: 10,
-      scale: 0.8
+      yMargin: 10
     }, options );
 
-    var text = new Text( showValuesString, { font: new PhetFont( 18 ) } );
+    var text = new Text( showValuesString, { font: new PhetFont( 16 ), maxWidth: MAX_CAPTION_WIDTH } );
     var checkBox = new CheckBox( text, model.showValuesProperty, { cursor: 'pointer' } );
-
     Panel.call( this, checkBox, options );
   }
 

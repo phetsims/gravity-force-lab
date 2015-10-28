@@ -117,7 +117,14 @@ define( function( require ) {
 
   inherit( Node, Thumb );
 
-  function ControlMass( simTitle, massProperty, massRange, options ) {
+  /**
+   * @param titleString
+   * @param massProperty
+   * @param massRange
+   * @param options
+   * @constructor
+   */
+  function ControlMass( titleString, massProperty, massRange, options ) {
 
     options = _.extend( {
       scale: 0.8,
@@ -138,14 +145,18 @@ define( function( require ) {
     var minusButton = new ArrowButton( 'left', function propertyMinus() {
       massProperty.set( Math.max( massProperty.get() - 1, massRange.min ) );
     } );
-    var valueLabel = new Text( '', { font: new PhetFont( 18 ), pickable: false } );
     var valueField = new Rectangle( 0, 0, 100, 30, 3, 3, {
       fill: '#FFF',
       stroke: 'black',
       lineWidth: 1,
       pickable: false
     } );
-    var title = new Text( simTitle, { font: new PhetFont( 24 ), pickable: false } );
+    var valueLabel = new Text( '', { font: new PhetFont( 18 ), pickable: false, maxWidth: valueField.width * 0.9 } );
+    var title = new Text( titleString, {
+      font: new PhetFont( 24 ),
+      pickable: false,
+      maxWidth: track.width
+    } );
     var labelFont = new PhetFont( 14 );
     var minLabel = new Text( massRange.min.toFixed( 0 ), { font: labelFont, pickable: false } );
     var maxLabel = new Text( massRange.max.toFixed( 0 ), { font: labelFont, pickable: false } );

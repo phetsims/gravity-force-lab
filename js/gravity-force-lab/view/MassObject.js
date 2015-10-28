@@ -29,6 +29,9 @@ define( function( require ) {
   var forceDescriptionPattern_target_source = require( 'string!GRAVITY_FORCE_LAB/force-description-pattern-target_source' );
   var forceDescriptionPattern_target_source_value = require( 'string!GRAVITY_FORCE_LAB/force-description-pattern-target_source_value' );
 
+  // constants
+  var LABEL_MAX_WIDTH = 20; // empirically determined through testing with long strings
+
   /**
    * @param {Object} [options]
    * @constructor
@@ -71,8 +74,22 @@ define( function( require ) {
     dragNode.addChild( new Circle( 20 ) ); // transparent pickable circle, to make small masses draggable
     dragNode.addChild( new Circle( 2, { fill: '#000', pickable: false } ) );
     var labelFont = new PhetFont( 12 );
-    dragNode.addChild( new Text( options.label, { font: labelFont, fill: '#000', x: -6.5, y: 16, pickable: false } ) );
-    dragNode.addChild( new Text( options.label, { font: labelFont, fill: '#fff', x: -7, y: 15, pickable: false } ) );
+    dragNode.addChild( new Text( options.label, {
+      font: labelFont,
+      fill: '#000',
+      pickable: false,
+      maxWidth: LABEL_MAX_WIDTH,
+      centerX: 0,
+      top: 4
+    } ) );
+    dragNode.addChild( new Text( options.label, {
+      font: labelFont,
+      fill: '#fff',
+      pickable: false,
+      maxWidth: LABEL_MAX_WIDTH,
+      centerX: -0.5,
+      top: 3.5
+    } ) );
 
     this.addChild( dragNode );
     this.y = options.y;
@@ -86,7 +103,8 @@ define( function( require ) {
     var arrowText = new Text( options.title, {
       font: new PhetFont( 16 ),
       fill: '#000',
-      y: -options.forceArrowHeight - 20
+      y: -options.forceArrowHeight - 20,
+      maxWidth: 300 // empirically determined through testing with long strings
     } );
     var arrowShape = new Shape();
     arrowShape.moveTo( 0, -4 );
