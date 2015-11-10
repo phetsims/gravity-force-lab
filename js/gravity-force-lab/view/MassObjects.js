@@ -14,8 +14,8 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
 
   // strings
-  var m1String = require( 'string!GRAVITY_FORCE_LAB/mass-1' );
-  var m2String = require( 'string!GRAVITY_FORCE_LAB/mass-2' );
+  var mass1String = require( 'string!GRAVITY_FORCE_LAB/mass-1' );
+  var mass2String = require( 'string!GRAVITY_FORCE_LAB/mass-2' );
 
   /**
    * @param model
@@ -26,8 +26,8 @@ define( function( require ) {
     Node.call( this );
     this.addChild( new MassObject( {
       model: model,
-      label: m1String,
-      otherMassLabel: m2String,
+      label: mass1String,
+      otherMassLabel: mass2String,
       direction: 'left',
       colorGradient: [ '#aaf', '#00f', '#66f' ],
       y: 250,
@@ -38,8 +38,8 @@ define( function( require ) {
     } ) );
     this.addChild( new MassObject( {
       model: model,
-      label: m2String,
-      otherMassLabel: m1String,
+      label: mass2String,
+      otherMassLabel: mass1String,
       direction: 'right',
       colorGradient: [ '#faa', '#f00', '#f66' ],
       y: 250,

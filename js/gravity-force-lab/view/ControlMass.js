@@ -25,8 +25,8 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
 
   // strings
-  var pattern_0value_1units = require( 'string!GRAVITY_FORCE_LAB/pattern_0value_1units' );
-  var units_kgString = require( 'string!GRAVITY_FORCE_LAB/units.kg' );
+  var pattern0Value1UnitsString = require( 'string!GRAVITY_FORCE_LAB/pattern_0value_1units' );
+  var unitsKgString = require( 'string!GRAVITY_FORCE_LAB/units.kg' );
 
   // constants
   var TRACK_SIZE = new Dimension2( 170, 3 );
@@ -212,7 +212,7 @@ define( function( require ) {
     } ) );
 
     massProperty.link( function updateMass( value ) {
-      valueLabel.text = StringUtils.format( pattern_0value_1units, value, units_kgString );
+      valueLabel.text = StringUtils.format( pattern0Value1UnitsString, value, unitsKgString );
       valueLabel.centerX = valueField.centerX; // keep the value centered in the field
       plusButton.enabled = ( value < massRange.max );
       minusButton.enabled = ( value > massRange.min );

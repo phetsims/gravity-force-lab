@@ -16,7 +16,7 @@ define( function( require ) {
   var GravityForceLabView = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabView' );
 
   // strings
-  var simTitle = require( 'string!GRAVITY_FORCE_LAB/gravity-force-lab.title' );
+  var gravityForceLabTitleString = require( 'string!GRAVITY_FORCE_LAB/gravity-force-lab.title' );
 
   var simOptions = {
     credits: {
@@ -28,8 +28,8 @@ define( function( require ) {
 
   SimLauncher.launch( function() {
     //Create and start the sim
-    new Sim( simTitle, [
-      new Screen( simTitle, null,
+    new Sim( gravityForceLabTitleString, [
+      new Screen( gravityForceLabTitleString, null,
         function() { return new GravityForceLabModel( 768, 504 ); },
         function( model ) { return new GravityForceLabView( model ); },
         { backgroundColor: '#FFFFFF' }

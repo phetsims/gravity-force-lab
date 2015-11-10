@@ -16,7 +16,7 @@ define( function( require ) {
   var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
 
   // strings
-  var units_metersString = require( 'string!GRAVITY_FORCE_LAB/units.meters' );
+  var unitsMetersString = require( 'string!GRAVITY_FORCE_LAB/units.meters' );
 
   /**
    * @param model
@@ -24,7 +24,7 @@ define( function( require ) {
    */
   function GravityForceLabRuler( model ) {
     Node.call( this, { cursor: 'pointer', cssTransform: true } );
-    var ruler = new RulerNode( 500, 50, 50, [ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10' ], units_metersString, {
+    var ruler = new RulerNode( 500, 50, 50, [ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10' ], unitsMetersString, {
       minorTicksPerMajorTick: 4,
       majorTickFont: new PhetFont( 16 ),
       unitsFont: new PhetFont( 10 ),
