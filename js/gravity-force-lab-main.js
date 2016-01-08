@@ -22,6 +22,7 @@ define( function( require ) {
     credits: {
       softwareDevelopment: 'Sam Reid, John Blanco',
       team: 'Wendy Adams, Trish Loeblein, Noah Podolefsky, Carl Wieman',
+      qualityAssurance: 'Steele Dalton, Bryce Griebenow, Elise Morgan, Oliver Orejola, Ben Roberts, Bryan Yoelin',
       thanks: 'Thanks to Mobile Learner Labs for working with the PhET development team to convert this simulation to HTML5.'
     }
   };
