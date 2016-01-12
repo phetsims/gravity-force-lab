@@ -52,8 +52,8 @@ define( function( require ) {
         }
       } ) );
     // increase the vertical hit area, so the track is easier to hit
-    var hitAreaMargin = 8;
-    thisNode.mouseArea = thisNode.touchArea = Shape.rectangle( 0, -hitAreaMargin, TRACK_SIZE.width, TRACK_SIZE.height + hitAreaMargin + hitAreaMargin );
+    var pointerAreaMargin = 8;
+    thisNode.mouseArea = thisNode.touchArea = Shape.rectangle( 0, -pointerAreaMargin, TRACK_SIZE.width, TRACK_SIZE.height + pointerAreaMargin + pointerAreaMargin );
   }
 
   inherit( Rectangle, Track );
