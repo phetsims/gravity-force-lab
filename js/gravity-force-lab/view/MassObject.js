@@ -37,6 +37,7 @@ define( function( require ) {
    * @constructor
    */
   function MassObject( options ) {
+    var self = this;
     options = _.extend( {
       label: 'This Mass',
       otherMassName: 'Other Mass',
@@ -57,20 +58,20 @@ define( function( require ) {
 
     Node.call( this );
     var dragNode = new Node( { cursor: 'pointer' } );
-    var massCircle = new Node();
-    var pull = new PullObject( { image_count: options.pullImagesCount } );
+    this.massCircle = new Node();
+    this.pull = new PullObject( { image_count: options.pullImagesCount } );
     if ( options.direction === 'right' ) {
-      pull.scale( -1, 1 );
+      self.pull.scale( -1, 1 );
     }
 
-    massCircle.addChild( new Circle( options.massRadius, {
+    this.massCircle.addChild( new Circle( options.massRadius, {
       fill: new RadialGradient( options.massRadius * 0.6, -options.massRadius * 0.6, 1, options.massRadius * 0.6, -options.massRadius * 0.6, options.massRadius )
         .addColorStop( 0, options.colorGradient[ 0 ] )
         .addColorStop( 1, options.colorGradient[ 1 ] )
     } ) );
 
-    dragNode.addChild( pull );
-    dragNode.addChild( massCircle );
+    dragNode.addChild( this.pull );
+    dragNode.addChild( this.massCircle );
     dragNode.addChild( new Circle( 20 ) ); // transparent pickable circle, to make small masses draggable
     dragNode.addChild( new Circle( 2, { fill: '#000', pickable: false } ) );
     var labelFont = new PhetFont( 12 );
@@ -139,9 +140,9 @@ define( function( require ) {
 
       thisNode.x = options.x.get();
       //reset scale
-      massCircle.matrix = Matrix3.identity();
+      self.massCircle.matrix = Matrix3.identity();
       //set scale
-      massCircle.scale( massToScale( options.mass.get() ) );
+      self.massCircle.scale( massToScale( options.mass.get() ) );
 
       if ( options.model.showValues ) {
         var forceStr = options.model.force.toFixed( 12 );
@@ -166,14 +167,14 @@ define( function( require ) {
         stroke: null
       } );
       thisNode.addChild( arrowNode );
-      pull.setPull( Math.round( forceToImage( options.model.force ) ), (massCircle.width / 2) );
+      self.pull.setPull( Math.round( forceToImage( options.model.force ) ), (self.massCircle.width / 2) );
     };
 
     // redraw view with shift
     var redraw = function() {
       markForceDirty();
-      var xMax = options.model.width;
-      var xMin = 0;
+      var xMax = options.model.width - self.massCircle.width/2 - self.pull.width;
+      var xMin = 0 + self.massCircle.width/2 + self.pull.width;
       var sumRadius = options.massRadius * massToScale( options.model.mass1 ) + options.massRadius * massToScale( options.model.mass2 );
       if ( options.x.get() === options.model.locationX1 ) {
         xMax = options.model.locationX2 - sumRadius - 5;
@@ -189,6 +190,7 @@ define( function( require ) {
     options.model.showValuesProperty.link( markForceDirty );
     options.model.forceProperty.link( markForceDirty );
     options.model.on( options.massStepEvent, redrawForce );
+    options.model.on( options.massStepEvent, redraw );
     redrawForce();
 
     var massClickXOffset;
@@ -199,8 +201,8 @@ define( function( require ) {
         },
         drag: function( event ) {
           var x = thisNode.globalToParentPoint( event.pointer.point ).x - massClickXOffset;
-          var xMax = options.model.width;
-          var xMin = 0;
+          var xMax = options.model.width - self.massCircle.width/2 - self.pull.width;
+          var xMin = 0 + self.massCircle.width/2 + self.pull.width;
           x = Math.max( Math.min( x, xMax ), xMin );
           options.x.set( x );
         }

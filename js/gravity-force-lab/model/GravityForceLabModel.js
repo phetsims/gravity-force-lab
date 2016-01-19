@@ -66,6 +66,7 @@ define( function( require ) {
       this.mass2Property.reset();
       this.locationX1Property.reset();
       this.locationX2Property.reset();
+      this.locationX1Property.reset();
       this.showValuesProperty.reset();
       this.distanceProperty.reset();
       this.force = calculateForce( this.mass1, this.mass2, this.distance );
