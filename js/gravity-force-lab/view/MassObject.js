@@ -174,13 +174,13 @@ define( function( require ) {
     var redraw = function() {
       markForceDirty();
       var xMax = options.model.width - self.massCircle.width/2 - self.pull.width;
-      var xMin = 0 + self.massCircle.width/2 + self.pull.width;
+      var xMin = self.massCircle.width/2 + self.pull.width;
       var sumRadius = options.massRadius * massToScale( options.model.mass1 ) + options.massRadius * massToScale( options.model.mass2 );
       if ( options.x.get() === options.model.locationX1 ) {
-        xMax = options.model.locationX2 - sumRadius - 5;
+        xMax = options.model.locationX2 - sumRadius;
       }
       if ( options.x.get() === options.model.locationX2 ) {
-        xMin = options.model.locationX1 + sumRadius + 5;
+        xMin = options.model.locationX1 + sumRadius;
       }
       var x = Math.max( Math.min( options.x.get(), xMax ), xMin );
       options.x.set( x );
@@ -202,7 +202,7 @@ define( function( require ) {
         drag: function( event ) {
           var x = thisNode.globalToParentPoint( event.pointer.point ).x - massClickXOffset;
           var xMax = options.model.width - self.massCircle.width/2 - self.pull.width;
-          var xMin = 0 + self.massCircle.width/2 + self.pull.width;
+          var xMin = self.massCircle.width/2 + self.pull.width;
           x = Math.max( Math.min( x, xMax ), xMin );
           options.x.set( x );
         }
