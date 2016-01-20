@@ -41,7 +41,7 @@ define( function( require ) {
       force: 0,
       locationX1: this.width / 2 - 100, // x-coordinate of mass 1
       locationX2: this.width / 2 + 100, // x-coordinate of mass 2
-      ruler: { x: 120, y: 310 }
+      ruler: { x: 120, y: 270 }
     } );
 
     var updateForce = function() {model.force = calculateForce( model.mass1, model.mass2, model.distance );};
@@ -66,6 +66,8 @@ define( function( require ) {
       this.mass2Property.reset();
       this.locationX1Property.reset();
       this.locationX2Property.reset();
+      // locationX1Property is reset again because for the initial reset of location X1 it depends on X2 which is not
+      // yet reset so doing it again to set it properly.
       this.locationX1Property.reset();
       this.showValuesProperty.reset();
       this.distanceProperty.reset();

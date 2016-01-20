@@ -17,7 +17,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
 
   function GravityForceLabView( model ) {
-    ScreenView.call( this, { layoutBounds: new Bounds2( 0, 0, 768, 504 ) } );
+    ScreenView.call( this, { layoutBounds: new Bounds2( 0, 0, model.width, model.height ) } );
     this.addChild( new ControlPanel( model ) );
     this.addChild( new MassObjects( model ) );
     this.addChild( new GravityForceLabRuler( model ) );

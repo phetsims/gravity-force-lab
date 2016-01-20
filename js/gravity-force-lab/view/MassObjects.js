@@ -17,6 +17,9 @@ define( function( require ) {
   var mass1String = require( 'string!GRAVITY_FORCE_LAB/mass-1' );
   var mass2String = require( 'string!GRAVITY_FORCE_LAB/mass-2' );
 
+  // constants
+  var yValue = 225;
+
   /**
    * @param model
    * @constructor
@@ -30,11 +33,11 @@ define( function( require ) {
       otherMassLabel: mass2String,
       direction: 'left',
       colorGradient: [ '#aaf', '#00f', '#66f' ],
-      y: 250,
+      y: yValue,
       x: model.locationX1Property,
       mass: model.mass1Property,
       massStepEvent: 'mass1Step',
-      forceArrowHeight: 150
+      forceArrowHeight: 125
     } ) );
     this.addChild( new MassObject( {
       model: model,
@@ -42,11 +45,11 @@ define( function( require ) {
       otherMassLabel: mass1String,
       direction: 'right',
       colorGradient: [ '#faa', '#f00', '#f66' ],
-      y: 250,
+      y: yValue,
       x: model.locationX2Property,
       mass: model.mass2Property,
       massStepEvent: 'mass2Step',
-      forceArrowHeight: 200
+      forceArrowHeight: 175
     } ) );
   }
 
