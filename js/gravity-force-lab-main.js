@@ -31,7 +31,7 @@ define( function( require ) {
     //Create and start the sim
     new Sim( gravityForceLabTitleString, [
       new Screen( gravityForceLabTitleString, null,
-        function() { return new GravityForceLabModel( 768, 504 ); },
+        function() { return new GravityForceLabModel( 768, 464 ); },
         function( model ) { return new GravityForceLabView( model ); },
         { backgroundColor: '#FFFFFF' }
       )
