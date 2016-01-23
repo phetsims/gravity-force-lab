@@ -177,10 +177,10 @@ define( function( require ) {
       var xMin = self.massCircle.width/2 + self.pull.width;
       var sumRadius = options.massRadius * massToScale( options.model.mass1 ) + options.massRadius * massToScale( options.model.mass2 );
       if ( options.x.get() === options.model.locationX1 ) {
-        xMax = options.model.locationX2 - sumRadius;
+        xMax = options.model.locationX2 - sumRadius - 5; // subtract 5 so that masses never touch each other
       }
       if ( options.x.get() === options.model.locationX2 ) {
-        xMin = options.model.locationX1 + sumRadius;
+        xMin = options.model.locationX1 + sumRadius + 5; // add 5 so that masses never touch each other
       }
       var x = Math.max( Math.min( options.x.get(), xMax ), xMin );
       options.x.set( x );
