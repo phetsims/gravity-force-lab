@@ -103,6 +103,7 @@ define( function( require ) {
     plusButton.centerY = valueField.centerY;
     minusButton.right = valueField.left - 10; // minus button to the left of the value
     minusButton.centerY = valueField.centerY;
+    slider.centerX = slider.centerX + 5; // emperically determined for positioning
 
     // wrap in a panel
     this.addChild( new Panel( content, {
