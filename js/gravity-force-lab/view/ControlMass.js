@@ -4,6 +4,7 @@
  * Slider and button for changing a mass.
  *
  * @author Anton Ulyanov (Mlearner)
+ * @author Aadish Gupta
  */
 define( function( require ) {
   'use strict';
@@ -11,18 +12,14 @@ define( function( require ) {
   // modules
   var ArrowButton = require( 'SCENERY_PHET/buttons/ArrowButton' );
   var Dimension2 = require( 'DOT/Dimension2' );
+  var HSlider = require( 'SUN/HSlider' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var LinearFunction = require( 'DOT/LinearFunction' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var Path = require( 'SCENERY/nodes/Path' );
-  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  var Shape = require( 'KITE/Shape' );
-  var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
-  var Text = require( 'SCENERY/nodes/Text' );
   var Panel = require( 'SUN/Panel' );
-  var FillHighlightListener = require( 'SCENERY_PHET/input/FillHighlightListener' );
-  var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  var Text = require( 'SCENERY/nodes/Text' );
 
   // strings
   var pattern0Value1UnitsString = require( 'string!GRAVITY_FORCE_LAB/pattern_0value_1units' );
@@ -31,91 +28,6 @@ define( function( require ) {
   // constants
   var TRACK_SIZE = new Dimension2( 170, 3 );
   var THUMB_SIZE = new Dimension2( 22, 42 );
-  var THUMB_FILL_ENABLED = 'rgb(50,145,184)';
-  var THUMB_FILL_HIGHLIGHTED = 'rgb(71,207,255)';
-  var THUMB_RADIUS = 0.25 * THUMB_SIZE.width;
-
-  function Track( massProperty, massRange ) {
-    Rectangle.call( this, 0, 0, TRACK_SIZE.width, TRACK_SIZE.height, { cursor: 'pointer', fill: 'black' } );
-    var thisNode = this;
-    var positionToConcentration = new LinearFunction( 0, TRACK_SIZE.width, massRange.min, massRange.max, true );
-    var handleEvent = function( event ) {
-      massProperty.set( Math.round( positionToConcentration( thisNode.globalToLocalPoint( event.pointer.point ).x ) ) );
-    };
-    this.addInputListener( new SimpleDragHandler(
-      {
-        start: function( event ) {
-          handleEvent( event );
-        },
-        drag: function( event ) {
-          handleEvent( event );
-        }
-      } ) );
-    // increase the vertical hit area, so the track is easier to hit
-    var pointerAreaMargin = 8;
-    thisNode.mouseArea = thisNode.touchArea = Shape.rectangle( 0, -pointerAreaMargin, TRACK_SIZE.width, TRACK_SIZE.height + pointerAreaMargin + pointerAreaMargin );
-  }
-
-  inherit( Rectangle, Track );
-
-  function TickLine() {
-    Path.call( this, Shape.lineSegment( 0, 0, 0, ( THUMB_SIZE.height / 2 ) + ( TRACK_SIZE.height / 2 ) + 2 ), {
-      stroke: 'black',
-      lineWidth: 1
-    } );
-  }
-
-  inherit( Path, TickLine );
-
-  function TickLabel( value ) {
-    Text.call( this, value, { font: new PhetFont( 14 ), fill: 'black' } );
-  }
-
-  inherit( Text, TickLabel );
-
-  function Thumb( massProperty, massRange ) {
-    Node.call( this, { cursor: 'pointer' } );
-
-    var thisNode = this;
-    var massToPosition = new LinearFunction( massRange.min, massRange.max, 0, TRACK_SIZE.width, true );
-    var clickXOffset;
-
-    // draw the thumb
-    var body = new Rectangle( -THUMB_SIZE.width / 2, -THUMB_SIZE.height / 2, THUMB_SIZE.width, THUMB_SIZE.height, THUMB_RADIUS, THUMB_RADIUS,
-      { cursor: 'pointer', fill: THUMB_FILL_ENABLED, stroke: 'black', lineWidth: 1 } );
-    var CENTER_LINE_Y_MARGIN = 3;
-    body.addChild( new Path( Shape.lineSegment( 0, -( THUMB_SIZE.height / 2 ) + CENTER_LINE_Y_MARGIN, 0, ( THUMB_SIZE.height / 2 ) - CENTER_LINE_Y_MARGIN ), {
-      stroke: 'white'
-    } ) );
-    body.left = -body.width / 2;
-    this.addChild( body );
-
-    // make the thumb highlight
-    body.addInputListener( new FillHighlightListener( THUMB_FILL_ENABLED, THUMB_FILL_HIGHLIGHTED ) );
-
-    // touch area
-    var dx = 0.25 * this.width;
-    var dy = 0.5 * this.height;
-    this.touchArea = Shape.rectangle( ( -this.width / 2 ) - dx, ( -this.height / 2 ) - dy, this.width + dx + dx, this.height + dy + dy );
-
-    this.addInputListener( new SimpleDragHandler(
-      {
-        allowTouchSnag: true,
-        start: function( event ) {
-          clickXOffset = thisNode.globalToParentPoint( event.pointer.point ).x - event.currentTarget.x;
-        },
-        drag: function( event ) {
-          var x = thisNode.globalToParentPoint( event.pointer.point ).x - clickXOffset;
-          x = Math.max( Math.min( x, TRACK_SIZE.width ), 0 );
-          massProperty.set( Math.round( massToPosition.inverse( x ) ) );
-        }
-      } ) );
-    massProperty.link( function( concentration ) {
-      thisNode.x = massToPosition( concentration );
-    } );
-  }
-
-  inherit( Node, Thumb );
 
   /**
    * @param titleString
@@ -137,74 +49,60 @@ define( function( require ) {
 
     // nodes
     var content = new Node();
-    var track = new Track( massProperty, massRange );
-    var thumb = new Thumb( massProperty, massRange );
+    var slider = new HSlider( massProperty, massRange, {
+      trackSize: TRACK_SIZE,
+      trackFill: 'black',
+      thumbSize: THUMB_SIZE,
+      majorTickLength: ( THUMB_SIZE.height / 2 ) + ( TRACK_SIZE.height / 2 ) + 2
+    } );
+
+    var tickLabelOptions = { font: new PhetFont( 14 ) };
+    // major ticks
+    slider.addMajorTick( massRange.min, new Text( massRange.min, tickLabelOptions ) );
+    slider.addMajorTick( massRange.max, new Text( massRange.max, tickLabelOptions ) );
+
     var plusButton = new ArrowButton( 'right', function propertyPlus() {
       massProperty.set( Math.min( massProperty.get() + 1, massRange.max ) );
     } );
+
     var minusButton = new ArrowButton( 'left', function propertyMinus() {
       massProperty.set( Math.max( massProperty.get() - 1, massRange.min ) );
     } );
+
     var valueField = new Rectangle( 0, 0, 100, 30, 3, 3, {
       fill: '#FFF',
       stroke: 'black',
       lineWidth: 1,
       pickable: false
     } );
+
     var valueLabel = new Text( '', { font: new PhetFont( 18 ), pickable: false, maxWidth: valueField.width * 0.9 } );
+
     var title = new Text( titleString, {
       font: new PhetFont( 24 ),
       pickable: false,
-      maxWidth: track.width
+      maxWidth: slider.width
     } );
-    var labelFont = new PhetFont( 14 );
-    var minLabel = new Text( massRange.min.toFixed( 0 ), { font: labelFont, pickable: false } );
-    var maxLabel = new Text( massRange.max.toFixed( 0 ), { font: labelFont, pickable: false } );
-    var minTickLine = new TickLine();
-    var maxTickLine = new TickLine();
 
     // rendering order
     content.addChild( valueField );
     content.addChild( valueLabel );
     content.addChild( title );
-    content.addChild( minTickLine );
-    content.addChild( maxTickLine );
-    content.addChild( minLabel );
-    content.addChild( maxLabel );
-    content.addChild( track );
-    content.addChild( thumb );
+    content.addChild( slider );
     content.addChild( plusButton );
     content.addChild( minusButton );
 
     // relative layout, everything relative to the track
-    {
-      // thumb centered on track, x location will be computed
-      thumb.centerY = track.centerY;
-      // min tick at left end of track
-      minTickLine.bottom = track.bottom;
-      minTickLine.left = track.left;
-      minLabel.centerX = minTickLine.centerX;
-      minLabel.bottom = minTickLine.top - 3;
-      // max tick at right end of track
-      maxTickLine.bottom = track.bottom;
-      maxTickLine.right = track.right;
-      maxLabel.centerX = maxTickLine.centerX;
-      maxLabel.bottom = maxTickLine.top - 3;
-      // value centered above the track
-      valueField.centerX = track.centerX;
-      valueField.bottom = minLabel.top - 10;
-      valueLabel.centerX = valueField.centerX;
-      valueLabel.centerY = valueField.centerY;
-      // title centered above the value
-      title.centerX = valueField.centerX;
-      title.bottom = valueField.top - 6;
-      // plus button to the right of the value
-      plusButton.left = valueField.right + 10;
-      plusButton.centerY = valueField.centerY;
-      // minus button to the left of the value
-      minusButton.right = valueField.left - 10;
-      minusButton.centerY = valueField.centerY;
-    }
+    valueField.centerX = slider.centerX;
+    valueField.bottom = slider.top - 10; // value centered above the track
+    valueLabel.centerX = valueField.centerX;
+    valueLabel.centerY = valueField.centerY;
+    title.centerX = valueField.centerX;
+    title.bottom = valueField.top - 6; // title centered above the value
+    plusButton.left = valueField.right + 10; // plus button to the right of the value
+    plusButton.centerY = valueField.centerY;
+    minusButton.right = valueField.left - 10; // minus button to the left of the value
+    minusButton.centerY = valueField.centerY;
 
     // wrap in a panel
     this.addChild( new Panel( content, {
@@ -212,15 +110,14 @@ define( function( require ) {
     } ) );
 
     massProperty.link( function updateMass( value ) {
-      valueLabel.text = StringUtils.format( pattern0Value1UnitsString, value, unitsKgString );
+      valueLabel.text = StringUtils.format( pattern0Value1UnitsString, Math.floor( value ), unitsKgString );
       valueLabel.centerX = valueField.centerX; // keep the value centered in the field
-      plusButton.enabled = ( value < massRange.max );
-      minusButton.enabled = ( value > massRange.min );
+      plusButton.enabled = ( Math.floor( value ) < massRange.max );
+      minusButton.enabled = ( Math.floor( value ) > massRange.min );
     } );
   }
 
   inherit( Node, ControlMass );
 
   return ControlMass;
-} )
-;
+} );
