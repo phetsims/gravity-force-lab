@@ -4,6 +4,7 @@
  * mass object view
  *
  * @author Anton Ulyanov (Mlearner)
+ * @author Aadish Gupta
  */
 
 define( function( require ) {
@@ -11,8 +12,8 @@ define( function( require ) {
 
   // modules
   var ArrowNode = require( 'SCENERY_PHET/ArrowNode' );
-  var Matrix3 = require( 'DOT/Matrix3' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var GravityForceLabModel = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/model/GravityForceLabModel' );
   var RadialGradient = require( 'SCENERY/util/RadialGradient' );
   var LinearFunction = require( 'DOT/LinearFunction' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -31,12 +32,14 @@ define( function( require ) {
 
   // constants
   var LABEL_MAX_WIDTH = 20; // empirically determined through testing with long strings
+  var MIN_SEPERATION_BETWEEN_MASSES = 0.1; // in meters
+  //var MASS_RADIUS = 50;
 
   /**
    * @param {Object} [options]
    * @constructor
    */
-  function MassObject( options ) {
+  function MassObject( model, massModel, mvt, options ) {
     var self = this;
     options = _.extend( {
       label: 'This Mass',
@@ -46,29 +49,28 @@ define( function( require ) {
       y: 250,
       forceArrowHeight: 150, // arrow height
       pullImagesCount: 15,
-      arrowLength: 120,
-      massRadius: 100 // radius of the mass when scale is 1.0
+      arrowLength: 120
+      //massRadius: 100 // radius of the mass when scale is 1.0
     }, options );
 
     var thisNode = this;
     //Conversion functions
-    var forceToArrow = new LinearFunction( options.model.forceRange.min, options.model.forceRange.max, 0, options.arrowLength, true );
-    var forceToImage = new LinearFunction( options.model.forceRange.min, options.model.forceRange.max, 0, options.pullImagesCount - 1, true );
-    var massToScale = new LinearFunction( options.model.massRange.min, options.model.massRange.max, 0.05, 0.95, true );
+    var forceToArrow = new LinearFunction( model.forceRange.min, model.forceRange.max, 0, options.arrowLength, true );
+    var forceToImage = new LinearFunction( model.forceRange.min, model.forceRange.max, 0, options.pullImagesCount - 1, true );
+    //var massToScale = new LinearFunction( options.model.massRange.min, options.model.massRange.max, 0.05, 0.95, true );
 
     Node.call( this );
     var dragNode = new Node( { cursor: 'pointer' } );
-    this.massCircle = new Node();
     this.pull = new PullObject( { image_count: options.pullImagesCount } );
     if ( options.direction === 'right' ) {
       self.pull.scale( -1, 1 );
     }
-
-    this.massCircle.addChild( new Circle( options.massRadius, {
-      fill: new RadialGradient( options.massRadius * 0.6, -options.massRadius * 0.6, 1, options.massRadius * 0.6, -options.massRadius * 0.6, options.massRadius )
+    var radius = mvt.modelToViewDeltaX( massModel.radius );
+    this.massCircle = new Circle( radius, {
+      fill: new RadialGradient( radius * 0.6, -radius * 0.6, 1, radius * 0.6, -radius * 0.6, radius )
         .addColorStop( 0, options.colorGradient[ 0 ] )
         .addColorStop( 1, options.colorGradient[ 1 ] )
-    } ) );
+    } ) ;
 
     dragNode.addChild( this.pull );
     dragNode.addChild( this.massCircle );
@@ -126,26 +128,18 @@ define( function( require ) {
     this.addChild( arrowText );
     this.addChild( arrowNode );
 
-    var forceDirtyFlag = true;
-    var markForceDirty = function() {
-      forceDirtyFlag = true;
-    };
+    //var forceDirtyFlag = true;
+    //var markForceDirty = function() {
+    //  forceDirtyFlag = true;
+    //};
 
     // redraw view without shift
     var redrawForce = function() {
-      if ( !forceDirtyFlag ) {
-        return;
-      }
-      forceDirtyFlag = false;
+      self.massCircle.setRadius( mvt.modelToViewDeltaX(massModel.radius));
+      //self.massCircle.scale( massModel.radius );
 
-      thisNode.x = options.x.get();
-      //reset scale
-      self.massCircle.matrix = Matrix3.identity();
-      //set scale
-      self.massCircle.scale( massToScale( options.mass.get() ) );
-
-      if ( options.model.showValues ) {
-        var forceStr = options.model.force.toFixed( 12 );
+      if ( model.showValues ) {
+        var forceStr = model.force.toFixed( 12 );
         forceStr = ( forceStr.substr( 0, 5 ) + ' ' + forceStr.substr( 5, 3 ) + ' ' + forceStr.substr( 8, 3 ) + ' ' + forceStr.substr( 11, 3 ) );
         arrowText.text = StringUtils.format( forceDescriptionPatternTargetSourceValueString, options.label, options.otherMassLabel, forceStr );
       }
@@ -154,7 +148,7 @@ define( function( require ) {
       }
       arrowText.centerX = 0;
 
-      var arr = forceToArrow( options.model.force );
+      var arr = forceToArrow( model.force );
       if ( options.direction === 'right' ) {
         arr *= -1;
       }
@@ -167,11 +161,11 @@ define( function( require ) {
         stroke: null
       } );
       thisNode.addChild( arrowNode );
-      self.pull.setPull( Math.round( forceToImage( options.model.force ) ), (self.massCircle.width / 2) );
+      self.pull.setPull( Math.round( forceToImage( model.force ) ), (self.massCircle.width / 2) );
     };
 
     // redraw view with shift
-    var redraw = function() {
+    /*var redraw = function() {
       markForceDirty();
       var xMax = options.model.width - self.massCircle.width/2 - self.pull.width;
       var xMin = self.massCircle.width/2 + self.pull.width;
@@ -184,14 +178,28 @@ define( function( require ) {
       }
       var x = Math.max( Math.min( options.x.get(), xMax ), xMin );
       options.x.set( x );
-    };
-    options.mass.link( redraw );
-    options.x.link( redraw );
-    options.model.showValuesProperty.link( markForceDirty );
-    options.model.forceProperty.link( markForceDirty );
-    options.model.on( options.massStepEvent, redrawForce );
-    options.model.on( options.massStepEvent, redraw );
+    };*/
+    //options.mass.link( redraw );
+    //options.x.link( redraw );
+    //options.model.showValuesProperty.link( markForceDirty );
+    //options.model.forceProperty.link( markForceDirty );
+    //options.model.on( options.massStepEvent, redrawForce );
+    //options.model.on( options.massStepEvent, redraw );
+
+    massModel.positionProperty.link( function(prop) {
+      thisNode.x = mvt.modelToViewX( prop );
+    } );
+    model.showValuesProperty.lazyLink( function(){
+      redrawForce();
+    });
+    massModel.radiusProperty.lazyLink( function( ) {
+      redrawForce();
+    });
+    model.forceProperty.lazyLink( function() {
+      redrawForce();
+    });
     redrawForce();
+
 
     var massClickXOffset;
     dragNode.addInputListener( new SimpleDragHandler(
@@ -201,10 +209,18 @@ define( function( require ) {
         },
         drag: function( event ) {
           var x = thisNode.globalToParentPoint( event.pointer.point ).x - massClickXOffset;
-          var xMax = options.model.width - self.massCircle.width/2 - self.pull.width;
+          var xMax = model.width - self.massCircle.width/2 - self.pull.width;
           var xMin = self.massCircle.width/2 + self.pull.width;
+          // for mass1 xMax is left boundary of
+          var sumRadius = mvt.modelToViewDeltaX( model.mass1.radius ) + mvt.modelToViewDeltaX( model.mass2.radius );
+          if ( massModel.position === model.mass1.position ) {
+            xMax = mvt.modelToViewX(model.mass2.position) - sumRadius - mvt.modelToViewDeltaX( GravityForceLabModel.MinSeparationBetweenMasses );
+          }
+          if ( massModel.position === model.mass2.position ) {
+            xMin = mvt.modelToViewX(model.mass1.position) + sumRadius + mvt.modelToViewDeltaX( GravityForceLabModel.MinSeparationBetweenMasses );
+          }
           x = Math.max( Math.min( x, xMax ), xMin );
-          options.x.set( x );
+          massModel.positionProperty.set( mvt.viewToModelX(x) );
         }
       } ) );
   }

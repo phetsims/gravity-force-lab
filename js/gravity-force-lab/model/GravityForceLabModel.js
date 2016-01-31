@@ -15,68 +15,100 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Range = require( 'DOT/Range' );
 
+  // Constants
   var G = 6.67384E-11; // gravitational constant
+  var MIN_SEPARATION_BETWEEN_MASSES = 0.1; // in meters
+  var LEFT_BOUNDARY = -7.68; // empirically determined for model space in meters
+  var RIGHT_BOUNDARY = 7.68; // empirically determined for model space in meters
+  var PULL_OBJECT_WIDTH = 1.62; // empirically determined for model space in meters
 
   var calculateForce = function( mass1, mass2, distance ) {
     return ( G * mass1 * mass2 ) / ( distance * distance );
   };
 
   var calculateDistance = function( x1, x2 ) {
-    return Math.abs( Math.round( ( x2 - x1 ) / 50 * 100 ) / 100 );
+    return Math.abs( x1 - x2 );
   };
 
-  function GravityForceLabModel( width, height ) {
+  function GravityForceLabModel() {
 
-    var model = this;
-    this.massRange = new Range( 1, 100 );
+    var self = this;
+    this.massRange = new Range( 1, 1000 );
+    this.mass1 = new Mass( 38, -2, 'white' );
+    this.mass2 = new Mass( 25,  2, 'white' );
     this.forceRange = new Range( ( 2.8287421332465277e-13 ), ( 4.387797501643656e-8 ) );
 
-    // dimensions of the model's space
-    this.width = width;
-    this.height = height;
-
     PropertySet.call( this, {
-      mass1: 38.00,
-      mass2: 25.00,
-      showValues: true,
-      distance: 4, // separation between the 2 masses
       force: 0,
-      locationX1: this.width / 2 - 100, // x-coordinate of mass 1
-      locationX2: this.width / 2 + 100, // x-coordinate of mass 2
+      showValues: true,
+      changeRadius: false,
       ruler: { x: 120, y: 270 }
     } );
 
-    var updateForce = function() {model.force = calculateForce( model.mass1, model.mass2, model.distance );};
-    var updateDistance = function() {model.distance = calculateDistance( model.locationX1, model.locationX2 );};
+    this.updateForce = function() {
+      var distance = calculateDistance( self.mass1.position, self.mass2.position );
+      self.force = calculateForce( self.mass1.mass, self.mass2.mass, distance );
+    };
 
-    this.mass1Property.link( updateForce );
-    this.mass2Property.link( updateForce );
-    this.distanceProperty.link( updateForce );
-    this.locationX1Property.link( updateDistance );
-    this.locationX2Property.link( updateDistance );
-
-    this.reset();
+    this.mass1.massProperty.link( self.updateForce );
+    this.mass2.massProperty.link( self.updateForce );
+    this.mass1.positionProperty.link( self.updateForce );
+    this.mass2.positionProperty.link( self.updateForce );
   }
 
   inherit( PropertySet, GravityForceLabModel, {
     step: function() {
-      this.trigger( 'mass1Step' );
-      this.trigger( 'mass2Step' );
+      // Check overlap and check if it is out of bounds
+      // Bounds so that mass 1 don't go out of bounds
+      var minX = LEFT_BOUNDARY + PULL_OBJECT_WIDTH + this.mass1.radius;
+      var maxX = RIGHT_BOUNDARY - PULL_OBJECT_WIDTH - this.mass2.radius;
+      var locationMass1 = this.mass1.position;
+      var locationMass2 = this.mass2.position;
+
+
+      // Check for overlap and move both masses so that they don't overlap
+      var change_factor = 0.0001;
+      var sumRadius = this.mass1.radius + this.mass2.radius + MIN_SEPARATION_BETWEEN_MASSES;
+      var changed = false;
+      var i = 0;
+      for (i = 0; i < 100; i++) {
+        if ( Math.abs( locationMass1 - locationMass2 ) < sumRadius ) {
+          while ( Math.abs( locationMass1 - locationMass2 ) < sumRadius ) {
+            locationMass1 = locationMass1 - change_factor;
+            locationMass2 = locationMass2 + change_factor;
+            changed = true;
+          }
+
+        }
+        if ( locationMass1 < minX ) {
+          locationMass1 = Math.max( minX, locationMass1 );
+          changed = true;
+        }
+        // Bounds So that mass 2 don't go out of bounds
+
+        if ( locationMass2 > maxX ) {
+          locationMass2 = Math.min( maxX, locationMass2 );
+          changed = true;
+        }
+
+        if ( changed ){
+          continue;
+        }
+        else{
+          break;
+        }
+      }
+      this.mass1.positionProperty.set( locationMass1 );
+      this.mass2.positionProperty.set( locationMass2 );
     },
+
     reset: function() {
-      this.mass1Property.reset();
-      this.mass2Property.reset();
-      this.locationX1Property.reset();
-      this.locationX2Property.reset();
-      // locationX1Property is reset again because for the initial reset of location X1 it depends on X2 which is not
-      // yet reset so doing it again to set it properly.
-      this.locationX1Property.reset();
-      this.showValuesProperty.reset();
-      this.distanceProperty.reset();
-      this.force = calculateForce( this.mass1, this.mass2, this.distance );
-      this.rulerProperty.reset();
+      PropertySet.prototype.reset.call( this );
+      this.mass1.reset();
+      this.mass2.reset();
+      this.updateForce();
     }
-  } );
+  }, { MinSeparationBetweenMasses: MIN_SEPARATION_BETWEEN_MASSES} );
 
   return GravityForceLabModel;
 } );
