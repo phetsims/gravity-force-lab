@@ -24,31 +24,25 @@ define( function( require ) {
    * @param model
    * @constructor
    */
-  function MassObjects( model ) {
+  function MassObjects( model, mvt ) {
 
     Node.call( this );
-    this.addChild( new MassObject( {
-      model: model,
+    this.addChild( new MassObject( model, model.mass1, mvt, {
       label: mass1String,
       otherMassLabel: mass2String,
       direction: 'left',
       colorGradient: [ '#aaf', '#00f', '#66f' ],
       y: yValue,
-      x: model.locationX1Property,
-      mass: model.mass1Property,
-      massStepEvent: 'mass1Step',
+      //massStepEvent: 'mass1Step',
       forceArrowHeight: 125
     } ) );
-    this.addChild( new MassObject( {
-      model: model,
+    this.addChild( new MassObject( model, model.mass2, mvt, {
       label: mass2String,
       otherMassLabel: mass1String,
       direction: 'right',
       colorGradient: [ '#faa', '#f00', '#f66' ],
       y: yValue,
-      x: model.locationX2Property,
-      mass: model.mass2Property,
-      massStepEvent: 'mass2Step',
+      //massStepEvent: 'mass2Step',
       forceArrowHeight: 175
     } ) );
   }

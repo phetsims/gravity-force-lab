@@ -10,6 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var Mass = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/model/Mass' );
   var PropertySet = require( 'AXON/PropertySet' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Range = require( 'DOT/Range' );

@@ -32,8 +32,8 @@ define( function( require ) {
       scale: 1.1
     } );
     var controlShowValues = new ControlShowValues( model );
-    var controlMass1 = new ControlMass( mass1String, model.mass1Property, model.massRange );
-    var controlMass2 = new ControlMass( mass2String, model.mass2Property, model.massRange );
+    var controlMass1 = new ControlMass( mass1String, model.mass1.massProperty, model.massRange );
+    var controlMass2 = new ControlMass( mass2String, model.mass2.massProperty, model.massRange );
 
     this.addChild( controlShowValues );
     this.addChild( controlMass1 );
