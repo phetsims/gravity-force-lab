@@ -58,43 +58,37 @@ define( function( require ) {
 
   inherit( PropertySet, GravityForceLabModel, {
     step: function() {
-      // Check overlap and check if it is out of bounds
-      // Bounds so that mass 1 don't go out of bounds
+      // making sure masses doesn't goes out of bounds and don't overlap each other
       var minX = LEFT_BOUNDARY + PULL_OBJECT_WIDTH + this.mass1.radius;
       var maxX = RIGHT_BOUNDARY - PULL_OBJECT_WIDTH - this.mass2.radius;
       var locationMass1 = this.mass1.position;
       var locationMass2 = this.mass2.position;
 
-
-      // Check for overlap and move both masses so that they don't overlap
-      var change_factor = 0.0001;
+      var change_factor = 0.0001; // this is empirically determined larger change factor may make masses farther but converges faster
       var sumRadius = this.mass1.radius + this.mass2.radius + MIN_SEPARATION_BETWEEN_MASSES;
       var changed = false;
       var i = 0;
-      for (i = 0; i < 100; i++) {
+      // for loop is to make sure after checking the boundaries constraints masses don't overlap
+      for (i = 0; i < 10; i++) {
+        // check for overlap and move both masses so that they don't overlap
         if ( Math.abs( locationMass1 - locationMass2 ) < sumRadius ) {
           while ( Math.abs( locationMass1 - locationMass2 ) < sumRadius ) {
             locationMass1 = locationMass1 - change_factor;
             locationMass2 = locationMass2 + change_factor;
             changed = true;
           }
-
         }
+        // make sure mass1 doesn't go out of left boundary
         if ( locationMass1 < minX ) {
           locationMass1 = Math.max( minX, locationMass1 );
           changed = true;
         }
-        // Bounds So that mass 2 don't go out of bounds
-
+        // make sure mass2 doesn't go out of right boundary
         if ( locationMass2 > maxX ) {
           locationMass2 = Math.min( maxX, locationMass2 );
           changed = true;
         }
-
-        if ( changed ){
-          continue;
-        }
-        else{
+        if ( ! changed ){
           break;
         }
       }
