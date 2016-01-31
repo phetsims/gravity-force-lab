@@ -45,9 +45,6 @@ define( function( require ) {
     controlShowValues.left = controlMass2.right + 50;
     resetAllButton.centerX = controlShowValues.centerX;
     resetAllButton.bottom = controlMass1.bottom;
-
-    this.right = model.width - 15;
-    this.bottom = model.height - 15;
   }
 
   inherit( Node, ControlPanel );

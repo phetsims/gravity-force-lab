@@ -4,6 +4,7 @@
  * main Model container.
  *
  * @author Anton Ulyanov (Mlearner)
+ * @author Aadish Gupta
  */
 define( function( require ) {
   'use strict';
