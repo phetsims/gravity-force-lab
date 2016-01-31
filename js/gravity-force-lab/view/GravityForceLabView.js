@@ -32,6 +32,7 @@ define( function( require ) {
       50 );
 
     this.mvt = mvt; // Make mvt available to descendant types.
+
     var controlPanel = new ControlPanel( model );
     this.addChild( controlPanel );
     controlPanel.right = this.layoutBounds.width - 15;
@@ -39,7 +40,7 @@ define( function( require ) {
 
     this.addChild( new MassObjects( model, mvt ) );
 
-    this.addChild( new GravityForceLabRuler( model ) );
+    this.addChild( new GravityForceLabRuler( model, this.layoutBounds.width, this.layoutBounds.height ) );
   }
 
   inherit( ScreenView, GravityForceLabView );

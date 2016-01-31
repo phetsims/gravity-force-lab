@@ -26,7 +26,7 @@ define( function( require ) {
    * @param model
    * @constructor
    */
-  function GravityForceLabRuler( model ) {
+  function GravityForceLabRuler( model, screenWidth, screenHeight ) {
     var self = this;
     Node.call( this, { cursor: 'pointer', cssTransform: true } );
     var ruler = new RulerNode( RULER_WIDTH, RULER_HEIGHT, 50, [ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10' ], unitsMetersString, {
@@ -43,7 +43,7 @@ define( function( require ) {
     } );
 
     this.addInputListener( new MovableDragHandler( model.rulerProperty, {
-      dragBounds: new Bounds2( -self.width / 2, 0, model.width - self.width / 2, model.height - self.height)
+      dragBounds: new Bounds2( -self.width / 2, 0, screenWidth - self.width / 2, screenHeight - self.height)
     } ) );
   }
 
