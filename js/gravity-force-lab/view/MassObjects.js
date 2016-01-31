@@ -24,10 +24,10 @@ define( function( require ) {
    * @param model
    * @constructor
    */
-  function MassObjects( model, mvt ) {
+  function MassObjects( model, screenWidth, screenHeight, mvt ) {
 
     Node.call( this );
-    this.addChild( new MassObject( model, model.mass1, mvt, {
+    this.addChild( new MassObject( model, model.mass1, screenWidth, screenHeight, mvt, {
       label: mass1String,
       otherMassLabel: mass2String,
       direction: 'left',
@@ -36,7 +36,7 @@ define( function( require ) {
       //massStepEvent: 'mass1Step',
       forceArrowHeight: 125
     } ) );
-    this.addChild( new MassObject( model, model.mass2, mvt, {
+    this.addChild( new MassObject( model, model.mass2, screenWidth, screenHeight, mvt, {
       label: mass2String,
       otherMassLabel: mass1String,
       direction: 'right',

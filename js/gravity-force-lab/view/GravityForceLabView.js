@@ -38,7 +38,7 @@ define( function( require ) {
     controlPanel.right = this.layoutBounds.width - 15;
     controlPanel.bottom = this.layoutBounds.height - 15;
 
-    this.addChild( new MassObjects( model, mvt ) );
+    this.addChild( new MassObjects( model, this.layoutBounds.width, this.layoutBounds.height, mvt ) );
 
     this.addChild( new GravityForceLabRuler( model, this.layoutBounds.width, this.layoutBounds.height ) );
   }

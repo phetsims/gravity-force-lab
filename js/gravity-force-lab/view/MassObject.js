@@ -32,14 +32,12 @@ define( function( require ) {
 
   // constants
   var LABEL_MAX_WIDTH = 20; // empirically determined through testing with long strings
-  var MIN_SEPERATION_BETWEEN_MASSES = 0.1; // in meters
-  //var MASS_RADIUS = 50;
 
   /**
    * @param {Object} [options]
    * @constructor
    */
-  function MassObject( model, massModel, mvt, options ) {
+  function MassObject( model, massModel, screenWidth, screenHeight, mvt, options ) {
     var self = this;
     options = _.extend( {
       label: 'This Mass',
@@ -57,7 +55,6 @@ define( function( require ) {
     //Conversion functions
     var forceToArrow = new LinearFunction( model.forceRange.min, model.forceRange.max, 0, options.arrowLength, true );
     var forceToImage = new LinearFunction( model.forceRange.min, model.forceRange.max, 0, options.pullImagesCount - 1, true );
-    //var massToScale = new LinearFunction( options.model.massRange.min, options.model.massRange.max, 0.05, 0.95, true );
 
     Node.call( this );
     var dragNode = new Node( { cursor: 'pointer' } );
@@ -128,11 +125,6 @@ define( function( require ) {
     this.addChild( arrowText );
     this.addChild( arrowNode );
 
-    //var forceDirtyFlag = true;
-    //var markForceDirty = function() {
-    //  forceDirtyFlag = true;
-    //};
-
     // redraw view without shift
     var redrawForce = function() {
       self.massCircle.setRadius( mvt.modelToViewDeltaX(massModel.radius));
@@ -164,28 +156,6 @@ define( function( require ) {
       self.pull.setPull( Math.round( forceToImage( model.force ) ), (self.massCircle.width / 2) );
     };
 
-    // redraw view with shift
-    /*var redraw = function() {
-      markForceDirty();
-      var xMax = options.model.width - self.massCircle.width/2 - self.pull.width;
-      var xMin = self.massCircle.width/2 + self.pull.width;
-      var sumRadius = options.massRadius * massToScale( options.model.mass1 ) + options.massRadius * massToScale( options.model.mass2 );
-      if ( options.x.get() === options.model.locationX1 ) {
-        xMax = options.model.locationX2 - sumRadius - 5; // subtract 5 so that masses never touch each other
-      }
-      if ( options.x.get() === options.model.locationX2 ) {
-        xMin = options.model.locationX1 + sumRadius + 5; // add 5 so that masses never touch each other
-      }
-      var x = Math.max( Math.min( options.x.get(), xMax ), xMin );
-      options.x.set( x );
-    };*/
-    //options.mass.link( redraw );
-    //options.x.link( redraw );
-    //options.model.showValuesProperty.link( markForceDirty );
-    //options.model.forceProperty.link( markForceDirty );
-    //options.model.on( options.massStepEvent, redrawForce );
-    //options.model.on( options.massStepEvent, redraw );
-
     massModel.positionProperty.link( function(prop) {
       thisNode.x = mvt.modelToViewX( prop );
     } );
@@ -209,7 +179,7 @@ define( function( require ) {
         },
         drag: function( event ) {
           var x = thisNode.globalToParentPoint( event.pointer.point ).x - massClickXOffset;
-          var xMax = model.width - self.massCircle.width/2 - self.pull.width;
+          var xMax = screenWidth - self.massCircle.width/2 - self.pull.width;
           var xMin = self.massCircle.width/2 + self.pull.width;
           // for mass1 xMax is left boundary of
           var sumRadius = mvt.modelToViewDeltaX( model.mass1.radius ) + mvt.modelToViewDeltaX( model.mass2.radius );
