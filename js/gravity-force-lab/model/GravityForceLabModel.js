@@ -50,6 +50,12 @@ define( function( require ) {
       self.force = calculateForce( self.mass1.mass, self.mass2.mass, distance );
     };
 
+    this.constantRadiusProperty.lazyLink( function( prop ){
+      if( !prop ){
+        self.mass1.radius = self.mass1.calculateRadius( self.mass1.mass );
+        self.mass2.radius = self.mass2.calculateRadius( self.mass2.mass );
+      }
+    });
     this.mass1.massProperty.link( self.updateForce );
     this.mass2.massProperty.link( self.updateForce );
     this.mass1.positionProperty.link( self.updateForce );
