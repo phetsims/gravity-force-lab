@@ -9,13 +9,15 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Panel = require( 'SUN/Panel' );
   var CheckBox = require( 'SUN/CheckBox' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var Panel = require( 'SUN/Panel' );
   var Text = require( 'SCENERY/nodes/Text' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
 
   // strings
+  var constantRadiusString = require( 'string!GRAVITY_FORCE_LAB/constantRadius' );
   var showValuesString = require( 'string!GRAVITY_FORCE_LAB/showValues' );
 
   // constants
@@ -34,9 +36,15 @@ define( function( require ) {
       yMargin: 10
     }, options );
 
-    var text = new Text( showValuesString, { font: new PhetFont( 16 ), maxWidth: MAX_CAPTION_WIDTH } );
-    var checkBox = new CheckBox( text, model.showValuesProperty, { cursor: 'pointer' } );
-    Panel.call( this, checkBox, options );
+    var node = new Node();
+    var showValueText = new Text( showValuesString, { font: new PhetFont( 16 ), maxWidth: MAX_CAPTION_WIDTH } );
+    var showValueCheckBox = new CheckBox( showValueText, model.showValuesProperty, { cursor: 'pointer' } );
+    node.addChild( showValueCheckBox );
+    var constantRadiusText = new Text( constantRadiusString, { font: new PhetFont( 16 ), maxWidth: MAX_CAPTION_WIDTH } );
+    var constantRadiusCheckBox = new CheckBox( constantRadiusText, model.constantRadiusProperty, { cursor: 'pointer' } );
+    constantRadiusCheckBox.top = showValueCheckBox.bottom + 10;
+    node.addChild( constantRadiusCheckBox );
+    Panel.call( this, node, options );
   }
 
   inherit( Panel, ControlShowValues );

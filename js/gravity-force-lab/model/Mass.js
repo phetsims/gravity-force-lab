@@ -6,7 +6,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var PropertySet = require( 'AXON/PropertySet' );
 
-  function Mass( mass, position, color) {
+  function Mass( mass, position, color, constantRadiusProperty ) {
     var self = this;
     PropertySet.call( this, {
       mass: mass,
@@ -16,7 +16,9 @@ define( function( require ) {
     });
 
     this.massProperty.lazyLink( function( mass ){
-      self.radius = self.calculateRadius( mass );
+      if( !constantRadiusProperty.get() ) {
+        self.radius = self.calculateRadius( mass );
+      }
     });
 
   }

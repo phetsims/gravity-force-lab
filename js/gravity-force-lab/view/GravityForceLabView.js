@@ -36,7 +36,7 @@ define( function( require ) {
     var controlPanel = new ControlPanel( model );
     this.addChild( controlPanel );
     controlPanel.right = this.layoutBounds.width - 15;
-    controlPanel.bottom = this.layoutBounds.height - 15;
+    controlPanel.bottom = this.layoutBounds.height - 10;
 
     this.addChild( new MassObjects( model, this.layoutBounds.width, this.layoutBounds.height, mvt ) );
 

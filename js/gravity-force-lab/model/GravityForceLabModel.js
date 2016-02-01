@@ -34,17 +34,17 @@ define( function( require ) {
 
     var self = this;
     this.massRange = new Range( 1, 1000 );
-    this.mass1 = new Mass( 38, -2, 'white' );
-    this.mass2 = new Mass( 25,  2, 'white' );
     this.forceRange = new Range( ( 2.8287421332465277e-13 ), ( 4.387797501643656e-8 ) );
 
     PropertySet.call( this, {
       force: 0,
       showValues: true,
-      changeRadius: false,
+      constantRadius: false,
       ruler: { x: 120, y: 270 }
     } );
 
+    this.mass1 = new Mass( 38, -2, 'white', this.constantRadiusProperty );
+    this.mass2 = new Mass( 25,  2, 'white', this.constantRadiusProperty );
     this.updateForce = function() {
       var distance = calculateDistance( self.mass1.position, self.mass2.position );
       self.force = calculateForce( self.mass1.mass, self.mass2.mass, distance );
