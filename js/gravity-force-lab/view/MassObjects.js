@@ -31,7 +31,7 @@ define( function( require ) {
       label: mass1String,
       otherMassLabel: mass2String,
       direction: 'left',
-      colorGradient: [ '#aaf', '#00f', '#66f' ],
+      arrowColor: '#66f',
       y: yValue,
       //massStepEvent: 'mass1Step',
       forceArrowHeight: 125
@@ -40,7 +40,7 @@ define( function( require ) {
       label: mass2String,
       otherMassLabel: mass1String,
       direction: 'right',
-      colorGradient: [ '#faa', '#f00', '#f66' ],
+      arrowColor: '#f66',
       y: yValue,
       //massStepEvent: 'mass2Step',
       forceArrowHeight: 175

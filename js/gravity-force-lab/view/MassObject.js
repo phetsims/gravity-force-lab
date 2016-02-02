@@ -43,7 +43,7 @@ define( function( require ) {
       label: 'This Mass',
       otherMassName: 'Other Mass',
       direction: 'left', //direction mass
-      colorGradient: [ '#aaf', '#00f', '#66f' ], //[<gradient mass light>, <gradient mass dark>, <color vertical line>]
+      arrowColor: '#66f', //color vertical line
       y: 250,
       forceArrowHeight: 150, // arrow height
       pullImagesCount: 15,
@@ -63,11 +63,7 @@ define( function( require ) {
       self.pull.scale( -1, 1 );
     }
     var radius = mvt.modelToViewDeltaX( massModel.radius );
-    this.massCircle = new Circle( radius, {
-      fill: new RadialGradient( radius * 0.6, -radius * 0.6, 1, radius * 0.6, -radius * 0.6, radius )
-        .addColorStop( 0, options.colorGradient[ 0 ] )
-        .addColorStop( 1, options.colorGradient[ 1 ] )
-    } ) ;
+    this.massCircle = new Circle( radius ) ;
 
     dragNode.addChild( this.pull );
     dragNode.addChild( this.massCircle );
@@ -117,7 +113,7 @@ define( function( require ) {
       y: 0.5
     } ) );
     this.addChild( new Path( arrowShape, {
-      stroke: options.colorGradient[ 2 ],
+      stroke: options.arrowColor,
       lineDash: [ 4, 4 ],
       lineWidth: 2
     } ) );
@@ -167,6 +163,9 @@ define( function( require ) {
     });
     model.forceProperty.lazyLink( function() {
       redrawForce();
+    });
+    massModel.colorGradientProperty.link( function( colorGradient ) {
+      self.massCircle.fill = colorGradient;
     });
     redrawForce();
 

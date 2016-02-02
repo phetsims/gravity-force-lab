@@ -43,19 +43,13 @@ define( function( require ) {
       ruler: { x: 120, y: 270 }
     } );
 
-    this.mass1 = new Mass( 38, -2, 'white', this.constantRadiusProperty );
-    this.mass2 = new Mass( 25,  2, 'white', this.constantRadiusProperty );
+    this.mass1 = new Mass( 38, -2, '#00f', this.constantRadiusProperty );
+    this.mass2 = new Mass( 25,  2, '#f00', this.constantRadiusProperty );
     this.updateForce = function() {
       var distance = calculateDistance( self.mass1.position, self.mass2.position );
       self.force = calculateForce( self.mass1.mass, self.mass2.mass, distance );
     };
 
-    this.constantRadiusProperty.lazyLink( function( prop ){
-      if( !prop ){
-        self.mass1.radius = self.mass1.calculateRadius( self.mass1.mass );
-        self.mass2.radius = self.mass2.calculateRadius( self.mass2.mass );
-      }
-    });
     this.mass1.massProperty.link( self.updateForce );
     this.mass2.massProperty.link( self.updateForce );
     this.mass1.positionProperty.link( self.updateForce );
