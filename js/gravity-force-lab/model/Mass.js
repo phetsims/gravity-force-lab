@@ -55,7 +55,7 @@ define( function( require ) {
     //TODO Calculate Radius
     calculateRadius: function( mass ) {
 
-      var radius = Math.pow( ( mass * 3 * 7 / 150 / 4 / 22 ), 1/3);
+      var radius = Math.pow( ( mass * 3 * 7 / DENSITY / 4 / 22 ), 1/3);
       return radius;
     },
 

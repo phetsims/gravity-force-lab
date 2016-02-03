@@ -12,19 +12,18 @@ define( function( require ) {
 
   // modules
   var ArrowNode = require( 'SCENERY_PHET/ArrowNode' );
-  var inherit = require( 'PHET_CORE/inherit' );
+  var Circle = require( 'SCENERY/nodes/Circle' );
   var GravityForceLabModel = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/model/GravityForceLabModel' );
-  var RadialGradient = require( 'SCENERY/util/RadialGradient' );
+  var inherit = require( 'PHET_CORE/inherit' );
   var LinearFunction = require( 'DOT/LinearFunction' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
-  var Circle = require( 'SCENERY/nodes/Circle' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  var PullObject = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/PullObject' );
   var Shape = require( 'KITE/Shape' );
   var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
-  var Text = require( 'SCENERY/nodes/Text' );
-  var PullObject = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/PullObject' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  var Text = require( 'SCENERY/nodes/Text' );
 
   // strings
   var forceDescriptionPatternTargetSourceString = require( 'string!GRAVITY_FORCE_LAB/force-description-pattern-target_source' );
