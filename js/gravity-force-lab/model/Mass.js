@@ -11,7 +11,7 @@ define( function( require ) {
   //constants
   var DENSITY = 150; // kg/m^3
   var CONSTANT_RADIUS = 0.5; // in meters
-  var CONSTANT_COLOR = new Color( 'mediumpurple' );
+  var CONSTANT_MASS_COLOR = new Color( 'mediumpurple' );
   var COLOR_REDUCTION_CONSTANT = 2000; // empirically determined
 
   function Mass( mass, position, color, constantRadiusProperty ) {
@@ -29,7 +29,7 @@ define( function( require ) {
         self.radius = self.calculateRadius( mass );
       }
       else{
-        self.baseColor = CONSTANT_COLOR.colorUtilsDarker( mass / COLOR_REDUCTION_CONSTANT );
+        self.baseColor = CONSTANT_MASS_COLOR.colorUtilsDarker( mass / COLOR_REDUCTION_CONSTANT );
       }
     });
 
