@@ -33,6 +33,11 @@ define( function( require ) {
   var LABEL_MAX_WIDTH = 20; // empirically determined through testing with long strings
 
   /**
+   * @param model
+   * @param massModel
+   * @param screenWidth
+   * @param screenHeight
+   * @param mvt
    * @param {Object} [options]
    * @constructor
    */
@@ -62,7 +67,7 @@ define( function( require ) {
       self.pull.scale( -1, 1 );
     }
     var radius = mvt.modelToViewDeltaX( massModel.radius );
-    this.massCircle = new Circle( radius ) ;
+    this.massCircle = new Circle( radius );
 
     dragNode.addChild( this.pull );
     dragNode.addChild( this.massCircle );
@@ -122,7 +127,7 @@ define( function( require ) {
 
     // redraw view without shift
     var redrawForce = function() {
-      self.massCircle.setRadius( mvt.modelToViewDeltaX(massModel.radius));
+      self.massCircle.setRadius( mvt.modelToViewDeltaX( massModel.radius ) );
       //self.massCircle.scale( massModel.radius );
 
       if ( model.showValues ) {
@@ -151,21 +156,21 @@ define( function( require ) {
       self.pull.setPull( Math.round( forceToImage( model.force ) ), (self.massCircle.width / 2) );
     };
 
-    massModel.positionProperty.link( function(prop) {
+    massModel.positionProperty.link( function( prop ) {
       thisNode.x = mvt.modelToViewX( prop );
     } );
-    model.showValuesProperty.lazyLink( function(){
+    model.showValuesProperty.lazyLink( function() {
       redrawForce();
-    });
-    massModel.radiusProperty.lazyLink( function( ) {
+    } );
+    massModel.radiusProperty.lazyLink( function() {
       redrawForce();
-    });
+    } );
     model.forceProperty.lazyLink( function() {
       redrawForce();
-    });
+    } );
     massModel.colorGradientProperty.link( function( colorGradient ) {
       self.massCircle.fill = colorGradient;
-    });
+    } );
     redrawForce();
 
 
@@ -177,18 +182,18 @@ define( function( require ) {
         },
         drag: function( event ) {
           var x = thisNode.globalToParentPoint( event.pointer.point ).x - massClickXOffset;
-          var xMax = screenWidth - self.massCircle.width/2 - self.pull.width;
-          var xMin = self.massCircle.width/2 + self.pull.width;
+          var xMax = screenWidth - self.massCircle.width / 2 - self.pull.width;
+          var xMin = self.massCircle.width / 2 + self.pull.width;
           // for mass1 xMax is left boundary of
           var sumRadius = mvt.modelToViewDeltaX( model.mass1.radius ) + mvt.modelToViewDeltaX( model.mass2.radius );
           if ( massModel.position === model.mass1.position ) {
-            xMax = mvt.modelToViewX(model.mass2.position) - sumRadius - mvt.modelToViewDeltaX( GravityForceLabModel.MinSeparationBetweenMasses );
+            xMax = mvt.modelToViewX( model.mass2.position ) - sumRadius - mvt.modelToViewDeltaX( GravityForceLabModel.MinSeparationBetweenMasses );
           }
           if ( massModel.position === model.mass2.position ) {
-            xMin = mvt.modelToViewX(model.mass1.position) + sumRadius + mvt.modelToViewDeltaX( GravityForceLabModel.MinSeparationBetweenMasses );
+            xMin = mvt.modelToViewX( model.mass1.position ) + sumRadius + mvt.modelToViewDeltaX( GravityForceLabModel.MinSeparationBetweenMasses );
           }
           x = Math.max( Math.min( x, xMax ), xMin );
-          massModel.positionProperty.set( mvt.viewToModelX(x) );
+          massModel.positionProperty.set( mvt.viewToModelX( x ) );
         }
       } ) );
   }
