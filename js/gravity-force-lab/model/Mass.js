@@ -44,7 +44,7 @@ define( function( require ) {
       }
       else{
         self.radius = CONSTANT_RADIUS;
-        self.baseColor = CONSTANT_COLOR.colorUtilsDarker( self.mass / COLOR_REDUCTION_CONSTANT );
+        self.baseColor = CONSTANT_MASS_COLOR.colorUtilsDarker( self.mass / COLOR_REDUCTION_CONSTANT );
       }
     });
 
