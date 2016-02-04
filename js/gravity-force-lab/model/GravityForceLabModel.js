@@ -34,7 +34,7 @@ define( function( require ) {
 
     var self = this;
     this.massRange = new Range( 1, 1000 );
-    this.forceRange = new Range( ( 0 ), ( 4e-8 ) ); // empirically determined what min and max force can be
+    this.forceRange = new Range( ( 5e-9 ), ( 0.5e-7 ) ); // empirically determined what min and max force can be
 
     PropertySet.call( this, {
       force: 0,
