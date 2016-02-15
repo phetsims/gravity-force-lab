@@ -14,14 +14,31 @@ define( function( require ) {
   var CONSTANT_MASS_COLOR = new Color( 'mediumpurple' );
   var COLOR_REDUCTION_CONSTANT = 2000; // empirically determined
 
+  function calculateGradient( color, radius ){
+    var viewRadius = radius * 50; // empirically determined to convert radius from model to view space
+    return new RadialGradient( viewRadius * 0.6, -viewRadius * 0.6, 1, viewRadius * 0.6, -viewRadius * 0.6, viewRadius )
+      .addColorStop( 0, color.colorUtilsBrighter( 0.5 ).toCSS() )
+      .addColorStop( 1, color.toCSS() );
+  }
+
+  /**
+   *
+   * @param {number} mass
+   * @param {number} position
+   * @param {String} color
+   * @param {Property.<boolean>} constantRadiusProperty
+   * @constructor
+   */
   function Mass( mass, position, color, constantRadiusProperty ) {
     var self = this;
+    var baseColor = new Color( color );
+    var radius = this.calculateRadius( mass );
     PropertySet.call( this, {
       mass: mass,
       position: position,
-      radius: this.calculateRadius( mass ),
-      baseColor: new Color( color ),
-      colorGradient: 0
+      radius: radius,
+      baseColor: baseColor,
+      colorGradient: calculateGradient( baseColor, radius )
     });
 
     this.massProperty.lazyLink( function( mass ){
@@ -33,8 +50,8 @@ define( function( require ) {
       }
     });
 
-    this.baseColorProperty.link( function( color ){
-      self.colorGradient = self.calculateGradient( color );
+    this.baseColorProperty.lazyLink( function( color ){
+      self.colorGradient = calculateGradient( color, self.radius );
     });
 
     constantRadiusProperty.lazyLink( function( prop ){
@@ -55,21 +72,12 @@ define( function( require ) {
     //TODO Calculate Radius
     calculateRadius: function( mass ) {
 
-      var radius = Math.pow( ( mass * 3 * 7 / DENSITY / 4 / 22 ), 1/3);
-      return radius;
-    },
-
-    calculateGradient: function( color ){
-      var radius = this.radius * 50; // empirically determined to convert radius from model to view space
-      var gradient = new RadialGradient( radius * 0.6, -radius * 0.6, 1, radius * 0.6, -radius * 0.6, radius )
-        .addColorStop( 0, color.colorUtilsBrighter( 0.5 ).toCSS() )
-        .addColorStop( 1, color.toCSS() );
-      return gradient;
+      return Math.pow( ( mass * 3 * 7 / DENSITY / 4 / 22 ), 1/3);
     },
 
     reset: function() {
       PropertySet.prototype.reset.call( this );
-      this.colorGradient = this.calculateGradient( this.baseColor );
+      //this.colorGradient = this.calculateGradient( this.baseColor );
     }
     //TODO Calculate Position
   } );
