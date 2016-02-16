@@ -51,7 +51,7 @@ define( function( require ) {
       y: 250,
       forceArrowHeight: 150, // arrow height
       pullImagesCount: 15,
-      arrowLength: 120
+      arrowLength: screenWidth
       //massRadius: 100 // radius of the mass when scale is 1.0
     }, options );
 
