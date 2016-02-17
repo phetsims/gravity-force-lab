@@ -20,6 +20,8 @@ define( function( require ) {
   var Path = require( 'SCENERY/nodes/Path' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var PullObject = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/PullObject' );
+  var RadialGradient = require( 'SCENERY/util/RadialGradient' );
+  var Range = require( 'DOT/Range' );
   var Shape = require( 'KITE/Shape' );
   var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
@@ -31,6 +33,11 @@ define( function( require ) {
 
   // constants
   var LABEL_MAX_WIDTH = 20; // empirically determined through testing with long strings
+  var ARROW_LENGTH = 8; // empirically determined
+  var PULL_IMAGES_COUNT = 15; // maximum number of images
+  var pullForceRange = new Range( ( 0.5e-10 ), ( 1.1e-6 ) ); // empirically determined for linear mapping of pull objects
+  var arrowForceRange = new Range( ( 6.0e-9 ), ( 4.1e-6 ) ); // empirically determined for linear mapping of pull objects
+  var OFFSET = 10; // empirically detemined to make sure minimum force doesn't go to zero when rounded to 12 significant digits
 
   /**
    * @param model
@@ -49,16 +56,14 @@ define( function( require ) {
       direction: 'left', //direction mass
       arrowColor: '#66f', //color vertical line
       y: 250,
-      forceArrowHeight: 150, // arrow height
-      pullImagesCount: 15,
-      arrowLength: screenWidth
-      //massRadius: 100 // radius of the mass when scale is 1.0
+      forceArrowHeight: 150 // arrow height
     }, options );
 
     var thisNode = this;
     //Conversion functions
-    var forceToArrow = new LinearFunction( model.forceRange.min, model.forceRange.max, 0, options.arrowLength, true );
-    var forceToImage = new LinearFunction( model.forceRange.min, model.forceRange.max, 0, options.pullImagesCount - 1, true );
+    var forceToArrow = new LinearFunction( arrowForceRange.min, arrowForceRange.max, 1, 60, false );
+    var forceToArrowMin = new LinearFunction( 0, arrowForceRange.min, 0, 1, false );
+    var forceToImage = new LinearFunction( pullForceRange.min, pullForceRange.max, 0, PULL_IMAGES_COUNT - 1, true );
 
     Node.call( this );
     var dragNode = new Node( { cursor: 'pointer' } );
@@ -140,15 +145,21 @@ define( function( require ) {
       }
       arrowText.centerX = 0;
 
-      var arr = forceToArrow( model.force );
+      var arrowLengthMultiplier;
+      if ( model.force < arrowForceRange.min ){
+        arrowLengthMultiplier = forceToArrowMin( model.force );
+      }
+      else{
+        arrowLengthMultiplier = forceToArrow( model.force );
+      }
       if ( options.direction === 'right' ) {
-        arr *= -1;
+        arrowLengthMultiplier *= -1;
       }
 
       thisNode.removeChild( arrowNode );
-      arrowNode = new ArrowNode( 0, -options.forceArrowHeight, arr, -options.forceArrowHeight, {
-        headHeight: 10,
-        headWidth: 10,
+      arrowNode = new ArrowNode( 0, -options.forceArrowHeight, arrowLengthMultiplier * ARROW_LENGTH, -options.forceArrowHeight, {
+        headHeight: 8,
+        headWidth: 8,
         tailWidth: 3,
         stroke: null
       } );
@@ -168,8 +179,11 @@ define( function( require ) {
     model.forceProperty.lazyLink( function() {
       redrawForce();
     } );
-    massModel.colorGradientProperty.link( function( colorGradient ) {
-      self.massCircle.fill = colorGradient;
+    massModel.baseColorProperty.link( function( baseColor ) {
+      var radius = mvt.modelToViewDeltaX( massModel.radius );
+      self.massCircle.fill = new RadialGradient( radius * 0.6, -radius * 0.6, 1, radius * 0.6, -radius * 0.6, radius )
+        .addColorStop( 0, baseColor.colorUtilsBrighter( 0.5 ).toCSS() )
+        .addColorStop( 1, baseColor.toCSS() );
     } );
     redrawForce();
 
@@ -182,8 +196,8 @@ define( function( require ) {
         },
         drag: function( event ) {
           var x = thisNode.globalToParentPoint( event.pointer.point ).x - massClickXOffset;
-          var xMax = screenWidth - self.massCircle.width / 2 - self.pull.width;
-          var xMin = self.massCircle.width / 2 + self.pull.width;
+          var xMax = screenWidth - self.massCircle.width / 2 - self.pull.width - OFFSET;
+          var xMin = OFFSET + self.massCircle.width / 2 + self.pull.width;
           // for mass1 xMax is left boundary of
           var sumRadius = mvt.modelToViewDeltaX( model.mass1.radius ) + mvt.modelToViewDeltaX( model.mass2.radius );
           if ( massModel.position === model.mass1.position ) {

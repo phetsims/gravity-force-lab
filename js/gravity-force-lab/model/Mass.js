@@ -6,22 +6,14 @@ define( function( require ) {
   var Color = require( 'SCENERY/util/Color' );
   var inherit = require( 'PHET_CORE/inherit' );
   var PropertySet = require( 'AXON/PropertySet' );
-  var RadialGradient = require( 'SCENERY/util/RadialGradient' );
 
   //constants
   var DENSITY = 150; // kg/m^3
   var CONSTANT_RADIUS = 0.5; // in meters
-  var CONSTANT_MASS_COLOR = new Color( 'mediumpurple' );
-  var COLOR_REDUCTION_CONSTANT = 2000; // empirically determined
+  var CONSTANT_MASS_COLOR = new Color( 'thistle' );
+  var COLOR_REDUCTION_CONSTANT = 2500; // empirically determined
 
-  function calculateGradient( color, radius ){
-    var viewRadius = radius * 50; // empirically determined to convert radius from model to view space
-    return new RadialGradient( viewRadius * 0.6, -viewRadius * 0.6, 1, viewRadius * 0.6, -viewRadius * 0.6, viewRadius )
-      .addColorStop( 0, color.colorUtilsBrighter( 0.5 ).toCSS() )
-      .addColorStop( 1, color.toCSS() );
-  }
-
-  /**
+   /**
    *
    * @param {number} mass
    * @param {number} position
@@ -37,8 +29,7 @@ define( function( require ) {
       mass: mass,
       position: position,
       radius: radius,
-      baseColor: baseColor,
-      colorGradient: calculateGradient( baseColor, radius )
+      baseColor: baseColor
     });
 
     this.massProperty.lazyLink( function( mass ){
@@ -48,10 +39,6 @@ define( function( require ) {
       else{
         self.baseColor = CONSTANT_MASS_COLOR.colorUtilsDarker( mass / COLOR_REDUCTION_CONSTANT );
       }
-    });
-
-    this.baseColorProperty.lazyLink( function( color ){
-      self.colorGradient = calculateGradient( color, self.radius );
     });
 
     constantRadiusProperty.lazyLink( function( prop ){
