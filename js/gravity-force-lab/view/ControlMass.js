@@ -107,7 +107,12 @@ define( function( require ) {
 
     // wrap in a panel
     this.addChild( new Panel( content, {
-      fill: options.fill, xMargin: options.xMargin, yMargin: options.yMargin, scale: options.scale, resize: false
+      fill: options.fill,
+      xMargin: options.xMargin,
+      yMargin: options.yMargin,
+      maxWidth: 224,
+      minWidth: 224,
+      resize: false
     } ) );
 
     massProperty.link( function updateMass( value ) {

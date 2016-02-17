@@ -33,7 +33,9 @@ define( function( require ) {
     options = _.extend( {
       fill: '#FDF498',
       xMargin: 10,
-      yMargin: 10
+      yMargin: 10,
+      minWidth: 170,
+      align: 'left'
     }, options );
 
     var node = new Node();

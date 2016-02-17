@@ -29,22 +29,22 @@ define( function( require ) {
 
     var resetAllButton = new ResetAllButton( {
       listener: function() { model.reset(); },
-      scale: 1.1
+      scale: 0.9
     } );
     var controlShowValues = new ControlShowValues( model );
     var controlMass1 = new ControlMass( mass1String, model.mass1.massProperty, model.massRange );
     var controlMass2 = new ControlMass( mass2String, model.mass2.massProperty, model.massRange );
-
+    controlMass1.scale(0.8);
+    controlMass2.scale(0.8);
     this.addChild( controlShowValues );
     this.addChild( controlMass1 );
     this.addChild( controlMass2 );
     this.addChild( resetAllButton );
-
     // init position element
     controlMass2.left = controlMass1.right + 50;
     controlShowValues.left = controlMass2.right + 50;
     resetAllButton.centerX = controlShowValues.centerX;
-    resetAllButton.bottom = controlMass1.bottom;
+    resetAllButton.top = controlShowValues.bottom + 15;
   }
 
   inherit( Node, ControlPanel );

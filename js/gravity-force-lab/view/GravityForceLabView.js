@@ -26,21 +26,22 @@ define( function( require ) {
     // are meters, so significant zoom is used.  The multipliers for the 2nd
     // parameter can be used to adjust where the point (0, 0) in the model,
     // which is between the two masses
-    var mvt = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
+    var modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
       Vector2.ZERO,
       new Vector2( this.layoutBounds.width / 2, this.layoutBounds.height / 2  ),
       50 );
 
-    this.mvt = mvt; // Make mvt available to descendant types.
+    this.modelViewTransform = modelViewTransform; // Make mvt available to descendant types.
+
+    this.addChild( new MassObjects( model, this.layoutBounds.width, this.layoutBounds.height, modelViewTransform ) );
+
+    var gravityForceLabRuler = new GravityForceLabRuler( model, this.layoutBounds.width, this.layoutBounds.height );
+    this.addChild( gravityForceLabRuler );
 
     var controlPanel = new ControlPanel( model );
     this.addChild( controlPanel );
     controlPanel.right = this.layoutBounds.width - 15;
-    controlPanel.bottom = this.layoutBounds.height - 10;
-
-    this.addChild( new MassObjects( model, this.layoutBounds.width, this.layoutBounds.height, mvt ) );
-
-    this.addChild( new GravityForceLabRuler( model, this.layoutBounds.width, this.layoutBounds.height ) );
+    controlPanel.top = gravityForceLabRuler.bottom + 15;
   }
 
   inherit( ScreenView, GravityForceLabView );
