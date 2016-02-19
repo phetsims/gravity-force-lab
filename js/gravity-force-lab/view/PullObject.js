@@ -47,7 +47,6 @@ define( function( require ) {
       pull.push( new Node( {
         children: [ new Path( Shape.circle( 0, 0, 10 ), {
           fill: '#777',
-          pickable: false,
           scale: { x: image.width / 20, y: 1 },
           x: image.width / 2,
           y: image.height - 5
@@ -56,8 +55,7 @@ define( function( require ) {
     }
     pullGroup.addChild( new Path( Shape.lineSegment( -options.ropeLength, 0, 0, 0 ), {
       stroke: '#666',
-      lineWidth: 2,
-      pickable: false
+      lineWidth: 2
     } ) );
     for ( i = 0; i < pullImages.length; i++ ) {
       pullGroup.addChild( pull[ i ] );

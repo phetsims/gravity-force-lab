@@ -67,7 +67,7 @@ define( function( require ) {
 
     Node.call( this );
     var dragNode = new Node( { cursor: 'pointer' } );
-    this.pull = new PullObject( { image_count: options.pullImagesCount } );
+    this.pull = new PullObject( { image_count: PULL_IMAGES_COUNT } );
     if ( options.direction === 'right' ) {
       self.pull.scale( -1, 1 );
     }
@@ -76,8 +76,7 @@ define( function( require ) {
 
     dragNode.addChild( this.pull );
     dragNode.addChild( this.massCircle );
-    dragNode.addChild( new Circle( 20 ) ); // transparent pickable circle, to make small masses draggable
-    dragNode.addChild( new Circle( 2, { fill: '#000', pickable: false } ) );
+    dragNode.addChild( new Circle( 2, { fill: '#000' } ) );
     var labelFont = new PhetFont( 12 );
     dragNode.addChild( new Text( options.label, {
       font: labelFont,
@@ -191,6 +190,7 @@ define( function( require ) {
     var massClickXOffset;
     dragNode.addInputListener( new SimpleDragHandler(
       {
+        allowTouchSnag: true,
         start: function( event ) {
           massClickXOffset = dragNode.globalToParentPoint( event.pointer.point ).x - event.currentTarget.x;
         },
