@@ -18,8 +18,8 @@ define( function( require ) {
   // Constants
   var G = 6.67384E-11; // gravitational constant
   var MIN_SEPARATION_BETWEEN_MASSES = 0.1; // in meters
-  var LEFT_BOUNDARY = -7.66; // empirically determined for model space in meters
-  var RIGHT_BOUNDARY = 7.66; // empirically determined for model space in meters
+  var LEFT_BOUNDARY = -7.48; // empirically determined for model space in meters
+  var RIGHT_BOUNDARY = 7.48; // empirically determined for model space in meters
   var PULL_OBJECT_WIDTH = 1.62; // empirically determined for model space in meters
 
   var calculateForce = function( mass1, mass2, distance ) {

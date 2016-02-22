@@ -37,7 +37,7 @@ define( function( require ) {
   var PULL_IMAGES_COUNT = 15; // maximum number of images
   var pullForceRange = new Range( ( 0.5e-10 ), ( 1.1e-6 ) ); // empirically determined for linear mapping of pull objects
   var arrowForceRange = new Range( ( 6.0e-9 ), ( 4.1e-6 ) ); // empirically determined for linear mapping of pull objects
-  var OFFSET = 10; // empirically detemined to make sure minimum force doesn't go to zero when rounded to 12 significant digits
+  var OFFSET = 10; // empirically determined to make sure minimum force doesn't go to zero when rounded to 12 significant digits
 
   /**
    * @param model
