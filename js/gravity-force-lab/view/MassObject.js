@@ -44,11 +44,11 @@ define( function( require ) {
    * @param massModel
    * @param screenWidth
    * @param screenHeight
-   * @param mvt
+   * @param modelViewTransform
    * @param {Object} [options]
    * @constructor
    */
-  function MassObject( model, massModel, screenWidth, screenHeight, mvt, options ) {
+  function MassObject( model, massModel, screenWidth, screenHeight, modelViewTransform, options ) {
     var self = this;
     options = _.extend( {
       label: 'This Mass',
@@ -71,7 +71,7 @@ define( function( require ) {
     if ( options.direction === 'right' ) {
       self.pull.scale( -1, 1 );
     }
-    var radius = mvt.modelToViewDeltaX( massModel.radius );
+    var radius = modelViewTransform.modelToViewDeltaX( massModel.radius );
     this.massCircle = new Circle( radius );
 
     dragNode.addChild( this.pull );
@@ -131,7 +131,7 @@ define( function( require ) {
 
     // redraw view without shift
     var redrawForce = function() {
-      self.massCircle.setRadius( mvt.modelToViewDeltaX( massModel.radius ) );
+      self.massCircle.setRadius( modelViewTransform.modelToViewDeltaX( massModel.radius ) );
       //self.massCircle.scale( massModel.radius );
 
       if ( model.showValues ) {
@@ -167,7 +167,7 @@ define( function( require ) {
     };
 
     massModel.positionProperty.link( function( prop ) {
-      thisNode.x = mvt.modelToViewX( prop );
+      thisNode.x = modelViewTransform.modelToViewX( prop );
     } );
     model.showValuesProperty.lazyLink( function() {
       redrawForce();
@@ -179,7 +179,7 @@ define( function( require ) {
       redrawForce();
     } );
     massModel.baseColorProperty.link( function( baseColor ) {
-      var radius = mvt.modelToViewDeltaX( massModel.radius );
+      var radius = modelViewTransform.modelToViewDeltaX( massModel.radius );
       self.massCircle.fill = new RadialGradient( radius * 0.6, -radius * 0.6, 1, radius * 0.6, -radius * 0.6, radius )
         .addColorStop( 0, baseColor.colorUtilsBrighter( 0.5 ).toCSS() )
         .addColorStop( 1, baseColor.toCSS() );
@@ -199,15 +199,15 @@ define( function( require ) {
           var xMax = screenWidth - self.massCircle.width / 2 - self.pull.width - OFFSET;
           var xMin = OFFSET + self.massCircle.width / 2 + self.pull.width;
           // for mass1 xMax is left boundary of
-          var sumRadius = mvt.modelToViewDeltaX( model.mass1.radius ) + mvt.modelToViewDeltaX( model.mass2.radius );
+          var sumRadius = modelViewTransform.modelToViewDeltaX( model.mass1.radius ) + modelViewTransform.modelToViewDeltaX( model.mass2.radius );
           if ( massModel.position === model.mass1.position ) {
-            xMax = mvt.modelToViewX( model.mass2.position ) - sumRadius - mvt.modelToViewDeltaX( GravityForceLabModel.MinSeparationBetweenMasses );
+            xMax = modelViewTransform.modelToViewX( model.mass2.position ) - sumRadius - modelViewTransform.modelToViewDeltaX( GravityForceLabModel.MinSeparationBetweenMasses );
           }
           if ( massModel.position === model.mass2.position ) {
-            xMin = mvt.modelToViewX( model.mass1.position ) + sumRadius + mvt.modelToViewDeltaX( GravityForceLabModel.MinSeparationBetweenMasses );
+            xMin = modelViewTransform.modelToViewX( model.mass1.position ) + sumRadius + modelViewTransform.modelToViewDeltaX( GravityForceLabModel.MinSeparationBetweenMasses );
           }
           x = Math.max( Math.min( x, xMax ), xMin );
-          massModel.positionProperty.set( mvt.viewToModelX( x ) );
+          massModel.positionProperty.set( modelViewTransform.viewToModelX( x ) );
         }
       } ) );
   }

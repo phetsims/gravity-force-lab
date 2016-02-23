@@ -22,12 +22,15 @@ define( function( require ) {
 
   /**
    * @param model
+   * @param screenWidth
+   * @param screenHeight
+   * @param modelViewTransform
    * @constructor
    */
-  function MassObjects( model, screenWidth, screenHeight, mvt ) {
+  function MassObjects( model, screenWidth, screenHeight, modelViewTransform ) {
 
     Node.call( this );
-    this.addChild( new MassObject( model, model.mass1, screenWidth, screenHeight, mvt, {
+    this.addChild( new MassObject( model, model.mass1, screenWidth, screenHeight, modelViewTransform, {
       label: mass1String,
       otherMassLabel: mass2String,
       direction: 'left',
@@ -36,7 +39,7 @@ define( function( require ) {
       //massStepEvent: 'mass1Step',
       forceArrowHeight: 125
     } ) );
-    this.addChild( new MassObject( model, model.mass2, screenWidth, screenHeight, mvt, {
+    this.addChild( new MassObject( model, model.mass2, screenWidth, screenHeight, modelViewTransform, {
       label: mass2String,
       otherMassLabel: mass1String,
       direction: 'right',
