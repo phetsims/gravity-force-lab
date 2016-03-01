@@ -44,6 +44,7 @@ define( function( require ) {
 
     this.mass1 = new Mass( 50, -2, '#00f', this.constantRadiusProperty );
     this.mass2 = new Mass( 200,  2, '#f00', this.constantRadiusProperty );
+
     this.updateForce = function() {
       var distance = calculateDistance( self.mass1.position, self.mass2.position );
       self.force = calculateForce( self.mass1.mass, self.mass2.mass, distance );

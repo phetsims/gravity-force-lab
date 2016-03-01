@@ -1,4 +1,10 @@
 // Copyright 2016, University of Colorado Boulder
+
+/**
+ * model for the mass objects
+ *
+ * @author Aadish Gupta
+ */
 define( function( require ) {
   'use strict';
 
@@ -55,17 +61,14 @@ define( function( require ) {
   }
 
   return inherit( PropertySet, Mass, {
-    //TODO prototypes
-    //TODO Calculate Radius
+    // calculates the radius based on mass of object maintaining constant density
+    // calculations are made using the density formula and volume of a sphere
     calculateRadius: function( mass ) {
-
       return Math.pow( ( mass * 3 * 7 / DENSITY / 4 / 22 ), 1/3);
     },
 
     reset: function() {
       PropertySet.prototype.reset.call( this );
-      //this.colorGradient = this.calculateGradient( this.baseColor );
     }
-    //TODO Calculate Position
   } );
 } );
