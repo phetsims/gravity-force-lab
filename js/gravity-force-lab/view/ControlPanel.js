@@ -43,7 +43,7 @@ define( function( require ) {
     // init position element
     controlMass2.left = controlMass1.right + 50;
     controlShowValues.left = controlMass2.right + 50;
-    resetAllButton.centerX = controlShowValues.centerX;
+    resetAllButton.right = controlShowValues.right;
     resetAllButton.top = controlShowValues.bottom + 15;
   }
 

@@ -16,8 +16,8 @@ define( function( require ) {
   //constants
   var DENSITY = 150; // kg/m^3
   var CONSTANT_RADIUS = 0.5; // in meters
-  var CONSTANT_MASS_COLOR = new Color( 'thistle' );
-  var COLOR_REDUCTION_CONSTANT = 2500; // empirically determined
+  var CONSTANT_MASS_COLOR = new Color( 'indigo' );
+  var COLOR_REDUCTION_CONSTANT = 1000; // empirically determined
 
    /**
    *
@@ -43,7 +43,7 @@ define( function( require ) {
         self.radius = self.calculateRadius( mass );
       }
       else{
-        self.baseColor = CONSTANT_MASS_COLOR.colorUtilsDarker( mass / COLOR_REDUCTION_CONSTANT );
+        self.baseColor = CONSTANT_MASS_COLOR.colorUtilsBrighter( 1 - mass / COLOR_REDUCTION_CONSTANT );
       }
     });
 
@@ -54,7 +54,7 @@ define( function( require ) {
       }
       else{
         self.radius = CONSTANT_RADIUS;
-        self.baseColor = CONSTANT_MASS_COLOR.colorUtilsDarker( self.mass / COLOR_REDUCTION_CONSTANT );
+        self.baseColor = CONSTANT_MASS_COLOR.colorUtilsBrighter( 1 - self.mass / COLOR_REDUCTION_CONSTANT );
       }
     });
 

@@ -183,6 +183,13 @@ define( function( require ) {
       self.massCircle.fill = new RadialGradient( radius * 0.6, -radius * 0.6, 1, radius * 0.6, -radius * 0.6, radius )
         .addColorStop( 0, baseColor.colorUtilsBrighter( 0.5 ).toCSS() )
         .addColorStop( 1, baseColor.toCSS() );
+      //debugger;
+      if ( model.constantRadius ) {
+        //self.massCircle.stroke = baseColor.colorUtilsBrighter( 0.5 ).toCSS();
+        self.massCircle.stroke = baseColor.colorUtilsDarker( 0.15 );
+        //self.massCircle.stroke = 'black';
+      }
+
     } );
     redrawForce();
 
