@@ -33,10 +33,11 @@ define( function( require ) {
    * @param titleString
    * @param massProperty
    * @param massRange
+   * @param thumbColor
    * @param options
    * @constructor
    */
-  function ControlMass( titleString, massProperty, massRange, options ) {
+  function ControlMass( titleString, massProperty, massRange, thumbColor, options ) {
 
     options = _.extend( {
       scale: 0.8,
@@ -46,14 +47,15 @@ define( function( require ) {
     }, options );
 
     Node.call( this );
-
     // nodes
     var content = new Node();
     var slider = new HSlider( massProperty, massRange, {
       trackSize: TRACK_SIZE,
       trackFill: 'black',
       thumbSize: THUMB_SIZE,
-      majorTickLength: ( THUMB_SIZE.height / 2 ) + ( TRACK_SIZE.height / 2 ) + 2
+      majorTickLength: ( THUMB_SIZE.height / 2 ) + ( TRACK_SIZE.height / 2 ) + 2,
+      thumbFillEnabled: thumbColor.colorUtilsBrighter( 0.15 ),
+      thumbFillHighlighted: thumbColor
     } );
 
     var tickLabelOptions = { font: new PhetFont( 14 ) };
