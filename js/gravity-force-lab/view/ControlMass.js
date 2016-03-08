@@ -1,7 +1,7 @@
 // Copyright 2013-2015, University of Colorado Boulder
 
 /**
- * Slider and button for changing a mass.
+ * slider and buttons for changing a mass
  *
  * @author Anton Ulyanov (Mlearner)
  * @author Aadish Gupta
@@ -105,7 +105,7 @@ define( function( require ) {
     plusButton.centerY = valueField.centerY;
     minusButton.right = valueField.left - 10; // minus button to the left of the value
     minusButton.centerY = valueField.centerY;
-    slider.centerX = slider.centerX + 5; // emperically determined for positioning
+    slider.centerX = slider.centerX + 5; // empirically determined for positioning
 
     // wrap in a panel
     this.addChild( new Panel( content, {

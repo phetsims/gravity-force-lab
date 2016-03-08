@@ -1,7 +1,7 @@
 // Copyright 2013-2015, University of Colorado Boulder
 
 /**
- * Ruler Node.
+ * ruler node
  *
  * @author Anton Ulyanov (Mlearner)
  */
@@ -19,6 +19,7 @@ define( function( require ) {
   // constants
   var RULER_WIDTH = 500;
   var RULER_HEIGHT = 50;
+
   // strings
   var unitsMetersString = require( 'string!GRAVITY_FORCE_LAB/units.meters' );
 
@@ -43,7 +44,7 @@ define( function( require ) {
     } );
 
     this.addInputListener( new MovableDragHandler( model.rulerProperty, {
-      dragBounds: new Bounds2( -self.width / 2, 0, screenWidth - self.width / 2, screenHeight - self.height)
+      dragBounds: new Bounds2( -self.width / 2, 0, screenWidth - self.width / 2, screenHeight - self.height )
     } ) );
   }
 

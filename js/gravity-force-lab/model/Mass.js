@@ -13,29 +13,27 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var PropertySet = require( 'AXON/PropertySet' );
 
-  //constants
+  // constants
   var DENSITY = 150; // kg/m^3
   var CONSTANT_RADIUS = 0.5; // in meters
   var CONSTANT_MASS_COLOR = new Color( 'indigo' );
   var COLOR_REDUCTION_CONSTANT = 1000; // empirically determined
 
    /**
-   *
-   * @param {number} mass
-   * @param {number} position
-   * @param {String} color
+   * @param {number} initialMass
+   * @param {number} initialPosition
+   * @param {String} baseColor
    * @param {Property.<boolean>} constantRadiusProperty
    * @constructor
    */
-  function Mass( mass, position, color, constantRadiusProperty ) {
+  function Mass( initialMass, initialPosition, baseColor, constantRadiusProperty ) {
     var self = this;
-    var baseColor = new Color( color );
-    var radius = this.calculateRadius( mass );
+    var initialRadius = this.calculateRadius( initialMass );
     PropertySet.call( this, {
-      mass: mass,
-      position: position,
-      radius: radius,
-      baseColor: baseColor
+      mass: initialMass,
+      position: initialPosition,
+      radius: initialRadius,
+      baseColor: new Color( baseColor )
     });
 
     this.massProperty.lazyLink( function( mass ){
@@ -61,6 +59,7 @@ define( function( require ) {
   }
 
   return inherit( PropertySet, Mass, {
+
     // calculates the radius based on mass of object maintaining constant density
     // calculations are made using the density formula and volume of a sphere
     calculateRadius: function( mass ) {

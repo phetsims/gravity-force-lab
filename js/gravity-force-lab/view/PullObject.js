@@ -1,7 +1,7 @@
 // Copyright 2013-2015, University of Colorado Boulder
 
 /**
- * pull view for massObject
+ * puller view for massObject
  *
  * @author Anton Ulyanov (Mlearner)
  */
@@ -32,8 +32,8 @@ define( function( require ) {
   var pullImage13 = require( 'image!GRAVITY_FORCE_LAB/pull_figure_13.png' );
   var pullImage14 = require( 'image!GRAVITY_FORCE_LAB/pull_figure_14.png' );
 
-  var pullImages = [ pullImage0, pullImage1, pullImage2, pullImage3, pullImage4, pullImage5, pullImage6, pullImage7, pullImage8, pullImage9, pullImage10,
-    pullImage11, pullImage12, pullImage13, pullImage14 ];
+  var pullImages = [ pullImage0, pullImage1, pullImage2, pullImage3, pullImage4, pullImage5, pullImage6, pullImage7,
+    pullImage8, pullImage9, pullImage10, pullImage11, pullImage12, pullImage13, pullImage14 ];
 
   function PullObject( options ) {
     options = _.extend( { ropeLength: 50 }, options );

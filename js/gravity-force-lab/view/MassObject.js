@@ -60,21 +60,22 @@ define( function( require ) {
     }, options );
 
     var thisNode = this;
-    //Conversion functions
+
+    // conversion functions
     var forceToArrow = new LinearFunction( arrowForceRange.min, arrowForceRange.max, 1, 60, false );
     var forceToArrowMin = new LinearFunction( 0, arrowForceRange.min, 0, 1, false );
     var forceToImage = new LinearFunction( pullForceRange.min, pullForceRange.max, 0, PULL_IMAGES_COUNT - 1, true );
 
     Node.call( this );
     var dragNode = new Node( { cursor: 'pointer' } );
-    this.pull = new PullObject( { image_count: PULL_IMAGES_COUNT } );
+    this.pullerNode = new PullObject( { image_count: PULL_IMAGES_COUNT } );
     if ( options.direction === 'right' ) {
-      self.pull.scale( -1, 1 );
+      self.pullerNode.scale( -1, 1 );
     }
     var radius = modelViewTransform.modelToViewDeltaX( massModel.radius );
     this.massCircle = new Circle( radius );
 
-    dragNode.addChild( this.pull );
+    dragNode.addChild( this.pullerNode );
     dragNode.addChild( this.massCircle );
     dragNode.addChild( new Circle( 2, { fill: '#000' } ) );
     var labelFont = new PhetFont( 12 );
@@ -163,7 +164,7 @@ define( function( require ) {
         stroke: null
       } );
       thisNode.addChild( arrowNode );
-      self.pull.setPull( Math.round( forceToImage( model.force ) ), (self.massCircle.width / 2) );
+      self.pullerNode.setPull( Math.round( forceToImage( model.force ) ), (self.massCircle.width / 2) );
     };
 
     massModel.positionProperty.link( function( prop ) {
@@ -203,8 +204,8 @@ define( function( require ) {
         },
         drag: function( event ) {
           var x = thisNode.globalToParentPoint( event.pointer.point ).x - massClickXOffset;
-          var xMax = screenWidth - self.massCircle.width / 2 - self.pull.width - OFFSET;
-          var xMin = OFFSET + self.massCircle.width / 2 + self.pull.width;
+          var xMax = screenWidth - self.massCircle.width / 2 - self.pullerNode.width - OFFSET;
+          var xMin = OFFSET + self.massCircle.width / 2 + self.pullerNode.width;
           // for mass1 xMax is left boundary of
           var sumRadius = modelViewTransform.modelToViewDeltaX( model.mass1.radius ) + modelViewTransform.modelToViewDeltaX( model.mass2.radius );
           if ( massModel.position === model.mass1.position ) {

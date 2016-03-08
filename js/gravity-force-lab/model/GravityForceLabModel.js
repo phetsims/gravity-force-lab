@@ -1,7 +1,7 @@
 // Copyright 2013-2015, University of Colorado Boulder
 
 /**
- * main Model container.
+ * main model for the Gravity Force Lab simulation
  *
  * @author Anton Ulyanov (Mlearner)
  * @author Aadish Gupta
@@ -15,7 +15,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Range = require( 'DOT/Range' );
 
-  // Constants
+  // constants
   var G = 6.67384E-11; // gravitational constant
   var MIN_SEPARATION_BETWEEN_MASSES = 0.1; // in meters
   var LEFT_BOUNDARY = -7.48; // empirically determined for model space in meters
@@ -57,6 +57,7 @@ define( function( require ) {
   }
 
   inherit( PropertySet, GravityForceLabModel, {
+
     step: function() {
       // making sure masses doesn't goes out of bounds and don't overlap each other
       var minX = LEFT_BOUNDARY + PULL_OBJECT_WIDTH + this.mass1.radius;
