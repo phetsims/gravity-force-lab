@@ -37,19 +37,18 @@ define( function( require ) {
    * @constructor
    */
   function GravityForceLabModel() {
-
     var self = this;
-    this.massRange = new Range( 1, 1000 );
+    this.massRange = new Range( 1, 1000 ); // @public
 
     PropertySet.call( this, {
-      force: 0,
-      showValues: true,
-      constantRadius: false,
-      ruler: { x: 120, y: 270 }
+      force: 0, // @public (read-only)
+      showValues: true, // @public
+      constantRadius: false, // @public
+      ruler: { x: 120, y: 270 } // @public
     } );
 
-    this.mass1 = new Mass( 50, -2, '#00f', this.constantRadiusProperty );
-    this.mass2 = new Mass( 200,  2, '#f00', this.constantRadiusProperty );
+    this.mass1 = new Mass( 50, -2, '#00f', this.constantRadiusProperty ); // @public
+    this.mass2 = new Mass( 200,  2, '#f00', this.constantRadiusProperty ); // @public
 
     this.mass1.massProperty.link( function(){ self.updateForce(); } );
     this.mass2.massProperty.link( function(){ self.updateForce(); } );
@@ -61,8 +60,11 @@ define( function( require ) {
 
   return inherit( PropertySet, GravityForceLabModel, {
 
+    /**
+     * step function makes sure masses doesn't goes out of bounds and don't overlap each other at each time step
+     * @public
+     */
     step: function() {
-      // making sure masses doesn't goes out of bounds and don't overlap each other
       var minX = LEFT_BOUNDARY + PULL_OBJECT_WIDTH + this.mass1.radius;
       var maxX = RIGHT_BOUNDARY - PULL_OBJECT_WIDTH - this.mass2.radius;
       var locationMass1 = this.mass1.position;
@@ -100,11 +102,16 @@ define( function( require ) {
       this.mass2.positionProperty.set( locationMass2 );
     },
 
+    /**
+     * updateForce calculates the force between the objects and update the force variable
+     * @private
+     */
     updateForce: function() {
       var distance = calculateDistance( this.mass1.position, this.mass2.position );
       this.force = calculateForce( this.mass1.mass, this.mass2.mass, distance );
     },
 
+    // @public
     reset: function() {
       PropertySet.prototype.reset.call( this );
       this.mass1.reset();

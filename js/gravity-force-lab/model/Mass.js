@@ -31,10 +31,10 @@ define( function( require ) {
     var self = this;
     var initialRadius = this.calculateRadius( initialMass );
     PropertySet.call( this, {
-      mass: initialMass,
-      position: initialPosition,
-      radius: initialRadius,
-      baseColor: new Color( baseColor )
+      mass: initialMass, // @public
+      position: initialPosition, // @public
+      radius: initialRadius, // @public (read-only)
+      baseColor: new Color( baseColor ) // @public (read-only)
     });
 
     this.massProperty.lazyLink( function( mass ){
@@ -63,12 +63,16 @@ define( function( require ) {
 
   return inherit( PropertySet, Mass, {
 
-    // calculates the radius based on mass of object maintaining constant density
-    // calculations are made using the density formula and volume of a sphere
+    /**
+     * calculates the radius based on mass of object maintaining constant density
+     * calculations are made using the density formula and volume of a sphere
+     * @private
+     */
     calculateRadius: function( mass ) {
       return Math.pow( ( mass * 3 * 7 / DENSITY / 4 / 22 ), 1/3);
     },
 
+    // @public
     reset: function() {
       PropertySet.prototype.reset.call( this );
     }
