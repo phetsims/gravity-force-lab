@@ -22,10 +22,12 @@ define( function( require ) {
   var RIGHT_BOUNDARY = 7.48; // empirically determined for model space in meters
   var PULL_OBJECT_WIDTH = 1.62; // empirically determined for model space in meters
 
+  // utility function to calculate force given two masses and distance between them
   var calculateForce = function( mass1, mass2, distance ) {
     return ( G * mass1 * mass2 ) / ( distance * distance );
   };
 
+  // utility function to calculate distance given x coordinates of two points
   var calculateDistance = function( x1, x2 ) {
     return Math.abs( x1 - x2 );
   };
@@ -45,15 +47,10 @@ define( function( require ) {
     this.mass1 = new Mass( 50, -2, '#00f', this.constantRadiusProperty );
     this.mass2 = new Mass( 200,  2, '#f00', this.constantRadiusProperty );
 
-    this.updateForce = function() {
-      var distance = calculateDistance( self.mass1.position, self.mass2.position );
-      self.force = calculateForce( self.mass1.mass, self.mass2.mass, distance );
-    };
-
-    this.mass1.massProperty.link( self.updateForce );
-    this.mass2.massProperty.link( self.updateForce );
-    this.mass1.positionProperty.link( self.updateForce );
-    this.mass2.positionProperty.link( self.updateForce );
+    this.mass1.massProperty.link( function(){ self.updateForce(); } );
+    this.mass2.massProperty.link( function(){ self.updateForce(); } );
+    this.mass1.positionProperty.link( function(){ self.updateForce(); } );
+    this.mass2.positionProperty.link( function(){ self.updateForce(); } );
   }
 
   inherit( PropertySet, GravityForceLabModel, {
@@ -95,6 +92,11 @@ define( function( require ) {
       }
       this.mass1.positionProperty.set( locationMass1 );
       this.mass2.positionProperty.set( locationMass2 );
+    },
+
+    updateForce: function() {
+      var distance = calculateDistance( this.mass1.position, this.mass2.position );
+      this.force = calculateForce( this.mass1.mass, this.mass2.mass, distance );
     },
 
     reset: function() {
