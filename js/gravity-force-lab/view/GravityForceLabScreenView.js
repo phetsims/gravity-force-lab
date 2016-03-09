@@ -33,6 +33,10 @@ define( function( require ) {
   var CONSTANT_MASS_COLOR = new Color( 'indigo' );
   var Y_Value = 225;
 
+  /**
+   * @param {GravityForceLabModel} model
+   * @constructor
+   */
   function GravityForceLabScreenView( model ) {
     ScreenView.call( this, { layoutBounds: new Bounds2( 0, 0, 768, 464 ) } );
 

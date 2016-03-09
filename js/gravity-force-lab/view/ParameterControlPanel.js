@@ -25,7 +25,7 @@ define( function( require ) {
   var MAX_CAPTION_WIDTH = 120; // empirically determined through testing with long strings
 
   /**
-   * @param model
+   * @param {gravityForceLabModel} model
    * @param {Object} [options]
    * @constructor
    */

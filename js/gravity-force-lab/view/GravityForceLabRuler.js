@@ -25,7 +25,9 @@ define( function( require ) {
   var unitsMetersString = require( 'string!GRAVITY_FORCE_LAB/units.meters' );
 
   /**
-   * @param model
+   * @param {GravityForceLabModel} model
+   * @param {number} screenWidth
+   * @param {number} screenHeight
    * @constructor
    */
   function GravityForceLabRuler( model, screenWidth, screenHeight ) {

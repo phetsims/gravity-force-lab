@@ -33,6 +33,9 @@ define( function( require ) {
     return Math.abs( x1 - x2 );
   };
 
+  /**
+   * @constructor
+   */
   function GravityForceLabModel() {
 
     var self = this;

@@ -41,11 +41,10 @@ define( function( require ) {
   var OFFSET = 10; // empirically determined to make sure minimum force doesn't go to zero when rounded to 12 significant digits
 
   /**
-   * @param model
-   * @param massModel
-   * @param screenWidth
-   * @param screenHeight
-   * @param modelViewTransform
+   * @param {GravityForceLabModel} model
+   * @param {MassModel} massModel
+   * @param {number} screenWidth
+   * @param {ModelViewTransform} modelViewTransform
    * @param {Object} [options]
    * @constructor
    */

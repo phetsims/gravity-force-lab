@@ -31,11 +31,11 @@ define( function( require ) {
   var THUMB_SIZE = new Dimension2( 22, 42 );
 
   /**
-   * @param titleString
-   * @param massProperty
-   * @param massRange
-   * @param thumbColor
-   * @param options
+   * @param {String} titleString
+   * @param {Property.<number>} massProperty
+   * @param {Range} massRange
+   * @param {Color} thumbColor
+   * @param {Object} [options]
    * @constructor
    */
   function MassControl( titleString, massProperty, massRange, thumbColor, options ) {
