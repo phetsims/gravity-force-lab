@@ -35,7 +35,7 @@ define( function( require ) {
   var pullImages = [ pullImage0, pullImage1, pullImage2, pullImage3, pullImage4, pullImage5, pullImage6, pullImage7,
     pullImage8, pullImage9, pullImage10, pullImage11, pullImage12, pullImage13, pullImage14 ];
 
-  function PullObject( options ) {
+  function PullerNode( options ) {
     options = _.extend( { ropeLength: 50 }, options );
     Node.call( this );
 
@@ -75,7 +75,7 @@ define( function( require ) {
     };
   }
 
-  inherit( Node, PullObject );
+  inherit( Node, PullerNode );
 
-  return PullObject;
+  return PullerNode;
 } );
