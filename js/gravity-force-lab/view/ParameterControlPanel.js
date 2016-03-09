@@ -28,7 +28,7 @@ define( function( require ) {
    * @param {Object} [options]
    * @constructor
    */
-  function ControlShowValues( model, options ) {
+  function ParameterControlPanel( model, options ) {
 
     options = _.extend( {
       fill: '#FDF498',
@@ -49,7 +49,7 @@ define( function( require ) {
     Panel.call( this, node, options );
   }
 
-  inherit( Panel, ControlShowValues );
+  inherit( Panel, ParameterControlPanel );
 
-  return ControlShowValues;
+  return ParameterControlPanel;
 } );
