@@ -12,7 +12,7 @@ define( function( require ) {
   // modules
   var Bounds2 = require( 'DOT/Bounds2' );
   var Color = require( 'SCENERY/util/Color' );
-  var ControlMass = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/ControlMass' );
+  var MassControl = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassControl' );
   var ParameterControlPanel = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/ParameterControlPanel' );
   var GravityForceLabRuler = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabRuler' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -77,46 +77,46 @@ define( function( require ) {
     parameterControlPanel.scale(0.9);
     this.addChild( parameterControlPanel );
 
-    var controlMass1 = new ControlMass( mass1String, model.mass1.massProperty, model.massRange, model.mass1.baseColor );
-    controlMass1.scale( 0.72 );
-    this.addChild( controlMass1 );
+    var massControl1 = new MassControl( mass1String, model.mass1.massProperty, model.massRange, model.mass1.baseColor );
+    massControl1.scale( 0.72 );
+    this.addChild( massControl1 );
 
-    var controlMass2 = new ControlMass( mass2String, model.mass2.massProperty, model.massRange, model.mass2.baseColor );
-    controlMass2.scale( 0.72 );
-    this.addChild( controlMass2 );
+    var massControl2 = new MassControl( mass2String, model.mass2.massProperty, model.massRange, model.mass2.baseColor );
+    massControl2.scale( 0.72 );
+    this.addChild( massControl2 );
 
-    var controlMass1ConstantRadius = new ControlMass( mass1String, model.mass1.massProperty, model.massRange, CONSTANT_MASS_COLOR );
-    controlMass1ConstantRadius.scale( 0.72 );
-    this.addChild( controlMass1ConstantRadius );
+    var massControl1ConstantRadius = new MassControl( mass1String, model.mass1.massProperty, model.massRange, CONSTANT_MASS_COLOR );
+    massControl1ConstantRadius.scale( 0.72 );
+    this.addChild( massControl1ConstantRadius );
 
-    var controlMass2ConstantRadius = new ControlMass( mass2String, model.mass2.massProperty, model.massRange, CONSTANT_MASS_COLOR );
-    controlMass2ConstantRadius.scale( 0.72 );
-    this.addChild( controlMass2ConstantRadius );
+    var massControl2ConstantRadius = new MassControl( mass2String, model.mass2.massProperty, model.massRange, CONSTANT_MASS_COLOR );
+    massControl2ConstantRadius.scale( 0.72 );
+    this.addChild( massControl2ConstantRadius );
 
     // positioning the nodes
     parameterControlPanel.right = this.layoutBounds.width - 15;
     parameterControlPanel.top = gravityForceLabRuler.bottom + 15;
-    controlMass2.right = parameterControlPanel.left - 45;
-    controlMass2.top = parameterControlPanel.top;
-    controlMass1.right = controlMass2.left - 45;
-    controlMass1.top = parameterControlPanel.top;
-    controlMass1ConstantRadius.center = controlMass1.center;
-    controlMass2ConstantRadius.center = controlMass2.center;
+    massControl2.right = parameterControlPanel.left - 45;
+    massControl2.top = parameterControlPanel.top;
+    massControl1.right = massControl2.left - 45;
+    massControl1.top = parameterControlPanel.top;
+    massControl1ConstantRadius.center = massControl1.center;
+    massControl2ConstantRadius.center = massControl2.center;
     resetAllButton.right = parameterControlPanel.right;
     resetAllButton.top = parameterControlPanel.bottom + 13.5;
 
     model.constantRadiusProperty.link( function( value ){
       if ( value ){
-        controlMass1ConstantRadius.visible = true;
-        controlMass2ConstantRadius.visible = true;
-        controlMass1.visible = false;
-        controlMass2.visible = false;
+        massControl1ConstantRadius.visible = true;
+        massControl2ConstantRadius.visible = true;
+        massControl1.visible = false;
+        massControl2.visible = false;
       }
       else{
-        controlMass1ConstantRadius.visible = false;
-        controlMass2ConstantRadius.visible = false;
-        controlMass1.visible = true;
-        controlMass2.visible = true;
+        massControl1ConstantRadius.visible = false;
+        massControl2ConstantRadius.visible = false;
+        massControl1.visible = true;
+        massControl2.visible = true;
       }
     } );
   }
