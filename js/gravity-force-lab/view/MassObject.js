@@ -19,7 +19,7 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var PullObject = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/PullObject' );
+  var PullerNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/PullerNode' );
   var RadialGradient = require( 'SCENERY/util/RadialGradient' );
   var Range = require( 'DOT/Range' );
   var Shape = require( 'KITE/Shape' );
@@ -68,7 +68,7 @@ define( function( require ) {
 
     Node.call( this );
     var dragNode = new Node( { cursor: 'pointer' } );
-    this.pullerNode = new PullObject( { image_count: PULL_IMAGES_COUNT } );
+    this.pullerNode = new PullerNode( { image_count: PULL_IMAGES_COUNT } );
     if ( options.direction === 'right' ) {
       self.pullerNode.scale( -1, 1 );
     }
