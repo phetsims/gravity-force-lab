@@ -10,6 +10,7 @@ define( function( require ) {
 
   // modules
   var Color = require( 'SCENERY/util/Color' );
+  var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var inherit = require( 'PHET_CORE/inherit' );
   var PropertySet = require( 'AXON/PropertySet' );
 
@@ -57,6 +58,8 @@ define( function( require ) {
     });
 
   }
+
+  gravityForceLab.register( 'Mass', Mass );
 
   return inherit( PropertySet, Mass, {
 

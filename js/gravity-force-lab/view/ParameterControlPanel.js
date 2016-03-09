@@ -10,11 +10,12 @@ define( function( require ) {
 
   // modules
   var CheckBox = require( 'SUN/CheckBox' );
+  var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Panel = require( 'SUN/Panel' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
 
   // strings
   var constantRadiusString = require( 'string!GRAVITY_FORCE_LAB/constantRadius' );
@@ -48,6 +49,8 @@ define( function( require ) {
     node.addChild( constantRadiusCheckBox );
     Panel.call( this, node, options );
   }
+
+  gravityForceLab.register( 'ParameterControlPanel', ParameterControlPanel );
 
   return inherit( Panel, ParameterControlPanel );
 } );

@@ -10,6 +10,7 @@ define( function( require ) {
 
   // modules
   var Bounds2 = require( 'DOT/Bounds2' );
+  var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var inherit = require( 'PHET_CORE/inherit' );
   var MovableDragHandler = require( 'SCENERY_PHET/input/MovableDragHandler' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -47,6 +48,8 @@ define( function( require ) {
       dragBounds: new Bounds2( -self.width / 2, 0, screenWidth - self.width / 2, screenHeight - self.height )
     } ) );
   }
+
+  gravityForceLab.register( 'GravityForceLabRuler', GravityForceLabRuler );
 
   return inherit( Node, GravityForceLabRuler );
 } );

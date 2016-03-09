@@ -9,11 +9,12 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
+  var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
   var Shape = require( 'KITE/Shape' );
-  var Image = require( 'SCENERY/nodes/Image' );
 
   // images
   var pullImage0 = require( 'image!GRAVITY_FORCE_LAB/pull_figure_0.png' );
@@ -74,6 +75,8 @@ define( function( require ) {
       pullGroup.x = -offsetX;
     };
   }
+
+  gravityForceLab.register( 'PullerNode', PullerNode );
 
   return inherit( Node, PullerNode );
 } );

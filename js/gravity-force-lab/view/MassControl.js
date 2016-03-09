@@ -12,6 +12,7 @@ define( function( require ) {
   // modules
   var ArrowButton = require( 'SCENERY_PHET/buttons/ArrowButton' );
   var Dimension2 = require( 'DOT/Dimension2' );
+  var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var HSlider = require( 'SUN/HSlider' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -116,6 +117,8 @@ define( function( require ) {
       minusButton.enabled = ( Math.floor( value ) > massRange.min );
     } );
   }
+
+  gravityForceLab.register( 'MassControl', MassControl );
 
   return inherit( Panel, MassControl );
 } );
