@@ -40,14 +40,14 @@ define( function( require ) {
   function ControlMass( titleString, massProperty, massRange, thumbColor, options ) {
 
     options = _.extend( {
-      scale: 0.8,
       fill: '#FDF498',
       xMargin: 15,
-      yMargin: 10
+      yMargin: 10,
+      maxWidth: 224,
+      minWidth: 224,
+      resize: false
     }, options );
 
-    Node.call( this );
-    // nodes
     var content = new Node();
     var slider = new HSlider( massProperty, massRange, {
       trackSize: TRACK_SIZE,
@@ -107,15 +107,7 @@ define( function( require ) {
     minusButton.centerY = valueField.centerY;
     slider.centerX = slider.centerX + 5; // empirically determined for positioning
 
-    // wrap in a panel
-    this.addChild( new Panel( content, {
-      fill: options.fill,
-      xMargin: options.xMargin,
-      yMargin: options.yMargin,
-      maxWidth: 224,
-      minWidth: 224,
-      resize: false
-    } ) );
+    Panel.call( this, content, options );
 
     massProperty.link( function updateMass( value ) {
       valueLabel.text = StringUtils.format( pattern0Value1UnitsString, Math.floor( value ), unitsKgString );
@@ -125,7 +117,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( Node, ControlMass );
+  inherit( Panel, ControlMass );
 
   return ControlMass;
 } );
