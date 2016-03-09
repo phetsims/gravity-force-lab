@@ -103,7 +103,7 @@ define( function( require ) {
     controlMass1ConstantRadius.center = controlMass1.center;
     controlMass2ConstantRadius.center = controlMass2.center;
     resetAllButton.right = parameterControlPanel.right;
-    resetAllButton.bottom = controlMass1.bottom;
+    resetAllButton.top = parameterControlPanel.bottom + 13.5;
 
     model.constantRadiusProperty.link( function( value ){
       if ( value ){
