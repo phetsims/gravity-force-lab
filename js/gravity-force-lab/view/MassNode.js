@@ -48,7 +48,7 @@ define( function( require ) {
    * @param {Object} [options]
    * @constructor
    */
-  function MassObject( model, massModel, screenWidth, screenHeight, modelViewTransform, options ) {
+  function MassNode( model, massModel, screenWidth, screenHeight, modelViewTransform, options ) {
     var self = this;
     options = _.extend( {
       label: 'This Mass',
@@ -220,7 +220,7 @@ define( function( require ) {
       } ) );
   }
 
-  inherit( Node, MassObject );
+  inherit( Node, MassNode );
 
-  return MassObject;
+  return MassNode;
 } );
