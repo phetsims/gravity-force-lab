@@ -16,7 +16,7 @@ define( function( require ) {
   var ParameterControlPanel = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/ParameterControlPanel' );
   var GravityForceLabRuler = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabRuler' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var MassObject = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassObject' );
+  var MassNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassNode' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   var ScreenView = require( 'JOIST/ScreenView' );
@@ -46,7 +46,7 @@ define( function( require ) {
     this.modelViewTransform = modelViewTransform; // Make MVT available to descendant types.
 
     // add the mass nodes to the screen
-    this.addChild( new MassObject( model, model.mass1, this.layoutBounds.width, this.layoutBounds.height, modelViewTransform, {
+    this.addChild( new MassNode( model, model.mass1, this.layoutBounds.width, this.layoutBounds.height, modelViewTransform, {
       label: mass1AbbreviatedString,
       otherMassLabel: mass2AbbreviatedString,
       direction: 'left',
@@ -55,7 +55,7 @@ define( function( require ) {
       forceArrowHeight: 125
     } ) );
 
-    this.addChild( new MassObject( model, model.mass2, this.layoutBounds.width, this.layoutBounds.height, modelViewTransform, {
+    this.addChild( new MassNode( model, model.mass2, this.layoutBounds.width, this.layoutBounds.height, modelViewTransform, {
       label: mass2AbbreviatedString,
       otherMassLabel: mass1AbbreviatedString,
       direction: 'right',
