@@ -17,10 +17,10 @@
   "units.meters": {
     "value": "meters"
   },
-  "mass-1": {
+  "mass1Abbreviated": {
     "value": "m1"
   },
-  "mass-2": {
+  "mass2Abbreviated": {
     "value": "m2"
   },
   "pattern_0value_1units": {

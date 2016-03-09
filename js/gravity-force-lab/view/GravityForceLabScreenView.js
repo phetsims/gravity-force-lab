@@ -16,7 +16,7 @@ define( function( require ) {
   var ControlShowValues = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/ControlShowValues' );
   var GravityForceLabRuler = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabRuler' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var MassObjects = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassObjects' );
+  var MassObject = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassObject' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   var ScreenView = require( 'JOIST/ScreenView' );
@@ -25,9 +25,12 @@ define( function( require ) {
   // strings
   var mass1String = require( 'string!GRAVITY_FORCE_LAB/mass1' );
   var mass2String = require( 'string!GRAVITY_FORCE_LAB/mass2' );
+  var mass1AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass1Abbreviated' );
+  var mass2AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass2Abbreviated' );
 
   // constants
   var CONSTANT_MASS_COLOR = new Color( 'indigo' );
+  var Y_Value = 225;
 
   function GravityForceLabScreenView( model ) {
     ScreenView.call( this, { layoutBounds: new Bounds2( 0, 0, 768, 464 ) } );
@@ -42,7 +45,24 @@ define( function( require ) {
 
     this.modelViewTransform = modelViewTransform; // Make MVT available to descendant types.
 
-    this.addChild( new MassObjects( model, this.layoutBounds.width, this.layoutBounds.height, modelViewTransform ) );
+    // add the mass nodes to the screen
+    this.addChild( new MassObject( model, model.mass1, this.layoutBounds.width, this.layoutBounds.height, modelViewTransform, {
+      label: mass1AbbreviatedString,
+      otherMassLabel: mass2AbbreviatedString,
+      direction: 'left',
+      arrowColor: '#66f',
+      y: Y_Value,
+      forceArrowHeight: 125
+    } ) );
+
+    this.addChild( new MassObject( model, model.mass2, this.layoutBounds.width, this.layoutBounds.height, modelViewTransform, {
+      label: mass2AbbreviatedString,
+      otherMassLabel: mass1AbbreviatedString,
+      direction: 'right',
+      arrowColor: '#f66',
+      y: Y_Value,
+      forceArrowHeight: 175
+    } ) );
 
     var gravityForceLabRuler = new GravityForceLabRuler( model, this.layoutBounds.width, this.layoutBounds.height );
     this.addChild( gravityForceLabRuler );
