@@ -37,7 +37,7 @@ define( function( require ) {
    * @param options
    * @constructor
    */
-  function ControlMass( titleString, massProperty, massRange, thumbColor, options ) {
+  function MassControl( titleString, massProperty, massRange, thumbColor, options ) {
 
     options = _.extend( {
       fill: '#FDF498',
@@ -117,7 +117,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( Panel, ControlMass );
+  inherit( Panel, MassControl );
 
-  return ControlMass;
+  return MassControl;
 } );
