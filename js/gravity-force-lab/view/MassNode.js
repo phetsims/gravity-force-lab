@@ -49,7 +49,7 @@ define( function( require ) {
    * @param {Object} [options]
    * @constructor
    */
-  function MassNode( model, massModel, screenWidth, screenHeight, modelViewTransform, options ) {
+  function MassNode( model, massModel, screenWidth, modelViewTransform, options ) {
     var self = this;
     options = _.extend( {
       label: 'This Mass',
