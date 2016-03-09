@@ -13,7 +13,7 @@ define( function( require ) {
   var Bounds2 = require( 'DOT/Bounds2' );
   var Color = require( 'SCENERY/util/Color' );
   var ControlMass = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/ControlMass' );
-  var ControlShowValues = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/ControlShowValues' );
+  var ParameterControlPanel = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/ParameterControlPanel' );
   var GravityForceLabRuler = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabRuler' );
   var inherit = require( 'PHET_CORE/inherit' );
   var MassObject = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassObject' );
@@ -73,9 +73,9 @@ define( function( require ) {
     } );
     this.addChild( resetAllButton );
 
-    var controlShowValues = new ControlShowValues( model );
-    controlShowValues.scale(0.9);
-    this.addChild( controlShowValues );
+    var parameterControlPanel = new ParameterControlPanel( model );
+    parameterControlPanel.scale(0.9);
+    this.addChild( parameterControlPanel );
 
     var controlMass1 = new ControlMass( mass1String, model.mass1.massProperty, model.massRange, model.mass1.baseColor );
     controlMass1.scale( 0.72 );
@@ -94,15 +94,15 @@ define( function( require ) {
     this.addChild( controlMass2ConstantRadius );
 
     // positioning the nodes
-    controlShowValues.right = this.layoutBounds.width - 15;
-    controlShowValues.top = gravityForceLabRuler.bottom + 15;
-    controlMass2.right = controlShowValues.left - 45;
-    controlMass2.top = controlShowValues.top;
+    parameterControlPanel.right = this.layoutBounds.width - 15;
+    parameterControlPanel.top = gravityForceLabRuler.bottom + 15;
+    controlMass2.right = parameterControlPanel.left - 45;
+    controlMass2.top = parameterControlPanel.top;
     controlMass1.right = controlMass2.left - 45;
-    controlMass1.top = controlShowValues.top;
+    controlMass1.top = parameterControlPanel.top;
     controlMass1ConstantRadius.center = controlMass1.center;
     controlMass2ConstantRadius.center = controlMass2.center;
-    resetAllButton.right = controlShowValues.right;
+    resetAllButton.right = parameterControlPanel.right;
     resetAllButton.bottom = controlMass1.bottom;
 
     model.constantRadiusProperty.link( function( value ){
