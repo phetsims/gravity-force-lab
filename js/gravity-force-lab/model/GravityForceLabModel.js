@@ -53,7 +53,7 @@ define( function( require ) {
     this.mass2.positionProperty.link( function(){ self.updateForce(); } );
   }
 
-  inherit( PropertySet, GravityForceLabModel, {
+  return inherit( PropertySet, GravityForceLabModel, {
 
     step: function() {
       // making sure masses doesn't goes out of bounds and don't overlap each other
@@ -105,7 +105,5 @@ define( function( require ) {
       this.mass2.reset();
       this.updateForce();
     }
-  }, { MinSeparationBetweenMasses: MIN_SEPARATION_BETWEEN_MASSES} );
-
-  return GravityForceLabModel;
+  }, { MinSeparationBetweenMasses: MIN_SEPARATION_BETWEEN_MASSES } );
 } );

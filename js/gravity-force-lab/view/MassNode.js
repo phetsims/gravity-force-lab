@@ -220,7 +220,5 @@ define( function( require ) {
       } ) );
   }
 
-  inherit( Node, MassNode );
-
-  return MassNode;
+  return inherit( Node, MassNode );
 } );

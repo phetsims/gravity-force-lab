@@ -121,6 +121,5 @@ define( function( require ) {
     } );
   }
 
-  inherit( ScreenView, GravityForceLabScreenView );
-  return GravityForceLabScreenView;
+  return inherit( ScreenView, GravityForceLabScreenView );
 } );

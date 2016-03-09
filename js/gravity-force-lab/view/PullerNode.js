@@ -75,7 +75,5 @@ define( function( require ) {
     };
   }
 
-  inherit( Node, PullerNode );
-
-  return PullerNode;
+  return inherit( Node, PullerNode );
 } );

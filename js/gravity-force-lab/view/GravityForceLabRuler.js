@@ -48,6 +48,5 @@ define( function( require ) {
     } ) );
   }
 
-  inherit( Node, GravityForceLabRuler );
-  return GravityForceLabRuler;
+  return inherit( Node, GravityForceLabRuler );
 } );

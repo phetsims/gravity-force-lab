@@ -117,7 +117,5 @@ define( function( require ) {
     } );
   }
 
-  inherit( Panel, MassControl );
-
-  return MassControl;
+  return inherit( Panel, MassControl );
 } );

@@ -49,7 +49,5 @@ define( function( require ) {
     Panel.call( this, node, options );
   }
 
-  inherit( Panel, ParameterControlPanel );
-
-  return ParameterControlPanel;
+  return inherit( Panel, ParameterControlPanel );
 } );
