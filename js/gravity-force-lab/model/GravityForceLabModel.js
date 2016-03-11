@@ -118,5 +118,7 @@ define( function( require ) {
       this.mass2.reset();
       this.updateForce();
     }
-  }, { MinSeparationBetweenMasses: MIN_SEPARATION_BETWEEN_MASSES } );
+  }, { // statics
+    MIN_SEPARATION_BETWEEN_MASSES: MIN_SEPARATION_BETWEEN_MASSES
+  } );
 } );
