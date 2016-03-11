@@ -209,10 +209,10 @@ define( function( require ) {
           // for mass1 xMax is left boundary of
           var sumRadius = modelViewTransform.modelToViewDeltaX( model.mass1.radius ) + modelViewTransform.modelToViewDeltaX( model.mass2.radius );
           if ( massModel.position === model.mass1.position ) {
-            xMax = modelViewTransform.modelToViewX( model.mass2.position ) - sumRadius - modelViewTransform.modelToViewDeltaX( GravityForceLabModel.MinSeparationBetweenMasses );
+            xMax = modelViewTransform.modelToViewX( model.mass2.position ) - sumRadius - modelViewTransform.modelToViewDeltaX( GravityForceLabModel.MIN_SEPARATION_BETWEEN_MASSES );
           }
           if ( massModel.position === model.mass2.position ) {
-            xMin = modelViewTransform.modelToViewX( model.mass1.position ) + sumRadius + modelViewTransform.modelToViewDeltaX( GravityForceLabModel.MinSeparationBetweenMasses );
+            xMin = modelViewTransform.modelToViewX( model.mass1.position ) + sumRadius + modelViewTransform.modelToViewDeltaX( GravityForceLabModel.MIN_SEPARATION_BETWEEN_MASSES );
           }
           x = Math.max( Math.min( x, xMax ), xMin );
           massModel.positionProperty.set( modelViewTransform.viewToModelX( x ) );
