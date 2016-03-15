@@ -27,6 +27,7 @@ define( function( require ) {
   var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
+  var Util = require( 'DOT/Util' );
 
   // strings
   var forceDescriptionPatternTargetSourceString = require( 'string!GRAVITY_FORCE_LAB/force-description-pattern-target_source' );
@@ -136,7 +137,7 @@ define( function( require ) {
       //self.massCircle.scale( massModel.radius );
 
       if ( model.showValues ) {
-        var forceStr = model.force.toFixed( 12 );
+        var forceStr = Util.toFixed( model.force, 12 );
         forceStr = ( forceStr.substr( 0, 5 ) + ' ' + forceStr.substr( 5, 3 ) + ' ' + forceStr.substr( 8, 3 ) + ' ' + forceStr.substr( 11, 3 ) );
         arrowText.text = StringUtils.format( forceDescriptionPatternTargetSourceValueString, options.label, options.otherMassLabel, forceStr );
       }
@@ -164,7 +165,7 @@ define( function( require ) {
         stroke: null
       } );
       thisNode.addChild( arrowNode );
-      self.pullerNode.setPull( Math.round( forceToImage( model.force ) ), (self.massCircle.width / 2) );
+      self.pullerNode.setPull( Util.roundSymmetric( forceToImage( model.force ) ), (self.massCircle.width / 2) );
     };
 
     massModel.positionProperty.link( function( prop ) {
