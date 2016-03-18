@@ -52,7 +52,7 @@ define( function( require ) {
     var content = new Node();
     var slider = new HSlider( massProperty, massRange, {
       trackSize: TRACK_SIZE,
-      trackFill: 'black',
+      trackFillEnabled: 'black',
       thumbSize: THUMB_SIZE,
       majorTickLength: ( THUMB_SIZE.height / 2 ) + ( TRACK_SIZE.height / 2 ) + 2,
       thumbFillEnabled: thumbColor.colorUtilsBrighter( 0.15 ),
