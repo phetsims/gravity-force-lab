@@ -133,7 +133,7 @@ define( function( require ) {
 
     var updateGradient = function( baseColor ){
       var radius = modelViewTransform.modelToViewDeltaX( massModel.radius );
-      self.massCircle.fill = new RadialGradient( radius * 0.6, -radius * 0.6, 1, radius * 0.6, -radius * 0.6, radius )
+      self.massCircle.fill = new RadialGradient( -radius * 0.6, -radius * 0.6, 1, -radius * 0.6, -radius * 0.6, radius )
         .addColorStop( 0, baseColor.colorUtilsBrighter( 0.5 ).toCSS() )
         .addColorStop( 1, baseColor.toCSS() );
       if ( model.constantRadius ) {
