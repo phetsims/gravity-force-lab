@@ -131,10 +131,23 @@ define( function( require ) {
     this.addChild( arrowText );
     this.addChild( arrowNode );
 
+    var updateGradient = function( baseColor ){
+      var radius = modelViewTransform.modelToViewDeltaX( massModel.radius );
+      self.massCircle.fill = new RadialGradient( -radius * 0.6, -radius * 0.6, 1, -radius * 0.6, -radius * 0.6, radius )
+        .addColorStop( 0, baseColor.colorUtilsBrighter( 0.5 ).toCSS() )
+        .addColorStop( 1, baseColor.toCSS() );
+      if ( model.constantRadius ) {
+        self.massCircle.stroke = baseColor.colorUtilsDarker( 0.15 );
+      }
+      else{
+        self.massCircle.stroke = null;
+      }
+    };
+
     // redraw view without shift
     var redrawForce = function() {
       self.massCircle.setRadius( modelViewTransform.modelToViewDeltaX( massModel.radius ) );
-      //self.massCircle.scale( massModel.radius );
+      updateGradient( massModel.baseColor );
 
       if ( model.showValues ) {
         var forceStr = Util.toFixed( model.force, 12 );
@@ -181,17 +194,7 @@ define( function( require ) {
       redrawForce();
     } );
     massModel.baseColorProperty.link( function( baseColor ) {
-      var radius = modelViewTransform.modelToViewDeltaX( massModel.radius );
-      self.massCircle.fill = new RadialGradient( radius * 0.6, -radius * 0.6, 1, radius * 0.6, -radius * 0.6, radius )
-        .addColorStop( 0, baseColor.colorUtilsBrighter( 0.5 ).toCSS() )
-        .addColorStop( 1, baseColor.toCSS() );
-      if ( model.constantRadius ) {
-        self.massCircle.stroke = baseColor.colorUtilsDarker( 0.15 );
-      }
-      else{
-        self.massCircle.stroke = null;
-      }
-
+      updateGradient( baseColor );
     } );
     redrawForce();
 

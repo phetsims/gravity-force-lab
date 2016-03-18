@@ -52,15 +52,15 @@ define( function( require ) {
     var content = new Node();
     var slider = new HSlider( massProperty, massRange, {
       trackSize: TRACK_SIZE,
-      trackFill: 'black',
+      trackFillEnabled: 'black',
       thumbSize: THUMB_SIZE,
       majorTickLength: ( THUMB_SIZE.height / 2 ) + ( TRACK_SIZE.height / 2 ) + 2,
       thumbFillEnabled: thumbColor.colorUtilsBrighter( 0.15 ),
       thumbFillHighlighted: thumbColor
     } );
 
-    var tickLabelOptions = { font: new PhetFont( 14 ) };
     // major ticks
+    var tickLabelOptions = { font: new PhetFont( 14 ), pickable: false };
     slider.addMajorTick( massRange.min, new Text( massRange.min, tickLabelOptions ) );
     slider.addMajorTick( massRange.max, new Text( massRange.max, tickLabelOptions ) );
 
