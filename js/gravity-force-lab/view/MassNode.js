@@ -22,7 +22,7 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var PullerNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/PullerNode' );
   var RadialGradient = require( 'SCENERY/util/RadialGradient' );
-  var Range = require( 'DOT/Range' );
+  var RangeWithValue = require( 'DOT/RangeWithValue' );
   var Shape = require( 'KITE/Shape' );
   var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
@@ -37,8 +37,8 @@ define( function( require ) {
   var LABEL_MAX_WIDTH = 20; // empirically determined through testing with long strings
   var ARROW_LENGTH = 8; // empirically determined
   var PULL_IMAGES_COUNT = 15; // maximum number of images
-  var pullForceRange = new Range( ( 0.5e-10 ), ( 1.1e-6 ) ); // empirically determined for linear mapping of pull objects
-  var arrowForceRange = new Range( ( 6.0e-9 ), ( 4.1e-6 ) ); // empirically determined for linear mapping of pull objects
+  var pullForceRange = new RangeWithValue( ( 0.5e-10 ), ( 1.1e-6 ) ); // empirically determined for linear mapping of pull objects
+  var arrowForceRange = new RangeWithValue( ( 6.0e-9 ), ( 4.1e-6 ) ); // empirically determined for linear mapping of pull objects
   var OFFSET = 10; // empirically determined to make sure minimum force doesn't go to zero when rounded to 12 significant digits
 
   /**

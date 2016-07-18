@@ -14,7 +14,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Mass = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/model/Mass' );
   var PropertySet = require( 'AXON/PropertySet' );
-  var Range = require( 'DOT/Range' );
+  var RangeWithValue = require( 'DOT/RangeWithValue' );
 
   // constants
   var G = 6.67384E-11; // gravitational constant
@@ -38,7 +38,7 @@ define( function( require ) {
    */
   function GravityForceLabModel() {
     var self = this;
-    this.massRange = new Range( 1, 1000 ); // @public
+    this.massRange = new RangeWithValue( 1, 1000 ); // @public
 
     PropertySet.call( this, {
       force: 0, // @public (read-only)
