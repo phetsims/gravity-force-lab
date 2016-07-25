@@ -10,7 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var ArrowButton = require( 'SCENERY_PHET/buttons/ArrowButton' );
+  var ArrowButton = require( 'SUN/buttons/ArrowButton' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var HSlider = require( 'SUN/HSlider' );
