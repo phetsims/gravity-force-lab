@@ -51,7 +51,7 @@ define( function( require ) {
     this.modelViewTransform = modelViewTransform; // Make MVT available to descendant types.
 
     // add the mass nodes to the screen
-    this.addChild( new MassNode( model, model.mass1, this.layoutBounds.width, modelViewTransform, {
+    this.addChild( new MassNode( model, model.mass1, this.layoutBounds, modelViewTransform, {
       label: mass1AbbreviatedString,
       otherMassLabel: mass2AbbreviatedString,
       direction: 'left',
@@ -60,7 +60,7 @@ define( function( require ) {
       forceArrowHeight: 125
     } ) );
 
-    this.addChild( new MassNode( model, model.mass2, this.layoutBounds.width, modelViewTransform, {
+    this.addChild( new MassNode( model, model.mass2, this.layoutBounds, modelViewTransform, {
       label: mass2AbbreviatedString,
       otherMassLabel: mass1AbbreviatedString,
       direction: 'right',

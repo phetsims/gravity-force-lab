@@ -40,16 +40,16 @@ define( function( require ) {
   var pullForceRange = new RangeWithValue( ( 0.5e-10 ), ( 1.1e-6 ) ); // empirically determined for linear mapping of pull objects
   var arrowForceRange = new RangeWithValue( ( 6.0e-9 ), ( 4.1e-6 ) ); // empirically determined for linear mapping of pull objects
   var OFFSET = 10; // empirically determined to make sure minimum force doesn't go to zero when rounded to 12 significant digits
-
+  var TEXT_OFFSET = 5; // emprically determined to make sure text does not go out of bounds
   /**
    * @param {GravityForceLabModel} model
    * @param {MassModel} massModel
-   * @param {number} screenWidth
+   * @param {Bounds2} layoutBounds
    * @param {ModelViewTransform} modelViewTransform
    * @param {Object} [options]
    * @constructor
    */
-  function MassNode( model, massModel, screenWidth, modelViewTransform, options ) {
+  function MassNode( model, massModel, layoutBounds, modelViewTransform, options ) {
     var self = this;
     options = _.extend( {
       label: 'This Mass',
@@ -183,6 +183,15 @@ define( function( require ) {
 
     massModel.positionProperty.link( function( prop ) {
       thisNode.x = modelViewTransform.modelToViewX( prop );
+      // making sure arrow text does not goes out of dev bounds
+      if ( self.localToParentPoint( arrowText.center ).x - arrowText.width/2 < layoutBounds.left + TEXT_OFFSET ){
+        arrowText.left = self.parentToLocalBounds( layoutBounds ).left + TEXT_OFFSET;
+      }
+
+      if ( self.localToParentPoint( arrowText.center ).x + arrowText.width/2 > layoutBounds.right - TEXT_OFFSET ){
+        arrowText.right = self.parentToLocalBounds( layoutBounds ).right - TEXT_OFFSET;
+      }
+
     } );
     model.showValuesProperty.lazyLink( function() {
       redrawForce();
@@ -208,8 +217,8 @@ define( function( require ) {
         },
         drag: function( event ) {
           var x = thisNode.globalToParentPoint( event.pointer.point ).x - massClickXOffset;
-          var xMax = screenWidth - self.massCircle.width / 2 - self.pullerNode.width - OFFSET;
-          var xMin = OFFSET + self.massCircle.width / 2 + self.pullerNode.width;
+          var xMax = layoutBounds.maxX - self.massCircle.width / 2 - self.pullerNode.width - OFFSET;
+          var xMin = layoutBounds.minX + OFFSET + self.massCircle.width / 2 + self.pullerNode.width;
           // for mass1 xMax is left boundary of
           var sumRadius = modelViewTransform.modelToViewDeltaX( model.mass1.radius ) + modelViewTransform.modelToViewDeltaX( model.mass2.radius );
           if ( massModel.position === model.mass1.position ) {

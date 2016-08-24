@@ -100,6 +100,8 @@ define( function( require ) {
       }
       this.mass1.positionProperty.set( locationMass1 );
       this.mass2.positionProperty.set( locationMass2 );
+      this.mass1.positionProperty.notifyObserversStatic();
+      this.mass2.positionProperty.notifyObserversStatic();
     },
 
     /**
