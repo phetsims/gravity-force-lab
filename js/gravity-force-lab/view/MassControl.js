@@ -46,7 +46,8 @@ define( function( require ) {
       yMargin: 10,
       maxWidth: 224,
       minWidth: 224,
-      resize: false
+      resize: false,
+      align: 'right'
     }, options );
 
     var content = new Node();
