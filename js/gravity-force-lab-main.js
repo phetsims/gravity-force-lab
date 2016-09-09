@@ -30,7 +30,7 @@ define( function( require ) {
   SimLauncher.launch( function() {
     // create and start the sim
     new Sim( gravityForceLabTitleString, [
-      new Screen( gravityForceLabTitleString, null,
+      new Screen(
         function() { return new GravityForceLabModel(); },
         function( model ) { return new GravityForceLabScreenView( model ); },
         { backgroundColor: '#FFFFFF' }
