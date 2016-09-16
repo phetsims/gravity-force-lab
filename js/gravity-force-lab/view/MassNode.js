@@ -60,7 +60,7 @@ define( function( require ) {
       forceArrowHeight: 150 // arrow height
     }, options );
 
-    var thisNode = this;
+    var self = this;
 
     // conversion functions
     var forceToArrow = new LinearFunction( arrowForceRange.min, arrowForceRange.max, 1, 60, false );
@@ -170,19 +170,19 @@ define( function( require ) {
         arrowLengthMultiplier *= -1;
       }
 
-      thisNode.removeChild( arrowNode );
+      self.removeChild( arrowNode );
       arrowNode = new ArrowNode( 0, -options.forceArrowHeight, arrowLengthMultiplier * ARROW_LENGTH, -options.forceArrowHeight, {
         headHeight: 8,
         headWidth: 8,
         tailWidth: 3,
         stroke: null
       } );
-      thisNode.addChild( arrowNode );
+      self.addChild( arrowNode );
       self.pullerNode.setPull( Util.roundSymmetric( forceToImage( model.force ) ), (self.massCircle.width / 2) );
     };
 
     massModel.positionProperty.link( function( prop ) {
-      thisNode.x = modelViewTransform.modelToViewX( prop );
+      self.x = modelViewTransform.modelToViewX( prop );
       // making sure arrow text does not goes out of dev bounds
       if ( self.localToParentPoint( arrowText.center ).x - arrowText.width/2 < layoutBounds.left + TEXT_OFFSET ){
         arrowText.left = self.parentToLocalBounds( layoutBounds ).left + TEXT_OFFSET;
@@ -216,7 +216,7 @@ define( function( require ) {
           massClickXOffset = dragNode.globalToParentPoint( event.pointer.point ).x - event.currentTarget.x;
         },
         drag: function( event ) {
-          var x = thisNode.globalToParentPoint( event.pointer.point ).x - massClickXOffset;
+          var x = self.globalToParentPoint( event.pointer.point ).x - massClickXOffset;
           var xMax = layoutBounds.maxX - self.massCircle.width / 2 - self.pullerNode.width - OFFSET;
           var xMin = layoutBounds.minX + OFFSET + self.massCircle.width / 2 + self.pullerNode.width;
           // for mass1 xMax is left boundary of
