@@ -60,8 +60,6 @@ define( function( require ) {
       forceArrowHeight: 150 // arrow height
     }, options );
 
-    var self = this;
-
     // conversion functions
     var forceToArrow = new LinearFunction( arrowForceRange.min, arrowForceRange.max, 1, 60, false );
     var forceToArrowMin = new LinearFunction( 0, arrowForceRange.min, 0, 1, false );
