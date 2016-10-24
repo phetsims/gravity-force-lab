@@ -82,11 +82,21 @@ define( function( require ) {
     parameterControlPanel.scale(0.9);
     this.addChild( parameterControlPanel );
 
-    var massControl1 = new MassControl( mass1String, model.mass1.massProperty, model.massRange, model.mass1.baseColor );
+    var massControl1 = new MassControl(
+      mass1String,
+      model.mass1.massProperty,
+      model.massRange,
+      model.mass1.baseColorProperty.get()
+    );
     massControl1.scale( 0.72 );
     this.addChild( massControl1 );
 
-    var massControl2 = new MassControl( mass2String, model.mass2.massProperty, model.massRange, model.mass2.baseColor );
+    var massControl2 = new MassControl(
+      mass2String,
+      model.mass2.massProperty,
+      model.massRange,
+      model.mass2.baseColorProperty.get()
+    );
     massControl2.scale( 0.72 );
     this.addChild( massControl2 );
 

@@ -13,7 +13,7 @@ define( function( require ) {
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Mass = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/model/Mass' );
-  var PropertySet = require( 'AXON/PropertySet' );
+  var Property = require( 'AXON/Property' );
   var RangeWithValue = require( 'DOT/RangeWithValue' );
 
   // constants
@@ -40,12 +40,10 @@ define( function( require ) {
     var self = this;
     this.massRange = new RangeWithValue( 1, 1000 ); // @public
 
-    PropertySet.call( this, {
-      force: 0, // @public (read-only)
-      showValues: true, // @public
-      constantRadius: false, // @public
-      ruler: { x: 120, y: 270 } // @public
-    } );
+    this.forceProperty = new Property( 0 ); // @public (read-only)
+    this.showValuesProperty = new Property( true ); // @public
+    this.constantRadiusProperty = new Property( false ); // @public
+    this.rulerProperty = new Property( { x: 120, y: 270 } ); // @public
 
     this.mass1 = new Mass( 50, -2, '#00f', this.constantRadiusProperty ); // @public
     this.mass2 = new Mass( 200,  2, '#f00', this.constantRadiusProperty ); // @public
@@ -58,20 +56,20 @@ define( function( require ) {
 
   gravityForceLab.register( 'GravityForceLabModel', GravityForceLabModel);
 
-  return inherit( PropertySet, GravityForceLabModel, {
+  return inherit( Object, GravityForceLabModel, {
 
     /**
      * step function makes sure masses doesn't goes out of bounds and don't overlap each other at each time step
      * @public
      */
     step: function() {
-      var minX = LEFT_BOUNDARY + PULL_OBJECT_WIDTH + this.mass1.radius;
-      var maxX = RIGHT_BOUNDARY - PULL_OBJECT_WIDTH - this.mass2.radius;
-      var locationMass1 = this.mass1.position;
-      var locationMass2 = this.mass2.position;
+      var minX = LEFT_BOUNDARY + PULL_OBJECT_WIDTH + this.mass1.radiusProperty.get();
+      var maxX = RIGHT_BOUNDARY - PULL_OBJECT_WIDTH - this.mass2.radiusProperty.get();
+      var locationMass1 = this.mass1.positionProperty.get();
+      var locationMass2 = this.mass2.positionProperty.get();
 
       var change_factor = 0.0001; // this is empirically determined larger change factor may make masses farther but converges faster
-      var sumRadius = this.mass1.radius + this.mass2.radius + MIN_SEPARATION_BETWEEN_MASSES;
+      var sumRadius = this.mass1.radiusProperty.get() + this.mass2.radiusProperty.get() + MIN_SEPARATION_BETWEEN_MASSES;
       var changed = false;
       var i = 0;
       // for loop is to make sure after checking the boundaries constraints masses don't overlap
@@ -109,13 +107,16 @@ define( function( require ) {
      * @private
      */
     updateForce: function() {
-      var distance = calculateDistance( this.mass1.position, this.mass2.position );
-      this.force = calculateForce( this.mass1.mass, this.mass2.mass, distance );
+      var distance = calculateDistance( this.mass1.positionProperty.get(), this.mass2.positionProperty.get() );
+      this.forceProperty.set( calculateForce( this.mass1.massProperty.get(), this.mass2.massProperty.get(), distance ) );
     },
 
     // @public
     reset: function() {
-      PropertySet.prototype.reset.call( this );
+      this.forceProperty.reset();
+      this.showValuesProperty.reset();
+      this.constantRadiusProperty.reset();
+      this.rulerProperty.reset();
       this.mass1.reset();
       this.mass2.reset();
       this.updateForce();

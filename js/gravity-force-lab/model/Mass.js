@@ -12,7 +12,7 @@ define( function( require ) {
   var Color = require( 'SCENERY/util/Color' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var PropertySet = require( 'AXON/PropertySet' );
+  var Property = require( 'AXON/Property' );
 
   // constants
   var DENSITY = 150; // kg/m^3
@@ -20,7 +20,7 @@ define( function( require ) {
   var CONSTANT_MASS_COLOR = new Color( 'indigo' );
   var COLOR_REDUCTION_CONSTANT = 1000; // empirically determined
 
-   /**
+  /**
    * @param {number} initialMass
    * @param {number} initialPosition
    * @param {String} baseColor
@@ -30,38 +30,38 @@ define( function( require ) {
   function Mass( initialMass, initialPosition, baseColor, constantRadiusProperty ) {
     var self = this;
     var initialRadius = this.calculateRadius( initialMass );
-    PropertySet.call( this, {
-      mass: initialMass, // @public
-      position: initialPosition, // @public
-      radius: initialRadius, // @public (read-only)
-      baseColor: new Color( baseColor ) // @public (read-only)
-    });
 
-    this.massProperty.lazyLink( function( mass ){
-      if( !constantRadiusProperty.get() ) {
-        self.radius = self.calculateRadius( mass );
-      }
-      else{
-        self.baseColor = CONSTANT_MASS_COLOR.colorUtilsBrighter( 1 - mass / COLOR_REDUCTION_CONSTANT );
-      }
-    });
+    this.massProperty = new Property( initialMass ); // @public
+    this.positionProperty = new Property( initialPosition ); // @public
+    this.radiusProperty = new Property( initialRadius ); // @public (read-only)
+    this.baseColorProperty = new Property( new Color( baseColor ) ); // @public (read-only)
 
-    constantRadiusProperty.lazyLink( function( prop ){
-      if( !prop ){
-        self.radius = self.calculateRadius( self.mass );
+    this.massProperty.lazyLink( function( mass ) {
+      if ( !constantRadiusProperty.get() ) {
+        self.radiusProperty.set( self.calculateRadius( mass ) );
+      }
+      else {
+        self.baseColorProperty.set( CONSTANT_MASS_COLOR.colorUtilsBrighter( 1 - mass / COLOR_REDUCTION_CONSTANT ) );
+      }
+    } );
+
+    constantRadiusProperty.lazyLink( function( prop ) {
+      if ( !prop ) {
+        self.radiusProperty.set( self.calculateRadius( self.massProperty.get() ) );
         self.baseColorProperty.reset();
       }
-      else{
-        self.radius = CONSTANT_RADIUS;
-        self.baseColor = CONSTANT_MASS_COLOR.colorUtilsBrighter( 1 - self.mass / COLOR_REDUCTION_CONSTANT );
+      else {
+        self.radiusProperty.set( CONSTANT_RADIUS );
+        self.baseColorProperty.set( CONSTANT_MASS_COLOR.colorUtilsBrighter( 1 - self.massProperty.get() /
+                                                                                COLOR_REDUCTION_CONSTANT ) );
       }
-    });
+    } );
 
   }
 
   gravityForceLab.register( 'Mass', Mass );
 
-  return inherit( PropertySet, Mass, {
+  return inherit( Object, Mass, {
 
     /**
      * calculates the radius based on mass of object maintaining constant density
@@ -69,12 +69,15 @@ define( function( require ) {
      * @private
      */
     calculateRadius: function( mass ) {
-      return Math.pow( ( mass * 3 * 7 / DENSITY / 4 / 22 ), 1/3);
+      return Math.pow( ( mass * 3 * 7 / DENSITY / 4 / 22 ), 1 / 3 );
     },
 
     // @public
     reset: function() {
-      PropertySet.prototype.reset.call( this );
+      this.massProperty.reset();
+      this.positionProperty.reset();
+      this.radiusProperty.reset();
+      this.baseColorProperty.reset();
     }
   } );
 } );

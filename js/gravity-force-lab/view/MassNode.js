@@ -45,7 +45,7 @@ define( function( require ) {
    * @param {GravityForceLabModel} model
    * @param {MassModel} massModel
    * @param {Bounds2} layoutBounds
-   * @param {ModelViewTransform} modelViewTransform
+   * @param {ModelViewTransform2} modelViewTransform
    * @param {Object} [options]
    * @constructor
    */
@@ -71,7 +71,7 @@ define( function( require ) {
     if ( options.direction === 'right' ) {
       self.pullerNode.scale( -1, 1 );
     }
-    var radius = modelViewTransform.modelToViewDeltaX( massModel.radius );
+    var radius = modelViewTransform.modelToViewDeltaX( massModel.radiusProperty.get() );
     this.massCircle = new Circle( radius );
 
     dragNode.addChild( this.pullerNode );
@@ -130,11 +130,11 @@ define( function( require ) {
     this.addChild( arrowNode );
 
     var updateGradient = function( baseColor ){
-      var radius = modelViewTransform.modelToViewDeltaX( massModel.radius );
+      var radius = modelViewTransform.modelToViewDeltaX( massModel.radiusProperty.get() );
       self.massCircle.fill = new RadialGradient( -radius * 0.6, -radius * 0.6, 1, -radius * 0.6, -radius * 0.6, radius )
         .addColorStop( 0, baseColor.colorUtilsBrighter( 0.5 ).toCSS() )
         .addColorStop( 1, baseColor.toCSS() );
-      if ( model.constantRadius ) {
+      if ( model.constantRadiusProperty.get() ) {
         self.massCircle.stroke = baseColor.colorUtilsDarker( 0.15 );
       }
       else{
@@ -144,11 +144,11 @@ define( function( require ) {
 
     // redraw view without shift
     var redrawForce = function() {
-      self.massCircle.setRadius( modelViewTransform.modelToViewDeltaX( massModel.radius ) );
-      updateGradient( massModel.baseColor );
+      self.massCircle.setRadius( modelViewTransform.modelToViewDeltaX( massModel.radiusProperty.get() ) );
+      updateGradient( massModel.baseColorProperty.get() );
 
-      if ( model.showValues ) {
-        var forceStr = Util.toFixed( model.force, 12 );
+      if ( model.showValuesProperty.get() ) {
+        var forceStr = Util.toFixed( model.forceProperty.get(), 12 );
         forceStr = ( forceStr.substr( 0, 5 ) + ' ' + forceStr.substr( 5, 3 ) + ' ' + forceStr.substr( 8, 3 ) + ' ' + forceStr.substr( 11, 3 ) );
         arrowText.text = StringUtils.format( forceDescriptionPatternTargetSourceValueString, options.label, options.otherMassLabel, forceStr );
       }
@@ -158,11 +158,11 @@ define( function( require ) {
       arrowText.centerX = 0;
 
       var arrowLengthMultiplier;
-      if ( model.force < arrowForceRange.min ){
-        arrowLengthMultiplier = forceToArrowMin( model.force );
+      if ( model.forceProperty.get() < arrowForceRange.min ){
+        arrowLengthMultiplier = forceToArrowMin( model.forceProperty.get() );
       }
       else{
-        arrowLengthMultiplier = forceToArrow( model.force );
+        arrowLengthMultiplier = forceToArrow( model.forceProperty.get() );
       }
       if ( options.direction === 'right' ) {
         arrowLengthMultiplier *= -1;
@@ -176,7 +176,7 @@ define( function( require ) {
         stroke: null
       } );
       self.addChild( arrowNode );
-      self.pullerNode.setPull( Util.roundSymmetric( forceToImage( model.force ) ), (self.massCircle.width / 2) );
+      self.pullerNode.setPull( Util.roundSymmetric( forceToImage( model.forceProperty.get() ) ), (self.massCircle.width / 2) );
     };
 
     massModel.positionProperty.link( function( prop ) {
@@ -218,12 +218,15 @@ define( function( require ) {
           var xMax = layoutBounds.maxX - self.massCircle.width / 2 - self.pullerNode.width - OFFSET;
           var xMin = layoutBounds.minX + OFFSET + self.massCircle.width / 2 + self.pullerNode.width;
           // for mass1 xMax is left boundary of
-          var sumRadius = modelViewTransform.modelToViewDeltaX( model.mass1.radius ) + modelViewTransform.modelToViewDeltaX( model.mass2.radius );
-          if ( massModel.position === model.mass1.position ) {
-            xMax = modelViewTransform.modelToViewX( model.mass2.position ) - sumRadius - modelViewTransform.modelToViewDeltaX( GravityForceLabModel.MIN_SEPARATION_BETWEEN_MASSES );
+          var sumRadius = modelViewTransform.modelToViewDeltaX( model.mass1.radiusProperty.get() ) +
+                          modelViewTransform.modelToViewDeltaX( model.mass2.radiusProperty.get() );
+          if ( massModel.positionProperty.get() === model.mass1.positionProperty.get() ) {
+            xMax = modelViewTransform.modelToViewX( model.mass2.positionProperty.get() ) - sumRadius -
+                   modelViewTransform.modelToViewDeltaX( GravityForceLabModel.MIN_SEPARATION_BETWEEN_MASSES );
           }
-          if ( massModel.position === model.mass2.position ) {
-            xMin = modelViewTransform.modelToViewX( model.mass1.position ) + sumRadius + modelViewTransform.modelToViewDeltaX( GravityForceLabModel.MIN_SEPARATION_BETWEEN_MASSES );
+          if ( massModel.positionProperty.get() === model.mass2.positionProperty.get() ) {
+            xMin = modelViewTransform.modelToViewX( model.mass1.positionProperty.get() ) + sumRadius +
+                   modelViewTransform.modelToViewDeltaX( GravityForceLabModel.MIN_SEPARATION_BETWEEN_MASSES );
           }
           x = Math.max( Math.min( x, xMax ), xMin );
           massModel.positionProperty.set( modelViewTransform.viewToModelX( x ) );
