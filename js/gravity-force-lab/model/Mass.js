@@ -23,7 +23,7 @@ define( function( require ) {
   /**
    * @param {number} initialMass
    * @param {number} initialPosition
-   * @param {String} baseColor
+   * @param {string} baseColor
    * @param {Property.<boolean>} constantRadiusProperty
    * @constructor
    */

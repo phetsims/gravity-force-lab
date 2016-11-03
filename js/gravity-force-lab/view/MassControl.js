@@ -31,7 +31,7 @@ define( function( require ) {
   var THUMB_SIZE = new Dimension2( 22, 42 );
 
   /**
-   * @param {String} titleString
+   * @param {string} titleString
    * @param {Property.<number>} massProperty
    * @param {Range} massRange
    * @param {Color} thumbColor
