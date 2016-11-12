@@ -15,6 +15,7 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
   var Shape = require( 'KITE/Shape' );
+  var Vector2 = require( 'DOT/Vector2' );
 
   // images
   var pullImage0 = require( 'image!GRAVITY_FORCE_LAB/pull_figure_0.png' );
@@ -52,7 +53,7 @@ define( function( require ) {
       pull.push( new Node( {
         children: [ new Path( Shape.circle( 0, 0, 10 ), {
           fill: '#777',
-          scale: { x: image.width / 20, y: 1 },
+          scale: new Vector2( image.width / 20, 1 ),
           x: image.width / 2,
           y: image.height - 5
         } ), image ]
