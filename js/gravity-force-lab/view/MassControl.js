@@ -50,7 +50,6 @@ define( function( require ) {
       align: 'right'
     }, options );
 
-    var content = new Node();
     var slider = new HSlider( massProperty, massRange, {
       trackSize: TRACK_SIZE,
       trackFillEnabled: 'black',
@@ -89,12 +88,16 @@ define( function( require ) {
     } );
 
     // rendering order
-    content.addChild( valueField );
-    content.addChild( valueLabel );
-    content.addChild( title );
-    content.addChild( slider );
-    content.addChild( plusButton );
-    content.addChild( minusButton );
+    var content = new Node( {
+      children: [
+        valueField,
+        valueLabel,
+        title,
+        slider,
+        plusButton,
+        minusButton
+      ]
+    } );
 
     // relative layout, everything relative to the track
     valueField.centerX = slider.centerX;
