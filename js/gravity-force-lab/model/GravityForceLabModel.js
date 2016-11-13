@@ -98,6 +98,8 @@ define( function( require ) {
       }
       this.mass1.positionProperty.set( locationMass1 );
       this.mass2.positionProperty.set( locationMass2 );
+
+      // TODO: Remove these 2 lines of code, see https://github.com/phetsims/gravity-force-lab/issues/79
       this.mass1.positionProperty.notifyObserversStatic();
       this.mass2.positionProperty.notifyObserversStatic();
     },
