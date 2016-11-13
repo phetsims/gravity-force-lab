@@ -31,7 +31,7 @@ define( function( require ) {
 
   // constants
   var CONSTANT_MASS_COLOR = new Color( 'indigo' );
-  var Y_Value = 225;
+  var MASS_NODE_Y_POSITION = 225;
 
   /**
    * @param {GravityForceLabModel} model
@@ -54,7 +54,7 @@ define( function( require ) {
       otherMassLabel: mass2AbbreviatedString,
       direction: 'left',
       arrowColor: '#66f',
-      y: Y_Value,
+      y: MASS_NODE_Y_POSITION,
       forceArrowHeight: 125
     } ) );
 
@@ -63,7 +63,7 @@ define( function( require ) {
       otherMassLabel: mass1AbbreviatedString,
       direction: 'right',
       arrowColor: '#f66',
-      y: Y_Value,
+      y: MASS_NODE_Y_POSITION,
       forceArrowHeight: 175
     } ) );
 
