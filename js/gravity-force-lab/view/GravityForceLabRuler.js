@@ -41,12 +41,12 @@ define( function( require ) {
     } );
     this.addChild( ruler );
 
-    model.rulerProperty.link( function( value ) {
+    model.rulerPositionProperty.link( function( value ) {
       ruler.x = value.x;
       ruler.y = value.y;
     } );
 
-    this.addInputListener( new MovableDragHandler( model.rulerProperty, {
+    this.addInputListener( new MovableDragHandler( model.rulerPositionProperty, {
       dragBounds: new Bounds2( -self.width / 2, 0, screenWidth - self.width / 2, screenHeight - self.height )
     } ) );
   }

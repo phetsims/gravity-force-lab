@@ -15,6 +15,7 @@ define( function( require ) {
   var Mass = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/model/Mass' );
   var Property = require( 'AXON/Property' );
   var RangeWithValue = require( 'DOT/RangeWithValue' );
+  var Vector2 = require( 'DOT/Vector2' );
 
   // constants
   var G = 6.67384E-11; // gravitational constant
@@ -43,7 +44,7 @@ define( function( require ) {
     this.forceProperty = new Property( 0 ); // @public (read-only)
     this.showValuesProperty = new Property( true ); // @public
     this.constantRadiusProperty = new Property( false ); // @public
-    this.rulerProperty = new Property( { x: 120, y: 270 } ); // @public
+    this.rulerPositionProperty = new Property( new Vector2( 120, 270 ) ); // @public
 
     this.mass1 = new Mass( 50, -2, '#00f', this.constantRadiusProperty ); // @public
     this.mass2 = new Mass( 200, 2, '#f00', this.constantRadiusProperty ); // @public
@@ -116,7 +117,7 @@ define( function( require ) {
       this.forceProperty.reset();
       this.showValuesProperty.reset();
       this.constantRadiusProperty.reset();
-      this.rulerProperty.reset();
+      this.rulerPositionProperty.reset();
       this.mass1.reset();
       this.mass2.reset();
       this.updateForce();
