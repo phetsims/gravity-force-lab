@@ -47,26 +47,29 @@ define( function( require ) {
     var modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
       Vector2.ZERO,
       new Vector2( this.layoutBounds.width / 2, this.layoutBounds.height / 2 ),
-      50 );
+      50
+    );
 
     // add the mass nodes to the screen
     this.addChild( new MassNode( model, model.mass1, this.layoutBounds, modelViewTransform, {
-      label: mass1AbbreviatedString,
-      otherMassLabel: mass2AbbreviatedString,
-      direction: 'left',
-      arrowColor: '#66f',
-      y: MASS_NODE_Y_POSITION,
-      forceArrowHeight: 125
-    } ) );
+        label: mass1AbbreviatedString,
+        otherMassLabel: mass2AbbreviatedString,
+        direction: 'left',
+        arrowColor: '#66f',
+        y: MASS_NODE_Y_POSITION,
+        forceArrowHeight: 125
+      } )
+    );
 
     this.addChild( new MassNode( model, model.mass2, this.layoutBounds, modelViewTransform, {
-      label: mass2AbbreviatedString,
-      otherMassLabel: mass1AbbreviatedString,
-      direction: 'right',
-      arrowColor: '#f66',
-      y: MASS_NODE_Y_POSITION,
-      forceArrowHeight: 175
-    } ) );
+        label: mass2AbbreviatedString,
+        otherMassLabel: mass1AbbreviatedString,
+        direction: 'right',
+        arrowColor: '#f66',
+        y: MASS_NODE_Y_POSITION,
+        forceArrowHeight: 175
+      } )
+    );
 
     var gravityForceLabRuler = new GravityForceLabRuler( model, this.layoutBounds.width, this.layoutBounds.height );
     this.addChild( gravityForceLabRuler );
@@ -120,19 +123,11 @@ define( function( require ) {
     resetAllButton.right = parameterControlPanel.right;
     resetAllButton.top = parameterControlPanel.bottom + 13.5;
 
-    model.constantRadiusProperty.link( function( value ) {
-      if ( value ) {
-        massControl1ConstantRadius.visible = true;
-        massControl2ConstantRadius.visible = true;
-        massControl1.visible = false;
-        massControl2.visible = false;
-      }
-      else {
-        massControl1ConstantRadius.visible = false;
-        massControl2ConstantRadius.visible = false;
-        massControl1.visible = true;
-        massControl2.visible = true;
-      }
+    model.constantRadiusProperty.link( function( constantRadius ) {
+      massControl1ConstantRadius.visible = constantRadius;
+      massControl2ConstantRadius.visible = constantRadius;
+      massControl1.visible = !constantRadius;
+      massControl2.visible = !constantRadius;
     } );
   }
 
