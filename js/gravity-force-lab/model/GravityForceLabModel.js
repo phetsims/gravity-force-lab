@@ -14,6 +14,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Mass = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/model/Mass' );
   var Property = require( 'AXON/Property' );
+  var DerivedProperty = require( 'AXON/DerivedProperty' );
   var RangeWithValue = require( 'DOT/RangeWithValue' );
   var Vector2 = require( 'DOT/Vector2' );
 
@@ -49,10 +50,16 @@ define( function( require ) {
     this.mass1 = new Mass( 50, -2, '#00f', this.constantRadiusProperty ); // @public
     this.mass2 = new Mass( 200, 2, '#f00', this.constantRadiusProperty ); // @public
 
-    this.mass1.massProperty.link( function() { self.updateForce(); } );
-    this.mass2.massProperty.link( function() { self.updateForce(); } );
-    this.mass1.positionProperty.link( function() { self.updateForce(); } );
-    this.mass2.positionProperty.link( function() { self.updateForce(); } );
+    // @public, the force between the two objects as a positive scalar
+    this.forceProperty = new DerivedProperty( [
+      this.mass1.massProperty,
+      this.mass2.massProperty,
+      this.mass1.positionProperty,
+      this.mass2.positionProperty
+    ], function( m1, m2, p1, p2 ) {
+      var distance = calculateDistance( p1, p2 );
+      return calculateForce( m1, m2, distance );
+    } );
   }
 
   gravityForceLab.register( 'GravityForceLabModel', GravityForceLabModel );
@@ -103,15 +110,6 @@ define( function( require ) {
       this.mass2.positionProperty.notifyObserversStatic();
     },
 
-    /**
-     * updateForce calculates the force between the objects and update the force variable
-     * @private
-     */
-    updateForce: function() {
-      var distance = calculateDistance( this.mass1.positionProperty.get(), this.mass2.positionProperty.get() );
-      this.forceProperty.set( calculateForce( this.mass1.massProperty.get(), this.mass2.massProperty.get(), distance ) );
-    },
-
     // @public
     reset: function() {
       this.forceProperty.reset();
@@ -120,7 +118,6 @@ define( function( require ) {
       this.rulerPositionProperty.reset();
       this.mass1.reset();
       this.mass2.reset();
-      this.updateForce();
     }
   }, { // statics
     MIN_SEPARATION_BETWEEN_MASSES: MIN_SEPARATION_BETWEEN_MASSES
