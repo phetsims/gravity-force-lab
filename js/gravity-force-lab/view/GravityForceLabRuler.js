@@ -42,8 +42,7 @@ define( function( require ) {
     this.addChild( ruler );
 
     model.rulerPositionProperty.link( function( value ) {
-      ruler.x = value.x;
-      ruler.y = value.y;
+      ruler.translation = value;
     } );
 
     this.addInputListener( new MovableDragHandler( model.rulerPositionProperty, {
