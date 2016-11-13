@@ -48,8 +48,6 @@ define( function( require ) {
       new Vector2( this.layoutBounds.width / 2, this.layoutBounds.height / 2 ),
       50 );
 
-    this.modelViewTransform = modelViewTransform; // Make MVT available to descendant types.
-
     // add the mass nodes to the screen
     this.addChild( new MassNode( model, model.mass1, this.layoutBounds, modelViewTransform, {
       label: mass1AbbreviatedString,

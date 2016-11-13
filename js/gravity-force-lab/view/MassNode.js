@@ -40,7 +40,8 @@ define( function( require ) {
   var pullForceRange = new RangeWithValue( ( 0.5e-10 ), ( 1.1e-6 ) ); // empirically determined for linear mapping of pull objects
   var arrowForceRange = new RangeWithValue( ( 6.0e-9 ), ( 4.1e-6 ) ); // empirically determined for linear mapping of pull objects
   var OFFSET = 10; // empirically determined to make sure minimum force doesn't go to zero when rounded to 12 significant digits
-  var TEXT_OFFSET = 5; // emprically determined to make sure text does not go out of bounds
+  var TEXT_OFFSET = 5; // empirically determined to make sure text does not go out of bounds
+
   /**
    * @param {GravityForceLabModel} model
    * @param {MassModel} massModel
@@ -181,6 +182,7 @@ define( function( require ) {
 
     massModel.positionProperty.link( function( prop ) {
       self.x = modelViewTransform.modelToViewX( prop );
+
       // making sure arrow text does not goes out of dev bounds
       if ( self.localToParentPoint( arrowText.center ).x - arrowText.width / 2 < layoutBounds.left + TEXT_OFFSET ) {
         arrowText.left = self.parentToLocalBounds( layoutBounds ).left + TEXT_OFFSET;
@@ -217,6 +219,8 @@ define( function( require ) {
           var x = self.globalToParentPoint( event.pointer.point ).x - massClickXOffset;
           var xMax = layoutBounds.maxX - self.massCircle.width / 2 - self.pullerNode.width - OFFSET;
           var xMin = layoutBounds.minX + OFFSET + self.massCircle.width / 2 + self.pullerNode.width;
+
+          // TODO: Complete this sentence
           // for mass1 xMax is left boundary of
           var sumRadius = modelViewTransform.modelToViewDeltaX( model.mass1.radiusProperty.get() ) +
                           modelViewTransform.modelToViewDeltaX( model.mass2.radiusProperty.get() );

@@ -78,8 +78,10 @@ define( function( require ) {
       var change_factor = 0.0001; // this is empirically determined larger change factor may make masses farther but converges faster
       var sumRadius = this.mass1.radiusProperty.get() + this.mass2.radiusProperty.get() + MIN_SEPARATION_BETWEEN_MASSES;
       var changed = false;
+
       // for loop is to make sure after checking the boundaries constraints masses don't overlap
       for ( var i = 0; i < 10; i++ ) {
+
         // check for overlap and move both masses so that they don't overlap
         if ( Math.abs( locationMass1 - locationMass2 ) < sumRadius ) {
           while ( Math.abs( locationMass1 - locationMass2 ) < sumRadius ) {
@@ -88,11 +90,13 @@ define( function( require ) {
             changed = true;
           }
         }
+
         // make sure mass1 doesn't go out of left boundary
         if ( locationMass1 < minX ) {
           locationMass1 = Math.max( minX, locationMass1 );
           changed = true;
         }
+
         // make sure mass2 doesn't go out of right boundary
         if ( locationMass2 > maxX ) {
           locationMass2 = Math.min( maxX, locationMass2 );

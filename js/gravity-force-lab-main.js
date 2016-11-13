@@ -28,12 +28,14 @@ define( function( require ) {
   };
 
   SimLauncher.launch( function() {
+
     // create and start the sim
     new Sim( gravityForceLabTitleString, [
       new Screen(
         function() { return new GravityForceLabModel(); },
-        function( model ) { return new GravityForceLabScreenView( model ); },
-        { backgroundColor: '#FFFFFF' }
+        function( model ) { return new GravityForceLabScreenView( model ); }, {
+          backgroundColor: '#FFFFFF'
+        }
       )
     ], simOptions ).start();
   } );
