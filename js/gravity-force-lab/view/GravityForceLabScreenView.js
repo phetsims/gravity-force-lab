@@ -32,6 +32,7 @@ define( function( require ) {
   // constants
   var CONSTANT_MASS_COLOR = new Color( 'indigo' );
   var MASS_NODE_Y_POSITION = 225;
+  var CONTROL_SCALE = 0.72;
 
   /**
    * @param {GravityForceLabModel} model
@@ -86,7 +87,8 @@ define( function( require ) {
       model.massRange,
       model.mass1.baseColorProperty.get()
     );
-    massControl1.scale( 0.72 );
+
+    massControl1.scale( CONTROL_SCALE );
     this.addChild( massControl1 );
 
     var massControl2 = new MassControl(
@@ -95,15 +97,15 @@ define( function( require ) {
       model.massRange,
       model.mass2.baseColorProperty.get()
     );
-    massControl2.scale( 0.72 );
+    massControl2.scale( CONTROL_SCALE );
     this.addChild( massControl2 );
 
     var massControl1ConstantRadius = new MassControl( mass1String, model.mass1.massProperty, model.massRange, CONSTANT_MASS_COLOR );
-    massControl1ConstantRadius.scale( 0.72 );
+    massControl1ConstantRadius.scale( CONTROL_SCALE );
     this.addChild( massControl1ConstantRadius );
 
     var massControl2ConstantRadius = new MassControl( mass2String, model.mass2.massProperty, model.massRange, CONSTANT_MASS_COLOR );
-    massControl2ConstantRadius.scale( 0.72 );
+    massControl2ConstantRadius.scale( CONTROL_SCALE );
     this.addChild( massControl2ConstantRadius );
 
     // positioning the nodes
