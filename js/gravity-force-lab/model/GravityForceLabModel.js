@@ -25,16 +25,6 @@ define( function( require ) {
   var RIGHT_BOUNDARY = 7.48; // empirically determined for model space in meters
   var PULL_OBJECT_WIDTH = 1.62; // empirically determined for model space in meters
 
-  // utility function to calculate force given two masses and distance between them
-  var calculateForce = function( mass1, mass2, distance ) {
-    return ( G * mass1 * mass2 ) / ( distance * distance );
-  };
-
-  // utility function to calculate distance given x coordinates of two points
-  var calculateDistance = function( x1, x2 ) {
-    return Math.abs( x1 - x2 );
-  };
-
   /**
    * @constructor
    */
@@ -55,9 +45,9 @@ define( function( require ) {
       this.mass2.massProperty,
       this.mass1.positionProperty,
       this.mass2.positionProperty
-    ], function( m1, m2, p1, p2 ) {
-      var distance = calculateDistance( p1, p2 );
-      return calculateForce( m1, m2, distance );
+    ], function( m1, m2, x1, x2 ) {
+      var distance = Math.abs( x2 - x1 );
+      return G * m1 * m2 / ( distance * distance );
     } );
   }
 
