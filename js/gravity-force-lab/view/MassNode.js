@@ -4,7 +4,7 @@
  * mass object view
  *
  * @author Anton Ulyanov (Mlearner)
- * @author Aadish Gupta
+ * @author Aadish Gupta (PhET Interactive Simulations)
  */
 
 define( function( require ) {
@@ -129,7 +129,7 @@ define( function( require ) {
     this.addChild( arrowText );
     this.addChild( arrowNode );
 
-    var updateGradient = function( baseColor ){
+    var updateGradient = function( baseColor ) {
       var radius = modelViewTransform.modelToViewDeltaX( massModel.radiusProperty.get() );
       self.massCircle.fill = new RadialGradient( -radius * 0.6, -radius * 0.6, 1, -radius * 0.6, -radius * 0.6, radius )
         .addColorStop( 0, baseColor.colorUtilsBrighter( 0.5 ).toCSS() )
@@ -137,7 +137,7 @@ define( function( require ) {
       if ( model.constantRadiusProperty.get() ) {
         self.massCircle.stroke = baseColor.colorUtilsDarker( 0.15 );
       }
-      else{
+      else {
         self.massCircle.stroke = null;
       }
     };
@@ -158,10 +158,10 @@ define( function( require ) {
       arrowText.centerX = 0;
 
       var arrowLengthMultiplier;
-      if ( model.forceProperty.get() < arrowForceRange.min ){
+      if ( model.forceProperty.get() < arrowForceRange.min ) {
         arrowLengthMultiplier = forceToArrowMin( model.forceProperty.get() );
       }
-      else{
+      else {
         arrowLengthMultiplier = forceToArrow( model.forceProperty.get() );
       }
       if ( options.direction === 'right' ) {
@@ -182,11 +182,11 @@ define( function( require ) {
     massModel.positionProperty.link( function( prop ) {
       self.x = modelViewTransform.modelToViewX( prop );
       // making sure arrow text does not goes out of dev bounds
-      if ( self.localToParentPoint( arrowText.center ).x - arrowText.width/2 < layoutBounds.left + TEXT_OFFSET ){
+      if ( self.localToParentPoint( arrowText.center ).x - arrowText.width / 2 < layoutBounds.left + TEXT_OFFSET ) {
         arrowText.left = self.parentToLocalBounds( layoutBounds ).left + TEXT_OFFSET;
       }
 
-      if ( self.localToParentPoint( arrowText.center ).x + arrowText.width/2 > layoutBounds.right - TEXT_OFFSET ){
+      if ( self.localToParentPoint( arrowText.center ).x + arrowText.width / 2 > layoutBounds.right - TEXT_OFFSET ) {
         arrowText.right = self.parentToLocalBounds( layoutBounds ).right - TEXT_OFFSET;
       }
 

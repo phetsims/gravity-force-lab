@@ -4,7 +4,7 @@
  * main ScreenView container
  *
  * @author Anton Ulyanov (Mlearner)
- * @author Aadish Gupta
+ * @author Aadish Gupta (PhET Interactive Simulations)
  */
 define( function( require ) {
   'use strict';
@@ -45,7 +45,7 @@ define( function( require ) {
     // between the two masses.
     var modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
       Vector2.ZERO,
-      new Vector2( this.layoutBounds.width / 2, this.layoutBounds.height / 2  ),
+      new Vector2( this.layoutBounds.width / 2, this.layoutBounds.height / 2 ),
       50 );
 
     this.modelViewTransform = modelViewTransform; // Make MVT available to descendant types.
@@ -79,7 +79,7 @@ define( function( require ) {
     this.addChild( resetAllButton );
 
     var parameterControlPanel = new ParameterControlPanel( model );
-    parameterControlPanel.scale(0.9);
+    parameterControlPanel.scale( 0.9 );
     this.addChild( parameterControlPanel );
 
     var massControl1 = new MassControl(
@@ -120,14 +120,14 @@ define( function( require ) {
     resetAllButton.right = parameterControlPanel.right;
     resetAllButton.top = parameterControlPanel.bottom + 13.5;
 
-    model.constantRadiusProperty.link( function( value ){
-      if ( value ){
+    model.constantRadiusProperty.link( function( value ) {
+      if ( value ) {
         massControl1ConstantRadius.visible = true;
         massControl2ConstantRadius.visible = true;
         massControl1.visible = false;
         massControl2.visible = false;
       }
-      else{
+      else {
         massControl1ConstantRadius.visible = false;
         massControl2ConstantRadius.visible = false;
         massControl1.visible = true;

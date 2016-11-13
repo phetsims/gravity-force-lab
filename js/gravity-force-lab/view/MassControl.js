@@ -4,7 +4,7 @@
  * slider and buttons for changing a mass
  *
  * @author Anton Ulyanov (Mlearner)
- * @author Aadish Gupta
+ * @author Aadish Gupta (PhET Interactive Simulations)
  */
 define( function( require ) {
   'use strict';

@@ -1,10 +1,10 @@
 // Copyright 2013-2015, University of Colorado Boulder
 
 /**
- * main model for the Gravity Force Lab simulation
+ * Main model for the Gravity Force Lab simulation, which contains physical objects as well as user settings.
  *
  * @author Anton Ulyanov (Mlearner)
- * @author Aadish Gupta
+ * @author Aadish Gupta (PhET Interactive Simulations)
  */
 define( function( require ) {
   'use strict';
@@ -46,15 +46,15 @@ define( function( require ) {
     this.rulerProperty = new Property( { x: 120, y: 270 } ); // @public
 
     this.mass1 = new Mass( 50, -2, '#00f', this.constantRadiusProperty ); // @public
-    this.mass2 = new Mass( 200,  2, '#f00', this.constantRadiusProperty ); // @public
+    this.mass2 = new Mass( 200, 2, '#f00', this.constantRadiusProperty ); // @public
 
-    this.mass1.massProperty.link( function(){ self.updateForce(); } );
-    this.mass2.massProperty.link( function(){ self.updateForce(); } );
-    this.mass1.positionProperty.link( function(){ self.updateForce(); } );
-    this.mass2.positionProperty.link( function(){ self.updateForce(); } );
+    this.mass1.massProperty.link( function() { self.updateForce(); } );
+    this.mass2.massProperty.link( function() { self.updateForce(); } );
+    this.mass1.positionProperty.link( function() { self.updateForce(); } );
+    this.mass2.positionProperty.link( function() { self.updateForce(); } );
   }
 
-  gravityForceLab.register( 'GravityForceLabModel', GravityForceLabModel);
+  gravityForceLab.register( 'GravityForceLabModel', GravityForceLabModel );
 
   return inherit( Object, GravityForceLabModel, {
 
@@ -73,7 +73,7 @@ define( function( require ) {
       var changed = false;
       var i = 0;
       // for loop is to make sure after checking the boundaries constraints masses don't overlap
-      for (i = 0; i < 10; i++) {
+      for ( i = 0; i < 10; i++ ) {
         // check for overlap and move both masses so that they don't overlap
         if ( Math.abs( locationMass1 - locationMass2 ) < sumRadius ) {
           while ( Math.abs( locationMass1 - locationMass2 ) < sumRadius ) {
@@ -92,7 +92,7 @@ define( function( require ) {
           locationMass2 = Math.min( maxX, locationMass2 );
           changed = true;
         }
-        if ( ! changed ){
+        if ( !changed ) {
           break;
         }
       }

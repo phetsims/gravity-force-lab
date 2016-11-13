@@ -41,7 +41,7 @@ define( function( require ) {
     } );
     this.addChild( ruler );
 
-    model.rulerProperty.link( function ( value ) {
+    model.rulerProperty.link( function( value ) {
       ruler.x = value.x;
       ruler.y = value.y;
     } );

@@ -3,7 +3,7 @@
 /**
  * model for the mass objects
  *
- * @author Aadish Gupta
+ * @author Aadish Gupta (PhET Interactive Simulations)
  */
 define( function( require ) {
   'use strict';

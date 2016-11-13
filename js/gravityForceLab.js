@@ -3,7 +3,7 @@
 /**
  * Creates the namespace for this simulation.
  *
- * @author Aadish Gupta
+ * @author Aadish Gupta (PhET Interactive Simulations)
  */
 define( function( require ) {
   'use strict';

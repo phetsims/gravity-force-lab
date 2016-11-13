@@ -43,7 +43,10 @@ define( function( require ) {
     var showValueText = new Text( showValuesString, { font: new PhetFont( 16 ), maxWidth: MAX_CAPTION_WIDTH } );
     var showValueCheckBox = new CheckBox( showValueText, model.showValuesProperty, { cursor: 'pointer' } );
     node.addChild( showValueCheckBox );
-    var constantRadiusText = new Text( constantRadiusString, { font: new PhetFont( 16 ), maxWidth: MAX_CAPTION_WIDTH } );
+    var constantRadiusText = new Text( constantRadiusString, {
+      font: new PhetFont( 16 ),
+      maxWidth: MAX_CAPTION_WIDTH
+    } );
     var constantRadiusCheckBox = new CheckBox( constantRadiusText, model.constantRadiusProperty, { cursor: 'pointer' } );
     constantRadiusCheckBox.top = showValueCheckBox.bottom + 10;
     node.addChild( constantRadiusCheckBox );
