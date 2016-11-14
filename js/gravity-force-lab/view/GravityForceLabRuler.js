@@ -1,7 +1,7 @@
 // Copyright 2013-2015, University of Colorado Boulder
 
 /**
- * ruler node
+ * The draggable horizontal ruler.
  *
  * @author Anton Ulyanov (Mlearner)
  */

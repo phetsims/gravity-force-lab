@@ -1,9 +1,10 @@
 // Copyright 2016, University of Colorado Boulder
 
 /**
- * model for the mass objects
+ * Model for one of the spherical draggable masses.
  *
  * @author Aadish Gupta (PhET Interactive Simulations)
+ * @author Sam Reid (PhET Interactive Simulations)
  */
 define( function( require ) {
   'use strict';

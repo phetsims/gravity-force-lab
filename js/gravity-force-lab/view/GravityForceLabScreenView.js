@@ -1,7 +1,7 @@
 // Copyright 2013-2015, University of Colorado Boulder
 
 /**
- * main ScreenView container
+ * The ScreenView that displays the gravity force lab screen.
  *
  * @author Anton Ulyanov (Mlearner)
  * @author Aadish Gupta (PhET Interactive Simulations)
