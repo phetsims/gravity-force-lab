@@ -41,7 +41,7 @@ define( function( require ) {
 
     var numberControl = new NumberControl( titleString, massProperty, massRange, {
       titleFont: new PhetFont( 24 ),
-      valueFont: new PhetFont( 20 ),
+      valueFont: new PhetFont( 18 ),
 
       // Don't fill in the {0}, it will be filled in by NumberControl
       valuePattern: StringUtils.format( pattern0Value1UnitsString, '{0}', unitsKgString ),
@@ -59,7 +59,10 @@ define( function( require ) {
       trackSize: TRACK_SIZE,
       trackFillEnabled: 'black',
       thumbSize: THUMB_SIZE,
-      majorTickLength: ( THUMB_SIZE.height / 2 ) + ( TRACK_SIZE.height / 2 ) + 2
+      majorTickLength: ( THUMB_SIZE.height / 2 ) + ( TRACK_SIZE.height / 2 ) + 2,
+      valueXMargin: 20,
+      valueYMargin: 4,
+      valueBackgroundStroke: 'black'
     } );
 
     Panel.call( this, numberControl, {
