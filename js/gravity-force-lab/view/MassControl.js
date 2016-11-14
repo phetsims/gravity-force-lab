@@ -1,7 +1,7 @@
 // Copyright 2013-2015, University of Colorado Boulder
 
 /**
- * slider and buttons for changing a mass
+ * Arrow buttons, slider and text box for editing the mass amount.
  *
  * @author Anton Ulyanov (Mlearner)
  * @author Aadish Gupta (PhET Interactive Simulations)
