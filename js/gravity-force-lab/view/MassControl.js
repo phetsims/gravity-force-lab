@@ -12,7 +12,6 @@ define( function( require ) {
   // modules
   var Dimension2 = require( 'DOT/Dimension2' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
-  var GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Panel = require( 'SUN/Panel' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
@@ -63,7 +62,8 @@ define( function( require ) {
       majorTickLength: ( THUMB_SIZE.height / 2 ) + ( TRACK_SIZE.height / 2 ) + 2,
       valueXMargin: 20,
       valueYMargin: 4,
-      valueBackgroundStroke: 'black'
+      valueBackgroundStroke: 'black',
+      tandem: tandem.createTandem( 'numberControl' )
     } );
 
     Panel.call( this, numberControl, {
@@ -73,7 +73,8 @@ define( function( require ) {
       maxWidth: 224,
       minWidth: 224,
       resize: false,
-      align: 'right'
+      align: 'right',
+      tandem: tandem
     } );
   }
 

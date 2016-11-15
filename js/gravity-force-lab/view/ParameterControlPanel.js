@@ -37,18 +37,28 @@ define( function( require ) {
       xMargin: 10,
       yMargin: 10,
       minWidth: 170,
-      align: 'left'
+      align: 'left',
+      tandem: tandem
     }, options );
 
     var node = new Node();
     var showValueText = new Text( showValuesString, { font: new PhetFont( 16 ), maxWidth: MAX_CAPTION_WIDTH } );
-    var showValueCheckBox = new CheckBox( showValueText, model.showValuesProperty, { cursor: 'pointer' } );
+    var showValueCheckBox = new CheckBox(
+      showValueText,
+      model.showValuesProperty,
+      { cursor: 'pointer', tandem: tandem.createTandem( 'showValueCheckBox' ) } );
     node.addChild( showValueCheckBox );
+
     var constantRadiusText = new Text( constantRadiusString, {
       font: new PhetFont( 16 ),
       maxWidth: MAX_CAPTION_WIDTH
     } );
-    var constantRadiusCheckBox = new CheckBox( constantRadiusText, model.constantRadiusProperty, { cursor: 'pointer' } );
+
+    var constantRadiusCheckBox = new CheckBox(
+      constantRadiusText,
+      model.constantRadiusProperty,
+      { cursor: 'pointer', tandem: tandem.createTandem( 'constantRadiusCheckBox' ) }
+    );
     constantRadiusCheckBox.top = showValueCheckBox.bottom + 10;
     node.addChild( constantRadiusCheckBox );
     Panel.call( this, node, options );

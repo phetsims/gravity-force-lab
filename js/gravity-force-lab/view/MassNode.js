@@ -202,17 +202,9 @@ define( function( require ) {
       }
     } );
 
-    model.showValuesProperty.lazyLink( function() {
-      redrawForce();
-    } );
-
-    massModel.radiusProperty.lazyLink( function() {
-      redrawForce();
-    } );
-
-    model.forceProperty.lazyLink( function() {
-      redrawForce();
-    } );
+    model.showValuesProperty.lazyLink( redrawForce );
+    massModel.radiusProperty.lazyLink( redrawForce );
+    model.forceProperty.lazyLink( redrawForce );
 
     massModel.baseColorProperty.link( function( baseColor ) {
       updateGradient( baseColor );

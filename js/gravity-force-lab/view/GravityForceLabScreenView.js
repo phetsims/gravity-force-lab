@@ -95,7 +95,8 @@ define( function( require ) {
 
     var resetAllButton = new ResetAllButton( {
       listener: function() { model.reset(); },
-      scale: 0.81
+      scale: 0.81,
+      tandem: tandem.createTandem( 'resetAllButton' )
     } );
     this.addChild( resetAllButton );
 
@@ -110,7 +111,6 @@ define( function( require ) {
       model.mass1.baseColorProperty.get(),
       tandem.createTandem( 'massControl1' )
     );
-
     massControl1.scale( CONTROL_SCALE );
     this.addChild( massControl1 );
 
