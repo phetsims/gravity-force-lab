@@ -70,7 +70,9 @@ define( function( require ) {
      * @private
      */
     calculateRadius: function( mass ) {
-      return Math.pow( ( mass * 3 * 7 / DENSITY / 4 / 22 ), 1 / 3 );
+      var sphereVolume = mass / DENSITY;
+      var sphereRadius = Math.pow( ( 3 * sphereVolume ) / ( 4 * Math.PI ), 1 / 3 );
+      return sphereRadius;
     },
 
     // @public
