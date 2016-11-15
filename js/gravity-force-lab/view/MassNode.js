@@ -66,6 +66,8 @@ define( function( require ) {
     var forceToArrowMin = new LinearFunction( 0, arrowForceRange.min, 0, 1, false );
     var forceToImage = new LinearFunction( pullForceRange.min, pullForceRange.max, 0, PULL_IMAGES_COUNT - 1, true );
 
+    var arrowAtBoundary = false;
+
     Node.call( this );
     var dragNode = new Node( { cursor: 'pointer' } );
     this.pullerNode = new PullerNode( { image_count: PULL_IMAGES_COUNT } );
@@ -156,7 +158,10 @@ define( function( require ) {
       else {
         arrowText.text = StringUtils.format( forceDescriptionPatternTargetSourceString, options.label, options.otherMassLabel );
       }
-      arrowText.centerX = 0;
+
+      if( !arrowAtBoundary ) {
+        arrowText.centerX = 0;
+      }
 
       var arrowLengthMultiplier;
       if ( model.forceProperty.get() < arrowForceRange.min ) {
@@ -184,12 +189,15 @@ define( function( require ) {
       self.x = modelViewTransform.modelToViewX( prop );
 
       // making sure arrow text does not goes out of dev bounds
-      if ( self.localToParentPoint( arrowText.center ).x - arrowText.width / 2 < layoutBounds.left + TEXT_OFFSET ) {
+      arrowAtBoundary = false;
+      if ( Math.floor( self.localToParentPoint( arrowText.center ).x - arrowText.width / 2 ) <= layoutBounds.left + TEXT_OFFSET ) {
         arrowText.left = self.parentToLocalBounds( layoutBounds ).left + TEXT_OFFSET;
+        arrowAtBoundary = true;
       }
 
-      if ( self.localToParentPoint( arrowText.center ).x + arrowText.width / 2 > layoutBounds.right - TEXT_OFFSET ) {
+      if ( Math.ceil( self.localToParentPoint( arrowText.center ).x + arrowText.width / 2 ) >= layoutBounds.right - TEXT_OFFSET ) {
         arrowText.right = self.parentToLocalBounds( layoutBounds ).right - TEXT_OFFSET;
+        arrowAtBoundary = true;
       }
 
     } );
