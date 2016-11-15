@@ -10,13 +10,18 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var Color = require( 'SCENERY/util/Color' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Mass = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/model/Mass' );
   var Property = require( 'AXON/Property' );
   var DerivedProperty = require( 'AXON/DerivedProperty' );
-  var RangeWithValue = require( 'DOT/RangeWithValue' );
   var Vector2 = require( 'DOT/Vector2' );
+
+  // phet-io modules
+  var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
+  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
+  var TVector2 = require( 'ifphetio!PHET_IO/types/dot/TVector2' );
 
   // constants
   var G = 6.67384E-11; // gravitational constant
@@ -30,25 +35,38 @@ define( function( require ) {
    * @constructor
    */
   function GravityForceLabModel( tandem ) {
-    this.massRange = new RangeWithValue( 1, 1000 ); // @public
 
-    this.showValuesProperty = new Property( true ); // @public
-    this.constantRadiusProperty = new Property( false ); // @public
-    this.rulerPositionProperty = new Property( new Vector2( 120, 270 ) ); // @public
+    this.showValuesProperty = new Property( true, {
+      tandem: tandem.createTandem( 'showValuesProperty' ),
+      phetioValueType: TBoolean
+    } ); // @public
+    this.constantRadiusProperty = new Property( false, {
+      tandem: tandem.createTandem( 'constantRadiusProperty' ),
+      phetioValueType: TBoolean
+    } ); // @public
+    this.rulerPositionProperty = new Property( new Vector2( 120, 270 ), {
+      tandem: tandem.createTandem( 'rulerPositionProperty' ),
+      phetioValueType: TVector2
+    } ); // @public
 
-    this.mass1 = new Mass( 50, -2, '#00f', this.constantRadiusProperty, tandem.createTandem( 'mass1' ) ); // @public
-    this.mass2 = new Mass( 200, 2, '#f00', this.constantRadiusProperty, tandem.createTandem( 'mass2' ) ); // @public
+    // @public
+    this.mass1 = new Mass( 50, -2, new Color( '#00f' ), this.constantRadiusProperty, tandem.createTandem( 'mass1' ) );
+    this.mass2 = new Mass( 200, 2, new Color( '#f00' ), this.constantRadiusProperty, tandem.createTandem( 'mass2' ) );
 
     // @public, the force between the two objects as a positive scalar
-    this.forceProperty = new DerivedProperty( [
-      this.mass1.massProperty,
-      this.mass2.massProperty,
-      this.mass1.positionProperty,
-      this.mass2.positionProperty
-    ], function( m1, m2, x1, x2 ) {
-      var distance = Math.abs( x2 - x1 );
-      return G * m1 * m2 / ( distance * distance );
-    } );
+    this.forceProperty = new DerivedProperty(
+      [
+        this.mass1.massProperty,
+        this.mass2.massProperty,
+        this.mass1.positionProperty,
+        this.mass2.positionProperty
+      ],
+      function( m1, m2, x1, x2 ) {
+        var distance = Math.abs( x2 - x1 );
+        return G * m1 * m2 / ( distance * distance );
+      },
+      { tandem: tandem.createTandem( 'forceProperty' ), phetioValueType: TNumber( { units: 'newtons' } ) }
+    );
   }
 
   gravityForceLab.register( 'GravityForceLabModel', GravityForceLabModel );

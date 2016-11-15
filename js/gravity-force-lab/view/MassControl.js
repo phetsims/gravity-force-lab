@@ -12,6 +12,7 @@ define( function( require ) {
   // modules
   var Dimension2 = require( 'DOT/Dimension2' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
+  var GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Panel = require( 'SUN/Panel' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
@@ -30,7 +31,6 @@ define( function( require ) {
   /**
    * @param {string} titleString
    * @param {Property.<number>} massProperty
-   * @param {Range} massRange
    * @param {Color} thumbColor
    * @param {Tandem} tandem
    * @constructor

@@ -13,6 +13,7 @@ define( function( require ) {
   var Bounds2 = require( 'DOT/Bounds2' );
   var Color = require( 'SCENERY/util/Color' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
+  var GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
   var GravityForceLabRuler = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabRuler' );
   var inherit = require( 'PHET_CORE/inherit' );
   var MassControl = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassControl' );
@@ -105,7 +106,7 @@ define( function( require ) {
     var massControl1 = new MassControl(
       mass1String,
       model.mass1.massProperty,
-      model.massRange,
+      GravityForceLabConstants.MASS_RANGE,
       model.mass1.baseColorProperty.get(),
       tandem.createTandem( 'massControl1' )
     );
@@ -116,7 +117,7 @@ define( function( require ) {
     var massControl2 = new MassControl(
       mass2String,
       model.mass2.massProperty,
-      model.massRange,
+      GravityForceLabConstants.MASS_RANGE,
       model.mass2.baseColorProperty.get(),
       tandem.createTandem( 'massControl2' )
     );
@@ -126,7 +127,7 @@ define( function( require ) {
     var massControl1ConstantRadius = new MassControl(
       mass1String,
       model.mass1.massProperty,
-      model.massRange,
+      GravityForceLabConstants.MASS_RANGE,
       CONSTANT_MASS_COLOR,
       tandem.createTandem( 'massControl1ConstantRadius' )
     );
@@ -136,7 +137,7 @@ define( function( require ) {
     var massControl2ConstantRadius = new MassControl(
       mass2String,
       model.mass2.massProperty,
-      model.massRange,
+      GravityForceLabConstants.MASS_RANGE,
       CONSTANT_MASS_COLOR,
       tandem.createTandem( 'massControl2ConstantRadius' )
     );
