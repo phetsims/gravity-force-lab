@@ -17,14 +17,14 @@ define( function( require ) {
   var GravityForceLabModel = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/model/GravityForceLabModel' );
   var inherit = require( 'PHET_CORE/inherit' );
   var LinearFunction = require( 'DOT/LinearFunction' );
-  var Node = require( 'SCENERY/nodes/Node' );
+  var TandemNode = require( 'TANDEM/scenery/nodes/TandemNode' );
   var Path = require( 'SCENERY/nodes/Path' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var PullerNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/PullerNode' );
   var RadialGradient = require( 'SCENERY/util/RadialGradient' );
   var RangeWithValue = require( 'DOT/RangeWithValue' );
   var Shape = require( 'KITE/Shape' );
-  var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
+  var TandemDragHandler = require( 'TANDEM/scenery/input/TandemDragHandler' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Util = require( 'DOT/Util' );
@@ -69,9 +69,9 @@ define( function( require ) {
 
     var arrowAtBoundary = false;
 
-    Node.call( this );
-    var dragNode = new Node( { cursor: 'pointer' } );
-    this.pullerNode = new PullerNode( tandem, { image_count: PULL_IMAGES_COUNT } );
+    TandemNode.call( this, { tandem: tandem } );
+    var dragNode = new TandemNode( { cursor: 'pointer', tandem: tandem.createTandem( 'dragNode' ) } );
+    this.pullerNode = new PullerNode( tandem.createTandem( 'pullerNode' ), { image_count: PULL_IMAGES_COUNT } );
     if ( options.direction === 'right' ) {
       self.pullerNode.scale( -1, 1 );
     }
@@ -213,7 +213,7 @@ define( function( require ) {
     redrawForce();
 
     var massClickXOffset;
-    dragNode.addInputListener( new SimpleDragHandler( {
+    dragNode.addInputListener( new TandemDragHandler( {
       allowTouchSnag: true,
       start: function( event ) {
         massClickXOffset = dragNode.globalToParentPoint( event.pointer.point ).x - event.currentTarget.x;
@@ -237,11 +237,12 @@ define( function( require ) {
         }
         x = Math.max( Math.min( x, xMax ), xMin );
         massModel.positionProperty.set( modelViewTransform.viewToModelX( x ) );
-      }
+      },
+      tandem: tandem.createTandem( 'massDragHandler' )
     } ) );
   }
 
   gravityForceLab.register( 'MassNode', MassNode );
 
-  return inherit( Node, MassNode );
+  return inherit( TandemNode, MassNode );
 } );

@@ -10,9 +10,9 @@ define( function( require ) {
 
   // modules
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
-  var Image = require( 'SCENERY/nodes/Image' );
+  var TandemImage = require( 'TANDEM/scenery/nodes/TandemImage' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var Node = require( 'SCENERY/nodes/Node' );
+  var TandemNode = require( 'TANDEM/scenery/nodes/TandemNode' );
   var Path = require( 'SCENERY/nodes/Path' );
   var Shape = require( 'KITE/Shape' );
   var Vector2 = require( 'DOT/Vector2' );
@@ -44,45 +44,51 @@ define( function( require ) {
    */
   function PullerNode( tandem, options ) {
     options = _.extend( { ropeLength: 50 }, options );
-    Node.call( this );
+    TandemNode.call( this, { tandem: tandem } );
 
-    var pullGroup = new Node( { x: -options.ropeLength } );
+    var pullerGroupNode = new TandemNode( {
+      x: -options.ropeLength,
+      tandem: tandem.createTandem( 'pullerGroupNode' )
+    } );
     var pull = [];
     var i;
+    var pullerNodeGroupTandem = tandem.createGroupTandem( 'pullerNode' );
     for ( i = 0; i < pullImages.length; i++ ) {
-      var image = new Image( pullImages[ i ] );
-      pull.push( new Node( {
+      var pullerTandem = pullerNodeGroupTandem.createNextTandem();
+      var image = new TandemImage( pullImages[ i ], { tandem: pullerTandem.createTandem( 'image' ) } );
+      pull.push( new TandemNode( {
         children: [ new Path( Shape.circle( 0, 0, 10 ), {
           fill: '#777',
           scale: new Vector2( image.width / 20, 1 ),
           x: image.width / 2,
           y: image.height - 5
-        } ), image ]
+        } ), image ],
+        tandem: pullerTandem
       } ) );
     }
-    pullGroup.addChild( new Path( Shape.lineSegment( -options.ropeLength, 0, 0, 0 ), {
+    pullerGroupNode.addChild( new Path( Shape.lineSegment( -options.ropeLength, 0, 0, 0 ), {
       stroke: '#666',
       lineWidth: 2
     } ) );
     for ( i = 0; i < pullImages.length; i++ ) {
-      pullGroup.addChild( pull[ i ] );
+      pullerGroupNode.addChild( pull[ i ] );
       pull[ i ].scale( -0.3, 0.3 );
       pull[ i ].bottom = 33;
       pull[ i ].right = i - options.ropeLength;
       pull[ i ].setVisible( false );
     }
 
-    this.addChild( pullGroup );
+    this.addChild( pullerGroupNode );
     //function select image
     this.setPull = function( value, offsetX ) {
       for ( var i = 0; i < pullImages.length; i++ ) {
         pull[ i ].setVisible( i === value );
       }
-      pullGroup.x = -offsetX;
+      pullerGroupNode.x = -offsetX;
     };
   }
 
   gravityForceLab.register( 'PullerNode', PullerNode );
 
-  return inherit( Node, PullerNode );
+  return inherit( TandemNode, PullerNode );
 } );

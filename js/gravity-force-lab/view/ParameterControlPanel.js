@@ -12,7 +12,7 @@ define( function( require ) {
   var CheckBox = require( 'SUN/CheckBox' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var Node = require( 'SCENERY/nodes/Node' );
+  var TandemNode = require( 'TANDEM/scenery/nodes/TandemNode' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Panel = require( 'SUN/Panel' );
   var Text = require( 'SCENERY/nodes/Text' );
@@ -41,13 +41,13 @@ define( function( require ) {
       tandem: tandem
     }, options );
 
-    var node = new Node();
+    var content = new TandemNode( { tandem: tandem.createTandem( 'content' ) } );
     var showValueText = new Text( showValuesString, { font: new PhetFont( 16 ), maxWidth: MAX_CAPTION_WIDTH } );
     var showValueCheckBox = new CheckBox(
       showValueText,
       model.showValuesProperty,
       { cursor: 'pointer', tandem: tandem.createTandem( 'showValueCheckBox' ) } );
-    node.addChild( showValueCheckBox );
+    content.addChild( showValueCheckBox );
 
     var constantRadiusText = new Text( constantRadiusString, {
       font: new PhetFont( 16 ),
@@ -60,8 +60,8 @@ define( function( require ) {
       { cursor: 'pointer', tandem: tandem.createTandem( 'constantRadiusCheckBox' ) }
     );
     constantRadiusCheckBox.top = showValueCheckBox.bottom + 10;
-    node.addChild( constantRadiusCheckBox );
-    Panel.call( this, node, options );
+    content.addChild( constantRadiusCheckBox );
+    Panel.call( this, content, options );
   }
 
   gravityForceLab.register( 'ParameterControlPanel', ParameterControlPanel );
