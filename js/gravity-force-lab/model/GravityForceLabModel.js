@@ -26,17 +26,18 @@ define( function( require ) {
   var PULL_OBJECT_WIDTH = 1.62; // empirically determined for model space in meters
 
   /**
+   * @param {Tandem} tandem
    * @constructor
    */
-  function GravityForceLabModel() {
+  function GravityForceLabModel( tandem ) {
     this.massRange = new RangeWithValue( 1, 1000 ); // @public
 
     this.showValuesProperty = new Property( true ); // @public
     this.constantRadiusProperty = new Property( false ); // @public
     this.rulerPositionProperty = new Property( new Vector2( 120, 270 ) ); // @public
 
-    this.mass1 = new Mass( 50, -2, '#00f', this.constantRadiusProperty ); // @public
-    this.mass2 = new Mass( 200, 2, '#f00', this.constantRadiusProperty ); // @public
+    this.mass1 = new Mass( 50, -2, '#00f', this.constantRadiusProperty, tandem.createTandem( 'mass1' ) ); // @public
+    this.mass2 = new Mass( 200, 2, '#f00', this.constantRadiusProperty, tandem.createTandem( 'mass2' ) ); // @public
 
     // @public, the force between the two objects as a positive scalar
     this.forceProperty = new DerivedProperty( [

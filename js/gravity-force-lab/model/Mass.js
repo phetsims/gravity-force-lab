@@ -26,9 +26,10 @@ define( function( require ) {
    * @param {number} initialPosition
    * @param {string} baseColor
    * @param {Property.<boolean>} constantRadiusProperty
+   * @param {Tandem} tandem
    * @constructor
    */
-  function Mass( initialMass, initialPosition, baseColor, constantRadiusProperty ) {
+  function Mass( initialMass, initialPosition, baseColor, constantRadiusProperty, tandem ) {
     var self = this;
     var initialRadius = this.calculateRadius( initialMass );
 

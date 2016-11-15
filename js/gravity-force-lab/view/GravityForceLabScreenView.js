@@ -36,9 +36,10 @@ define( function( require ) {
 
   /**
    * @param {GravityForceLabModel} model
+   * @param {Tandem} tandem
    * @constructor
    */
-  function GravityForceLabScreenView( model ) {
+  function GravityForceLabScreenView( model, tandem ) {
     ScreenView.call( this, { layoutBounds: new Bounds2( 0, 0, 768, 464 ) } );
 
     // Create the model-view transform.  The primary units used in the model are meters, so significant zoom is used.
@@ -51,27 +52,44 @@ define( function( require ) {
     );
 
     // add the mass nodes to the screen
-    this.addChild( new MassNode( model, model.mass1, this.layoutBounds, modelViewTransform, {
+    this.addChild( new MassNode(
+      model,
+      model.mass1,
+      this.layoutBounds,
+      modelViewTransform,
+      tandem.createTandem( 'mass1Node' ),
+      {
         label: mass1AbbreviatedString,
         otherMassLabel: mass2AbbreviatedString,
         direction: 'left',
         arrowColor: '#66f',
         y: MASS_NODE_Y_POSITION,
         forceArrowHeight: 125
-      } )
-    );
+      }
+    ) );
 
-    this.addChild( new MassNode( model, model.mass2, this.layoutBounds, modelViewTransform, {
+    this.addChild( new MassNode(
+      model,
+      model.mass2,
+      this.layoutBounds,
+      modelViewTransform,
+      tandem.createTandem( 'mass2Node' ),
+      {
         label: mass2AbbreviatedString,
         otherMassLabel: mass1AbbreviatedString,
         direction: 'right',
         arrowColor: '#f66',
         y: MASS_NODE_Y_POSITION,
         forceArrowHeight: 175
-      } )
-    );
+      }
+    ) );
 
-    var gravityForceLabRuler = new GravityForceLabRuler( model, this.layoutBounds.width, this.layoutBounds.height );
+    var gravityForceLabRuler = new GravityForceLabRuler(
+      model,
+      this.layoutBounds.width,
+      this.layoutBounds.height,
+      tandem.createTandem( 'gravityForceLabRuler' )
+    );
     this.addChild( gravityForceLabRuler );
 
     var resetAllButton = new ResetAllButton( {
@@ -80,7 +98,7 @@ define( function( require ) {
     } );
     this.addChild( resetAllButton );
 
-    var parameterControlPanel = new ParameterControlPanel( model );
+    var parameterControlPanel = new ParameterControlPanel( model, tandem.createTandem( 'parameterControlPanel' ) );
     parameterControlPanel.scale( 0.9 );
     this.addChild( parameterControlPanel );
 
@@ -88,7 +106,8 @@ define( function( require ) {
       mass1String,
       model.mass1.massProperty,
       model.massRange,
-      model.mass1.baseColorProperty.get()
+      model.mass1.baseColorProperty.get(),
+      tandem.createTandem( 'massControl1' )
     );
 
     massControl1.scale( CONTROL_SCALE );
@@ -98,16 +117,29 @@ define( function( require ) {
       mass2String,
       model.mass2.massProperty,
       model.massRange,
-      model.mass2.baseColorProperty.get()
+      model.mass2.baseColorProperty.get(),
+      tandem.createTandem( 'massControl2' )
     );
     massControl2.scale( CONTROL_SCALE );
     this.addChild( massControl2 );
 
-    var massControl1ConstantRadius = new MassControl( mass1String, model.mass1.massProperty, model.massRange, CONSTANT_MASS_COLOR );
+    var massControl1ConstantRadius = new MassControl(
+      mass1String,
+      model.mass1.massProperty,
+      model.massRange,
+      CONSTANT_MASS_COLOR,
+      tandem.createTandem( 'massControl1ConstantRadius' )
+    );
     massControl1ConstantRadius.scale( CONTROL_SCALE );
     this.addChild( massControl1ConstantRadius );
 
-    var massControl2ConstantRadius = new MassControl( mass2String, model.mass2.massProperty, model.massRange, CONSTANT_MASS_COLOR );
+    var massControl2ConstantRadius = new MassControl(
+      mass2String,
+      model.mass2.massProperty,
+      model.massRange,
+      CONSTANT_MASS_COLOR,
+      tandem.createTandem( 'massControl2ConstantRadius' )
+    );
     massControl2ConstantRadius.scale( CONTROL_SCALE );
     this.addChild( massControl2ConstantRadius );
 

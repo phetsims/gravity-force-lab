@@ -28,9 +28,10 @@ define( function( require ) {
    * @param {GravityForceLabModel} model
    * @param {number} screenWidth
    * @param {number} screenHeight
+   * @param {Tandem} tandem
    * @constructor
    */
-  function GravityForceLabRuler( model, screenWidth, screenHeight ) {
+  function GravityForceLabRuler( model, screenWidth, screenHeight, tandem ) {
     var self = this;
     Node.call( this, { cursor: 'pointer', cssTransform: true } );
     var ruler = new RulerNode( RULER_WIDTH, RULER_HEIGHT, 50, [ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10' ], unitsMetersString, {

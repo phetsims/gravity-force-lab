@@ -32,9 +32,10 @@ define( function( require ) {
    * @param {Property.<number>} massProperty
    * @param {Range} massRange
    * @param {Color} thumbColor
+   * @param {Tandem} tandem
    * @constructor
    */
-  function MassControl( titleString, massProperty, massRange, thumbColor ) {
+  function MassControl( titleString, massProperty, massRange, thumbColor, tandem ) {
 
     // major ticks
     var tickLabelOptions = { font: new PhetFont( 14 ), pickable: false };

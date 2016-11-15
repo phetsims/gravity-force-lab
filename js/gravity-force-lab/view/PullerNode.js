@@ -38,10 +38,11 @@ define( function( require ) {
     pullImage8, pullImage9, pullImage10, pullImage11, pullImage12, pullImage13, pullImage14 ];
 
   /**
+   * @param {Tandem} tandem
    * @param {Object} [options]
    * @constructor
    */
-  function PullerNode( options ) {
+  function PullerNode( tandem, options ) {
     options = _.extend( { ropeLength: 50 }, options );
     Node.call( this );
 

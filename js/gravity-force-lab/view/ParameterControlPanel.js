@@ -26,10 +26,11 @@ define( function( require ) {
 
   /**
    * @param {gravityForceLabModel} model
+   * @param {Tandem} tandem
    * @param {Object} [options]
    * @constructor
    */
-  function ParameterControlPanel( model, options ) {
+  function ParameterControlPanel( model, tandem, options ) {
 
     options = _.extend( {
       fill: '#FDF498',

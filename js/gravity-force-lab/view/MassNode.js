@@ -47,10 +47,11 @@ define( function( require ) {
    * @param {MassModel} massModel
    * @param {Bounds2} layoutBounds
    * @param {ModelViewTransform2} modelViewTransform
+   * @param {Tandem} tandem
    * @param {Object} [options]
    * @constructor
    */
-  function MassNode( model, massModel, layoutBounds, modelViewTransform, options ) {
+  function MassNode( model, massModel, layoutBounds, modelViewTransform, tandem, options ) {
     var self = this;
     options = _.extend( {
       label: 'This Mass',
@@ -70,7 +71,7 @@ define( function( require ) {
 
     Node.call( this );
     var dragNode = new Node( { cursor: 'pointer' } );
-    this.pullerNode = new PullerNode( { image_count: PULL_IMAGES_COUNT } );
+    this.pullerNode = new PullerNode( tandem, { image_count: PULL_IMAGES_COUNT } );
     if ( options.direction === 'right' ) {
       self.pullerNode.scale( -1, 1 );
     }
@@ -159,7 +160,7 @@ define( function( require ) {
         arrowText.text = StringUtils.format( forceDescriptionPatternTargetSourceString, options.label, options.otherMassLabel );
       }
 
-      if( !arrowAtBoundary ) {
+      if ( !arrowAtBoundary ) {
         arrowText.centerX = 0;
       }
 
@@ -199,51 +200,53 @@ define( function( require ) {
         arrowText.right = self.parentToLocalBounds( layoutBounds ).right - TEXT_OFFSET;
         arrowAtBoundary = true;
       }
-
     } );
+
     model.showValuesProperty.lazyLink( function() {
       redrawForce();
     } );
+
     massModel.radiusProperty.lazyLink( function() {
       redrawForce();
     } );
+
     model.forceProperty.lazyLink( function() {
       redrawForce();
     } );
+
     massModel.baseColorProperty.link( function( baseColor ) {
       updateGradient( baseColor );
     } );
+
     redrawForce();
 
-
     var massClickXOffset;
-    dragNode.addInputListener( new SimpleDragHandler(
-      {
-        allowTouchSnag: true,
-        start: function( event ) {
-          massClickXOffset = dragNode.globalToParentPoint( event.pointer.point ).x - event.currentTarget.x;
-        },
-        drag: function( event ) {
-          var x = self.globalToParentPoint( event.pointer.point ).x - massClickXOffset;
-          var xMax = layoutBounds.maxX - self.massCircle.width / 2 - self.pullerNode.width - OFFSET;
-          var xMin = layoutBounds.minX + OFFSET + self.massCircle.width / 2 + self.pullerNode.width;
+    dragNode.addInputListener( new SimpleDragHandler( {
+      allowTouchSnag: true,
+      start: function( event ) {
+        massClickXOffset = dragNode.globalToParentPoint( event.pointer.point ).x - event.currentTarget.x;
+      },
+      drag: function( event ) {
+        var x = self.globalToParentPoint( event.pointer.point ).x - massClickXOffset;
+        var xMax = layoutBounds.maxX - self.massCircle.width / 2 - self.pullerNode.width - OFFSET;
+        var xMin = layoutBounds.minX + OFFSET + self.massCircle.width / 2 + self.pullerNode.width;
 
-          // TODO: Complete this sentence
-          // for mass1 xMax is left boundary of
-          var sumRadius = modelViewTransform.modelToViewDeltaX( model.mass1.radiusProperty.get() ) +
-                          modelViewTransform.modelToViewDeltaX( model.mass2.radiusProperty.get() );
-          if ( massModel.positionProperty.get() === model.mass1.positionProperty.get() ) {
-            xMax = modelViewTransform.modelToViewX( model.mass2.positionProperty.get() ) - sumRadius -
-                   modelViewTransform.modelToViewDeltaX( GravityForceLabModel.MIN_SEPARATION_BETWEEN_MASSES );
-          }
-          if ( massModel.positionProperty.get() === model.mass2.positionProperty.get() ) {
-            xMin = modelViewTransform.modelToViewX( model.mass1.positionProperty.get() ) + sumRadius +
-                   modelViewTransform.modelToViewDeltaX( GravityForceLabModel.MIN_SEPARATION_BETWEEN_MASSES );
-          }
-          x = Math.max( Math.min( x, xMax ), xMin );
-          massModel.positionProperty.set( modelViewTransform.viewToModelX( x ) );
+        // TODO: Complete this sentence
+        // for mass1 xMax is left boundary of
+        var sumRadius = modelViewTransform.modelToViewDeltaX( model.mass1.radiusProperty.get() ) +
+                        modelViewTransform.modelToViewDeltaX( model.mass2.radiusProperty.get() );
+        if ( massModel.positionProperty.get() === model.mass1.positionProperty.get() ) {
+          xMax = modelViewTransform.modelToViewX( model.mass2.positionProperty.get() ) - sumRadius -
+                 modelViewTransform.modelToViewDeltaX( GravityForceLabModel.MIN_SEPARATION_BETWEEN_MASSES );
         }
-      } ) );
+        if ( massModel.positionProperty.get() === model.mass2.positionProperty.get() ) {
+          xMin = modelViewTransform.modelToViewX( model.mass1.positionProperty.get() ) + sumRadius +
+                 modelViewTransform.modelToViewDeltaX( GravityForceLabModel.MIN_SEPARATION_BETWEEN_MASSES );
+        }
+        x = Math.max( Math.min( x, xMax ), xMin );
+        massModel.positionProperty.set( modelViewTransform.viewToModelX( x ) );
+      }
+    } ) );
   }
 
   gravityForceLab.register( 'MassNode', MassNode );
