@@ -31,7 +31,6 @@ define( function( require ) {
   function GravityForceLabModel() {
     this.massRange = new RangeWithValue( 1, 1000 ); // @public
 
-    this.forceProperty = new Property( 0 ); // @public (read-only)
     this.showValuesProperty = new Property( true ); // @public
     this.constantRadiusProperty = new Property( false ); // @public
     this.rulerPositionProperty = new Property( new Vector2( 120, 270 ) ); // @public
@@ -102,7 +101,6 @@ define( function( require ) {
 
     // @public
     reset: function() {
-      this.forceProperty.reset();
       this.showValuesProperty.reset();
       this.constantRadiusProperty.reset();
       this.rulerPositionProperty.reset();
