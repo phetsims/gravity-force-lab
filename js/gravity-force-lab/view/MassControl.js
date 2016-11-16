@@ -63,6 +63,7 @@ define( function( require ) {
       valueXMargin: 20,
       valueYMargin: 4,
       valueBackgroundStroke: 'black',
+      valueBackgroundCornerRadius: 3,
       tandem: tandem.createTandem( 'numberControl' )
     } );
 
