@@ -52,7 +52,7 @@ define( function( require ) {
         value: massRange.max,
         label: new Text( massRange.max, tickLabelOptions )
       } ],
-      layoutFunction: NumberControl.createLayoutFunction3(),
+      layoutFunction: NumberControl.createLayoutFunction3( { xSpacing: 10 } ),
       thumbFillEnabled: thumbColor.colorUtilsBrighter( 0.15 ),
       thumbFillHighlighted: thumbColor,
       arrowButtonScale: 1,
