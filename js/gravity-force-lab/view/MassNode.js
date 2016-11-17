@@ -108,7 +108,7 @@ define( function( require ) {
       tailWidth: 3,
       stroke: null
     } );
-    var arrowText = new Text( options.title, {
+    var arrowText = new Text( options.title ? options.title : '', {
       font: new PhetFont( 16 ),
       fill: '#000',
       y: -options.forceArrowHeight - 20,
