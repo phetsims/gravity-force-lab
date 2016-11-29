@@ -18,13 +18,13 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var LinearFunction = require( 'DOT/LinearFunction' );
   var TandemNode = require( 'TANDEM/scenery/nodes/TandemNode' );
-  var Path = require( 'SCENERY/nodes/Path' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var PullerNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/PullerNode' );
   var RadialGradient = require( 'SCENERY/util/RadialGradient' );
   var RangeWithValue = require( 'DOT/RangeWithValue' );
   var Shape = require( 'KITE/Shape' );
   var TandemDragHandler = require( 'TANDEM/scenery/input/TandemDragHandler' );
+  var TandemPath = require( 'TANDEM/scenery/nodes/TandemPath' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Util = require( 'DOT/Util' );
@@ -115,20 +115,22 @@ define( function( require ) {
       y: -options.forceArrowHeight - 20,
       maxWidth: 300 // empirically determined through testing with long strings
     } );
-    var arrowShape = new Shape();
-    arrowShape.moveTo( 0, -4 );
-    arrowShape.lineTo( 0, -options.forceArrowHeight );
-    this.addChild( new Path( arrowShape, {
+    var markerLineShape = new Shape();
+    markerLineShape.moveTo( 0, -4 );
+    markerLineShape.lineTo( 0, -options.forceArrowHeight );
+    this.addChild( new TandemPath( markerLineShape, {
       stroke: '#FFF',
       lineDash: [ 4, 4 ],
       lineWidth: 2,
       x: 0.5,
-      y: 0.5
+      y: 0.5,
+      tandem: tandem.createTandem( 'markerLineShadow' )
     } ) );
-    this.addChild( new Path( arrowShape, {
+    this.addChild( new TandemPath( markerLineShape, {
       stroke: options.arrowColor,
       lineDash: [ 4, 4 ],
-      lineWidth: 2
+      lineWidth: 2,
+      tandem: tandem.createTandem( 'markerLine' )
     } ) );
 
     this.addChild( arrowText );

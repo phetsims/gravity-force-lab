@@ -13,8 +13,8 @@ define( function( require ) {
   var TandemImage = require( 'TANDEM/scenery/nodes/TandemImage' );
   var inherit = require( 'PHET_CORE/inherit' );
   var TandemNode = require( 'TANDEM/scenery/nodes/TandemNode' );
-  var Path = require( 'SCENERY/nodes/Path' );
   var Shape = require( 'KITE/Shape' );
+  var TandemPath = require( 'TANDEM/scenery/nodes/TandemPath' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // images
@@ -57,18 +57,20 @@ define( function( require ) {
       var pullerTandem = pullerNodeGroupTandem.createNextTandem();
       var image = new TandemImage( pullImages[ i ], { tandem: pullerTandem.createTandem( 'image' ) } );
       pull.push( new TandemNode( {
-        children: [ new Path( Shape.circle( 0, 0, 10 ), {
+        children: [ new TandemPath( Shape.circle( 0, 0, 10 ), {
           fill: '#777',
           scale: new Vector2( image.width / 20, 1 ),
           x: image.width / 2,
-          y: image.height - 5
+          y: image.height - 5,
+          tandem: pullerTandem.createTandem( 'shadowNode' )
         } ), image ],
         tandem: pullerTandem
       } ) );
     }
-    pullerGroupNode.addChild( new Path( Shape.lineSegment( -options.ropeLength, 0, 0, 0 ), {
+    pullerGroupNode.addChild( new TandemPath( Shape.lineSegment( -options.ropeLength, 0, 0, 0 ), {
       stroke: '#666',
-      lineWidth: 2
+      lineWidth: 2,
+      tandem: tandem.createTandem( 'ropeNode' )
     } ) );
     for ( i = 0; i < pullImages.length; i++ ) {
       pullerGroupNode.addChild( pull[ i ] );
