@@ -52,7 +52,7 @@ define( function( require ) {
     } );
     var pull = [];
     var i;
-    var pullerNodeGroupTandem = tandem.createGroupTandem( 'pullerNode' );
+    var pullerNodeGroupTandem = tandem.createGroupTandem( 'node' );
     for ( i = 0; i < pullImages.length; i++ ) {
       var pullerTandem = pullerNodeGroupTandem.createNextTandem();
       var image = new TandemImage( pullImages[ i ], { tandem: pullerTandem.createTandem( 'image' ) } );
