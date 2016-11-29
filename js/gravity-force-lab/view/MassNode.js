@@ -103,10 +103,11 @@ define( function( require ) {
     this.y = options.y;
 
     var arrowNode = new ArrowNode( 0, -options.forceArrowHeight, 200, -options.forceArrowHeight, {
-      headHeight: 10,
-      headWidth: 10,
+      headHeight: 8,
+      headWidth: 8,
       tailWidth: 3,
-      stroke: null
+      stroke: null,
+      tandem: tandem.createTandem( 'arrowNode' )
     } );
     var arrowText = new Text( options.title ? options.title : '', {
       font: new PhetFont( 16 ),
@@ -175,14 +176,13 @@ define( function( require ) {
         arrowLengthMultiplier *= -1;
       }
 
-      self.removeChild( arrowNode );
-      arrowNode = new ArrowNode( 0, -options.forceArrowHeight, arrowLengthMultiplier * ARROW_LENGTH, -options.forceArrowHeight, {
-        headHeight: 8,
-        headWidth: 8,
-        tailWidth: 3,
-        stroke: null
-      } );
-      self.addChild( arrowNode );
+      arrowNode.setTailAndTip(
+        0,
+        -options.forceArrowHeight,
+        arrowLengthMultiplier * ARROW_LENGTH,
+        -options.forceArrowHeight
+      );
+
       self.pullerNode.setPull( Util.roundSymmetric( forceToImage( model.forceProperty.get() ) ), (self.massCircle.width / 2) );
     };
 
