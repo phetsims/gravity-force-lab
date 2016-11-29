@@ -47,7 +47,8 @@ define( function( require ) {
     } );
 
     this.addInputListener( new MovableDragHandler( model.rulerPositionProperty, {
-      dragBounds: new Bounds2( -self.width / 2, 0, screenWidth - self.width / 2, screenHeight - self.height )
+      dragBounds: new Bounds2( -self.width / 2, 0, screenWidth - self.width / 2, screenHeight - self.height ),
+      tandem: tandem.createTandem( 'dragHandler' )
     } ) );
   }
 
