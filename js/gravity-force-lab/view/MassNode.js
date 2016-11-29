@@ -26,7 +26,7 @@ define( function( require ) {
   var TandemDragHandler = require( 'TANDEM/scenery/input/TandemDragHandler' );
   var TandemPath = require( 'TANDEM/scenery/nodes/TandemPath' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  var Text = require( 'SCENERY/nodes/Text' );
+  var TandemText = require( 'TANDEM/scenery/nodes/TandemText' );
   var Util = require( 'DOT/Util' );
 
   // strings
@@ -82,21 +82,24 @@ define( function( require ) {
     dragNode.addChild( this.massCircle );
     dragNode.addChild( new Circle( 2, { fill: '#000' } ) );
     var labelFont = new PhetFont( 12 );
-    dragNode.addChild( new Text( options.label, {
+    dragNode.addChild( new TandemText( options.label, {
       font: labelFont,
       fill: '#000',
       pickable: false,
       maxWidth: LABEL_MAX_WIDTH,
       centerX: 0,
-      top: 4
+      top: 4,
+      tandem: tandem.createTandem( 'labelShadowNode' )
+
     } ) );
-    dragNode.addChild( new Text( options.label, {
+    dragNode.addChild( new TandemText( options.label, {
       font: labelFont,
       fill: '#fff',
       pickable: false,
       maxWidth: LABEL_MAX_WIDTH,
       centerX: -0.5,
-      top: 3.5
+      top: 3.5,
+      tandem: tandem.createTandem( 'labelNode' )
     } ) );
 
     this.addChild( dragNode );
@@ -109,11 +112,12 @@ define( function( require ) {
       stroke: null,
       tandem: tandem.createTandem( 'arrowNode' )
     } );
-    var arrowText = new Text( options.title ? options.title : '', {
+    var arrowText = new TandemText( options.title ? options.title : '', {
       font: new PhetFont( 16 ),
       fill: '#000',
       y: -options.forceArrowHeight - 20,
-      maxWidth: 300 // empirically determined through testing with long strings
+      maxWidth: 300, // empirically determined through testing with long strings
+      tandem: tandem.createTandem( 'arrowText' )
     } );
     var markerLineShape = new Shape();
     markerLineShape.moveTo( 0, -4 );

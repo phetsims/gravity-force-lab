@@ -15,7 +15,7 @@ define( function( require ) {
   var TandemNode = require( 'TANDEM/scenery/nodes/TandemNode' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Panel = require( 'SUN/Panel' );
-  var Text = require( 'SCENERY/nodes/Text' );
+  var TandemText = require( 'TANDEM/scenery/nodes/TandemText' );
 
   // strings
   var constantRadiusString = require( 'string!GRAVITY_FORCE_LAB/constantRadius' );
@@ -42,16 +42,21 @@ define( function( require ) {
     }, options );
 
     var content = new TandemNode( { tandem: tandem.createTandem( 'content' ) } );
-    var showValueText = new Text( showValuesString, { font: new PhetFont( 16 ), maxWidth: MAX_CAPTION_WIDTH } );
+    var showValuesText = new TandemText( showValuesString, {
+      font: new PhetFont( 16 ),
+      maxWidth: MAX_CAPTION_WIDTH,
+      tandem: tandem.createTandem( 'showValuesText' )
+    } );
     var showValueCheckBox = new CheckBox(
-      showValueText,
+      showValuesText,
       model.showValuesProperty,
       { cursor: 'pointer', tandem: tandem.createTandem( 'showValueCheckBox' ) } );
     content.addChild( showValueCheckBox );
 
-    var constantRadiusText = new Text( constantRadiusString, {
+    var constantRadiusText = new TandemText( constantRadiusString, {
       font: new PhetFont( 16 ),
-      maxWidth: MAX_CAPTION_WIDTH
+      maxWidth: MAX_CAPTION_WIDTH,
+      tandem: tandem.createTandem( 'constantRadiusText' )
     } );
 
     var constantRadiusCheckBox = new CheckBox(
