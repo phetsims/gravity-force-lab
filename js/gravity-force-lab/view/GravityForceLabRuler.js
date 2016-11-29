@@ -13,9 +13,9 @@ define( function( require ) {
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var inherit = require( 'PHET_CORE/inherit' );
   var MovableDragHandler = require( 'SCENERY_PHET/input/MovableDragHandler' );
-  var TandemNode = require( 'TANDEM/scenery/nodes/TandemNode' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var RulerNode = require( 'SCENERY_PHET/RulerNode' );
+  var TandemNode = require( 'TANDEM/scenery/nodes/TandemNode' );
 
   // constants
   var RULER_WIDTH = 500;
@@ -34,12 +34,20 @@ define( function( require ) {
   function GravityForceLabRuler( model, screenWidth, screenHeight, tandem ) {
     var self = this;
     TandemNode.call( this, { cursor: 'pointer', cssTransform: true, tandem: tandem } );
-    var ruler = new RulerNode( RULER_WIDTH, RULER_HEIGHT, 50, [ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10' ], unitsMetersString, {
-      minorTicksPerMajorTick: 4,
-      majorTickFont: new PhetFont( 16 ),
-      unitsFont: new PhetFont( 10 ),
-      unitsSpacing: 5
-    } );
+    var ruler = new RulerNode(
+      RULER_WIDTH,
+      RULER_HEIGHT,
+      50,
+      [ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10' ],
+      unitsMetersString,
+      {
+        minorTicksPerMajorTick: 4,
+        majorTickFont: new PhetFont( 16 ),
+        unitsFont: new PhetFont( 10 ),
+        unitsSpacing: 5,
+        tandem: tandem.createTandem( 'ruler' )
+      }
+    );
     this.addChild( ruler );
 
     model.rulerPositionProperty.link( function( value ) {
