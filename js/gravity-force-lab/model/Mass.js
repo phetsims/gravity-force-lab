@@ -16,11 +16,11 @@ define( function( require ) {
   var GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Property = require( 'AXON/Property' );
+  var Range = require( 'DOT/Range' );
 
   // phet-io modules
   var TColor = require( 'ifphetio!PHET_IO/types/scenery/util/TColor' );
   var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
-  var TVector2 = require( 'ifphetio!PHET_IO/types/dot/TVector2' );
 
   // constants
   var DENSITY = 150; // kg/m^3
@@ -46,7 +46,10 @@ define( function( require ) {
 
     this.positionProperty = new Property( initialPosition, {
       tandem: tandem.createTandem( 'positionProperty' ),
-      phetioValueType: TVector2
+      phetioValueType: TNumber( {
+        units: 'meters',
+        range: new Range( GravityForceLabConstants.LEFT_MASS_BOUNDARY, GravityForceLabConstants.RIGHT_MASS_BOUNDARY )
+      } )
     } ); // @public
 
     this.radiusProperty = new DerivedProperty(

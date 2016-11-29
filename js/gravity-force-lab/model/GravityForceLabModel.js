@@ -12,6 +12,7 @@ define( function( require ) {
   // modules
   var Color = require( 'SCENERY/util/Color' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
+  var GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Mass = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/model/Mass' );
   var Property = require( 'AXON/Property' );
@@ -78,8 +79,8 @@ define( function( require ) {
      * @public
      */
     step: function() {
-      var minX = LEFT_BOUNDARY + PULL_OBJECT_WIDTH + this.mass1.radiusProperty.get();
-      var maxX = RIGHT_BOUNDARY - PULL_OBJECT_WIDTH - this.mass2.radiusProperty.get();
+      var minX = GravityForceLabConstants.LEFT_MASS_BOUNDARY + PULL_OBJECT_WIDTH + this.mass1.radiusProperty.get();
+      var maxX = GravityForceLabConstants.RIGHT_MASS_BOUNDARY - PULL_OBJECT_WIDTH - this.mass2.radiusProperty.get();
       var locationMass1 = this.mass1.positionProperty.get();
       var locationMass2 = this.mass2.positionProperty.get();
 
