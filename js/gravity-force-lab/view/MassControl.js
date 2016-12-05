@@ -31,6 +31,7 @@ define( function( require ) {
   /**
    * @param {string} titleString
    * @param {Property.<number>} massProperty
+   * @param {Range} massRange
    * @param {Color} thumbColor
    * @param {Tandem} tandem
    * @constructor
