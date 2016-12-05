@@ -72,6 +72,7 @@ define( function( require ) {
       valueYMargin: 4,
       valueBackgroundStroke: 'black',
       valueBackgroundCornerRadius: 3,
+      tickLabelSpacing: 2,
       tandem: tandem.createTandem( 'numberControl' )
     } );
 
