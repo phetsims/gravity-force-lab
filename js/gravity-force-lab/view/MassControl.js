@@ -5,6 +5,7 @@
  *
  * @author Anton Ulyanov (Mlearner)
  * @author Aadish Gupta (PhET Interactive Simulations)
+ * @author Sam Reid (PhET Interactive Simulations)
  */
 define( function( require ) {
   'use strict';
