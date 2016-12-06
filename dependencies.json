@@ -1,5 +1,5 @@
 {
-  "comment": "# gravity-force-lab 2.0.3 Thu Aug 04 2016 09:19:16 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# gravity-force-lab 2.0.3 Tue Dec 06 2016 13:00:41 GMT-0700 (Mountain Standard Time)",
   "assert": {
     "sha": "7d27130a4d27da15aa7f8a21bbfb9245288c1b44",
     "branch": "HEAD"
@@ -21,7 +21,7 @@
     "branch": "HEAD"
   },
   "gravity-force-lab": {
-    "sha": "f3ac784728e01f0e3589caa9353fa3e622145901",
+    "sha": "39fd8c4bbafa0cbf01ca9a6dbf00d7c588293bf5",
     "branch": "2.0"
   },
   "joist": {
@@ -37,8 +37,8 @@
     "branch": "HEAD"
   },
   "phetcommon": {
-    "sha": "2740af1be11684e2d5fd72922269dc55d03b782a",
-    "branch": "HEAD"
+    "sha": "6af9dd365511d3e0066fc406c90f8ebe33b871d8",
+    "branch": "gravity-force-lab-2.0"
   },
   "scenery": {
     "sha": "b34b4fea76b01c9b36a07c83ed6655930143f054",
