@@ -41,7 +41,9 @@ define( function( require ) {
     new Sim( gravityForceLabTitleString, [
       new Screen(
         function() {
-          return new GravityForceLabModel( gravityForceLabScreenTandem.createTandem( 'model' ) );
+          var mass1 = 50; // mass in kg
+          var mass2 = 200; // mass in kg
+          return new GravityForceLabModel( mass1, mass2, gravityForceLabScreenTandem.createTandem( 'model' ) );
         },
         function( model ) {
           return new GravityForceLabScreenView( model, gravityForceLabScreenTandem.createTandem( 'view' ) );
