@@ -35,7 +35,22 @@ define( function( require ) {
    * @param {Tandem} tandem
    * @constructor
    */
-  function GravityForceLabModel( mass1, mass2, tandem ) {
+  function GravityForceLabModel( mass1, mass2, position1, position2, tandem, options ) {
+
+    options = _.extend( {
+      // mass properties
+      massDensity: GravityForceLabConstants.MASS_DENSITY,
+      massConstantRadius: GravityForceLabConstants.CONSTANT_RADIUS,
+      massRange: GravityForceLabConstants.MASS_RANGE,
+
+      // boundaries for locations of the masses in meters
+      leftMassBoundary: GravityForceLabConstants.LEFT_MASS_BOUNDARY,
+      rightMassBoundary: GravityForceLabConstants.RIGHT_MASS_BOUNDARY
+    }, options );
+
+    // @private
+    this.leftMassBoundary = options.leftMassBoundary;
+    this.rightMassBoundary = options.rightMassBoundary;
 
     this.showValuesProperty = new Property( true, {
       tandem: tandem.createTandem( 'showValuesProperty' ),
@@ -51,8 +66,14 @@ define( function( require ) {
     } ); // @public
 
     // @public
-    this.mass1 = new Mass( mass1, -2, new Color( '#00f' ), this.constantRadiusProperty, tandem.createTandem( 'mass1' ) );
-    this.mass2 = new Mass( mass2, 2, new Color( '#f00' ), this.constantRadiusProperty, tandem.createTandem( 'mass2' ) );
+    var massOptions = {
+      massConstantRadius: options.massConstantRadius,
+      leftMassBoundary: options.leftMassBoundary,
+      rightMassBoundary: options.rightMassBoundary,
+      massRange: options.massRange
+    };
+    this.mass1 = new Mass( mass1, position1, options.massDensity, new Color( '#00f' ), this.constantRadiusProperty, tandem.createTandem( 'mass1' ), massOptions );
+    this.mass2 = new Mass( mass2, position2, options.massDensity, new Color( '#f00' ), this.constantRadiusProperty, tandem.createTandem( 'mass2' ), massOptions );
 
     // @public, the force between the two objects as a positive scalar
     this.forceProperty = new DerivedProperty(
@@ -79,8 +100,8 @@ define( function( require ) {
      * @public
      */
     step: function() {
-      var minX = GravityForceLabConstants.LEFT_MASS_BOUNDARY + PULL_OBJECT_WIDTH + this.mass1.radiusProperty.get();
-      var maxX = GravityForceLabConstants.RIGHT_MASS_BOUNDARY - PULL_OBJECT_WIDTH - this.mass2.radiusProperty.get();
+      var minX = this.leftMassBoundary + PULL_OBJECT_WIDTH + this.mass1.radiusProperty.get();
+      var maxX = this.rightMassBoundary - PULL_OBJECT_WIDTH - this.mass2.radiusProperty.get();
       var locationMass1 = this.mass1.positionProperty.get();
       var locationMass2 = this.mass2.positionProperty.get();
 

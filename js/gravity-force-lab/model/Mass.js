@@ -23,39 +23,51 @@ define( function( require ) {
   var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
 
   // constants
-  var DENSITY = 150; // kg/m^3
-  var CONSTANT_RADIUS = 0.5; // in meters
   var CONSTANT_RADIUS_COLOR = new Color( 'indigo' );
-  var COLOR_REDUCTION_CONSTANT = 1000; // empirically determined
 
   /**
    * @param {number} initialMass
    * @param {number} initialPosition
+   * @param {number} density
    * @param {string} baseColor
    * @param {Property.<boolean>} constantRadiusProperty
    * @param {Tandem} tandem
+   * @param {Object} options
    * @constructor
    */
-  function Mass( initialMass, initialPosition, baseColor, constantRadiusProperty, tandem ) {
+  function Mass( initialMass, initialPosition, density, baseColor, constantRadiusProperty, tandem, options ) {
+
+    options = _.extend( {
+      massConstantRadius: GravityForceLabConstants.CONSTANT_RADIUS, // in meters
+      massRange: GravityForceLabConstants.MASS_RANGE,
+
+      // boundaries for locations of the masses in meters
+      leftMassBoundary: GravityForceLabConstants.LEFT_MASS_BOUNDARY,
+      rightMassBoundary: GravityForceLabConstants.RIGHT_MASS_BOUNDARY
+    }, options );
+
     var self = this;
+
+    // @private
+    this.density = density;
 
     this.massProperty = new Property( initialMass, {
       tandem: tandem.createTandem( 'massProperty' ),
-      phetioValueType: TNumber( { units: 'kilograms', range: GravityForceLabConstants.MASS_RANGE } )
+      phetioValueType: TNumber( { units: 'kilograms', range: options.massRange } )
     } ); // @public
 
     this.positionProperty = new Property( initialPosition, {
       tandem: tandem.createTandem( 'positionProperty' ),
       phetioValueType: TNumber( {
         units: 'meters',
-        range: new Range( GravityForceLabConstants.LEFT_MASS_BOUNDARY, GravityForceLabConstants.RIGHT_MASS_BOUNDARY )
+        range: new Range( options.leftMassBoundary, options.rightMassBoundary )
       } )
     } ); // @public
 
     this.radiusProperty = new DerivedProperty(
       [ this.massProperty, constantRadiusProperty ],
       function( mass, constantRadius ) {
-        return constantRadius ? CONSTANT_RADIUS : self.calculateRadius( mass );
+        return constantRadius ? options.massConstantRadius : self.calculateRadius( mass );
       },
       { tandem: tandem.createTandem( 'radiusProperty' ), phetioValueType: TNumber( { units: 'meters' } ) }
     ); // @public
@@ -64,7 +76,7 @@ define( function( require ) {
       [ this.massProperty, constantRadiusProperty ],
       function( mass, constantRadius ) {
         return constantRadius ?
-               CONSTANT_RADIUS_COLOR.colorUtilsBrighter( 1 - self.massProperty.get() / COLOR_REDUCTION_CONSTANT ) :
+               CONSTANT_RADIUS_COLOR.colorUtilsBrighter( 1 - self.massProperty.get() / options.massRange.max ) :
                baseColor;
       },
       { tandem: tandem.createTandem( 'baseColorProperty' ), phetioValueType: TColor }
@@ -81,7 +93,7 @@ define( function( require ) {
      * @private
      */
     calculateRadius: function( mass ) {
-      var sphereVolume = mass / DENSITY;
+      var sphereVolume = mass / this.density;
       var sphereRadius = Math.pow( ( 3 * sphereVolume ) / ( 4 * Math.PI ), 1 / 3 );
       return sphereRadius;
     },

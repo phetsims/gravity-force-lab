@@ -22,7 +22,9 @@ define( function( require ) {
     MAX_MASS: MAX_MASS,
     RIGHT_MASS_BOUNDARY: MAX_DISTANCE_FROM_CENTER,
     LEFT_MASS_BOUNDARY: -MAX_DISTANCE_FROM_CENTER,
-    MASS_RANGE: new Range( MIN_MASS, MAX_MASS )
+    MASS_RANGE: new Range( MIN_MASS, MAX_MASS ),
+    CONSTANT_RADIUS: 0.5, // in meters
+    MASS_DENSITY: 150 // kg/m^3
   };
 
   gravityForceLab.register( 'GravityForceLabConstants', GravityForceLabConstants );

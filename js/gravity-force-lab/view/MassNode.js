@@ -59,7 +59,8 @@ define( function( require ) {
       direction: 'left', //direction mass
       arrowColor: '#66f', //color vertical line
       y: 250,
-      forceArrowHeight: 150 // arrow height
+      forceArrowHeight: 150, // arrow height
+      forceReadoutDecimalPlaces: 12 // number of decimal places in force readout
     }, options );
 
     // conversion functions
@@ -158,10 +159,28 @@ define( function( require ) {
       self.massCircle.setRadius( modelViewTransform.modelToViewDeltaX( massModel.radiusProperty.get() ) );
       updateGradient( massModel.baseColorProperty.get() );
 
+      // udpdate force readout
       if ( model.showValuesProperty.get() ) {
-        var forceStr = Util.toFixed( model.forceProperty.get(), 12 );
-        forceStr = ( forceStr.substr( 0, 5 ) + ' ' + forceStr.substr( 5, 3 ) + ' ' + forceStr.substr( 8, 3 ) + ' ' + forceStr.substr( 11, 3 ) );
-        arrowText.text = StringUtils.format( forceDescriptionPatternTargetSourceValueString, options.label, options.otherMassLabel, forceStr );
+        var forceStr = Util.toFixed( model.forceProperty.get(), options.forceReadoutDecimalPlaces );
+
+        // group values together so that they are easy to read
+        var pointLocation = forceStr.indexOf( '.' );
+        if ( pointLocation !== -1 ) {
+
+          // the first group includes the values to the left of teh decimal, and first threee decimals
+          var formattedString = forceStr.substr( 0, pointLocation + 4 );
+
+          // remaining groups of three, separated by spaces
+          for( var i = pointLocation + 4; i < forceStr.length; i+=3 ) {
+            formattedString += ' ';
+            formattedString += forceStr.substr( i, 3 );
+          }
+
+          arrowText.text = StringUtils.format( forceDescriptionPatternTargetSourceValueString, options.label, options.otherMassLabel, formattedString );
+        }
+        else {
+          throw new Error( 'formatForceReadout requires a decimal value' );
+        }
       }
       else {
         arrowText.text = StringUtils.format( forceDescriptionPatternTargetSourceString, options.label, options.otherMassLabel );
