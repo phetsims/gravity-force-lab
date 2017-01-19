@@ -20,6 +20,7 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  var Util = require( 'DOT/Util' );
   var Text = require( 'SCENERY/nodes/Text' );
 
   // strings
@@ -56,7 +57,13 @@ define( function( require ) {
       thumbSize: THUMB_SIZE,
       majorTickLength: ( THUMB_SIZE.height / 2 ) + ( TRACK_SIZE.height / 2 ) + 2,
       thumbFillEnabled: thumbColor.colorUtilsBrighter( 0.15 ),
-      thumbFillHighlighted: thumbColor
+      thumbFillHighlighted: thumbColor,
+      constrainValue: function( value ) {
+
+        // limit to integer values when using the slider and ensure it remains withing range
+        var newValue = Util.roundSymmetric( value );
+        return massRange.constrainValue( newValue );
+      }
     } );
 
     // major ticks
