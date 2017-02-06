@@ -17,7 +17,7 @@ define( function( require ) {
   var GravityForceLabModel = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/model/GravityForceLabModel' );
   var inherit = require( 'PHET_CORE/inherit' );
   var LinearFunction = require( 'DOT/LinearFunction' );
-  var TandemNode = require( 'TANDEM/scenery/nodes/TandemNode' );
+  var Node = require( 'SCENERY/nodes/Node' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var PullerNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/PullerNode' );
   var RadialGradient = require( 'SCENERY/util/RadialGradient' );
@@ -70,8 +70,8 @@ define( function( require ) {
 
     var arrowAtBoundary = false;
 
-    TandemNode.call( this, { tandem: tandem } );
-    var dragNode = new TandemNode( { cursor: 'pointer', tandem: tandem.createTandem( 'dragNode' ) } );
+    Node.call( this, { tandem: tandem } );
+    var dragNode = new Node( { cursor: 'pointer', tandem: tandem.createTandem( 'dragNode' ) } );
     this.pullerNode = new PullerNode( tandem.createTandem( 'pullerNode' ), { image_count: PULL_IMAGES_COUNT } );
     if ( options.direction === 'right' ) {
       self.pullerNode.scale( -1, 1 );
@@ -269,5 +269,5 @@ define( function( require ) {
 
   gravityForceLab.register( 'MassNode', MassNode );
 
-  return inherit( TandemNode, MassNode );
+  return inherit( Node, MassNode );
 } );

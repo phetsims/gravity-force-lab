@@ -12,7 +12,7 @@ define( function( require ) {
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var TandemNode = require( 'TANDEM/scenery/nodes/TandemNode' );
+  var Node = require( 'SCENERY/nodes/Node' );
   var Shape = require( 'KITE/Shape' );
   var TandemPath = require( 'TANDEM/scenery/nodes/TandemPath' );
   var Vector2 = require( 'DOT/Vector2' );
@@ -44,9 +44,9 @@ define( function( require ) {
    */
   function PullerNode( tandem, options ) {
     options = _.extend( { ropeLength: 50 }, options );
-    TandemNode.call( this, { tandem: tandem } );
+    Node.call( this, { tandem: tandem } );
 
-    var pullerGroupNode = new TandemNode( {
+    var pullerGroupNode = new Node( {
       x: -options.ropeLength,
       tandem: tandem.createTandem( 'pullerGroupNode' )
     } );
@@ -56,7 +56,7 @@ define( function( require ) {
     for ( i = 0; i < pullImages.length; i++ ) {
       var pullerTandem = pullerNodeGroupTandem.createNextTandem();
       var image = new Image( pullImages[ i ], { tandem: pullerTandem.createTandem( 'image' ) } );
-      pull.push( new TandemNode( {
+      pull.push( new Node( {
         children: [ new TandemPath( Shape.circle( 0, 0, 10 ), {
           fill: '#777',
           scale: new Vector2( image.width / 20, 1 ),
@@ -92,5 +92,5 @@ define( function( require ) {
 
   gravityForceLab.register( 'PullerNode', PullerNode );
 
-  return inherit( TandemNode, PullerNode );
+  return inherit( Node, PullerNode );
 } );

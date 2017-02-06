@@ -12,7 +12,7 @@ define( function( require ) {
   var CheckBox = require( 'SUN/CheckBox' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var TandemNode = require( 'TANDEM/scenery/nodes/TandemNode' );
+  var Node = require( 'SCENERY/nodes/Node' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Panel = require( 'SUN/Panel' );
   var TandemText = require( 'TANDEM/scenery/nodes/TandemText' );
@@ -41,7 +41,7 @@ define( function( require ) {
       tandem: tandem
     }, options );
 
-    var content = new TandemNode( { tandem: tandem.createTandem( 'content' ) } );
+    var content = new Node( { tandem: tandem.createTandem( 'content' ) } );
     var showValuesText = new TandemText( showValuesString, {
       font: new PhetFont( 16 ),
       maxWidth: MAX_CAPTION_WIDTH,

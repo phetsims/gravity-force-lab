@@ -15,7 +15,7 @@ define( function( require ) {
   var MovableDragHandler = require( 'SCENERY_PHET/input/MovableDragHandler' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var RulerNode = require( 'SCENERY_PHET/RulerNode' );
-  var TandemNode = require( 'TANDEM/scenery/nodes/TandemNode' );
+  var Node = require( 'SCENERY/nodes/Node' );
 
   // constants
   var RULER_WIDTH = 500;
@@ -33,7 +33,7 @@ define( function( require ) {
    */
   function GravityForceLabRuler( model, screenWidth, screenHeight, tandem ) {
     var self = this;
-    TandemNode.call( this, { cursor: 'pointer', cssTransform: true, tandem: tandem } );
+    Node.call( this, { cursor: 'pointer', cssTransform: true, tandem: tandem } );
     var ruler = new RulerNode(
       RULER_WIDTH,
       RULER_HEIGHT,
@@ -62,5 +62,5 @@ define( function( require ) {
 
   gravityForceLab.register( 'GravityForceLabRuler', GravityForceLabRuler );
 
-  return inherit( TandemNode, GravityForceLabRuler );
+  return inherit( Node, GravityForceLabRuler );
 } );
