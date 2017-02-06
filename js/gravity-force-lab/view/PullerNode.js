@@ -14,7 +14,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Shape = require( 'KITE/Shape' );
-  var TandemPath = require( 'TANDEM/scenery/nodes/TandemPath' );
+  var Path = require( 'SCENERY/nodes/Path' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // images
@@ -57,7 +57,7 @@ define( function( require ) {
       var pullerTandem = pullerNodeGroupTandem.createNextTandem();
       var image = new Image( pullImages[ i ], { tandem: pullerTandem.createTandem( 'image' ) } );
       pull.push( new Node( {
-        children: [ new TandemPath( Shape.circle( 0, 0, 10 ), {
+        children: [ new Path( Shape.circle( 0, 0, 10 ), {
           fill: '#777',
           scale: new Vector2( image.width / 20, 1 ),
           x: image.width / 2,
@@ -67,7 +67,7 @@ define( function( require ) {
         tandem: pullerTandem
       } ) );
     }
-    pullerGroupNode.addChild( new TandemPath( Shape.lineSegment( -options.ropeLength, 0, 0, 0 ), {
+    pullerGroupNode.addChild( new Path( Shape.lineSegment( -options.ropeLength, 0, 0, 0 ), {
       stroke: '#666',
       lineWidth: 2,
       tandem: tandem.createTandem( 'ropeNode' )

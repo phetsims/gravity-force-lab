@@ -24,7 +24,7 @@ define( function( require ) {
   var RangeWithValue = require( 'DOT/RangeWithValue' );
   var Shape = require( 'KITE/Shape' );
   var TandemSimpleDragHandler = require( 'TANDEM/scenery/input/TandemSimpleDragHandler' );
-  var TandemPath = require( 'TANDEM/scenery/nodes/TandemPath' );
+  var Path = require( 'SCENERY/nodes/Path' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var TandemText = require( 'TANDEM/scenery/nodes/TandemText' );
   var Util = require( 'DOT/Util' );
@@ -123,7 +123,7 @@ define( function( require ) {
     var markerLineShape = new Shape();
     markerLineShape.moveTo( 0, -4 );
     markerLineShape.lineTo( 0, -options.forceArrowHeight );
-    this.addChild( new TandemPath( markerLineShape, {
+    this.addChild( new Path( markerLineShape, {
       stroke: '#FFF',
       lineDash: [ 4, 4 ],
       lineWidth: 2,
@@ -131,7 +131,7 @@ define( function( require ) {
       y: 0.5,
       tandem: tandem.createTandem( 'markerLineShadow' )
     } ) );
-    this.addChild( new TandemPath( markerLineShape, {
+    this.addChild( new Path( markerLineShape, {
       stroke: options.arrowColor,
       lineDash: [ 4, 4 ],
       lineWidth: 2,
