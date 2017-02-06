@@ -16,7 +16,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Panel = require( 'SUN/Panel' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var TandemText = require( 'TANDEM/scenery/nodes/TandemText' );
+  var Text = require( 'SCENERY/nodes/Text' );
   var NumberControl = require( 'SCENERY_PHET/NumberControl' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
 
@@ -49,13 +49,13 @@ define( function( require ) {
       valuePattern: StringUtils.format( pattern0Value1UnitsString, '{0}', unitsKgString ),
       majorTicks: [ {
         value: massRange.min,
-        label: new TandemText(
+        label: new Text(
           massRange.min,
           _.extend( { tandem: tandem.createTandem( 'majorTickMinLabel' ) }, tickLabelOptions )
         )
       }, {
         value: massRange.max,
-        label: new TandemText(
+        label: new Text(
           massRange.max,
           _.extend( { tandem: tandem.createTandem( 'majorTickMaxLabel' ) }, tickLabelOptions )
         )

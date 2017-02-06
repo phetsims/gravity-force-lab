@@ -26,7 +26,7 @@ define( function( require ) {
   var TandemSimpleDragHandler = require( 'TANDEM/scenery/input/TandemSimpleDragHandler' );
   var Path = require( 'SCENERY/nodes/Path' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  var TandemText = require( 'TANDEM/scenery/nodes/TandemText' );
+  var Text = require( 'SCENERY/nodes/Text' );
   var Util = require( 'DOT/Util' );
 
   // strings
@@ -83,7 +83,7 @@ define( function( require ) {
     dragNode.addChild( this.massCircle );
     dragNode.addChild( new Circle( 2, { fill: '#000' } ) );
     var labelFont = new PhetFont( 12 );
-    dragNode.addChild( new TandemText( options.label, {
+    dragNode.addChild( new Text( options.label, {
       font: labelFont,
       fill: '#000',
       pickable: false,
@@ -93,7 +93,7 @@ define( function( require ) {
       tandem: tandem.createTandem( 'labelShadowNode' )
 
     } ) );
-    dragNode.addChild( new TandemText( options.label, {
+    dragNode.addChild( new Text( options.label, {
       font: labelFont,
       fill: '#fff',
       pickable: false,
@@ -113,7 +113,7 @@ define( function( require ) {
       stroke: null,
       tandem: tandem.createTandem( 'arrowNode' )
     } );
-    var arrowText = new TandemText( options.title ? options.title : '', {
+    var arrowText = new Text( options.title ? options.title : '', {
       font: new PhetFont( 16 ),
       fill: '#000',
       y: -options.forceArrowHeight - 20,
