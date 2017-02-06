@@ -10,7 +10,7 @@ define( function( require ) {
 
   // modules
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
-  var TandemImage = require( 'TANDEM/scenery/nodes/TandemImage' );
+  var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var TandemNode = require( 'TANDEM/scenery/nodes/TandemNode' );
   var Shape = require( 'KITE/Shape' );
@@ -55,7 +55,7 @@ define( function( require ) {
     var pullerNodeGroupTandem = tandem.createGroupTandem( 'node' );
     for ( i = 0; i < pullImages.length; i++ ) {
       var pullerTandem = pullerNodeGroupTandem.createNextTandem();
-      var image = new TandemImage( pullImages[ i ], { tandem: pullerTandem.createTandem( 'image' ) } );
+      var image = new Image( pullImages[ i ], { tandem: pullerTandem.createTandem( 'image' ) } );
       pull.push( new TandemNode( {
         children: [ new TandemPath( Shape.circle( 0, 0, 10 ), {
           fill: '#777',
