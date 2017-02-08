@@ -68,8 +68,6 @@ define( function( require ) {
     var forceToArrowMin = new LinearFunction( 0, arrowForceRange.min, 0, 1, false );
     var forceToImage = new LinearFunction( pullForceRange.min, pullForceRange.max, 0, PULL_IMAGES_COUNT - 1, true );
 
-    var arrowAtBoundary = false;
-
     TandemNode.call( this, { tandem: tandem } );
     var dragNode = new TandemNode( { cursor: 'pointer', tandem: tandem.createTandem( 'dragNode' ) } );
     this.pullerNode = new PullerNode( tandem.createTandem( 'pullerNode' ), { image_count: PULL_IMAGES_COUNT } );
@@ -154,6 +152,23 @@ define( function( require ) {
       }
     };
 
+    var setArrowTextPosition = function(){
+      // making sure arrow text does not goes out of dev bounds
+      var arrowAtBoundary = false;
+      if ( Math.floor( self.localToParentPoint( arrowText.center ).x - arrowText.width / 2 ) <= layoutBounds.left + TEXT_OFFSET ) {
+        arrowText.left = self.parentToLocalBounds( layoutBounds ).left + TEXT_OFFSET;
+        arrowAtBoundary = true;
+      }
+
+      if ( Math.ceil( self.localToParentPoint( arrowText.center ).x + arrowText.width / 2 ) >= layoutBounds.right - TEXT_OFFSET ) {
+        arrowText.right = self.parentToLocalBounds( layoutBounds ).right - TEXT_OFFSET;
+        arrowAtBoundary = true;
+      }
+
+      if ( !arrowAtBoundary ) {
+        arrowText.centerX = 0;
+      }
+    };
     // redraw view without shift
     var redrawForce = function() {
       self.massCircle.setRadius( modelViewTransform.modelToViewDeltaX( massModel.radiusProperty.get() ) );
@@ -186,9 +201,7 @@ define( function( require ) {
         arrowText.text = StringUtils.format( forceDescriptionPatternTargetSourceString, options.label, options.otherMassLabel );
       }
 
-      if ( !arrowAtBoundary ) {
-        arrowText.centerX = 0;
-      }
+      setArrowTextPosition();
 
       var arrowLengthMultiplier;
       if ( model.forceProperty.get() < arrowForceRange.min ) {
@@ -213,18 +226,7 @@ define( function( require ) {
 
     massModel.positionProperty.link( function( prop ) {
       self.x = modelViewTransform.modelToViewX( prop );
-
-      // making sure arrow text does not goes out of dev bounds
-      arrowAtBoundary = false;
-      if ( Math.floor( self.localToParentPoint( arrowText.center ).x - arrowText.width / 2 ) <= layoutBounds.left + TEXT_OFFSET ) {
-        arrowText.left = self.parentToLocalBounds( layoutBounds ).left + TEXT_OFFSET;
-        arrowAtBoundary = true;
-      }
-
-      if ( Math.ceil( self.localToParentPoint( arrowText.center ).x + arrowText.width / 2 ) >= layoutBounds.right - TEXT_OFFSET ) {
-        arrowText.right = self.parentToLocalBounds( layoutBounds ).right - TEXT_OFFSET;
-        arrowAtBoundary = true;
-      }
+      setArrowTextPosition();
     } );
 
     model.showValuesProperty.lazyLink( redrawForce );
@@ -248,8 +250,6 @@ define( function( require ) {
         var xMax = layoutBounds.maxX - self.massCircle.width / 2 - self.pullerNode.width - OFFSET;
         var xMin = layoutBounds.minX + OFFSET + self.massCircle.width / 2 + self.pullerNode.width;
 
-        // TODO: Complete this sentence
-        // for mass1 xMax is left boundary of
         var sumRadius = modelViewTransform.modelToViewDeltaX( model.mass1.radiusProperty.get() ) +
                         modelViewTransform.modelToViewDeltaX( model.mass2.radiusProperty.get() );
         if ( massModel.positionProperty.get() === model.mass1.positionProperty.get() ) {
