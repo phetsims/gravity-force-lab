@@ -138,6 +138,9 @@ define( function( require ) {
       }
       this.mass1.positionProperty.set( locationMass1 );
       this.mass2.positionProperty.set( locationMass2 );
+      // Force might not have been changed but positions might have changed, therefore to ensure everything is in bounds
+      // inside the view
+      this.forceProperty.notifyObserversStatic();
     },
 
     // @public
