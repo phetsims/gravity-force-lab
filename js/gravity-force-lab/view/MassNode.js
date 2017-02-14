@@ -246,12 +246,19 @@ define( function( require ) {
         massClickXOffset = dragNode.globalToParentPoint( event.pointer.point ).x - event.currentTarget.x;
       },
       drag: function( event ) {
+
+        // drag position relative to the pointer pointer start position
         var x = self.globalToParentPoint( event.pointer.point ).x - massClickXOffset;
+
+        // absolute drag bounds (before considering the other mass)
         var xMax = layoutBounds.maxX - self.massCircle.width / 2 - self.pullerNode.width - OFFSET;
         var xMin = layoutBounds.minX + OFFSET + self.massCircle.width / 2 + self.pullerNode.width;
 
+        // total radius in view coords
         var sumRadius = modelViewTransform.modelToViewDeltaX( model.mass1.radiusProperty.get() ) +
                         modelViewTransform.modelToViewDeltaX( model.mass2.radiusProperty.get() );
+
+        // limit the drag bounds by the position of the other masss - mass 1 must be to the left of mass 2
         if ( massModel.positionProperty.get() === model.mass1.positionProperty.get() ) {
           xMax = modelViewTransform.modelToViewX( model.mass2.positionProperty.get() ) - sumRadius -
                  modelViewTransform.modelToViewDeltaX( GravityForceLabModel.MIN_SEPARATION_BETWEEN_MASSES );
@@ -260,6 +267,8 @@ define( function( require ) {
           xMin = modelViewTransform.modelToViewX( model.mass1.positionProperty.get() ) + sumRadius +
                  modelViewTransform.modelToViewDeltaX( GravityForceLabModel.MIN_SEPARATION_BETWEEN_MASSES );
         }
+
+        // apply limitations and update position
         x = Math.max( Math.min( x, xMax ), xMin );
         massModel.positionProperty.set( modelViewTransform.viewToModelX( x ) );
       },
