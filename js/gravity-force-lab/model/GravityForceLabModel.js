@@ -18,6 +18,7 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
   var DerivedProperty = require( 'AXON/DerivedProperty' );
   var Vector2 = require( 'DOT/Vector2' );
+  var Util = require( 'DOT/Util' );
 
   // phet-io modules
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
@@ -28,6 +29,7 @@ define( function( require ) {
   var G = 6.67384E-11; // gravitational constant
   var MIN_SEPARATION_BETWEEN_MASSES = 0.1; // in meters
   var PULL_OBJECT_WIDTH = 1.62; // empirically determined for model space in meters
+  var DISTANCE_DECIMAL_PRECISION = 3; // limit precision so small changes are not propogated to the force
 
   /**
    * @param {number} mass1 - value of mass 1 in kg
@@ -117,6 +119,7 @@ define( function( require ) {
           while ( Math.abs( locationMass1 - locationMass2 ) < sumRadius ) {
             locationMass1 = locationMass1 - change_factor;
             locationMass2 = locationMass2 + change_factor;
+
             changed = true;
           }
         }
@@ -130,12 +133,19 @@ define( function( require ) {
         // make sure mass2 doesn't go out of right boundary
         if ( locationMass2 > maxX ) {
           locationMass2 = Math.min( maxX, locationMass2 );
+
           changed = true;
         }
         if ( !changed ) {
           break;
         }
       }
+
+      // round to the nearest thousandths so that very small changes in distance do not show up as changes during
+      // these corrections
+      locationMass1 = Util.toFixedNumber( locationMass1, DISTANCE_DECIMAL_PRECISION );
+      locationMass2 = Util.toFixedNumber( locationMass2, DISTANCE_DECIMAL_PRECISION );
+
       this.mass1.positionProperty.set( locationMass1 );
       this.mass2.positionProperty.set( locationMass2 );
       // Force might not have been changed but positions might have changed, therefore to ensure everything is in bounds
