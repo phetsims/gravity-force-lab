@@ -270,7 +270,7 @@ define( function( require ) {
 
         // apply limitations and update position
         x = Math.max( Math.min( x, xMax ), xMin );
-        massModel.positionProperty.set( modelViewTransform.viewToModelX( x ) );
+        massModel.positionProperty.set( Util.toFixedNumber( modelViewTransform.viewToModelX( x ), 3 ) );
       },
       tandem: tandem.createTandem( 'massDragHandler' )
     } ) );
