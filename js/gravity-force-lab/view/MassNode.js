@@ -220,7 +220,6 @@ define( function( require ) {
 
     massModel.positionProperty.link( function( prop ) {
       self.x = modelViewTransform.modelToViewX( prop );
-      //setArrowTextPosition();
     } );
 
     model.showValuesProperty.lazyLink( redrawForce );
