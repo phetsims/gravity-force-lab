@@ -154,19 +154,13 @@ define( function( require ) {
 
     var setArrowTextPosition = function(){
       // making sure arrow text does not goes out of dev bounds
-      var arrowAtBoundary = false;
+      arrowText.centerX = 0;
       if ( Math.floor( self.localToParentPoint( arrowText.center ).x - arrowText.width / 2 ) <= layoutBounds.left + TEXT_OFFSET ) {
         arrowText.left = self.parentToLocalBounds( layoutBounds ).left + TEXT_OFFSET;
-        arrowAtBoundary = true;
       }
 
       if ( Math.ceil( self.localToParentPoint( arrowText.center ).x + arrowText.width / 2 ) >= layoutBounds.right - TEXT_OFFSET ) {
         arrowText.right = self.parentToLocalBounds( layoutBounds ).right - TEXT_OFFSET;
-        arrowAtBoundary = true;
-      }
-
-      if ( !arrowAtBoundary ) {
-        arrowText.centerX = 0;
       }
     };
     // redraw view without shift
@@ -226,7 +220,7 @@ define( function( require ) {
 
     massModel.positionProperty.link( function( prop ) {
       self.x = modelViewTransform.modelToViewX( prop );
-      setArrowTextPosition();
+      //setArrowTextPosition();
     } );
 
     model.showValuesProperty.lazyLink( redrawForce );
