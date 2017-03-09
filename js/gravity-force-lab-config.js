@@ -26,6 +26,7 @@ require.config( {
     AXON: '../../axon/js',
     BRAND: '../../brand/' + phet.chipper.brand + '/js',
     DOT: '../../dot/js',
+    INVERSE_SQUARE_LAW_COMMON: '../../inverse-square-law-common/js',
     JOIST: '../../joist/js',
     KITE: '../../kite/js',
     PHET_CORE: '../../phet-core/js',

@@ -14,7 +14,7 @@ define( function( require ) {
   var ArrowNode = require( 'SCENERY_PHET/ArrowNode' );
   var Circle = require( 'SCENERY/nodes/Circle' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
-  var GravityForceLabModel = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/model/GravityForceLabModel' );
+  var InverseSquareLawModel = require( 'INVERSE_SQUARE_LAW_COMMON/model/InverseSquareLawModel' );
   var inherit = require( 'PHET_CORE/inherit' );
   var LinearFunction = require( 'DOT/LinearFunction' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -248,17 +248,17 @@ define( function( require ) {
         var xMin = layoutBounds.minX + OFFSET + self.massCircle.width / 2 + self.pullerNode.width;
 
         // total radius in view coords
-        var sumRadius = modelViewTransform.modelToViewDeltaX( model.mass1.radiusProperty.get() ) +
-                        modelViewTransform.modelToViewDeltaX( model.mass2.radiusProperty.get() );
+        var sumRadius = modelViewTransform.modelToViewDeltaX( model.object1.radiusProperty.get() ) +
+                        modelViewTransform.modelToViewDeltaX( model.object2.radiusProperty.get() );
 
         // limit the drag bounds by the position of the other masss - mass 1 must be to the left of mass 2
-        if ( massModel.positionProperty.get() === model.mass1.positionProperty.get() ) {
-          xMax = modelViewTransform.modelToViewX( model.mass2.positionProperty.get() ) - sumRadius -
-                 modelViewTransform.modelToViewDeltaX( GravityForceLabModel.MIN_SEPARATION_BETWEEN_MASSES );
+        if ( massModel.positionProperty.get() === model.object1.positionProperty.get() ) {
+          xMax = modelViewTransform.modelToViewX( model.object2.positionProperty.get() ) - sumRadius -
+                 modelViewTransform.modelToViewDeltaX( InverseSquareLawModel.MIN_SEPARATION_BETWEEN_MASSES );
         }
-        if ( massModel.positionProperty.get() === model.mass2.positionProperty.get() ) {
-          xMin = modelViewTransform.modelToViewX( model.mass1.positionProperty.get() ) + sumRadius +
-                 modelViewTransform.modelToViewDeltaX( GravityForceLabModel.MIN_SEPARATION_BETWEEN_MASSES );
+        if ( massModel.positionProperty.get() === model.object2.positionProperty.get() ) {
+          xMin = modelViewTransform.modelToViewX( model.object1.positionProperty.get() ) + sumRadius +
+                 modelViewTransform.modelToViewDeltaX( InverseSquareLawModel.MIN_SEPARATION_BETWEEN_MASSES );
         }
 
         // apply limitations and update position

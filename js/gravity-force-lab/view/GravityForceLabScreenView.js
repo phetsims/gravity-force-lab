@@ -55,7 +55,7 @@ define( function( require ) {
     // add the mass nodes to the screen
     this.addChild( new MassNode(
       model,
-      model.mass1,
+      model.object1,
       this.layoutBounds,
       modelViewTransform,
       tandem.createTandem( 'mass1Node' ),
@@ -71,7 +71,7 @@ define( function( require ) {
 
     this.addChild( new MassNode(
       model,
-      model.mass2,
+      model.object2,
       this.layoutBounds,
       modelViewTransform,
       tandem.createTandem( 'mass2Node' ),
@@ -106,9 +106,9 @@ define( function( require ) {
 
     var massControl1 = new MassControl(
       mass1String,
-      model.mass1.massProperty,
+      model.object1.valueProperty,
       GravityForceLabConstants.MASS_RANGE,
-      model.mass1.baseColorProperty.get(),
+      model.object1.baseColorProperty.get(),
       tandem.createTandem( 'massControl1' )
     );
     massControl1.scale( CONTROL_SCALE );
@@ -116,9 +116,9 @@ define( function( require ) {
 
     var massControl2 = new MassControl(
       mass2String,
-      model.mass2.massProperty,
+      model.object2.valueProperty,
       GravityForceLabConstants.MASS_RANGE,
-      model.mass2.baseColorProperty.get(),
+      model.object2.baseColorProperty.get(),
       tandem.createTandem( 'massControl2' )
     );
     massControl2.scale( CONTROL_SCALE );
@@ -126,7 +126,7 @@ define( function( require ) {
 
     var massControl1ConstantRadius = new MassControl(
       mass1String,
-      model.mass1.massProperty,
+      model.object1.valueProperty,
       GravityForceLabConstants.MASS_RANGE,
       CONSTANT_MASS_COLOR,
       tandem.createTandem( 'massControl1ConstantRadius' )
@@ -136,7 +136,7 @@ define( function( require ) {
 
     var massControl2ConstantRadius = new MassControl(
       mass2String,
-      model.mass2.massProperty,
+      model.object2.valueProperty,
       GravityForceLabConstants.MASS_RANGE,
       CONSTANT_MASS_COLOR,
       tandem.createTandem( 'massControl2ConstantRadius' )
