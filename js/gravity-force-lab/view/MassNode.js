@@ -60,7 +60,8 @@ define( function( require ) {
       arrowColor: '#66f', //color vertical line
       y: 250,
       forceArrowHeight: 150, // arrow height
-      forceReadoutDecimalPlaces: 12 // number of decimal places in force readout
+      forceReadoutDecimalPlaces: 12, // number of decimal places in force readout
+      snapToNearest: null // {number} if present, mass node will snap to the nearest snapToNearest on drag
     }, options );
 
     // conversion functions
@@ -262,7 +263,19 @@ define( function( require ) {
         }
 
         // apply limitations and update position
-        x = Math.max( Math.min( x, xMax ), xMin );
+        x = Math.max( Math.min( x, xMax ), xMin ); // limited value of x (by boundary) in view coords
+
+        // snap to nearest snapToNearest if specified
+        if ( options.snapToNearest ) {
+
+          // x in model coordinates
+          var xModel = modelViewTransform.viewToModelX( x );
+          var snappedX = Util.roundSymmetric( xModel / options.snapToNearest ) * options.snapToNearest;
+
+          // back to view coordinates
+          x = modelViewTransform.modelToViewX( snappedX );
+        }
+
         massModel.positionProperty.set( Util.toFixedNumber( modelViewTransform.viewToModelX( x ), 3 ) );
       },
       tandem: tandem.createTandem( 'massDragHandler' )
