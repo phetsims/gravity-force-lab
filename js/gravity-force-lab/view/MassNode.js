@@ -14,7 +14,7 @@ define( function( require ) {
   var ArrowNode = require( 'SCENERY_PHET/ArrowNode' );
   var Circle = require( 'SCENERY/nodes/Circle' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
-  var InverseSquareLawModel = require( 'INVERSE_SQUARE_LAW_COMMON/model/InverseSquareLawModel' );
+  var InverseSquareLawCommonConstants = require( 'INVERSE_SQUARE_LAW_COMMON/InverseSquareLawCommonConstants' );
   var inherit = require( 'PHET_CORE/inherit' );
   var LinearFunction = require( 'DOT/LinearFunction' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -255,11 +255,11 @@ define( function( require ) {
         // limit the drag bounds by the position of the other masss - mass 1 must be to the left of mass 2
         if ( massModel.positionProperty.get() === model.object1.positionProperty.get() ) {
           xMax = modelViewTransform.modelToViewX( model.object2.positionProperty.get() ) - sumRadius -
-                 modelViewTransform.modelToViewDeltaX( InverseSquareLawModel.MIN_SEPARATION_BETWEEN_MASSES );
+                 modelViewTransform.modelToViewDeltaX( InverseSquareLawCommonConstants.MIN_SEPARATION_BETWEEN_OBJECTS );
         }
         if ( massModel.positionProperty.get() === model.object2.positionProperty.get() ) {
           xMin = modelViewTransform.modelToViewX( model.object1.positionProperty.get() ) + sumRadius +
-                 modelViewTransform.modelToViewDeltaX( InverseSquareLawModel.MIN_SEPARATION_BETWEEN_MASSES );
+                 modelViewTransform.modelToViewDeltaX( InverseSquareLawCommonConstants.MIN_SEPARATION_BETWEEN_OBJECTS );
         }
 
         // apply limitations and update position
