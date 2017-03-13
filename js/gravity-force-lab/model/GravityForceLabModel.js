@@ -17,9 +17,7 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
   var InverseSquareLawModel = require( 'INVERSE_SQUARE_LAW_COMMON/model/InverseSquareLawModel' );
   var InverseSquareLawModes = require( 'INVERSE_SQUARE_LAW_COMMON/InverseSquareLawModes' );
-
-  // phet-io modules
-  var TVector2 = require( 'ifphetio!PHET_IO/types/dot/TVector2' );
+  var TVector2 = require( 'DOT/TVector2' );
 
   /**
    * @param {number} mass1 - value of mass 1 in kg
