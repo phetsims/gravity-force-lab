@@ -40,15 +40,7 @@ define( function( require ) {
     new Sim( gravityForceLabTitleString, [
       new Screen(
         function() {
-
-          // pass initial masses and positions into the model
-          var mass1 = 50; // mass in kg
-          var mass2 = 200; // mass in kg
-
-          var position1 = -2; // in meters
-          var position2 = 2; // in meters
-
-          return new GravityForceLabModel( mass1, mass2, position1, position2, gravityForceLabScreenTandem.createTandem( 'model' ) );
+          return new GravityForceLabModel( gravityForceLabScreenTandem.createTandem( 'model' ) );
         },
         function( model ) {
           return new GravityForceLabScreenView( model, gravityForceLabScreenTandem.createTandem( 'view' ) );

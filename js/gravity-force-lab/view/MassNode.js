@@ -171,6 +171,7 @@ define( function( require ) {
 
       // udpdate force readout
       if ( model.showValuesProperty.get() ) {
+
         var forceStr = Util.toFixed( model.forceProperty.get(), options.forceReadoutDecimalPlaces );
 
         // group values together so that they are easy to read
