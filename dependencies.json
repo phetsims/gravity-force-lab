@@ -1,5 +1,5 @@
 {
-  "comment": "# gravity-force-lab 2.1.1 Fri Apr 07 2017 17:19:26 GMT-0600 (MDT)",
+  "comment": "# gravity-force-lab 2.1.1 Thu Apr 13 2017 13:14:01 GMT-0600 (MDT)",
   "assert": {
     "sha": "a707328cc11048787a807714496af23e0bd25be1",
     "branch": "HEAD"
@@ -9,19 +9,19 @@
     "branch": "HEAD"
   },
   "brand": {
-    "sha": "0be722ee4e70a5689a86a246e86651f1b844574d",
-    "branch": "HEAD"
+    "sha": "555d21cb75cba5185eca9c22eb2a97e08fad8e6e",
+    "branch": "gravity-force-lab-2.1"
   },
   "chipper": {
-    "sha": "f4cd39bfd3865b29e8f87da62e39f24d1fb9b335",
-    "branch": "HEAD"
+    "sha": "61bdb816f84c3ec2a87ea4df3de3d91f91506f6e",
+    "branch": "gravity-force-lab-2.1"
   },
   "dot": {
     "sha": "75380061a901393db079c24d019e0eb03abe68c2",
     "branch": "HEAD"
   },
   "gravity-force-lab": {
-    "sha": "d5b051bf72e54871a7815635d7f54473f34ec904",
+    "sha": "9482a033597bd8f3d2d614b95d451185b22cfc44",
     "branch": "2.1"
   },
   "joist": {
@@ -37,8 +37,8 @@
     "branch": "HEAD"
   },
   "phetcommon": {
-    "sha": "1cb33196c7b03661a71e82d189e66d95c92cc061",
-    "branch": "HEAD"
+    "sha": "2df1daf2b5a2515f49b38f4286e8a29b48e86c70",
+    "branch": "gravity-force-lab-2.1"
   },
   "query-string-machine": {
     "sha": "d8a4ff18a12aff003e4896213c1dfed5a79c1a30",
