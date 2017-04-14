@@ -1,5 +1,5 @@
 {
-  "comment": "# gravity-force-lab 2.1.1 Thu Apr 13 2017 13:14:01 GMT-0600 (MDT)",
+  "comment": "# gravity-force-lab 2.1.1 Thu Apr 13 2017 19:21:19 GMT-0600 (MDT)",
   "assert": {
     "sha": "a707328cc11048787a807714496af23e0bd25be1",
     "branch": "HEAD"
@@ -10,23 +10,23 @@
   },
   "brand": {
     "sha": "555d21cb75cba5185eca9c22eb2a97e08fad8e6e",
-    "branch": "gravity-force-lab-2.1"
+    "branch": "HEAD"
   },
   "chipper": {
     "sha": "61bdb816f84c3ec2a87ea4df3de3d91f91506f6e",
-    "branch": "gravity-force-lab-2.1"
+    "branch": "HEAD"
   },
   "dot": {
     "sha": "75380061a901393db079c24d019e0eb03abe68c2",
     "branch": "HEAD"
   },
   "gravity-force-lab": {
-    "sha": "9482a033597bd8f3d2d614b95d451185b22cfc44",
+    "sha": "e1fa3cc66c1cf53ff4def53e8d0ff72c48e9b2b5",
     "branch": "2.1"
   },
   "joist": {
-    "sha": "d15e6fab2a00ab2b697cb56f65ed2902bff4630e",
-    "branch": "HEAD"
+    "sha": "837c3d96bb73f8322627c5aca325d2025f60ea4e",
+    "branch": "gravity-force-lab-2.1"
   },
   "kite": {
     "sha": "6059ebb0210f3aeeb4b6863445ed94245e54fef1",
@@ -38,7 +38,7 @@
   },
   "phetcommon": {
     "sha": "2df1daf2b5a2515f49b38f4286e8a29b48e86c70",
-    "branch": "gravity-force-lab-2.1"
+    "branch": "HEAD"
   },
   "query-string-machine": {
     "sha": "d8a4ff18a12aff003e4896213c1dfed5a79c1a30",
