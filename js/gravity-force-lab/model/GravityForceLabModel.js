@@ -30,7 +30,7 @@ define( function( require ) {
    * @param {Tandem} tandem
    * @constructor
    */
-  function GravityForceLabModel( tandem, options ) {
+  function GravityForceLabModel( tandem ) {
 
     this.rulerPositionProperty = new Property( new Vector2( 120, 270 ), {
       tandem: tandem.createTandem( 'rulerPositionProperty' ),
@@ -58,11 +58,13 @@ define( function( require ) {
 
     var density = 150; // in kg/m^3
 
-    var mass1 = new Mass(massValue1, position1, valueRange, density, this.constantRadiusProperty, baseColor1, tandem.createTandem( 'mass1' ), options);
-    var mass2 = new Mass(massValue2, position2, valueRange, density, this.constantRadiusProperty, baseColor2, tandem.createTandem( 'mass2' ), options);
+    var mass1 = new Mass(massValue1, position1, valueRange, density, this.constantRadiusProperty, baseColor1, tandem.createTandem( 'mass1' ) );
+    var mass2 = new Mass(massValue2, position2, valueRange, density, this.constantRadiusProperty, baseColor2, tandem.createTandem( 'mass2' ) );
 
     // leverage InverseSquareLawModel, in "mass" mode
-    InverseSquareLawModel.call( this, InverseSquareLawCommonConstants.G, mass1, mass2, GravityForceLabConstants.LEFT_MASS_BOUNDARY, GravityForceLabConstants.RIGHT_MASS_BOUNDARY, tandem, options );
+    InverseSquareLawModel.call( this, InverseSquareLawCommonConstants.G, mass1, mass2, GravityForceLabConstants.LEFT_MASS_BOUNDARY, GravityForceLabConstants.RIGHT_MASS_BOUNDARY, tandem, {
+      snapToNearest: 0.1 // in meters
+    } );
   }
 
   gravityForceLab.register( 'GravityForceLabModel', GravityForceLabModel );

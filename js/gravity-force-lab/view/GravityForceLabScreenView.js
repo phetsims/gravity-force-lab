@@ -16,12 +16,14 @@ define( function( require ) {
   var GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
   var GravityForceLabRuler = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabRuler' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var InverseSquareLawGridNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/InverseSquareLawGridNode' );
   var MassControl = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassControl' );
   var MassNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassNode' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var ParameterControlPanel = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/ParameterControlPanel' );
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   var ScreenView = require( 'JOIST/ScreenView' );
+  var ISLQueryParameters = require( 'INVERSE_SQUARE_LAW_COMMON/ISLQueryParameters' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // strings
@@ -34,6 +36,7 @@ define( function( require ) {
   var CONSTANT_MASS_COLOR = new Color( 'indigo' );
   var MASS_NODE_Y_POSITION = 225;
   var CONTROL_SCALE = 0.72;
+  var SHOW_GRID = ISLQueryParameters.showGrid;
 
   /**
    * @param {GravityForceLabModel} model
@@ -162,6 +165,13 @@ define( function( require ) {
       massControl1.visible = !constantRadius;
       massControl2.visible = !constantRadius;
     } );
+
+    if ( SHOW_GRID ) {
+      var gridNode = new InverseSquareLawGridNode( 7.8, -7.8, 0.1, this.layoutBounds, modelViewTransform, {
+        stroke: 'rgba( 35, 35, 35, 0.6 )'
+      } );
+      this.addChild( gridNode );
+    }
   }
 
   gravityForceLab.register( 'GravityForceLabScreenView', GravityForceLabScreenView );
