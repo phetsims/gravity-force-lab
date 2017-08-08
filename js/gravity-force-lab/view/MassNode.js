@@ -23,7 +23,7 @@ define( function( require ) {
   var RadialGradient = require( 'SCENERY/util/RadialGradient' );
   var RangeWithValue = require( 'DOT/RangeWithValue' );
   var Shape = require( 'KITE/Shape' );
-  var TandemSimpleDragHandler = require( 'TANDEM/scenery/input/TandemSimpleDragHandler' );
+  var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   var Path = require( 'SCENERY/nodes/Path' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
@@ -235,7 +235,7 @@ define( function( require ) {
     redrawForce();
 
     var massClickXOffset;
-    dragNode.addInputListener( new TandemSimpleDragHandler( {
+    dragNode.addInputListener( new SimpleDragHandler( {
       allowTouchSnag: true,
       start: function( event ) {
         massClickXOffset = dragNode.globalToParentPoint( event.pointer.point ).x - event.currentTarget.x;
