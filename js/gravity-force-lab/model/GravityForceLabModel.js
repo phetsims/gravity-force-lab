@@ -21,7 +21,7 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
   var InverseSquareLawModel = require( 'INVERSE_SQUARE_LAW_COMMON/model/InverseSquareLawModel' );
   var TVector2 = require( 'DOT/TVector2' );
-  var InverseSquareLawCommonConstants = require( 'INVERSE_SQUARE_LAW_COMMON/InverseSquareLawCommonConstants' );
+  var ISLCConstants = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCConstants' );
 
   // phet-io modules
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
@@ -62,7 +62,7 @@ define( function( require ) {
     var mass2 = new Mass(massValue2, position2, valueRange, density, this.constantRadiusProperty, baseColor2, tandem.createTandem( 'mass2' ) );
 
     // leverage InverseSquareLawModel, in "mass" mode
-    InverseSquareLawModel.call( this, InverseSquareLawCommonConstants.G, mass1, mass2, GravityForceLabConstants.LEFT_MASS_BOUNDARY, GravityForceLabConstants.RIGHT_MASS_BOUNDARY, tandem, {
+    InverseSquareLawModel.call( this, ISLCConstants.G, mass1, mass2, GravityForceLabConstants.LEFT_MASS_BOUNDARY, GravityForceLabConstants.RIGHT_MASS_BOUNDARY, tandem, {
       snapToNearest: 0.1 // in meters
     } );
   }
