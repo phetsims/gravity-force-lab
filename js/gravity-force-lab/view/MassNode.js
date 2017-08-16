@@ -18,6 +18,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var LinearFunction = require( 'DOT/LinearFunction' );
   var Node = require( 'SCENERY/nodes/Node' );
+  // var ObjectNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ObjectNode' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var PullerNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/PullerNode' );
   var RadialGradient = require( 'SCENERY/util/RadialGradient' );

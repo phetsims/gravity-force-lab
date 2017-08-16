@@ -63,7 +63,7 @@ define( function( require ) {
 
     // leverage InverseSquareLawModel, in "mass" mode
     InverseSquareLawModel.call( this, ISLCConstants.G, mass1, mass2, GravityForceLabConstants.LEFT_MASS_BOUNDARY, GravityForceLabConstants.RIGHT_MASS_BOUNDARY, tandem, {
-      snapToNearest: 0.1 // in meters
+      snapObjectsToNearest: 0.1 // in meters
     } );
   }
 
