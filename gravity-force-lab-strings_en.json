@@ -26,12 +26,6 @@
   "pattern_0value_1units": {
     "value": "{0} {1}"
   },
-  "force-description-pattern-target_source": {
-    "value": "Force on {0} by {1}"
-  },
-  "force-description-pattern-target_source_value": {
-    "value": "Force on {0} by {1} = {2} N"
-  },
   "constantRadius": {
     "value": "Constant Radius"
   }

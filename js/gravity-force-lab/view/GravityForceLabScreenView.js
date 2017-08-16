@@ -37,6 +37,7 @@ define( function( require ) {
   var MASS_NODE_Y_POSITION = 225;
   var CONTROL_SCALE = 0.72;
   var SHOW_GRID = ISLQueryParameters.showGrid;
+  var ARROW_LABEL_COLOR_STRING = '#000';
 
   /**
    * @param {GravityForceLabModel} model
@@ -56,37 +57,51 @@ define( function( require ) {
     );
 
     // add the mass nodes to the screen
-    this.addChild( new MassNode(
+    var massNode1 = new MassNode(
       model,
       model.object1,
       this.layoutBounds,
       modelViewTransform,
       tandem.createTandem( 'mass1Node' ),
       {
+        title: mass1String,
         label: mass1AbbreviatedString,
-        otherMassLabel: mass2AbbreviatedString,
-        direction: 'left',
+        otherObjectLabel: mass2AbbreviatedString,
+        defaultDirection: 'left',
         arrowColor: '#66f',
+        arrowFill: ARROW_LABEL_COLOR_STRING,
+        arrowLabelFill: ARROW_LABEL_COLOR_STRING,
         y: MASS_NODE_Y_POSITION,
         forceArrowHeight: 125
       }
-    ) );
+    );
 
-    this.addChild( new MassNode(
+    var massNode2 = new MassNode(
       model,
       model.object2,
       this.layoutBounds,
       modelViewTransform,
       tandem.createTandem( 'mass2Node' ),
       {
+        title: mass2String,
         label: mass2AbbreviatedString,
-        otherMassLabel: mass1AbbreviatedString,
-        direction: 'right',
+        otherObjectLabel: mass1AbbreviatedString,
+        defaultDirection: 'right',
         arrowColor: '#f66',
+        arrowFill: ARROW_LABEL_COLOR_STRING,
+        arrowLabelFill: ARROW_LABEL_COLOR_STRING,
         y: MASS_NODE_Y_POSITION,
         forceArrowHeight: 175
       }
-    ) );
+    );
+
+    this.addChild( massNode1 );
+    this.addChild( massNode2 );
+
+    // the arrows and their labels should be above both masses (and their markers) but below
+    // the ruler and control panels
+    this.addChild( massNode1.arrowNode );
+    this.addChild( massNode2.arrowNode );
 
     var gravityForceLabRuler = new GravityForceLabRuler(
       model,

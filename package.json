@@ -10,6 +10,9 @@
     "grunt": "~1.0.0"
   },
   "phet": {
-    "requirejsNamespace": "GRAVITY_FORCE_LAB"
+    "requirejsNamespace": "GRAVITY_FORCE_LAB",
+    "phetLibs": [
+      "inverse-square-law-common"
+    ]
   }
 }
