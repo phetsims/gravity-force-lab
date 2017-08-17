@@ -19,7 +19,7 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
   var Range = require( 'DOT/Range' );
   var Vector2 = require( 'DOT/Vector2' );
-  var InverseSquareLawModel = require( 'INVERSE_SQUARE_LAW_COMMON/model/InverseSquareLawModel' );
+  var ISLCModel = require( 'INVERSE_SQUARE_LAW_COMMON/model/ISLCModel' );
   var TVector2 = require( 'DOT/TVector2' );
   var ISLCConstants = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCConstants' );
 
@@ -61,20 +61,20 @@ define( function( require ) {
     var mass1 = new Mass(massValue1, position1, valueRange, density, this.constantRadiusProperty, baseColor1, tandem.createTandem( 'mass1' ) );
     var mass2 = new Mass(massValue2, position2, valueRange, density, this.constantRadiusProperty, baseColor2, tandem.createTandem( 'mass2' ) );
 
-    // leverage InverseSquareLawModel, in "mass" mode
-    InverseSquareLawModel.call( this, ISLCConstants.G, mass1, mass2, GravityForceLabConstants.LEFT_MASS_BOUNDARY, GravityForceLabConstants.RIGHT_MASS_BOUNDARY, tandem, {
+    // leverage ISLCModel, in "mass" mode
+    ISLCModel.call( this, ISLCConstants.G, mass1, mass2, GravityForceLabConstants.LEFT_MASS_BOUNDARY, GravityForceLabConstants.RIGHT_MASS_BOUNDARY, tandem, {
       snapObjectsToNearest: 0.1 // in meters
     } );
   }
 
   gravityForceLab.register( 'GravityForceLabModel', GravityForceLabModel );
 
-  return inherit( InverseSquareLawModel, GravityForceLabModel, {
+  return inherit( ISLCModel, GravityForceLabModel, {
 
     // @public
     reset: function() {
       this.rulerPositionProperty.reset();
-      InverseSquareLawModel.prototype.reset.call( this );
+      ISLCModel.prototype.reset.call( this );
     }
   } );
 } );
