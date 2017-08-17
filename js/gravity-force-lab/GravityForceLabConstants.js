@@ -15,7 +15,7 @@ define( function( require ) {
   // constants
   var MIN_MASS = 1; // kg
   var MAX_MASS = 1000; // kg
-  var MAX_DISTANCE_FROM_CENTER = 6.5; // meters, empirically determined boundary for masses
+  var MAX_DISTANCE_FROM_CENTER = 4.8; // meters, empirically determined boundary for masses
 
   var GravityForceLabConstants = {
     MIN_MASS: MIN_MASS,
