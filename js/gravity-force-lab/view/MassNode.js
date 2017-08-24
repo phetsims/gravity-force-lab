@@ -13,7 +13,7 @@ define( function( require ) {
   // modules
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var ObjectNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ObjectNode' );
+  var ISLCObjectNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectNode' );
   var RadialGradient = require( 'SCENERY/util/RadialGradient' );
   var RangeWithValue = require( 'DOT/RangeWithValue' );
 
@@ -44,12 +44,12 @@ define( function( require ) {
     this.objectModel = massModel;
     this.layoutBounds = layoutBounds;
 
-    ObjectNode.call( this, model, massModel, layoutBounds, modelViewTransform, pullForceRange, arrowForceRange, tandem.createTandem( 'massNode' ), options );
+    ISLCObjectNode.call( this, model, massModel, layoutBounds, modelViewTransform, pullForceRange, arrowForceRange, tandem.createTandem( 'massNode' ), options );
   }
 
   gravityForceLab.register( 'MassNode', MassNode );
 
-  return inherit( ObjectNode, MassNode, {
+  return inherit( ISLCObjectNode, MassNode, {
     updateGradient: function( baseColor ) {
       var radius = this.modelViewTransform.modelToViewDeltaX( this.objectModel.radiusProperty.get() );
       this.objectCircle.fill = new RadialGradient( -radius * 0.6, -radius * 0.6, 1, -radius * 0.6, -radius * 0.6, radius )
@@ -63,7 +63,7 @@ define( function( require ) {
       }
     },
     redrawForce: function() {
-      ObjectNode.prototype.redrawForce.call( this );
+      ISLCObjectNode.prototype.redrawForce.call( this );
     }
   } );
 } );
