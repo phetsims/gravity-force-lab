@@ -14,7 +14,7 @@ define( function( require ) {
   var Color = require( 'SCENERY/util/Color' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
-  var GravityForceLabRuler = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabRuler' );
+  var ISLCRulerNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCRulerNode' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ISLCGridNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCGridNode' );
   var MassControl = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassControl' );
@@ -31,6 +31,7 @@ define( function( require ) {
   var mass2String = require( 'string!GRAVITY_FORCE_LAB/mass2' );
   var mass1AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass1Abbreviated' );
   var mass2AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass2Abbreviated' );
+  var unitsMetersString = require( 'string!GRAVITY_FORCE_LAB/units.meters' );
 
   // constants
   var CONSTANT_MASS_COLOR = new Color( 'indigo' );
@@ -103,11 +104,16 @@ define( function( require ) {
     this.addChild( massNode1.arrowNode );
     this.addChild( massNode2.arrowNode );
 
-    var gravityForceLabRuler = new GravityForceLabRuler(
+    var gravityForceLabRuler = new ISLCRulerNode(
       model,
-      this.layoutBounds.width,
       this.layoutBounds.height,
-      tandem.createTandem( 'gravityForceLabRuler' )
+      modelViewTransform,
+      tandem.createTandem( 'gravityForceLabRuler' ),
+      {
+        unitString: unitsMetersString,
+        backgroundFill: 'rgb(236, 225, 113)',
+        snapToNearest: 0.1
+      }
     );
     this.addChild( gravityForceLabRuler );
 

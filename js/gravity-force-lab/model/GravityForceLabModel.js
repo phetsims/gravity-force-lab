@@ -32,7 +32,7 @@ define( function( require ) {
    */
   function GravityForceLabModel( tandem ) {
 
-    this.rulerPositionProperty = new Property( new Vector2( 120, 270 ), {
+    this.rulerPositionProperty = new Property( new Vector2( 0, -1.35 ), {
       tandem: tandem.createTandem( 'rulerPositionProperty' ),
       phetioValueType: TVector2
     } ); // @public
