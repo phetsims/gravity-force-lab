@@ -16,7 +16,7 @@ define( function( require ) {
   var GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
   var GravityForceLabRuler = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabRuler' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var InverseSquareLawGridNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/InverseSquareLawGridNode' );
+  var ISLCGridNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCGridNode' );
   var MassControl = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassControl' );
   var MassNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassNode' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
@@ -182,7 +182,7 @@ define( function( require ) {
     } );
 
     if ( SHOW_GRID ) {
-      var gridNode = new InverseSquareLawGridNode( 7.8, -7.8, 0.1, this.layoutBounds, modelViewTransform, {
+      var gridNode = new ISLCGridNode( 7.8, -7.8, 0.1, this.layoutBounds, modelViewTransform, {
         stroke: 'rgba( 35, 35, 35, 0.6 )'
       } );
       this.addChild( gridNode );
