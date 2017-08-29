@@ -19,7 +19,6 @@ define( function( require ) {
 
   // constants
   var pullForceRange = new RangeWithValue( ( 0.5e-10 ), ( 1.1e-6 ) ); // empirically determined for linear mapping of pull objects
-  var arrowForceRange = new RangeWithValue( ( 6.0e-9 ), ( 4.1e-6 ) ); // empirically determined for linear mapping of pull objects
 
   /**
    * @param {GravityForceLabModel} model
@@ -44,7 +43,7 @@ define( function( require ) {
     this.objectModel = massModel;
     this.layoutBounds = layoutBounds;
 
-    ISLCObjectNode.call( this, model, massModel, layoutBounds, modelViewTransform, pullForceRange, arrowForceRange, tandem.createTandem( 'massNode' ), options );
+    ISLCObjectNode.call( this, model, massModel, layoutBounds, modelViewTransform, pullForceRange, tandem.createTandem( 'massNode' ), options );
   }
 
   gravityForceLab.register( 'MassNode', MassNode );
