@@ -43,7 +43,7 @@ define( function( require ) {
 
     var content = new Node( { tandem: tandem.createTandem( 'content' ) } );
     var showValuesText = new Text( showValuesString, {
-      font: new PhetFont( 16 ),
+      font: new PhetFont( 15 ),
       maxWidth: MAX_CAPTION_WIDTH,
       tandem: tandem.createTandem( 'showValuesText' )
     } );

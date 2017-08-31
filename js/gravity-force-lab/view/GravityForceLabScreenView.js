@@ -20,7 +20,8 @@ define( function( require ) {
   var MassControl = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassControl' );
   var MassNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassNode' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
-  var ParameterControlPanel = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/ParameterControlPanel' );
+  var ISLCheckboxPanel = require ('INVERSE_SQUARE_LAW_COMMON/view/ISLCheckboxPanel' );
+  // var ParameterControlPanel = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/ParameterControlPanel' );
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var ISLQueryParameters = require( 'INVERSE_SQUARE_LAW_COMMON/ISLQueryParameters' );
@@ -32,6 +33,8 @@ define( function( require ) {
   var mass1AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass1Abbreviated' );
   var mass2AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass2Abbreviated' );
   var unitsMetersString = require( 'string!GRAVITY_FORCE_LAB/units.meters' );
+  var constantRadiusString = require( 'string!GRAVITY_FORCE_LAB/constantRadius' );
+  var showValuesString = require( 'string!GRAVITY_FORCE_LAB/showValues' );
 
   // constants
   var CONSTANT_MASS_COLOR = new Color( 'indigo' );
@@ -124,8 +127,36 @@ define( function( require ) {
     } );
     this.addChild( resetAllButton );
 
-    var parameterControlPanel = new ParameterControlPanel( model, tandem.createTandem( 'parameterControlPanel' ) );
-    parameterControlPanel.scale( 0.9 );
+    // var parameterControlPanel = new ParameterControlPanel( model, tandem.createTandem( 'parameterControlPanel' ) );
+    // parameterControlPanel.scale( 0.9 );
+    // this.addChild( parameterControlPanel );
+    
+    var checkboxParameters = [];
+
+    checkboxParameters.push({
+      content: showValuesString,
+      property: model.showValuesProperty,
+      textTandemLabel: 'showValuesText',      // tandem for the label
+      checkboxTandemLabel: 'showValuesCheckbox'    // tande name for checkbox node (see VerticalCheckboxGroup)
+    });
+
+    checkboxParameters.push({
+      content: constantRadiusString,
+      property: model.constantRadiusProperty,
+      textTandemLabel: 'constantRadiusText',
+      checkboxTandemLabel: 'constantRadiusCheckbox'
+    });
+
+    var parameterControlPanel = new ISLCheckboxPanel( checkboxParameters,
+                                                      tandem.createTandem( 'gravitForceLabParameterCheckbox' ),
+                                                      {
+                                                        fill: '#FDF498',
+                                                        xMargin: 10,
+                                                        yMargin: 10,
+                                                        minWidth: 170,
+                                                        align: 'left',
+                                                        textSize: 15
+                                                      } );
     this.addChild( parameterControlPanel );
 
     var massControl1 = new MassControl(
