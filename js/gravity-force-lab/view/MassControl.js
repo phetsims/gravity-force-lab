@@ -14,14 +14,15 @@ define( function( require ) {
   var Dimension2 = require( 'DOT/Dimension2' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var Panel = require( 'SUN/Panel' );
+  // var Panel = require( 'SUN/Panel' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var Text = require( 'SCENERY/nodes/Text' );
-  var NumberControl = require( 'SCENERY_PHET/NumberControl' );
-  var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  // var Text = require( 'SCENERY/nodes/Text' );
+  // var NumberControl = require( 'SCENERY_PHET/NumberControl' );
+  // var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  var ISLCObjectControl = require('INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectControl');
 
   // strings
-  var pattern0Value1UnitsString = require( 'string!GRAVITY_FORCE_LAB/pattern_0value_1units' );
+  // var pattern0Value1UnitsString = require( 'string!GRAVITY_FORCE_LAB/pattern_0value_1units' );
   var unitsKgString = require( 'string!GRAVITY_FORCE_LAB/units.kg' );
 
   // constants
@@ -41,54 +42,55 @@ define( function( require ) {
     // major ticks
     var tickLabelOptions = { font: new PhetFont( 14 ), pickable: false };
 
-    var numberControl = new NumberControl( titleString, massProperty, massRange, {
-      titleFont: new PhetFont( 24 ),
-      valueFont: new PhetFont( 18 ),
+    // var numberControl = new NumberControl( titleString, massProperty, massRange, {
+      // titleFont: new PhetFont( 24 ),
+      // valueFont: new PhetFont( 18 ),
 
       // Don't fill in the {0}, it will be filled in by NumberControl
-      valuePattern: StringUtils.format( pattern0Value1UnitsString, '{0}', unitsKgString ),
-      majorTicks: [ {
-        value: massRange.min,
-        label: new Text(
-          massRange.min,
-          _.extend( { tandem: tandem.createTandem( 'majorTickMinLabel' ) }, tickLabelOptions )
-        )
-      }, {
-        value: massRange.max,
-        label: new Text(
-          massRange.max,
-          _.extend( { tandem: tandem.createTandem( 'majorTickMaxLabel' ) }, tickLabelOptions )
-        )
-      } ],
-      layoutFunction: NumberControl.createLayoutFunction3( { xSpacing: 10 } ),
-      thumbFillEnabled: thumbColor.colorUtilsBrighter( 0.15 ),
-      thumbFillHighlighted: thumbColor,
-      arrowButtonScale: 1,
-      trackSize: TRACK_SIZE,
-      trackFillEnabled: 'black',
-      thumbSize: THUMB_SIZE,
-      majorTickLength: ( THUMB_SIZE.height / 2 ) + ( TRACK_SIZE.height / 2 ) + 2,
-      valueXMargin: 20,
-      valueYMargin: 4,
-      valueBackgroundStroke: 'black',
-      valueBackgroundCornerRadius: 3,
-      tickLabelSpacing: 2,
-      tandem: tandem.createTandem( 'numberControl' )
-    } );
+      // valuePattern: StringUtils.format( pattern0Value1UnitsString, '{0}', unitsKgString ),
+      // majorTicks: [ {
+      //   value: massRange.min,
+      //   label: new Text(
+      //     massRange.min,
+      //     _.extend( { tandem: tandem.createTandem( 'majorTickMinLabel' ) }, tickLabelOptions )
+      //   )
+      // }, {
+      //   value: massRange.max,
+      //   label: new Text(
+      //     massRange.max,
+      //     _.extend( { tandem: tandem.createTandem( 'majorTickMaxLabel' ) }, tickLabelOptions )
+      //   )
+      // } ],
+      // layoutFunction: NumberControl.createLayoutFunction3( { xSpacing: 10 } ),
+      // trackSize: TRACK_SIZE,
+      // trackFillEnabled: 'black',
+      // thumbSize: THUMB_SIZE,
+    //   valueBackgroundStroke: 'black',
+    //   valueBackgroundCornerRadius: 3,
+    //   tickLabelSpacing: 2,
+    //   tandem: tandem.createTandem( 'numberControl' )
+    // } );
 
-    Panel.call( this, numberControl, {
+    ISLCObjectControl.call( this, titleString, unitsKgString, massProperty, massRange, tandem, {
       fill: '#FDF498',
       xMargin: 15,
       yMargin: 10,
-      maxWidth: 224,
-      minWidth: 224,
-      resize: false,
-      align: 'right',
-      tandem: tandem
+      arrowButtonScale: 1,
+      thumbSize: THUMB_SIZE,
+      trackSize: TRACK_SIZE,
+      titleFontSize: 24,
+      valueFontSize: 18,
+      valueXMargin: 20,
+      valueYMargin: 4,
+      majorTickLength: ( THUMB_SIZE.height / 2 ) + ( TRACK_SIZE.height / 2 ) + 2,
+      minorTickSpacing: 0,
+      thumbFillEnabled: thumbColor.colorUtilsBrighter( 0.15 ),
+      thumbFillHighlighted: thumbColor,
+      tickLabelOptions: tickLabelOptions
     } );
   }
 
   gravityForceLab.register( 'MassControl', MassControl );
 
-  return inherit( Panel, MassControl );
+  return inherit( ISLCObjectControl, MassControl );
 } );

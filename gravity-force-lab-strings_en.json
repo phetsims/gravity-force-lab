@@ -23,9 +23,6 @@
   "mass2Abbreviated": {
     "value": "m2"
   },
-  "pattern_0value_1units": {
-    "value": "{0} {1}"
-  },
   "constantRadius": {
     "value": "Constant Radius"
   }
