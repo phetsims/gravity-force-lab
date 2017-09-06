@@ -34,7 +34,6 @@ define( function( require ) {
     options = _.extend( {
       label: 'This Mass',
       otherMassName: 'Other Mass',
-      y: 250
     }, options );
 
     // @private
@@ -44,6 +43,11 @@ define( function( require ) {
     this.layoutBounds = layoutBounds;
 
     ISLCObjectNode.call( this, model, massModel, layoutBounds, modelViewTransform, pullForceRange, tandem.createTandem( 'massNode' ), options );
+
+    var self = this;
+    model.scientificNotationProperty.link( function( scientificNotation ) {
+      self.setReadoutsInScientificNotation( scientificNotation );
+    } );
   }
 
   gravityForceLab.register( 'MassNode', MassNode );

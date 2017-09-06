@@ -24,8 +24,11 @@ define( function( require ) {
   // var ParameterControlPanel = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/ParameterControlPanel' );
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   var ScreenView = require( 'JOIST/ScreenView' );
+  var HSlider = require( 'SUN/HSlider' );
   var ISLQueryParameters = require( 'INVERSE_SQUARE_LAW_COMMON/ISLQueryParameters' );
   var Vector2 = require( 'DOT/Vector2' );
+  var Image = require( 'SCENERY/nodes/Image' );
+  var Property = require( 'AXON/Property' );
 
   // strings
   var mass1String = require( 'string!GRAVITY_FORCE_LAB/mass1' );
@@ -35,12 +38,16 @@ define( function( require ) {
   var unitsMetersString = require( 'string!GRAVITY_FORCE_LAB/units.meters' );
   var constantRadiusString = require( 'string!GRAVITY_FORCE_LAB/constantRadius' );
   var showValuesString = require( 'string!GRAVITY_FORCE_LAB/showValues' );
+  var scientificNotationString = require( 'string!INVERSE_SQUARE_LAW_COMMON/scientificNotation' );
+
+  var mockupImage = require( 'image!GRAVITY_FORCE_LAB/mockupImage.png' );
 
   // constants
   var CONSTANT_MASS_COLOR = new Color( 'indigo' );
-  var MASS_NODE_Y_POSITION = 225;
+  var MASS_NODE_Y_POSITION = 185;
   var CONTROL_SCALE = 0.72;
   var SHOW_GRID = ISLQueryParameters.showGrid;
+  var SHOW_MOCKUP = ISLQueryParameters.showMockup;
   var ARROW_LABEL_COLOR_STRING = '#000';
 
   /**
@@ -76,7 +83,7 @@ define( function( require ) {
         arrowFill: ARROW_LABEL_COLOR_STRING,
         arrowLabelFill: ARROW_LABEL_COLOR_STRING,
         y: MASS_NODE_Y_POSITION,
-        forceArrowHeight: 125
+        forceArrowHeight: 85
       }
     );
 
@@ -95,7 +102,7 @@ define( function( require ) {
         arrowFill: ARROW_LABEL_COLOR_STRING,
         arrowLabelFill: ARROW_LABEL_COLOR_STRING,
         y: MASS_NODE_Y_POSITION,
-        forceArrowHeight: 175
+        forceArrowHeight: 135
       }
     );
 
@@ -127,36 +134,38 @@ define( function( require ) {
     } );
     this.addChild( resetAllButton );
 
-    // var parameterControlPanel = new ParameterControlPanel( model, tandem.createTandem( 'parameterControlPanel' ) );
-    // parameterControlPanel.scale( 0.9 );
-    // this.addChild( parameterControlPanel );
-    
+    // set up parameters for each checkbox that will be added to the ISLCheckboxPanel
     var checkboxParameters = [];
 
-    checkboxParameters.push({
-      content: showValuesString,
-      property: model.showValuesProperty,
-      textTandemLabel: 'showValuesText',      // tandem for the label
-      checkboxTandemLabel: 'showValuesCheckbox'    // tande name for checkbox node (see VerticalCheckboxGroup)
-    });
-
-    checkboxParameters.push({
+    checkboxParameters.push( {
       content: constantRadiusString,
       property: model.constantRadiusProperty,
       textTandemLabel: 'constantRadiusText',
       checkboxTandemLabel: 'constantRadiusCheckbox'
-    });
+    } );
 
-    var parameterControlPanel = new ISLCheckboxPanel( checkboxParameters,
-                                                      tandem.createTandem( 'gravitForceLabParameterCheckbox' ),
-                                                      {
-                                                        fill: '#FDF498',
-                                                        xMargin: 10,
-                                                        yMargin: 10,
-                                                        minWidth: 170,
-                                                        align: 'left',
-                                                        textSize: 15
-                                                      } );
+    checkboxParameters.push( {
+      content: showValuesString,
+      property: model.showValuesProperty,
+      textTandemLabel: 'showValuesText',      // tandem for the label
+      checkboxTandemLabel: 'showValuesCheckbox'    // tande name for checkbox node (see VerticalCheckboxGroup)
+    } );
+
+    checkboxParameters.push( {
+      content: scientificNotationString,
+      property: model.scientificNotationProperty,
+      textTandemLabel: 'scientificNotationText',
+      checkboxTandemLabel: 'scientificNotationCheckBox'
+    } );
+
+    var parameterControlPanel = new ISLCheckboxPanel( checkboxParameters, tandem.createTandem( 'gravitForceLabParameterCheckbox' ), {
+      fill: '#FDF498',
+      xMargin: 10,
+      yMargin: 10,
+      minWidth: 170,
+      align: 'left',
+      textSize: 15
+    } );
     this.addChild( parameterControlPanel );
 
     var massControl1 = new MassControl(
@@ -223,6 +232,24 @@ define( function( require ) {
         stroke: 'rgba( 35, 35, 35, 0.6 )'
       } );
       this.addChild( gridNode );
+    }
+
+    //Show the mock-up and a slider to change its transparency
+    if ( SHOW_MOCKUP ) {
+      var mockupOpacityProperty = new Property( 0.02 );
+      var image = new Image( mockupImage, {
+        pickable: false
+      } );
+      image.scale( this.layoutBounds.width / image.width, this.layoutBounds.height / image.height );
+      mockupOpacityProperty.linkAttribute( image, 'opacity' );
+      this.addChild( image );
+      this.addChild( new HSlider( mockupOpacityProperty, {
+        min: 0,
+        max: 1
+      }, {
+        top: 10,
+        left: 10
+      } ) );
     }
   }
 

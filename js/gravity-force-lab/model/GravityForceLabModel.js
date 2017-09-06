@@ -32,7 +32,7 @@ define( function( require ) {
    */
   function GravityForceLabModel( tandem ) {
 
-    this.rulerPositionProperty = new Property( new Vector2( 0, -1.35 ), {
+    this.rulerPositionProperty = new Property( new Vector2( 0, -0.90 ), {
       tandem: tandem.createTandem( 'rulerPositionProperty' ),
       phetioValueType: TVector2
     } ); // @public
@@ -41,6 +41,12 @@ define( function( require ) {
       tandem: tandem.createTandem( 'constantRadiusProperty' ),
       phetioValueType: TBoolean
     } ); // @public
+
+    // @public {Boolean} - whether or not the sim is in 'scientific notation mode'
+    this.scientificNotationProperty = new Property( false, {
+      tandem: tandem.createTandem( 'scientificNotation' ),
+      phetioValueType: TBoolean 
+    } );
 
     // pass initial masses and positions into the model
     var massValue1 = 50; // mass in kg
@@ -74,6 +80,7 @@ define( function( require ) {
     // @public
     reset: function() {
       this.rulerPositionProperty.reset();
+      this.scientificNotationProperty.reset();
       ISLCModel.prototype.reset.call( this );
     }
   } );
