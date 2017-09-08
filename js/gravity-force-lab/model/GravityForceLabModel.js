@@ -44,7 +44,7 @@ define( function( require ) {
 
     // @public {Boolean} - whether or not the sim is in 'scientific notation mode'
     this.scientificNotationProperty = new Property( false, {
-      tandem: tandem.createTandem( 'scientificNotation' ),
+      tandem: tandem.createTandem( 'scientificNotationProperty' ),
       phetioValueType: TBoolean 
     } );
 
