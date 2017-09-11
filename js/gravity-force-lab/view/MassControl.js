@@ -11,14 +11,14 @@ define( function( require ) {
   'use strict';
 
   // modules
+  // var NumberControl = require( 'SCENERY_PHET/NumberControl' );
+  // var Panel = require( 'SUN/Panel' );
+  // var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  // var Text = require( 'SCENERY/nodes/Text' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var inherit = require( 'PHET_CORE/inherit' );
-  // var Panel = require( 'SUN/Panel' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  // var Text = require( 'SCENERY/nodes/Text' );
-  // var NumberControl = require( 'SCENERY_PHET/NumberControl' );
-  // var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var ISLCObjectControl = require('INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectControl');
 
   // strings

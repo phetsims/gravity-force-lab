@@ -14,31 +14,31 @@ define( function( require ) {
   var Color = require( 'SCENERY/util/Color' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
-  var ISLCRulerNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCRulerNode' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ISLCGridNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCGridNode' );
+  var ISLCRulerNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCRulerNode' );
   var MassControl = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassControl' );
   var MassNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassNode' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var ISLCheckboxPanel = require ('INVERSE_SQUARE_LAW_COMMON/view/ISLCheckboxPanel' );
   // var ParameterControlPanel = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/ParameterControlPanel' );
+  var HSlider = require( 'SUN/HSlider' );
+  var Image = require( 'SCENERY/nodes/Image' );
+  var ISLQueryParameters = require( 'INVERSE_SQUARE_LAW_COMMON/ISLQueryParameters' );
+  var Property = require( 'AXON/Property' );
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   var ScreenView = require( 'JOIST/ScreenView' );
-  var HSlider = require( 'SUN/HSlider' );
-  var ISLQueryParameters = require( 'INVERSE_SQUARE_LAW_COMMON/ISLQueryParameters' );
   var Vector2 = require( 'DOT/Vector2' );
-  var Image = require( 'SCENERY/nodes/Image' );
-  var Property = require( 'AXON/Property' );
 
   // strings
-  var mass1String = require( 'string!GRAVITY_FORCE_LAB/mass1' );
-  var mass2String = require( 'string!GRAVITY_FORCE_LAB/mass2' );
-  var mass1AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass1Abbreviated' );
-  var mass2AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass2Abbreviated' );
-  var unitsMetersString = require( 'string!GRAVITY_FORCE_LAB/units.meters' );
   var constantRadiusString = require( 'string!GRAVITY_FORCE_LAB/constantRadius' );
-  var showValuesString = require( 'string!GRAVITY_FORCE_LAB/showValues' );
+  var mass1AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass1Abbreviated' );
+  var mass1String = require( 'string!GRAVITY_FORCE_LAB/mass1' );
+  var mass2AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass2Abbreviated' );
+  var mass2String = require( 'string!GRAVITY_FORCE_LAB/mass2' );
   var scientificNotationString = require( 'string!INVERSE_SQUARE_LAW_COMMON/scientificNotation' );
+  var showValuesString = require( 'string!GRAVITY_FORCE_LAB/showValues' );
+  var unitsMetersString = require( 'string!GRAVITY_FORCE_LAB/units.meters' );
 
   var mockupImage = require( 'image!GRAVITY_FORCE_LAB/mockupImage.png' );
 
