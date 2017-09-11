@@ -158,7 +158,7 @@ define( function( require ) {
       checkboxTandemLabel: 'scientificNotationCheckBox'
     } );
 
-    var parameterControlPanel = new ISLCheckboxPanel( checkboxParameters, tandem.createTandem( 'gravitForceLabParameterCheckbox' ), {
+    var parameterControlPanel = new ISLCheckboxPanel( checkboxParameters, tandem.createTandem( 'parameterControlPanel' ), {
       fill: '#FDF498',
       xMargin: 10,
       yMargin: 10,
