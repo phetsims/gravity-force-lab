@@ -20,7 +20,7 @@ define( function( require ) {
   var MassControl = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassControl' );
   var MassNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassNode' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
-  var ISLCheckboxPanel = require ('INVERSE_SQUARE_LAW_COMMON/view/ISLCheckboxPanel' );
+  var ISLCheckboxPanel = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCheckboxPanel' );
   // var ParameterControlPanel = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/ParameterControlPanel' );
   var HSlider = require( 'SUN/HSlider' );
   var Image = require( 'SCENERY/nodes/Image' );
@@ -56,7 +56,10 @@ define( function( require ) {
    * @constructor
    */
   function GravityForceLabScreenView( model, tandem ) {
-    ScreenView.call( this, { layoutBounds: new Bounds2( 0, 0, 768, 464 ) } );
+    ScreenView.call( this, {
+      layoutBounds: new Bounds2( 0, 0, 768, 464 ),
+      tandem: tandem
+    } );
 
     // Create the model-view transform.  The primary units used in the model are meters, so significant zoom is used.
     // The multipliers for the 2nd parameter can be used to adjust where the point (0, 0) in the model, which is
