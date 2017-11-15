@@ -20,6 +20,7 @@ define( function( require ) {
   var Mass = require( 'INVERSE_SQUARE_LAW_COMMON/model/Mass' );
   var Property = require( 'AXON/Property' );
   var Range = require( 'DOT/Range' );
+  var TProperty = require( 'AXON/TProperty' );
   var TVector2 = require( 'DOT/TVector2' );
   var Vector2 = require( 'DOT/Vector2' );
 
@@ -34,18 +35,18 @@ define( function( require ) {
 
     this.rulerPositionProperty = new Property( new Vector2( 0, -0.90 ), {
       tandem: tandem.createTandem( 'rulerPositionProperty' ),
-      phetioValueType: TVector2
+      phetioType: TProperty( TVector2 )
     } ); // @public
 
     this.constantRadiusProperty = new Property( false, {
       tandem: tandem.createTandem( 'constantRadiusProperty' ),
-      phetioValueType: TBoolean
+      phetioType: TProperty( TBoolean )
     } ); // @public
 
     // @public {Boolean} - whether or not the sim is in 'scientific notation mode'
     this.scientificNotationProperty = new Property( false, {
       tandem: tandem.createTandem( 'scientificNotationProperty' ),
-      phetioValueType: TBoolean 
+      phetioType: TProperty( TBoolean )
     } );
 
     // pass initial masses and positions into the model
