@@ -21,7 +21,7 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
   var Range = require( 'DOT/Range' );
   var PropertyIO = require( 'AXON/PropertyIO' );
-  var TVector2 = require( 'DOT/TVector2' );
+  var Vector2IO = require( 'DOT/Vector2IO' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // phet-io modules
@@ -35,7 +35,7 @@ define( function( require ) {
 
     this.rulerPositionProperty = new Property( new Vector2( 0, -0.90 ), {
       tandem: tandem.createTandem( 'rulerPositionProperty' ),
-      phetioType: PropertyIO( TVector2 )
+      phetioType: PropertyIO( Vector2IO )
     } ); // @public
 
     this.constantRadiusProperty = new Property( false, {
