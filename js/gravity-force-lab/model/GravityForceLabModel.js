@@ -25,7 +25,7 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
 
   // phet-io modules
-  var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
+  var BooleanIO = require( 'ifphetio!PHET_IO/types/BooleanIO' );
 
   /**
    * @param {Tandem} tandem
@@ -40,13 +40,13 @@ define( function( require ) {
 
     this.constantRadiusProperty = new Property( false, {
       tandem: tandem.createTandem( 'constantRadiusProperty' ),
-      phetioType: PropertyIO( TBoolean )
+      phetioType: PropertyIO( BooleanIO )
     } ); // @public
 
     // @public {Boolean} - whether or not the sim is in 'scientific notation mode'
     this.scientificNotationProperty = new Property( false, {
       tandem: tandem.createTandem( 'scientificNotationProperty' ),
-      phetioType: PropertyIO( TBoolean )
+      phetioType: PropertyIO( BooleanIO )
     } );
 
     // pass initial masses and positions into the model
