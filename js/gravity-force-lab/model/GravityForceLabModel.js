@@ -19,10 +19,10 @@ define( function( require ) {
   var ISLCModel = require( 'INVERSE_SQUARE_LAW_COMMON/model/ISLCModel' );
   var Mass = require( 'INVERSE_SQUARE_LAW_COMMON/model/Mass' );
   var Property = require( 'AXON/Property' );
-  var Range = require( 'DOT/Range' );
   var PropertyIO = require( 'AXON/PropertyIO' );
-  var Vector2IO = require( 'DOT/Vector2IO' );
+  var Range = require( 'DOT/Range' );
   var Vector2 = require( 'DOT/Vector2' );
+  var Vector2IO = require( 'DOT/Vector2IO' );
 
   // phet-io modules
   var BooleanIO = require( 'ifphetio!PHET_IO/types/BooleanIO' );
