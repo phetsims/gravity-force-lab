@@ -12,6 +12,7 @@ define( function( require ) {
 
   // modules
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
+  var GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ISLCObjectNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectNode' );
   var RadialGradient = require( 'SCENERY/util/RadialGradient' );
@@ -34,6 +35,7 @@ define( function( require ) {
     options = _.extend( {
       label: 'This Mass',
       otherMassName: 'Other Mass',
+      snapToNearest: GravityForceLabConstants.LOCATION_SNAP_VALUE
     }, options );
 
     // @private
