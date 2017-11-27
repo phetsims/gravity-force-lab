@@ -20,6 +20,8 @@ define( function( require ) {
 
   // constants
   var pullForceRange = new RangeWithValue( ( 0.5e-10 ), ( 1.1e-6 ) ); // empirically determined for linear mapping of pull objects
+  var ARROW_LABEL_COLOR_STRING = '#000';
+  var MASS_NODE_Y_POSITION = 185;
 
   /**
    * @param {GravityForceLabModel} model
@@ -34,8 +36,12 @@ define( function( require ) {
 
     options = _.extend( {
       label: 'This Mass',
-      otherMassName: 'Other Mass',
-      snapToNearest: GravityForceLabConstants.LOCATION_SNAP_VALUE
+      otherObjectLabel: 'Other Mass',
+      arrowFill: ARROW_LABEL_COLOR_STRING,
+      arrowLabelFill: ARROW_LABEL_COLOR_STRING,
+      y: MASS_NODE_Y_POSITION,
+      snapToNearest: GravityForceLabConstants.LOCATION_SNAP_VALUE,
+      
     }, options );
 
     // @private

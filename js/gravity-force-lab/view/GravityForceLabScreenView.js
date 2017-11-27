@@ -44,11 +44,9 @@ define( function( require ) {
 
   // constants
   var CONSTANT_MASS_COLOR = new Color( 'indigo' );
-  var MASS_NODE_Y_POSITION = 185;
   var CONTROL_SCALE = 0.72;
   var SHOW_GRID = ISLQueryParameters.showGrid;
   var SHOW_MOCKUP = ISLQueryParameters.showMockup;
-  var ARROW_LABEL_COLOR_STRING = '#000';
 
   /**
    * @param {GravityForceLabModel} model
@@ -78,14 +76,10 @@ define( function( require ) {
       modelViewTransform,
       tandem.createTandem( 'mass1Node' ),
       {
-        title: mass1String,
         label: mass1AbbreviatedString,
         otherObjectLabel: mass2AbbreviatedString,
         defaultDirection: 'left',
         arrowColor: '#66f',
-        arrowFill: ARROW_LABEL_COLOR_STRING,
-        arrowLabelFill: ARROW_LABEL_COLOR_STRING,
-        y: MASS_NODE_Y_POSITION,
         forceArrowHeight: 85
       }
     );
@@ -97,14 +91,10 @@ define( function( require ) {
       modelViewTransform,
       tandem.createTandem( 'mass2Node' ),
       {
-        title: mass2String,
         label: mass2AbbreviatedString,
         otherObjectLabel: mass1AbbreviatedString,
         defaultDirection: 'right',
         arrowColor: '#f66',
-        arrowFill: ARROW_LABEL_COLOR_STRING,
-        arrowLabelFill: ARROW_LABEL_COLOR_STRING,
-        y: MASS_NODE_Y_POSITION,
         forceArrowHeight: 135
       }
     );
