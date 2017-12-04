@@ -13,6 +13,12 @@
     "requirejsNamespace": "GRAVITY_FORCE_LAB",
     "phetLibs": [
       "inverse-square-law-common"
-    ]
+    ],
+    "runnable": true,
+    "supportedBrands": [
+      "phet",
+      "phet-io"
+    ],
+    "simulation": true
   }
 }
