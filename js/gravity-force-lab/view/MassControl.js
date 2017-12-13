@@ -86,7 +86,8 @@ define( function( require ) {
       minorTickSpacing: 0,
       thumbFillEnabled: thumbColor.colorUtilsBrighter( 0.15 ),
       thumbFillHighlighted: thumbColor,
-      tickLabelOptions: tickLabelOptions
+      tickLabelOptions: tickLabelOptions,
+      tandem: tandem
     } );
   }
 
