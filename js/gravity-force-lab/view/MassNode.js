@@ -41,7 +41,10 @@ define( function( require ) {
       arrowLabelFill: ARROW_LABEL_COLOR_STRING,
       y: MASS_NODE_Y_POSITION,
       snapToNearest: GravityForceLabConstants.LOCATION_SNAP_VALUE,
-      
+
+      // TODO: scale factor for the arrow so that it has requested size, calculate this if design team likes the feel,
+      // see https://github.com/phetsims/inverse-square-law-common/issues/21
+      maxArrowWidth: 100
     }, options );
 
     // @private
