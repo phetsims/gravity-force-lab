@@ -19,7 +19,7 @@ define( function( require ) {
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ISLCGridNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCGridNode' );
-  var ISLCheckboxPanel = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCheckboxPanel' );
+  var ISLCCheckboxPanel = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCCheckboxPanel' );
   var ISLCRulerNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCRulerNode' );
   var ISLQueryParameters = require( 'INVERSE_SQUARE_LAW_COMMON/ISLQueryParameters' );
   var MassControl = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassControl' );
@@ -127,7 +127,7 @@ define( function( require ) {
     } );
     this.addChild( resetAllButton );
 
-    // set up parameters for each checkbox that will be added to the ISLCheckboxPanel
+    // set up parameters for each checkbox that will be added to the ISLCCheckboxPanel
     var checkboxParameters = [];
 
     checkboxParameters.push( {
@@ -151,7 +151,7 @@ define( function( require ) {
       checkboxTandemLabel: 'scientificNotationCheckBox'
     } );
 
-    var parameterControlPanel = new ISLCheckboxPanel( checkboxParameters, tandem.createTandem( 'parameterControlPanel' ), {
+    var parameterControlPanel = new ISLCCheckboxPanel( checkboxParameters, tandem.createTandem( 'parameterControlPanel' ), {
       fill: '#FDF498',
       xMargin: 10,
       yMargin: 10,
