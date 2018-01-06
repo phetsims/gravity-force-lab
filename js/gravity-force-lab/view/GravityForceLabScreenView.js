@@ -162,7 +162,7 @@ define( function( require ) {
 
     var massControl1 = new MassControl(
       mass1String,
-      model.object1.valueProperty,
+      model.object1.massProperty,
       GravityForceLabConstants.MASS_RANGE,
       model.object1.baseColorProperty.get(),
       tandem.createTandem( 'massControl1' )
@@ -172,7 +172,7 @@ define( function( require ) {
 
     var massControl2 = new MassControl(
       mass2String,
-      model.object2.valueProperty,
+      model.object2.massProperty,
       GravityForceLabConstants.MASS_RANGE,
       model.object2.baseColorProperty.get(),
       tandem.createTandem( 'massControl2' )
@@ -182,7 +182,7 @@ define( function( require ) {
 
     var massControl1ConstantRadius = new MassControl(
       mass1String,
-      model.object1.valueProperty,
+      model.object1.massProperty,
       GravityForceLabConstants.MASS_RANGE,
       CONSTANT_MASS_COLOR,
       tandem.createTandem( 'massControl1ConstantRadius' )
@@ -192,7 +192,7 @@ define( function( require ) {
 
     var massControl2ConstantRadius = new MassControl(
       mass2String,
-      model.object2.valueProperty,
+      model.object2.massProperty,
       GravityForceLabConstants.MASS_RANGE,
       CONSTANT_MASS_COLOR,
       tandem.createTandem( 'massControl2ConstantRadius' )
