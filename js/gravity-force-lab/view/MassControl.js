@@ -43,35 +43,36 @@ define( function( require ) {
     var tickLabelOptions = { font: new PhetFont( 14 ), pickable: false };
 
     // var numberControl = new NumberControl( titleString, massProperty, massRange, {
-      // titleFont: new PhetFont( 24 ),
-      // valueFont: new PhetFont( 18 ),
+    // titleFont: new PhetFont( 24 ),
+    // valueFont: new PhetFont( 18 ),
 
-      // Don't fill in the {0}, it will be filled in by NumberControl
-      // valuePattern: StringUtils.format( pattern0Value1UnitsString, '{0}', unitsKgString ),
-      // majorTicks: [ {
-      //   value: massRange.min,
-      //   label: new Text(
-      //     massRange.min,
-      //     _.extend( { tandem: tandem.createTandem( 'majorTickMinLabel' ) }, tickLabelOptions )
-      //   )
-      // }, {
-      //   value: massRange.max,
-      //   label: new Text(
-      //     massRange.max,
-      //     _.extend( { tandem: tandem.createTandem( 'majorTickMaxLabel' ) }, tickLabelOptions )
-      //   )
-      // } ],
-      // layoutFunction: NumberControl.createLayoutFunction3( { xSpacing: 10 } ),
-      // trackSize: TRACK_SIZE,
-      // trackFillEnabled: 'black',
-      // thumbSize: THUMB_SIZE,
+    // Don't fill in the {0}, it will be filled in by NumberControl
+    // valuePattern: StringUtils.format( pattern0Value1UnitsString, '{0}', unitsKgString ),
+    // majorTicks: [ {
+    //   value: massRange.min,
+    //   label: new Text(
+    //     massRange.min,
+    //     _.extend( { tandem: tandem.createTandem( 'majorTickMinLabel' ) }, tickLabelOptions )
+    //   )
+    // }, {
+    //   value: massRange.max,
+    //   label: new Text(
+    //     massRange.max,
+    //     _.extend( { tandem: tandem.createTandem( 'majorTickMaxLabel' ) }, tickLabelOptions )
+    //   )
+    // } ],
+    // layoutFunction: NumberControl.createLayoutFunction3( { xSpacing: 10 } ),
+    // trackSize: TRACK_SIZE,
+    // trackFillEnabled: 'black',
+    // thumbSize: THUMB_SIZE,
     //   valueBackgroundStroke: 'black',
     //   valueBackgroundCornerRadius: 3,
     //   tickLabelSpacing: 2,
     //   tandem: tandem.createTandem( 'numberControl' )
     // } );
 
-    ISLCObjectControlPanel.call( this, titleString, unitsKgString, massProperty, massRange, tandem, {
+
+    ISLCObjectControlPanel.call( this, titleString, unitsKgString, massProperty, massRange, {
       fill: '#FDF498',
       xMargin: 15,
       yMargin: 10,
