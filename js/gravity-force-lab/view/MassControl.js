@@ -19,7 +19,7 @@ define( function( require ) {
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var inherit = require( 'PHET_CORE/inherit' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var ISLCObjectControl = require('INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectControl');
+  var ISLCObjectControlPanel = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectControlPanel' );
 
   // strings
   // var pattern0Value1UnitsString = require( 'string!GRAVITY_FORCE_LAB/pattern_0value_1units' );
@@ -71,7 +71,7 @@ define( function( require ) {
     //   tandem: tandem.createTandem( 'numberControl' )
     // } );
 
-    ISLCObjectControl.call( this, titleString, unitsKgString, massProperty, massRange, tandem, {
+    ISLCObjectControlPanel.call( this, titleString, unitsKgString, massProperty, massRange, tandem, {
       fill: '#FDF498',
       xMargin: 15,
       yMargin: 10,
@@ -93,5 +93,5 @@ define( function( require ) {
 
   gravityForceLab.register( 'MassControl', MassControl );
 
-  return inherit( ISLCObjectControl, MassControl );
+  return inherit( ISLCObjectControlPanel, MassControl );
 } );
