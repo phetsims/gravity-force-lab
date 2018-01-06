@@ -151,7 +151,8 @@ define( function( require ) {
       checkboxTandemLabel: 'scientificNotationCheckBox'
     } );
 
-    var parameterControlPanel = new ISLCCheckboxPanel( checkboxParameters, tandem.createTandem( 'parameterControlPanel' ), {
+    var parameterControlPanel = new ISLCCheckboxPanel( checkboxParameters, {
+      tandem: tandem.createTandem( 'parameterControlPanel' ),
       fill: '#FDF498',
       xMargin: 10,
       yMargin: 10,
@@ -221,9 +222,9 @@ define( function( require ) {
     } );
 
     if ( SHOW_GRID ) {
-      var gridNode = new ISLCGridNode( 
-        GravityForceLabConstants.LOCATION_SNAP_VALUE, 
-        this.layoutBounds, 
+      var gridNode = new ISLCGridNode(
+        GravityForceLabConstants.LOCATION_SNAP_VALUE,
+        this.layoutBounds,
         modelViewTransform,
         { stroke: 'rgba( 250, 100, 100, 0.6 )' } );
       this.addChild( gridNode );
