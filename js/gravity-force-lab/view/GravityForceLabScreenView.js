@@ -73,14 +73,13 @@ define( function( require ) {
       model,
       model.object1,
       this.layoutBounds,
-      modelViewTransform,
-      tandem.createTandem( 'mass1Node' ),
-      {
+      modelViewTransform, {
         label: mass1AbbreviatedString,
         otherObjectLabel: mass2AbbreviatedString,
         defaultDirection: 'left',
         arrowColor: '#66f',
-        forceArrowHeight: 85
+        forceArrowHeight: 85,
+        tandem: tandem.createTandem( 'mass1Node' )
       }
     );
 
@@ -88,14 +87,13 @@ define( function( require ) {
       model,
       model.object2,
       this.layoutBounds,
-      modelViewTransform,
-      tandem.createTandem( 'mass2Node' ),
-      {
+      modelViewTransform, {
         label: mass2AbbreviatedString,
         otherObjectLabel: mass1AbbreviatedString,
         defaultDirection: 'right',
         arrowColor: '#f66',
-        forceArrowHeight: 135
+        forceArrowHeight: 135,
+        tandem: tandem.createTandem( 'mass2Node' )
       }
     );
 

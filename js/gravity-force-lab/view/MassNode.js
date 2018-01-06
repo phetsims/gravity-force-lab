@@ -17,6 +17,7 @@ define( function( require ) {
   var ISLCObjectNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectNode' );
   var RadialGradient = require( 'SCENERY/util/RadialGradient' );
   var RangeWithValue = require( 'DOT/RangeWithValue' );
+  var Tandem = require( 'TANDEM/Tandem' );
 
   // constants
   var pullForceRange = new RangeWithValue( ( 0.5e-10 ), ( 1.1e-6 ) ); // empirically determined for linear mapping of pull objects
@@ -28,11 +29,10 @@ define( function( require ) {
    * @param {MassModel} massModel
    * @param {Bounds2} layoutBounds
    * @param {ModelViewTransform2} modelViewTransform
-   * @param {Tandem} tandem
    * @param {Object} [options]
    * @constructor
    */
-  function MassNode( model, massModel, layoutBounds, modelViewTransform, tandem, options ) {
+  function MassNode( model, massModel, layoutBounds, modelViewTransform, options ) {
 
     options = _.extend( {
       label: 'This Mass',
@@ -44,7 +44,9 @@ define( function( require ) {
 
       // TODO: scale factor for the arrow so that it has requested size, calculate this if design team likes the feel,
       // see https://github.com/phetsims/inverse-square-law-common/issues/21
-      maxArrowWidth: 100
+      maxArrowWidth: 100,
+
+      tandem: Tandem.required
     }, options );
 
     // @private
@@ -53,7 +55,7 @@ define( function( require ) {
     this.objectModel = massModel;
     this.layoutBounds = layoutBounds;
 
-    ISLCObjectNode.call( this, model, massModel, layoutBounds, modelViewTransform, pullForceRange, tandem.createTandem( 'massNode' ), options );
+    ISLCObjectNode.call( this, model, massModel, layoutBounds, modelViewTransform, pullForceRange, options );
 
     var self = this;
     model.scientificNotationProperty.link( function( scientificNotation ) {
