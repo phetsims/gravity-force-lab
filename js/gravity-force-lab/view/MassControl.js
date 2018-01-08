@@ -31,18 +31,18 @@ define( function( require ) {
 
   /**
    * @param {string} titleString
-   * @param {Property.<number>} massProperty
+   * @param {Property.<number>} valueProperty
    * @param {Range} massRange
    * @param {Color} thumbColor
    * @param {Tandem} tandem
    * @constructor
    */
-  function MassControl( titleString, massProperty, massRange, thumbColor, tandem ) {
+  function MassControl( titleString, valueProperty, massRange, thumbColor, tandem ) {
 
     // major ticks
     var tickLabelOptions = { font: new PhetFont( 14 ), pickable: false };
 
-    // var numberControl = new NumberControl( titleString, massProperty, massRange, {
+    // var numberControl = new NumberControl( titleString, valueProperty, massRange, {
     // titleFont: new PhetFont( 24 ),
     // valueFont: new PhetFont( 18 ),
 
@@ -72,7 +72,7 @@ define( function( require ) {
     // } );
 
 
-    ISLCObjectControlPanel.call( this, titleString, unitsKgString, massProperty, massRange, {
+    ISLCObjectControlPanel.call( this, titleString, unitsKgString, valueProperty, massRange, {
       fill: '#FDF498',
       xMargin: 15,
       yMargin: 10,
