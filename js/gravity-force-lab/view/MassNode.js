@@ -44,7 +44,7 @@ define( function( require ) {
 
       // TODO: scale factor for the arrow so that it has requested size, calculate this if design team likes the feel,
       // see https://github.com/phetsims/inverse-square-law-common/issues/21
-      maxArrowWidth: 100,
+      maxArrowWidth: 300,
 
       tandem: Tandem.required
     }, options );
