@@ -107,7 +107,8 @@ define( function( require ) {
     this.addChild( massNode1.arrowNode );
     this.addChild( massNode2.arrowNode );
 
-    var gravityForceLabRuler = new ISLCRulerNode(
+    // @private - added to object for animation stepping
+    this.gravityForceLabRuler = new ISLCRulerNode(
       model,
       this.layoutBounds.height,
       modelViewTransform,
@@ -118,7 +119,7 @@ define( function( require ) {
         snapToNearest: GravityForceLabConstants.LOCATION_SNAP_VALUE
       }
     );
-    this.addChild( gravityForceLabRuler );
+    this.addChild( this.gravityForceLabRuler );
 
     var resetAllButton = new ResetAllButton( {
       listener: function() { model.reset(); },
@@ -195,7 +196,7 @@ define( function( require ) {
 
     // positioning the nodes
     parameterControlPanel.right = this.layoutBounds.width - 15;
-    parameterControlPanel.top = gravityForceLabRuler.bottom + 15;
+    parameterControlPanel.top = this.gravityForceLabRuler.bottom + 15;
     massControl2.right = parameterControlPanel.left - 45;
     massControl2.top = parameterControlPanel.top;
     massControl1.right = massControl2.left - 45;
@@ -242,5 +243,15 @@ define( function( require ) {
 
   gravityForceLab.register( 'GravityForceLabScreenView', GravityForceLabScreenView );
 
-  return inherit( ScreenView, GravityForceLabScreenView );
+  return inherit( ScreenView, GravityForceLabScreenView, {
+    /**
+     * Animate the view.
+     * 
+     * @param  {number} dt
+     */
+    step: function ( dt ) {
+      // ally - allow keyboard interaction
+      this.gravityForceLabRuler.step( dt );
+    }
+  } );
 } );
