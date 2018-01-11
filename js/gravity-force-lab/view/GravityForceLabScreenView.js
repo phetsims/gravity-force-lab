@@ -5,6 +5,7 @@
  *
  * @author Anton Ulyanov (Mlearner)
  * @author Aadish Gupta (PhET Interactive Simulations)
+ * @author Sam Reid (PhET Interactive Simulations)
  */
 define( function( require ) {
   'use strict';
@@ -18,8 +19,9 @@ define( function( require ) {
   var HSlider = require( 'SUN/HSlider' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var ISLCGridNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCGridNode' );
+  var ISLCCheckboxItem = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCCheckboxItem' );
   var ISLCCheckboxPanel = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCCheckboxPanel' );
+  var ISLCGridNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCGridNode' );
   var ISLCRulerNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCRulerNode' );
   var ISLQueryParameters = require( 'INVERSE_SQUARE_LAW_COMMON/ISLQueryParameters' );
   var MassControl = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassControl' );
@@ -125,38 +127,29 @@ define( function( require ) {
     } );
     this.addChild( resetAllButton );
 
-    // set up parameters for each checkbox that will be added to the ISLCCheckboxPanel
-    var checkboxParameters = [];
+    var TEXT_SIZE = 15;
+    var checkboxItems = [
+      new ISLCCheckboxItem( constantRadiusString, model.constantRadiusProperty, {
+        textSize: TEXT_SIZE,
+        tandem: tandem.createTandem( 'constantRadiusCheckbox' )
+      } ),
+      new ISLCCheckboxItem( showValuesString, model.showValuesProperty, {
+        textSize: TEXT_SIZE,
+        tandem: tandem.createTandem( 'showValuesCheckbox' )
+      } ),
+      new ISLCCheckboxItem( scientificNotationString, model.scientificNotationProperty, {
+        textSize: TEXT_SIZE,
+        tandem: tandem.createTandem( 'scientificNotationCheckBox' )
+      } )
+    ];
 
-    checkboxParameters.push( {
-      content: constantRadiusString,
-      property: model.constantRadiusProperty,
-      textTandemLabel: 'constantRadiusText',
-      checkboxTandemLabel: 'constantRadiusCheckbox'
-    } );
-
-    checkboxParameters.push( {
-      content: showValuesString,
-      property: model.showValuesProperty,
-      textTandemLabel: 'showValuesText',      // tandem for the label
-      checkboxTandemLabel: 'showValuesCheckbox'    // tande name for checkbox node (see VerticalCheckboxGroup)
-    } );
-
-    checkboxParameters.push( {
-      content: scientificNotationString,
-      property: model.scientificNotationProperty,
-      textTandemLabel: 'scientificNotationText',
-      checkboxTandemLabel: 'scientificNotationCheckBox'
-    } );
-
-    var parameterControlPanel = new ISLCCheckboxPanel( checkboxParameters, {
+    var parameterControlPanel = new ISLCCheckboxPanel( checkboxItems, {
       tandem: tandem.createTandem( 'parameterControlPanel' ),
       fill: '#FDF498',
       xMargin: 10,
       yMargin: 10,
       minWidth: 170,
-      align: 'left',
-      textSize: 15
+      align: 'left'
     } );
     this.addChild( parameterControlPanel );
 
