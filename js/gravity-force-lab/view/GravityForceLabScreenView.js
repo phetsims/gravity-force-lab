@@ -140,7 +140,7 @@ define( function( require ) {
       } ),
       new ISLCCheckboxItem( scientificNotationString, model.scientificNotationProperty, {
         textSize: TEXT_SIZE,
-        tandem: tandem.createTandem( 'scientificNotationCheckBox' )
+        tandem: tandem.createTandem( 'scientificNotationCheckbox' )
       } )
     ];
 
