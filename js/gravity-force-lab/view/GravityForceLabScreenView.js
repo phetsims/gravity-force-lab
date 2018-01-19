@@ -23,7 +23,7 @@ define( function( require ) {
   var ISLCCheckboxPanel = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCCheckboxPanel' );
   var ISLCGridNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCGridNode' );
   var ISLCRulerNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCRulerNode' );
-  var ISLQueryParameters = require( 'INVERSE_SQUARE_LAW_COMMON/ISLQueryParameters' );
+  var ISLCQueryParameters = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCQueryParameters' );
   var MassControl = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassControl' );
   var MassNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassNode' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
@@ -47,8 +47,8 @@ define( function( require ) {
   // constants
   var CONSTANT_MASS_COLOR = new Color( 'indigo' );
   var CONTROL_SCALE = 0.72;
-  var SHOW_GRID = ISLQueryParameters.showGrid;
-  var SHOW_MOCKUP = ISLQueryParameters.showMockup;
+  var SHOW_GRID = ISLCQueryParameters.showGrid;
+  var SHOW_MOCKUP = ISLCQueryParameters.showMockup;
 
   /**
    * @param {GravityForceLabModel} model
