@@ -11,10 +11,6 @@ define( function( require ) {
   'use strict';
 
   // modules
-  // var NumberControl = require( 'SCENERY_PHET/NumberControl' );
-  // var Panel = require( 'SUN/Panel' );
-  // var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  // var Text = require( 'SCENERY/nodes/Text' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -22,7 +18,6 @@ define( function( require ) {
   var ISLCObjectControlPanel = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectControlPanel' );
 
   // strings
-  // var pattern0Value1UnitsString = require( 'string!GRAVITY_FORCE_LAB/pattern_0value_1units' );
   var unitsKgString = require( 'string!GRAVITY_FORCE_LAB/units.kg' );
 
   // constants
@@ -41,36 +36,6 @@ define( function( require ) {
 
     // major ticks
     var tickLabelOptions = { font: new PhetFont( 14 ), pickable: false };
-
-    // var numberControl = new NumberControl( titleString, valueProperty, massRange, {
-    // titleFont: new PhetFont( 24 ),
-    // valueFont: new PhetFont( 18 ),
-
-    // Don't fill in the {0}, it will be filled in by NumberControl
-    // valuePattern: StringUtils.format( pattern0Value1UnitsString, '{0}', unitsKgString ),
-    // majorTicks: [ {
-    //   value: massRange.min,
-    //   label: new Text(
-    //     massRange.min,
-    //     _.extend( { tandem: tandem.createTandem( 'majorTickMinLabel' ) }, tickLabelOptions )
-    //   )
-    // }, {
-    //   value: massRange.max,
-    //   label: new Text(
-    //     massRange.max,
-    //     _.extend( { tandem: tandem.createTandem( 'majorTickMaxLabel' ) }, tickLabelOptions )
-    //   )
-    // } ],
-    // layoutFunction: NumberControl.createLayoutFunction3( { xSpacing: 10 } ),
-    // trackSize: TRACK_SIZE,
-    // trackFillEnabled: 'black',
-    // thumbSize: THUMB_SIZE,
-    //   valueBackgroundStroke: 'black',
-    //   valueBackgroundCornerRadius: 3,
-    //   tickLabelSpacing: 2,
-    //   tandem: tandem.createTandem( 'numberControl' )
-    // } );
-
 
     ISLCObjectControlPanel.call( this, titleString, unitsKgString, valueProperty, massRange, {
       fill: '#FDF498',
