@@ -12,8 +12,8 @@ define( function( require ) {
 
   // modules
   var DerivedProperty = require( 'AXON/DerivedProperty' );
+  var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var inverseSquareLawCommon = require( 'INVERSE_SQUARE_LAW_COMMON/inverseSquareLawCommon' );
   var ISLCConstants = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCConstants' );
   var ISLCObject = require( 'INVERSE_SQUARE_LAW_COMMON/model/ISLCObject' );
   var ColorIO = require( 'SCENERY/util/ColorIO' );
@@ -55,7 +55,7 @@ define( function( require ) {
     );
   }
 
-  inverseSquareLawCommon.register( 'Mass', Mass );
+  gravityForceLab.register( 'Mass', Mass );
 
   return inherit( ISLCObject, Mass, {
 
