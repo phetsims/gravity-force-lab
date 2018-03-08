@@ -16,8 +16,6 @@ define( function( require ) {
   var Color = require( 'SCENERY/util/Color' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
-  var HSlider = require( 'SUN/HSlider' );
-  var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ISLCCheckboxItem = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCCheckboxItem' );
   var ISLCCheckboxPanel = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCCheckboxPanel' );
@@ -27,7 +25,6 @@ define( function( require ) {
   var MassControl = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassControl' );
   var MassNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassNode' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
-  var Property = require( 'AXON/Property' );
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var Vector2 = require( 'DOT/Vector2' );
@@ -42,19 +39,10 @@ define( function( require ) {
   var showValuesString = require( 'string!GRAVITY_FORCE_LAB/showValues' );
   var unitsMetersString = require( 'string!GRAVITY_FORCE_LAB/units.meters' );
 
-  var mockupImage = require( 'image!GRAVITY_FORCE_LAB/mockupImage.png' );
-
   // constants
   var CONSTANT_MASS_COLOR = new Color( 'indigo' );
   var CONTROL_SCALE = 0.72;
   var SHOW_GRID = ISLCQueryParameters.showGrid;
-  var SHOW_MOCKUP = ISLCQueryParameters.showMockup;
-
-  /**
-   * @param {GravityForceLabModel} model
-   * @param {Tandem} tandem
-   * @constructor
-   */
   function GravityForceLabScreenView( model, tandem ) {
     ScreenView.call( this, {
       layoutBounds: new Bounds2( 0, 0, 768, 464 ),
@@ -220,24 +208,6 @@ define( function( require ) {
         modelViewTransform,
         { stroke: 'rgba( 250, 100, 100, 0.6 )' } );
       this.addChild( gridNode );
-    }
-
-    //Show the mock-up and a slider to change its transparency
-    if ( SHOW_MOCKUP ) {
-      var mockupOpacityProperty = new Property( 0.02 );
-      var image = new Image( mockupImage, {
-        pickable: false
-      } );
-      image.scale( this.layoutBounds.width / image.width, this.layoutBounds.height / image.height );
-      mockupOpacityProperty.linkAttribute( image, 'opacity' );
-      this.addChild( image );
-      this.addChild( new HSlider( mockupOpacityProperty, {
-        min: 0,
-        max: 1
-      }, {
-        top: 10,
-        left: 10
-      } ) );
     }
   }
 
