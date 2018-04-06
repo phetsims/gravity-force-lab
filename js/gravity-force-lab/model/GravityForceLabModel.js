@@ -82,6 +82,7 @@ define( function( require ) {
     reset: function() {
       this.rulerPositionProperty.reset();
       this.scientificNotationProperty.reset();
+      this.constantRadiusProperty.reset();
       ISLCModel.prototype.reset.call( this );
     }
   } );
