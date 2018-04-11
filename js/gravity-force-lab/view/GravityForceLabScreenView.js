@@ -30,13 +30,13 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
 
   // strings
-  var constantRadiusString = require( 'string!GRAVITY_FORCE_LAB/constantRadius' );
+  var constantSizeString = require( 'string!INVERSE_SQUARE_LAW_COMMON/constantSize' );
   var mass1AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass1Abbreviated' );
   var mass1String = require( 'string!GRAVITY_FORCE_LAB/mass1' );
   var mass2AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass2Abbreviated' );
   var mass2String = require( 'string!GRAVITY_FORCE_LAB/mass2' );
   var scientificNotationString = require( 'string!INVERSE_SQUARE_LAW_COMMON/scientificNotation' );
-  var showValuesString = require( 'string!GRAVITY_FORCE_LAB/showValues' );
+  var forceValuesString = require( 'string!INVERSE_SQUARE_LAW_COMMON/forceValues' );
   var unitsMetersString = require( 'string!GRAVITY_FORCE_LAB/units.meters' );
 
   // constants
@@ -118,13 +118,13 @@ define( function( require ) {
 
     var TEXT_SIZE = 15;
     var checkboxItems = [
-      new ISLCCheckboxItem( constantRadiusString, model.constantRadiusProperty, {
+      new ISLCCheckboxItem( constantSizeString, model.constantRadiusProperty, {
         textSize: TEXT_SIZE,
         tandem: tandem.createTandem( 'constantRadiusCheckbox' )
       } ),
-      new ISLCCheckboxItem( showValuesString, model.showValuesProperty, {
+      new ISLCCheckboxItem( forceValuesString, model.forceValuesProperty, {
         textSize: TEXT_SIZE,
-        tandem: tandem.createTandem( 'showValuesCheckbox' )
+        tandem: tandem.createTandem( 'forceValuesCheckbox' )
       } ),
       new ISLCCheckboxItem( scientificNotationString, model.scientificNotationProperty, {
         textSize: TEXT_SIZE,

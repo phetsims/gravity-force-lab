@@ -8,9 +8,6 @@
   "mass2": {
     "value": "Mass 2"
   },
-  "showValues": {
-    "value": "Show Values"
-  },
   "units.kg": {
     "value": "kg"
   },
@@ -22,8 +19,5 @@
   },
   "mass2Abbreviated": {
     "value": "m2"
-  },
-  "constantRadius": {
-    "value": "Constant Radius"
   }
 }
