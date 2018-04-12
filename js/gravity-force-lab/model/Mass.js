@@ -19,6 +19,10 @@ define( function( require ) {
   var ColorIO = require( 'SCENERY/util/ColorIO' );
   var DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
 
+
+  // constants
+  // scale to brighten the base color to achieve rgba(150, 150, 255) but still be red or blue
+  var baseColorModifier = 0.59;
   /**
    * @param {number} initialMass
    * @param {Vector2} initialPosition
@@ -46,8 +50,8 @@ define( function( require ) {
     this.baseColorProperty = new DerivedProperty( [ this.valueProperty, constantRadiusProperty ],
       function( value, constantRadius ) {
         return constantRadius ?
-               options.constantRadiusColor.colorUtilsBrighter( 1 - Math.abs( value ) / valueRange.max ) :
-               baseColor;
+               baseColor.colorUtilsBrighter( 1 - Math.abs( value ) / valueRange.max ) :
+               baseColor.colorUtilsBrighter( baseColorModifier );
       }, {
         tandem: tandem.createTandem( 'baseColorProperty' ),
         phetioType: DerivedPropertyIO( ColorIO )
