@@ -13,7 +13,6 @@ define( function( require ) {
   // modules
   // var ParameterControlPanel = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/ParameterControlPanel' );
   var Bounds2 = require( 'DOT/Bounds2' );
-  var Color = require( 'SCENERY/util/Color' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -40,7 +39,6 @@ define( function( require ) {
   var unitsMetersString = require( 'string!GRAVITY_FORCE_LAB/units.meters' );
 
   // constants
-  var CONSTANT_MASS_COLOR = new Color( 'indigo' );
   var CONTROL_SCALE = 0.72;
   var SHOW_GRID = ISLCQueryParameters.showGrid;
   function GravityForceLabScreenView( model, tandem ) {
@@ -162,26 +160,6 @@ define( function( require ) {
     massControl2.scale( CONTROL_SCALE );
     this.addChild( massControl2 );
 
-    var massControl1ConstantRadius = new MassControl(
-      mass1String,
-      model.object1.valueProperty,
-      GravityForceLabConstants.MASS_RANGE,
-      CONSTANT_MASS_COLOR,
-      tandem.createTandem( 'massControl1ConstantRadius' )
-    );
-    massControl1ConstantRadius.scale( CONTROL_SCALE );
-    this.addChild( massControl1ConstantRadius );
-
-    var massControl2ConstantRadius = new MassControl(
-      mass2String,
-      model.object2.valueProperty,
-      GravityForceLabConstants.MASS_RANGE,
-      CONSTANT_MASS_COLOR,
-      tandem.createTandem( 'massControl2ConstantRadius' )
-    );
-    massControl2ConstantRadius.scale( CONTROL_SCALE );
-    this.addChild( massControl2ConstantRadius );
-
     // positioning the nodes
     parameterControlPanel.right = this.layoutBounds.width - 15;
     parameterControlPanel.top = gravityForceLabRuler.bottom + 15;
@@ -189,17 +167,8 @@ define( function( require ) {
     massControl2.top = parameterControlPanel.top;
     massControl1.right = massControl2.left - 45;
     massControl1.top = parameterControlPanel.top;
-    massControl1ConstantRadius.center = massControl1.center;
-    massControl2ConstantRadius.center = massControl2.center;
     resetAllButton.right = parameterControlPanel.right;
     resetAllButton.top = parameterControlPanel.bottom + 13.5;
-
-    model.constantRadiusProperty.link( function( constantRadius ) {
-      massControl1ConstantRadius.visible = constantRadius;
-      massControl2ConstantRadius.visible = constantRadius;
-      massControl1.visible = !constantRadius;
-      massControl2.visible = !constantRadius;
-    } );
 
     if ( SHOW_GRID ) {
       var gridNode = new ISLCGridNode(
