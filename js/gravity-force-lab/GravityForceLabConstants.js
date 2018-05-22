@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var Color = require( 'SCENERY/util/Color' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var Range = require( 'DOT/Range' );
 
@@ -16,8 +17,12 @@ define( function( require ) {
   var MIN_MASS = 1; // kg
   var MAX_MASS = 1000; // kg
   var MAX_DISTANCE_FROM_CENTER = 4.8; // meters, empirically determined boundary for masses
-
+  var MASS_BLUE_COLOR = new Color( '#00f' );
+  var MASS_RED_COLOR = new Color( '#f00' );
+  
   var GravityForceLabConstants = {
+    MASS_RED_COLOR: MASS_RED_COLOR,
+    MASS_BLUE_COLOR: MASS_BLUE_COLOR, 
     MIN_MASS: MIN_MASS,
     MAX_MASS: MAX_MASS,
     RIGHT_MASS_BOUNDARY: MAX_DISTANCE_FROM_CENTER,

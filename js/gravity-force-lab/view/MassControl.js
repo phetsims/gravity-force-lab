@@ -51,7 +51,7 @@ define( function( require ) {
       majorTickLength: ( THUMB_SIZE.height / 2 ) + ( TRACK_SIZE.height / 2 ) + 2,
       minorTickSpacing: 0,
       thumbFillEnabled: thumbColor.colorUtilsBrighter( 0.15 ),
-      thumbFillHighlighted: thumbColor,
+      thumbFillHighlighted: thumbColor.colorUtilsBrighter( 0.35 ),
       tickLabelOptions: tickLabelOptions,
       tandem: tandem
     } );

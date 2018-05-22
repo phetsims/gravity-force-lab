@@ -144,7 +144,7 @@ define( function( require ) {
       mass1String,
       model.object1.valueProperty,
       GravityForceLabConstants.MASS_RANGE,
-      model.object1.baseColorProperty.get(),
+      GravityForceLabConstants.MASS_BLUE_COLOR,
       tandem.createTandem( 'massControl1' )
     );
     massControl1.scale( CONTROL_SCALE );
@@ -154,7 +154,7 @@ define( function( require ) {
       mass2String,
       model.object2.valueProperty,
       GravityForceLabConstants.MASS_RANGE,
-      model.object2.baseColorProperty.get(),
+      GravityForceLabConstants.MASS_RED_COLOR,
       tandem.createTandem( 'massControl2' )
     );
     massControl2.scale( CONTROL_SCALE );

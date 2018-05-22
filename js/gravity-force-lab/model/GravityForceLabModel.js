@@ -11,7 +11,6 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var Color = require( 'SCENERY/util/Color' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -60,8 +59,8 @@ define( function( require ) {
     var maxMassValue = 1000; // in kg
     var valueRange = new Range(minMassValue, maxMassValue);
 
-    var baseColor1 = new Color( '#00f' );
-    var baseColor2 = new Color( '#f00' );
+    var baseColor1 = GravityForceLabConstants.MASS_BLUE_COLOR;
+    var baseColor2 = GravityForceLabConstants.MASS_RED_COLOR;
 
     var density = 150; // in kg/m^3
 
