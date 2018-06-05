@@ -130,6 +130,10 @@ define( function( require ) {
       } )
     ];
 
+    model.forceValuesProperty.link( function ( showValues ) {
+      checkboxItems[ 2 ].enabled = showValues;
+    } );
+
     var parameterControlPanel = new ISLCCheckboxPanel( checkboxItems, {
       tandem: tandem.createTandem( 'parameterControlPanel' ),
       fill: '#FDF498',
