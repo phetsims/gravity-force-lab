@@ -34,25 +34,31 @@ define( function( require ) {
    */
   function MassControl( titleString, valueProperty, massRange, thumbColor, tandem ) {
 
-    // major ticks
-    var tickLabelOptions = { font: new PhetFont( 14 ), pickable: false };
-
     ISLCObjectControlPanel.call( this, titleString, unitsKgString, valueProperty, massRange, {
+
+      // panel options
       fill: '#FDF498',
       xMargin: 15,
       yMargin: 10,
-      arrowButtonScale: 1,
-      thumbSize: THUMB_SIZE,
-      trackSize: TRACK_SIZE,
-      titleFontSize: 24,
-      valueFontSize: 18,
-      valueXMargin: 20,
-      valueYMargin: 4,
-      majorTickLength: ( THUMB_SIZE.height / 2 ) + ( TRACK_SIZE.height / 2 ) + 2,
-      minorTickSpacing: 0,
-      thumbFillEnabled: thumbColor.colorUtilsBrighter( 0.15 ),
-      thumbFillHighlighted: thumbColor.colorUtilsBrighter( 0.35 ),
-      tickLabelOptions: tickLabelOptions,
+
+      numberControlOptions: {
+        arrowButtonScale: 1,
+        thumbSize: THUMB_SIZE,
+        trackSize: TRACK_SIZE,
+        titleFont: new PhetFont( 24 ),
+        valueFont: new PhetFont( 18 ),
+        valueXMargin: 20,
+        valueYMargin: 4,
+        majorTickLength: ( THUMB_SIZE.height / 2 ) + ( TRACK_SIZE.height / 2 ) + 2,
+        minorTickSpacing: 0,
+        thumbFillEnabled: thumbColor.colorUtilsBrighter( 0.15 ),
+        thumbFillHighlighted: thumbColor.colorUtilsBrighter( 0.35 )
+      },
+
+      tickLabelOptions: {
+        font: new PhetFont( 14 )
+      },
+
       tandem: tandem
     } );
   }
