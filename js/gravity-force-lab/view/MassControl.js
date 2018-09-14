@@ -52,7 +52,10 @@ define( function( require ) {
         majorTickLength: ( THUMB_SIZE.height / 2 ) + ( TRACK_SIZE.height / 2 ) + 2,
         minorTickSpacing: 0,
         thumbFillEnabled: thumbColor.colorUtilsBrighter( 0.15 ),
-        thumbFillHighlighted: thumbColor.colorUtilsBrighter( 0.35 )
+        thumbFillHighlighted: thumbColor.colorUtilsBrighter( 0.35 ),
+
+        // a11y
+        keyboardStep: 50
       },
 
       tickLabelOptions: {
