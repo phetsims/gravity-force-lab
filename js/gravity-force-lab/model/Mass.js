@@ -72,12 +72,6 @@ define( function( require ) {
       var sphereVolume = mass / this.density;
       var sphereRadius = Math.pow( ( 3 * sphereVolume ) / ( 4 * Math.PI ), 1 / 3 );
       return sphereRadius;
-    },
-
-    // @public
-    reset: function() {
-      this.valueProperty.reset();
-      this.positionProperty.reset();
     }
   } );
 } );
