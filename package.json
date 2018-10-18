@@ -20,6 +20,7 @@
       "phet-io",
       "adapted-from-phet"
     ],
+    "accessible": true,
     "simulation": true
   }
 }

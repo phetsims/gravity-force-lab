@@ -24,6 +24,7 @@ define( function( require ) {
   var MassControl = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassControl' );
   var MassNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassNode' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
+  var Node = require( 'SCENERY/nodes/Node' );
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var Vector2 = require( 'DOT/Vector2' );
@@ -44,8 +45,11 @@ define( function( require ) {
   function GravityForceLabScreenView( model, tandem ) {
     ScreenView.call( this, {
       layoutBounds: new Bounds2( 0, 0, 768, 464 ),
+      addScreenSummaryNode: true,
       tandem: tandem
     } );
+
+    this.screenSummaryNode.addChild( new Node( { tagName: 'p', innerContent: 'test content' } ) );
 
     // Create the model-view transform.  The primary units used in the model are meters, so significant zoom is used.
     // The multipliers for the 2nd parameter can be used to adjust where the point (0, 0) in the model, which is
