@@ -53,7 +53,6 @@ define( function( require ) {
     this.modelViewTransform = modelViewTransform;
     this.model = model;
     this.objectModel = massModel;
-    this.layoutBounds = layoutBounds;
 
     ISLCObjectNode.call( this, model, massModel, layoutBounds, modelViewTransform, pullForceRange, options );
 
