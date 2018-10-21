@@ -21,20 +21,66 @@ define( require => {
     simStateListLabel: {
       value: 'Currently, force on m1 by m2 is of equal magnitude and pointing directly opposite to the force on m2 by m1.'
     },
-    forceSizeAndValueSummaryPattern: {
-      value: 'Force vectors are {{size}} at {{micronewtons}} micronewtons.'
-    },
-    distanceSpaceAndValueSummaryPattern: {
-      value: 'm1 and m2 are {{distnace}} each other, exactly {{meters}} meters apart.'
-    },
     massValuesAndComparisonSummaryPattern: {
       value: 'Mass of m1 is {{m1Mass}} kilograms, {{comparitiveValue}} than m2 at {{m2Mass}} kilograms.'
     },
-    robotPullSummaryPattern: {
-      value: 'Robots {{pullAmount}} keeping spheres in place.'
+
+    ////////////////////////
+    // Qualitative values //
+    ////////////////////////
+
+    // relative mass sizes
+    muchMuchSmallerThan: {
+      value: 'much much smaller than'
     },
-    summaryInteractionHint: {
-      value: 'Move spheres or change their mass to begin observations.'
+    muchSmallerThan: {
+      value: 'much smaller than'
+    },
+    slightlySmallerThan: {
+      value: 'slightly smaller than'
+    },
+    comparableTo: {
+      value: 'comparable to'
+    },
+    somewhatLargerThan: {
+      value: 'somewhat larger than'
+    },
+    muchLargerThan: {
+      value: 'much larger than'
+    },
+    muchMuchLargerThan: {
+      value: 'much much larger than'
+    },
+
+    // mass sphere density
+    notAtAllDense: {
+      value: 'not at all dense'
+    },
+    notVeryDense: {
+      value: 'not very dense'
+    },
+    somewhatDense: {
+      value: 'somewhat dense'
+    },
+    ofMediumDensity: {
+      value: 'of medium density'
+    },
+    dense: {
+      value: 'dense'
+    },
+    veryDense: {
+      value: 'very dense'
+    },
+    veryVeryDense: {
+      value: 'very very dense'
+    },
+
+    ///////////
+    // Units //
+    ///////////
+
+    micronewtons: {
+      value: 'micronewtons'
     }
   };
 

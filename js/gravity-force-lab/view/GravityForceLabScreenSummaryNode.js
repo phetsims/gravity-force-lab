@@ -14,11 +14,11 @@ define( require => {
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
   const GravityForceLabStringManager = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabStringManager' );
   const Node = require( 'SCENERY/nodes/Node' );
+  const Property = require( 'AXON/Property' );
 
   // a11y strings
   const screenSummaryDescriptionString = GravityForceLabA11yStrings.screenSummaryDescription.value;
   const simStateListLabelString = GravityForceLabA11yStrings.simStateListLabel.value;
-  const summaryInteractionHintString = GravityForceLabA11yStrings.summaryInteractionHint.value;
 
   class GravityForceLabScreenSummaryNode extends Node {
 
@@ -54,15 +54,19 @@ define( require => {
 
       const interactionHintNode = new Node( {
         tagName: 'p',
-        innerContent: summaryInteractionHintString
+        innerContent: this.stringManager.getSummaryInteractionHint()
       } );
 
       this.children = [ this.simStateNode, interactionHintNode ];
+
+      Property.multilink( [ model.forceProperty, model.forceValuesProperty ], ( force, showValues ) => {
+        this.updateSimStateList();
+      } );
     }
 
     updateSimStateList() {
-      this.forceVectorsSummaryItem.innerContent = this.stringManager.getForceVectorSummary();
-      this.objectDistanceSummaryItem.innerContent = this.stringManager.getObjectDistanceSummary();
+      this.forceVectorsSummaryItem.innerContent = this.stringManager.getForceVectorsSummaryText();
+      // this.objectDistanceSummaryItem.innerContent = this.stringManager.getObjectDistanceSummary();
     }
   }
 
