@@ -60,13 +60,44 @@ define( require => {
       this.children = [ this.simStateNode, interactionHintNode ];
 
       Property.multilink( [ model.forceProperty, model.forceValuesProperty ], ( force, showValues ) => {
-        this.updateSimStateList();
+        this.updateForceVectorSummary();
+        this.updateRobotEffort();
       } );
+
+      Property.multilink(
+        [ model.object1.positionProperty,
+          model.object1.radiusProperty,
+          model.object2.positionProperty,
+          model.object2.radiusProperty
+        ],
+        ( x1, r1, x2, r2 ) => {
+          this.updateObjectDistanceSummary();
+          this.updateMassValuesSummary();
+        }
+      );
     }
 
     updateSimStateList() {
+      this.updateForceVectorSummary();
+      this.updateObjectDistanceSummary();
+      this.updateMassValuesSummary();
+      this.updateRobotEffort();
+    }
+
+    updateForceVectorSummary() {
       this.forceVectorsSummaryItem.innerContent = this.stringManager.getForceVectorsSummaryText();
-      // this.objectDistanceSummaryItem.innerContent = this.stringManager.getObjectDistanceSummary();
+    }
+
+    updateObjectDistanceSummary() {
+      this.objectDistanceSummaryItem.innerContent = this.stringManager.getObjectDistanceSummary();
+    }
+
+    updateMassValuesSummary() {
+      this.massValuesSummaryItem.innerContent = this.stringManager.getMassValuesSummaryText();
+    }
+
+    updateRobotEffort() {
+      this.robotsSummaryItem.innerContent = this.stringManager.getRobotEffortSummaryText();
     }
   }
 

@@ -16,11 +16,9 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var ISLCObjectNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectNode' );
   var RadialGradient = require( 'SCENERY/util/RadialGradient' );
-  var Range = require( 'DOT/Range' );
   var Tandem = require( 'TANDEM/Tandem' );
 
   // constants
-  var pullForceRange = new Range( ( 0.5e-10 ), ( 1.1e-6 ) ); // empirically determined for linear mapping of pull objects
   var ARROW_LABEL_COLOR_STRING = '#000';
   var MASS_NODE_Y_POSITION = 185;
 
@@ -54,7 +52,7 @@ define( function( require ) {
     this.model = model;
     this.objectModel = massModel;
 
-    ISLCObjectNode.call( this, model, massModel, layoutBounds, modelViewTransform, pullForceRange, options );
+    ISLCObjectNode.call( this, model, massModel, layoutBounds, modelViewTransform, GravityForceLabConstants.PULL_FORCE_RANGE, options );
 
     var self = this;
     model.scientificNotationProperty.link( function( scientificNotation ) {
