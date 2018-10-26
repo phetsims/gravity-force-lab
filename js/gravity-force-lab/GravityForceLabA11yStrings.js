@@ -22,7 +22,16 @@ define( require => {
       value: 'Currently, force on m1 by m2 is of equal magnitude and pointing directly opposite to the force on m2 by m1.'
     },
     massValuesAndComparisonSummaryPattern: {
-      value: 'Mass of m1 is {{m1Mass}} kilograms, {{comparitiveValue}} m2 at {{m2Mass}} kilograms.'
+      value: 'Mass of {{mass1Label}} is {{m1Mass}} kilograms, {{comparitiveValue}} {{mass2Label}} at {{m2Mass}} kilograms.'
+    },
+
+    // Object/sphere descriptions and labels
+
+    mass1BlueSphere: {
+      value: 'm1, Blue Sphere'
+    },
+    mass2RedSphere: {
+      value: 'm2, Red Sphere'
     },
 
     ////////////////////////

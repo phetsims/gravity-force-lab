@@ -55,7 +55,10 @@ define( function( require ) {
         thumbFillHighlighted: thumbColor.colorUtilsBrighter( 0.35 ),
 
         // a11y
-        keyboardStep: 50
+        // TODO: review proper string implementation
+        keyboardStep: 50,
+        accessibleName: titleString,
+        accessibleValuePattern: '{{value}} kilograms'
       },
 
       tickLabelOptions: {

@@ -23,10 +23,11 @@ define( require => {
 
   // strings
   const micronewtonsString = GravityForceLabA11yStrings.micronewtons.value;
-  const mass1AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass1Abbreviated' );
-  const mass2AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass2Abbreviated' );
+  // const mass1AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass1Abbreviated' );
+  // const mass2AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass2Abbreviated' );
 
   const massValuesAndComparisonSummaryPatternString = GravityForceLabA11yStrings.massValuesAndComparisonSummaryPattern.value;
+  const sizeAndPositionPatternString = '{{thisObject}} is {{size}} at {{massValue}} kg and at {{positionMark}} meter mark';
 
   const muchMuchSmallerThanString = GravityForceLabA11yStrings.muchMuchSmallerThan.value;
   const muchSmallerThanString = GravityForceLabA11yStrings.muchSmallerThan.value;
@@ -46,11 +47,14 @@ define( require => {
   const forceToPullIndex = new LinearFunction( min, max, 6, 0, true );
 
   class GravityForceLabStringManager extends ISLCStringManager {
-    constructor( model ) {
-      super( model, mass1AbbreviatedString, mass2AbbreviatedString, {
+    constructor( model, object1Label, object2Label, options ) {
+
+      options = options ? options : _.extend( {
         valueUnits: micronewtonsString,
         valueUnitConversion: MICRO_CONVERSION_FACTOR
-      } );
+      }, options );
+
+      super( model, object1Label, object2Label, options );
 
       // @private
       this._object1ToObject2Ratio = 0;
@@ -72,6 +76,8 @@ define( require => {
     getMassValuesSummaryText() {
       const relativeSizeIndex = Util.roundSymmetric( this.getRelativeSizeIndex( this._object1ToObject2Ratio ) );
       const fillObject = {
+        mass1Label: this.object1Label,
+        mass2Label: this.object2Label,
         m1Mass: this.object1.valueProperty.get(),
         m2Mass: this.object2.valueProperty.get(),
         comparitiveValue: RELATIVE_SIZE_STRINGS[ relativeSizeIndex ]
@@ -79,9 +85,51 @@ define( require => {
       return StringUtils.fillIn( massValuesAndComparisonSummaryPatternString, fillObject );
     }
 
+    // Mass/sphere strings
+    getSizeAndPositionItemText( massLabel ) {
+      const modelObject = massLabel === this.object1Label ? this.object1 : this.object2;
+      const thisObject = massLabel;
+      const massValue = modelObject.valueProperty.get();
+      const size = this.getSizeOfMass( massValue );
+      const positionMark = Util.toFixedNumber( modelObject.positionProperty.get() + 5, 1 );
+      const pattern = sizeAndPositionPatternString;
+      return StringUtils.fillIn( pattern, { thisObject, size, massValue, positionMark } );
+    }
+
+    getSizeOfMass( massValue ) {
+      const massIndex = this.getMassSizeIndex( massValue );
+      return this.getSizeFromIndex( massIndex );
+    }
+
     getRelativeSizeIndex( ratio ) {
       const exp = Math.log10( ratio );
       return Util.roundSymmetric( exponentToIndex( exp ) );
+    }
+
+    getMassSizeIndex( mass ) {
+      assert && assert( ( typeof mass ) === 'number' );
+      if ( mass < 26 ) {
+        return 0;
+      }
+      if ( mass < 101 ) {
+        return 1;
+      }
+      if ( mass < 401 ) {
+        return 2;
+      }
+      if ( mass < 601 ) {
+        return 3;
+      }
+      if ( mass < 801 ) {
+        return 4;
+      }
+      if ( mass < 901 ) {
+        return 5;
+      }
+      if ( mass <= 1000 ) {
+        return 6;
+      }
+      throw Error( 'Invalid mass value.');
     }
 
     ///////////////

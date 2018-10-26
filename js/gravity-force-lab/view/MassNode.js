@@ -44,7 +44,14 @@ define( function( require ) {
       // see https://github.com/phetsims/inverse-square-law-common/issues/21
       maxArrowWidth: 300,
 
-      tandem: Tandem.required
+      tandem: Tandem.required,
+
+      // a11y
+      // TODO: refactor into proper string usage
+      createAriaValueText: function( formattedValue, previousValue ) {
+        formattedValue += 5;
+        return `${formattedValue} meter mark`;
+      }
     }, options );
 
     // @private

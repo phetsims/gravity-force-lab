@@ -12,7 +12,6 @@ define( require => {
   // modules
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
-  const GravityForceLabStringManager = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabStringManager' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Property = require( 'AXON/Property' );
 
@@ -22,14 +21,14 @@ define( require => {
 
   class GravityForceLabScreenSummaryNode extends Node {
 
-    constructor( model ) {
+    constructor( model, stringManager ) {
       super( {
         tagName: 'div',
         descriptionTagName: 'p',
         descriptionContent: screenSummaryDescriptionString
       } );
 
-      this.stringManager = new GravityForceLabStringManager( model );
+      this.stringManager = stringManager;
 
       this.simStateNode = new Node( {
         tagName: 'ul',

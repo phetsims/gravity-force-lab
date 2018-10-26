@@ -13,20 +13,25 @@ define( function( require ) {
   // modules
   // var ParameterControlPanel = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/ParameterControlPanel' );
   var Bounds2 = require( 'DOT/Bounds2' );
+  var ControlAreaNode = require( 'SCENERY_PHET/accessibility/nodes/ControlAreaNode' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
-  // var GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
   var GravityForceLabScreenSummaryNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabScreenSummaryNode' );
+  var GravityForceLabStringManager = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabStringManager' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var ISLCA11yStrings = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCA11yStrings' );
   var ISLCCheckboxItem = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCCheckboxItem' );
   var ISLCCheckboxPanel = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCCheckboxPanel' );
   var ISLCGridNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCGridNode' );
+  var ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
   var ISLCRulerNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCRulerNode' );
   var ISLCQueryParameters = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCQueryParameters' );
   var MassControl = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassControl' );
   var MassNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassNode' );
+  var MassPDOMNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassPDOMNode' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
-  // var Node = require( 'SCENERY/nodes/Node' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var PlayAreaNode = require( 'SCENERY_PHET/accessibility/nodes/PlayAreaNode' );
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var Vector2 = require( 'DOT/Vector2' );
@@ -41,19 +46,30 @@ define( function( require ) {
   var forceValuesString = require( 'string!INVERSE_SQUARE_LAW_COMMON/forceValues' );
   var unitsMetersString = require( 'string!GRAVITY_FORCE_LAB/units.meters' );
 
+  // a11y Strings
+  const spherePositionsString = ISLCA11yStrings.spherePositions.value;
+  const spherePositionHelpTextString = ISLCA11yStrings.spherePositionHelpText.value;
 
   // constants
   var CONTROL_SCALE = 0.72;
   var SHOW_GRID = ISLCQueryParameters.showGrid;
+  var OBJECT_ONE = ISLCObjectEnum.OBJECT_ONE;
+  var OBJECT_TWO = ISLCObjectEnum.OBJECT_TWO;
+
   function GravityForceLabScreenView( model, tandem ) {
     ScreenView.call( this, {
       layoutBounds: new Bounds2( 0, 0, 768, 464 ),
       addScreenSummaryNode: true,
       tandem: tandem
     } );
+    var stringManager = new GravityForceLabStringManager( model, mass1AbbreviatedString, mass2AbbreviatedString );
+    var summaryNode = new GravityForceLabScreenSummaryNode( model, stringManager );
+    var playAreaNode = new PlayAreaNode();
+    var controlAreaNode = new ControlAreaNode();
 
-    const summaryNode = new GravityForceLabScreenSummaryNode( model );
     this.screenSummaryNode.addChild( summaryNode );
+    this.addChild( playAreaNode );
+    this.addChild( controlAreaNode );
 
     // Create the model-view transform.  The primary units used in the model are meters, so significant zoom is used.
     // The multipliers for the 2nd parameter can be used to adjust where the point (0, 0) in the model, which is
@@ -93,13 +109,30 @@ define( function( require ) {
       }
     );
 
-    this.addChild( massNode1 );
-    this.addChild( massNode2 );
+    playAreaNode.addChild( new MassPDOMNode( model, OBJECT_ONE, stringManager, {
+      thisObjectLabel: mass1AbbreviatedString,
+      otherObjectLabel: mass2AbbreviatedString
+    } ) );
+    playAreaNode.addChild( new MassPDOMNode( model, OBJECT_TWO, stringManager, {
+      thisObjectLabel: mass2AbbreviatedString,
+      otherObjectLabel: mass1AbbreviatedString
+    } ) );
+
+    var massPositionsNode = new Node( {
+      tagName: 'ul',
+      labelTagName: 'h3',
+      labelContent: spherePositionsString,
+      descriptionContent: spherePositionHelpTextString
+    } );
+
+    playAreaNode.addChild( massPositionsNode );
+    massPositionsNode.addChild( massNode1 );
+    massPositionsNode.addChild( massNode2 );
 
     // the arrows and their labels should be above both masses (and their markers) but below
     // the ruler and control panels
-    this.addChild( massNode1.arrowNode );
-    this.addChild( massNode2.arrowNode );
+    playAreaNode.addChild( massNode1.arrowNode );
+    playAreaNode.addChild( massNode2.arrowNode );
 
     // @private - added to object for animation stepping
     var gravityForceLabRuler = new ISLCRulerNode(
@@ -113,14 +146,35 @@ define( function( require ) {
         snapToNearest: GravityForceLabConstants.LOCATION_SNAP_VALUE
       }
     );
-    this.addChild( gravityForceLabRuler );
+    playAreaNode.addChild( gravityForceLabRuler );
 
-    var resetAllButton = new ResetAllButton( {
-      listener: function() { model.reset(); },
-      scale: 0.81,
-      tandem: tandem.createTandem( 'resetAllButton' )
+    // TODO: implement proper string usage
+    var massControlsNode = new Node( {
+      labelTagName: 'h3',
+      labelContent: 'Mass Controls',
+      tagName: 'ul'
     } );
-    this.addChild( resetAllButton );
+    playAreaNode.addChild( massControlsNode );
+
+    var massControl1 = new MassControl(
+      mass1String,
+      model.object1.valueProperty,
+      GravityForceLabConstants.MASS_RANGE,
+      GravityForceLabConstants.MASS_BLUE_COLOR,
+      tandem.createTandem( 'massControl1' )
+    );
+    massControl1.scale( CONTROL_SCALE );
+    massControlsNode.addChild( massControl1 );
+
+    var massControl2 = new MassControl(
+      mass2String,
+      model.object2.valueProperty,
+      GravityForceLabConstants.MASS_RANGE,
+      GravityForceLabConstants.MASS_RED_COLOR,
+      tandem.createTandem( 'massControl2' )
+    );
+    massControl2.scale( CONTROL_SCALE );
+    massControlsNode.addChild( massControl2 );
 
     var TEXT_SIZE = 15;
     var checkboxItems = [
@@ -150,29 +204,17 @@ define( function( require ) {
       minWidth: 170,
       align: 'left'
     } );
-    this.addChild( parameterControlPanel );
+    controlAreaNode.addChild( parameterControlPanel );
 
-    var massControl1 = new MassControl(
-      mass1String,
-      model.object1.valueProperty,
-      GravityForceLabConstants.MASS_RANGE,
-      GravityForceLabConstants.MASS_BLUE_COLOR,
-      tandem.createTandem( 'massControl1' )
-    );
-    massControl1.scale( CONTROL_SCALE );
-    this.addChild( massControl1 );
-
-    var massControl2 = new MassControl(
-      mass2String,
-      model.object2.valueProperty,
-      GravityForceLabConstants.MASS_RANGE,
-      GravityForceLabConstants.MASS_RED_COLOR,
-      tandem.createTandem( 'massControl2' )
-    );
-    massControl2.scale( CONTROL_SCALE );
-    this.addChild( massControl2 );
+    var resetAllButton = new ResetAllButton( {
+      listener: function() { model.reset(); },
+      scale: 0.81,
+      tandem: tandem.createTandem( 'resetAllButton' )
+    } );
+    controlAreaNode.addChild( resetAllButton );
 
     // positioning the nodes
+    // TODO: Position based on layout (consider using HBox like GFL:B)
     parameterControlPanel.right = this.layoutBounds.width - 15;
     parameterControlPanel.top = gravityForceLabRuler.bottom + 15;
     massControl2.right = parameterControlPanel.left - 45;
