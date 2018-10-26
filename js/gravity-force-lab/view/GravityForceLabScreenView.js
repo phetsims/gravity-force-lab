@@ -11,6 +11,8 @@ define( function( require ) {
   'use strict';
 
   // modules
+  // var GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
+  // var Node = require( 'SCENERY/nodes/Node' );
   // var ParameterControlPanel = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/ParameterControlPanel' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var ControlAreaNode = require( 'SCENERY_PHET/accessibility/nodes/ControlAreaNode' );
@@ -38,12 +40,12 @@ define( function( require ) {
 
   // strings
   var constantSizeString = require( 'string!INVERSE_SQUARE_LAW_COMMON/constantSize' );
+  var forceValuesString = require( 'string!INVERSE_SQUARE_LAW_COMMON/forceValues' );
   var mass1AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass1Abbreviated' );
   var mass1String = require( 'string!GRAVITY_FORCE_LAB/mass1' );
   var mass2AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass2Abbreviated' );
   var mass2String = require( 'string!GRAVITY_FORCE_LAB/mass2' );
   var scientificNotationString = require( 'string!INVERSE_SQUARE_LAW_COMMON/scientificNotation' );
-  var forceValuesString = require( 'string!INVERSE_SQUARE_LAW_COMMON/forceValues' );
   var unitsMetersString = require( 'string!GRAVITY_FORCE_LAB/units.meters' );
 
   // a11y Strings

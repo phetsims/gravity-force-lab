@@ -14,8 +14,8 @@ define( function( require ) {
   var Dimension2 = require( 'DOT/Dimension2' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var ISLCObjectControlPanel = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectControlPanel' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
 
   // strings
   var unitsKgString = require( 'string!GRAVITY_FORCE_LAB/units.kg' );
