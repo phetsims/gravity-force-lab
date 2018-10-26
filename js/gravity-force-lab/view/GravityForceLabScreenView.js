@@ -177,16 +177,21 @@ define( function( require ) {
     massControlsNode.addChild( massControl2 );
 
     var TEXT_SIZE = 15;
+    // TODO: implement correct string usage and review a11 best practices
+    //    - double check enabling/disabling checkboxes
     var checkboxItems = [
       new ISLCCheckboxItem( constantSizeString, model.constantRadiusProperty, {
+        accessibleName: 'Constant Radius',
         textSize: TEXT_SIZE,
         tandem: tandem.createTandem( 'constantRadiusCheckbox' )
       } ),
       new ISLCCheckboxItem( forceValuesString, model.forceValuesProperty, {
+        accessibleName: 'Force Values',
         textSize: TEXT_SIZE,
         tandem: tandem.createTandem( 'forceValuesCheckbox' )
       } ),
       new ISLCCheckboxItem( scientificNotationString, model.scientificNotationProperty, {
+        accessibleName: 'Scientific Notation',
         textSize: TEXT_SIZE,
         tandem: tandem.createTandem( 'scientificNotationCheckbox' )
       } )
