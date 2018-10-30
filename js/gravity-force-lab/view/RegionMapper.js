@@ -10,20 +10,34 @@ define( require => {
   // string.
   // use LinearFunction for guidance
   class RegionMapper {
+    constructor( values, strings, options ) {
 
-    constructor( values, strings ) {
+      options = _.extend( {
+        compareFunction: null // must be of the form (inputValue, valueFromArray) and return a boolean
+      }, options );
       assert && assert( typeof values === typeof strings === 'array', 'both arguments must be arrays' );
       assert && assert( values.length === strings.length, 'arrays must be of the same length' );
 
-      this._value = values;
-      this._strings = strings;
-    }
+      const lte = ( a, b ) => {
+          return a <= b;
+      };
 
-    map( value ) {
+      const map = value => {
+        const compare = options.compareFunction ? options.compareFunction : lte;
 
+        for ( let i; i < values.length; i++ ) {
+          if ( compare( value, values[ i ] ) ) {
+            return strings[ i ];
+          }
+        }
+      };
+
+      return map;
     }
   }
 
 
-  return gravityForceLab.register( 'RegionMapper', RegionMapper );
+  gravityForceLab.register( 'RegionMapper', RegionMapper );
+
+  return RegionMapper;
 } );
