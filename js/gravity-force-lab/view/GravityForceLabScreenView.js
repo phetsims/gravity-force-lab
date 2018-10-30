@@ -121,7 +121,7 @@ define( function( require ) {
     } ) );
 
     var massPositionsNode = new Node( {
-      tagName: 'ul',
+      tagName: 'div',
       labelTagName: 'h3',
       labelContent: spherePositionsString,
       descriptionContent: spherePositionHelpTextString
