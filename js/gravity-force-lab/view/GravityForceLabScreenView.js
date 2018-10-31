@@ -17,6 +17,7 @@ define( function( require ) {
   var Bounds2 = require( 'DOT/Bounds2' );
   var ControlAreaNode = require( 'SCENERY_PHET/accessibility/nodes/ControlAreaNode' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
+  var GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
   var GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
   var GravityForceLabScreenSummaryNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabScreenSummaryNode' );
   var GravityForceLabStringManager = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabStringManager' );
@@ -49,8 +50,9 @@ define( function( require ) {
   var unitsMetersString = require( 'string!GRAVITY_FORCE_LAB/units.meters' );
 
   // a11y Strings
-  const spherePositionsString = ISLCA11yStrings.spherePositions.value;
-  const spherePositionHelpTextString = ISLCA11yStrings.spherePositionHelpText.value;
+  var spherePositionsString = ISLCA11yStrings.spherePositions.value;
+  var spherePositionHelpTextString = ISLCA11yStrings.spherePositionHelpText.value;
+  var massControlsLabelString = GravityForceLabA11yStrings.massControlsLabel.value;
 
   // constants
   var CONTROL_SCALE = 0.72;
@@ -150,10 +152,9 @@ define( function( require ) {
     );
     playAreaNode.addChild( gravityForceLabRuler );
 
-    // TODO: implement proper string usage
     var massControlsNode = new Node( {
       labelTagName: 'h3',
-      labelContent: 'Mass Controls',
+      labelContent: massControlsLabelString,
       tagName: 'ul'
     } );
     playAreaNode.addChild( massControlsNode );
@@ -179,21 +180,20 @@ define( function( require ) {
     massControlsNode.addChild( massControl2 );
 
     var TEXT_SIZE = 15;
-    // TODO: implement correct string usage and review a11 best practices
-    //    - double check enabling/disabling checkboxes
+
     var checkboxItems = [
       new ISLCCheckboxItem( constantSizeString, model.constantRadiusProperty, {
-        accessibleName: 'Constant Radius',
+        accessibleName: constantSizeString,
         textSize: TEXT_SIZE,
         tandem: tandem.createTandem( 'constantRadiusCheckbox' )
       } ),
       new ISLCCheckboxItem( forceValuesString, model.forceValuesProperty, {
-        accessibleName: 'Force Values',
+        accessibleName: forceValuesString,
         textSize: TEXT_SIZE,
         tandem: tandem.createTandem( 'forceValuesCheckbox' )
       } ),
       new ISLCCheckboxItem( scientificNotationString, model.scientificNotationProperty, {
-        accessibleName: 'Scientific Notation',
+        accessibleName: scientificNotationString,
         textSize: TEXT_SIZE,
         tandem: tandem.createTandem( 'scientificNotationCheckbox' )
       } )
@@ -221,7 +221,6 @@ define( function( require ) {
     controlAreaNode.addChild( resetAllButton );
 
     // positioning the nodes
-    // TODO: Position based on layout (consider using HBox like GFL:B)
     parameterControlPanel.right = this.layoutBounds.width - 15;
     parameterControlPanel.top = gravityForceLabRuler.bottom + 15;
     massControl2.right = parameterControlPanel.left - 45;

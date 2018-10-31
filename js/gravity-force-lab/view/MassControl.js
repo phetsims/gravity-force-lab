@@ -14,11 +14,13 @@ define( function( require ) {
   var Dimension2 = require( 'DOT/Dimension2' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var ISLCA11yStrings = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCA11yStrings' );
   var ISLCObjectControlPanel = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectControlPanel' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
 
   // strings
   var unitsKgString = require( 'string!GRAVITY_FORCE_LAB/units.kg' );
+  var valueKilogramsPatternString = ISLCA11yStrings.valueKilogramsPattern.value;
 
   // constants
   var TRACK_SIZE = new Dimension2( 170, 3 );
@@ -55,10 +57,9 @@ define( function( require ) {
         thumbFillHighlighted: thumbColor.colorUtilsBrighter( 0.35 ),
 
         // a11y
-        // TODO: review proper string implementation
         keyboardStep: 50,
         accessibleName: titleString,
-        accessibleValuePattern: '{{value}} kilograms'
+        accessibleValuePattern: valueKilogramsPatternString // {{value}} kilograms
       },
 
       tickLabelOptions: {

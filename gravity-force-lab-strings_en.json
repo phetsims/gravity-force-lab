@@ -19,5 +19,38 @@
   },
   "mass2Abbreviated": {
     "value": "m2"
+  },
+  "moveSpheresHeading": {
+    "value": "Move Spheres"
+  },
+  "moveSphereLabel": {
+    "value": "Move sphere"
+  },
+  "moveInLargerSteps": {
+    "value": "Move in larger steps"
+  },
+  "jumpToLeft": {
+    "value": "Jump to left"
+  },
+  "jumpToRight": {
+    "value": "Jump to right"
+  },
+  "changeMassHeading": {
+    "value": "Change Mass"
+  },
+  "increaseMass": {
+    "value": "Increase mass"
+  },
+  "decreaseMass": {
+    "value": "Decrease mass"
+  },
+  "changeMassInLargerSteps": {
+    "value": "Change mass in larger steps"
+  },
+  "jumpToMaximumMass": {
+    "value": "Jump to maximum mass"
+  },
+  "jumpToMinimumMass": {
+    "value": "Jump to minimum mass"
   }
 }

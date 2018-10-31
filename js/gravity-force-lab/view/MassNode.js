@@ -15,6 +15,7 @@ define( function( require ) {
   var GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ISLCObjectNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectNode' );
+  var ISLCStringManager = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCStringManager' );
   var RadialGradient = require( 'SCENERY/util/RadialGradient' );
   var Tandem = require( 'TANDEM/Tandem' );
 
@@ -40,17 +41,14 @@ define( function( require ) {
       y: MASS_NODE_Y_POSITION,
       snapToNearest: GravityForceLabConstants.LOCATION_SNAP_VALUE,
 
-      // TODO: scale factor for the arrow so that it has requested size, calculate this if design team likes the feel,
-      // see https://github.com/phetsims/inverse-square-law-common/issues/21
       maxArrowWidth: 300,
 
       tandem: Tandem.required,
 
       // a11y
-      // TODO: refactor into proper string usage
       createAriaValueText: function( formattedValue, previousValue ) {
         formattedValue += 5;
-        return `${formattedValue} meter mark`;
+        return ISLCStringManager.getPositionMeterMarkText( formattedValue );
       }
     }, options );
 

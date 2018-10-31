@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var GravityForceLabKeyboardHelpContent = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabKeyboardHelpContent' );
   var GravityForceLabModel = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/model/GravityForceLabModel' );
   var GravityForceLabScreenView = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabScreenView' );
   var Property = require( 'AXON/Property' );
@@ -22,6 +23,7 @@ define( function( require ) {
 
   // strings
   var gravityForceLabTitleString = require( 'string!GRAVITY_FORCE_LAB/gravity-force-lab.title' );
+  var keyboardHelpContent = new GravityForceLabKeyboardHelpContent( Tandem.rootTandem.createTandem( 'keyboardHelpContent' ) );
 
   var simOptions = {
     credits: {
@@ -29,7 +31,9 @@ define( function( require ) {
       team: 'Wendy Adams, Trish Loeblein, Ariel Paul, Noah Podolefsky, Amy Rouinfar, Carl Wieman',
       qualityAssurance: 'Steele Dalton, Bryce Griebenow, Elise Morgan, Oliver Orejola, Ben Roberts, Bryan Yoelin',
       thanks: 'Thanks to Mobile Learner Labs for working with the PhET development team to convert this simulation to HTML5.'
-    }
+    },
+    keyboardHelpNode: keyboardHelpContent,
+    accessibility: true
   };
 
   SimLauncher.launch( function() {
