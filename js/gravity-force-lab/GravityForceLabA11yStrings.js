@@ -98,6 +98,9 @@ define( require => {
     moveSphereDescription: {
       value: 'Move sphere left and right with the Left and Right Arrow keys.'
     },
+    moveInSmallerStepsDescription: {
+      value: 'Move in smaller steps with shift plus arrow keys.'
+    },
     moveInLargerStepsDescription: {
       value: 'Move in larger steps with Page Up and Page Down keys.'
     },
@@ -115,6 +118,9 @@ define( require => {
     },
     changeMassInLargerStepsDescription: {
       value: 'Change mass in larger steps with Page Up and Page Down keys.'
+    },
+    changeMassInSmallerStepsDescription: {
+      value: 'Change mass in smaller steps with shift plus arrow keys.'
     },
     jumpToMaximumMassDescription: {
       value: 'Jump to maximum mass with End key.'

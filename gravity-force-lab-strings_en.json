@@ -26,6 +26,9 @@
   "moveSphereLabel": {
     "value": "Move sphere"
   },
+  "moveInSmallerSteps": {
+    "value": "Move in smaller steps"
+  },
   "moveInLargerSteps": {
     "value": "Move in larger steps"
   },
@@ -46,6 +49,9 @@
   },
   "changeMassInLargerSteps": {
     "value": "Change mass in larger steps"
+  },
+  "changeMassInSmallerSteps": {
+    "value": "Change mass in smaller steps"
   },
   "jumpToMaximumMass": {
     "value": "Jump to maximum mass"

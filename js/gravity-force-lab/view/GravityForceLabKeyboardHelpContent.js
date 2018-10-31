@@ -25,24 +25,28 @@ define( function( require ) {
   // strings
   var changeMassHeadingString = require( 'string!GRAVITY_FORCE_LAB/changeMassHeading' );
   var changeMassInLargerStepsString = require( 'string!GRAVITY_FORCE_LAB/changeMassInLargerSteps' );
+  var changeMassInSmallerStepsString = require( 'string!GRAVITY_FORCE_LAB/changeMassInSmallerSteps' );
   var decreaseMassString = require( 'string!GRAVITY_FORCE_LAB/decreaseMass' );
   var increaseMassString = require( 'string!GRAVITY_FORCE_LAB/increaseMass' );
   var jumpToLeftString = require( 'string!GRAVITY_FORCE_LAB/jumpToLeft' );
   var jumpToMaximumMassString = require( 'string!GRAVITY_FORCE_LAB/jumpToMaximumMass' );
   var jumpToMinimumMassString = require( 'string!GRAVITY_FORCE_LAB/jumpToMinimumMass' );
   var jumpToRightString = require( 'string!GRAVITY_FORCE_LAB/jumpToRight' );
+  var moveInSmallerStepsString = require( 'string!GRAVITY_FORCE_LAB/moveInSmallerSteps' );
   var moveInLargerStepsString = require( 'string!GRAVITY_FORCE_LAB/moveInLargerSteps' );
   var moveSphereLabelString = require( 'string!GRAVITY_FORCE_LAB/moveSphereLabel' );
   var moveSpheresHeadingString = require( 'string!GRAVITY_FORCE_LAB/moveSpheresHeading' );
 
   // a11y strings
   var moveSphereDescriptionString = GravityForceLabA11yStrings.moveSphereDescription.value;
+  var moveInSmallerStepsDescriptionString = GravityForceLabA11yStrings.moveInSmallerStepsDescription.value;
   var moveInLargerStepsDescriptionString = GravityForceLabA11yStrings.moveInLargerStepsDescription.value;
   var jumpToLeftDescriptionString = GravityForceLabA11yStrings.jumpToLeftDescription.value;
   var jumpToRightDescriptionString = GravityForceLabA11yStrings.jumpToRightDescription.value;
   var increaseMassDescriptionString = GravityForceLabA11yStrings.increaseMassDescription.value;
   var decreaseMassDescriptionString = GravityForceLabA11yStrings.decreaseMassDescription.value;
   var changeMassInLargerStepsDescriptionString = GravityForceLabA11yStrings.changeMassInLargerStepsDescription.value;
+  var changeMassInSmallerStepsDescriptionString = GravityForceLabA11yStrings.changeMassInSmallerStepsDescription.value;
   var jumpToMaximumMassDescriptionString = GravityForceLabA11yStrings.jumpToMaximumMassDescription.value;
   var jumpToMinimumMassDescriptionString = GravityForceLabA11yStrings.jumpToMinimumMassDescription.value;
 
@@ -71,6 +75,12 @@ define( function( require ) {
     },
     pageUpPageDown: function() {
       return HelpContent.pageUpPageDownRowIcon();
+    },
+    shiftPlusArrows: function() {
+      return HelpContent.shiftPlusIcon( HelpContent.leftRightArrowKeysRowIcon() );
+    },
+    shiftPlusAllArrows: function() {
+      return HelpContent.shiftPlusIcon( HelpContent.arrowKeysRowIcon() );
     }
   };
 
@@ -86,6 +96,7 @@ define( function( require ) {
     // move mass content
     var moveMassRow = this.constructRow( moveSphereLabelString, moveSphereDescriptionString, 'leftRight' );
 
+    var moveSmallStepsRow = this.constructRow( moveInSmallerStepsString, moveInSmallerStepsDescriptionString, 'shiftPlusArrows' );
     // 'move in larger steps' content
     var moveLargeStepsRow = this.constructRow( moveInLargerStepsString, moveInLargerStepsDescriptionString, 'pageUpPageDown' );
 
@@ -95,17 +106,18 @@ define( function( require ) {
     // 'jump to right' content
     var jumpRightRow = this.constructRow( jumpToRightString, jumpToRightDescriptionString, 'end' );
 
-    var moveMassRows = [ moveMassRow, moveLargeStepsRow, jumpLeftRow, jumpRightRow ];
+    var moveMassRows = [ moveMassRow, moveSmallStepsRow, moveLargeStepsRow, jumpLeftRow, jumpRightRow ];
     var moveMassHelpContent = new HelpContent( moveSpheresHeadingString, moveMassRows );
 
     // Mass adjustment help section
     var increaseMassRow = this.constructRow( increaseMassString, increaseMassDescriptionString, 'upOrRight' );
     var decreaseMassRow = this.constructRow( decreaseMassString, decreaseMassDescriptionString, 'downOrLeft' );
+    var changeMassSmallStepsRow = this.constructRow( changeMassInSmallerStepsString, changeMassInSmallerStepsDescriptionString, 'shiftPlusAllArrows' );
     var changeMassLargeStepsRow = this.constructRow( changeMassInLargerStepsString, changeMassInLargerStepsDescriptionString, 'pageUpPageDown' );
     var jumpToMinMassRow = this.constructRow( jumpToMinimumMassString, jumpToMinimumMassDescriptionString, 'home' );
     var jumpToMaxMassRow = this.constructRow( jumpToMaximumMassString, jumpToMaximumMassDescriptionString, 'end' );
 
-    var adjustMassRows = [ increaseMassRow, decreaseMassRow, changeMassLargeStepsRow, jumpToMinMassRow, jumpToMaxMassRow ];
+    var adjustMassRows = [ increaseMassRow, decreaseMassRow, changeMassSmallStepsRow, changeMassLargeStepsRow, jumpToMinMassRow, jumpToMaxMassRow ];
     var adjustMassHelpContent = new HelpContent( changeMassHeadingString, adjustMassRows );
 
     // align icons for the mass movement and adjustment sections
