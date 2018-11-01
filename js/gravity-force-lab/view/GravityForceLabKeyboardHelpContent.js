@@ -32,8 +32,8 @@ define( function( require ) {
   var jumpToMaximumMassString = require( 'string!GRAVITY_FORCE_LAB/jumpToMaximumMass' );
   var jumpToMinimumMassString = require( 'string!GRAVITY_FORCE_LAB/jumpToMinimumMass' );
   var jumpToRightString = require( 'string!GRAVITY_FORCE_LAB/jumpToRight' );
-  var moveInSmallerStepsString = require( 'string!GRAVITY_FORCE_LAB/moveInSmallerSteps' );
   var moveInLargerStepsString = require( 'string!GRAVITY_FORCE_LAB/moveInLargerSteps' );
+  var moveInSmallerStepsString = require( 'string!GRAVITY_FORCE_LAB/moveInSmallerSteps' );
   var moveSphereLabelString = require( 'string!GRAVITY_FORCE_LAB/moveSphereLabel' );
   var moveSpheresHeadingString = require( 'string!GRAVITY_FORCE_LAB/moveSpheresHeading' );
 
