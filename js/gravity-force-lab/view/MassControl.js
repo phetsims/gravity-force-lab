@@ -58,6 +58,7 @@ define( function( require ) {
 
         // a11y
         keyboardStep: 50,
+        pageKeyboardStep: 100,
         accessibleName: titleString,
         accessibleValuePattern: valueKilogramsPatternString // {{value}} kilograms
       },
