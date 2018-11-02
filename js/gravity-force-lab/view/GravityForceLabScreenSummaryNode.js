@@ -21,19 +21,26 @@ define( require => {
 
   class GravityForceLabScreenSummaryNode extends Node {
 
-    constructor( model, stringManager ) {
-      super( {
+    constructor( model, stringManager, options ) {
+
+      options = _.extend( {
         tagName: 'div',
         descriptionTagName: 'p',
         descriptionContent: screenSummaryDescriptionString
-      } );
+      }, options );
+
+      const summaryOptions = _.extend( {
+        simStateLabel: simStateListLabelString
+      }, options.summaryOptions );
+
+      super( _.omit( options, 'summaryOptions' ) );
 
       this.stringManager = stringManager;
 
       this.simStateNode = new Node( {
         tagName: 'ul',
         labelTagName: 'p',
-        labelContent: simStateListLabelString
+        labelContent: summaryOptions.simStateLabel
       } );
 
       this.forceVectorsSummaryItem = new Node( { tagName: 'li' } );

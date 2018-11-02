@@ -15,6 +15,7 @@ define( require => {
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
   const GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
+  const ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
   const ISLCStringManager = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCStringManager' );
   const LinearFunction = require( 'DOT/LinearFunction' );
   const Property = require( 'AXON/Property' );
@@ -27,7 +28,8 @@ define( require => {
   // const mass2AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass2Abbreviated' );
 
   const massValuesAndComparisonSummaryPatternString = GravityForceLabA11yStrings.massValuesAndComparisonSummaryPattern.value;
-  const sizeAndPositionPatternString = '{{thisObject}} is {{size}} at {{massValue}} kg and at {{positionMark}} meter mark';
+  // TODO: proper string usage
+  const sizeAndPositionPatternString = '{{thisObject}} is {{size}} at {{massValue}} kg and at {{positionUnitMark}} mark';
 
   const muchMuchSmallerThanString = GravityForceLabA11yStrings.muchMuchSmallerThan.value;
   const muchSmallerThanString = GravityForceLabA11yStrings.muchSmallerThan.value;
@@ -42,6 +44,7 @@ define( require => {
 
   // constants
   const MICRO_CONVERSION_FACTOR = 1e6;
+  const { OBJECT_ONE } = ISLCObjectEnum;
   const exponentToIndex = new LinearFunction( -1, 1, 0, 6 );
   const { min, max } = GravityForceLabConstants.PULL_FORCE_RANGE;
   const forceToPullIndex = new LinearFunction( min, max, 6, 0, true );
@@ -49,9 +52,16 @@ define( require => {
   class GravityForceLabStringManager extends ISLCStringManager {
     constructor( model, object1Label, object2Label, options ) {
 
-      options = options ? options : _.extend( {
+      options = _.extend( {
         valueUnits: micronewtonsString,
-        valueUnitConversion: MICRO_CONVERSION_FACTOR
+        centerOffset: 5,
+        convertForceValue: value => Util.toFixedNumber( value * MICRO_CONVERSION_FACTOR, 7 ),
+        convertDistanceApart: distance => Util.toFixedNumber( distance, 2 ),
+        formatPositionUnitMark: position => {
+          position = Util.toFixedNumber( position, 1 );
+          return StringUtils.fillIn( '{{position}} meter', { position } );
+        },
+        formatMassValue: mass => mass
       }, options );
 
       super( model, object1Label, object2Label, options );
@@ -59,6 +69,9 @@ define( require => {
       // @private
       this._object1ToObject2Ratio = 0;
       this._object2ToObject1Ratio = 0;
+      this.formatMassValue = options.formatMassValue;
+      this.centerOffset = options.centerOffset;
+      this.formatPositionUnitMark = options.formatPositionUnitMark;
 
       Property.multilink(
         [ model.object1.radiusProperty, model.object2.radiusProperty ],
@@ -78,8 +91,8 @@ define( require => {
       const fillObject = {
         mass1Label: this.object1Label,
         mass2Label: this.object2Label,
-        m1Mass: this.object1.valueProperty.get(),
-        m2Mass: this.object2.valueProperty.get(),
+        m1Mass: this.formatMassValue( this.object1.valueProperty.get() ),
+        m2Mass: this.formatMassValue( this.object2.valueProperty.get() ),
         comparitiveValue: RELATIVE_SIZE_STRINGS[ relativeSizeIndex ]
       };
       return StringUtils.fillIn( massValuesAndComparisonSummaryPatternString, fillObject );
@@ -89,11 +102,20 @@ define( require => {
     getSizeAndPositionItemText( massLabel ) {
       const modelObject = massLabel === this.object1Label ? this.object1 : this.object2;
       const thisObject = massLabel;
-      const massValue = modelObject.valueProperty.get();
+      let massValue = modelObject.valueProperty.get();
       const size = this.getSizeOfMass( massValue );
-      const positionMark = Util.toFixedNumber( modelObject.positionProperty.get() + 5, 1 );
+      massValue = this.formatMassValue( massValue );
+      const positionUnitMark = this.formatPositionUnitMark( modelObject.positionProperty.get() + this.centerOffset );
       const pattern = sizeAndPositionPatternString;
-      return StringUtils.fillIn( pattern, { thisObject, size, massValue, positionMark } );
+      return StringUtils.fillIn( pattern, { thisObject, size, massValue, positionUnitMark } );
+    }
+
+    // TODO: proper string usage
+    getMassSphereString( objectEnum ) {
+      const massLabel = objectEnum === OBJECT_ONE ? this.object1Label : this.object2Label;
+      const massRedSpherePatternString = `${massLabel}, Red Sphere`;
+      const massBlueSpherePatternString = `${massLabel}, Blue Sphere`;
+      return objectEnum === OBJECT_ONE ? massBlueSpherePatternString : massRedSpherePatternString;
     }
 
     getSizeOfMass( massValue ) {
