@@ -54,6 +54,9 @@ define( function( require ) {
   var spherePositionHelpTextString = ISLCA11yStrings.spherePositionHelpText.value;
   var massControlsLabelString = GravityForceLabA11yStrings.massControlsLabel.value;
   var massControlsHelpTextString = GravityForceLabA11yStrings.massControlsHelpText.value;
+  var constantSizeCheckboxHelpTextString = GravityForceLabA11yStrings.constantSizeCheckboxHelpText.value;
+  var forceValuesCheckboxHelpTextString = ISLCA11yStrings.forceValuesCheckboxHelpText.value;
+  var scientificNotationCheckboxHelpTextString = ISLCA11yStrings.scientificNotationCheckboxHelpText.value;
 
   // constants
   var CONTROL_SCALE = 0.72;
@@ -186,16 +189,19 @@ define( function( require ) {
     var checkboxItems = [
       new ISLCCheckboxItem( constantSizeString, model.constantRadiusProperty, {
         accessibleName: constantSizeString,
+        descriptionContent: constantSizeCheckboxHelpTextString,
         textSize: TEXT_SIZE,
         tandem: tandem.createTandem( 'constantRadiusCheckbox' )
       } ),
       new ISLCCheckboxItem( forceValuesString, model.forceValuesProperty, {
         accessibleName: forceValuesString,
+        descriptionContent: forceValuesCheckboxHelpTextString,
         textSize: TEXT_SIZE,
         tandem: tandem.createTandem( 'forceValuesCheckbox' )
       } ),
       new ISLCCheckboxItem( scientificNotationString, model.scientificNotationProperty, {
         accessibleName: scientificNotationString,
+        descriptionContent: scientificNotationCheckboxHelpTextString,
         textSize: TEXT_SIZE,
         tandem: tandem.createTandem( 'scientificNotationCheckbox' )
       } )

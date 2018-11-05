@@ -96,6 +96,9 @@ define( require => {
     massControlsHelpTextBillions: {
       value: 'Change mass of spheres in billions of kilograms.'
     },
+    constantSizeCheckboxHelpText: {
+      value: 'When changing mass, observe constant or changing size of spheres.'
+    },
 
     /************************************
      Keyboard Help Content
