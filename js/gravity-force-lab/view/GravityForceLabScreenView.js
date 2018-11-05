@@ -53,6 +53,7 @@ define( function( require ) {
   var spherePositionsString = ISLCA11yStrings.spherePositions.value;
   var spherePositionHelpTextString = ISLCA11yStrings.spherePositionHelpText.value;
   var massControlsLabelString = GravityForceLabA11yStrings.massControlsLabel.value;
+  var massControlsHelpTextString = GravityForceLabA11yStrings.massControlsHelpText.value;
 
   // constants
   var CONTROL_SCALE = 0.72;
@@ -155,7 +156,8 @@ define( function( require ) {
     var massControlsNode = new Node( {
       labelTagName: 'h3',
       labelContent: massControlsLabelString,
-      tagName: 'ul'
+      tagName: 'ul',
+      descriptionContent: massControlsHelpTextString
     } );
     playAreaNode.addChild( massControlsNode );
 

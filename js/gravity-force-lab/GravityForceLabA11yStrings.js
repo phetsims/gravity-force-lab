@@ -90,6 +90,12 @@ define( require => {
     massControlsLabel: {
       value: 'Mass Controls'
     },
+    massControlsHelpText: {
+      value: 'Change mass of spheres in kilograms.'
+    },
+    massControlsHelpTextBillions: {
+      value: 'Change mass of spheres in billions of kilograms.'
+    },
 
     /************************************
      Keyboard Help Content
