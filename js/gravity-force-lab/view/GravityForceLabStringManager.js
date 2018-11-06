@@ -61,7 +61,7 @@ define( require => {
         }
         else {
           units = 'micronewtons';
-          value = Util.toFixedNumber( forceValue * MICRO_CONVERSION_FACTOR, 7 );
+          value = Util.toFixedNumber( forceValue * MICRO_CONVERSION_FACTOR, 6 );
         }
 
         return `${value} ${units}`;
