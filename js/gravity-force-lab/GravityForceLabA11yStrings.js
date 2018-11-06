@@ -100,10 +100,7 @@ define( require => {
       value: 'When changing mass, observe constant or changing size of spheres.'
     },
     constantRadiusThinkDensity: {
-      value: 'Think about density. m1 and m2 set to same size.'
-    },
-    massesDifferentSizes: {
-      value: 'm1 and m2 different sizes.'
+      value: 'm1 and m2 set to same size.'
     },
 
     /************************************

@@ -72,7 +72,7 @@ define( function( require ) {
       tandem: tandem
     } );
     var stringManager = new GravityForceLabStringManager( model, mass1AbbreviatedString, mass2AbbreviatedString );
-    this.alertManager = new GravityForceLabAlertManager( model );
+    this.alertManager = new GravityForceLabAlertManager( model, stringManager );
     var summaryNode = new GravityForceLabScreenSummaryNode( model, stringManager );
     var playAreaNode = new PlayAreaNode();
     var controlAreaNode = new ControlAreaNode();

@@ -15,12 +15,13 @@ define( require => {
   const forcesInScientificNotationString = ISLCA11yStrings.forcesInScientificNotation.value;
   const forcesInDecimalString = ISLCA11yStrings.forcesInDecimal.value;
   const constantRadiusThinkDensityString = GravityForceLabA11yStrings.constantRadiusThinkDensity.value;
-  const massesDifferentSizesString = GravityForceLabA11yStrings.massesDifferentSizes.value;
 
   class GravityForceLabAlertManager extends ISLCAlertManager{
-    constructor( model ) {
+    constructor( model, stringManager ) {
 
       super( model, {} );
+
+      this.stringManager = stringManager;
 
       model.scientificNotationProperty.lazyLink( displayInScientificNotation => {
         this.alertScientificNotation( displayInScientificNotation );
@@ -38,7 +39,7 @@ define( require => {
     }
 
     alertConstantRadius( constantRadius ) {
-      const alert = constantRadius ? constantRadiusThinkDensityString : massesDifferentSizesString;
+      const alert = constantRadius ? constantRadiusThinkDensityString : this.stringManager.getM1RelativeSize();
       const utterance = new Utterance( { alert, uniqueGroupId: 'constantRadius' } );
       utteranceQueue.addToBack( utterance );
     }

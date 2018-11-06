@@ -30,6 +30,10 @@ define( require => {
         const newContent = stringManager.getSizeAndPositionItemText( this.thisObjectLabel );
         this.massAndPositionNode.innerContent = newContent;
       } );
+
+      model.scientificNotationProperty && model.scientificNotationProperty.link( displayInScientificNotation => {
+        this.forceVectorMagnitudeItemNode.innerContent = this.stringManager.getForceVectorMagnitudeText();
+      } );
     }
   }
 

@@ -81,6 +81,10 @@ define( require => {
           this.updateMassValuesSummary();
         }
       );
+
+      model.scientificNotationProperty && model.scientificNotationProperty.link( () => {
+        this.updateForceVectorSummary();
+      } );
     }
 
     updateSimStateList() {

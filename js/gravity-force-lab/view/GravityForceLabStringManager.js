@@ -52,10 +52,25 @@ define( require => {
   class GravityForceLabStringManager extends ISLCStringManager {
     constructor( model, object1Label, object2Label, options ) {
 
+      const convertForceValue = forceValue => {
+        let units;
+        let value;
+        if ( model.scientificNotationProperty.get() ) {
+          units = 'newtons';
+          value = ISLCStringManager.getForceInScientificNotation( forceValue, 2 );
+        }
+        else {
+          units = 'micronewtons';
+          value = Util.toFixedNumber( forceValue * MICRO_CONVERSION_FACTOR, 7 );
+        }
+
+        return `${value} ${units}`;
+      };
+
       options = _.extend( {
         valueUnits: micronewtonsString,
         centerOffset: 5,
-        convertForceValue: value => Util.toFixedNumber( value * MICRO_CONVERSION_FACTOR, 7 ),
+        convertForceValue,
         convertDistanceApart: distance => Util.toFixedNumber( distance, 2 ),
         formatPositionUnitMark: position => {
           position = Util.toFixedNumber( position, 1 );
@@ -108,6 +123,12 @@ define( require => {
       const positionUnitMark = this.formatPositionUnitMark( modelObject.positionProperty.get() + this.centerOffset );
       const pattern = sizeAndPositionPatternString;
       return StringUtils.fillIn( pattern, { thisObject, size, massValue, positionUnitMark } );
+    }
+
+    getM1RelativeSize() {
+      const relativeSizeIndex = Util.roundSymmetric( this.getRelativeSizeIndex( this._object1ToObject2Ratio ) );
+      const comparitiveValue = RELATIVE_SIZE_STRINGS[ relativeSizeIndex ];
+      return StringUtils.fillIn( 'm1 {{comparitiveValue}} m2', { comparitiveValue } );
     }
 
     // TODO: proper string usage
