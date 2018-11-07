@@ -52,12 +52,13 @@ define( require => {
   class GravityForceLabStringManager extends ISLCStringManager {
     constructor( model, object1Label, object2Label, options ) {
 
+      // TODO: proper string handling
       const convertForceValue = forceValue => {
         let units;
         let value;
         if ( model.scientificNotationProperty.get() ) {
           units = 'newtons';
-          value = ISLCStringManager.getForceInScientificNotation( forceValue, 2 );
+          value = ISLCStringManager.getForceInScientificNotation( forceValue, 4 );
         }
         else {
           units = 'micronewtons';

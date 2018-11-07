@@ -13,15 +13,14 @@ define( require => {
 
   // strings
   const forcesInScientificNotationString = ISLCA11yStrings.forcesInScientificNotation.value;
-  const forcesInDecimalString = ISLCA11yStrings.forcesInDecimal.value;
   const constantRadiusThinkDensityString = GravityForceLabA11yStrings.constantRadiusThinkDensity.value;
 
   class GravityForceLabAlertManager extends ISLCAlertManager{
     constructor( model, stringManager ) {
 
-      super( model, {} );
+      super( model, stringManager );
 
-      this.stringManager = stringManager;
+      // this.stringManager = stringManager;
 
       model.scientificNotationProperty.lazyLink( displayInScientificNotation => {
         this.alertScientificNotation( displayInScientificNotation );
@@ -30,10 +29,21 @@ define( require => {
       model.constantRadiusProperty.lazyLink( constantRadius => {
         this.alertConstantRadius( constantRadius );
       } );
+
+      model.forceValuesProperty.lazyLink( showValues => {
+
+        const scientificNotation = model.scientificNotationProperty.get();
+        if ( !showValues || !scientificNotation ) {
+          this.alertForceValues( showValues );
+        }
+        else {
+          this.alertScientificNotation( scientificNotation );
+        }
+      } );
     }
 
     alertScientificNotation( displayInScientificNotation ) {
-      const alert = displayInScientificNotation ? forcesInScientificNotationString : forcesInDecimalString;
+      const alert = displayInScientificNotation ? forcesInScientificNotationString : this.stringManager.getForceValuesInUnitsText();
       const utterance = new Utterance( { alert, uniqueGroupId: 'scientificNotation' } );
       utteranceQueue.addToBack( utterance );
     }
