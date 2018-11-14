@@ -18,6 +18,7 @@ define( function( require ) {
   var ISLCStringManager = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCStringManager' );
   var RadialGradient = require( 'SCENERY/util/RadialGradient' );
   var Tandem = require( 'TANDEM/Tandem' );
+  var Util = require( 'DOT/Util' );
 
   // constants
   var ARROW_LABEL_COLOR_STRING = '#000';
@@ -47,7 +48,7 @@ define( function( require ) {
 
       // a11y
       createAriaValueText: function( formattedValue, previousValue ) {
-        formattedValue += 5;
+        formattedValue = Util.toFixedNumber( formattedValue + 5, 1 );
         return ISLCStringManager.getPositionMeterMarkText( `${formattedValue} meter` );
       }
     }, options );
