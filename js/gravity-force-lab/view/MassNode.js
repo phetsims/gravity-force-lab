@@ -48,7 +48,7 @@ define( function( require ) {
 
       // a11y
       createAriaValueText: function( formattedValue, previousValue ) {
-        formattedValue = Util.toFixedNumber( formattedValue + 5, 1 );
+        formattedValue = Util.toFixedNumber( formattedValue + 4.8, 1 );
         return ISLCStringManager.getPositionMeterMarkText( `${formattedValue} meter` );
       }
     }, options );

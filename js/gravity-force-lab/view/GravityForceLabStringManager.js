@@ -70,7 +70,7 @@ define( require => {
 
       options = _.extend( {
         valueUnits: micronewtonsString,
-        centerOffset: 5,
+        centerOffset: 4.8,
         convertForceValue,
         convertDistanceApart: distance => Util.toFixedNumber( distance, 2 ),
         formatPositionUnitMark: position => {
