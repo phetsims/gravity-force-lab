@@ -34,8 +34,7 @@ define( function( require ) {
    * @param {Tandem} tandem
    * @constructor
    */
-  function MassControl( titleString, valueProperty, massRange, thumbColor, tandem ) {
-
+  function MassControl( titleString, valueProperty, massRange, thumbColor, options, tandem ) {
     ISLCObjectControlPanel.call( this, titleString, unitsKgString, valueProperty, massRange, {
 
       // panel options
@@ -60,7 +59,8 @@ define( function( require ) {
         keyboardStep: 50,
         pageKeyboardStep: 100,
         accessibleName: titleString,
-        accessibleValuePattern: valueKilogramsPatternString // {{value}} kilograms
+        accessibleValuePattern: valueKilogramsPatternString, // {{value}} kilograms
+        onFocus: options.onFocus
       },
 
       tickLabelOptions: {

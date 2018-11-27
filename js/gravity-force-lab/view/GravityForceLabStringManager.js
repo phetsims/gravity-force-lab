@@ -45,7 +45,9 @@ define( require => {
   // constants
   const MICRO_CONVERSION_FACTOR = 1e6;
   const { OBJECT_ONE } = ISLCObjectEnum;
-  const exponentToIndex = new LinearFunction( -1, 1, 0, 6 );
+  // const exponentToIndex = new LinearFunction( -1, 1, 0, 6 );
+  // const massDifferenceToIndex = new LinearFunction( -500, 500, 0, 6, true );
+  const radiusDifferenceToIndex = new LinearFunction( -0.6, 0.6, 0, 6, true );
   const { min, max } = GravityForceLabConstants.PULL_FORCE_RANGE;
   const forceToPullIndex = new LinearFunction( min, max, 6, 0, true );
 
@@ -85,6 +87,7 @@ define( require => {
       // @private
       this._object1ToObject2Ratio = 0;
       this._object2ToObject1Ratio = 0;
+      this._radiusDifference = 0;
       this.formatMassValue = options.formatMassValue;
       this.centerOffset = options.centerOffset;
       this.formatPositionUnitMark = options.formatPositionUnitMark;
@@ -92,8 +95,26 @@ define( require => {
       Property.multilink(
         [ model.object1.radiusProperty, model.object2.radiusProperty ],
         ( r1, r2 ) => {
-          this._object1ToObject2Ratio = r1 / r2;
-          this._object2ToObject1Ratio = 1 / this._object1ToObject2Ratio;
+          console.log( 'radius diff', r1 - r2);
+          this._radiusDifference = r1 - r2;
+          // max diff -1.0507898924466623
+          // min diff 0
+        }
+      );
+
+      Property.multilink(
+        [ model.object1.valueProperty, model.object2.valueProperty ],
+        ( m1, m2 ) => {
+          /*
+           * TS noted in the design doc about using 'steps' instead of ratios
+           * this implies that I should take the actual difference between the two
+           * values
+           * One advantage is that I can simply use the sign of the value
+           */
+          // this._object1ToObject2Ratio = r1 / r2;
+          // this._object2ToObject1Ratio = 1 / this._object1ToObject2Ratio;
+          // if r2 is larger than r1 then the value will be negative
+          this._objectDifference = m1 - m2;
         }
       );
     }
@@ -103,7 +124,7 @@ define( require => {
     /////////////////////
 
     getMassValuesSummaryText() {
-      const relativeSizeIndex = Util.roundSymmetric( this.getRelativeSizeIndex( this._object1ToObject2Ratio ) );
+      const relativeSizeIndex = Util.roundSymmetric( this.getRelativeSizeIndex( this._radiusDifference ) );
       const fillObject = {
         mass1Label: this.object1Label,
         mass2Label: this.object2Label,
@@ -140,14 +161,49 @@ define( require => {
       return objectEnum === OBJECT_ONE ? massBlueSpherePatternString : massRedSpherePatternString;
     }
 
+    getMassControlFocusAlertText( objectEnum ) {
+      const pattern = '{{value}} kilograms, {{size}}, {{relativeSize}} {{otherObject}}';
+      const thisObject = objectEnum === OBJECT_ONE ? this.object1 : this.object2;
+      const value = thisObject.valueProperty.get();
+      const size = this.getSizeOfMass( value );
+      const relativeSize = this.getObjectRelativeSize( objectEnum );
+      const otherObject = objectEnum === OBJECT_ONE ? this.object2Label : this.object1Label;
+      return StringUtils.fillIn( pattern, { value, size, relativeSize, otherObject } );
+    }
+
     getSizeOfMass( massValue ) {
       const massIndex = this.getMassSizeIndex( massValue );
       return this.getSizeFromIndex( massIndex );
     }
 
-    getRelativeSizeIndex( ratio ) {
-      const exp = Math.log10( ratio );
-      return Util.roundSymmetric( exponentToIndex( exp ) );
+    getObjectRelativeSize( objectEnum ) {
+      // const ratio = objectEnum === OBJECT_ONE ? this._object1ToObject2Ratio : this._object2ToObject1Ratio;
+      const difference = objectEnum === OBJECT_ONE ? this._radiusDifference : this._radiusDifference * -1;
+      // console.log('getObjectRelativeSize', difference);
+      const index = this.getRelativeSizeIndex( difference );
+      return this.getRelativeSizeFromIndex( index );
+    }
+
+    getRelativeSizeFromIndex( index ) {
+      // negative values => much smaller than (this < other)
+      // positive values =>
+      return RELATIVE_SIZE_STRINGS[ index ];
+    }
+
+    getRelativeSizeIndex( difference ) {
+      // step size is ~50
+      // const exp = Math.log10( difference );
+      // return Util.roundSymmetric( exponentToIndex( exp ) );
+      console.log( 'getraltivesizeindex radius diff', difference );
+      console.log( Util.roundSymmetric( radiusDifferenceToIndex(difference) ) );
+      return Util.roundSymmetric( radiusDifferenceToIndex( difference ) );
+      // if ( difference > 500 ) {
+      //   return 0;
+      // }
+      //
+      // if ( difference > 300 && ) {
+      //
+      // }
     }
 
     getMassSizeIndex( mass ) {

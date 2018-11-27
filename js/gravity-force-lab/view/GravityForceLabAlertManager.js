@@ -6,10 +6,14 @@ define( require => {
   // modules
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
+  // const ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
   const ISLCA11yStrings = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCA11yStrings' );
   const ISLCAlertManager = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCAlertManager' );
   const Utterance = require( 'SCENERY_PHET/accessibility/Utterance' );
   const utteranceQueue = require( 'SCENERY_PHET/accessibility/utteranceQueue' );
+
+  // constants
+  // const { OBJECT_ONE } = ISLCObjectEnum;
 
   // strings
   const forcesInScientificNotationString = ISLCA11yStrings.forcesInScientificNotation.value;
@@ -52,6 +56,11 @@ define( require => {
       const alert = constantRadius ? constantRadiusThinkDensityString : this.stringManager.getM1RelativeSize();
       const utterance = new Utterance( { alert, uniqueGroupId: 'constantRadius' } );
       utteranceQueue.addToBack( utterance );
+    }
+
+    alertMassControlFocus( objectEnum ) {
+      const alert = this.stringManager.getMassControlFocusAlertText( objectEnum );
+      utteranceQueue.addToBack( alert );
     }
   }
 

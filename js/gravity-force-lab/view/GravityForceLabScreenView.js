@@ -71,6 +71,7 @@ define( function( require ) {
       addScreenSummaryNode: true,
       tandem: tandem
     } );
+    var self = this;
     var stringManager = new GravityForceLabStringManager( model, mass1AbbreviatedString, mass2AbbreviatedString );
     this.alertManager = new GravityForceLabAlertManager( model, stringManager );
     var summaryNode = new GravityForceLabScreenSummaryNode( model, stringManager );
@@ -166,11 +167,23 @@ define( function( require ) {
     } );
     playAreaNode.addChild( massControlsNode );
 
+    // function massControlOnFocus( objectEnum ) {
+    //   return function( event ) {
+    //     this.alertManager.alertMassControlFocus( objectEnum );
+    //   };
+    // }
+
     var massControl1 = new MassControl(
       mass1String,
       model.object1.valueProperty,
       GravityForceLabConstants.MASS_RANGE,
       GravityForceLabConstants.MASS_BLUE_COLOR,
+      {
+        onFocus: function( event ) {
+          console.log( 'from screenview', self);
+          self.alertManager.alertMassControlFocus( OBJECT_ONE );
+        }
+      },
       tandem.createTandem( 'massControl1' )
     );
     massControl1.scale( CONTROL_SCALE );
@@ -181,6 +194,11 @@ define( function( require ) {
       model.object2.valueProperty,
       GravityForceLabConstants.MASS_RANGE,
       GravityForceLabConstants.MASS_RED_COLOR,
+      {
+        onFocus: function( event ) {
+          self.alertManager.alertMassControlFocus( OBJECT_TWO );
+        }
+      },
       tandem.createTandem( 'massControl2' )
     );
     massControl2.scale( CONTROL_SCALE );
