@@ -96,7 +96,6 @@ define( require => {
       Property.multilink(
         [ model.object1.radiusProperty, model.object2.radiusProperty ],
         ( r1, r2 ) => {
-          console.log( 'radius diff', r1 - r2);
           this._radiusDifference = r1 - r2;
           // max diff -1.0507898924466623
           // min diff 0
@@ -156,8 +155,8 @@ define( require => {
     }
 
     getM1RelativeSize() {
-      const relativeSizeIndex = Util.roundSymmetric( this.getRelativeSizeIndex( this._object1ToObject2Ratio ) );
-      const comparitiveValue = RELATIVE_SIZE_STRINGS[ relativeSizeIndex ];
+      // const relativeSizeIndex = Util.roundSymmetric( this.getRelativeSizeIndex( this._radiusDifference ) );
+      const comparitiveValue = this.getObjectRelativeSize( OBJECT_ONE );
       return StringUtils.fillIn( 'm1 {{comparitiveValue}} m2', { comparitiveValue } );
     }
 
@@ -202,7 +201,6 @@ define( require => {
     getObjectRelativeSize( objectEnum ) {
       // const ratio = objectEnum === OBJECT_ONE ? this._object1ToObject2Ratio : this._object2ToObject1Ratio;
       const difference = objectEnum === OBJECT_ONE ? this._radiusDifference : this._radiusDifference * -1;
-      // console.log('getObjectRelativeSize', difference);
       const index = this.getRelativeSizeIndex( difference );
       return this.getRelativeSizeFromIndex( index );
     }
@@ -214,19 +212,7 @@ define( require => {
     }
 
     getRelativeSizeIndex( difference ) {
-      // step size is ~50
-      // const exp = Math.log10( difference );
-      // return Util.roundSymmetric( exponentToIndex( exp ) );
-      console.log( 'getraltivesizeindex radius diff', difference );
-      console.log( Util.roundSymmetric( radiusDifferenceToIndex(difference) ) );
       return Util.roundSymmetric( radiusDifferenceToIndex( difference ) );
-      // if ( difference > 500 ) {
-      //   return 0;
-      // }
-      //
-      // if ( difference > 300 && ) {
-      //
-      // }
     }
 
     getMassSizeIndex( mass ) {
