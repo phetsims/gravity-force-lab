@@ -60,7 +60,7 @@ define( require => {
         let value;
         if ( model.scientificNotationProperty.get() ) {
           units = 'newtons';
-          value = ISLCStringManager.getForceInScientificNotation( forceValue, 4 );
+          value = ISLCStringManager.getForceInScientificNotation( forceValue, 2 );
         }
         else {
           units = 'micronewtons';
@@ -85,9 +85,10 @@ define( require => {
       super( model, object1Label, object2Label, options );
 
       // @private
-      this._object1ToObject2Ratio = 0;
-      this._object2ToObject1Ratio = 0;
+
       this._radiusDifference = 0;
+      this._object1MassGrowing = false;
+      this._object2MassGrowing = false;
       this.formatMassValue = options.formatMassValue;
       this.centerOffset = options.centerOffset;
       this.formatPositionUnitMark = options.formatPositionUnitMark;
@@ -109,14 +110,21 @@ define( require => {
            * TS noted in the design doc about using 'steps' instead of ratios
            * this implies that I should take the actual difference between the two
            * values
-           * One advantage is that I can simply use the sign of the value
            */
           // this._object1ToObject2Ratio = r1 / r2;
           // this._object2ToObject1Ratio = 1 / this._object1ToObject2Ratio;
           // if r2 is larger than r1 then the value will be negative
-          this._objectDifference = m1 - m2;
+          this._objectMassDifference = m1 - m2;
         }
       );
+
+      model.object1.valueProperty.link( ( newMass, oldMass ) => {
+        this._object1MassGrowing = ( newMass - oldMass ) > 0;
+      } );
+
+      model.object2.valueProperty.link( ( newMass, oldMass ) => {
+        this._object2MassGrowing = ( newMass - oldMass ) > 0;
+      } );
     }
 
     /////////////////////
@@ -162,13 +170,28 @@ define( require => {
     }
 
     getMassControlFocusAlertText( objectEnum ) {
-      const pattern = '{{value}} kilograms, {{size}}, {{relativeSize}} {{otherObject}}';
+      const pattern = '{{massValue}}, {{size}}, {{relativeSize}} {{otherObject}}';
       const thisObject = objectEnum === OBJECT_ONE ? this.object1 : this.object2;
-      const value = thisObject.valueProperty.get();
-      const size = this.getSizeOfMass( value );
+      const massValue = this.formatMassValue( thisObject.valueProperty.get() );
+      const size = this.getSizeOfMass( massValue );
       const relativeSize = this.getObjectRelativeSize( objectEnum );
       const otherObject = objectEnum === OBJECT_ONE ? this.object2Label : this.object1Label;
-      return StringUtils.fillIn( pattern, { value, size, relativeSize, otherObject } );
+      return StringUtils.fillIn( pattern, { massValue, size, relativeSize, otherObject } );
+    }
+
+    getMassValueChangedAlertText( newMass, oldMass ) {
+      let pattern = 'As mass {{massChange}}, vectors {{vectorChange}}.';
+      const objectIsGrowing = ( newMass - oldMass ) > 0;
+      const massChange = objectIsGrowing ? 'gets bigger' : 'gets smaller';
+      const vectorChange = objectIsGrowing ? 'get bigger' : 'get smaller';
+
+      const fillObject = { massChange, vectorChange };
+
+      if ( this.model.forceValuesProperty.get() ) {
+        pattern = 'As mass {{massChange}}, vectors {{vectorChange}}, forces now {{forceValue}}';
+        fillObject.forceValue = this.getForceValueText();
+      }
+      return StringUtils.fillIn( pattern, fillObject );
     }
 
     getSizeOfMass( massValue ) {

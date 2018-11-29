@@ -180,7 +180,6 @@ define( function( require ) {
       GravityForceLabConstants.MASS_BLUE_COLOR,
       {
         onFocus: function( event ) {
-          console.log( 'from screenview', self);
           self.alertManager.alertMassControlFocus( OBJECT_ONE );
         }
       },

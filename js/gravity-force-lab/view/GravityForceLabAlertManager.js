@@ -44,6 +44,16 @@ define( require => {
           this.alertScientificNotation( scientificNotation );
         }
       } );
+
+      model.object1.valueProperty.lazyLink( ( value, oldValue ) => {
+        utteranceQueue.clear();
+        this.alertMassValueChanged( value, oldValue );
+      } );
+
+      model.object2.valueProperty.lazyLink( ( value, oldValue ) => {
+        utteranceQueue.clear();
+        this.alertMassValueChanged( value, oldValue );
+      } );
     }
 
     alertScientificNotation( displayInScientificNotation ) {
@@ -61,6 +71,12 @@ define( require => {
     alertMassControlFocus( objectEnum ) {
       const alert = this.stringManager.getMassControlFocusAlertText( objectEnum );
       utteranceQueue.addToBack( alert );
+    }
+
+    alertMassValueChanged( value, oldValue ) {
+      const alert = this.stringManager.getMassValueChangedAlertText( value, oldValue );
+      const utterance = new Utterance( { alert, uniqueGroupId: 'massChanged' } );
+      utteranceQueue.addToBack( utterance );
     }
   }
 
