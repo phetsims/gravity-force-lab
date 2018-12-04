@@ -45,15 +45,15 @@ define( require => {
         }
       } );
 
-      model.object1.valueProperty.lazyLink( ( value, oldValue ) => {
-        utteranceQueue.clear();
-        this.alertMassValueChanged( value, oldValue );
-      } );
-
-      model.object2.valueProperty.lazyLink( ( value, oldValue ) => {
-        utteranceQueue.clear();
-        this.alertMassValueChanged( value, oldValue );
-      } );
+      // model.object1.valueProperty.lazyLink( ( value, oldValue ) => {
+      //   utteranceQueue.clear();
+      //   this.alertMassValueChanged( value, oldValue );
+      // } );
+      //
+      // model.object2.valueProperty.lazyLink( ( value, oldValue ) => {
+      //   utteranceQueue.clear();
+      //   this.alertMassValueChanged( value, oldValue );
+      // } );
     }
 
     alertScientificNotation( displayInScientificNotation ) {

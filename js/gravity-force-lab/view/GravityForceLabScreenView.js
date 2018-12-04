@@ -96,6 +96,7 @@ define( function( require ) {
       model,
       model.object1,
       this.layoutBounds,
+      stringManager,
       modelViewTransform, {
         label: mass1AbbreviatedString,
         otherObjectLabel: mass2AbbreviatedString,
@@ -110,6 +111,7 @@ define( function( require ) {
       model,
       model.object2,
       this.layoutBounds,
+      stringManager,
       modelViewTransform, {
         label: mass2AbbreviatedString,
         otherObjectLabel: mass1AbbreviatedString,

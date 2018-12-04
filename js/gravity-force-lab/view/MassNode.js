@@ -15,10 +15,10 @@ define( function( require ) {
   var GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ISLCObjectNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectNode' );
-  var ISLCStringManager = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCStringManager' );
+  // var ISLCStringManager = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCStringManager' );
   var RadialGradient = require( 'SCENERY/util/RadialGradient' );
   var Tandem = require( 'TANDEM/Tandem' );
-  var Util = require( 'DOT/Util' );
+  // var Util = require( 'DOT/Util' );
 
   // constants
   var ARROW_LABEL_COLOR_STRING = '#000';
@@ -32,7 +32,9 @@ define( function( require ) {
    * @param {Object} [options]
    * @constructor
    */
-  function MassNode( model, massModel, layoutBounds, modelViewTransform, options ) {
+  function MassNode( model, massModel, layoutBounds, stringManager, modelViewTransform, options ) {
+
+    var self = this;
 
     options = _.extend( {
       label: 'This Mass',
@@ -47,9 +49,17 @@ define( function( require ) {
       tandem: Tandem.required,
 
       // a11y
+      /*
+        the aria-valuetext will be of the form {{# meter mark}}, [ progress alert (closer/further) / region ], vector size
+        Patterns:
+        - {{position}} meter mark, {{progress}} {{otherObjectLabel}}, force vectors {{size}}
+        - {{position}} meter mark, {{progress}}, force vectors {{size}}
+        - {{position}} meter mark, {{region}} {{otherObject}}, force vectors {{size}}
+        - {{position}} meter mark, {{region}}, force vectors {{size}}
+       */
       createAriaValueText: function( formattedValue, previousValue ) {
-        formattedValue = Util.toFixedNumber( formattedValue + 4.8, 1 );
-        return ISLCStringManager.getPositionMeterMarkText( `${formattedValue} meter` );
+        return stringManager.getSpherePositionAriaValueText( formattedValue, previousValue, self );
+        // return ISLCStringManager.getPositionMeterMarkText( `${formattedValue} meter` );
       }
     }, options );
 
@@ -59,8 +69,6 @@ define( function( require ) {
     this.objectModel = massModel;
 
     ISLCObjectNode.call( this, model, massModel, layoutBounds, modelViewTransform, GravityForceLabConstants.PULL_FORCE_RANGE, options );
-
-    var self = this;
     model.scientificNotationProperty.link( function( scientificNotation ) {
       self.setReadoutsInScientificNotation( scientificNotation );
     } );

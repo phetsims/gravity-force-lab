@@ -178,6 +178,10 @@ define( require => {
       return StringUtils.fillIn( pattern, { massValue, size, relativeSize, otherObject } );
     }
 
+    getSpherePositionAriaValueText( newPosition, oldPosition, objectNode ) {
+      return super.getSpherePositionAriaValueText( Util.toFixedNumber( newPosition + 4.8, 1 ), oldPosition, objectNode );
+    }
+
     getMassValueChangedAlertText( newMass, oldMass ) {
       let pattern = 'As mass {{massChange}}, vectors {{vectorChange}}.';
       const objectIsGrowing = ( newMass - oldMass ) > 0;
@@ -279,25 +283,25 @@ define( require => {
     getDistanceIndex( distance ) {
       assert && assert( distance > 0, 'Distance between spheres should always be positive.' );
 
-      if ( distance >= 8.8 ) {
+      if ( distance >= 8.2 ) {
         return 0;
       }
-      if ( distance >= 7 ) {
+      if ( distance >= 6.7 ) {
         return 1;
       }
-      if ( distance >= 5 ) {
+      if ( distance >= 5.2 ) {
         return 2;
       }
-      if ( distance >= 3 ) {
+      if ( distance >= 3.7 ) {
         return 3;
       }
-      if ( distance >= 1 ) {
+      if ( distance >= 2.2 ) {
         return 4;
       }
-      if ( distance >= 0.6 ) {
+      if ( distance >= 0.9 ) {
         return 5;
       }
-      if ( distance < 0.6 ) {
+      if ( distance < 0.9 ) {
         return 6;
       }
       throw new Error( 'Invalid distance value' );
