@@ -24,6 +24,9 @@ define( require => {
     massValuesAndComparisonSummaryPattern: {
       value: 'Mass of {{mass1Label}} is {{m1Mass}} kilograms, {{comparitiveValue}} {{mass2Label}} at {{m2Mass}} kilograms.'
     },
+    sizeAndPositionPattern: {
+      value: '{{thisObject}} is {{size}} at {{massValue}} kg and at {{positionUnitMark}} mark'
+    },
 
     // Object/sphere descriptions and labels
 

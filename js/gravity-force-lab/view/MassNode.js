@@ -57,9 +57,8 @@ define( function( require ) {
         - {{position}} meter mark, {{region}} {{otherObject}}, force vectors {{size}}
         - {{position}} meter mark, {{region}}, force vectors {{size}}
        */
-      createAriaValueText: function( formattedValue, previousValue ) {
-        return stringManager.getSpherePositionAriaValueText( formattedValue, previousValue, self );
-        // return ISLCStringManager.getPositionMeterMarkText( `${formattedValue} meter` );
+      createAriaValueText: function( formattedValue ) {
+        return stringManager.getSpherePositionAriaValueText( formattedValue, self );
       }
     }, options );
 
@@ -67,11 +66,14 @@ define( function( require ) {
     this.modelViewTransform = modelViewTransform;
     this.model = model;
     this.objectModel = massModel;
+    this.stringManager = stringManager;
 
     ISLCObjectNode.call( this, model, massModel, layoutBounds, modelViewTransform, GravityForceLabConstants.PULL_FORCE_RANGE, options );
     model.scientificNotationProperty.link( function( scientificNotation ) {
       self.setReadoutsInScientificNotation( scientificNotation );
     } );
+
+    this.resetAriaValueText();
   }
 
   gravityForceLab.register( 'MassNode', MassNode );
@@ -91,6 +93,10 @@ define( function( require ) {
     },
     redrawForce: function() {
       ISLCObjectNode.prototype.redrawForce.call( this );
+    },
+    resetAriaValueText: function() {
+      var position = this.objectModel.positionProperty.get();
+      this.ariaValueText = this.stringManager.getSpherePositionAndRegionText( position, this.enum );
     }
   } );
 } );

@@ -29,7 +29,7 @@ define( require => {
 
   const massValuesAndComparisonSummaryPatternString = GravityForceLabA11yStrings.massValuesAndComparisonSummaryPattern.value;
   // TODO: proper string usage
-  const sizeAndPositionPatternString = '{{thisObject}} is {{size}} at {{massValue}} kg and at {{positionUnitMark}} mark';
+  const sizeAndPositionPatternString = GravityForceLabA11yStrings.sizeAndPositionPattern.value;
 
   const muchMuchSmallerThanString = GravityForceLabA11yStrings.muchMuchSmallerThan.value;
   const muchSmallerThanString = GravityForceLabA11yStrings.muchSmallerThan.value;
@@ -178,8 +178,13 @@ define( require => {
       return StringUtils.fillIn( pattern, { massValue, size, relativeSize, otherObject } );
     }
 
-    getSpherePositionAriaValueText( newPosition, oldPosition, objectNode ) {
-      return super.getSpherePositionAriaValueText( Util.toFixedNumber( newPosition + 4.8, 1 ), oldPosition, objectNode );
+    getSpherePositionAriaValueText( newPosition, objectEnum ) {
+      return super.getSpherePositionAriaValueText( Util.toFixedNumber( newPosition + 4.8, 1 ), objectEnum );
+    }
+
+    getSpherePositionAndRegionText( position, objectEnum ) {
+      position = Util.toFixedNumber( position + 4.8, 1 );
+      return super.getSpherePositionAndRegionText( position, objectEnum );
     }
 
     getMassValueChangedAlertText( newMass, oldMass ) {
@@ -252,6 +257,25 @@ define( require => {
 
     // NOTE: these are pure functions, so it may be possible to pass them into the supertype constructor
     // as a config object
+
+    getPositionRegionChanged( newDistance, oldDistance ) {
+      if ( newDistance === oldDistance ) {
+        return false;
+      }
+
+      var min = Math.min( newDistance, oldDistance );
+      var max = Math.max( newDistance, oldDistance );
+      // TODO: Move to constants
+      var regionBoundaries = [
+        8.2, 6.7, 5.2, 3.7, 2.2, 0.9
+      ];
+
+      for ( let boundary of regionBoundaries ) {
+        if ( min < boundary && boundary <= max ) {
+          return true;
+        }
+      }
+    }
 
     getForceVectorIndex( force ) {
       const convertedForce = Math.abs( force ) * MICRO_CONVERSION_FACTOR;
