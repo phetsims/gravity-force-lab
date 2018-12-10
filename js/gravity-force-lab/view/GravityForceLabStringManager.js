@@ -74,7 +74,7 @@ define( require => {
         valueUnits: micronewtonsString,
         centerOffset: 4.8,
         convertForceValue,
-        convertDistanceApart: distance => Util.toFixedNumber( distance, 2 ),
+        convertDistanceMetric: distance => Util.toFixedNumber( distance, 1 ),
         formatPositionUnitMark: position => {
           position = Util.toFixedNumber( position, 1 );
           return StringUtils.fillIn( '{{position}} meter', { position } );
@@ -178,12 +178,13 @@ define( require => {
       return StringUtils.fillIn( pattern, { massValue, size, relativeSize, otherObject } );
     }
 
-    getSpherePositionAriaValueText( newPosition, objectEnum ) {
-      return super.getSpherePositionAriaValueText( Util.toFixedNumber( newPosition + 4.8, 1 ), objectEnum );
+    getSpherePositionAriaValueText( newPosition, objectNode ) {
+      newPosition = this.convertDistanceMetric( newPosition + this.centerOffset );
+      return super.getSpherePositionAriaValueText( newPosition, objectNode );
     }
 
     getSpherePositionAndRegionText( position, objectEnum ) {
-      position = Util.toFixedNumber( position + 4.8, 1 );
+      position = this.convertDistanceMetric( position + this.centerOffset );
       return super.getSpherePositionAndRegionText( position, objectEnum );
     }
 
