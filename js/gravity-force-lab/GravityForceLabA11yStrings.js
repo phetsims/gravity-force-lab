@@ -106,7 +106,7 @@ define( require => {
       value: 'Change density of spheres in billions of kilograms.'
     },
     constantSizeCheckboxHelpText: {
-      value: 'When changing mass, observe constant or changing size of spheres.'
+      value: 'Keep size of spheres constant while changing mass.'
     },
     constantRadiusThinkDensity: {
       value: 'm1 and m2 set to same size.'
