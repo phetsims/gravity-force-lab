@@ -96,8 +96,14 @@ define( require => {
     massControlsHelpText: {
       value: 'Change mass of spheres in kilograms.'
     },
+    massControlsHelpTextDensity: {
+      value: 'Change density of spheres in kilograms.'
+    },
     massControlsHelpTextBillions: {
       value: 'Change mass of spheres in billions of kilograms.'
+    },
+    massControlsHelpTextDensityBillions: {
+      value: 'Change density of spheres in billions of kilograms.'
     },
     constantSizeCheckboxHelpText: {
       value: 'When changing mass, observe constant or changing size of spheres.'

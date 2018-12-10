@@ -55,6 +55,7 @@ define( function( require ) {
   var spherePositionHelpTextString = ISLCA11yStrings.spherePositionHelpText.value;
   var massControlsLabelString = GravityForceLabA11yStrings.massControlsLabel.value;
   var massControlsHelpTextString = GravityForceLabA11yStrings.massControlsHelpText.value;
+  var massControlsHelpTextDensityString = GravityForceLabA11yStrings.massControlsHelpTextDensity.value;
   var constantSizeCheckboxHelpTextString = GravityForceLabA11yStrings.constantSizeCheckboxHelpText.value;
   var forceValuesCheckboxHelpTextString = ISLCA11yStrings.forceValuesCheckboxHelpText.value;
   var scientificNotationCheckboxHelpTextString = ISLCA11yStrings.scientificNotationCheckboxHelpText.value;
@@ -204,6 +205,10 @@ define( function( require ) {
     );
     massControl2.scale( CONTROL_SCALE );
     massControlsNode.addChild( massControl2 );
+
+    model.constantRadiusProperty.link( function( constantRadius ) {
+      massControlsNode.descriptionContent = constantRadius ? massControlsHelpTextDensityString : massControlsHelpTextString;
+    } );
 
     var TEXT_SIZE = 15;
 
