@@ -24,12 +24,12 @@ define( require => {
 
   // strings
   const micronewtonsString = GravityForceLabA11yStrings.micronewtons.value;
-  // const mass1AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass1Abbreviated' );
-  // const mass2AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass2Abbreviated' );
+  const unitsNewtonsString = require( 'string!INVERSE_SQUARE_LAW_COMMON/units.newtons' );
 
   const massValuesAndComparisonSummaryPatternString = GravityForceLabA11yStrings.massValuesAndComparisonSummaryPattern.value;
-  // TODO: proper string usage
   const sizeAndPositionPatternString = GravityForceLabA11yStrings.sizeAndPositionPattern.value;
+  const valueUnitsPatternString = GravityForceLabA11yStrings.valueUnitstPattern.value;
+  const positionMeterPatternString = GravityForceLabA11yStrings.positionMeterPattern.value;
 
   const muchMuchSmallerThanString = GravityForceLabA11yStrings.muchMuchSmallerThan.value;
   const muchSmallerThanString = GravityForceLabA11yStrings.muchSmallerThan.value;
@@ -54,20 +54,19 @@ define( require => {
   class GravityForceLabStringManager extends ISLCStringManager {
     constructor( model, object1Label, object2Label, options ) {
 
-      // TODO: proper string handling
       const convertForceValue = forceValue => {
         let units;
         let value;
         if ( model.scientificNotationProperty.get() ) {
-          units = 'newtons';
+          units = unitsNewtonsString;
           value = ISLCStringManager.getForceInScientificNotation( forceValue, 2 );
         }
         else {
-          units = 'micronewtons';
+          units = micronewtonsString;
           value = Util.toFixedNumber( forceValue * MICRO_CONVERSION_FACTOR, 6 );
         }
 
-        return `${value} ${units}`;
+        return StringUtils.fillIn( valueUnitsPatternString, { value, units } );
       };
 
       options = _.extend( {
@@ -77,7 +76,7 @@ define( require => {
         convertDistanceMetric: distance => Util.toFixedNumber( distance, 1 ),
         formatPositionUnitMark: position => {
           position = Util.toFixedNumber( position, 1 );
-          return StringUtils.fillIn( '{{position}} meter', { position } );
+          return StringUtils.fillIn( positionMeterPatternString, { position } );
         },
         formatMassValue: mass => mass
       }, options );
@@ -97,8 +96,6 @@ define( require => {
         [ model.object1.radiusProperty, model.object2.radiusProperty ],
         ( r1, r2 ) => {
           this._radiusDifference = r1 - r2;
-          // max diff -1.0507898924466623
-          // min diff 0
         }
       );
 

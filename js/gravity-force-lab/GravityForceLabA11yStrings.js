@@ -36,6 +36,12 @@ define( require => {
     mass2RedSphere: {
       value: 'm2, Red Sphere'
     },
+    valueUnitstPattern: {
+      value: '{{value}} {{units}}'
+    },
+    positionMeterPattern: {
+      value: '{{position}} meter'
+    },
 
 
     ////////////////////////
