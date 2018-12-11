@@ -111,6 +111,9 @@ define( require => {
     constantRadiusThinkDensity: {
       value: 'm1 and m2 set to same size.'
     },
+    forceValuesCheckboxHelpText: {
+      value: 'Explore force values in micronewtons.'
+    },
 
     /************************************
      Keyboard Help Content
