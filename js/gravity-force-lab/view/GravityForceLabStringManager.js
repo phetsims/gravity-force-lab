@@ -268,7 +268,8 @@ define( require => {
         8.2, 6.7, 5.2, 3.7, 2.2, 0.9
       ];
 
-      for ( let boundary of regionBoundaries ) {
+      for ( let i = 0; i < regionBoundaries.length; i++ ) {
+        const boundary = regionBoundaries[ i ];
         if ( min < boundary && boundary <= max ) {
           return true;
         }
