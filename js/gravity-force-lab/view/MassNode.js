@@ -43,25 +43,8 @@ define( function( require ) {
       arrowLabelFill: ARROW_LABEL_COLOR_STRING,
       y: MASS_NODE_Y_POSITION,
       snapToNearest: GravityForceLabConstants.LOCATION_SNAP_VALUE,
-
       maxArrowWidth: 300,
-
-      tandem: Tandem.required,
-
-      // a11y
-      /*
-        the aria-valuetext will be of the form {{# meter mark}}, [ progress alert (closer/further) / region ], vector size
-        Patterns:
-        - {{position}} meter mark, {{progress}} {{otherObjectLabel}}, force vectors {{size}}
-        - {{position}} meter mark, {{progress}}, force vectors {{size}}
-        - {{position}} meter mark, {{region}} {{otherObject}}, force vectors {{size}}
-        - {{position}} meter mark, {{region}}, force vectors {{size}}
-
-        HANDLE IN SCREENVIEW
-       */
-      createAriaValueText: function( formattedValue ) {
-        return stringManager.getSpherePositionAriaValueText( formattedValue, self );
-      }
+      tandem: Tandem.required
     }, options );
 
     // @private
