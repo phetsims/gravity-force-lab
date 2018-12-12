@@ -54,7 +54,7 @@ define( require => {
   class GravityForceLabStringManager extends ISLCStringManager {
     constructor( model, object1Label, object2Label, options ) {
 
-      const convertForceValue = forceValue => {
+      const forceValueToString = forceValue => {
         let units;
         let value;
         if ( model.scientificNotationProperty.get() ) {
@@ -72,7 +72,7 @@ define( require => {
       options = _.extend( {
         valueUnits: micronewtonsString,
         centerOffset: 4.8,
-        convertForceValue,
+        forceValueToString,
         convertDistanceMetric: distance => Util.toFixedNumber( distance, 1 ),
         formatPositionUnitMark: position => {
           position = Util.toFixedNumber( position, 1 );
@@ -175,10 +175,10 @@ define( require => {
       return StringUtils.fillIn( pattern, { massValue, size, relativeSize, otherObject } );
     }
 
-    getSpherePositionAriaValueText( newPosition, objectNode ) {
-      newPosition = this.convertDistanceMetric( newPosition + this.centerOffset );
-      return super.getSpherePositionAriaValueText( newPosition, objectNode );
-    }
+    // getSpherePositionAriaValueText( newPosition, objectNode ) {
+    //   newPosition = this.convertDistanceMetric( newPosition + this.centerOffset );
+    //   return super.getSpherePositionAriaValueText( newPosition, objectNode );
+    // }
 
     getSpherePositionAndRegionText( position, objectEnum ) {
       position = this.convertDistanceMetric( position + this.centerOffset );

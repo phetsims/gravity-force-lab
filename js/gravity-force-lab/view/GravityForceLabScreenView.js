@@ -36,9 +36,11 @@ define( function( require ) {
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var Node = require( 'SCENERY/nodes/Node' );
   var PlayAreaNode = require( 'SCENERY_PHET/accessibility/nodes/PlayAreaNode' );
+  var Property = require( 'AXON/Property' );
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var Vector2 = require( 'DOT/Vector2' );
+  var Util = require( 'DOT/Util' );
 
   // strings
   var constantSizeString = require( 'string!INVERSE_SQUARE_LAW_COMMON/constantSize' );
@@ -92,34 +94,68 @@ define( function( require ) {
       50
     );
 
+    // position state variables
+    var lastMoveCloser = false;
+    var movedCloser = false;
+    var distanceBetween = Math.abs( model.object2.positionProperty.get() - model.object1.positionProperty.get() );
+
+    function ariaValueTextCreator( objectEnum ) {
+      return function( formattedValue, oldValue ) {
+        var thisObjectEnum = objectEnum;
+        var thisObject = thisObjectEnum === OBJECT_ONE ? model.object1 : model.object2;
+        var newDistanceBetween = Math.abs( model.object1.positionProperty.get() - model.object2.positionProperty.get() );
+        newDistanceBetween = Util.toFixedNumber( newDistanceBetween, 1 );
+        var newAriaValueText = stringManager.getDistanceFromOtherObjectText( thisObjectEnum, newDistanceBetween );
+
+        movedCloser = newDistanceBetween < distanceBetween;
+
+        if ( lastMoveCloser !== movedCloser ) {
+          newAriaValueText = stringManager.getProgressPositionAndDistanceFromOtherObjectText( thisObjectEnum, movedCloser, newDistanceBetween );
+        }
+
+        if ( thisObject.isAtEdgeOfRange() ) {
+          // last stop
+          newAriaValueText = stringManager.getLastStopDistanceFromOtherObjectText( thisObjectEnum, newDistanceBetween );
+        }
+
+        lastMoveCloser = movedCloser;
+        distanceBetween = newDistanceBetween;
+        return newAriaValueText;
+      };
+    }
+
     // add the mass nodes to the screen
-    var massNode1 = new MassNode(
+    var mass1Node = new MassNode(
       model,
       model.object1,
       this.layoutBounds,
       stringManager,
-      modelViewTransform, {
+      modelViewTransform,
+      {
         label: mass1AbbreviatedString,
         otherObjectLabel: mass2AbbreviatedString,
         defaultDirection: 'left',
         arrowColor: '#66f',
         forceArrowHeight: 85,
-        tandem: tandem.createTandem( 'mass1Node' )
+        tandem: tandem.createTandem( 'mass1Node' ),
+        createAriaValueText: ariaValueTextCreator( OBJECT_ONE )
       }
     );
 
-    var massNode2 = new MassNode(
+    var mass2Node = new MassNode(
       model,
       model.object2,
       this.layoutBounds,
       stringManager,
-      modelViewTransform, {
+      modelViewTransform,
+      {
         label: mass2AbbreviatedString,
         otherObjectLabel: mass1AbbreviatedString,
         defaultDirection: 'right',
         arrowColor: '#f66',
         forceArrowHeight: 135,
-        tandem: tandem.createTandem( 'mass2Node' )
+        tandem: tandem.createTandem( 'mass2Node' ),
+        createAriaValueText: ariaValueTextCreator( OBJECT_TWO )
       }
     );
 
@@ -140,13 +176,13 @@ define( function( require ) {
     } );
 
     playAreaNode.addChild( massPositionsNode );
-    massPositionsNode.addChild( massNode1 );
-    massPositionsNode.addChild( massNode2 );
+    massPositionsNode.addChild( mass1Node );
+    massPositionsNode.addChild( mass2Node );
 
     // the arrows and their labels should be above both masses (and their markers) but below
     // the ruler and control panels
-    playAreaNode.addChild( massNode1.arrowNode );
-    playAreaNode.addChild( massNode2.arrowNode );
+    playAreaNode.addChild( mass1Node.arrowNode );
+    playAreaNode.addChild( mass2Node.arrowNode );
 
     // @private - added to object for animation stepping
     var gravityForceLabRuler = new ISLCRulerNode(
@@ -233,10 +269,6 @@ define( function( require ) {
       } )
     ];
 
-    model.forceValuesProperty.link( function ( showValues ) {
-      checkboxItems[ 2 ].enabled = showValues;
-    } );
-
     var parameterControlPanel = new ISLCCheckboxPanel( checkboxItems, {
       tandem: tandem.createTandem( 'parameterControlPanel' ),
       fill: '#FDF498',
@@ -272,6 +304,51 @@ define( function( require ) {
         { stroke: 'rgba( 250, 100, 100, 0.6 )' } );
       this.addChild( gridNode );
     }
+
+    model.forceValuesProperty.link( function ( showValues ) {
+      checkboxItems[ 2 ].enabled = showValues;
+    } );
+
+    Property.multilink(
+      [ model.object1.positionProperty, model.object2.positionProperty ],
+      function( x1, x2 ) {
+        var focusedMassNode;
+        var otherMassNode;
+        var distance = Util.toFixedNumber( Math.abs( x1 - x2 ), 1 );
+
+        if ( mass1Node.isFocused() ) {
+          focusedMassNode = mass1Node;
+          otherMassNode = mass2Node;
+        }
+        else if ( mass2Node.isFocused() ) {
+          focusedMassNode = mass2Node;
+          otherMassNode = mass1Node;
+        }
+        else {
+          // this case is possible if the radius of a mass pushes the other mass
+          mass1Node.ariaValueText = stringManager.getPositionAndDistanceFromOtherObjectText( OBJECT_ONE, distance );
+          mass2Node.ariaValueText = stringManager.getPositionAndDistanceFromOtherObjectText( OBJECT_TWO, distance );
+          return;
+        }
+
+        var newAriaValueText = stringManager.getPositionAndDistanceFromOtherObjectText( otherMassNode.enum, distance );
+
+        if ( focusedMassNode.objectModel.isAtEdgeOfRange() ) {
+          newAriaValueText = stringManager.getLastStopDistanceFromOtherObjectText( otherMassNode.enum, distance );
+        }
+        otherMassNode.ariaValueText = newAriaValueText;
+      }
+    );
+
+    function focusListenerCreator( objectNode ) {
+      return function( event ) {
+        lastMoveCloser = null;
+        objectNode.resetAriaValueText();
+      };
+    }
+
+    mass1Node.addInputListener( { focus: focusListenerCreator( mass1Node ) } );
+    mass2Node.addInputListener( { focus: focusListenerCreator( mass2Node ) } );
   }
 
   gravityForceLab.register( 'GravityForceLabScreenView', GravityForceLabScreenView );

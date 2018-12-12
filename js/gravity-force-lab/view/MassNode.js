@@ -56,6 +56,8 @@ define( function( require ) {
         - {{position}} meter mark, {{progress}}, force vectors {{size}}
         - {{position}} meter mark, {{region}} {{otherObject}}, force vectors {{size}}
         - {{position}} meter mark, {{region}}, force vectors {{size}}
+
+        HANDLE IN SCREENVIEW
        */
       createAriaValueText: function( formattedValue ) {
         return stringManager.getSpherePositionAriaValueText( formattedValue, self );
@@ -95,8 +97,11 @@ define( function( require ) {
       ISLCObjectNode.prototype.redrawForce.call( this );
     },
     resetAriaValueText: function() {
-      var position = this.objectModel.positionProperty.get();
-      this.ariaValueText = this.stringManager.getSpherePositionAndRegionText( position, this.enum );
+      if ( this.objectModel.isAtEdgeOfRange() ) {
+        this.ariaValueText = this.stringManager.getLastStopDistanceFromOtherObjectText( this.enum );
+        return;
+      }
+      this.ariaValueText = this.stringManager.getPositionAndDistanceFromOtherObjectText( this.enum );
     }
   } );
 } );
