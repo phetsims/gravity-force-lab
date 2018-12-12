@@ -344,6 +344,7 @@ define( function( require ) {
       return function( event ) {
         lastMoveCloser = null;
         objectNode.resetAriaValueText();
+        self.alertManager.alertPositionSliderFocused();
       };
     }
 

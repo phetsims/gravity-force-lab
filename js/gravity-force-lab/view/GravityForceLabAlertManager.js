@@ -78,6 +78,12 @@ define( require => {
       const utterance = new Utterance( { alert, uniqueGroupId: 'massChanged' } );
       utteranceQueue.addToBack( utterance );
     }
+
+    alertPositionSliderFocused() {
+      const alert = this.stringManager.getPositionFocusAlertText();
+      const utterance = new Utterance( { alert, uniqueGroupId: 'positionSliderFocused' } );
+      utteranceQueue.addToBack( utterance );
+    }
   }
 
   return gravityForceLab.register( 'GravityForceLabAlertManager', GravityForceLabAlertManager );
