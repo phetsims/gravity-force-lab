@@ -166,7 +166,7 @@ define( require => {
     }
 
     getMassControlFocusAlertText( objectEnum ) {
-      const pattern = '{{massValue}}, {{size}}, {{relativeSize}} {{otherObject}}';
+      const pattern = '{{massValue}} kilograms, {{size}}, {{relativeSize}} {{otherObject}}';
       const thisObject = objectEnum === OBJECT_ONE ? this.object1 : this.object2;
       const massValue = this.formatMassValue( thisObject.valueProperty.get() );
       const size = this.getSizeOfMass( massValue );
