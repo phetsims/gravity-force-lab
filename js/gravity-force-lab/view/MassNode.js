@@ -53,7 +53,7 @@ define( function( require ) {
     this.objectModel = massModel;
     this.stringManager = stringManager;
 
-    ISLCObjectNode.call( this, model, massModel, layoutBounds, modelViewTransform, GravityForceLabConstants.PULL_FORCE_RANGE, options );
+    ISLCObjectNode.call( this, model, massModel, layoutBounds, stringManager, modelViewTransform, GravityForceLabConstants.PULL_FORCE_RANGE, options );
     model.scientificNotationProperty.link( function( scientificNotation ) {
       self.setReadoutsInScientificNotation( scientificNotation );
     } );

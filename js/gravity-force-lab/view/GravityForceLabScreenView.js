@@ -74,9 +74,8 @@ define( function( require ) {
       addScreenSummaryNode: true,
       tandem: tandem
     } );
-    var self = this;
     var stringManager = new GravityForceLabStringManager( model, mass1AbbreviatedString, mass2AbbreviatedString );
-    this.alertManager = new GravityForceLabAlertManager( model, stringManager );
+    var alertManager = new GravityForceLabAlertManager( model, stringManager );
     var summaryNode = new GravityForceLabScreenSummaryNode( model, stringManager );
     var playAreaNode = new PlayAreaNode();
     var controlAreaNode = new ControlAreaNode();
@@ -206,12 +205,6 @@ define( function( require ) {
     } );
     playAreaNode.addChild( massControlsNode );
 
-    // function massControlOnFocus( objectEnum ) {
-    //   return function( event ) {
-    //     this.alertManager.alertMassControlFocus( objectEnum );
-    //   };
-    // }
-
     var massControl1 = new MassControl(
       mass1String,
       model.object1.valueProperty,
@@ -219,7 +212,7 @@ define( function( require ) {
       GravityForceLabConstants.MASS_BLUE_COLOR,
       {
         onFocus: function( event ) {
-          self.alertManager.alertMassControlFocus( OBJECT_ONE );
+          alertManager.alertMassControlFocus( OBJECT_ONE );
         }
       },
       tandem.createTandem( 'massControl1' )
@@ -234,7 +227,7 @@ define( function( require ) {
       GravityForceLabConstants.MASS_RED_COLOR,
       {
         onFocus: function( event ) {
-          self.alertManager.alertMassControlFocus( OBJECT_TWO );
+          alertManager.alertMassControlFocus( OBJECT_TWO );
         }
       },
       tandem.createTandem( 'massControl2' )
@@ -344,7 +337,7 @@ define( function( require ) {
       return function( event ) {
         lastMoveCloser = null;
         objectNode.resetAriaValueText();
-        self.alertManager.alertPositionSliderFocused();
+        alertManager.alertPositionSliderFocused();
       };
     }
 
