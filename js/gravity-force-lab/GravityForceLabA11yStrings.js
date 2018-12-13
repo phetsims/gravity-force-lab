@@ -15,11 +15,14 @@ define( require => {
   const GravityForceLabA11yStrings = {
 
     // Screen Summary Strings
-    screenSummaryDescription: {
-      value: 'The Play Area has a blue sphere labelled m1 and a red sphere labelled m2 and each sphere is held in place by a robot. A force vector starts at the center of each sphere and points directly at the opposite sphere. Spheres can be moved closer or further from one another, and the mass of each sphere can be increased or decreased. A ten-meter ruler can be moved around to take measurements. In the Control Area there are checkboxes and buttons to display force values with or without scientific notation, set the spheres to a constant size, and to reset the sim.'
+    screenSummaryMainDescription: {
+      value: 'The Play Area has a blue sphere labelled m1 and a red sphere labelled m2. A force vector arrow starts at the center of each sphere and points directly at the opposite sphere. Spheres can be moved closer or further from one another The mass of each sphere can be increased or decreased. Each sphere is held in place by a robot.'
+    },
+    screenSummarySecondaryDescription: {
+      value: 'In the Control Area, checkboxes change what things are shown and how they behave, and a button resets the sim. There is a moveable ruler to take measurements, if needed.'
     },
     simStateListLabel: {
-      value: 'Currently, force on m1 by m2 is of equal magnitude and pointing directly opposite to the force on m2 by m1.'
+      value: 'Currently, force on m1 by m2 is equal in magnitude and opposite in direction of force on m2 by m1.'
     },
     massValuesAndComparisonSummaryPattern: {
       value: 'Mass of {{mass1Label}} is {{m1Mass}} kilograms, {{comparitiveValue}} {{mass2Label}} at {{m2Mass}} kilograms.'

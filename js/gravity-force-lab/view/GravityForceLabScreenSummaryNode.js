@@ -16,7 +16,8 @@ define( require => {
   const Property = require( 'AXON/Property' );
 
   // a11y strings
-  const screenSummaryDescriptionString = GravityForceLabA11yStrings.screenSummaryDescription.value;
+  const screenSummaryMainDescriptionString = GravityForceLabA11yStrings.screenSummaryMainDescription.value;
+  const screenSummarySecondaryDescriptionString = GravityForceLabA11yStrings.screenSummarySecondaryDescription.value;
   const simStateListLabelString = GravityForceLabA11yStrings.simStateListLabel.value;
 
   class GravityForceLabScreenSummaryNode extends Node {
@@ -24,18 +25,20 @@ define( require => {
     constructor( model, stringManager, options ) {
 
       options = _.extend( {
-        tagName: 'div',
-        descriptionTagName: 'p',
-        descriptionContent: screenSummaryDescriptionString
+        mainDescriptionContent: screenSummaryMainDescriptionString,
+        secondaryDecriptionContent: screenSummarySecondaryDescriptionString
       }, options );
 
       const summaryOptions = _.extend( {
         simStateLabel: simStateListLabelString
       }, options.summaryOptions );
 
-      super( _.omit( options, 'summaryOptions' ) );
-
+      // super( _.omit( options, 'summaryOptions' ) );
+      super( {} );
       this.stringManager = stringManager;
+
+      var mainSummaryDescriptionNode = new Node( { tagName: 'p', innerContent: options.mainDescriptionContent } );
+      var secondSummaryDescriptionNode = new Node( { tagName: 'p', innerContent: options.secondaryDecriptionContent } );
 
       this.simStateNode = new Node( {
         tagName: 'ul',
@@ -63,7 +66,11 @@ define( require => {
         innerContent: this.stringManager.getSummaryInteractionHint()
       } );
 
-      this.children = [ this.simStateNode, interactionHintNode ];
+      this.children = [
+        mainSummaryDescriptionNode,
+        secondSummaryDescriptionNode,
+        this.simStateNode,
+        interactionHintNode ];
 
       Property.multilink( [ model.forceProperty, model.forceValuesProperty ], ( force, showValues ) => {
         this.updateForceVectorSummary();
