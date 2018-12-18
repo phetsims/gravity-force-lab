@@ -12,6 +12,7 @@ define( require => {
   // modules
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
+  const GravityForceLabForceDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/GravityForceLabForceDescriber' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Property = require( 'AXON/Property' );
 
@@ -36,6 +37,7 @@ define( require => {
       // super( _.omit( options, 'summaryOptions' ) );
       super( {} );
       this.stringManager = stringManager;
+      this.describer = GravityForceLabForceDescriber.getDescriber();
 
       var mainSummaryDescriptionNode = new Node( { tagName: 'p', innerContent: options.mainDescriptionContent } );
       var secondSummaryDescriptionNode = new Node( { tagName: 'p', innerContent: options.secondaryDecriptionContent } );
@@ -102,7 +104,7 @@ define( require => {
     }
 
     updateForceVectorSummary() {
-      this.forceVectorsSummaryItem.innerContent = this.stringManager.getForceVectorsSummaryText();
+      this.forceVectorsSummaryItem.innerContent = this.describer.getForceVectorsSummaryText();
     }
 
     updateObjectDistanceSummary() {

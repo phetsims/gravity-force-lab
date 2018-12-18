@@ -11,15 +11,13 @@ define( function( require ) {
   'use strict';
 
   // modules
-  // var GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
-  // var Node = require( 'SCENERY/nodes/Node' );
-  // var ParameterControlPanel = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/ParameterControlPanel' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var ControlAreaNode = require( 'SCENERY_PHET/accessibility/nodes/ControlAreaNode' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
   var GravityForceLabAlertManager = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabAlertManager' );
   var GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
+  var GravityForceLabForceDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/GravityForceLabForceDescriber' );
   var GravityForceLabScreenSummaryNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabScreenSummaryNode' );
   var GravityForceLabStringManager = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabStringManager' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -74,6 +72,9 @@ define( function( require ) {
       addScreenSummaryNode: true,
       tandem: tandem
     } );
+    // force text isn't retrieved direclty in the screenview, we simply initialize and access it in various nodes
+    GravityForceLabForceDescriber.initialize( model, mass1AbbreviatedString, mass2AbbreviatedString );
+
     var stringManager = new GravityForceLabStringManager( model, mass1AbbreviatedString, mass2AbbreviatedString );
     var alertManager = new GravityForceLabAlertManager( model, stringManager );
     var summaryNode = new GravityForceLabScreenSummaryNode( model, stringManager );

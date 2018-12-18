@@ -304,26 +304,6 @@ define( require => {
     // NOTE: these are pure functions, so it may be possible to pass them into the supertype constructor
     // as a config object
 
-    getPositionRegionChanged( newDistance, oldDistance ) {
-      if ( newDistance === oldDistance ) {
-        return false;
-      }
-
-      var min = Math.min( newDistance, oldDistance );
-      var max = Math.max( newDistance, oldDistance );
-      // TODO: Move to constants
-      var regionBoundaries = [
-        8.2, 6.7, 5.2, 3.7, 2.2, 0.9
-      ];
-
-      for ( let i = 0; i < regionBoundaries.length; i++ ) {
-        const boundary = regionBoundaries[ i ];
-        if ( min < boundary && boundary <= max ) {
-          return true;
-        }
-      }
-    }
-
     getForceVectorIndex( force ) {
       const convertedForce = Math.abs( force ) * MICRO_CONVERSION_FACTOR;
       if ( convertedForce < 0.041713 ) {
