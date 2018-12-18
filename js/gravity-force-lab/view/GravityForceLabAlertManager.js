@@ -6,14 +6,14 @@ define( require => {
   // modules
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
-  // const ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
+  const ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
   const ISLCA11yStrings = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCA11yStrings' );
   const ISLCAlertManager = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCAlertManager' );
   const Utterance = require( 'SCENERY_PHET/accessibility/Utterance' );
   const utteranceQueue = require( 'SCENERY_PHET/accessibility/utteranceQueue' );
 
   // constants
-  // const { OBJECT_ONE } = ISLCObjectEnum;
+  const { OBJECT_ONE, OBJECT_TWO } = ISLCObjectEnum;
 
   // strings
   const forcesInScientificNotationString = ISLCA11yStrings.forcesInScientificNotation.value;
@@ -47,12 +47,12 @@ define( require => {
 
       model.object1.valueProperty.lazyLink( ( value, oldValue ) => {
         utteranceQueue.clear();
-        this.alertMassValueChanged( value, oldValue );
+        this.alertMassValueChanged( OBJECT_ONE, value, oldValue );
       } );
 
       model.object2.valueProperty.lazyLink( ( value, oldValue ) => {
         utteranceQueue.clear();
-        this.alertMassValueChanged( value, oldValue );
+        this.alertMassValueChanged( OBJECT_TWO, value, oldValue );
       } );
     }
 
@@ -73,8 +73,8 @@ define( require => {
       utteranceQueue.addToBack( alert );
     }
 
-    alertMassValueChanged( value, oldValue ) {
-      const alert = this.stringManager.getMassValueChangedAlertText( value, oldValue );
+    alertMassValueChanged( objectEnum, value, oldValue ) {
+      const alert = this.stringManager.getMassValueChangedAlertText( objectEnum, value, oldValue );
       const utterance = new Utterance( { alert, uniqueGroupId: 'massChanged' } );
       utteranceQueue.addToBack( utterance );
     }

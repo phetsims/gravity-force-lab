@@ -31,6 +31,8 @@ define( require => {
   const valueUnitsPatternString = GravityForceLabA11yStrings.valueUnitstPattern.value;
   const positionMeterPatternString = GravityForceLabA11yStrings.positionMeterPattern.value;
 
+  const getsBiggerString = GravityForceLabA11yStrings.getsBigger.value;
+  const getsSmallerString = GravityForceLabA11yStrings.getsSmaller.value;
   const muchMuchSmallerThanString = GravityForceLabA11yStrings.muchMuchSmallerThan.value;
   const muchSmallerThanString = GravityForceLabA11yStrings.muchSmallerThan.value;
   const slightlySmallerThanString = GravityForceLabA11yStrings.slightlySmallerThan.value;
@@ -44,15 +46,21 @@ define( require => {
 
   // constants
   const MICRO_CONVERSION_FACTOR = 1e6;
-  const { OBJECT_ONE } = ISLCObjectEnum;
-  // const exponentToIndex = new LinearFunction( -1, 1, 0, 6 );
-  // const massDifferenceToIndex = new LinearFunction( -500, 500, 0, 6, true );
+  const { OBJECT_ONE, OBJECT_TWO } = ISLCObjectEnum;
   const radiusDifferenceToIndex = new LinearFunction( -0.6, 0.6, 0, 6, true );
   const { min, max } = GravityForceLabConstants.PULL_FORCE_RANGE;
   const forceToPullIndex = new LinearFunction( min, max, 6, 0, true );
 
   class GravityForceLabStringManager extends ISLCStringManager {
     constructor( model, object1Label, object2Label, options ) {
+
+      // TODO:
+      // - forceValueToString function should be for additional language (e.g. 300 'billion')
+          // - default: forceValue => StringUtils.fillIn( '{{forceValue}}', { forceValue } );
+      // - convertForce is used if there is a unit change for any reason
+          // - default: force => force
+      // - formatPosition: likely the same as convertForce
+      // - valueUnits and distanceUnits will be protected and mutable by subtypes
 
       const forceValueToString = forceValue => {
         let units;
@@ -88,6 +96,7 @@ define( require => {
       this._radiusDifference = 0;
       this._object1MassGrowing = false;
       this._object2MassGrowing = false;
+      this._pushedMassEnum = null;
       this.formatMassValue = options.formatMassValue;
       this.centerOffset = options.centerOffset;
       this.formatPositionUnitMark = options.formatPositionUnitMark;
@@ -99,20 +108,13 @@ define( require => {
         }
       );
 
-      Property.multilink(
-        [ model.object1.valueProperty, model.object2.valueProperty ],
-        ( m1, m2 ) => {
-          /*
-           * TS noted in the design doc about using 'steps' instead of ratios
-           * this implies that I should take the actual difference between the two
-           * values
-           */
-          // this._object1ToObject2Ratio = r1 / r2;
-          // this._object2ToObject1Ratio = 1 / this._object1ToObject2Ratio;
-          // if r2 is larger than r1 then the value will be negative
-          this._objectMassDifference = m1 - m2;
-        }
-      );
+      model.object1.radiusProperty.link( radius => {
+        this._pushedMassEnum = this.getPushedObjectEnum( OBJECT_ONE );
+      } );
+
+      model.object2.radiusProperty.link( radius => {
+        this._pushedMassEnum = this.getPushedObjectEnum( OBJECT_TWO );
+      } );
 
       model.object1.valueProperty.link( ( newMass, oldMass ) => {
         this._object1MassGrowing = ( newMass - oldMass ) > 0;
@@ -175,29 +177,49 @@ define( require => {
       return StringUtils.fillIn( pattern, { massValue, size, relativeSize, otherObject } );
     }
 
-    // getSpherePositionAriaValueText( newPosition, objectNode ) {
-    //   newPosition = this.convertDistanceMetric( newPosition + this.centerOffset );
-    //   return super.getSpherePositionAriaValueText( newPosition, objectNode );
-    // }
-
     getSpherePositionAndRegionText( position, objectEnum ) {
       position = this.convertDistanceMetric( position + this.centerOffset );
       return super.getSpherePositionAndRegionText( position, objectEnum );
     }
 
-    getMassValueChangedAlertText( newMass, oldMass ) {
-      let pattern = 'As mass {{massChange}}, vectors {{vectorChange}}.';
-      const objectIsGrowing = ( newMass - oldMass ) > 0;
-      const massChange = objectIsGrowing ? 'gets bigger' : 'gets smaller';
-      const vectorChange = objectIsGrowing ? 'get bigger' : 'get smaller';
+    getMassValueChangedAlertText( objectEnum, newMass, oldMass ) {
+      let massClausePattern = 'As mass {{massChange}}';
+      const massChange = newMass > oldMass ? getsBiggerString : getsSmallerString;
+      const vectorChange = ISLCStringManager.getVectorChangeDirection( newMass > oldMass );
+      const massFillObject = { massChange };
 
-      const fillObject = { massChange, vectorChange };
+      const vectorClausePattern = 'vectors {{vectorChange}}';
+
+      const forcesClausePattern = 'forces now {{forceValue}}';
+
+      let alertPattern = '{{massClause}}, {{vectorClause}}.';
+
+      if ( this._pushedMassEnum !== null ) {
+        // something was pushed
+        massFillObject.direction = this._pushedMassEnum === OBJECT_ONE ? 'left' : 'right';
+
+        if ( this._pushedMassEnum === objectEnum ) {
+          // this mass moved
+          massClausePattern = 'As mass {{massChange}} and moves {{direction}}';
+        }
+        else {
+          // other mass moved
+          massClausePattern = 'As mass {{massChange}} and moves {{otherObjectLabel}} {{direction}}';
+          massFillObject.otherObjectLabel = this.getOtherObjectLabel( objectEnum );
+        }
+      }
+
+      const massClause = StringUtils.fillIn( massClausePattern, massFillObject );
+      const vectorClause = StringUtils.fillIn( vectorClausePattern, { vectorChange } );
+      const alertFillObject = { massClause, vectorClause };
 
       if ( this.model.forceValuesProperty.get() ) {
-        pattern = 'As mass {{massChange}}, vectors {{vectorChange}}, forces now {{forceValue}}';
-        fillObject.forceValue = this.getForceValueText();
+        alertPattern = '{{massClause}}, {{vectorClause}}, {{forceClause}}.';
+        const forceValue = this.getForceValueText();
+        alertFillObject.forceClause = StringUtils.fillIn( forcesClausePattern, { forceValue } );
       }
-      return StringUtils.fillIn( pattern, fillObject );
+
+      return StringUtils.fillIn( alertPattern, alertFillObject );
     }
 
     getSizeOfMass( massValue ) {
@@ -221,6 +243,32 @@ define( require => {
     getRelativeSizeIndex( difference ) {
       return Util.roundSymmetric( radiusDifferenceToIndex( difference ) );
     }
+
+    getPushedObjectEnum( changingObjectEnum ) {
+      const { otherObject } = this.getObjectsFromEnum( changingObjectEnum );
+      const otherBoundary = changingObjectEnum === OBJECT_ONE ? this.model.rightObjectBoundary : this.model.leftObjectBoundary;
+      const otherAtEdge = otherObject.positionProperty.get() === otherBoundary;
+      const pushed = this.model.getSumRadiusWithSeparation() > this._distanceBetween;
+      if ( pushed && otherAtEdge ) {
+        return changingObjectEnum;
+      }
+      else if ( pushed && !otherAtEdge ) {
+        return changingObjectEnum === OBJECT_ONE ? OBJECT_TWO : OBJECT_ONE;
+      }
+      else {
+        // no pushing
+        return null;
+      }
+    }
+
+    // massWasPushed( objectEnum ) {
+    //   const pushedMassEnum = this.getPushedObjectEnum( )
+    //   // const { thisObject } = this.getObjectsFromEnum( objectEnum );
+    //   // const boundary = objectEnum === OBJECT_ONE ? this.model.leftObjectBoundary : this.model.rightObjectBoundary;
+    //   // const atEdge = thisObject.positionProperty.get() === boundary;
+    //   // const pushed = this.model.getSumRadiusWithSeparation() > this._distanceBetween;
+    //   // return ( !atEdge ) && pushed;
+    // }
 
     getMassSizeIndex( mass ) {
       assert && assert( ( typeof mass ) === 'number' );
