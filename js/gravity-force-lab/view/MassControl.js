@@ -43,7 +43,7 @@ define( function( require ) {
       yMargin: 10,
 
       numberControlOptions: {
-        arrowButtonScale: 1,
+        arrowButtonOptions: { scale: 1 },
         thumbSize: THUMB_SIZE,
         trackSize: TRACK_SIZE,
         titleFont: new PhetFont( 24 ),
