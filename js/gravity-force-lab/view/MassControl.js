@@ -43,24 +43,29 @@ define( function( require ) {
       yMargin: 10,
 
       numberControlOptions: {
-        arrowButtonScale: 1,
-        thumbSize: THUMB_SIZE,
-        trackSize: TRACK_SIZE,
-        titleFont: new PhetFont( 24 ),
-        valueFont: new PhetFont( 18 ),
-        valueXMargin: 20,
-        valueYMargin: 4,
-        majorTickLength: ( THUMB_SIZE.height / 2 ) + ( TRACK_SIZE.height / 2 ) + 2,
-        minorTickSpacing: 0,
-        thumbFillEnabled: thumbColor.colorUtilsBrighter( 0.15 ),
-        thumbFillHighlighted: thumbColor.colorUtilsBrighter( 0.35 ),
-
-        // a11y
-        keyboardStep: 50,
-        pageKeyboardStep: 100,
-        accessibleName: titleString,
-        accessibleValuePattern: valueKilogramsPatternString, // {{value}} kilograms
-        onFocus: options.onFocus
+        arrowButtonOptions: {
+          scale: 1
+        },
+        sliderOptions: {
+          thumbSize: THUMB_SIZE,
+          trackSize: TRACK_SIZE,
+          majorTickLength: ( THUMB_SIZE.height / 2 ) + ( TRACK_SIZE.height / 2 ) + 2,
+          minorTickSpacing: 0,
+          thumbFillEnabled: thumbColor.colorUtilsBrighter( 0.15 ),
+          thumbFillHighlighted: thumbColor.colorUtilsBrighter( 0.35 ),
+          // a11y
+          keyboardStep: 50,
+          pageKeyboardStep: 100,
+          accessibleName: titleString,
+          accessibleValuePattern: valueKilogramsPatternString, // {{value}} kilograms
+          onFocus: options.onFocus
+        },
+        numberDisplayOptions: {
+          font: new PhetFont( 18 ),
+          xMargin: 20,
+          yMargin: 4
+        },
+        titleFont: new PhetFont( 24 )
       },
 
       tickLabelOptions: {

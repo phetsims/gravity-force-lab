@@ -12,18 +12,25 @@ define( require => {
   // modules
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
-  const GravityForceLabForceDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/GravityForceLabForceDescriber' );
+  const ForceDescriber = require( 'INVERSE_SQUARE_LAW_COMMON/view/describers/ForceDescriber' );
+  const ISLCDescriber = require( 'INVERSE_SQUARE_LAW_COMMON/view/describers/ISLCDescriber' );
+  const MassDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/MassDescriber' );
   const Node = require( 'SCENERY/nodes/Node' );
+  const PositionDescriber = require( 'INVERSE_SQUARE_LAW_COMMON/view/describers/PositionDescriber' );
   const Property = require( 'AXON/Property' );
+
+  // strings
+  const massString = require( 'string!INVERSE_SQUARE_LAW_COMMON/mass' );
 
   // a11y strings
   const screenSummaryMainDescriptionString = GravityForceLabA11yStrings.screenSummaryMainDescription.value;
   const screenSummarySecondaryDescriptionString = GravityForceLabA11yStrings.screenSummarySecondaryDescription.value;
   const simStateListLabelString = GravityForceLabA11yStrings.simStateListLabel.value;
 
+
   class GravityForceLabScreenSummaryNode extends Node {
 
-    constructor( model, stringManager, options ) {
+    constructor( model, options ) {
 
       options = _.extend( {
         mainDescriptionContent: screenSummaryMainDescriptionString,
@@ -34,10 +41,12 @@ define( require => {
         simStateLabel: simStateListLabelString
       }, options.summaryOptions );
 
-      // super( _.omit( options, 'summaryOptions' ) );
-      super( {} );
-      this.stringManager = stringManager;
-      this.describer = GravityForceLabForceDescriber.getDescriber();
+      super();
+
+      // subtypes of ForceDescriber initialize the singleton to the appropriate subtype
+      this.forceDescriber = ForceDescriber.getDescriber();
+      this.positionDescriber = PositionDescriber.getDescriber();
+      this.massDescriber = MassDescriber.getDescriber();
 
       var mainSummaryDescriptionNode = new Node( { tagName: 'p', innerContent: options.mainDescriptionContent } );
       var secondSummaryDescriptionNode = new Node( { tagName: 'p', innerContent: options.secondaryDecriptionContent } );
@@ -65,7 +74,7 @@ define( require => {
 
       const interactionHintNode = new Node( {
         tagName: 'p',
-        innerContent: this.stringManager.getSummaryInteractionHint()
+        innerContent: ISLCDescriber.getSummaryInteractionHint( massString )
       } );
 
       this.children = [
@@ -104,19 +113,19 @@ define( require => {
     }
 
     updateForceVectorSummary() {
-      this.forceVectorsSummaryItem.innerContent = this.describer.getForceVectorsSummaryText();
+      this.forceVectorsSummaryItem.innerContent = this.forceDescriber.getForceVectorsSummaryText();
     }
 
     updateObjectDistanceSummary() {
-      this.objectDistanceSummaryItem.innerContent = this.stringManager.getObjectDistanceSummary();
+      this.objectDistanceSummaryItem.innerContent = this.positionDescriber.getObjectDistanceSummary();
     }
 
     updateMassValuesSummary() {
-      this.massValuesSummaryItem.innerContent = this.stringManager.getMassValuesSummaryText();
+      this.massValuesSummaryItem.innerContent = this.massDescriber.getMassValuesSummaryText();
     }
 
     updateRobotEffort() {
-      this.robotsSummaryItem.innerContent = this.stringManager.getRobotEffortSummaryText();
+      this.robotsSummaryItem.innerContent = this.forceDescriber.getRobotEffortSummaryText();
     }
   }
 

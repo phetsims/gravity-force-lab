@@ -28,16 +28,16 @@ define( require => {
       value: 'Mass of {{mass1Label}} is {{m1Mass}} kilograms, {{comparitiveValue}} {{mass2Label}} at {{m2Mass}} kilograms.'
     },
     sizeAndPositionPattern: {
-      value: '{{thisObject}} is {{size}} at {{massValue}} kg and at {{positionUnitMark}} mark'
+      value: '{{thisObjectLabel}} is {{size}} at {{massValue}} kg and at {{position}} {{unit}} mark'
     },
 
     // Object/sphere descriptions and labels
 
-    mass1BlueSphere: {
-      value: 'm1, Blue Sphere'
+    blueSpherePattern: {
+      value: '{{objectLabel}}, Blue Sphere'
     },
-    mass2RedSphere: {
-      value: 'm2, Red Sphere'
+    redSpherePattern: {
+      value: '{{objectLabel}}, Red Sphere'
     },
     valueUnitstPattern: {
       value: '{{value}} {{units}}'
@@ -50,6 +50,25 @@ define( require => {
     ////////////////////////
     // Qualitative values //
     ////////////////////////
+
+    objectsRelativeSizePattern: {
+      value: '{{firstObjectLabel}} {{comparitiveValue}} {{secondObjectLabel}}'
+    },
+    massSizeRelativeSizePattern: {
+      value: '{{massValue}} kilograms, {{size}}, {{relativeSize}} {{otherObjectLabel}}'
+    },
+    massAndForceClausesPattern: {
+      value: '{{massClause}}, {{forceClause}}.'
+    },
+    massChangeClausePattern: {
+      value: 'As mass {{changeDirection}}'
+    },
+    massChangesAndMovesClausePattern: {
+      value: 'As mass {{changeDirection}} and moves {{leftOrRight}}'
+    },
+    massChangesMovesOtherClausePattern: {
+      value: 'As mass {{changeDirection}} and moves {{otherObjectLabel}} {{leftOrRight}}'
+    },
 
     // relative mass sizes
     muchMuchSmallerThan: {

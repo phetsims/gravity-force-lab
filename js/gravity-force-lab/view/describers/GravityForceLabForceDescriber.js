@@ -21,18 +21,21 @@ define( require => {
   const MICRO_CONVERSION_FACTOR = 1e6;
   const { min, max } = GravityForceLabConstants.PULL_FORCE_RANGE;
   const forceToPullIndex = new LinearFunction( min, max, 6, 0, true );
+  const convertForceToMicronewtons = force => {
+    return Util.toFixedNumber( force * MICRO_CONVERSION_FACTOR, 6 );
+  };
 
-  let describer = null;
+  // let describer = null;
 
   class GravityForceLabForceDescriber extends ForceDescriber {
 
     constructor( model, object1Label, object2Label ) {
-      const options = {
+       const options = {
         units: micronewtonsString,
 
         convertForce: force => {
           if ( !this.forceInScientificNotation ) {
-            return GravityForceLabForceDescriber.convertForceToMicronewtons( force );
+            return convertForceToMicronewtons( force );
           }
           return force;
         },
@@ -48,7 +51,7 @@ define( require => {
       super( model, object1Label, object2Label, options );
 
       model.scientificNotationProperty.link( showScientificNotation => {
-        this.units = showScientificNotation ? micronewtonsString : unitsNewtonsString;
+        this.units = showScientificNotation ? unitsNewtonsString : micronewtonsString;
       } );
     }
 
@@ -65,7 +68,7 @@ define( require => {
      * @return {Integer}
      */
     getForceVectorIndex( force ) {
-      const convertedForce = GravityForceLabForceDescriber.convertForceToMicronewtons( force );
+      const convertedForce = convertForceToMicronewtons( force );
        if ( convertedForce < 0.041713 ) {
          return 0;
        }
@@ -103,11 +106,11 @@ define( require => {
 
     /**
      * Uses the singleton pattern to keep one instance of this describer for the entire lifetime of the sim.
-     * @returns {ForceDescriber}
+     * @returns {GravityForceLabForceDescriber}
      */
     static getDescriber() {
-      assert && assert( describer, 'describer has not yet been initialized' );
-      return describer;
+      // assert && assert( describer, 'describer has not yet been initialized' );
+      return ForceDescriber.getDescriber();
     }
 
     /**
@@ -115,11 +118,9 @@ define( require => {
      * @throws Error
      */
     static initialize( model, object1Label, object2Label ) {
-      describer = new GravityForceLabForceDescriber( model, object1Label, object2Label );
-    }
-
-    static convertForceToMicronewtons( force ) {
-      return Util.toFixedNumber( force * MICRO_CONVERSION_FACTOR, 6 );
+      // assert && assert( describer === null, 'initialize may only be called once per describer instance' );
+      const describer = new GravityForceLabForceDescriber( model, object1Label, object2Label );
+      ForceDescriber.initialize( describer );
     }
   }
 
