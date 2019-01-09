@@ -20,11 +20,9 @@ define( require => {
   const sizeAndPositionPatternString = GravityForceLabA11yStrings.sizeAndPositionPattern.value;
   const redSpherePatternString = GravityForceLabA11yStrings.redSpherePattern.value;
   const blueSpherePatternString = GravityForceLabA11yStrings.blueSpherePattern.value;
-  const massSizeRelativeSizePatternString = GravityForceLabA11yStrings.massSizeRelativeSizePattern.value;
 
   // constants
   const { OBJECT_ONE } = ISLCObjectEnum;
-
 
   class MassNodeDescriber extends ISLCDescriber {
     constructor( model, objectEnum ) {
@@ -38,6 +36,17 @@ define( require => {
 
       this.positionDescriber = GravityForceLabPositionDescriber.getDescriber();
       this.massDescriber = MassDescriber.getDescriber();
+
+      this.atEdge = false;
+      this.closestToOtherObject = false;
+
+      this.mass.positionProperty.link( x => {
+        this.atEdge = x === model.leftObjectBoundary || x === model.rightObjectBoundary;
+
+        const { min, max } = this.mass.enabledRangeProperty.get();
+
+        this.closestToOtherObject = this.enum === OBJECT_ONE ? x === max : x === min;
+      } );
     }
 
     get convertedPosition() {
@@ -53,7 +62,7 @@ define( require => {
     }
 
     get relativeSize() {
-      return this.massDescriber.getObjectRelativeSize( this.enum );
+      return this.massDescriber.getMassRelativeSize( this.enum );
     }
 
     getSizeAndPositionItemText() {
@@ -65,22 +74,6 @@ define( require => {
       const unit = this.positionDescriber.unit;
       const pattern = sizeAndPositionPatternString;
       return StringUtils.fillIn( pattern, { thisObjectLabel, size, massValue, position, unit } );
-    }
-
-    /**
-     * Returns the filled-in string, '{{massValue}} kilograms, {{size}}, {{relativeSize}} {{otherObjectLabel}}'
-     *
-     * @param  {ISLCObjectEnum} objectEnum
-     * @return {string}
-     */
-    getMassControlFocusAlertText( objectEnum ) {
-      const pattern = massSizeRelativeSizePatternString;
-      const { massValue, size, relativeSize, otherObjectLabel } = this;
-      return StringUtils.fillIn( pattern, { massValue, size, relativeSize, otherObjectLabel } );
-    }
-
-    ariaValueTextCreator() {
-      return this.positionDescriber.ariaValueTextCreator( this.enum );
     }
 
     getMassSphereString() {

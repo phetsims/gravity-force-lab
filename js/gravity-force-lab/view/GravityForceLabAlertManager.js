@@ -9,7 +9,7 @@ define( require => {
   const GravityForceLabForceDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/GravityForceLabForceDescriber' );
   const GravityForceLabPositionDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/GravityForceLabPositionDescriber' );
   const ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
-  // const ISLCA11yStrings = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCA11yStrings' );
+  const ISLCA11yStrings = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCA11yStrings' );
   const ISLCAlertManager = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCAlertManager' );
   const MassDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/MassDescriber' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
@@ -23,6 +23,8 @@ define( require => {
   // strings
   const constantRadiusThinkDensityString = GravityForceLabA11yStrings.constantRadiusThinkDensity.value;
   const massAndForceClausesPatternString = GravityForceLabA11yStrings.massAndForceClausesPattern.value;
+  const massSizeRelativeSizePatternString = GravityForceLabA11yStrings.massSizeRelativeSizePattern.value;
+  const regionForceClausePatternString = ISLCA11yStrings.regionForceClausePattern.value;
 
   class GravityForceLabAlertManager extends ISLCAlertManager {
     constructor( model ) {
@@ -77,7 +79,6 @@ define( require => {
     }
 
     alertMassControlFocus( objectEnum ) {
-      debugger;
       const alert = this.massDescriber.getMassControlFocusAlertText( objectEnum );
       utteranceQueue.addToBack( alert );
     }
@@ -90,8 +91,35 @@ define( require => {
 
     alertPositionSliderFocused() {
       const alert = this.forceDescriber.getForceVectorSizeText();
-      const utterance = new Utterance( { alert, uniqueGroupId: 'positionSliderFocused' } );
+      const utterance = new Utterance( { alert, uniqueGroupId: 'position' } );
       utteranceQueue.addToBack( utterance );
+    }
+
+    alertPositionChanged( endAtEdge ) {
+      const alert = this.getPositionChangedAlertText( endAtEdge );
+      const utterance = new Utterance( { alert, uniqueGroupId: 'position' } );
+      utteranceQueue.addToBack( utterance );
+    }
+
+    alertPositionUnchanged() {
+      const alert = this.getPositionUnchangedAlertText();
+      const utterance = new Utterance( { alert, uniqueGroupId: 'position' } );
+      utteranceQueue.addToBack( utterance );
+    }
+
+    /**
+     * Returns the filled-in string, '{{massValue}} kilograms, {{size}}, {{relativeSize}} {{otherObjectLabel}}'
+     *
+     * @param  {ISLCObjectEnum} objectEnum
+     * @returns {string}
+     */
+    getMassControlFocusAlertText( objectEnum ) {
+      const thisObjectMass = this.massDescriber.getObjectFromEnum( objectEnum ).valueProperty.get();
+      const massValue = this.massDescriber.getFormattedMass( thisObjectMass );
+      const size = this.massDescriber.getMassSize( thisObjectMass );
+      const relativeSize = this.massDescriber.getMassRelativeSize( objectEnum );
+      const otherObjectLabel = this.massDescriber.getOtherObjectLabelFromEnum( objectEnum );
+      return StringUtils.fillIn( massSizeRelativeSizePatternString, { massValue, size, relativeSize, otherObjectLabel } );
     }
 
     getMassValueChangedAlertText( objectEnum, newMass, oldMass ) {
@@ -110,6 +138,34 @@ define( require => {
       }
 
       return StringUtils.fillIn( massAndForceClausesPatternString, { massClause, forceClause } );
+    }
+
+    getPositionChangedAlertText( endAtEdge ) {
+      let alertText = this.forceDescriber.getVectorChangeText();
+      let edgeAlertText = this.forceDescriber.getVectorSizeText();
+
+      if ( this.model.forceValuesProperty.get() ) {
+        alertText = this.forceDescriber.getVectorChangeForcesNowText();
+        edgeAlertText = this.forceDescriber.getVectorSizeForceValueText();
+      }
+
+      return endAtEdge ? edgeAlertText : alertText;
+    }
+
+    getPositionUnchangedAlertText() {
+      const positionDescriber = GravityForceLabPositionDescriber.getDescriber();
+      const forceClause = this.forceDescriber.getVectorsAndForcesClause();
+      const region = positionDescriber.qualitativeDistance;
+      return StringUtils.fillIn( regionForceClausePatternString, { region, forceClause } );
+    }
+
+    static getManager() {
+      return ISLCAlertManager.getManager();
+    }
+
+    static initialize( model ) {
+      const manager = new GravityForceLabAlertManager( model );
+      return ISLCAlertManager.initialize( manager );
     }
   }
 

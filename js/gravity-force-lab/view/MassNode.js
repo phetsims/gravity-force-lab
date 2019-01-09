@@ -47,13 +47,6 @@ define( function( require ) {
       tandem: Tandem.required
     }, options );
 
-    // @private
-    this.modelViewTransform = modelViewTransform;
-    this.model = model;
-    this.objectModel = massModel;
-
-    this.positionDescriber = GravityForceLabPositionDescriber.getDescriber();
-
     ISLCObjectNode.call( this, model, massModel, layoutBounds, modelViewTransform, GravityForceLabConstants.PULL_FORCE_RANGE, options );
     model.scientificNotationProperty.link( function( scientificNotation ) {
       self.setReadoutsInScientificNotation( scientificNotation );
@@ -81,11 +74,16 @@ define( function( require ) {
       ISLCObjectNode.prototype.redrawForce.call( this );
     },
     resetAriaValueText: function() {
-      if ( this.objectModel.isAtEdgeOfRange() ) {
-        this.ariaValueText = this.positionDescriber.getLastStopDistanceFromOtherObjectText( this.enum );
-        return;
+      const positionDescriber = GravityForceLabPositionDescriber.getDescriber();
+      if ( positionDescriber.objectAtEdge( this.enum ) ) {
+        this.ariaValueText = positionDescriber.getPositionAtEdgeAndDistanceFromOtherObjectText( this.enum );
       }
-      this.ariaValueText = this.positionDescriber.getPositionAndDistanceFromOtherObjectText( this.enum );
+      else if ( positionDescriber.objectsClosest ) {
+        this.ariaValueText = positionDescriber.getClosestToOtherObjectText( this.enum );
+      }
+      else {
+        this.ariaValueText = positionDescriber.getPositionAndDistanceFromOtherObjectText( this.enum );
+      }
     }
   } );
 } );

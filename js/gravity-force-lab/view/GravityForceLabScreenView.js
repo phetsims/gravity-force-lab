@@ -36,11 +36,9 @@ define( function( require ) {
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var Node = require( 'SCENERY/nodes/Node' );
   var PlayAreaNode = require( 'SCENERY_PHET/accessibility/nodes/PlayAreaNode' );
-  var Property = require( 'AXON/Property' );
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var Vector2 = require( 'DOT/Vector2' );
-  var Util = require( 'DOT/Util' );
 
   // strings
   var constantSizeString = require( 'string!INVERSE_SQUARE_LAW_COMMON/constantSize' );
@@ -81,7 +79,7 @@ define( function( require ) {
     var mass1NodeDescriber = new MassNodeDescriber( model, OBJECT_ONE );
     var mass2NodeDescriber = new MassNodeDescriber( model, OBJECT_TWO );
 
-    var alertManager = new GravityForceLabAlertManager( model );
+    var alertManager = GravityForceLabAlertManager.initialize( model );
     var summaryNode = new GravityForceLabScreenSummaryNode( model );
     var playAreaNode = new PlayAreaNode();
     var controlAreaNode = new ControlAreaNode();
@@ -111,8 +109,7 @@ define( function( require ) {
         defaultDirection: 'left',
         arrowColor: '#66f',
         forceArrowHeight: 85,
-        tandem: tandem.createTandem( 'mass1Node' ),
-        createAriaValueText: mass1NodeDescriber.ariaValueTextCreator()
+        tandem: tandem.createTandem( 'mass1Node' )
       }
     );
 
@@ -127,8 +124,7 @@ define( function( require ) {
         defaultDirection: 'right',
         arrowColor: '#f66',
         forceArrowHeight: 135,
-        tandem: tandem.createTandem( 'mass2Node' ),
-        createAriaValueText: mass2NodeDescriber.ariaValueTextCreator()
+        tandem: tandem.createTandem( 'mass2Node' )
       }
     );
 
@@ -184,20 +180,10 @@ define( function( require ) {
       model.object1.valueProperty,
       GravityForceLabConstants.MASS_RANGE,
       GravityForceLabConstants.MASS_BLUE_COLOR,
-      {
-        onFocus: function( event ) {
-          debugger;
-          alertManager.alertMassControlFocus( OBJECT_ONE );
-        }
-      },
+      OBJECT_ONE,
       tandem.createTandem( 'massControl1' )
     );
-    massControl1.addInputListener( {
-      focus: e => {
-        debugger;
-        console.log( 'mass control focused' );
-      }
-    } );
+
     massControl1.scale( CONTROL_SCALE );
     massControlsNode.addChild( massControl1 );
 
@@ -206,11 +192,7 @@ define( function( require ) {
       model.object2.valueProperty,
       GravityForceLabConstants.MASS_RANGE,
       GravityForceLabConstants.MASS_RED_COLOR,
-      {
-        onFocus: function( event ) {
-          alertManager.alertMassControlFocus( OBJECT_TWO );
-        }
-      },
+      OBJECT_TWO,
       tandem.createTandem( 'massControl2' )
     );
     massControl2.scale( CONTROL_SCALE );
@@ -283,56 +265,28 @@ define( function( require ) {
       checkboxItems[ 2 ].enabled = showValues;
     } );
 
-    Property.multilink(
-      [ model.object1.positionProperty, model.object2.positionProperty ],
-      function( x1, x2 ) {
-        var focusedMassNode;
-        var otherMassNode;
-        var distance = Util.toFixedNumber( Math.abs( x1 - x2 ), 1 );
+    var massDescriber = MassDescriber.getDescriber();
 
-        if ( mass1Node.isFocused() ) {
-          focusedMassNode = mass1Node;
-          otherMassNode = mass2Node;
-        }
-        else if ( mass2Node.isFocused() ) {
-          focusedMassNode = mass2Node;
-          otherMassNode = mass1Node;
-        }
-        else {
-          // this case is possible if the radius of a mass pushes the other mass
-          mass1Node.ariaValueText = positionDescriber.getPositionAndDistanceFromOtherObjectText( OBJECT_ONE, distance );
-          mass2Node.ariaValueText = positionDescriber.getPositionAndDistanceFromOtherObjectText( OBJECT_TWO, distance );
-          return;
-        }
-
-        var newAriaValueText = positionDescriber.getPositionAndDistanceFromOtherObjectText( otherMassNode.enum, distance );
-
-        if ( focusedMassNode.objectModel.isAtEdgeOfRange() ) {
-          newAriaValueText = positionDescriber.getLastStopDistanceFromOtherObjectText( otherMassNode.enum, distance );
-        }
-        otherMassNode.ariaValueText = newAriaValueText;
-      }
-    );
-
-    // function focusListenerCreator( objectNode ) {
-    //   return function( event ) {
-    //     lastMoveCloser = null;
-    //     objectNode.resetAriaValueText();
-    //     alertManager.alertPositionSliderFocused();
-    //   };
-    // }
+    model.object1.valueProperty.link( function( mass ) {
+      var text = massDescriber.getMassValueAndRelativeSize( OBJECT_TWO );
+      massControl2.setAriaValueText( text );
+    } );
+    model.object2.valueProperty.link( function( mass ) {
+      var text = massDescriber.getMassValueAndRelativeSize( OBJECT_ONE );
+      massControl2.setAriaValueText( text );
+    } );
 
     mass1Node.addInputListener( {
       focus: function( event ) {
         positionDescriber.lastMoveCloser = null;
-        mass1Node.resetAriaValueText();
+        mass1Node.ariaValueText = positionDescriber.getFocusAriaValueText( OBJECT_ONE );
         alertManager.alertPositionSliderFocused();
       }
     } );
     mass2Node.addInputListener( {
       focus: function( event ) {
         positionDescriber.lastMoveCloser = null;
-        mass2Node.resetAriaValueText;
+        mass2Node.ariaValueText = positionDescriber.getFocusAriaValueText( OBJECT_TWO );
         alertManager.alertPositionSliderFocused();
       }
     } );

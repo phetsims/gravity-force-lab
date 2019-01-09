@@ -21,6 +21,7 @@ define( require => {
   const valuePatternString = ISLCA11yStrings.valuePattern.value;
 
   const massValuesAndComparisonSummaryPatternString = GravityForceLabA11yStrings.massValuesAndComparisonSummaryPattern.value;
+  const massValueRelativeSizePatternString = GravityForceLabA11yStrings.massValueRelativeSizePattern.value;
 
   const tinyString = ISLCA11yStrings.tiny.value;
   const verySmallString = ISLCA11yStrings.verySmall.value;
@@ -124,13 +125,24 @@ define( require => {
     }
 
     getM1RelativeSize() {
-      const comparitiveValue = this.getObjectRelativeSize( OBJECT_ONE );
-      const firstObjectLabel = this.object1Label;
-      const secondObjectLabel = this.object2Label;
+      return this.getMassRelativeSizeToOther( OBJECT_ONE );
+    }
+
+    getMassRelativeSizeToOther( objectEnum ) {
+      const comparitiveValue = this.getMassRelativeSize( objectEnum );
+      const firstObjectLabel = this.getObjectLabelFromEnum( objectEnum );
+      const secondObjectLabel = this.getOtherObjectLabelFromEnum( objectEnum );
       return StringUtils.fillIn( objectsRelativeSizePatternString, { firstObjectLabel, comparitiveValue, secondObjectLabel } );
     }
 
-    getObjectRelativeSize( objectEnum ) {
+    getMassValueAndRelativeSize( objectEnum ) {
+      const massValue = this.getFormattedMass( this.getObjectFromEnum( objectEnum ).valueProperty.get() );
+      const relativeSize = this.getMassRelativeSize( objectEnum );
+      const otherObjectLabel = this.getOtherObjectLabelFromEnum( objectEnum );
+      return StringUtils.fillIn( massValueRelativeSizePatternString, { massValue, relativeSize, otherObjectLabel } );
+    }
+
+    getMassRelativeSize( objectEnum ) {
       const multiplier = objectEnum === OBJECT_ONE ? 1 : -1;
       const difference = this.radiusDifference * multiplier;
       const index = this.getRelativeSizeIndex( difference );
@@ -150,7 +162,7 @@ define( require => {
      * Returns the string 'As mass gets bigger/smaller' for use in larger string patterns.
      *
      * @param  {ISLCObjectEnum} thisObjectEnum
-     * @return {string}
+     * @returns {string}
      */
     getMassChangeClause( thisObjectEnum ) {
       const changeDirection = this.getMassChangeDirection( thisObjectEnum );
@@ -161,7 +173,7 @@ define( require => {
      * Returns the string 'As mass gets bigger/smaller and moves left/right' for use in larger string patterns.
      *
      * @param  {ISLCObjectEnum} thisObjectEnum
-     * @return {string}
+     * @returns {string}
      */
     getMassChangesAndMovesClause( thisObjectEnum ) {
       const changeDirection = this.getMassChangeDirection( thisObjectEnum );
@@ -173,7 +185,7 @@ define( require => {
      * Returns the string 'As mass gets bigger/smaller and moves {{otherObjectLabel}} left/right' for use in larger string patterns.
      *
      * @param  {ISLCObjectEnum} thisObjectEnum
-     * @return {string}
+     * @returns {string}
      */
     getMassChangesAndMovesOtherClause( thisObjectEnum ) {
       const changeDirection = this.getMassChangeDirection( thisObjectEnum );
@@ -186,7 +198,7 @@ define( require => {
      * Returns 'gets bigger/smaller' based on the most recent change to the passed-in mass.
      *
      * @param  {ISLCObjectEnum} objectEnum
-     * @return {string}
+     * @returns {string}
      */
     getMassChangeDirection( objectEnum ) {
       const isGrowing = objectEnum === OBJECT_ONE ? this.mass1Growing : this.mass2Growing;
@@ -197,7 +209,7 @@ define( require => {
      * Each object can only be pushed in one direction. Returns 'left' or 'right' based on the object passed in.
      *
      * @param  {ISLCObjectEnum} pushedMassEnum
-     * @return {string}
+     * @returns {string}
      */
     getPushDirection( pushedMassEnum ) {
       return pushedMassEnum === OBJECT_ONE ? leftString : rightString;
@@ -239,6 +251,15 @@ define( require => {
         return 6;
       }
       throw Error( 'Invalid mass value.');
+    }
+
+    ariaValueTextCreator( objectEnum ) {
+      return ( formattedMass, oldMass ) => {
+        const massValue = this.getFormattedMass( formattedMass );
+        const relativeSize = this.getMassRelativeSize( objectEnum );
+        const otherObjectLabel = this.getOtherObjectLabelFromEnum( objectEnum );
+        return StringUtils.fillIn( massValueRelativeSizePatternString, { massValue, relativeSize, otherObjectLabel } );
+      };
     }
 
     /**
