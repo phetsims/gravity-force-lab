@@ -255,7 +255,6 @@ define( require => {
 
     ariaValueTextCreator( objectEnum ) {
       return ( formattedMass, oldMass ) => {
-        debugger;
         const massValue = this.getFormattedMass( formattedMass );
         const relativeSize = this.getMassRelativeSize( objectEnum );
         const otherObjectLabel = this.getOtherObjectLabelFromEnum( objectEnum );

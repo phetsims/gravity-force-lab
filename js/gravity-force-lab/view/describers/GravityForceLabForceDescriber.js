@@ -65,7 +65,7 @@ define( require => {
      *
      * @override
      * @param  {Number} force
-     * @return {Integer}
+     * @returns {Integer}
      */
     getForceVectorIndex( force ) {
       const convertedForce = convertForceToMicronewtons( force );
@@ -98,7 +98,7 @@ define( require => {
      *
      * @override
      * @param  {Number} force
-     * @return {Integer}
+     * @returns {Integer}
      */
     getEffortIndex( force ) {
       return Util.roundSymmetric( forceToPullIndex( force ) );
