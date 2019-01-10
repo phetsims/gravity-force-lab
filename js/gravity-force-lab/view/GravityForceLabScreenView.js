@@ -31,7 +31,6 @@ define( function( require ) {
   var MassControl = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassControl' );
   var MassDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/MassDescriber' );
   var MassNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassNode' );
-  var MassNodeDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/MassNodeDescriber' );
   var MassPDOMNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassPDOMNode' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -74,10 +73,9 @@ define( function( require ) {
     } );
     // force text isn't retrieved direclty in the screenview, we simply initialize and access it in various nodes
     GravityForceLabForceDescriber.initialize( model, mass1AbbreviatedString, mass2AbbreviatedString );
-    MassDescriber.initialize( model );
-    var positionDescriber = GravityForceLabPositionDescriber.initialize( model, mass1AbbreviatedString, mass2AbbreviatedString );
-    var mass1NodeDescriber = new MassNodeDescriber( model, OBJECT_ONE );
-    var mass2NodeDescriber = new MassNodeDescriber( model, OBJECT_TWO );
+    MassDescriber.initialize( new MassDescriber( model ) );
+    var positionDescriber = new GravityForceLabPositionDescriber( model, mass1AbbreviatedString, mass2AbbreviatedString );
+    GravityForceLabPositionDescriber.initialize( positionDescriber );
 
     var alertManager = GravityForceLabAlertManager.initialize( model );
     var summaryNode = new GravityForceLabScreenSummaryNode( model );
@@ -128,11 +126,11 @@ define( function( require ) {
       }
     );
 
-    playAreaNode.addChild( new MassPDOMNode( model, OBJECT_ONE, mass1NodeDescriber, {
+    playAreaNode.addChild( new MassPDOMNode( model, OBJECT_ONE, {
       thisObjectLabel: mass1AbbreviatedString,
       otherObjectLabel: mass2AbbreviatedString
     } ) );
-    playAreaNode.addChild( new MassPDOMNode( model, OBJECT_TWO, mass2NodeDescriber, {
+    playAreaNode.addChild( new MassPDOMNode( model, OBJECT_TWO, {
       thisObjectLabel: mass2AbbreviatedString,
       otherObjectLabel: mass1AbbreviatedString
     } ) );

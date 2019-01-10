@@ -255,6 +255,7 @@ define( require => {
 
     ariaValueTextCreator( objectEnum ) {
       return ( formattedMass, oldMass ) => {
+        debugger;
         const massValue = this.getFormattedMass( formattedMass );
         const relativeSize = this.getMassRelativeSize( objectEnum );
         const otherObjectLabel = this.getOtherObjectLabelFromEnum( objectEnum );
@@ -275,9 +276,9 @@ define( require => {
      * Initialize the describer singleton
      * @throws Error
      */
-    static initialize( model, options ) {
+    static initialize( newDescriber ) {
       assert && assert( describer === null, 'cannot call initialize more than once per ForceDescriber instance' );
-      describer = new MassDescriber( model, options );
+      describer = newDescriber;
       return describer;
     }
   }

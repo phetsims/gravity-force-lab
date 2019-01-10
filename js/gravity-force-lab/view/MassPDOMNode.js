@@ -9,6 +9,7 @@ define( require => {
   // const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
   // const GravityForceLabForceDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/GravityForceLabForceDescriber' );
   const ISLCObjectPDOMNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectPDOMNode' );
+  const MassNodeDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/MassNodeDescriber' );
   const Node = require( 'SCENERY/nodes/Node' );
 
   // strings
@@ -17,8 +18,9 @@ define( require => {
 
   class MassPDOMNode extends ISLCObjectPDOMNode {
 
-    constructor( model, objectEnum, nodeDescriber, options ) {
+    constructor( model, objectEnum, options ) {
 
+      const nodeDescriber = new MassNodeDescriber( model, objectEnum );
       const labelContent = nodeDescriber.getMassSphereString( objectEnum );
       options.a11yOptions = { labelContent };
 

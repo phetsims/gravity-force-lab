@@ -39,7 +39,7 @@ define( require => {
     redSpherePattern: {
       value: '{{objectLabel}}, Red Sphere'
     },
-    valueUnitstPattern: {
+    valueUnitsPattern: {
       value: '{{value}} {{units}}'
     },
     positionMeterPattern: {

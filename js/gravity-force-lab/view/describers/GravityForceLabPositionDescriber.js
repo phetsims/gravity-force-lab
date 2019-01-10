@@ -94,10 +94,9 @@ define( require => {
      * Initialize the describer singleton
      * @throws Error
      */
-    static initialize( model, object1Label, object2Label, options ) {
+    static initialize( newDescriber ) {
       // assert && assert( describer === null, 'cannot call initialize more than once per ForceDescriber instance' );
-      const describer = new GravityForceLabPositionDescriber( model, object1Label, object2Label, options );
-      return PositionDescriber.initialize( describer );
+      return PositionDescriber.initialize( newDescriber );
     }
   }
 
