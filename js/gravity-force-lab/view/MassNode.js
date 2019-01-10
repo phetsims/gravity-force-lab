@@ -13,9 +13,9 @@ define( function( require ) {
   // modules
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
+  var GravityForceLabPositionDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/GravityForceLabPositionDescriber' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ISLCObjectNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectNode' );
-  // var ISLCStringManager = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCStringManager' );
   var RadialGradient = require( 'SCENERY/util/RadialGradient' );
   var Tandem = require( 'TANDEM/Tandem' );
   // var Util = require( 'DOT/Util' );
@@ -32,7 +32,7 @@ define( function( require ) {
    * @param {Object} [options]
    * @constructor
    */
-  function MassNode( model, massModel, layoutBounds, stringManager, modelViewTransform, options ) {
+  function MassNode( model, massModel, layoutBounds, modelViewTransform, options ) {
 
     var self = this;
 
@@ -47,13 +47,7 @@ define( function( require ) {
       tandem: Tandem.required
     }, options );
 
-    // @private
-    this.modelViewTransform = modelViewTransform;
-    this.model = model;
-    this.objectModel = massModel;
-    this.stringManager = stringManager;
-
-    ISLCObjectNode.call( this, model, massModel, layoutBounds, stringManager, modelViewTransform, GravityForceLabConstants.PULL_FORCE_RANGE, options );
+    ISLCObjectNode.call( this, model, massModel, layoutBounds, modelViewTransform, GravityForceLabConstants.PULL_FORCE_RANGE, options );
     model.scientificNotationProperty.link( function( scientificNotation ) {
       self.setReadoutsInScientificNotation( scientificNotation );
     } );
@@ -80,11 +74,16 @@ define( function( require ) {
       ISLCObjectNode.prototype.redrawForce.call( this );
     },
     resetAriaValueText: function() {
-      if ( this.objectModel.isAtEdgeOfRange() ) {
-        this.ariaValueText = this.stringManager.getLastStopDistanceFromOtherObjectText( this.enum );
-        return;
+      const positionDescriber = GravityForceLabPositionDescriber.getDescriber();
+      if ( positionDescriber.objectAtEdge( this.enum ) ) {
+        this.ariaValueText = positionDescriber.getPositionAtEdgeAndDistanceFromOtherObjectText( this.enum );
       }
-      this.ariaValueText = this.stringManager.getPositionAndDistanceFromOtherObjectText( this.enum );
+      else if ( positionDescriber.objectsClosest ) {
+        this.ariaValueText = positionDescriber.getClosestToOtherObjectText( this.enum );
+      }
+      else {
+        this.ariaValueText = positionDescriber.getPositionAndDistanceFromOtherObjectText( this.enum );
+      }
     }
   } );
 } );

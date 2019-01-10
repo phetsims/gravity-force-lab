@@ -16,6 +16,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var ISLCA11yStrings = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCA11yStrings' );
   var ISLCObjectControlPanel = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectControlPanel' );
+  // var MassDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/MassDescriber' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
 
   // strings
@@ -34,16 +35,17 @@ define( function( require ) {
    * @param {Tandem} tandem
    * @constructor
    */
-  function MassControl( titleString, valueProperty, massRange, thumbColor, options, tandem ) {
-    ISLCObjectControlPanel.call( this, titleString, unitsKgString, valueProperty, massRange, {
-
+  // TODO: place tandem in options object
+  function MassControl( titleString, valueProperty, massRange, thumbColor, massEnum, tandem ) {
+    // var massDescriber = MassDescriber.getDescriber();
+    var options = {
       // panel options
       fill: '#FDF498',
       xMargin: 15,
       yMargin: 10,
 
       numberControlOptions: {
-        arrowButtonOptions: { scale: 1 },
+
         thumbSize: THUMB_SIZE,
         trackSize: TRACK_SIZE,
         titleFont: new PhetFont( 24 ),
@@ -59,8 +61,9 @@ define( function( require ) {
         keyboardStep: 50,
         pageKeyboardStep: 100,
         accessibleName: titleString,
-        accessibleValuePattern: valueKilogramsPatternString, // {{value}} kilograms
-        onFocus: options.onFocus
+        accessibleValuePattern: valueKilogramsPatternString // {{value}} kilograms
+        // createAriaValueText: massDescriber.ariaValueTextCreator( massEnum )
+
       },
 
       tickLabelOptions: {
@@ -68,7 +71,8 @@ define( function( require ) {
       },
 
       tandem: tandem
-    } );
+    };
+    ISLCObjectControlPanel.call( this, titleString, unitsKgString, valueProperty, massRange, options );
   }
 
   gravityForceLab.register( 'MassControl', MassControl );

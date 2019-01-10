@@ -16,7 +16,7 @@ define( require => {
 
     // Screen Summary Strings
     screenSummaryMainDescription: {
-      value: 'The Play Area has a blue sphere labelled m1 and a red sphere labelled m2. A force vector arrow starts at the center of each sphere and points directly at the opposite sphere. Spheres can be moved closer or further from one another The mass of each sphere can be increased or decreased. Each sphere is held in place by a robot.'
+      value: 'The Play Area has a blue sphere labelled m1 and a red sphere labelled m2. A force vector arrow starts at the center of each sphere and points directly at the opposite sphere. Spheres can be moved closer or further from one another. The mass of each sphere can be increased or decreased. Each sphere is held in place by a robot.'
     },
     screenSummarySecondaryDescription: {
       value: 'In the Control Area, checkboxes change what things are shown and how they behave, and a button resets the sim. There is a moveable ruler to take measurements, if needed.'
@@ -28,18 +28,18 @@ define( require => {
       value: 'Mass of {{mass1Label}} is {{m1Mass}} kilograms, {{comparitiveValue}} {{mass2Label}} at {{m2Mass}} kilograms.'
     },
     sizeAndPositionPattern: {
-      value: '{{thisObject}} is {{size}} at {{massValue}} kg and at {{positionUnitMark}} mark'
+      value: '{{thisObjectLabel}} is {{size}} at {{massValue}} kg and at {{position}} {{unit}} mark'
     },
 
     // Object/sphere descriptions and labels
 
-    mass1BlueSphere: {
-      value: 'm1, Blue Sphere'
+    blueSpherePattern: {
+      value: '{{objectLabel}}, Blue Sphere'
     },
-    mass2RedSphere: {
-      value: 'm2, Red Sphere'
+    redSpherePattern: {
+      value: '{{objectLabel}}, Red Sphere'
     },
-    valueUnitstPattern: {
+    valueUnitsPattern: {
       value: '{{value}} {{units}}'
     },
     positionMeterPattern: {
@@ -50,6 +50,28 @@ define( require => {
     ////////////////////////
     // Qualitative values //
     ////////////////////////
+
+    objectsRelativeSizePattern: {
+      value: '{{firstObjectLabel}} {{comparitiveValue}} {{secondObjectLabel}}'
+    },
+    massSizeRelativeSizePattern: {
+      value: '{{massValue}} kilograms, {{size}}, {{relativeSize}} {{otherObjectLabel}}'
+    },
+    massValueRelativeSizePattern: {
+      value: '{{massValue}} kilograms, {{relativeSize}} {{otherObjectLabel}}'
+    },
+    massAndForceClausesPattern: {
+      value: '{{massClause}}, {{forceClause}}.'
+    },
+    massChangeClausePattern: {
+      value: 'As mass {{changeDirection}}'
+    },
+    massChangesAndMovesClausePattern: {
+      value: 'As mass {{changeDirection}} and moves {{leftOrRight}}'
+    },
+    massChangesMovesOtherClausePattern: {
+      value: 'As mass {{changeDirection}} and moves {{otherObjectLabel}} {{leftOrRight}}'
+    },
 
     // relative mass sizes
     muchMuchSmallerThan: {
@@ -72,6 +94,12 @@ define( require => {
     },
     muchMuchLargerThan: {
       value: 'much much larger than'
+    },
+    getsSmaller: {
+      value: 'gets smaller'
+    },
+    getsBigger: {
+      value: 'gets bigger'
     },
 
     // mass sphere density
