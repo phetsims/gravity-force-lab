@@ -16,7 +16,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var ISLCA11yStrings = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCA11yStrings' );
   var ISLCObjectControlPanel = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectControlPanel' );
-  // var MassDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/MassDescriber' );
+  var MassDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/MassDescriber' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
 
   // strings
@@ -37,7 +37,7 @@ define( function( require ) {
    */
   // TODO: place tandem in options object
   function MassControl( titleString, valueProperty, massRange, thumbColor, massEnum, tandem ) {
-    // var massDescriber = MassDescriber.getDescriber();
+    var massDescriber = MassDescriber.getDescriber();
     var options = {
       // panel options
       fill: '#FDF498',
@@ -61,8 +61,8 @@ define( function( require ) {
         keyboardStep: 50,
         pageKeyboardStep: 100,
         accessibleName: titleString,
-        accessibleValuePattern: valueKilogramsPatternString // {{value}} kilograms
-        // createAriaValueText: massDescriber.ariaValueTextCreator( massEnum )
+        // accessibleValuePattern: valueKilogramsPatternString, // {{value}} kilograms
+        createAriaValueText: massDescriber.ariaValueTextCreator( massEnum )
 
       },
 
