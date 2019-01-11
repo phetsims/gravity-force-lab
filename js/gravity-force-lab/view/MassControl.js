@@ -14,14 +14,14 @@ define( function( require ) {
   var Dimension2 = require( 'DOT/Dimension2' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var ISLCA11yStrings = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCA11yStrings' );
+  // var ISLCA11yStrings = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCA11yStrings' );
   var ISLCObjectControlPanel = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectControlPanel' );
   var MassDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/MassDescriber' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
 
   // strings
   var unitsKgString = require( 'string!GRAVITY_FORCE_LAB/units.kg' );
-  var valueKilogramsPatternString = ISLCA11yStrings.valueKilogramsPattern.value;
+  // var valueKilogramsPatternString = ISLCA11yStrings.valueKilogramsPattern.value;
 
   // constants
   var TRACK_SIZE = new Dimension2( 170, 3 );
