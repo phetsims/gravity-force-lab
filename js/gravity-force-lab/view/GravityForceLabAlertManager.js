@@ -123,12 +123,17 @@ define( require => {
     }
 
     getMassValueChangedAlertText( objectEnum, newMass, oldMass ) {
+      // TODO: this function is called before the position property is updated and sets pushedMassEnum, we'll need to compare
+      // the two mass values against the current positions to see if one will be pushed.
       const positionDescriber = GravityForceLabPositionDescriber.getDescriber();
 
       let massClause = this.massDescriber.getMassChangeClause( objectEnum );
 
       if ( positionDescriber.massPushed ) {
-        massClause = this.massDescriber.getMassChangesAndMovesClause( objectEnum, positionDescriber.pushedMassEnum );
+        massClause = this.massDescriber.getMassChangesAndMovesClause( objectEnum );
+        if ( positionDescriber.pushedMassEnum !== objectEnum ) {
+          massClause = this.massDescriber.getMassChangesAndMovesOtherClause( objectEnum );
+        }
       }
 
       let forceClause = this.forceDescriber.getVectorChangeClause();
