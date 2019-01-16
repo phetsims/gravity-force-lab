@@ -234,7 +234,10 @@ define( function( require ) {
     controlAreaNode.addChild( parameterControlPanel );
 
     var resetAllButton = new ResetAllButton( {
-      listener: function() { model.reset(); },
+      listener: function() {
+        model.reset();
+        gravityForceLabRuler.reset();
+      },
       scale: 0.81,
       tandem: tandem.createTandem( 'resetAllButton' )
     } );
@@ -259,7 +262,7 @@ define( function( require ) {
       this.addChild( gridNode );
     }
 
-    model.forceValuesProperty.link( function ( showValues ) {
+    model.forceValuesProperty.link( function( showValues ) {
       checkboxItems[ 2 ].enabled = showValues;
     } );
 
