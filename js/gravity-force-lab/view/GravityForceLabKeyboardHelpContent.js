@@ -52,13 +52,12 @@ define( function( require ) {
 
   // constants
   var DEFAULT_LABEL_OPTIONS = {
-    font: HelpContent.DEFAULT_LABEL_FONT,
-    maxWidth: HelpContent.DEFAULT_TEXT_MAX_WIDTH
+    font: HelpContent.DEFAULT_LABEL_FONT
   };
 
   // helper functions that return icons for the dialog
   var ICON_CREATOR = {
-    home: function () {
+    home: function() {
       return new HomeKeyNode();
     },
     end: function() {
