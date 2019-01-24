@@ -168,7 +168,7 @@ define( function( require ) {
     var massControlsNode = new Node( {
       labelTagName: 'h3',
       labelContent: massControlsLabelString,
-      tagName: 'div',
+      tagName: 'ul',
       descriptionContent: massControlsHelpTextString
     } );
     playAreaNode.addChild( massControlsNode );
