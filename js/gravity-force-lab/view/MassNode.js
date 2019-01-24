@@ -43,6 +43,7 @@ define( function( require ) {
       arrowLabelFill: ARROW_LABEL_COLOR_STRING,
       y: MASS_NODE_Y_POSITION,
       snapToNearest: GravityForceLabConstants.LOCATION_SNAP_VALUE,
+      stepSize: GravityForceLabConstants.LOCATION_STEP_SIZE,
       maxArrowWidth: 300,
       tandem: Tandem.required
     }, options );
@@ -73,6 +74,10 @@ define( function( require ) {
     redrawForce: function() {
       ISLCObjectNode.prototype.redrawForce.call( this );
     },
+
+    /**
+     * @private
+     */
     resetAriaValueText: function() {
       const positionDescriber = GravityForceLabPositionDescriber.getDescriber();
       if ( positionDescriber.objectAtEdge( this.enum ) ) {
