@@ -11,6 +11,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var AccessiblePeer = require( 'SCENERY/accessibility/AccessiblePeer' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var ControlAreaNode = require( 'SCENERY_PHET/accessibility/nodes/ControlAreaNode' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
@@ -172,6 +173,13 @@ define( function( require ) {
       descriptionContent: massControlsHelpTextString
     } );
     playAreaNode.addChild( massControlsNode );
+
+    // the list of mass controls is aria-labelledby the its label sibling, see https://github.com/phetsims/gravity-force-lab/issues/132
+    massControlsNode.addAriaLabelledbyAssociation( {
+      otherNode: massControlsNode,
+      otherElementName: AccessiblePeer.LABEL_SIBLING,
+      thisElementName: AccessiblePeer.PRIMARY_SIBLING
+    } );
 
     var massControl1 = new MassControl(
       mass1String,
