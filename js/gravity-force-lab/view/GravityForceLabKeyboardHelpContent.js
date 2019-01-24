@@ -19,7 +19,6 @@ define( function( require ) {
   var HelpContent = require( 'SCENERY_PHET/keyboard/help/HelpContent' );
   var HomeKeyNode = require( 'SCENERY_PHET/keyboard/HomeKeyNode' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var RichText = require( 'SCENERY/nodes/RichText' );
   var VBox = require( 'SCENERY/nodes/VBox' );
 
   // strings
@@ -49,11 +48,6 @@ define( function( require ) {
   var changeMassInSmallerStepsDescriptionString = GravityForceLabA11yStrings.changeMassInSmallerStepsDescription.value;
   var jumpToMaximumMassDescriptionString = GravityForceLabA11yStrings.jumpToMaximumMassDescription.value;
   var jumpToMinimumMassDescriptionString = GravityForceLabA11yStrings.jumpToMinimumMassDescription.value;
-
-  // constants
-  var DEFAULT_LABEL_OPTIONS = {
-    font: HelpContent.DEFAULT_LABEL_FONT
-  };
 
   // helper functions that return icons for the dialog
   var ICON_CREATOR = {
@@ -157,10 +151,8 @@ define( function( require ) {
      * @param  {string} iconID - must be one of ICON_CREATOR keys, see that above
      */
     constructRow: function( labelString, descriptionString, iconID ) {
-      var labelNode = new RichText( labelString, DEFAULT_LABEL_OPTIONS );
       var iconNode = ICON_CREATOR[ iconID ]();
-
-      return HelpContent.labelWithIcon( labelNode, iconNode, descriptionString );
+      return HelpContent.labelWithIcon( labelString, iconNode, descriptionString );
     }
   } );
 } );
