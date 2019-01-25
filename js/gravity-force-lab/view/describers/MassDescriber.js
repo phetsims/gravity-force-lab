@@ -139,13 +139,6 @@ define( require => {
       } );
     }
 
-    getMassValueAndRelativeSize( objectEnum ) {
-      const massValue = this.getFormattedMass( this.getObjectFromEnum( objectEnum ).valueProperty.get() );
-      const relativeSize = this.getMassRelativeSize( objectEnum );
-      const otherObjectLabel = this.getOtherObjectLabelFromEnum( objectEnum );
-      return StringUtils.fillIn( massValueRelativeSizePatternString, { massValue, relativeSize, otherObjectLabel } );
-    }
-
     getMassRelativeSize( objectEnum ) {
       const multiplier = objectEnum === OBJECT_ONE ? 1 : -1;
       const difference = this.radiusDifference * multiplier;
