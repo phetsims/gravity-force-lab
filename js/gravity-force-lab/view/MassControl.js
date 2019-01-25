@@ -11,21 +11,22 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var Dimension2 = require( 'DOT/Dimension2' );
-  var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  // var ISLCA11yStrings = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCA11yStrings' );
-  var ISLCObjectControlPanel = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectControlPanel' );
-  var MassDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/MassDescriber' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  // const ISLCA11yStrings = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCA11yStrings' );
+  const GravityForceLabAlertManager = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabAlertManager' );
+  const Dimension2 = require( 'DOT/Dimension2' );
+  const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const ISLCObjectControlPanel = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectControlPanel' );
+  const MassDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/MassDescriber' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
 
   // strings
-  var unitsKgString = require( 'string!GRAVITY_FORCE_LAB/units.kg' );
-  // var valueKilogramsPatternString = ISLCA11yStrings.valueKilogramsPattern.value;
+  const unitsKgString = require( 'string!GRAVITY_FORCE_LAB/units.kg' );
+  // const valueKilogramsPatternString = ISLCA11yStrings.valueKilogramsPattern.value;
 
   // constants
-  var TRACK_SIZE = new Dimension2( 170, 3 );
-  var THUMB_SIZE = new Dimension2( 22, 42 );
+  const TRACK_SIZE = new Dimension2( 170, 3 );
+  const THUMB_SIZE = new Dimension2( 22, 42 );
 
   /**
    * @param {string} titleString
@@ -37,8 +38,9 @@ define( function( require ) {
    */
   // TODO: place tandem in options object
   function MassControl( titleString, valueProperty, massRange, thumbColor, massEnum, tandem ) {
-    var massDescriber = MassDescriber.getDescriber();
-    var options = {
+    const massDescriber = MassDescriber.getDescriber();
+    const alertManager = GravityForceLabAlertManager.getManager();
+    const options = {
       // panel options
       fill: '#FDF498',
       xMargin: 15,
@@ -64,6 +66,12 @@ define( function( require ) {
         // accessibleValuePattern: valueKilogramsPatternString, // {{value}} kilograms
         createAriaValueText: massDescriber.getAriaValueTextCreator( massEnum )
 
+      },
+
+      numberControlListener: {
+        focus() {
+          alertManager.alertMassControlFocused();
+        }
       },
 
       tickLabelOptions: {

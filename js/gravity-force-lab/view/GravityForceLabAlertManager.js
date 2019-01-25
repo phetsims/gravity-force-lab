@@ -90,9 +90,17 @@ define( require => {
     }
 
     alertPositionSliderFocused() {
+      console.log( 'alerting position slider focused');
       const alert = this.forceDescriber.getForceVectorSizeText();
       const utterance = new Utterance( { alert, uniqueGroupId: 'position' } );
       utteranceQueue.addToBack( utterance );
+    }
+
+    /**
+     * When mass control is focused, produce the same alert as when the position slider is focused
+     */
+    alertMassControlFocused() {
+      this.alertPositionSliderFocused();
     }
 
     // alertPositionChanged( endAtEdge ) {
