@@ -274,17 +274,6 @@ define( function( require ) {
       checkboxItems[ 2 ].enabled = showValues;
     } );
 
-    var massDescriber = MassDescriber.getDescriber();
-
-    model.object1.valueProperty.link( function( mass ) {
-      var text = massDescriber.getMassValueAndRelativeSize( OBJECT_TWO );
-      massControl2.setAriaValueText( text );
-    } );
-    model.object2.valueProperty.link( function( mass ) {
-      var text = massDescriber.getMassValueAndRelativeSize( OBJECT_ONE );
-      massControl2.setAriaValueText( text );
-    } );
-
     mass1Node.addInputListener( {
       focus: function( event ) {
         positionDescriber.lastMoveCloser = null;
