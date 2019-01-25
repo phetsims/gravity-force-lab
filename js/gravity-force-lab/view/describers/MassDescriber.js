@@ -261,8 +261,14 @@ define( require => {
       throw Error( 'Invalid mass value.' );
     }
 
-    ariaValueTextCreator( objectEnum ) {
-      return ( formattedMass, oldMass ) => {
+
+    /**
+     * Get the function that fills in the correct aria-valuetext for a given mass control slider
+     * @param {ISLCObjectEnum} objectEnum
+     * @returns {function} - function that, given mass inputs, returns the aria value text
+     */
+    getAriaValueTextCreator( objectEnum ) {
+      return ( formattedMass ) => {
         const massValue = this.getFormattedMass( formattedMass );
         const relativeSize = this.getMassRelativeSize( objectEnum );
         const otherObjectLabel = this.getOtherObjectLabelFromEnum( objectEnum );

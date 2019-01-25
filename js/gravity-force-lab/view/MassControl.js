@@ -62,7 +62,7 @@ define( function( require ) {
         pageKeyboardStep: 100,
         accessibleName: titleString,
         // accessibleValuePattern: valueKilogramsPatternString, // {{value}} kilograms
-        createAriaValueText: massDescriber.ariaValueTextCreator( massEnum )
+        createAriaValueText: massDescriber.getAriaValueTextCreator( massEnum )
 
       },
 
