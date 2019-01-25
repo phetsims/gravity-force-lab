@@ -127,7 +127,12 @@ define( require => {
       const size = this.massDescriber.getMassSize( thisObjectMass );
       const relativeSize = this.massDescriber.getMassRelativeSize( objectEnum );
       const otherObjectLabel = this.massDescriber.getOtherObjectLabelFromEnum( objectEnum );
-      return StringUtils.fillIn( massSizeRelativeSizePatternString, { massValue, size, relativeSize, otherObjectLabel } );
+      return StringUtils.fillIn( massSizeRelativeSizePatternString, {
+        massValue,
+        size,
+        relativeSize,
+        otherObjectLabel
+      } );
     }
 
     getMassValueChangedAlertText( objectEnum, newMass, oldMass ) {
