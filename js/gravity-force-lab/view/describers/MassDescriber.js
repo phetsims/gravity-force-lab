@@ -132,7 +132,11 @@ define( require => {
       const comparitiveValue = this.getMassRelativeSize( objectEnum );
       const firstObjectLabel = this.getObjectLabelFromEnum( objectEnum );
       const secondObjectLabel = this.getOtherObjectLabelFromEnum( objectEnum );
-      return StringUtils.fillIn( objectsRelativeSizePatternString, { firstObjectLabel, comparitiveValue, secondObjectLabel } );
+      return StringUtils.fillIn( objectsRelativeSizePatternString, {
+        firstObjectLabel,
+        comparitiveValue,
+        secondObjectLabel
+      } );
     }
 
     getMassValueAndRelativeSize( objectEnum ) {
@@ -191,7 +195,11 @@ define( require => {
       const changeDirection = this.getMassChangeDirection( thisObjectEnum );
       const otherObjectLabel = this.getOtherObjectLabelFromEnum( thisObjectEnum );
       const leftOrRight = this.getPushDirection( this.getOtherObjectEnum( thisObjectEnum ) );
-      return StringUtils.fillIn( massChangesMovesOtherClausePatternString, { changeDirection, otherObjectLabel, leftOrRight } );
+      return StringUtils.fillIn( massChangesMovesOtherClausePatternString, {
+        changeDirection,
+        otherObjectLabel,
+        leftOrRight
+      } );
     }
 
     /**
@@ -250,7 +258,7 @@ define( require => {
       if ( mass <= 1000 ) {
         return 6;
       }
-      throw Error( 'Invalid mass value.');
+      throw Error( 'Invalid mass value.' );
     }
 
     ariaValueTextCreator( objectEnum ) {
