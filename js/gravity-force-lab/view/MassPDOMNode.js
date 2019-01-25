@@ -13,14 +13,19 @@ define( require => {
   const Node = require( 'SCENERY/nodes/Node' );
 
   // strings
-  // const mass1BlueSphereString = GravityForceLabA11yStrings.mass1BlueSphere.value;
-  // const mass2RedSphereString = GravityForceLabA11yStrings.mass2RedSphere.value;
+  const mass1AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass1Abbreviated' );
+  const mass2AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass2Abbreviated' );
 
   class MassPDOMNode extends ISLCObjectPDOMNode {
 
     constructor( model, objectEnum, options ) {
 
-      const nodeDescriber = new MassNodeDescriber( model, objectEnum );
+      options = _.extend( {
+        object1Label: mass1AbbreviatedString,
+        object2Label: mass2AbbreviatedString
+      }, options );
+
+      const nodeDescriber = new MassNodeDescriber( model, objectEnum, options );
       const labelContent = nodeDescriber.getMassSphereString( objectEnum );
       options.a11yOptions = { labelContent };
 

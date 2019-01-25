@@ -24,8 +24,14 @@ define( require => {
   const { OBJECT_ONE } = ISLCObjectEnum;
 
   class MassNodeDescriber extends ISLCDescriber {
-    constructor( model, objectEnum ) {
-      super( model, mass1AbbreviatedString, mass2AbbreviatedString );
+    constructor( model, objectEnum, options ) {
+
+      options = _.extend( {
+        object1Label: mass1AbbreviatedString,
+        object2Label: mass2AbbreviatedString
+      }, options );
+
+      super( model, options.object1Label, options.object2Label );
 
       this.enum = objectEnum;
       this.mass = this.getObjectFromEnum( objectEnum );

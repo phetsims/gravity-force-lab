@@ -127,14 +127,8 @@ define( function( require ) {
       }
     );
 
-    playAreaNode.addChild( new MassPDOMNode( model, OBJECT_ONE, {
-      thisObjectLabel: mass1AbbreviatedString,
-      otherObjectLabel: mass2AbbreviatedString
-    } ) );
-    playAreaNode.addChild( new MassPDOMNode( model, OBJECT_TWO, {
-      thisObjectLabel: mass2AbbreviatedString,
-      otherObjectLabel: mass1AbbreviatedString
-    } ) );
+    playAreaNode.addChild( new MassPDOMNode( model, OBJECT_ONE ) );
+    playAreaNode.addChild( new MassPDOMNode( model, OBJECT_TWO ) );
 
     var massPositionsNode = new Node( {
       tagName: 'div',
