@@ -33,13 +33,16 @@ define( require => {
     constructor( model, options ) {
 
       options = _.extend( {
-        mainDescriptionContent: screenSummaryMainDescriptionString,
-        secondaryDecriptionContent: screenSummarySecondaryDescriptionString
-      }, options );
 
-      const summaryOptions = _.extend( {
+        // {string}
+        mainDescriptionContent: screenSummaryMainDescriptionString,
+
+        // {sring}
+        secondaryDecriptionContent: screenSummarySecondaryDescriptionString,
+
+        // {string}
         simStateLabel: simStateListLabelString
-      }, options.summaryOptions );
+      }, options );
 
       super();
 
@@ -54,7 +57,7 @@ define( require => {
       this.simStateNode = new Node( {
         tagName: 'ul',
         labelTagName: 'p',
-        labelContent: summaryOptions.simStateLabel
+        labelContent: options.simStateLabel
       } );
 
       this.forceVectorsSummaryItem = new Node( { tagName: 'li' } );
