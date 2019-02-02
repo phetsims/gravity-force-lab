@@ -41,10 +41,16 @@ define( require => {
         secondaryDecriptionContent: screenSummarySecondaryDescriptionString,
 
         // {string}
-        simStateLabel: simStateListLabelString
+        simStateLabel: simStateListLabelString,
+
+        // {boolean} GFLB has simplified language, this flag is to support that, see https://github.com/phetsims/gravity-force-lab-basics/issues/86
+        simplifyLanguage: false
       }, options );
 
       super();
+
+      // @private
+      this.simplifyLanguage = options.simplifyLanguage;
 
       // subtypes of ForceDescriber initialize the singleton to the appropriate subtype
       this.forceDescriber = ForceDescriber.getDescriber();
@@ -108,6 +114,7 @@ define( require => {
       } );
     }
 
+    // @private
     updateSimStateList() {
       this.updateForceVectorSummary();
       this.updateObjectDistanceSummary();
@@ -115,18 +122,24 @@ define( require => {
       this.updateRobotEffort();
     }
 
+    // @private
     updateForceVectorSummary() {
       this.forceVectorsSummaryItem.innerContent = this.forceDescriber.getForceVectorsSummaryText();
     }
 
+    // @private
     updateObjectDistanceSummary() {
-      this.objectDistanceSummaryItem.innerContent = this.positionDescriber.getObjectDistanceSummary();
+
+      const distanceSummary = this.positionDescriber.getObjectDistanceSummary( this.simplifyLanguage );
+      this.objectDistanceSummaryItem.innerContent = distanceSummary;
     }
 
+    // @private
     updateMassValuesSummary() {
       this.massValuesSummaryItem.innerContent = this.massDescriber.getMassValuesSummaryText();
     }
 
+    // @private
     updateRobotEffort() {
       this.robotsSummaryItem.innerContent = this.forceDescriber.getRobotEffortSummaryText();
     }
