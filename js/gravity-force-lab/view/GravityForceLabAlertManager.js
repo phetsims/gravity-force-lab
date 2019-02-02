@@ -6,25 +6,29 @@ define( require => {
   // modules
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
-  // const GravityForceLabForceDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/GravityForceLabForceDescriber' );
   const GravityForceLabPositionDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/GravityForceLabPositionDescriber' );
   const ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
-  // const ISLCA11yStrings = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCA11yStrings' );
   const ISLCAlertManager = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCAlertManager' );
   const MassDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/MassDescriber' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Utterance = require( 'SCENERY_PHET/accessibility/Utterance' );
   const utteranceQueue = require( 'SCENERY_PHET/accessibility/utteranceQueue' );
 
-  // constants
-  const { OBJECT_ONE, OBJECT_TWO } = ISLCObjectEnum;
-
-
   // strings
-  const constantRadiusThinkDensityString = GravityForceLabA11yStrings.constantRadiusThinkDensity.value;
+  const mass1AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass1Abbreviated' );
+  const mass2AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass2Abbreviated' );
+
+  // a11y strings
+  const constantRadiusThinkDensityPatternString = GravityForceLabA11yStrings.constantRadiusThinkDensityPattern.value;
   const massAndForceClausesPatternString = GravityForceLabA11yStrings.massAndForceClausesPattern.value;
   const massSizeRelativeSizePatternString = GravityForceLabA11yStrings.massSizeRelativeSizePattern.value;
-  // const regionForceClausePatternString = ISLCA11yStrings.regionForceClausePattern.value;
+
+  // constants
+  const { OBJECT_ONE, OBJECT_TWO } = ISLCObjectEnum;
+  const CONSTANT_RADIUS_ALERT = StringUtils.fillIn( constantRadiusThinkDensityPatternString, {
+    mass1: mass1AbbreviatedString,
+    mass2: mass2AbbreviatedString
+  } );
 
   class GravityForceLabAlertManager extends ISLCAlertManager {
     constructor( model ) {
@@ -73,7 +77,7 @@ define( require => {
     }
 
     alertConstantRadius( constantRadius ) {
-      const alert = constantRadius ? constantRadiusThinkDensityString : this.massDescriber.getM1RelativeSize();
+      const alert = constantRadius ? CONSTANT_RADIUS_ALERT : this.massDescriber.getM1RelativeSize();
       const utterance = new Utterance( { alert, uniqueGroupId: 'constantRadius' } );
       utteranceQueue.addToBack( utterance );
     }
@@ -90,7 +94,7 @@ define( require => {
     }
 
     alertPositionSliderFocused() {
-      console.log( 'alerting position slider focused');
+      console.log( 'alerting position slider focused' );
       const alert = this.forceDescriber.getForceVectorSizeText();
       const utterance = new Utterance( { alert, uniqueGroupId: 'position' } );
       utteranceQueue.addToBack( utterance );

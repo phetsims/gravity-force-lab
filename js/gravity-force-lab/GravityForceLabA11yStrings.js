@@ -145,8 +145,8 @@ define( require => {
     constantSizeCheckboxHelpText: {
       value: 'Keep size of spheres constant while changing mass.'
     },
-    constantRadiusThinkDensity: {
-      value: 'm1 and m2 set to same size.'
+    constantRadiusThinkDensityPattern: {
+      value: '{{mass1}} and {{mass2}} set to same size.'
     },
     forceValuesCheckboxHelpText: {
       value: 'Explore force values in micronewtons.'
