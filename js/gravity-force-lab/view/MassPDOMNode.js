@@ -38,7 +38,7 @@ define( require => {
 
       this.linkToForceProperty( force => {
         const forceBetweenContent = forceDescriber.getForceBetweenAndVectorText( this.thisObjectLabel, this.otherObjectLabel );
-        const forceMagnitudeContent = forceDescriber.getForceVectorMagnitudeText();
+        const forceMagnitudeContent = forceDescriber.getForceVectorMagnitudeText( this.thisObjectLabel, this.otherObjectLabel );
         const newContent = nodeDescriber.getSizeAndPositionItemText();
 
         this.forceBetweenAndVectorNode.innerContent = forceBetweenContent;
@@ -48,7 +48,7 @@ define( require => {
 
       if ( model.scientificNotationProperty ) {
         model.scientificNotationProperty.link( displayInScientificNotation => {
-          this.forceVectorMagnitudeItemNode.innerContent = forceDescriber.getForceVectorMagnitudeText();
+          this.forceVectorMagnitudeItemNode.innerContent = forceDescriber.getForceVectorMagnitudeText( this.thisObjectLabel, this.otherObjectLabel );
         } );
       }
     }
