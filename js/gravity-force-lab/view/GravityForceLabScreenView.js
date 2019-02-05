@@ -32,7 +32,7 @@ define( function( require ) {
   var MassControl = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassControl' );
   var MassDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/MassDescriber' );
   var MassNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassNode' );
-  var MassPDOMNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassPDOMNode' );
+  var GravityForceLabMassPDOMNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabMassPDOMNode' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var Node = require( 'SCENERY/nodes/Node' );
   var PlayAreaNode = require( 'SCENERY_PHET/accessibility/nodes/PlayAreaNode' );
@@ -127,8 +127,8 @@ define( function( require ) {
       }
     );
 
-    playAreaNode.addChild( new MassPDOMNode( model, OBJECT_ONE ) );
-    playAreaNode.addChild( new MassPDOMNode( model, OBJECT_TWO ) );
+    playAreaNode.addChild( new GravityForceLabMassPDOMNode( model, OBJECT_ONE ) );
+    playAreaNode.addChild( new GravityForceLabMassPDOMNode( model, OBJECT_TWO ) );
 
     var massPositionsNode = new Node( {
       tagName: 'div',

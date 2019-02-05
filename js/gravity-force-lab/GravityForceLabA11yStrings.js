@@ -27,12 +27,23 @@ define( require => {
     massValuesAndComparisonSummaryPattern: {
       value: 'Mass of {{mass1Label}} is {{m1Mass}} kilograms, {{comparitiveValue}} {{mass2Label}} at {{m2Mass}} kilograms.'
     },
-    sizeAndPositionPattern: {
-      value: '{{thisObjectLabel}} is {{size}} at {{massValue}} kg and at {{position}} {{unit}} mark'
-    },
 
+    ///////////////////////////////////////
     // Object/sphere descriptions and labels
+    ///////////////////////////////////////
 
+    sizeAndPositionPattern: {
+      value: '{{thisObjectLabel}} is {{size}} at {{massValue}} kg and at {{position}} {{unit}} mark.'
+    },
+    sizePattern: {
+      value: '{{thisObjectLabel}} is {{massValue}} kg.'
+    },
+    positionPattern: {
+      value: '{{thisObjectLabel}} is at {{position}} {{unit}} mark{{distanceClause}}.'
+    },
+    distancePattern: {
+      value: ', {{distance}} {{units}} from {{otherObjectLabel}}'
+    },
     blueSpherePattern: {
       value: '{{objectLabel}}, Blue Sphere'
     },

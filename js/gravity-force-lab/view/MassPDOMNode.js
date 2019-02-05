@@ -6,11 +6,8 @@ define( require => {
   // modules
   const ForceDescriber = require( 'INVERSE_SQUARE_LAW_COMMON/view/describers/ForceDescriber' );
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
-  // const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
-  // const GravityForceLabForceDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/GravityForceLabForceDescriber' );
   const ISLCObjectPDOMNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectPDOMNode' );
   const MassNodeDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/MassNodeDescriber' );
-  const Node = require( 'SCENERY/nodes/Node' );
 
   // strings
   const mass1AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass1Abbreviated' );
@@ -18,6 +15,11 @@ define( require => {
 
   class MassPDOMNode extends ISLCObjectPDOMNode {
 
+    /**
+     * @param {ISLCModel} model
+     * @param {ISLCObjectEnum} objectEnum
+     * @param {Object} options
+     */
     constructor( model, objectEnum, options ) {
 
       options = _.extend( {
@@ -31,19 +33,17 @@ define( require => {
 
       super( model, objectEnum, options );
 
+      // @protected
+      this.nodeDescriber = nodeDescriber;
+
       const forceDescriber = ForceDescriber.getDescriber();
 
-      this.massAndPositionNode = new Node( { tagName: 'li' } );
-      this.addChild( this.massAndPositionNode );
-
-      this.linkToForceProperty( force => {
+      this.linkToForceProperty( () => {
         const forceBetweenContent = forceDescriber.getForceBetweenAndVectorText( this.thisObjectLabel, this.otherObjectLabel );
         const forceMagnitudeContent = forceDescriber.getForceVectorMagnitudeText( this.thisObjectLabel, this.otherObjectLabel );
-        const newContent = nodeDescriber.getSizeAndPositionItemText();
 
         this.forceBetweenAndVectorNode.innerContent = forceBetweenContent;
         this.forceVectorMagnitudeItemNode.innerContent = forceMagnitudeContent;
-        this.massAndPositionNode.innerContent = newContent;
       } );
 
       if ( model.scientificNotationProperty ) {
