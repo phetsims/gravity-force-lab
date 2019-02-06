@@ -125,13 +125,13 @@ define( require => {
      * @returns {string}
      */
     getMassControlFocusAlertText( objectEnum ) {
+      const massAndUnit = this.massDescriber.getMassAndUnit( objectEnum );
       const thisObjectMass = this.massDescriber.getObjectFromEnum( objectEnum ).valueProperty.get();
-      const massValue = this.massDescriber.getFormattedMass( thisObjectMass );
       const size = this.massDescriber.getMassSize( thisObjectMass );
       const relativeSize = this.massDescriber.getMassRelativeSize( objectEnum );
       const otherObjectLabel = this.massDescriber.getOtherObjectLabelFromEnum( objectEnum );
       return StringUtils.fillIn( massSizeRelativeSizePatternString, {
-        massValue,
+        massAndUnit,
         size,
         relativeSize,
         otherObjectLabel

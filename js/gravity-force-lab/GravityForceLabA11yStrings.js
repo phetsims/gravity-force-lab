@@ -65,11 +65,14 @@ define( require => {
     objectsRelativeSizePattern: {
       value: '{{firstObjectLabel}} {{comparitiveValue}} {{secondObjectLabel}}'
     },
+    massAndUnitPattern: {
+      value: '{{massValue}} kilograms'
+    },
     massSizeRelativeSizePattern: {
-      value: '{{massValue}} kilograms, {{size}}, {{relativeSize}} {{otherObjectLabel}}'
+      value: '{{massAndUnit}}, {{size}}, {{relativeSize}} {{otherObjectLabel}}'
     },
     massValueRelativeSizePattern: {
-      value: '{{massValue}} kilograms, {{relativeSize}} {{otherObjectLabel}}'
+      value: '{{massAndUnit}}, {{relativeSize}} {{otherObjectLabel}}'
     },
     massAndForceClausesPattern: {
       value: '{{massClause}}, {{forceClause}}.'

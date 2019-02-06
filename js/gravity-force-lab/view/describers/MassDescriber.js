@@ -18,10 +18,12 @@ define( require => {
   const mass1AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass1Abbreviated' );
   const mass2AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass2Abbreviated' );
 
+  // a11y strings
   const valuePatternString = ISLCA11yStrings.valuePattern.value;
 
   const massValuesAndComparisonSummaryPatternString = GravityForceLabA11yStrings.massValuesAndComparisonSummaryPattern.value;
   const massValueRelativeSizePatternString = GravityForceLabA11yStrings.massValueRelativeSizePattern.value;
+  const massAndUnitPatternString = GravityForceLabA11yStrings.massAndUnitPattern.value;
 
   const tinyString = ISLCA11yStrings.tiny.value;
   const verySmallString = ISLCA11yStrings.verySmall.value;
@@ -48,6 +50,7 @@ define( require => {
   const leftString = ISLCA11yStrings.left.value;
   const rightString = ISLCA11yStrings.right.value;
 
+  // constants
   const SIZE_STRINGS = [
     tinyString,
     verySmallString,
@@ -146,6 +149,11 @@ define( require => {
       return this.getRelativeSizeFromIndex( index );
     }
 
+    /**
+     * See options.formatMassValue
+     * @param {number} mass
+     * @returns {string}
+     */
     getFormattedMass( mass ) {
       return this.formatMassValue( this.convertMassValue( mass ) );
     }
@@ -153,6 +161,16 @@ define( require => {
     getMassSize( massValue ) {
       const massIndex = this.getMassSizeIndex( massValue );
       return this.getSizeFromIndex( massIndex );
+    }
+
+    /**
+     * @param {ISLCObjectEnum} objectEnum
+     * @returns {string}
+     */
+    getMassAndUnit( objectEnum ) {
+      const thisObjectMass = this.getObjectFromEnum( objectEnum ).valueProperty.get();
+      const massValue = this.getFormattedMass( thisObjectMass );
+      return StringUtils.fillIn( massAndUnitPatternString, { massValue } );
     }
 
     /**
@@ -258,15 +276,17 @@ define( require => {
     /**
      * Get the function that fills in the correct aria-valuetext for a given mass control slider
      * @param {ISLCObjectEnum} objectEnum
-     * @returns {function} - function that, given mass inputs, returns the aria value text
+     * @returns {string} - function that, given mass inputs, returns the aria value text
      */
-    getAriaValueTextCreator( objectEnum ) {
-      return ( formattedMass ) => {
-        const massValue = this.getFormattedMass( formattedMass );
-        const relativeSize = this.getMassRelativeSize( objectEnum );
-        const otherObjectLabel = this.getOtherObjectLabelFromEnum( objectEnum );
-        return StringUtils.fillIn( massValueRelativeSizePatternString, { massValue, relativeSize, otherObjectLabel } );
-      };
+    getVerboseMassAriaValueText( objectEnum ) {
+      const massAndUnit = this.getMassAndUnit( objectEnum );
+      const relativeSize = this.getMassRelativeSize( objectEnum );
+      const otherObjectLabel = this.getOtherObjectLabelFromEnum( objectEnum );
+      return StringUtils.fillIn( massValueRelativeSizePatternString, {
+        massAndUnit,
+        relativeSize,
+        otherObjectLabel
+      } );
     }
 
     /**
