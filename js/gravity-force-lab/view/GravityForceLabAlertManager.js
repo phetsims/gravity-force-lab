@@ -94,7 +94,6 @@ define( require => {
     }
 
     alertPositionSliderFocused() {
-      console.log( 'alerting position slider focused' );
       const alert = this.forceDescriber.getForceVectorSizeText();
       const utterance = new Utterance( { alert, uniqueGroupId: 'position' } );
       utteranceQueue.addToBack( utterance );
