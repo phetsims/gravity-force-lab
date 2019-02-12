@@ -11,7 +11,7 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
+  var BooleanProperty = require( 'AXON/BooleanProperty' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -35,15 +35,13 @@ define( function( require ) {
       phetioType: PropertyIO( Vector2IO )
     } ); // @public
 
-    this.constantRadiusProperty = new Property( false, {
-      tandem: tandem.createTandem( 'constantRadiusProperty' ),
-      phetioType: PropertyIO( BooleanIO )
+    this.constantRadiusProperty = new BooleanProperty( false, {
+      tandem: tandem.createTandem( 'constantRadiusProperty' )
     } ); // @public
 
     // @public {Boolean} - whether or not the sim is in 'scientific notation mode'
-    this.scientificNotationProperty = new Property( false, {
-      tandem: tandem.createTandem( 'scientificNotationProperty' ),
-      phetioType: PropertyIO( BooleanIO )
+    this.scientificNotationProperty = new BooleanProperty( false, {
+      tandem: tandem.createTandem( 'scientificNotationProperty' )
     } );
 
     // pass initial masses and positions into the model
