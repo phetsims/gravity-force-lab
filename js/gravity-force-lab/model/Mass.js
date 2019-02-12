@@ -19,10 +19,10 @@ define( function( require ) {
   var ISLCConstants = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCConstants' );
   var ISLCObject = require( 'INVERSE_SQUARE_LAW_COMMON/model/ISLCObject' );
 
-
   // constants
   // scale to brighten the base color to achieve rgba(150, 150, 255) but still be red or blue
   var baseColorModifier = 0.59;
+
   /**
    * @param {number} initialMass
    * @param {Vector2} initialPosition

@@ -81,10 +81,7 @@ define( function( require ) {
     resetAriaValueText: function() {
       const positionDescriber = GravityForceLabPositionDescriber.getDescriber();
       if ( positionDescriber.objectAtEdge( this.enum ) ) {
-        this.ariaValueText = positionDescriber.getPositionAtEdgeAndDistanceFromOtherObjectText( this.enum );
-      }
-      else if ( positionDescriber.objectsClosest ) {
-        this.ariaValueText = positionDescriber.getClosestToOtherObjectText( this.enum );
+        this.ariaValueText = positionDescriber.getEdgeValueText( this.enum );
       }
       else {
         this.ariaValueText = positionDescriber.getPositionAndDistanceFromOtherObjectText( this.enum );
