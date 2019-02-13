@@ -67,6 +67,8 @@ define( require => {
       } );
 
       this.forceVectorsSummaryItem = new Node( { tagName: 'li' } );
+
+      // @public - TODO: Why?
       this.objectDistanceSummaryItem = new Node( { tagName: 'li' } );
       this.massValuesSummaryItem = new Node( { tagName: 'li' } );
       this.robotsSummaryItem = new Node( { tagName: 'li' } );
