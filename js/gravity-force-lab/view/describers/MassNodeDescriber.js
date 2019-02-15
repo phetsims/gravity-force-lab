@@ -86,7 +86,7 @@ define( require => {
       const position = this.convertedPosition;
       const unit = this.positionDescriber.unit;
       const pattern = sizeAndPositionPatternString;
-      return StringUtils.fillIn( pattern, { thisObjectLabel, size, massValue, position, unit } );
+      return StringUtils.fillIn( pattern, { thisObjectLabel: thisObjectLabel, size: size, massValue: massValue, position: position, unit: unit } );
     }
 
     getMassSphereString() {
@@ -105,7 +105,7 @@ define( require => {
       massValue = this.massDescriber.getFormattedMass( massValue );
       const unit = this.massDescriber.unit; // TODO fdsafdsafdsafd
       const pattern = sizePatternString;
-      return StringUtils.fillIn( pattern, { thisObjectLabel, massValue, unit } );
+      return StringUtils.fillIn( pattern, { thisObjectLabel: thisObjectLabel, massValue: massValue, unit: unit } );
     }
 
     /**
@@ -117,9 +117,9 @@ define( require => {
       const units = this.positionDescriber.units;
       const otherObjectLabel = this.otherMassLabel;
       return StringUtils.fillIn( distancePatternString, {
-        distance,
-        units,
-        otherObjectLabel
+        distance: distance,
+        units: units,
+        otherObjectLabel: otherObjectLabel
       } );
 
     }
@@ -136,10 +136,10 @@ define( require => {
       const distanceClause = this.model.showDistanceProperty.value ? this.getDistanceClause() : '';
       const pattern = positionPatternString;
       return StringUtils.fillIn( pattern, {
-        thisObjectLabel,
-        position,
-        unit,
-        distanceClause
+        thisObjectLabel: thisObjectLabel,
+        position: position,
+        unit: unit,
+        distanceClause: distanceClause
       } );
 
     }

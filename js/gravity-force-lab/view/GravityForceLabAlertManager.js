@@ -72,13 +72,13 @@ define( require => {
 
     alertScientificNotation( displayInScientificNotation ) {
       const alert = this.forceDescriber.getScientificNotationAlertText();
-      const utterance = new Utterance( { alert, uniqueGroupId: 'scientificNotation' } );
+      const utterance = new Utterance( { alert: alert, uniqueGroupId: 'scientificNotation' } );
       utteranceQueue.addToBack( utterance );
     }
 
     alertConstantRadius( constantRadius ) {
       const alert = constantRadius ? CONSTANT_RADIUS_ALERT : this.massDescriber.getM1RelativeSize();
-      const utterance = new Utterance( { alert, uniqueGroupId: 'constantRadius' } );
+      const utterance = new Utterance( { alert: alert, uniqueGroupId: 'constantRadius' } );
       utteranceQueue.addToBack( utterance );
     }
 
@@ -89,13 +89,13 @@ define( require => {
 
     alertMassValueChanged( objectEnum, value, oldValue ) {
       const alert = this.getMassValueChangedAlertText( objectEnum, value, oldValue );
-      const utterance = new Utterance( { alert, uniqueGroupId: 'massChanged' } );
+      const utterance = new Utterance( { alert: alert, uniqueGroupId: 'massChanged' } );
       utteranceQueue.addToBack( utterance );
     }
 
     alertPositionSliderFocused() {
       const alert = this.forceDescriber.getForceVectorSizeText();
-      const utterance = new Utterance( { alert, uniqueGroupId: 'position' } );
+      const utterance = new Utterance( { alert: alert, uniqueGroupId: 'position' } );
       utteranceQueue.addToBack( utterance );
     }
 
@@ -131,10 +131,10 @@ define( require => {
       const relativeSize = this.massDescriber.getMassRelativeSize( objectEnum );
       const otherObjectLabel = this.massDescriber.getOtherObjectLabelFromEnum( objectEnum );
       return StringUtils.fillIn( massSizeRelativeSizePatternString, {
-        massAndUnit,
-        size,
-        relativeSize,
-        otherObjectLabel
+        massAndUnit: massAndUnit,
+        size: size,
+        relativeSize: relativeSize,
+        otherObjectLabel: otherObjectLabel
       } );
     }
 
@@ -158,7 +158,7 @@ define( require => {
         forceClause = this.forceDescriber.getVectorChangeForcesNowClause();
       }
 
-      return StringUtils.fillIn( massAndForceClausesPatternString, { massClause, forceClause } );
+      return StringUtils.fillIn( massAndForceClausesPatternString, { massClause: massClause, forceClause: forceClause } );
     }
 
     // getPositionChangedAlertText( endAtEdge ) {

@@ -136,9 +136,9 @@ define( require => {
       const firstObjectLabel = this.getObjectLabelFromEnum( objectEnum );
       const secondObjectLabel = this.getOtherObjectLabelFromEnum( objectEnum );
       return StringUtils.fillIn( objectsRelativeSizePatternString, {
-        firstObjectLabel,
-        comparitiveValue,
-        secondObjectLabel
+        firstObjectLabel: firstObjectLabel,
+        comparitiveValue: comparitiveValue,
+        secondObjectLabel: secondObjectLabel
       } );
     }
 
@@ -170,7 +170,7 @@ define( require => {
     getMassAndUnit( objectEnum ) {
       const thisObjectMass = this.getObjectFromEnum( objectEnum ).valueProperty.get();
       const massValue = this.getFormattedMass( thisObjectMass );
-      return StringUtils.fillIn( massAndUnitPatternString, { massValue } );
+      return StringUtils.fillIn( massAndUnitPatternString, { massValue: massValue } );
     }
 
     /**
@@ -181,7 +181,7 @@ define( require => {
      */
     getMassChangeClause( thisObjectEnum ) {
       const changeDirection = this.getMassChangeDirection( thisObjectEnum );
-      return StringUtils.fillIn( massChangeClausePatternString, { changeDirection } );
+      return StringUtils.fillIn( massChangeClausePatternString, { changeDirection: changeDirection } );
     }
 
     /**
@@ -193,7 +193,7 @@ define( require => {
     getMassChangesAndMovesClause( thisObjectEnum ) {
       const changeDirection = this.getMassChangeDirection( thisObjectEnum );
       const leftOrRight = this.getPushDirection( thisObjectEnum );
-      return StringUtils.fillIn( massChangesAndMovesClausePatternString, { changeDirection, leftOrRight } );
+      return StringUtils.fillIn( massChangesAndMovesClausePatternString, { changeDirection: changeDirection, leftOrRight: leftOrRight } );
     }
 
     /**
@@ -207,9 +207,9 @@ define( require => {
       const otherObjectLabel = this.getOtherObjectLabelFromEnum( thisObjectEnum );
       const leftOrRight = this.getPushDirection( this.getOtherObjectEnum( thisObjectEnum ) );
       return StringUtils.fillIn( massChangesMovesOtherClausePatternString, {
-        changeDirection,
-        otherObjectLabel,
-        leftOrRight
+        changeDirection: changeDirection,
+        otherObjectLabel: otherObjectLabel,
+        leftOrRight: leftOrRight
       } );
     }
 
@@ -283,9 +283,9 @@ define( require => {
       const relativeSize = this.getMassRelativeSize( objectEnum );
       const otherObjectLabel = this.getOtherObjectLabelFromEnum( objectEnum );
       return StringUtils.fillIn( massValueRelativeSizePatternString, {
-        massAndUnit,
-        relativeSize,
-        otherObjectLabel
+        massAndUnit: massAndUnit,
+        relativeSize: relativeSize,
+        otherObjectLabel: otherObjectLabel
       } );
     }
 

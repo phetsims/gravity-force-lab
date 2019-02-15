@@ -29,7 +29,7 @@ define( require => {
 
       const nodeDescriber = new MassNodeDescriber( model, objectEnum, options );
       const labelContent = nodeDescriber.getMassSphereString( objectEnum );
-      options.a11yOptions = { labelContent };
+      options.a11yOptions = { labelContent: labelContent };
 
       super( model, objectEnum, options );
 

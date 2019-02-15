@@ -23,11 +23,11 @@ define( require => {
   const PULL_FORCE_RANGE = new Range( ( 0.5e-10 ), ( 1.1e-6 ) ); // empirically determined for linear mapping of pull objects
 
   const GravityForceLabConstants = {
-    MASS_RED_COLOR,
-    MASS_BLUE_COLOR,
-    MIN_MASS,
-    MAX_MASS,
-    PULL_FORCE_RANGE,
+    MASS_RED_COLOR: MASS_RED_COLOR,
+    MASS_BLUE_COLOR: MASS_BLUE_COLOR,
+    MIN_MASS: MIN_MASS,
+    MAX_MASS: MAX_MASS,
+    PULL_FORCE_RANGE: PULL_FORCE_RANGE,
     RIGHT_MASS_BOUNDARY: MAX_DISTANCE_FROM_CENTER,
     LEFT_MASS_BOUNDARY: -MAX_DISTANCE_FROM_CENTER,
     LOCATION_SNAP_VALUE: 0.1,
