@@ -122,7 +122,7 @@ define( require => {
         mass2Label: this.object2Label,
         m1Mass: this.getFormattedMass( this.object1.valueProperty.get() ),
         m2Mass: this.getFormattedMass( this.object2.valueProperty.get() ),
-        comparitiveValue: RELATIVE_SIZE_STRINGS[ relativeSizeIndex ]
+        comparativeValue: RELATIVE_SIZE_STRINGS[ relativeSizeIndex ]
       };
       return StringUtils.fillIn( massValuesAndComparisonSummaryPatternString, fillObject );
     }
@@ -132,12 +132,12 @@ define( require => {
     }
 
     getMassRelativeSizeToOther( objectEnum ) {
-      const comparitiveValue = this.getMassRelativeSize( objectEnum );
+      const comparativeValue = this.getMassRelativeSize( objectEnum );
       const firstObjectLabel = this.getObjectLabelFromEnum( objectEnum );
       const secondObjectLabel = this.getOtherObjectLabelFromEnum( objectEnum );
       return StringUtils.fillIn( objectsRelativeSizePatternString, {
         firstObjectLabel: firstObjectLabel,
-        comparitiveValue: comparitiveValue,
+        comparativeValue: comparativeValue,
         secondObjectLabel: secondObjectLabel
       } );
     }

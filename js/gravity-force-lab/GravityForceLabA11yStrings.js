@@ -25,7 +25,7 @@ define( require => {
       value: 'Currently, force on m1 by m2 is equal in magnitude and opposite in direction of force on m2 by m1.'
     },
     massValuesAndComparisonSummaryPattern: {
-      value: 'Mass of {{mass1Label}} is {{m1Mass}} kilograms, {{comparitiveValue}} {{mass2Label}} at {{m2Mass}} kilograms.'
+      value: 'Mass of {{mass1Label}} is {{m1Mass}} kilograms, {{comparativeValue}} {{mass2Label}} at {{m2Mass}} kilograms.'
     },
 
     ///////////////////////////////////////
@@ -63,7 +63,7 @@ define( require => {
     ////////////////////////
 
     objectsRelativeSizePattern: {
-      value: '{{firstObjectLabel}} {{comparitiveValue}} {{secondObjectLabel}}'
+      value: '{{firstObjectLabel}} {{comparativeValue}} {{secondObjectLabel}}'
     },
     massAndUnitPattern: {
       value: '{{massValue}} kilograms'
