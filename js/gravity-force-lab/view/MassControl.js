@@ -33,9 +33,10 @@ define( require => {
      * @param {Range} massRange
      * @param {Color} thumbColor
      * @param {ISLCObjectEnum} massEnum
+     * @param {Property.<number>} forceProperty - used only to update the aria-valuetext of the number control.
      * @param {Tandem} tandem
      */
-    constructor( titleString, valueProperty, massRange, thumbColor, massEnum, tandem ) {
+    constructor( titleString, valueProperty, massRange, thumbColor, massEnum, forceProperty, tandem ) {
       const massDescriber = MassDescriber.getDescriber();
       const alertManager = GravityForceLabAlertManager.getManager();
 
@@ -77,7 +78,7 @@ define( require => {
         numberControlListener: {
           focus: () => alertManager.alertMassControlFocused(),
 
-          // so the next time this control is focused
+          // so the next time this control is focused, we have the proper verbose value text
           blur: () => setOnFocusAriaValueText()
         },
 
@@ -88,8 +89,8 @@ define( require => {
         tandem: tandem
       } );
 
-      // Set the initial ariaValueText to be correct
-      setOnFocusAriaValueText();
+      // Update the aria-valuetext whenever the force changes.
+      forceProperty.link( () => setOnFocusAriaValueText() );
     }
   }
 

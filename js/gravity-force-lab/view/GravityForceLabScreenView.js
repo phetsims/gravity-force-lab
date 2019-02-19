@@ -181,6 +181,7 @@ define( function( require ) {
       GravityForceLabConstants.MASS_RANGE,
       GravityForceLabConstants.MASS_BLUE_COLOR,
       OBJECT_ONE,
+      model.forceProperty,
       tandem.createTandem( 'massControl1' )
     );
 
@@ -193,6 +194,7 @@ define( function( require ) {
       GravityForceLabConstants.MASS_RANGE,
       GravityForceLabConstants.MASS_RED_COLOR,
       OBJECT_TWO,
+      model.forceProperty,
       tandem.createTandem( 'massControl2' )
     );
     massControl2.scale( CONTROL_SCALE );
