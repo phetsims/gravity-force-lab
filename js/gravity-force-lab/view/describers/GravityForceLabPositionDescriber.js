@@ -48,7 +48,7 @@ define( require => {
       if ( distance >= 0.4 ) {
         return 7;
       }
-      if ( distance === 0.3 ) {
+      if ( distance <= 0.3 ) {
         return 8;
       }
       assert && assert( false, 'Invalid distance value' );
