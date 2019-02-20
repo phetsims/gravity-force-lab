@@ -5,20 +5,8 @@ define( require => {
 
   // modules
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
-  const ISLCA11yStrings = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCA11yStrings' );
-  const ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
   const PositionDescriber = require( 'INVERSE_SQUARE_LAW_COMMON/view/describers/PositionDescriber' );
-  // const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Util = require( 'DOT/Util' );
-
-  // strings
-  const leftString = ISLCA11yStrings.left.value;
-  const rightString = ISLCA11yStrings.right.value;
-
-  // constants
-  const { OBJECT_ONE, OBJECT_TWO } = ISLCObjectEnum;
-
-  // let describer = null;
 
   class GravityForceLabPositionDescriber extends PositionDescriber {
 
@@ -30,26 +18,6 @@ define( require => {
       }, options );
 
       super( model, object1Label, object2Label, options );
-
-      // @public
-      this.pushedMassEnum = null;
-
-      this.object1.positionProperty.lazyLink( position => {
-        this.pushedMassEnum = this.object1.isDragging ? null : OBJECT_ONE;
-      } );
-
-      this.object2.positionProperty.lazyLink( position => {
-        this.pushedMassEnum = this.object2.isDragging ? null : OBJECT_TWO;
-      } );
-    }
-
-    get massPushed() {
-      return this.pushedMassEnum !== null;
-    }
-
-    get pushedMassDirection() {
-      assert && assert( this.pushedMassEnum !== null, 'cannot get pushedMassDirection when pushedMassEnum is null' );
-      return this.pushedMassEnum === OBJECT_ONE ? leftString : rightString;
     }
 
     // @override
@@ -93,7 +61,6 @@ define( require => {
     static getDescriber() {
       // assert && assert( describer, 'describer has not yet been initialized' );
       return PositionDescriber.getDescriber();
-      // return describer;
     }
 
     /**

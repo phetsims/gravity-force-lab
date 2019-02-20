@@ -6,7 +6,6 @@ define( require => {
   // modules
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
-  const GravityForceLabPositionDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/GravityForceLabPositionDescriber' );
   const ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
   const ISLCAlertManager = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCAlertManager' );
   const MassDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/MassDescriber' );
@@ -21,7 +20,6 @@ define( require => {
   // a11y strings
   const constantRadiusThinkDensityPatternString = GravityForceLabA11yStrings.constantRadiusThinkDensityPattern.value;
   const massAndForceClausesPatternString = GravityForceLabA11yStrings.massAndForceClausesPattern.value;
-  const massSizeRelativeSizePatternString = GravityForceLabA11yStrings.massSizeRelativeSizePattern.value;
 
   // constants
   const { OBJECT_ONE, OBJECT_TWO } = ISLCObjectEnum;
@@ -59,18 +57,18 @@ define( require => {
         }
       } );
 
-      model.object1.valueProperty.lazyLink( ( value, oldValue ) => {
+      model.object1.valueProperty.lazyLink( () => {
         utteranceQueue.clear();
-        this.alertMassValueChanged( OBJECT_ONE, value, oldValue );
+        this.alertMassValueChanged( OBJECT_ONE );
       } );
 
-      model.object2.valueProperty.lazyLink( ( value, oldValue ) => {
+      model.object2.valueProperty.lazyLink( () => {
         utteranceQueue.clear();
-        this.alertMassValueChanged( OBJECT_TWO, value, oldValue );
+        this.alertMassValueChanged( OBJECT_TWO );
       } );
     }
 
-    alertScientificNotation( displayInScientificNotation ) {
+    alertScientificNotation() {
       const alert = this.forceDescriber.getScientificNotationAlertText();
       const utterance = new Utterance( { alert: alert, uniqueGroupId: 'scientificNotation' } );
       utteranceQueue.addToBack( utterance );
@@ -82,13 +80,8 @@ define( require => {
       utteranceQueue.addToBack( utterance );
     }
 
-    alertMassControlFocus( objectEnum ) {
-      const alert = this.massDescriber.getMassControlFocusAlertText( objectEnum );
-      utteranceQueue.addToBack( alert );
-    }
-
-    alertMassValueChanged( objectEnum, value, oldValue ) {
-      const alert = this.getMassValueChangedAlertText( objectEnum, value, oldValue );
+    alertMassValueChanged( objectEnum ) {
+      const alert = this.getMassValueChangedAlertText( objectEnum );
       const utterance = new Utterance( { alert: alert, uniqueGroupId: 'massChanged' } );
       utteranceQueue.addToBack( utterance );
     }
@@ -106,48 +99,19 @@ define( require => {
       this.alertPositionSliderFocused();
     }
 
-    // alertPositionChanged( endAtEdge ) {
-    //   const alert = this.getPositionChangedAlertText( endAtEdge );
-    //   const utterance = new Utterance( { alert, uniqueGroupId: 'position' } );
-    //   utteranceQueue.addToBack( utterance );
-    // }
-    //
-    // alertPositionUnchanged() {
-    //   const alert = this.getPositionUnchangedAlertText();
-    //   const utterance = new Utterance( { alert, uniqueGroupId: 'position' } );
-    //   utteranceQueue.addToBack( utterance );
-    // }
-
     /**
-     * Returns the filled-in string, '{{massValue}} kilograms, {{size}}, {{relativeSize}} {{otherObjectLabel}}'
-     *
-     * @param  {ISLCObjectEnum} objectEnum
+     * Get the value text for when the mass changes for a given object
+     * @param {ISLCObjectEnum} objectEnum
      * @returns {string}
      */
-    getMassControlFocusAlertText( objectEnum ) {
-      const massAndUnit = this.massDescriber.getMassAndUnit( objectEnum );
-      const thisObjectMass = this.massDescriber.getObjectFromEnum( objectEnum ).valueProperty.get();
-      const size = this.massDescriber.getMassSize( thisObjectMass );
-      const relativeSize = this.massDescriber.getMassRelativeSize( objectEnum );
-      const otherObjectLabel = this.massDescriber.getOtherObjectLabelFromEnum( objectEnum );
-      return StringUtils.fillIn( massSizeRelativeSizePatternString, {
-        massAndUnit: massAndUnit,
-        size: size,
-        relativeSize: relativeSize,
-        otherObjectLabel: otherObjectLabel
-      } );
-    }
-
-    getMassValueChangedAlertText( objectEnum, newMass, oldMass ) {
-      // TODO: this function is called before the position property is updated and sets pushedMassEnum, we'll need to compare
-      // the two mass values against the current positions to see if one will be pushed.
-      const positionDescriber = GravityForceLabPositionDescriber.getDescriber();
+    getMassValueChangedAlertText( objectEnum ) {
 
       let massClause = this.massDescriber.getMassChangeClause( objectEnum );
 
-      if ( positionDescriber.massPushed ) {
+      // if changing the mass of an object caused one of the masses to move position
+      if ( this.model.massWasPushed() ) {
         massClause = this.massDescriber.getMassChangesAndMovesClause( objectEnum );
-        if ( positionDescriber.pushedMassEnum !== objectEnum ) {
+        if ( this.model.pushedObjectEnumProperty.value !== objectEnum ) {
           massClause = this.massDescriber.getMassChangesAndMovesOtherClause( objectEnum );
         }
       }
@@ -158,27 +122,11 @@ define( require => {
         forceClause = this.forceDescriber.getVectorChangeForcesNowClause();
       }
 
-      return StringUtils.fillIn( massAndForceClausesPatternString, { massClause: massClause, forceClause: forceClause } );
+      return StringUtils.fillIn( massAndForceClausesPatternString, {
+        massClause: massClause,
+        forceClause: forceClause
+      } );
     }
-
-    // getPositionChangedAlertText( endAtEdge ) {
-    //   let alertText = this.forceDescriber.getVectorChangeText();
-    //   let edgeAlertText = this.forceDescriber.getVectorSizeText();
-    //
-    //   if ( this.model.forceValuesProperty.get() ) {
-    //     alertText = this.forceDescriber.getVectorChangeForcesNowText();
-    //     edgeAlertText = this.forceDescriber.getVectorSizeForceValueText();
-    //   }
-    //
-    //   return endAtEdge ? edgeAlertText : alertText;
-    // }
-    //
-    // getPositionUnchangedAlertText() {
-    //   const positionDescriber = GravityForceLabPositionDescriber.getDescriber();
-    //   const forceClause = this.forceDescriber.getVectorsAndForcesClause();
-    //   const region = positionDescriber.qualitativeDistance;
-    //   return StringUtils.fillIn( regionForceClausePatternString, { region, forceClause } );
-    // }
 
     static getManager() {
       return ISLCAlertManager.getManager();

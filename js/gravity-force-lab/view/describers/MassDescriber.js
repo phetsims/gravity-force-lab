@@ -227,11 +227,11 @@ define( require => {
     /**
      * Each object can only be pushed in one direction. Returns 'left' or 'right' based on the object passed in.
      *
-     * @param  {ISLCObjectEnum} pushedMassEnum
+     * @param  {ISLCObjectEnum} objectEnum
      * @returns {string}
      */
-    getPushDirection( pushedMassEnum ) {
-      return pushedMassEnum === OBJECT_ONE ? leftString : rightString;
+    getPushDirection( objectEnum ) {
+      return objectEnum === OBJECT_ONE ? leftString : rightString;
     }
 
     getSizeFromIndex( index ) {
