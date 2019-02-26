@@ -30,27 +30,29 @@ define( require => {
 
   class GravityForceLabScreenSummaryNode extends Node {
 
+    /**
+     * @param {ISLCModel} model
+     * @param {Object} [options]
+     */
     constructor( model, options ) {
 
       options = _.extend( {
+
+        // {{Property[]}} - a way to provide extra Properties to that will update the mass and distance summary sections
+        // on change
+        additionalMassDistanceProperties: [],
 
         // {string}
         mainDescriptionContent: screenSummaryMainDescriptionString,
 
         // {sring}
-        secondaryDecriptionContent: screenSummarySecondaryDescriptionString,
+        secondaryDescriptionContent: screenSummarySecondaryDescriptionString,
 
         // {string}
-        simStateLabel: simStateListLabelString,
-
-        // {boolean} GFLB has simplified language, this flag is to support that, see https://github.com/phetsims/gravity-force-lab-basics/issues/86
-        simplifyLanguage: false
+        simStateLabel: simStateListLabelString
       }, options );
 
       super();
-
-      // @private
-      this.simplifyLanguage = options.simplifyLanguage;
 
       // subtypes of ForceDescriber initialize the singleton to the appropriate subtype
       this.forceDescriber = ForceDescriber.getDescriber();
@@ -58,7 +60,7 @@ define( require => {
       this.massDescriber = MassDescriber.getDescriber();
 
       var mainSummaryDescriptionNode = new Node( { tagName: 'p', innerContent: options.mainDescriptionContent } );
-      var secondSummaryDescriptionNode = new Node( { tagName: 'p', innerContent: options.secondaryDecriptionContent } );
+      var secondSummaryDescriptionNode = new Node( { tagName: 'p', innerContent: options.secondaryDescriptionContent } );
 
       this.simStateNode = new Node( {
         tagName: 'ul',
@@ -103,9 +105,8 @@ define( require => {
         [ model.object1.positionProperty,
           model.object1.radiusProperty,
           model.object2.positionProperty,
-          model.object2.radiusProperty
-        ],
-        ( x1, r1, x2, r2 ) => {
+          model.object2.radiusProperty ].concat( options.additionalMassDistanceProperties ),
+        () => {
           this.updateObjectDistanceSummary();
           this.updateMassValuesSummary();
         }
@@ -131,9 +132,7 @@ define( require => {
 
     // @private
     updateObjectDistanceSummary() {
-
-      const distanceSummary = this.positionDescriber.getObjectDistanceSummary( this.simplifyLanguage );
-      this.objectDistanceSummaryItem.innerContent = distanceSummary;
+      this.objectDistanceSummaryItem.innerContent = this.positionDescriber.getObjectDistanceSummary();
     }
 
     // @private
