@@ -25,7 +25,15 @@ define( require => {
 
       options = _.extend( {
         object1Label: mass1AbbreviatedString,
-        object2Label: mass2AbbreviatedString
+        object2Label: mass2AbbreviatedString,
+
+        // function to be called in this constructor that will wire up the necessary listeners to update the
+        // mass/position dynamic description for this Mass. This function will be called bound to "this" before calling.
+        wireUpMassAndPositionUpdates: () => {
+          this.linkToForceProperty( () => {
+            this.massAndPositionNode.innerContent = this.nodeDescriber.getSizeAndPositionItemText();
+          } );
+        }
       }, options );
 
       const nodeDescriber = new MassNodeDescriber( model, objectEnum, options );
@@ -41,6 +49,9 @@ define( require => {
       this.massAndPositionNode = new Node( { tagName: 'li' } );
 
       this.addChild( this.massAndPositionNode );
+
+      // call the function responsible for updating the mass/position bullet in the PDOM.
+      options.wireUpMassAndPositionUpdates.call( this );
 
       this.linkToForceProperty( () => {
         const forceBetweenContent = forceDescriber.getForceBetweenAndVectorText( this.thisObjectLabel, this.otherObjectLabel );
