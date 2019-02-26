@@ -6,7 +6,6 @@ define( require => {
   // modules
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const MassPDOMNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassPDOMNode' );
-  const Node = require( 'SCENERY/nodes/Node' );
 
   class GravityForceLabMassPDOMNode extends MassPDOMNode {
 
@@ -17,10 +16,6 @@ define( require => {
      */
     constructor( model, objectEnum, options ) {
       super( model, objectEnum, options );
-
-      // @private
-      this.massAndPositionNode = new Node( { tagName: 'li' } );
-      this.addChild( this.massAndPositionNode );
 
       this.linkToForceProperty( () => {
         this.massAndPositionNode.innerContent = this.nodeDescriber.getSizeAndPositionItemText();

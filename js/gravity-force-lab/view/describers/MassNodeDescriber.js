@@ -18,8 +18,7 @@ define( require => {
 
   const sizeAndPositionPatternString = GravityForceLabA11yStrings.sizeAndPositionPattern.value;
   const sizePatternString = GravityForceLabA11yStrings.sizePattern.value;
-  const positionPatternString = GravityForceLabA11yStrings.positionPattern.value;
-  const distancePatternString = GravityForceLabA11yStrings.distancePattern.value;
+  const sizeAndDistancePatternString = GravityForceLabA11yStrings.sizeAndDistancePattern.value;
   const redSpherePatternString = GravityForceLabA11yStrings.redSpherePattern.value;
   const blueSpherePatternString = GravityForceLabA11yStrings.blueSpherePattern.value;
 
@@ -27,11 +26,17 @@ define( require => {
   const { OBJECT_ONE } = ISLCObjectEnum;
 
   class MassNodeDescriber extends ISLCDescriber {
+
+    /**
+     * @param {ISLCModel} model
+     * @param {ISLCObjectEnum} objectEnum
+     * @param {options} [options]
+     */
     constructor( model, objectEnum, options ) {
 
       options = _.extend( {
-        object1Label: mass1AbbreviatedString,
-        object2Label: mass2AbbreviatedString
+        object1Label: mass1AbbreviatedString, // string
+        object2Label: mass2AbbreviatedString // string
       }, options );
 
       super( model, options.object1Label, options.object2Label );
@@ -39,7 +44,6 @@ define( require => {
       // @private
       this.enum = objectEnum;
       this.mass = this.getObjectFromEnum( objectEnum );
-      this.otherMass = this.getOtherObjectFromEnum( objectEnum );
       this.massLabel = this.getObjectLabelFromEnum( objectEnum );
       this.otherMassLabel = this.getOtherObjectLabelFromEnum( objectEnum );
 
@@ -58,37 +62,45 @@ define( require => {
       } );
     }
 
+    // @private
     get convertedPosition() {
       return this.positionDescriber.getConvertedPositionFromEnum( this.enum );
     }
 
+    // @private
     get size() {
       return this.massDescriber.getMassSize( this.mass.valueProperty.get() );
     }
 
+    // @private
     get massValue() {
       return this.massDescriber.getFormattedMass( this.mass.valueProperty.get() );
-    }
-
-    get relativeSize() {
-      return this.massDescriber.getMassRelativeSize( this.enum );
     }
 
     /**
      * Used for GFL
      * @returns {string}
+     * @public
      */
     getSizeAndPositionItemText() {
       const thisObjectLabel = this.massLabel;
-      let massValue = this.mass.valueProperty.get();
       const size = this.size;
-      massValue = this.massDescriber.getFormattedMass( massValue );
+      const massValue = this.massValue;
       const position = this.convertedPosition;
       const unit = this.positionDescriber.unit;
-      const pattern = sizeAndPositionPatternString;
-      return StringUtils.fillIn( pattern, { thisObjectLabel: thisObjectLabel, size: size, massValue: massValue, position: position, unit: unit } );
+      return StringUtils.fillIn( sizeAndPositionPatternString, {
+        thisObjectLabel: thisObjectLabel,
+        size: size,
+        massValue: massValue,
+        position: position,
+        unit: unit
+      } );
     }
 
+    /**
+     * @returns {*|string}
+     * @public
+     */
     getMassSphereString() {
       const pattern = this.enum === OBJECT_ONE ? blueSpherePatternString : redSpherePatternString;
       return StringUtils.fillIn( pattern, { objectLabel: this.massLabel } );
@@ -98,50 +110,27 @@ define( require => {
     /**
      * Used for GFL:B
      * @returns {string}
+     * @public
      */
     getSizeItemText() {
       const thisObjectLabel = this.massLabel;
-      let massValue = this.mass.valueProperty.get();
-      massValue = this.massDescriber.getFormattedMass( massValue );
-      const unit = this.massDescriber.unit; // TODO fdsafdsafdsafd
-      const pattern = sizePatternString;
-      return StringUtils.fillIn( pattern, { thisObjectLabel: thisObjectLabel, massValue: massValue, unit: unit } );
-    }
-
-    /**
-     * Used for GFL:B
-     * @returns {string}
-     */
-    getDistanceClause() {
-      const distance = this.positionDescriber.convertedDistance;
-      const units = this.positionDescriber.units;
-      const otherObjectLabel = this.otherMassLabel;
-      return StringUtils.fillIn( distancePatternString, {
-        distance: distance,
-        units: units,
-        otherObjectLabel: otherObjectLabel
-      } );
-
-    }
-
-    /**
-     * Used for GFL:B
-     * @returns {string}
-     */
-    getPositionItemText() {
-      const thisObjectLabel = this.massLabel;
-      const position = this.convertedPosition;
-      const unit = this.positionDescriber.unit;
-      assert && assert( this.model instanceof phet.gravityForceLabBasics.GFLBModel );
-      const distanceClause = this.model.showDistanceProperty.value ? this.getDistanceClause() : '';
-      const pattern = positionPatternString;
-      return StringUtils.fillIn( pattern, {
+      const massValue = this.massValue;
+      return StringUtils.fillIn( sizePatternString, {
         thisObjectLabel: thisObjectLabel,
-        position: position,
-        unit: unit,
-        distanceClause: distanceClause
+        massValue: massValue,
+        unit: this.massDescriber.unit
       } );
+    }
 
+    /**
+     * Used in GFL:B
+     * @returns {string} - the size and distance bullet for the Mass
+     */
+    getSizeAndDistanceClause() {
+      return StringUtils.fillIn( sizeAndDistancePatternString, {
+        size: this.getSizeItemText(),
+        distance: this.positionDescriber.getDistanceClause( this.enum )
+      } );
     }
   }
 

@@ -8,6 +8,7 @@ define( require => {
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const ISLCObjectPDOMNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectPDOMNode' );
   const MassNodeDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/MassNodeDescriber' );
+  const Node = require( 'SCENERY/nodes/Node' );
 
   // strings
   const mass1AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass1Abbreviated' );
@@ -18,7 +19,7 @@ define( require => {
     /**
      * @param {ISLCModel} model
      * @param {ISLCObjectEnum} objectEnum
-     * @param {Object} options
+     * @param {Object} [options]
      */
     constructor( model, objectEnum, options ) {
 
@@ -28,15 +29,18 @@ define( require => {
       }, options );
 
       const nodeDescriber = new MassNodeDescriber( model, objectEnum, options );
-      const labelContent = nodeDescriber.getMassSphereString( objectEnum );
+      const labelContent = nodeDescriber.getMassSphereString();
       options.a11yOptions = { labelContent: labelContent };
 
       super( model, objectEnum, options );
 
+      const forceDescriber = ForceDescriber.getDescriber();
+
       // @protected
       this.nodeDescriber = nodeDescriber;
+      this.massAndPositionNode = new Node( { tagName: 'li' } );
 
-      const forceDescriber = ForceDescriber.getDescriber();
+      this.addChild( this.massAndPositionNode );
 
       this.linkToForceProperty( () => {
         const forceBetweenContent = forceDescriber.getForceBetweenAndVectorText( this.thisObjectLabel, this.otherObjectLabel );
@@ -47,7 +51,7 @@ define( require => {
       } );
 
       if ( model.scientificNotationProperty ) {
-        model.scientificNotationProperty.link( displayInScientificNotation => {
+        model.scientificNotationProperty.link( () => {
           this.forceVectorMagnitudeItemNode.innerContent = forceDescriber.getForceVectorMagnitudeText( this.thisObjectLabel, this.otherObjectLabel );
         } );
       }

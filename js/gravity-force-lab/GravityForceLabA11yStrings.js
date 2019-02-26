@@ -32,18 +32,6 @@ define( require => {
     // Object/sphere descriptions and labels
     ///////////////////////////////////////
 
-    sizeAndPositionPattern: {
-      value: '{{thisObjectLabel}} is {{size}} at {{massValue}} kg and at {{position}} {{unit}} mark.'
-    },
-    sizePattern: {
-      value: '{{thisObjectLabel}} is {{massValue}} kg.'
-    },
-    positionPattern: {
-      value: '{{thisObjectLabel}} is at {{position}} {{unit}} mark{{distanceClause}}.'
-    },
-    distancePattern: {
-      value: ', {{distance}} {{units}} from {{otherObjectLabel}}'
-    },
     blueSpherePattern: {
       value: '{{objectLabel}}, Blue Sphere'
     },
@@ -55,6 +43,19 @@ define( require => {
     },
     positionMeterPattern: {
       value: '{{position}} meter'
+    },
+
+    // for GFL
+    sizeAndPositionPattern: {
+      value: '{{thisObjectLabel}} is {{size}} at {{massValue}} kg and at {{position}} {{unit}} mark.'
+    },
+
+    // for GFL:B
+    sizePattern: {
+      value: '{{thisObjectLabel}} is {{massValue}} kg'
+    },
+    sizeAndDistancePattern: {
+      value: '{{size}}, and {{distance}}'
     },
 
 
