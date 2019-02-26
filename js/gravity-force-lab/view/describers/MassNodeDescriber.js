@@ -132,7 +132,7 @@ define( require => {
       const thisObjectLabel = this.massLabel;
       const position = this.convertedPosition;
       const unit = this.positionDescriber.unit;
-      assert && assert( this.model instanceof phet.gravityForceLabBasics.GravityForceLabBasicsModel );
+      assert && assert( this.model instanceof phet.gravityForceLabBasics.GFLBModel );
       const distanceClause = this.model.showDistanceProperty.value ? this.getDistanceClause() : '';
       const pattern = positionPatternString;
       return StringUtils.fillIn( pattern, {
