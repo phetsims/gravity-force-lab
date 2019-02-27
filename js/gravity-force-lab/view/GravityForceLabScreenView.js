@@ -38,7 +38,7 @@ define( function( require ) {
   var PlayAreaNode = require( 'SCENERY_PHET/accessibility/nodes/PlayAreaNode' );
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   var ScreenView = require( 'JOIST/ScreenView' );
-  var SpherePositionsPDOMHeading = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/SpherePositionsPDOMHeading' );
+  var SpherePositionsPDOMNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/SpherePositionsPDOMNode' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // strings
@@ -129,7 +129,7 @@ define( function( require ) {
     playAreaNode.addChild( new MassPDOMNode( model, OBJECT_ONE ) );
     playAreaNode.addChild( new MassPDOMNode( model, OBJECT_TWO ) );
 
-    const massPositionsNode = new SpherePositionsPDOMHeading();
+    const massPositionsNode = new SpherePositionsPDOMNode();
     playAreaNode.addChild( massPositionsNode );
     massPositionsNode.addChild( mass1Node );
     massPositionsNode.addChild( mass2Node );
