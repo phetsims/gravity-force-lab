@@ -38,6 +38,7 @@ define( function( require ) {
   var PlayAreaNode = require( 'SCENERY_PHET/accessibility/nodes/PlayAreaNode' );
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   var ScreenView = require( 'JOIST/ScreenView' );
+  var SpherePositionsPDOMHeading = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/SpherePositionsPDOMHeading' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // strings
@@ -51,8 +52,6 @@ define( function( require ) {
   var unitsMetersString = require( 'string!GRAVITY_FORCE_LAB/units.meters' );
 
   // a11y Strings
-  var spherePositionsString = ISLCA11yStrings.spherePositions.value;
-  var spherePositionHelpTextString = ISLCA11yStrings.spherePositionHelpText.value;
   var massControlsLabelString = GravityForceLabA11yStrings.massControlsLabel.value;
   var massControlsHelpTextString = GravityForceLabA11yStrings.massControlsHelpText.value;
   var massControlsHelpTextDensityString = GravityForceLabA11yStrings.massControlsHelpTextDensity.value;
@@ -130,13 +129,7 @@ define( function( require ) {
     playAreaNode.addChild( new MassPDOMNode( model, OBJECT_ONE ) );
     playAreaNode.addChild( new MassPDOMNode( model, OBJECT_TWO ) );
 
-    var massPositionsNode = new Node( {
-      tagName: 'div',
-      labelTagName: 'h3',
-      labelContent: spherePositionsString,
-      descriptionContent: spherePositionHelpTextString
-    } );
-
+    const massPositionsNode = new SpherePositionsPDOMHeading();
     playAreaNode.addChild( massPositionsNode );
     massPositionsNode.addChild( mass1Node );
     massPositionsNode.addChild( mass2Node );
