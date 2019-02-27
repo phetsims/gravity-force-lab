@@ -30,7 +30,7 @@ define( require => {
         // function to be called in this constructor that will wire up the necessary listeners to update the
         // mass/position dynamic description for this Mass. This function will be called bound to "this" before calling.
         wireUpMassAndPositionUpdates: () => {
-          this.linkToForceProperty( () => {
+          model.forceProperty.link( () => {
             this.massAndPositionNode.innerContent = this.nodeDescriber.getSizeAndPositionItemText();
           } );
         }
@@ -52,7 +52,7 @@ define( require => {
       // call the function responsible for updating the mass/position bullet in the PDOM.
       options.wireUpMassAndPositionUpdates.call( this );
 
-      this.linkToForceProperty( () => {
+      model.forceProperty.link( () => {
         const forceBetweenContent = forceDescriber.getForceBetweenAndVectorText( this.thisObjectLabel, this.otherObjectLabel );
         const forceMagnitudeContent = forceDescriber.getForceVectorMagnitudeText( this.thisObjectLabel, this.otherObjectLabel );
 
