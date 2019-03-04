@@ -33,7 +33,7 @@ define( require => {
      * @param {Range} massRange
      * @param {Color} thumbColor
      * @param {ISLCObjectEnum} massEnum
-     * @param {Property.<number>} forceProperty - used only to update the aria-valuetext of the number control.
+     * @param {Property.<number>} forceProperty - useful to update aria-valuetext of the number control.
      * @param {Tandem} tandem
      */
     constructor( titleString, valueProperty, massRange, thumbColor, massEnum, forceProperty, tandem ) {
