@@ -64,7 +64,7 @@ define( require => {
     ////////////////////////
 
     objectsRelativeSizePattern: {
-      value: '{{firstObjectLabel}} {{comparativeValue}} {{secondObjectLabel}}'
+      value: '{{firstObjectLabel}} {{relativeSize}} {{secondObjectLabel}}'
     },
     massAndUnitPattern: {
       value: '{{massValue}} kilograms'
@@ -92,20 +92,26 @@ define( require => {
     muchMuchSmallerThan: {
       value: 'much much smaller than'
     },
+    halfTheSizeOf: {
+      value: 'half the size of'
+    },
     muchSmallerThan: {
       value: 'much smaller than'
     },
-    slightlySmallerThan: {
-      value: 'slightly smaller than'
+    smallerButComparableTo: {
+      value: 'smaller but comparable to'
     },
-    comparableTo: {
-      value: 'comparable to'
+    sameSizeAs: {
+      value: 'same size as'
     },
-    somewhatLargerThan: {
-      value: 'somewhat larger than'
+    largerButComparableTo: {
+      value: 'larger but comparable to'
     },
     muchLargerThan: {
       value: 'much larger than'
+    },
+    twiceTheSizeOf: {
+      value: 'twice the size of'
     },
     muchMuchLargerThan: {
       value: 'much much larger than'

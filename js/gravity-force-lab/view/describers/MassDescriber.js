@@ -4,15 +4,13 @@ define( require => {
   'use strict';
 
   // modules
-  const ISLCA11yStrings = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCA11yStrings' );
-  const ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
-  const LinearFunction = require( 'DOT/LinearFunction' );
-  const Property = require( 'AXON/Property' );
+  const ISLCA11yStrings = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCA11yStrings' );
+  const ISLCDescriber = require( 'INVERSE_SQUARE_LAW_COMMON/view/describers/ISLCDescriber' );
+  const ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Util = require( 'DOT/Util' );
-  const ISLCDescriber = require( 'INVERSE_SQUARE_LAW_COMMON/view/describers/ISLCDescriber' );
 
   // strings
   const mass1AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass1Abbreviated' );
@@ -35,11 +33,13 @@ define( require => {
 
   const objectsRelativeSizePatternString = GravityForceLabA11yStrings.objectsRelativeSizePattern.value;
   const muchMuchSmallerThanString = GravityForceLabA11yStrings.muchMuchSmallerThan.value;
+  const halfTheSizeOfString = GravityForceLabA11yStrings.halfTheSizeOf.value;
   const muchSmallerThanString = GravityForceLabA11yStrings.muchSmallerThan.value;
-  const slightlySmallerThanString = GravityForceLabA11yStrings.slightlySmallerThan.value;
-  const comparableToString = GravityForceLabA11yStrings.comparableTo.value;
-  const somewhatLargerThanString = GravityForceLabA11yStrings.somewhatLargerThan.value;
+  const smallerButComparableToString = GravityForceLabA11yStrings.smallerButComparableTo.value;
+  const comparableToString = GravityForceLabA11yStrings.sameSizeAs.value;
+  const largerButComparableToString = GravityForceLabA11yStrings.largerButComparableTo.value;
   const muchLargerThanString = GravityForceLabA11yStrings.muchLargerThan.value;
+  const twiceTheSizeOfString = GravityForceLabA11yStrings.twiceTheSizeOf.value;
   const muchMuchLargerThanString = GravityForceLabA11yStrings.muchMuchLargerThan.value;
 
   const massChangeClausePatternString = GravityForceLabA11yStrings.massChangeClausePattern.value;
@@ -63,21 +63,20 @@ define( require => {
 
   const RELATIVE_SIZE_STRINGS = [
     muchMuchSmallerThanString,
+    halfTheSizeOfString,
     muchSmallerThanString,
-    slightlySmallerThanString,
+    smallerButComparableToString,
     comparableToString,
-    somewhatLargerThanString,
+    largerButComparableToString,
     muchLargerThanString,
+    twiceTheSizeOfString,
     muchMuchLargerThanString
   ];
 
   const { OBJECT_ONE } = ISLCObjectEnum;
-  const radiusDifferenceToIndex = new LinearFunction( -0.6, 0.6, 0, 6, true );
 
-  /*
-   * should be similar to the node describer and set various properties, in fact, since mass is quite specific to each
-   * object, I think it's pertinent to roll them all into one.
-   */
+  // should be similar to the node describer and set various properties, in fact, since mass is quite specific to each
+  // object, I think it's pertinent to roll them all into one.
   let describer = null;
 
   class MassDescriber extends ISLCDescriber {
@@ -95,15 +94,10 @@ define( require => {
 
       super( model, options.object1Label, options.object2Label );
 
-      this.radiusDifference = 0;
       this.mass1Growing = false;
       this.mass2Growing = false;
       this.convertMassValue = options.convertMassValue;
       this.formatMassValue = options.formatMassValue;
-
-      Property.multilink(
-        [ this.object1.radiusProperty, this.object2.radiusProperty ],
-        ( r1, r2 ) => { this.radiusDifference = r1 - r2; } );
 
       model.object1.valueProperty.link( ( newMass, oldMass ) => {
         this.mass1Growing = ( newMass - oldMass ) > 0;
@@ -114,39 +108,43 @@ define( require => {
       } );
     }
 
+    /**
+     * summary bullet for mass comparison in the screen summary
+     * @returns {string}
+     */
     getMassValuesSummaryText() {
-      const relativeSizeIndex = Util.roundSymmetric( this.getRelativeSizeIndex( this.radiusDifference ) );
+      const relativeSize = this.getRelativeSize( OBJECT_ONE );
 
-      const fillObject = {
+      return StringUtils.fillIn( massValuesAndComparisonSummaryPatternString, {
         mass1Label: this.object1Label,
         mass2Label: this.object2Label,
         m1Mass: this.getFormattedMass( this.object1.valueProperty.get() ),
         m2Mass: this.getFormattedMass( this.object2.valueProperty.get() ),
-        comparativeValue: RELATIVE_SIZE_STRINGS[ relativeSizeIndex ]
-      };
-      return StringUtils.fillIn( massValuesAndComparisonSummaryPatternString, fillObject );
+        comparativeValue: relativeSize
+      } );
     }
 
+    /**
+     * Helper function, hard coded from the first object's perspective
+     * @returns {string}
+     */
     getM1RelativeSize() {
       return this.getMassRelativeSizeToOther( OBJECT_ONE );
     }
 
+    /**
+     * @param {ISLCObjectEnum} objectEnum
+     * @returns {string}
+     */
     getMassRelativeSizeToOther( objectEnum ) {
-      const comparativeValue = this.getMassRelativeSize( objectEnum );
+      const relativeSize = this.getRelativeSize( objectEnum );
       const firstObjectLabel = this.getObjectLabelFromEnum( objectEnum );
       const secondObjectLabel = this.getOtherObjectLabelFromEnum( objectEnum );
       return StringUtils.fillIn( objectsRelativeSizePatternString, {
         firstObjectLabel: firstObjectLabel,
-        comparativeValue: comparativeValue,
+        relativeSize: relativeSize,
         secondObjectLabel: secondObjectLabel
       } );
-    }
-
-    getMassRelativeSize( objectEnum ) {
-      const multiplier = objectEnum === OBJECT_ONE ? 1 : -1;
-      const difference = this.radiusDifference * multiplier;
-      const index = this.getRelativeSizeIndex( difference );
-      return this.getRelativeSizeFromIndex( index );
     }
 
     /**
@@ -158,6 +156,10 @@ define( require => {
       return this.formatMassValue( this.convertMassValue( mass ) );
     }
 
+    /**
+     * @param {number} massValue
+     * @returns {string}
+     */
     getMassSize( massValue ) {
       const massIndex = this.getMassSizeIndex( massValue );
       return this.getSizeFromIndex( massIndex );
@@ -193,7 +195,10 @@ define( require => {
     getMassChangesAndMovesClause( thisObjectEnum ) {
       const changeDirection = this.getMassChangeDirection( thisObjectEnum );
       const leftOrRight = this.getPushDirection( thisObjectEnum );
-      return StringUtils.fillIn( massChangesAndMovesClausePatternString, { changeDirection: changeDirection, leftOrRight: leftOrRight } );
+      return StringUtils.fillIn( massChangesAndMovesClausePatternString, {
+        changeDirection: changeDirection,
+        leftOrRight: leftOrRight
+      } );
     }
 
     /**
@@ -234,18 +239,77 @@ define( require => {
       return objectEnum === OBJECT_ONE ? leftString : rightString;
     }
 
+    /**
+     * @param {number} index - should be an index
+     * @returns {*}
+     */
     getSizeFromIndex( index ) {
+      assert && assert( Util.isInteger( index ) );
       return SIZE_STRINGS[ index ];
     }
 
+    /**
+     * @param {number} index - should be an index
+     * @returns {*}
+     */
     getRelativeSizeFromIndex( index ) {
+      assert && assert( Util.isInteger( index ) );
       return RELATIVE_SIZE_STRINGS[ index ];
     }
 
-    getRelativeSizeIndex( difference ) {
-      return Util.roundSymmetric( radiusDifferenceToIndex( difference ) );
+
+    /**
+     * Returns the mapped integer corresponding to the appropriate qualitative size comparison between masses.
+     * See https://github.com/phetsims/gravity-force-lab-basics/issues/96#issuecomment-469248664
+     * @param  {number} ratio
+     * @returns {number} - an integer
+     */
+    getRelativeSizeIndex( ratio ) {
+      assert && assert( ratio > 0, 'ratio less than or equal to zero?' );
+
+      if ( ratio < .5 ) {
+        return 0;
+      }
+      if ( ratio === .5 ) {
+        return 1;
+      }
+      if ( ratio < .75 ) {
+        return 2;
+      }
+      if ( ratio < 1 ) {
+        return 3;
+      }
+      if ( ratio === 1 ) {
+        return 4;
+      }
+      if ( ratio < 1.5 ) {
+        return 5;
+      }
+      if ( ratio < 2 ) {
+        return 6;
+      }
+      if ( ratio === 2 ) {
+        return 7;
+      }
+      if ( ratio > 2 ) {
+        return 8;
+      }
+
+      assert && assert( false, `unrecognized ratio: ${ratio}` );
     }
 
+    getRelativeSize( thisObjectEnum ) {
+      const thisObject = this.getObjectFromEnum( thisObjectEnum );
+      const otherObject = this.getOtherObjectFromEnum( thisObjectEnum );
+      const ratio = thisObject.valueProperty.value / otherObject.valueProperty.value;
+      const index = this.getRelativeSizeIndex( ratio );
+      return this.getRelativeSizeFromIndex( index );
+    }
+
+    /**
+     * @param {number} mass - given the mass of the object.
+     * @returns {number}
+     */
     getMassSizeIndex( mass ) {
       assert && assert( ( typeof mass ) === 'number' );
       if ( mass < 26 ) {
@@ -280,7 +344,7 @@ define( require => {
      */
     getVerboseMassAriaValueText( objectEnum ) {
       const massAndUnit = this.getMassAndUnit( objectEnum );
-      const relativeSize = this.getMassRelativeSize( objectEnum );
+      const relativeSize = this.getRelativeSize( objectEnum );
       const otherObjectLabel = this.getOtherObjectLabelFromEnum( objectEnum );
       return StringUtils.fillIn( massValueRelativeSizePatternString, {
         massAndUnit: massAndUnit,
