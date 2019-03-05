@@ -55,7 +55,7 @@ define( require => {
       value: '{{thisObjectLabel}} is {{massValue}} kilograms'
     },
     sizeAndDistancePattern: {
-      value: '{{size}} and {{distance}}.'
+      value: '{{size}}, and {{distance}}.'
     },
 
 
