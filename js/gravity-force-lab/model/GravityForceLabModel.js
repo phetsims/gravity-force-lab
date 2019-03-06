@@ -18,11 +18,9 @@ define( function( require ) {
   var ISLCConstants = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCConstants' );
   var ISLCModel = require( 'INVERSE_SQUARE_LAW_COMMON/model/ISLCModel' );
   var Mass = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/model/Mass' );
-  var Property = require( 'AXON/Property' );
-  var PropertyIO = require( 'AXON/PropertyIO' );
   var Range = require( 'DOT/Range' );
   var Vector2 = require( 'DOT/Vector2' );
-  var Vector2IO = require( 'DOT/Vector2IO' );
+  var Vector2Property = require( 'DOT/Vector2Property' );
 
   /**
    * @param {Tandem} tandem
@@ -30,9 +28,8 @@ define( function( require ) {
    */
   function GravityForceLabModel( tandem ) {
 
-    this.rulerPositionProperty = new Property( new Vector2( 0, -0.90 ), {
-      tandem: tandem.createTandem( 'rulerPositionProperty' ),
-      phetioType: PropertyIO( Vector2IO )
+    this.rulerPositionProperty = new Vector2Property( new Vector2( 0, -0.90 ), {
+      tandem: tandem.createTandem( 'rulerPositionProperty' )
     } ); // @public
 
     this.constantRadiusProperty = new BooleanProperty( false, {
