@@ -1,5 +1,5 @@
 {
-  "comment": "# gravity-force-lab 2.1.7 Tue Nov 06 2018 14:00:27 GMT-0700 (MST)",
+  "comment": "# gravity-force-lab 2.1.7 Tue Mar 19 2019 16:51:31 GMT-0400 (EDT)",
   "assert": {
     "sha": "a707328cc11048787a807714496af23e0bd25be1",
     "branch": "HEAD"
@@ -13,15 +13,15 @@
     "branch": "HEAD"
   },
   "chipper": {
-    "sha": "13d77d8f4a602be35362e0f8e01dbcc7b735c380",
-    "branch": "HEAD"
+    "sha": "832691a258ce4704574742d677e70240ef0b7c31",
+    "branch": "gravity-force-lab-2.1"
   },
   "dot": {
     "sha": "75380061a901393db079c24d019e0eb03abe68c2",
     "branch": "HEAD"
   },
   "gravity-force-lab": {
-    "sha": "fd7e6460818d8da27cde2304f65c70308096a4a8",
+    "sha": "82a72bbeef3ae4d433b822b27bd699624ce3d257",
     "branch": "2.1"
   },
   "joist": {
@@ -38,6 +38,10 @@
   },
   "phetcommon": {
     "sha": "71be3ce272c2cc11c057cade1a23dc167f2e6fa1",
+    "branch": "HEAD"
+  },
+  "phetmarks": {
+    "sha": "1460b1e3f251d2150fc169a6a63a6ae5bc5ce420",
     "branch": "HEAD"
   },
   "query-string-machine": {
@@ -63,9 +67,5 @@
   "tandem": {
     "sha": "d9c124e5a7d30ac8013874e932122085f3477da9",
     "branch": "HEAD"
-  },
-  "phetmarks": {
-    "branch": "master",
-    "sha": "1460b1e3f251d2150fc169a6a63a6ae5bc5ce420"
   }
 }
