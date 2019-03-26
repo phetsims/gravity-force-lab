@@ -40,11 +40,6 @@ define( require => {
       const massDescriber = MassDescriber.getDescriber();
       const alertManager = GravityForceLabAlertManager.getManager();
 
-      // We only want the more verbose aria value text on focus, see https://github.com/phetsims/gravity-force-lab/issues/146
-      const setOnFocusAriaValueText = () => {
-        this.numberControl.ariaValueText = massDescriber.getVerboseMassAriaValueText( massEnum );
-      };
-
       super( titleString, unitsKgString, valueProperty, massRange, {
         // panel options
         fill: '#FDF498',
@@ -64,7 +59,8 @@ define( require => {
             keyboardStep: 50,
             pageKeyboardStep: 100,
             accessibleName: titleString,
-            a11yCreateAriaValueText: () => massDescriber.getMassAndUnit( massEnum )
+            a11yCreateValueChangeAriaValueText: () => massDescriber.getMassAndUnit( massEnum ),
+            a11yCreateOnFocusAriaValueText: () => massDescriber.getVerboseMassAriaValueText( massEnum )
           },
           titleNodeOptions: { font: new PhetFont( 24 ) },
           numberDisplayOptions: {
@@ -76,10 +72,7 @@ define( require => {
         },
 
         numberControlListener: {
-          focus: () => alertManager.alertMassControlFocused(),
-
-          // so the next time this control is focused, we have the proper verbose value text
-          blur: () => setOnFocusAriaValueText()
+          focus: () => alertManager.alertMassControlFocused()
         },
 
         tickLabelOptions: {
@@ -88,9 +81,6 @@ define( require => {
 
         tandem: tandem
       } );
-
-      // Update the aria-valuetext whenever the force changes.
-      forceProperty.link( () => setOnFocusAriaValueText() );
     }
   }
 
