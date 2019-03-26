@@ -64,7 +64,7 @@ define( require => {
             keyboardStep: 50,
             pageKeyboardStep: 100,
             accessibleName: titleString,
-            createAriaValueText: () => massDescriber.getMassAndUnit( massEnum )
+            a11yCreateAriaValueText: () => massDescriber.getMassAndUnit( massEnum )
           },
           titleNodeOptions: { font: new PhetFont( 24 ) },
           numberDisplayOptions: {
