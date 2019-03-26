@@ -33,7 +33,7 @@ define( require => {
      * @param {Range} massRange
      * @param {Color} thumbColor
      * @param {ISLCObjectEnum} massEnum
-     * @param {Property.<number>} forceProperty - useful to update aria-valuetext of the number control.
+     * @param {Property.<number>} forceProperty - used to update aria-valuetext of the number control.
      * @param {Tandem} tandem
      */
     constructor( titleString, valueProperty, massRange, thumbColor, massEnum, forceProperty, tandem ) {
@@ -81,6 +81,10 @@ define( require => {
 
         tandem: tandem
       } );
+
+      // whenever the force changes, update the aria-valuetext to keep the on focus text in sync
+      // exists for the lifetime of the sim, no need to dispose.
+      forceProperty.link( () => this.numberControl.updateOnFocusAriaValueText() );
     }
   }
 
