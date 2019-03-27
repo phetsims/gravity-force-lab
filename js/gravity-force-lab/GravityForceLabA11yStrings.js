@@ -79,13 +79,13 @@ define( require => {
       value: '{{massClause}}, {{forceClause}}.'
     },
     massChangeClausePattern: {
-      value: 'As mass {{changeDirection}}'
+      value: 'As {{changeDirectionPhrase}}'
     },
     massChangesAndMovesClausePattern: {
-      value: 'As mass {{changeDirection}} and moves {{leftOrRight}}'
+      value: 'As {{changeDirectionPhrase}} and moves {{leftOrRight}}'
     },
     massChangesMovesOtherClausePattern: {
-      value: 'As mass {{changeDirection}} and moves {{otherObjectLabel}} {{leftOrRight}}'
+      value: 'As {{changeDirectionPhrase}} and moves {{otherObjectLabel}} {{leftOrRight}}'
     },
 
     // relative mass sizes
@@ -116,12 +116,6 @@ define( require => {
     muchMuchLargerThan: {
       value: 'much much larger than'
     },
-    getsSmaller: {
-      value: 'gets smaller'
-    },
-    getsBigger: {
-      value: 'gets bigger'
-    },
 
     // relative densities
     notDenseComparedTo: {
@@ -150,6 +144,19 @@ define( require => {
     },
     extremelyDenseComparedTo: {
       value: 'extremely dense compared to'
+    },
+
+    massGetsSmaller: {
+      value: 'mass gets smaller'
+    },
+    massGetsBigger: {
+      value: 'mass gets bigger'
+    },
+    densityIncreases: {
+      value: 'density increases'
+    },
+    densityDecreases: {
+      value: 'density decreases'
     },
 
     // mass sphere density

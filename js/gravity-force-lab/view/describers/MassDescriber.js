@@ -57,8 +57,10 @@ define( require => {
   const massChangeClausePatternString = GravityForceLabA11yStrings.massChangeClausePattern.value;
   const massChangesAndMovesClausePatternString = GravityForceLabA11yStrings.massChangesAndMovesClausePattern.value;
   const massChangesMovesOtherClausePatternString = GravityForceLabA11yStrings.massChangesMovesOtherClausePattern.value;
-  const getsBiggerString = GravityForceLabA11yStrings.getsBigger.value;
-  const getsSmallerString = GravityForceLabA11yStrings.getsSmaller.value;
+  const massGetsBiggerString = GravityForceLabA11yStrings.massGetsBigger.value;
+  const massGetsSmallerString = GravityForceLabA11yStrings.massGetsSmaller.value;
+  const densityIncreasesString = GravityForceLabA11yStrings.densityIncreases.value;
+  const densityDecreasesString = GravityForceLabA11yStrings.densityDecreases.value;
   const leftString = ISLCA11yStrings.left.value;
   const rightString = ISLCA11yStrings.right.value;
 
@@ -206,56 +208,68 @@ define( require => {
 
     /**
      * Returns the string 'As mass gets bigger/smaller' for use in larger string patterns.
+     * If the radii are set to constant size, then use "density increasing/decreasing" terminology instead
      *
      * @param  {ISLCObjectEnum} thisObjectEnum
      * @returns {string}
      */
     getMassChangeClause( thisObjectEnum ) {
-      const changeDirection = this.getMassChangeDirection( thisObjectEnum );
-      return StringUtils.fillIn( massChangeClausePatternString, { changeDirection: changeDirection } );
+      const changeDirectionPhrase = this.getMassOrDensityChangeDirectionPhrase( thisObjectEnum );
+      return StringUtils.fillIn( massChangeClausePatternString, { changeDirectionPhrase: changeDirectionPhrase } );
     }
 
     /**
      * Returns the string 'As mass gets bigger/smaller and moves left/right' for use in larger string patterns.
+     * If the radii are set to constant size, then use "density increasing/decreasing" terminology instead
      *
      * @param  {ISLCObjectEnum} thisObjectEnum
      * @returns {string}
      */
     getMassChangesAndMovesClause( thisObjectEnum ) {
-      const changeDirection = this.getMassChangeDirection( thisObjectEnum );
+
+      const changeDirectionPhrase = this.getMassOrDensityChangeDirectionPhrase( thisObjectEnum );
       const leftOrRight = this.getPushDirection( thisObjectEnum );
       return StringUtils.fillIn( massChangesAndMovesClausePatternString, {
-        changeDirection: changeDirection,
+        changeDirectionPhrase: changeDirectionPhrase,
         leftOrRight: leftOrRight
       } );
     }
 
     /**
      * Returns the string 'As mass gets bigger/smaller and moves {{otherObjectLabel}} left/right' for use in larger string patterns.
+     * If the radii are set to constant size, then use "density increasing/decreasing" terminology instead
      *
      * @param  {ISLCObjectEnum} thisObjectEnum
      * @returns {string}
      */
     getMassChangesAndMovesOtherClause( thisObjectEnum ) {
-      const changeDirection = this.getMassChangeDirection( thisObjectEnum );
+      const changeDirectionPhrase = this.getMassOrDensityChangeDirectionPhrase( thisObjectEnum );
       const otherObjectLabel = this.getOtherObjectLabelFromEnum( thisObjectEnum );
       const leftOrRight = this.getPushDirection( this.getOtherObjectEnum( thisObjectEnum ) );
       return StringUtils.fillIn( massChangesMovesOtherClausePatternString, {
-        changeDirection: changeDirection,
+        changeDirectionPhrase: changeDirectionPhrase,
         otherObjectLabel: otherObjectLabel,
         leftOrRight: leftOrRight
       } );
     }
 
     /**
-     * Returns 'gets bigger/smaller' based on the most recent change to the passed-in mass.
+     * Returns 'mass gets bigger/smaller' based on the most recent change to the passed-in mass.
+     * If the radii are set to constant size, then use "density increasing/decreasing" terminology instead
      *
      * @param  {ISLCObjectEnum} objectEnum
      * @returns {string}
      */
-    getMassChangeDirection( objectEnum ) {
+    getMassOrDensityChangeDirectionPhrase( objectEnum ) {
       const isGrowing = objectEnum === OBJECT_ONE ? this.mass1Growing : this.mass2Growing;
-      return isGrowing ? getsBiggerString : getsSmallerString;
+
+      let directionPhrase = isGrowing ? massGetsBiggerString : massGetsSmallerString;
+
+      // specific density related verbage 
+      if ( this.constantRadiusProperty.get() ) {
+        directionPhrase = isGrowing ? densityIncreasesString : densityDecreasesString;
+      }
+      return directionPhrase;
     }
 
     /**
