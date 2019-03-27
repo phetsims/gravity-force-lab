@@ -168,13 +168,18 @@ define( function( require ) {
       thisElementName: AccessiblePeer.PRIMARY_SIBLING
     } );
 
+
+    // a list of Properties to that, when changed, should trigger an update in descriptions in the MassControl
+    const propertiesToMonitorForDescriptionChanges = [ model.forceProperty, model.constantRadiusProperty ];
+
+    // mass controls
     var massControl1 = new MassControl(
       mass1String,
       model.object1.valueProperty,
       GravityForceLabConstants.MASS_RANGE,
       GravityForceLabConstants.MASS_BLUE_COLOR,
       OBJECT_ONE,
-      model.forceProperty,
+      propertiesToMonitorForDescriptionChanges,
       tandem.createTandem( 'massControl1' )
     );
 
@@ -187,7 +192,7 @@ define( function( require ) {
       GravityForceLabConstants.MASS_RANGE,
       GravityForceLabConstants.MASS_RED_COLOR,
       OBJECT_TWO,
-      model.forceProperty,
+      propertiesToMonitorForDescriptionChanges,
       tandem.createTandem( 'massControl2' )
     );
     massControl2.scale( CONTROL_SCALE );

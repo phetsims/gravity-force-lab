@@ -11,12 +11,13 @@ define( require => {
   'use strict';
 
   // modules
-  const GravityForceLabAlertManager = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabAlertManager' );
   const Dimension2 = require( 'DOT/Dimension2' );
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
+  const GravityForceLabAlertManager = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabAlertManager' );
   const ISLCObjectControlPanel = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectControlPanel' );
   const MassDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/MassDescriber' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const Property = require( 'AXON/Property' );
 
   // strings
   const unitsKgString = require( 'string!GRAVITY_FORCE_LAB/units.kg' );
@@ -33,10 +34,10 @@ define( require => {
      * @param {Range} massRange
      * @param {Color} thumbColor
      * @param {ISLCObjectEnum} massEnum
-     * @param {Property.<number>} forceProperty - used to update aria-valuetext of the number control.
+     * @param {Property[]} updateDescriptionProperties - Properties to monitor to keep descriptions up to date
      * @param {Tandem} tandem
      */
-    constructor( titleString, valueProperty, massRange, thumbColor, massEnum, forceProperty, tandem ) {
+    constructor( titleString, valueProperty, massRange, thumbColor, massEnum, updateDescriptionProperties, tandem ) {
       const massDescriber = MassDescriber.getDescriber();
       const alertManager = GravityForceLabAlertManager.getManager();
 
@@ -82,9 +83,9 @@ define( require => {
         tandem: tandem
       } );
 
-      // whenever the force changes, update the aria-valuetext to keep the on focus text in sync
+      // whenever these Properties change, update the aria-valuetext to keep the on focus text in sync
       // exists for the lifetime of the sim, no need to dispose.
-      forceProperty.link( () => this.numberControl.updateOnFocusAriaValueText() );
+      Property.multilink( updateDescriptionProperties, () => this.numberControl.updateOnFocusAriaValueText() );
     }
   }
 

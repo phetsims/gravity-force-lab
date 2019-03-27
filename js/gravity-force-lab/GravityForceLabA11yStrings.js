@@ -123,6 +123,35 @@ define( require => {
       value: 'gets bigger'
     },
 
+    // relative densities
+    notDenseComparedTo: {
+      value: 'not dense compared to'
+    },
+    halfAsDenseAs: {
+      value: 'half as dense as'
+    },
+    muchLessDenseThan: {
+      value: 'much less dense than'
+    },
+    lessDenseButComparableTo: {
+      value: 'less dense but comparable to'
+    },
+    asDenseAs: {
+      value: 'as dense as'
+    },
+    denseButComparableTo: {
+      value: 'denser but comparable to'
+    },
+    muchDenseThan: {
+      value: 'much denser than'
+    },
+    twiceAsDenseAs: {
+      value: 'twice as dense as'
+    },
+    extremelyDenseComparedTo: {
+      value: 'extremely dense compared to'
+    },
+
     // mass sphere density
     notAtAllDense: {
       value: 'not at all dense'

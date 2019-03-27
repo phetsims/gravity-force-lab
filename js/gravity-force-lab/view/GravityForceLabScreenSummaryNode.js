@@ -60,7 +60,10 @@ define( require => {
       this.massDescriber = MassDescriber.getDescriber();
 
       var mainSummaryDescriptionNode = new Node( { tagName: 'p', innerContent: options.mainDescriptionContent } );
-      var secondSummaryDescriptionNode = new Node( { tagName: 'p', innerContent: options.secondaryDescriptionContent } );
+      var secondSummaryDescriptionNode = new Node( {
+        tagName: 'p',
+        innerContent: options.secondaryDescriptionContent
+      } );
 
       this.simStateNode = new Node( {
         tagName: 'ul',
@@ -105,7 +108,9 @@ define( require => {
         [ model.object1.positionProperty,
           model.object1.radiusProperty,
           model.object2.positionProperty,
-          model.object2.radiusProperty ].concat( options.additionalMassDistanceProperties ),
+          model.object2.radiusProperty,
+          model.constantRadiusProperty // not really needed, but for completeness it is good to have.
+        ].concat( options.additionalMassDistanceProperties ),
         () => {
           this.updateObjectDistanceSummary();
           this.updateMassValuesSummary();
