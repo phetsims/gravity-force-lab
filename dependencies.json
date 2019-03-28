@@ -1,5 +1,5 @@
 {
-  "comment": "# gravity-force-lab 2.1.8-rc.2 Thu Mar 28 2019 11:52:52 GMT-0400 (EDT)",
+  "comment": "# gravity-force-lab 2.1.8-rc.3 Thu Mar 28 2019 11:57:59 GMT-0400 (EDT)",
   "assert": {
     "sha": "a707328cc11048787a807714496af23e0bd25be1",
     "branch": "HEAD"
@@ -10,7 +10,7 @@
   },
   "brand": {
     "sha": "624a44c6e864378faa382d210b7877424274a41a",
-    "branch": "gravity-force-lab-2.1"
+    "branch": "HEAD"
   },
   "chipper": {
     "sha": "832691a258ce4704574742d677e70240ef0b7c31",
@@ -21,12 +21,12 @@
     "branch": "HEAD"
   },
   "gravity-force-lab": {
-    "sha": "c58c03e9f5eadabe97bc411469a9039a5a795697",
+    "sha": "4b0b6bb761ee537192198496b7d82b02a4536221",
     "branch": "2.1"
   },
   "joist": {
     "sha": "3463661cfb3810aa783ec94e2877875c93275653",
-    "branch": "gravity-force-lab-2.1"
+    "branch": "HEAD"
   },
   "kite": {
     "sha": "6059ebb0210f3aeeb4b6863445ed94245e54fef1",
