@@ -271,14 +271,12 @@ define( function( require ) {
     mass1Node.addInputListener( {
       focus: function() {
         positionDescriber.lastMoveCloser = null;
-        mass1Node.ariaValueText = positionDescriber.getFocusAriaValueText( OBJECT_ONE );
         alertManager.alertPositionSliderFocused();
       }
     } );
     mass2Node.addInputListener( {
       focus: function() {
         positionDescriber.lastMoveCloser = null;
-        mass2Node.ariaValueText = positionDescriber.getFocusAriaValueText( OBJECT_TWO );
         alertManager.alertPositionSliderFocused();
       }
     } );
