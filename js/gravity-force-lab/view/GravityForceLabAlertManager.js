@@ -6,6 +6,7 @@ define( require => {
   // modules
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
+  const GravityForceLabModel = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/model/GravityForceLabModel' );
   const ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
   const ISLCAlertManager = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCAlertManager' );
   const MassDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/MassDescriber' );
@@ -29,32 +30,49 @@ define( require => {
   } );
 
   class GravityForceLabAlertManager extends ISLCAlertManager {
-    constructor( model ) {
+
+    /**
+     *
+     * @param {GravityForceLabModel|GFLBModel} model
+     * @param options
+     */
+    constructor( model, options ) {
+
+      // Basically these options try to support BASICS and REGULAR logic duplication.
+      options = _.extend( {
+
+        // only used for gravity-force-lab
+        linkToScientificNotationProperty: true,
+
+        // default listener for when forceValues change
+        forceValuesListener: showValues => {
+
+          const scientificNotation = model.scientificNotationProperty.get();
+
+          if ( !showValues || !scientificNotation ) {
+            ISLCAlertManager.alertForceValues( showValues );
+          }
+          else {
+            this.alertScientificNotation( scientificNotation );
+          }
+        }
+      }, options );
 
       super( model );
 
-      // a11y describers - initialized outside the class declaration as they should be treated like helper functions
+      // @protected - initialized outside the class declaration as they should be treated like helper functions
       this.massDescriber = MassDescriber.getDescriber();
-      // this.forceDescriber = GravityForceLabForceDescriber.getDescriber();
 
-      model.scientificNotationProperty.lazyLink( displayInScientificNotation => {
+      assert && options.linkToScientificNotationProperty && assert( model instanceof GravityForceLabModel, 'unsupported model for scientific notation' );
+
+      options.linkToScientificNotationProperty && model.scientificNotationProperty.lazyLink( displayInScientificNotation => {
         this.alertScientificNotation( displayInScientificNotation );
       } );
 
+      model.forceValuesProperty.lazyLink( options.forceValuesListener );
+
       model.constantRadiusProperty.lazyLink( constantRadius => {
         this.alertConstantRadius( constantRadius );
-      } );
-
-      model.forceValuesProperty.lazyLink( showValues => {
-
-        const scientificNotation = model.scientificNotationProperty.get();
-
-        if ( !showValues || !scientificNotation ) {
-          ISLCAlertManager.alertForceValues( showValues );
-        }
-        else {
-          this.alertScientificNotation( scientificNotation );
-        }
       } );
 
       model.object1.valueProperty.lazyLink( () => {
@@ -68,24 +86,37 @@ define( require => {
       } );
     }
 
+    /**
+     * @private
+     */
     alertScientificNotation() {
       const alert = this.forceDescriber.getScientificNotationAlertText();
       const utterance = new Utterance( { alert: alert, uniqueGroupId: 'scientificNotation' } );
       utteranceQueue.addToBack( utterance );
     }
 
+    /**
+     * @param {boolean} constantRadius
+     * @private
+     */
     alertConstantRadius( constantRadius ) {
       const alert = constantRadius ? CONSTANT_RADIUS_ALERT : this.massDescriber.getM1RelativeSize();
       const utterance = new Utterance( { alert: alert, uniqueGroupId: 'constantRadius' } );
       utteranceQueue.addToBack( utterance );
     }
 
+    /**
+     * @param {ISLCObjectEnum} objectEnum
+     */
     alertMassValueChanged( objectEnum ) {
       const alert = this.getMassValueChangedAlertText( objectEnum );
       const utterance = new Utterance( { alert: alert, uniqueGroupId: 'massChanged' } );
       utteranceQueue.addToBack( utterance );
     }
 
+    /**
+     * @public
+     */
     alertPositionSliderFocused() {
       const alert = this.forceDescriber.getForceVectorSizeText();
       const utterance = new Utterance( { alert: alert, uniqueGroupId: 'position' } );
@@ -94,6 +125,7 @@ define( require => {
 
     /**
      * When mass control is focused, produce the same alert as when the position slider is focused
+     * @public
      */
     alertMassControlFocused() {
       this.alertPositionSliderFocused();
@@ -106,7 +138,7 @@ define( require => {
      */
     getMassValueChangedAlertText( objectEnum ) {
 
-      let massClause = this.massDescriber.getMassChangeClause( objectEnum );
+      let massClause = this.massDescriber.getMassOrDensityChangeClause( objectEnum );
 
       // if changing the mass of an object caused one of the masses to move position
       if ( this.model.massWasPushed() ) {

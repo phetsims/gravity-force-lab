@@ -213,7 +213,7 @@ define( require => {
      * @param  {ISLCObjectEnum} thisObjectEnum
      * @returns {string}
      */
-    getMassChangeClause( thisObjectEnum ) {
+    getMassOrDensityChangeClause( thisObjectEnum ) {
       const changeDirectionPhrase = this.getMassOrDensityChangeDirectionPhrase( thisObjectEnum );
       return StringUtils.fillIn( massChangeClausePatternString, { changeDirectionPhrase: changeDirectionPhrase } );
     }
