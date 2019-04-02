@@ -52,8 +52,6 @@ define( function( require ) {
     model.scientificNotationProperty.link( function( scientificNotation ) {
       self.setReadoutsInScientificNotation( scientificNotation );
     } );
-
-    this.resetAriaValueText();
   }
 
   gravityForceLab.register( 'MassNode', MassNode );
@@ -75,17 +73,5 @@ define( function( require ) {
       ISLCObjectNode.prototype.redrawForce.call( this );
     },
 
-    /**
-     * @private
-     */
-    resetAriaValueText: function() {
-      const positionDescriber = GravityForceLabPositionDescriber.getDescriber();
-      if ( positionDescriber.objectTouchingBoundary( this.enum ) ) {
-        this.ariaValueText = positionDescriber.getBoundaryTouchingValueText( this.enum );
-      }
-      else {
-        this.ariaValueText = positionDescriber.getPositionAndDistanceFromOtherObjectText( this.enum );
-      }
-    }
   } );
 } );
