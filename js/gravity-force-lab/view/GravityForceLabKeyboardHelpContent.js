@@ -16,7 +16,7 @@ define( function( require ) {
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
   var HBox = require( 'SCENERY/nodes/HBox' );
-  var HelpContent = require( 'SCENERY_PHET/keyboard/help/HelpContent' );
+  var KeyboardHelpSection = require( 'SCENERY_PHET/keyboard/help/KeyboardHelpSection' );
   var HomeKeyNode = require( 'SCENERY_PHET/keyboard/HomeKeyNode' );
   var inherit = require( 'PHET_CORE/inherit' );
   var VBox = require( 'SCENERY/nodes/VBox' );
@@ -58,22 +58,22 @@ define( function( require ) {
       return new EndKeyNode();
     },
     leftRight: function() {
-      return HelpContent.leftRightArrowKeysRowIcon();
+      return KeyboardHelpSection.leftRightArrowKeysRowIcon();
     },
     downOrLeft: function() {
-      return HelpContent.iconOrIcon( new ArrowKeyNode( 'down' ), new ArrowKeyNode( 'left' ) );
+      return KeyboardHelpSection.iconOrIcon( new ArrowKeyNode( 'down' ), new ArrowKeyNode( 'left' ) );
     },
     upOrRight: function() {
-      return HelpContent.iconOrIcon( new ArrowKeyNode( 'up' ), new ArrowKeyNode( 'right' ) );
+      return KeyboardHelpSection.iconOrIcon( new ArrowKeyNode( 'up' ), new ArrowKeyNode( 'right' ) );
     },
     pageUpPageDown: function() {
-      return HelpContent.pageUpPageDownRowIcon();
+      return KeyboardHelpSection.pageUpPageDownRowIcon();
     },
     shiftPlusArrows: function() {
-      return HelpContent.shiftPlusIcon( HelpContent.leftRightArrowKeysRowIcon() );
+      return KeyboardHelpSection.shiftPlusIcon( KeyboardHelpSection.leftRightArrowKeysRowIcon() );
     },
     shiftPlusAllArrows: function() {
-      return HelpContent.shiftPlusIcon( HelpContent.arrowKeysRowIcon() );
+      return KeyboardHelpSection.shiftPlusIcon( KeyboardHelpSection.arrowKeysRowIcon() );
     }
   };
 
@@ -100,7 +100,7 @@ define( function( require ) {
     var jumpRightRow = this.constructRow( jumpToRightString, jumpToRightDescriptionString, 'end' );
 
     var moveMassRows = [ moveMassRow, moveSmallStepsRow, moveLargeStepsRow, jumpLeftRow, jumpRightRow ];
-    var moveMassHelpContent = new HelpContent( moveSpheresHeadingString, moveMassRows );
+    var moveMassHelpContent = new KeyboardHelpSection( moveSpheresHeadingString, moveMassRows );
 
     // Mass adjustment help section
     var increaseMassRow = this.constructRow( increaseMassString, increaseMassDescriptionString, 'upOrRight' );
@@ -111,10 +111,10 @@ define( function( require ) {
     var jumpToMaxMassRow = this.constructRow( jumpToMaximumMassString, jumpToMaximumMassDescriptionString, 'end' );
 
     var adjustMassRows = [ increaseMassRow, decreaseMassRow, changeMassSmallStepsRow, changeMassLargeStepsRow, jumpToMinMassRow, jumpToMaxMassRow ];
-    var adjustMassHelpContent = new HelpContent( changeMassHeadingString, adjustMassRows );
+    var adjustMassHelpContent = new KeyboardHelpSection( changeMassHeadingString, adjustMassRows );
 
     // align icons for the mass movement and adjustment sections
-    HelpContent.alignHelpContentIcons( [ moveMassHelpContent, adjustMassHelpContent ] );
+    KeyboardHelpSection.alignHelpContentIcons( [ moveMassHelpContent, adjustMassHelpContent ] );
 
     var generalNavigationHelpContent = new GeneralNavigationHelpContent();
 
@@ -152,7 +152,7 @@ define( function( require ) {
      */
     constructRow: function( labelString, descriptionString, iconID ) {
       var iconNode = ICON_CREATOR[ iconID ]();
-      return HelpContent.labelWithIcon( labelString, iconNode, descriptionString );
+      return KeyboardHelpSection.labelWithIcon( labelString, iconNode, descriptionString );
     }
   } );
 } );
