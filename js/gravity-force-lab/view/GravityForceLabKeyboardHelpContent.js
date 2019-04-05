@@ -100,7 +100,7 @@ define( function( require ) {
     var jumpRightRow = this.constructRow( jumpToRightString, jumpToRightDescriptionString, 'end' );
 
     var moveMassRows = [ moveMassRow, moveSmallStepsRow, moveLargeStepsRow, jumpLeftRow, jumpRightRow ];
-    var moveMassHelpContent = new KeyboardHelpSection( moveSpheresHeadingString, moveMassRows );
+    var moveMassHelpSection = new KeyboardHelpSection( moveSpheresHeadingString, moveMassRows );
 
     // Mass adjustment help section
     var increaseMassRow = this.constructRow( increaseMassString, increaseMassDescriptionString, 'upOrRight' );
@@ -111,21 +111,21 @@ define( function( require ) {
     var jumpToMaxMassRow = this.constructRow( jumpToMaximumMassString, jumpToMaximumMassDescriptionString, 'end' );
 
     var adjustMassRows = [ increaseMassRow, decreaseMassRow, changeMassSmallStepsRow, changeMassLargeStepsRow, jumpToMinMassRow, jumpToMaxMassRow ];
-    var adjustMassHelpContent = new KeyboardHelpSection( changeMassHeadingString, adjustMassRows );
+    var adjustMassHelpSection = new KeyboardHelpSection( changeMassHeadingString, adjustMassRows );
 
     // align icons for the mass movement and adjustment sections
-    KeyboardHelpSection.alignHelpSectionIcons( [ moveMassHelpContent, adjustMassHelpContent ] );
+    KeyboardHelpSection.alignHelpSectionIcons( [ moveMassHelpSection, adjustMassHelpSection ] );
 
-    var generalNavigationHelpContent = new GeneralKeyboardHelpSection();
+    var generalNavigationHelpSection = new GeneralKeyboardHelpSection();
 
     var leftContent = new VBox( {
-      children: [ moveMassHelpContent, adjustMassHelpContent ],
+      children: [ moveMassHelpSection, adjustMassHelpSection ],
       align: 'top',
       spacing: 30
     } );
 
     var rightContent = new VBox( {
-      children: [ generalNavigationHelpContent ],
+      children: [ generalNavigationHelpSection ],
       align: 'top',
       spacing: 30
     } );
@@ -143,7 +143,7 @@ define( function( require ) {
   return inherit( HBox, GravityForceLabKeyboardHelpContent, {
 
     /**
-     * Construct a row for the help dialog, assembling a label with an icon using Helpcontent. Usages will look like:
+     * Construct a row for the help dialog, assembling a label with an icon using HelpSection. Usages will look like:
      * this.constructRow( 'jump to the end', 'end' );
      *
      * @param  {string} labelString - the text label for the row (visual)
