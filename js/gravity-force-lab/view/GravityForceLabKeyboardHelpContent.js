@@ -12,7 +12,7 @@ define( function( require ) {
   // modules
   var ArrowKeyNode = require( 'SCENERY_PHET/keyboard/ArrowKeyNode' );
   var EndKeyNode = require( 'SCENERY_PHET/keyboard/EndKeyNode' );
-  var GeneralNavigationHelpContent = require( 'SCENERY_PHET/keyboard/help/GeneralNavigationHelpContent' );
+  var GeneralKeyboardHelpSection = require( 'SCENERY_PHET/keyboard/help/GeneralKeyboardHelpSection' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
   var HBox = require( 'SCENERY/nodes/HBox' );
@@ -116,7 +116,7 @@ define( function( require ) {
     // align icons for the mass movement and adjustment sections
     KeyboardHelpSection.alignHelpContentIcons( [ moveMassHelpContent, adjustMassHelpContent ] );
 
-    var generalNavigationHelpContent = new GeneralNavigationHelpContent();
+    var generalNavigationHelpContent = new GeneralKeyboardHelpSection();
 
     var leftContent = new VBox( {
       children: [ moveMassHelpContent, adjustMassHelpContent ],
