@@ -86,17 +86,17 @@ define( function( require ) {
   function GravityForceLabKeyboardHelpContent( tandem ) {
 
     // Mass movement help dialog section
-    // move mass content
+    // move mass section
     var moveMassRow = this.constructRow( moveSphereLabelString, moveSphereDescriptionString, 'leftRight' );
 
     var moveSmallStepsRow = this.constructRow( moveInSmallerStepsString, moveInSmallerStepsDescriptionString, 'shiftPlusArrows' );
-    // 'move in larger steps' content
+    // 'move in larger steps' section
     var moveLargeStepsRow = this.constructRow( moveInLargerStepsString, moveInLargerStepsDescriptionString, 'pageUpPageDown' );
 
-    // 'jump to left' content
+    // 'jump to left' section
     var jumpLeftRow = this.constructRow( jumpToLeftString, jumpToLeftDescriptionString, 'home' );
 
-    // 'jump to right' content
+    // 'jump to right' section
     var jumpRightRow = this.constructRow( jumpToRightString, jumpToRightDescriptionString, 'end' );
 
     var moveMassRows = [ moveMassRow, moveSmallStepsRow, moveLargeStepsRow, jumpLeftRow, jumpRightRow ];
