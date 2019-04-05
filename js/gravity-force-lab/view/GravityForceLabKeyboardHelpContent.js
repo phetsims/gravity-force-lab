@@ -114,7 +114,7 @@ define( function( require ) {
     var adjustMassHelpContent = new KeyboardHelpSection( changeMassHeadingString, adjustMassRows );
 
     // align icons for the mass movement and adjustment sections
-    KeyboardHelpSection.alignHelpContentIcons( [ moveMassHelpContent, adjustMassHelpContent ] );
+    KeyboardHelpSection.alignHelpSectionIcons( [ moveMassHelpContent, adjustMassHelpContent ] );
 
     var generalNavigationHelpContent = new GeneralKeyboardHelpSection();
 
