@@ -15,9 +15,9 @@ define( require => {
   const GeneralKeyboardHelpSection = require( 'SCENERY_PHET/keyboard/help/GeneralKeyboardHelpSection' );
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
-  const HBox = require( 'SCENERY/nodes/HBox' );
   const KeyboardHelpSection = require( 'SCENERY_PHET/keyboard/help/KeyboardHelpSection' );
   const HomeKeyNode = require( 'SCENERY_PHET/keyboard/HomeKeyNode' );
+  const TwoColumnKeyboardHelpContent = require( 'SCENERY_PHET/keyboard/help/TwoColumnKeyboardHelpContent' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
   // strings
@@ -76,7 +76,7 @@ define( require => {
     }
   };
 
-  class GravityForceLabKeyboardHelpContent extends HBox {
+  class GravityForceLabKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
 
     /**
      * @param {Tandem} tandem
@@ -128,10 +128,7 @@ define( require => {
         spacing: 30
       } );
 
-      super( {
-        children: [ leftContent, rightContent ],
-        align: 'top',
-        spacing: 30,
+      super( leftContent, rightContent, {
         tandem: tandem
       } );
     }
