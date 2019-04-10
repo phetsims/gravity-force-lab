@@ -50,7 +50,7 @@ define( require => {
           const scientificNotation = model.scientificNotationProperty.get();
 
           if ( !showValues || !scientificNotation ) {
-            ISLCAlertManager.alertForceValues( showValues );
+            this.alertForceValues( showValues );
           }
           else {
             this.alertScientificNotation( scientificNotation );
