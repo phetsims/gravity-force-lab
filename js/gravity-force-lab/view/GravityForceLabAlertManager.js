@@ -63,6 +63,12 @@ define( require => {
       // @protected - initialized outside the class declaration as they should be treated like helper functions
       this.massDescriber = MassDescriber.getDescriber();
 
+      // @private {Utterance} - utterances for various categories of information, to use Utterance
+      // alertStable feature
+      this.scientificNotationUtterance = new Utterance();
+      this.constantRadiusUtterance = new Utterance();
+      this.massChangedUtterance = new Utterance();
+
       assert && options.linkToScientificNotationProperty && assert( model instanceof GravityForceLabModel, 'unsupported model for scientific notation' );
 
       options.linkToScientificNotationProperty && model.scientificNotationProperty.lazyLink( displayInScientificNotation => {
@@ -91,8 +97,8 @@ define( require => {
      */
     alertScientificNotation() {
       const alert = this.forceDescriber.getScientificNotationAlertText();
-      const utterance = new Utterance( { alert: alert, uniqueGroupId: 'scientificNotation' } );
-      utteranceQueue.addToBack( utterance );
+      this.scientificNotationUtterance.alert = alert;
+      utteranceQueue.addToBack( this.scientificNotationUtterance );
     }
 
     /**
@@ -101,8 +107,8 @@ define( require => {
      */
     alertConstantRadius( constantRadius ) {
       const alert = constantRadius ? CONSTANT_RADIUS_ALERT : this.massDescriber.getM1RelativeSize();
-      const utterance = new Utterance( { alert: alert, uniqueGroupId: 'constantRadius' } );
-      utteranceQueue.addToBack( utterance );
+      this.constantRadiusUtterance.alert = alert;
+      utteranceQueue.addToBack( this.constantRadiusUtterance );
     }
 
     /**
@@ -110,8 +116,8 @@ define( require => {
      */
     alertMassValueChanged( objectEnum ) {
       const alert = this.getMassValueChangedAlertText( objectEnum );
-      const utterance = new Utterance( { alert: alert, uniqueGroupId: 'massChanged' } );
-      utteranceQueue.addToBack( utterance );
+      this.massChangedUtterance.alert = alert;
+      utteranceQueue.addToBack( this.massChangedUtterance );
     }
 
     /**
@@ -119,8 +125,8 @@ define( require => {
      */
     alertPositionSliderFocused() {
       const alert = this.forceDescriber.getForceVectorSizeText();
-      const utterance = new Utterance( { alert: alert, uniqueGroupId: 'position' } );
-      utteranceQueue.addToBack( utterance );
+      this.positionUtterance.alert = alert;
+      utteranceQueue.addToBack( this.positionUtterance );
     }
 
     /**
