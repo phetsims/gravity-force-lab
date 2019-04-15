@@ -67,8 +67,8 @@ define( require => {
      * newtons, so it's necessary for sim-specific subtypes to specify this logic.
      *
      * @override
-     * @param  {Number} force
-     * @returns {Integer}
+     * @param  {number} force
+     * @returns {number} - integer within the range of force strings, see ForceDescriber.js
      */
     getForceVectorIndex( force ) {
       const convertedForce = convertForceToMicronewtons( force );
