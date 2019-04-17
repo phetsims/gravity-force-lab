@@ -1,5 +1,5 @@
 {
-  "comment": "# gravity-force-lab 2.1.8 Thu Apr 04 2019 11:31:41 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# gravity-force-lab 2.1.8 Wed Apr 17 2019 14:09:24 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "a707328cc11048787a807714496af23e0bd25be1",
     "branch": "HEAD"
@@ -13,15 +13,15 @@
     "branch": "HEAD"
   },
   "chipper": {
-    "sha": "832691a258ce4704574742d677e70240ef0b7c31",
-    "branch": "HEAD"
+    "sha": "5460b0458fa7aa38478e15d0aed95c86d4c5c1ac",
+    "branch": "gravity-force-lab-2.1"
   },
   "dot": {
     "sha": "75380061a901393db079c24d019e0eb03abe68c2",
     "branch": "HEAD"
   },
   "gravity-force-lab": {
-    "sha": "e2922f2ddd0a4b4522cc5e1fd864c0c9f0793859",
+    "sha": "0cfe7e418d8c03e71ac4684006355990080f5e2b",
     "branch": "2.1"
   },
   "joist": {
