@@ -77,7 +77,7 @@ define( function( require ) {
     var positionDescriber = new GravityForceLabPositionDescriber( model, mass1AbbreviatedString, mass2AbbreviatedString );
     GravityForceLabPositionDescriber.initialize( positionDescriber );
 
-    var alertManager = GravityForceLabAlertManager.initialize( model );
+    var alertManager = new GravityForceLabAlertManager( model );
     var summaryNode = new GravityForceLabScreenSummaryNode( model );
     var playAreaNode = new PlayAreaNode();
     var controlAreaNode = new ControlAreaNode();
@@ -101,6 +101,7 @@ define( function( require ) {
       model.object1,
       this.layoutBounds,
       modelViewTransform,
+      alertManager,
       {
         label: mass1AbbreviatedString,
         otherObjectLabel: mass2AbbreviatedString,
@@ -116,6 +117,7 @@ define( function( require ) {
       model.object2,
       this.layoutBounds,
       modelViewTransform,
+      alertManager,
       {
         label: mass2AbbreviatedString,
         otherObjectLabel: mass1AbbreviatedString,
@@ -180,6 +182,7 @@ define( function( require ) {
       GravityForceLabConstants.MASS_BLUE_COLOR,
       OBJECT_ONE,
       propertiesToMonitorForDescriptionChanges,
+      alertManager,
       tandem.createTandem( 'massControl1' )
     );
 
@@ -193,6 +196,7 @@ define( function( require ) {
       GravityForceLabConstants.MASS_RED_COLOR,
       OBJECT_TWO,
       propertiesToMonitorForDescriptionChanges,
+      alertManager,
       tandem.createTandem( 'massControl2' )
     );
     massControl2.scale( CONTROL_SCALE );

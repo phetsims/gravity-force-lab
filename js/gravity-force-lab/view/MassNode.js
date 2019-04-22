@@ -28,10 +28,12 @@ define( function( require ) {
    * @param {MassModel} massModel
    * @param {Bounds2} layoutBounds
    * @param {ModelViewTransform2} modelViewTransform
+   * @param {ISLCAlertManager} alertManager
+
    * @param {Object} [options]
    * @constructor
    */
-  function MassNode( model, massModel, layoutBounds, modelViewTransform, options ) {
+  function MassNode( model, massModel, layoutBounds, modelViewTransform, alertManager, options ) {
 
     var self = this;
 
@@ -47,7 +49,8 @@ define( function( require ) {
       tandem: Tandem.required
     }, options );
 
-    ISLCObjectNode.call( this, model, massModel, layoutBounds, modelViewTransform, GravityForceLabConstants.PULL_FORCE_RANGE, options );
+    ISLCObjectNode.call( this, model, massModel, layoutBounds, modelViewTransform,
+      GravityForceLabConstants.PULL_FORCE_RANGE, alertManager, options );
     model.scientificNotationProperty.link( function( scientificNotation ) {
       self.setReadoutsInScientificNotation( scientificNotation );
     } );

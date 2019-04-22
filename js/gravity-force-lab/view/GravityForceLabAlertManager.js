@@ -165,15 +165,6 @@ define( require => {
         forceClause: forceClause
       } );
     }
-
-    static getManager() {
-      return ISLCAlertManager.getManager();
-    }
-
-    static initialize( model ) {
-      const manager = new GravityForceLabAlertManager( model );
-      return ISLCAlertManager.initialize( manager );
-    }
   }
 
   return gravityForceLab.register( 'GravityForceLabAlertManager', GravityForceLabAlertManager );
