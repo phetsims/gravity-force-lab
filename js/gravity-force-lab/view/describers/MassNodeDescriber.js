@@ -5,7 +5,6 @@ define( require => {
 
   // modules
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
-  const GravityForceLabPositionDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/GravityForceLabPositionDescriber' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
   const ISLCDescriber = require( 'INVERSE_SQUARE_LAW_COMMON/view/describers/ISLCDescriber' );
   const ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
@@ -30,9 +29,10 @@ define( require => {
      * @param {ISLCModel} model
      * @param {ISLCObjectEnum} objectEnum
      * @param {MassDescriber} massDescriber
+     * @param {GravityForceLabPositionDescriber} positionDescriber
      * @param {options} [options]
      */
-    constructor( model, objectEnum, massDescriber, options ) {
+    constructor( model, objectEnum, massDescriber, positionDescriber, options ) {
 
       options = _.extend( {
         object1Label: mass1AbbreviatedString, // string
@@ -47,7 +47,7 @@ define( require => {
       this.massLabel = this.getObjectLabelFromEnum( objectEnum );
       this.otherMassLabel = this.getOtherObjectLabelFromEnum( objectEnum );
 
-      this.positionDescriber = GravityForceLabPositionDescriber.getDescriber();
+      this.positionDescriber = positionDescriber;
       this.massDescriber = massDescriber;
 
       this.atEdge = false;

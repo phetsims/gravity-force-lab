@@ -17,7 +17,6 @@ define( function( require ) {
   var ISLCObjectNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectNode' );
   var RadialGradient = require( 'SCENERY/util/RadialGradient' );
   var Tandem = require( 'TANDEM/Tandem' );
-  // var Util = require( 'DOT/Util' );
 
   // constants
   var ARROW_LABEL_COLOR_STRING = '#000';
@@ -29,11 +28,11 @@ define( function( require ) {
    * @param {Bounds2} layoutBounds
    * @param {ModelViewTransform2} modelViewTransform
    * @param {ISLCAlertManager} alertManager
-
+   * @param {GravityForceLabPositionDescriber} positionDescriber
    * @param {Object} [options]
    * @constructor
    */
-  function MassNode( model, massModel, layoutBounds, modelViewTransform, alertManager, options ) {
+  function MassNode( model, massModel, layoutBounds, modelViewTransform, alertManager, positionDescriber, options ) {
 
     var self = this;
 
@@ -50,7 +49,7 @@ define( function( require ) {
     }, options );
 
     ISLCObjectNode.call( this, model, massModel, layoutBounds, modelViewTransform,
-      GravityForceLabConstants.PULL_FORCE_RANGE, alertManager, options );
+      GravityForceLabConstants.PULL_FORCE_RANGE, alertManager, positionDescriber, options );
     model.scientificNotationProperty.link( function( scientificNotation ) {
       self.setReadoutsInScientificNotation( scientificNotation );
     } );

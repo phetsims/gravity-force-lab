@@ -75,10 +75,9 @@ define( function( require ) {
     const forceDescriber = new GravityForceLabForceDescriber( model, mass1AbbreviatedString, mass2AbbreviatedString );
     const massDescriber = new MassDescriber( model );
     var positionDescriber = new GravityForceLabPositionDescriber( model, mass1AbbreviatedString, mass2AbbreviatedString );
-    GravityForceLabPositionDescriber.initialize( positionDescriber );
 
-    var alertManager = new GravityForceLabAlertManager( model, massDescriber, forceDescriber );
-    var summaryNode = new GravityForceLabScreenSummaryNode( model, massDescriber, forceDescriber );
+    var alertManager = new GravityForceLabAlertManager( model, massDescriber, forceDescriber, positionDescriber );
+    var summaryNode = new GravityForceLabScreenSummaryNode( model, massDescriber, forceDescriber, positionDescriber );
     var playAreaNode = new PlayAreaNode();
     var controlAreaNode = new ControlAreaNode();
 
@@ -102,6 +101,7 @@ define( function( require ) {
       this.layoutBounds,
       modelViewTransform,
       alertManager,
+      positionDescriber,
       {
         label: mass1AbbreviatedString,
         otherObjectLabel: mass2AbbreviatedString,
@@ -118,6 +118,7 @@ define( function( require ) {
       this.layoutBounds,
       modelViewTransform,
       alertManager,
+      positionDescriber,
       {
         label: mass2AbbreviatedString,
         otherObjectLabel: mass1AbbreviatedString,
@@ -128,8 +129,8 @@ define( function( require ) {
       }
     );
 
-    playAreaNode.addChild( new MassPDOMNode( model, OBJECT_ONE, massDescriber, forceDescriber ) );
-    playAreaNode.addChild( new MassPDOMNode( model, OBJECT_TWO, massDescriber, forceDescriber ) );
+    playAreaNode.addChild( new MassPDOMNode( model, OBJECT_ONE, massDescriber, forceDescriber, positionDescriber ) );
+    playAreaNode.addChild( new MassPDOMNode( model, OBJECT_TWO, massDescriber, forceDescriber, positionDescriber ) );
 
     const massPositionsNode = new SpherePositionsPDOMNode();
     playAreaNode.addChild( massPositionsNode );
