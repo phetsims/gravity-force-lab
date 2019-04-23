@@ -103,10 +103,6 @@ define( require => {
 
   const { OBJECT_ONE } = ISLCObjectEnum;
 
-  // should be similar to the node describer and set various properties, in fact, since mass is quite specific to each
-  // object, I think it's pertinent to roll them all into one.
-  let describer = null;
-
   class MassDescriber extends ISLCDescriber {
     constructor( model, options ) {
       options = _.extend( {
