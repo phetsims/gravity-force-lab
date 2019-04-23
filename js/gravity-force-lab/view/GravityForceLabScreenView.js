@@ -72,13 +72,13 @@ define( function( require ) {
       tandem: tandem
     } );
     // force text isn't retrieved direclty in the screenview, we simply initialize and access it in various nodes
-    GravityForceLabForceDescriber.initialize( model, mass1AbbreviatedString, mass2AbbreviatedString );
+    const forceDescriber = new GravityForceLabForceDescriber( model, mass1AbbreviatedString, mass2AbbreviatedString );
     const massDescriber = new MassDescriber( model );
     var positionDescriber = new GravityForceLabPositionDescriber( model, mass1AbbreviatedString, mass2AbbreviatedString );
     GravityForceLabPositionDescriber.initialize( positionDescriber );
 
-    var alertManager = new GravityForceLabAlertManager( model, massDescriber );
-    var summaryNode = new GravityForceLabScreenSummaryNode( model, massDescriber );
+    var alertManager = new GravityForceLabAlertManager( model, massDescriber, forceDescriber );
+    var summaryNode = new GravityForceLabScreenSummaryNode( model, massDescriber, forceDescriber );
     var playAreaNode = new PlayAreaNode();
     var controlAreaNode = new ControlAreaNode();
 
@@ -128,8 +128,8 @@ define( function( require ) {
       }
     );
 
-    playAreaNode.addChild( new MassPDOMNode( model, OBJECT_ONE, massDescriber ) );
-    playAreaNode.addChild( new MassPDOMNode( model, OBJECT_TWO, massDescriber ) );
+    playAreaNode.addChild( new MassPDOMNode( model, OBJECT_ONE, massDescriber, forceDescriber ) );
+    playAreaNode.addChild( new MassPDOMNode( model, OBJECT_TWO, massDescriber, forceDescriber ) );
 
     const massPositionsNode = new SpherePositionsPDOMNode();
     playAreaNode.addChild( massPositionsNode );

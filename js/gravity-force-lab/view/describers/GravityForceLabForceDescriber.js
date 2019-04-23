@@ -106,25 +106,6 @@ define( require => {
     getEffortIndex( force ) {
       return Util.roundSymmetric( forceToPullIndex( force ) );
     }
-
-    /**
-     * Uses the singleton pattern to keep one instance of this describer for the entire lifetime of the sim.
-     * @returns {GravityForceLabForceDescriber}
-     */
-    static getDescriber() {
-      // assert && assert( describer, 'describer has not yet been initialized' );
-      return ForceDescriber.getDescriber();
-    }
-
-    /**
-     * Initialize the describer singleton
-     * @throws Error
-     */
-    static initialize( model, object1Label, object2Label ) {
-      // assert && assert( describer === null, 'initialize may only be called once per describer instance' );
-      const describer = new GravityForceLabForceDescriber( model, object1Label, object2Label );
-      ForceDescriber.initialize( describer );
-    }
   }
 
   return gravityForceLab.register( 'GravityForceLabForceDescriber', GravityForceLabForceDescriber );

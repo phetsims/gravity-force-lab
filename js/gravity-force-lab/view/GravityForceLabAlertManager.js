@@ -34,9 +34,10 @@ define( require => {
      *
      * @param {GravityForceLabModel|GFLBModel} model
      * @param {MassDescriber} massDescriber
+     * @param {GravityForceLabForceDescriber} forceDescriber
      * @param options
      */
-    constructor( model, massDescriber, options ) {
+    constructor( model, massDescriber, forceDescriber, options ) {
 
       // Basically these options try to support BASICS and REGULAR logic duplication.
       options = _.extend( {
@@ -58,7 +59,7 @@ define( require => {
         }
       }, options );
 
-      super( model );
+      super( model, forceDescriber );
 
       // @protected - initialized outside the class declaration as they should be treated like helper functions
       this.massDescriber = massDescriber;

@@ -20,9 +20,10 @@ define( require => {
      * @param {ISLCModel} model
      * @param {ISLCObjectEnum} objectEnum
      * @param {MassDescriber} massDescriber
+     * @param {ForceDescriber} forceDescriber
      * @param {Object} [options]
      */
-    constructor( model, objectEnum, massDescriber, options ) {
+    constructor( model, objectEnum, massDescriber, forceDescriber, options ) {
 
       options = _.extend( {
         object1Label: mass1AbbreviatedString,
@@ -42,7 +43,6 @@ define( require => {
 
       super( model, objectEnum, options );
 
-      const forceDescriber = ForceDescriber.getDescriber();
 
       // @protected
       this.nodeDescriber = nodeDescriber;

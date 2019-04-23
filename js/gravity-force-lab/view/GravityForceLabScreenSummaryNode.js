@@ -12,7 +12,6 @@ define( require => {
   // modules
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
-  const ForceDescriber = require( 'INVERSE_SQUARE_LAW_COMMON/view/describers/ForceDescriber' );
   const ISLCDescriber = require( 'INVERSE_SQUARE_LAW_COMMON/view/describers/ISLCDescriber' );
   const Node = require( 'SCENERY/nodes/Node' );
   const PositionDescriber = require( 'INVERSE_SQUARE_LAW_COMMON/view/describers/PositionDescriber' );
@@ -32,9 +31,10 @@ define( require => {
     /**
      * @param {ISLCModel} model
      * @param {MassDescriber} massDescriber
+     * @param {ForceDescriber} forceDescriber
      * @param {Object} [options]
      */
-    constructor( model, massDescriber, options ) {
+    constructor( model, massDescriber, forceDescriber, options ) {
 
       options = _.extend( {
 
@@ -55,7 +55,7 @@ define( require => {
       super();
 
       // subtypes of ForceDescriber initialize the singleton to the appropriate subtype
-      this.forceDescriber = ForceDescriber.getDescriber();
+      this.forceDescriber = forceDescriber;
       this.positionDescriber = PositionDescriber.getDescriber();
       this.massDescriber = massDescriber;
 
