@@ -19,9 +19,10 @@ define( require => {
     /**
      * @param {ISLCModel} model
      * @param {ISLCObjectEnum} objectEnum
+     * @param {MassDescriber} massDescriber
      * @param {Object} [options]
      */
-    constructor( model, objectEnum, options ) {
+    constructor( model, objectEnum, massDescriber, options ) {
 
       options = _.extend( {
         object1Label: mass1AbbreviatedString,
@@ -36,7 +37,7 @@ define( require => {
         }
       }, options );
 
-      const nodeDescriber = new MassNodeDescriber( model, objectEnum, options );
+      const nodeDescriber = new MassNodeDescriber( model, objectEnum, massDescriber, options );
       options.labelContent = nodeDescriber.getMassSphereString();
 
       super( model, objectEnum, options );

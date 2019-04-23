@@ -14,7 +14,6 @@ define( require => {
   const Dimension2 = require( 'DOT/Dimension2' );
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const ISLCObjectControlPanel = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectControlPanel' );
-  const MassDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/MassDescriber' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Property = require( 'AXON/Property' );
 
@@ -35,11 +34,11 @@ define( require => {
      * @param {ISLCObjectEnum} massEnum
      * @param {Property[]} updateDescriptionProperties - Properties to monitor to keep descriptions up to date
      * @param {GravityForceLabAlertManager} alertManager
+     * @param {MassDescriber} massDescriber
      * @param {Tandem} tandem
      */
     constructor( titleString, valueProperty, massRange, thumbColor, massEnum, updateDescriptionProperties, alertManager,
-                 tandem ) {
-      const massDescriber = MassDescriber.getDescriber();
+                 massDescriber, tandem ) {
 
       super( titleString, unitsKgString, valueProperty, massRange, {
         // panel options

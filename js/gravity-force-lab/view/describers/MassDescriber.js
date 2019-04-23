@@ -410,25 +410,6 @@ define( require => {
       }
       assert && assert( false, 'Invalid mass value.' );
     }
-
-    /**
-     * Uses the singleton pattern to keep one instance of this describer for the entire lifetime of the sim.
-     * @returns {ForceDescriber}
-     */
-    static getDescriber() {
-      assert && assert( describer, 'describer has not yet been initialized' );
-      return describer;
-    }
-
-    /**
-     * Initialize the describer singleton
-     * @throws Error
-     */
-    static initialize( newDescriber ) {
-      assert && assert( describer === null, 'cannot call initialize more than once per ForceDescriber instance' );
-      describer = newDescriber;
-      return describer;
-    }
   }
 
   return gravityForceLab.register( 'MassDescriber', MassDescriber );

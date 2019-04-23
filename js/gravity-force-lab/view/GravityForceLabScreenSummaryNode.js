@@ -14,7 +14,6 @@ define( require => {
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
   const ForceDescriber = require( 'INVERSE_SQUARE_LAW_COMMON/view/describers/ForceDescriber' );
   const ISLCDescriber = require( 'INVERSE_SQUARE_LAW_COMMON/view/describers/ISLCDescriber' );
-  const MassDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/MassDescriber' );
   const Node = require( 'SCENERY/nodes/Node' );
   const PositionDescriber = require( 'INVERSE_SQUARE_LAW_COMMON/view/describers/PositionDescriber' );
   const Property = require( 'AXON/Property' );
@@ -32,9 +31,10 @@ define( require => {
 
     /**
      * @param {ISLCModel} model
+     * @param {MassDescriber} massDescriber
      * @param {Object} [options]
      */
-    constructor( model, options ) {
+    constructor( model, massDescriber, options ) {
 
       options = _.extend( {
 
@@ -57,7 +57,7 @@ define( require => {
       // subtypes of ForceDescriber initialize the singleton to the appropriate subtype
       this.forceDescriber = ForceDescriber.getDescriber();
       this.positionDescriber = PositionDescriber.getDescriber();
-      this.massDescriber = MassDescriber.getDescriber();
+      this.massDescriber = massDescriber;
 
       var mainSummaryDescriptionNode = new Node( { tagName: 'p', innerContent: options.mainDescriptionContent } );
       var secondSummaryDescriptionNode = new Node( {

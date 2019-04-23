@@ -9,7 +9,6 @@ define( require => {
   const GravityForceLabModel = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/model/GravityForceLabModel' );
   const ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
   const ISLCAlertManager = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCAlertManager' );
-  const MassDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/MassDescriber' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Utterance = require( 'SCENERY_PHET/accessibility/Utterance' );
   const utteranceQueue = require( 'SCENERY_PHET/accessibility/utteranceQueue' );
@@ -34,9 +33,10 @@ define( require => {
     /**
      *
      * @param {GravityForceLabModel|GFLBModel} model
+     * @param {MassDescriber} massDescriber
      * @param options
      */
-    constructor( model, options ) {
+    constructor( model, massDescriber, options ) {
 
       // Basically these options try to support BASICS and REGULAR logic duplication.
       options = _.extend( {
@@ -61,7 +61,7 @@ define( require => {
       super( model );
 
       // @protected - initialized outside the class declaration as they should be treated like helper functions
-      this.massDescriber = MassDescriber.getDescriber();
+      this.massDescriber = massDescriber;
 
       // @private {Utterance} - utterances for various categories of information, to use Utterance
       // alertStable feature

@@ -9,7 +9,6 @@ define( require => {
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
   const ISLCDescriber = require( 'INVERSE_SQUARE_LAW_COMMON/view/describers/ISLCDescriber' );
   const ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
-  const MassDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/MassDescriber' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
 
   // strings
@@ -30,9 +29,10 @@ define( require => {
     /**
      * @param {ISLCModel} model
      * @param {ISLCObjectEnum} objectEnum
+     * @param {MassDescriber} massDescriber
      * @param {options} [options]
      */
-    constructor( model, objectEnum, options ) {
+    constructor( model, objectEnum, massDescriber, options ) {
 
       options = _.extend( {
         object1Label: mass1AbbreviatedString, // string
@@ -48,7 +48,7 @@ define( require => {
       this.otherMassLabel = this.getOtherObjectLabelFromEnum( objectEnum );
 
       this.positionDescriber = GravityForceLabPositionDescriber.getDescriber();
-      this.massDescriber = MassDescriber.getDescriber();
+      this.massDescriber = massDescriber;
 
       this.atEdge = false;
       this.closestToOtherObject = false;
