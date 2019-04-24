@@ -80,8 +80,16 @@ define( require => {
 
     /**
      * @param {Tandem} tandem
+     * @param {Object} options
      */
-    constructor( tandem ) {
+    constructor( tandem, options ) {
+
+      options = _.extend( {
+
+        // omit the "change mass in smaller steps" row when true
+        omitChangeMassSmallSteps: false
+      }, options );
+
 
       // Mass movement help dialog section
       // move mass section
@@ -109,12 +117,20 @@ define( require => {
       const jumpToMaxMassRow = constructRow( jumpToMaximumMassString, jumpToMaximumMassDescriptionString, 'end' );
 
       const adjustMassRows = [ increaseMassRow, decreaseMassRow, changeMassSmallStepsRow, changeMassLargeStepsRow, jumpToMinMassRow, jumpToMaxMassRow ];
+
+      // leave out row if option is supplied
+      if ( options.omitChangeMassSmallSteps ) {
+        adjustMassRows.splice( adjustMassRows.indexOf( changeMassSmallStepsRow ), 1 );
+      }
+
       const adjustMassHelpSection = new KeyboardHelpSection( changeMassHeadingString, adjustMassRows );
 
       // align icons for the mass movement and adjustment sections
       KeyboardHelpSection.alignHelpSectionIcons( [ moveMassHelpSection, adjustMassHelpSection ] );
 
-      const generalNavigationHelpSection = new GeneralKeyboardHelpSection();
+      const generalNavigationHelpSection = new GeneralKeyboardHelpSection( {
+        withCheckboxContent: true
+      } );
 
       const leftContent = new VBox( {
         children: [ moveMassHelpSection, adjustMassHelpSection ],
@@ -144,7 +160,7 @@ define( require => {
    */
   const constructRow = ( labelString, descriptionString, iconID ) => {
     const iconNode = ICON_CREATOR[ iconID ]();
-    return KeyboardHelpSection.labelWithIcon( labelString, iconNode, descriptionString );  
+    return KeyboardHelpSection.labelWithIcon( labelString, iconNode, descriptionString );
   };
 
   return gravityForceLab.register( 'GravityForceLabKeyboardHelpContent', GravityForceLabKeyboardHelpContent );
