@@ -15,9 +15,9 @@ define( function( require ) {
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var ISLCConstants = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCConstants' );
   var ISLCModel = require( 'INVERSE_SQUARE_LAW_COMMON/model/ISLCModel' );
   var Mass = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/model/Mass' );
+  var PhysicalConstants = require( 'PHET_CORE/PhysicalConstants' );
   var Range = require( 'DOT/Range' );
   var Vector2 = require( 'DOT/Vector2' );
   var Vector2Property = require( 'DOT/Vector2Property' );
@@ -50,18 +50,18 @@ define( function( require ) {
 
     var minMassValue = 1; // in kg
     var maxMassValue = 1000; // in kg
-    var valueRange = new Range(minMassValue, maxMassValue);
+    var valueRange = new Range( minMassValue, maxMassValue );
 
     var baseColor1 = GravityForceLabConstants.MASS_BLUE_COLOR;
     var baseColor2 = GravityForceLabConstants.MASS_RED_COLOR;
 
     var density = 150; // in kg/m^3
 
-    var mass1 = new Mass(massValue1, position1, valueRange, density, this.constantRadiusProperty, baseColor1, tandem.createTandem( 'mass1' ) );
-    var mass2 = new Mass(massValue2, position2, valueRange, density, this.constantRadiusProperty, baseColor2, tandem.createTandem( 'mass2' ) );
+    var mass1 = new Mass( massValue1, position1, valueRange, density, this.constantRadiusProperty, baseColor1, tandem.createTandem( 'mass1' ) );
+    var mass2 = new Mass( massValue2, position2, valueRange, density, this.constantRadiusProperty, baseColor2, tandem.createTandem( 'mass2' ) );
 
     // leverage ISLCModel, in "mass" mode
-    ISLCModel.call( this, ISLCConstants.G, mass1, mass2, GravityForceLabConstants.LEFT_MASS_BOUNDARY, GravityForceLabConstants.RIGHT_MASS_BOUNDARY, tandem, {
+    ISLCModel.call( this, PhysicalConstants.GRAVITATIONAL_CONSTANT, mass1, mass2, GravityForceLabConstants.LEFT_MASS_BOUNDARY, GravityForceLabConstants.RIGHT_MASS_BOUNDARY, tandem, {
       snapObjectsToNearest: 0.1 // in meters
     } );
   }
