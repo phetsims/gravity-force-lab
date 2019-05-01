@@ -34,8 +34,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO.<>"
     },
-    "gravityForceLab.general.barrierRectangle.inputListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "gravityForceLab.general.barrierRectangle.inputListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -45,8 +45,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "gravityForceLab.general.barrierRectangle.inputListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "gravityForceLab.general.barrierRectangle.inputListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -100,7 +100,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "gravityForceLab.general.controller.input.changeEmitter": {
+    "gravityForceLab.general.controller.input.changeAction": {
       "phetioDocumentation": "Emits when the PDOM root gets the change DOM event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -111,7 +111,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<DOMEventIO>"
     },
-    "gravityForceLab.general.controller.input.clickEmitter": {
+    "gravityForceLab.general.controller.input.clickAction": {
       "phetioDocumentation": "Emits when the PDOM root gets the click DOM event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -122,7 +122,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<DOMEventIO>"
     },
-    "gravityForceLab.general.controller.input.focusinEmitter": {
+    "gravityForceLab.general.controller.input.focusinAction": {
       "phetioDocumentation": "Emits when the PDOM root gets the focusin DOM event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -133,7 +133,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<DOMEventIO>"
     },
-    "gravityForceLab.general.controller.input.focusoutEmitter": {
+    "gravityForceLab.general.controller.input.focusoutAction": {
       "phetioDocumentation": "Emits when the PDOM root gets the focusout DOM event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -144,7 +144,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<DOMEventIO>"
     },
-    "gravityForceLab.general.controller.input.inputEmitter": {
+    "gravityForceLab.general.controller.input.inputAction": {
       "phetioDocumentation": "Emits when the PDOM root gets the input DOM event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -155,7 +155,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<DOMEventIO>"
     },
-    "gravityForceLab.general.controller.input.keydownEmitter": {
+    "gravityForceLab.general.controller.input.keydownAction": {
       "phetioDocumentation": "Emits when the PDOM root gets the keydown DOM event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -166,7 +166,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<DOMEventIO>"
     },
-    "gravityForceLab.general.controller.input.keyupEmitter": {
+    "gravityForceLab.general.controller.input.keyupAction": {
       "phetioDocumentation": "Emits when the PDOM root gets the keyup DOM event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -177,7 +177,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<DOMEventIO>"
     },
-    "gravityForceLab.general.controller.input.mouseDownEmitter": {
+    "gravityForceLab.general.controller.input.mouseDownAction": {
       "phetioDocumentation": "Emits when a mouse button is pressed",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -188,7 +188,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, DOMEventIO>"
     },
-    "gravityForceLab.general.controller.input.mouseMovedEmitter": {
+    "gravityForceLab.general.controller.input.mouseMovedAction": {
       "phetioDocumentation": "Emits when the mouse is moved",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -199,7 +199,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, DOMEventIO>"
     },
-    "gravityForceLab.general.controller.input.mouseOutEmitter": {
+    "gravityForceLab.general.controller.input.mouseOutAction": {
       "phetioDocumentation": "Emits when the mouse moves out of the display",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -210,7 +210,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, DOMEventIO>"
     },
-    "gravityForceLab.general.controller.input.mouseOverEmitter": {
+    "gravityForceLab.general.controller.input.mouseOverAction": {
       "phetioDocumentation": "Emits when the mouse is moved over a Node",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -221,7 +221,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, DOMEventIO>"
     },
-    "gravityForceLab.general.controller.input.mouseUpEmitter": {
+    "gravityForceLab.general.controller.input.mouseUpAction": {
       "phetioDocumentation": "Emits when a mouse button is released",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -232,7 +232,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, DOMEventIO>"
     },
-    "gravityForceLab.general.controller.input.penCanceledEmitter": {
+    "gravityForceLab.general.controller.input.penCanceledAction": {
       "phetioDocumentation": "Emits when a pen is canceled",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -243,7 +243,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
-    "gravityForceLab.general.controller.input.penEndedEmitter": {
+    "gravityForceLab.general.controller.input.penEndedAction": {
       "phetioDocumentation": "Emits when a pen is lifted",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -254,7 +254,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
-    "gravityForceLab.general.controller.input.penMovedEmitter": {
+    "gravityForceLab.general.controller.input.penMovedAction": {
       "phetioDocumentation": "Emits when a pen is moved",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -265,7 +265,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
-    "gravityForceLab.general.controller.input.penStartedEmitter": {
+    "gravityForceLab.general.controller.input.penStartedAction": {
       "phetioDocumentation": "Emits when a pen touches the screen",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -276,7 +276,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
-    "gravityForceLab.general.controller.input.touchCanceledEmitter": {
+    "gravityForceLab.general.controller.input.touchCanceledAction": {
       "phetioDocumentation": "Emits when a touch is canceled",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -287,7 +287,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
-    "gravityForceLab.general.controller.input.touchEndedEmitter": {
+    "gravityForceLab.general.controller.input.touchEndedAction": {
       "phetioDocumentation": "Emits when a touch ends",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -298,7 +298,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
-    "gravityForceLab.general.controller.input.touchMovedEmitter": {
+    "gravityForceLab.general.controller.input.touchMovedAction": {
       "phetioDocumentation": "Emits when a touch moves",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -309,7 +309,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
-    "gravityForceLab.general.controller.input.touchStartedEmitter": {
+    "gravityForceLab.general.controller.input.touchStartedAction": {
       "phetioDocumentation": "Emits when a touch begins",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -320,7 +320,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
-    "gravityForceLab.general.controller.input.validatePointersEmitter": {
+    "gravityForceLab.general.controller.input.validatePointersAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -331,7 +331,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<>"
     },
-    "gravityForceLab.general.controller.input.wheelScrolledEmitter": {
+    "gravityForceLab.general.controller.input.wheelScrolledAction": {
       "phetioDocumentation": "Emits when the mouse wheel scrolls",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -354,7 +354,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioTypeName": "PhetioCommandProcessorIO"
     },
     "gravityForceLab.general.resizedAction": {
-      "phetioDocumentation": "Emits when the sim is resized",
+      "phetioDocumentation": "Executes when the sim is resized",
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -694,7 +694,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.constantRadiusCheckbox.toggledEmitter": {
+    "gravityForceLab.gravityForceLabScreen.view.constantRadiusCheckbox.toggledAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -826,7 +826,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.forceValuesCheckbox.toggledEmitter": {
+    "gravityForceLab.gravityForceLabScreen.view.forceValuesCheckbox.toggledAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -870,7 +870,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.dragHandler.dragEndedEmitter": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.dragHandler.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -881,7 +881,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.dragHandler.dragStartedEmitter": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.dragHandler.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -892,7 +892,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.dragHandler.draggedEmitter": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.dragHandler.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1805,7 +1805,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.mass1Node.dragHandler.dragEndedEmitter": {
+    "gravityForceLab.gravityForceLabScreen.view.mass1Node.dragHandler.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1816,7 +1816,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.mass1Node.dragHandler.dragStartedEmitter": {
+    "gravityForceLab.gravityForceLabScreen.view.mass1Node.dragHandler.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1827,7 +1827,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.mass1Node.dragHandler.draggedEmitter": {
+    "gravityForceLab.gravityForceLabScreen.view.mass1Node.dragHandler.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2289,7 +2289,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.mass2Node.dragHandler.dragEndedEmitter": {
+    "gravityForceLab.gravityForceLabScreen.view.mass2Node.dragHandler.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2300,7 +2300,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.mass2Node.dragHandler.dragStartedEmitter": {
+    "gravityForceLab.gravityForceLabScreen.view.mass2Node.dragHandler.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2311,7 +2311,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.mass2Node.dragHandler.draggedEmitter": {
+    "gravityForceLab.gravityForceLabScreen.view.mass2Node.dragHandler.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -2938,8 +2938,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.leftArrowButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.leftArrowButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2949,8 +2949,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.leftArrowButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.leftArrowButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3147,8 +3147,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.rightArrowButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.rightArrowButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3158,8 +3158,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.rightArrowButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.rightArrowButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3290,7 +3290,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.thumbInputListener.dragEndedEmitter": {
+    "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.thumbInputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3301,7 +3301,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.thumbInputListener.dragStartedEmitter": {
+    "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.thumbInputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3312,7 +3312,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.thumbInputListener.draggedEmitter": {
+    "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.thumbInputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3345,7 +3345,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.track.trackInputListener.dragEndedEmitter": {
+    "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.track.trackInputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3356,7 +3356,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.track.trackInputListener.dragStartedEmitter": {
+    "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.track.trackInputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3367,7 +3367,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.track.trackInputListener.draggedEmitter": {
+    "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.track.trackInputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3686,8 +3686,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.leftArrowButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.leftArrowButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3697,8 +3697,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.leftArrowButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.leftArrowButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3895,8 +3895,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.rightArrowButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.rightArrowButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3906,8 +3906,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.rightArrowButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.rightArrowButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4038,7 +4038,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.thumbInputListener.dragEndedEmitter": {
+    "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.thumbInputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4049,7 +4049,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.thumbInputListener.dragStartedEmitter": {
+    "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.thumbInputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4060,7 +4060,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.thumbInputListener.draggedEmitter": {
+    "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.thumbInputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4093,7 +4093,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.track.trackInputListener.dragEndedEmitter": {
+    "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.track.trackInputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4104,7 +4104,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.track.trackInputListener.dragStartedEmitter": {
+    "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.track.trackInputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4115,7 +4115,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.track.trackInputListener.draggedEmitter": {
+    "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.track.trackInputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -4379,8 +4379,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.resetAllButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "gravityForceLab.gravityForceLabScreen.view.resetAllButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4390,8 +4390,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.resetAllButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "gravityForceLab.gravityForceLabScreen.view.resetAllButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4522,7 +4522,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.scientificNotationCheckbox.toggledEmitter": {
+    "gravityForceLab.gravityForceLabScreen.view.scientificNotationCheckbox.toggledAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -4654,8 +4654,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "gravityForceLab.navigationBar.a11yButtonsHBox.keyboardHelpButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "gravityForceLab.navigationBar.a11yButtonsHBox.keyboardHelpButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4665,8 +4665,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "gravityForceLab.navigationBar.a11yButtonsHBox.keyboardHelpButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "gravityForceLab.navigationBar.a11yButtonsHBox.keyboardHelpButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4753,8 +4753,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO.<>"
     },
-    "gravityForceLab.navigationBar.phetButton.phetMenu.aboutMenuItem.inputListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "gravityForceLab.navigationBar.phetButton.phetMenu.aboutMenuItem.inputListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4764,8 +4764,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "gravityForceLab.navigationBar.phetButton.phetMenu.aboutMenuItem.inputListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "gravityForceLab.navigationBar.phetButton.phetMenu.aboutMenuItem.inputListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4830,8 +4830,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO.<>"
     },
-    "gravityForceLab.navigationBar.phetButton.phetMenu.screenshotMenuItem.inputListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "gravityForceLab.navigationBar.phetButton.phetMenu.screenshotMenuItem.inputListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4841,8 +4841,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "gravityForceLab.navigationBar.phetButton.phetMenu.screenshotMenuItem.inputListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "gravityForceLab.navigationBar.phetButton.phetMenu.screenshotMenuItem.inputListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4896,8 +4896,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "gravityForceLab.navigationBar.phetButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "gravityForceLab.navigationBar.phetButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4907,8 +4907,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "gravityForceLab.navigationBar.phetButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "gravityForceLab.navigationBar.phetButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
