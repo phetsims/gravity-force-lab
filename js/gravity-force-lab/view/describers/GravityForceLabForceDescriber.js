@@ -25,8 +25,6 @@ define( require => {
     return Util.toFixedNumber( force * MICRO_CONVERSION_FACTOR, 6 );
   };
 
-  // let describer = null;
-
   class GravityForceLabForceDescriber extends ForceDescriber {
 
     /**
