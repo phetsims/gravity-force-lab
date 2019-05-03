@@ -72,9 +72,9 @@ define( function( require ) {
       tandem: tandem
     } );
     // force text isn't retrieved direclty in the screenview, we simply initialize and access it in various nodes
-    const forceDescriber = new GravityForceLabForceDescriber( model, mass1AbbreviatedString, mass2AbbreviatedString );
     const massDescriber = new MassDescriber( model );
     var positionDescriber = new GravityForceLabPositionDescriber( model, mass1AbbreviatedString, mass2AbbreviatedString );
+    const forceDescriber = new GravityForceLabForceDescriber( model, mass1AbbreviatedString, mass2AbbreviatedString, positionDescriber );
 
     var alertManager = new GravityForceLabAlertManager( model, massDescriber, forceDescriber, positionDescriber );
     var summaryNode = new GravityForceLabScreenSummaryNode( model, massDescriber, forceDescriber, positionDescriber );

@@ -29,8 +29,14 @@ define( require => {
 
   class GravityForceLabForceDescriber extends ForceDescriber {
 
-    constructor( model, object1Label, object2Label ) {
-       const options = {
+    /**
+     * @param {GravityForceLabModel} model
+     * @param {string} object1Label
+     * @param {string} object2Label
+     * @param {PositionDescriber} positionDescriber
+     */
+    constructor( model, object1Label, object2Label, positionDescriber ) {
+      const options = {
         units: micronewtonsString,
 
         convertForce: force => {
@@ -51,7 +57,7 @@ define( require => {
         }
       };
 
-      super( model, object1Label, object2Label, options );
+      super( model, object1Label, object2Label, positionDescriber, options );
 
       model.scientificNotationProperty.link( showScientificNotation => {
         this.units = showScientificNotation ? unitsNewtonsString : micronewtonsString;
@@ -72,28 +78,28 @@ define( require => {
      */
     getForceVectorIndex( force ) {
       const convertedForce = convertForceToMicronewtons( force );
-       if ( convertedForce < 0.041713 ) {
-         return 0;
-       }
-       if ( convertedForce < 0.074155 ) {
-         return 1;
-       }
-       if ( convertedForce < 0.260698 ) {
-         return 2;
-       }
-       if ( convertedForce < 0.789805 ) {
-         return 3;
-       }
-       if ( convertedForce < 1.564182 ) {
-         return 4;
-       }
-       if ( convertedForce < 2.309288 ) {
-         return 5;
-       }
-       if ( convertedForce >= 2.309288 ) {
-         return 6;
-       }
-       throw new Error( 'Invalid force value' );
+      if ( convertedForce < 0.041713 ) {
+        return 0;
+      }
+      if ( convertedForce < 0.074155 ) {
+        return 1;
+      }
+      if ( convertedForce < 0.260698 ) {
+        return 2;
+      }
+      if ( convertedForce < 0.789805 ) {
+        return 3;
+      }
+      if ( convertedForce < 1.564182 ) {
+        return 4;
+      }
+      if ( convertedForce < 2.309288 ) {
+        return 5;
+      }
+      if ( convertedForce >= 2.309288 ) {
+        return 6;
+      }
+      throw new Error( 'Invalid force value' );
     }
 
     /**
