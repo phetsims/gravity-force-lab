@@ -31,7 +31,6 @@ define( require => {
   class GravityForceLabAlertManager extends ISLCAlertManager {
 
     /**
-     *
      * @param {GravityForceLabModel|GFLBModel} model
      * @param {MassDescriber} massDescriber
      * @param {GravityForceLabForceDescriber} forceDescriber
@@ -84,12 +83,10 @@ define( require => {
       } );
 
       model.object1.valueProperty.lazyLink( () => {
-        utteranceQueue.clear();
         this.alertMassValueChanged( OBJECT_ONE );
       } );
 
       model.object2.valueProperty.lazyLink( () => {
-        utteranceQueue.clear();
         this.alertMassValueChanged( OBJECT_TWO );
       } );
     }
@@ -98,8 +95,7 @@ define( require => {
      * @private
      */
     alertScientificNotation() {
-      const alert = this.forceDescriber.getScientificNotationAlertText();
-      this.scientificNotationUtterance.alert = alert;
+      this.scientificNotationUtterance.alert = this.forceDescriber.getScientificNotationAlertText();
       utteranceQueue.addToBack( this.scientificNotationUtterance );
     }
 
@@ -108,8 +104,8 @@ define( require => {
      * @private
      */
     alertConstantRadius( constantRadius ) {
-      const alert = constantRadius ? CONSTANT_RADIUS_ALERT : this.massDescriber.getM1RelativeSize();
-      this.constantRadiusUtterance.alert = alert;
+      this.constantRadiusUtterance.alert = constantRadius ? CONSTANT_RADIUS_ALERT :
+                                           this.massDescriber.getM1RelativeSize();
       utteranceQueue.addToBack( this.constantRadiusUtterance );
     }
 
@@ -117,8 +113,7 @@ define( require => {
      * @param {ISLCObjectEnum} objectEnum
      */
     alertMassValueChanged( objectEnum ) {
-      const alert = this.getMassValueChangedAlertText( objectEnum );
-      this.massChangedUtterance.alert = alert;
+      this.massChangedUtterance.alert = this.getMassValueChangedAlertText( objectEnum );
       utteranceQueue.addToBack( this.massChangedUtterance );
     }
 
@@ -126,8 +121,7 @@ define( require => {
      * @public
      */
     alertPositionSliderFocused() {
-      const alert = this.forceDescriber.getForceVectorSizeText();
-      this.positionUtterance.alert = alert;
+      this.positionUtterance.alert = this.forceDescriber.getForceVectorSizeText();
       utteranceQueue.addToBack( this.positionUtterance );
     }
 
