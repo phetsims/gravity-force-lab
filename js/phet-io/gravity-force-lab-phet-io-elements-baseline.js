@@ -1013,7 +1013,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~0": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~0": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1024,7 +1024,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "TextIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~0.opacityProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~0.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1035,7 +1035,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~0.pickableProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~0.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1046,7 +1046,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~0.textProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~0.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1057,7 +1057,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<StringIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~0.visibleProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~0.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1068,7 +1068,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~1": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~1": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1079,7 +1079,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "TextIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~1.opacityProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~1.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1090,7 +1090,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~1.pickableProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~1.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1101,7 +1101,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~1.textProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~1.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1112,7 +1112,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<StringIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~1.visibleProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~1.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1123,7 +1123,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~10": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~10": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1134,7 +1134,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "TextIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~10.opacityProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~10.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1145,7 +1145,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~10.pickableProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~10.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1156,7 +1156,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~10.textProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~10.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1167,7 +1167,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<StringIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~10.visibleProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~10.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1178,7 +1178,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~2": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~2": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1189,7 +1189,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "TextIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~2.opacityProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~2.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1200,7 +1200,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~2.pickableProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~2.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1211,7 +1211,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~2.textProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~2.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1222,7 +1222,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<StringIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~2.visibleProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~2.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1233,7 +1233,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~3": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~3": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1244,7 +1244,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "TextIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~3.opacityProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~3.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1255,7 +1255,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~3.pickableProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~3.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1266,7 +1266,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~3.textProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~3.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1277,7 +1277,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<StringIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~3.visibleProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~3.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1288,7 +1288,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~4": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~4": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1299,7 +1299,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "TextIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~4.opacityProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~4.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1310,7 +1310,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~4.pickableProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~4.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1321,7 +1321,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~4.textProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~4.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1332,7 +1332,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<StringIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~4.visibleProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~4.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1343,7 +1343,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~5": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~5": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1354,7 +1354,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "TextIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~5.opacityProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~5.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1365,7 +1365,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~5.pickableProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~5.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1376,7 +1376,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~5.textProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~5.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1387,7 +1387,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<StringIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~5.visibleProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~5.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1398,7 +1398,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~6": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~6": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1409,7 +1409,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "TextIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~6.opacityProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~6.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1420,7 +1420,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~6.pickableProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~6.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1431,7 +1431,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~6.textProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~6.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1442,7 +1442,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<StringIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~6.visibleProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~6.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1453,7 +1453,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~7": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~7": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1464,7 +1464,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "TextIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~7.opacityProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~7.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1475,7 +1475,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~7.pickableProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~7.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1486,7 +1486,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~7.textProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~7.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1497,7 +1497,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<StringIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~7.visibleProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~7.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1508,7 +1508,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~8": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~8": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1519,7 +1519,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "TextIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~8.opacityProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~8.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1530,7 +1530,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~8.pickableProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~8.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1541,7 +1541,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~8.textProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~8.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1552,7 +1552,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<StringIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~8.visibleProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~8.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1563,7 +1563,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~9": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~9": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1574,7 +1574,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "TextIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~9.opacityProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~9.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1585,7 +1585,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~9.pickableProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~9.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1596,7 +1596,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~9.textProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~9.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1607,7 +1607,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<StringIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels.element~9.visibleProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.gravityForceLabRuler.ruler.majorTickLabels~9.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
