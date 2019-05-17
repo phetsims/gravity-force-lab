@@ -55,7 +55,7 @@ define( require => {
       value: '{{thisObjectLabel}} is {{massValue}} kilograms'
     },
     sizeAndDistancePattern: {
-      value: '{{size}}, and {{distance}}.'
+      value: '{{size}}, {{relativeSize}} {{otherObjectLabel}}, and also {{distance}}.'
     },
 
 
@@ -71,9 +71,6 @@ define( require => {
     },
     massSizeRelativeSizePattern: {
       value: '{{massAndUnit}}, {{size}}, {{relativeSize}} {{otherObjectLabel}}'
-    },
-    massValueRelativeSizePattern: {
-      value: '{{massAndUnit}}, {{relativeSize}} {{otherObjectLabel}}'
     },
     massAndForceClausesPattern: {
       value: '{{massClause}}, {{forceClause}}.'

@@ -59,7 +59,7 @@ define( require => {
             keyboardStep: 50,
             pageKeyboardStep: 100,
             accessibleName: titleString,
-            a11yCreateValueChangeAriaValueText: () => massDescriber.getVerboseMassAriaValueText( massEnum )
+            a11yCreateValueChangeAriaValueText: () => massDescriber.getMassAndUnit( massEnum )
           },
           titleNodeOptions: { font: new PhetFont( 24 ) },
           numberDisplayOptions: {

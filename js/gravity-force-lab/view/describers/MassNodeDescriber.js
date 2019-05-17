@@ -124,12 +124,16 @@ define( require => {
 
     /**
      * Used in GFL:B
-     * @returns {string} - the size and distance bullet for the Mass
+     * @returns {string} - the info about the mass size and position. This depends on
      */
-    getSizeAndDistanceClause() {
+    getMassAndPositionSentence() {
+      const relativeSize = this.massDescriber.getRelativeSizeOrDensity( this.enum );
+      const otherObjectLabel = this.massDescriber.getOtherObjectLabelFromEnum( this.enum );
       return StringUtils.fillIn( sizeAndDistancePatternString, {
         size: this.getSizeItemText(),
-        distance: this.positionDescriber.getDistanceClause( this.enum )
+        distance: this.positionDescriber.getDistanceClause( this.enum ),
+        relativeSize: relativeSize,
+        otherObjectLabel: otherObjectLabel
       } );
     }
   }

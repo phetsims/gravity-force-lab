@@ -19,7 +19,6 @@ define( require => {
   // a11y strings
   const valuePatternString = ISLCA11yStrings.valuePattern.value;
   const massValuesAndComparisonSummaryPatternString = GravityForceLabA11yStrings.massValuesAndComparisonSummaryPattern.value;
-  const massValueRelativeSizePatternString = GravityForceLabA11yStrings.massValueRelativeSizePattern.value;
   const massAndUnitPatternString = GravityForceLabA11yStrings.massAndUnitPattern.value;
   const objectsRelativeSizePatternString = GravityForceLabA11yStrings.objectsRelativeSizePattern.value;
 
@@ -317,23 +316,6 @@ define( require => {
 
       // use size or density depending on if constant checkbox is checked.
       return this.constantRadiusProperty.get() ? this.getRelativeDensityFromIndex( index ) : this.getRelativeSizeFromIndex( index );
-    }
-
-
-    /**
-     * Get the function that fills in the correct aria-valuetext for a given mass control slider
-     * @param {ISLCObjectEnum} objectEnum
-     * @returns {string} - function that, given mass inputs, returns the aria value text
-     */
-    getVerboseMassAriaValueText( objectEnum ) {
-      const massAndUnit = this.getMassAndUnit( objectEnum );
-      const relativeSize = this.getRelativeSizeOrDensity( objectEnum );
-      const otherObjectLabel = this.getOtherObjectLabelFromEnum( objectEnum );
-      return StringUtils.fillIn( massValueRelativeSizePatternString, {
-        massAndUnit: massAndUnit,
-        relativeSize: relativeSize,
-        otherObjectLabel: otherObjectLabel
-      } );
     }
 
     /**
