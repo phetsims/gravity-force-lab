@@ -8,8 +8,6 @@ define( require => {
   const ForceDescriber = require( 'INVERSE_SQUARE_LAW_COMMON/view/describers/ForceDescriber' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
   const Util = require( 'DOT/Util' );
-  const GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
-  const LinearFunction = require( 'DOT/LinearFunction' );
 
   // strings
   const unitsNewtonsString = require( 'string!INVERSE_SQUARE_LAW_COMMON/units.newtons' );
@@ -19,8 +17,6 @@ define( require => {
 
   // constants
   const MICRO_CONVERSION_FACTOR = 1e6;
-  const { min, max } = GravityForceLabConstants.PULL_FORCE_RANGE;
-  const forceToPullIndex = new LinearFunction( min, max, 6, 0, true );
   const convertForceToMicronewtons = force => {
     return Util.toFixedNumber( force * MICRO_CONVERSION_FACTOR, 6 );
   };
@@ -98,17 +94,6 @@ define( require => {
         return 6;
       }
       throw new Error( 'Invalid force value' );
-    }
-
-    /**
-     * Returns the mapped puller index based on the provided force.
-     *
-     * @override
-     * @param  {Number} force
-     * @returns {Integer}
-     */
-    getEffortIndex( force ) {
-      return Util.roundSymmetric( forceToPullIndex( force ) );
     }
   }
 

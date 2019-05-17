@@ -48,8 +48,7 @@ define( function( require ) {
       tandem: Tandem.required
     }, options );
 
-    ISLCObjectNode.call( this, model, massModel, layoutBounds, modelViewTransform,
-      GravityForceLabConstants.PULL_FORCE_RANGE, alertManager, positionDescriber, options );
+    ISLCObjectNode.call( this, model, massModel, layoutBounds, modelViewTransform, alertManager, positionDescriber, options );
     model.scientificNotationProperty.link( function( scientificNotation ) {
       self.setReadoutsInScientificNotation( scientificNotation );
     } );

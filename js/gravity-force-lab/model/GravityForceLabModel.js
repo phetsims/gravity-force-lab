@@ -61,7 +61,7 @@ define( function( require ) {
     var mass2 = new Mass( massValue2, position2, valueRange, density, this.constantRadiusProperty, baseColor2, tandem.createTandem( 'mass2' ) );
 
     // leverage ISLCModel, in "mass" mode
-    ISLCModel.call( this, PhysicalConstants.GRAVITATIONAL_CONSTANT, mass1, mass2, GravityForceLabConstants.LEFT_MASS_BOUNDARY, GravityForceLabConstants.RIGHT_MASS_BOUNDARY, tandem, {
+    ISLCModel.call( this, PhysicalConstants.GRAVITATIONAL_CONSTANT, mass1, mass2, GravityForceLabConstants.PULL_LOCATION_RANGE, tandem, {
       snapObjectsToNearest: 0.1 // in meters
     } );
   }
