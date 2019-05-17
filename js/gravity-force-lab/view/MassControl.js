@@ -70,10 +70,6 @@ define( require => {
 
         },
 
-        numberControlListener: {
-          focus: () => alertManager.alertMassControlFocused()
-        },
-
         tickLabelOptions: {
           font: new PhetFont( 14 )
         },

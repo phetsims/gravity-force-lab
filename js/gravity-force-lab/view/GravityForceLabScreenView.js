@@ -277,14 +277,14 @@ define( function( require ) {
 
     mass1Node.addInputListener( {
       focus: function() {
+
+        // TODO: is there a better way to do this that doesn't rely on focus?
         positionDescriber.lastMoveCloser = null;
-        alertManager.alertPositionSliderFocused();
       }
     } );
     mass2Node.addInputListener( {
       focus: function() {
         positionDescriber.lastMoveCloser = null;
-        alertManager.alertPositionSliderFocused();
       }
     } );
   }

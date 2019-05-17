@@ -118,22 +118,6 @@ define( require => {
     }
 
     /**
-     * @public
-     */
-    alertPositionSliderFocused() {
-      this.positionUtterance.alert = this.forceDescriber.getForceVectorSizeText();
-      utteranceQueue.addToBack( this.positionUtterance );
-    }
-
-    /**
-     * When mass control is focused, produce the same alert as when the position slider is focused
-     * @public
-     */
-    alertMassControlFocused() {
-      this.alertPositionSliderFocused();
-    }
-
-    /**
      * Get the value text for when the mass changes for a given object
      * @param {ISLCObjectEnum} objectEnum
      * @returns {string}
