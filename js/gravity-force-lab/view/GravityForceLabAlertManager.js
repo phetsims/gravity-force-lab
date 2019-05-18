@@ -14,20 +14,12 @@ define( require => {
   const utteranceQueue = require( 'SCENERY_PHET/accessibility/utteranceQueue' );
   const ValueChangeUtterance = require( 'SCENERY_PHET/accessibility/ValueChangeUtterance' );
 
-  // strings
-  const mass1AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass1Abbreviated' );
-  const mass2AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass2Abbreviated' );
-
   // a11y strings
   const constantRadiusThinkDensityPatternString = GravityForceLabA11yStrings.constantRadiusThinkDensityPattern.value;
   const massAndForceClausesPatternString = GravityForceLabA11yStrings.massAndForceClausesPattern.value;
 
   // constants
   const { OBJECT_ONE, OBJECT_TWO } = ISLCObjectEnum;
-  const CONSTANT_RADIUS_ALERT = StringUtils.fillIn( constantRadiusThinkDensityPatternString, {
-    mass1: mass1AbbreviatedString,
-    mass2: mass2AbbreviatedString
-  } );
 
   class GravityForceLabAlertManager extends ISLCAlertManager {
 
@@ -65,11 +57,16 @@ define( require => {
       // @protected - initialized outside the class declaration as they should be treated like helper functions
       this.massDescriber = massDescriber;
 
-      // @private {Utterance} - utterances for various categories of information, to use Utterance
-      // alertStable feature
+      // @private {Utterance} - utterances for various categories of information, to use Utterance alertStable feature
       this.scientificNotationUtterance = new ActivationUtterance();
       this.constantRadiusUtterance = new ActivationUtterance();
       this.massChangedUtterance = new ValueChangeUtterance();
+      this.constantRadiusAlert = StringUtils.fillIn( constantRadiusThinkDensityPatternString, {
+
+        // use forceDescriber just for the sim specific object labels, could be any ISLCDescriber
+        mass1: forceDescriber.object1Label,
+        mass2: forceDescriber.object2Label
+      } );
 
       assert && options.linkToScientificNotationProperty && assert( model instanceof GravityForceLabModel, 'unsupported model for scientific notation' );
 
@@ -105,7 +102,7 @@ define( require => {
      * @private
      */
     alertConstantRadius( constantRadius ) {
-      this.constantRadiusUtterance.alert = constantRadius ? CONSTANT_RADIUS_ALERT :
+      this.constantRadiusUtterance.alert = constantRadius ? this.constantRadiusAlert :
                                            this.massDescriber.getM1RelativeSize();
       utteranceQueue.addToBack( this.constantRadiusUtterance );
     }
