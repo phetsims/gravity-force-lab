@@ -4,14 +4,15 @@ define( require => {
   'use strict';
 
   // modules
+  const ActivationUtterance = require( 'SCENERY_PHET/accessibility/ActivationUtterance' );
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
   const GravityForceLabModel = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/model/GravityForceLabModel' );
-  const ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
   const ISLCAlertManager = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCAlertManager' );
+  const ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  const Utterance = require( 'SCENERY_PHET/accessibility/Utterance' );
   const utteranceQueue = require( 'SCENERY_PHET/accessibility/utteranceQueue' );
+  const ValueChangeUtterance = require( 'SCENERY_PHET/accessibility/ValueChangeUtterance' );
 
   // strings
   const mass1AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass1Abbreviated' );
@@ -46,12 +47,12 @@ define( require => {
         linkToScientificNotationProperty: true,
 
         // default listener for when forceValues change
-        forceValuesListener: showValues => {
+        showForceValuesListener: showValues => {
 
           const scientificNotation = model.scientificNotationProperty.get();
 
           if ( !showValues || !scientificNotation ) {
-            this.alertForceValues( showValues );
+            this.alertShowForceValues( showValues );
           }
           else {
             this.alertScientificNotation( scientificNotation );
@@ -66,9 +67,9 @@ define( require => {
 
       // @private {Utterance} - utterances for various categories of information, to use Utterance
       // alertStable feature
-      this.scientificNotationUtterance = new Utterance();
-      this.constantRadiusUtterance = new Utterance();
-      this.massChangedUtterance = new Utterance();
+      this.scientificNotationUtterance = new ActivationUtterance();
+      this.constantRadiusUtterance = new ActivationUtterance();
+      this.massChangedUtterance = new ValueChangeUtterance();
 
       assert && options.linkToScientificNotationProperty && assert( model instanceof GravityForceLabModel, 'unsupported model for scientific notation' );
 
@@ -76,7 +77,7 @@ define( require => {
         this.alertScientificNotation( displayInScientificNotation );
       } );
 
-      model.forceValuesProperty.lazyLink( options.forceValuesListener );
+      model.forceValuesProperty.lazyLink( options.showForceValuesListener );
 
       model.constantRadiusProperty.lazyLink( constantRadius => {
         this.alertConstantRadius( constantRadius );
