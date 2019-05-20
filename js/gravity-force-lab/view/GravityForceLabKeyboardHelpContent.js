@@ -18,7 +18,6 @@ define( require => {
   const KeyboardHelpSection = require( 'SCENERY_PHET/keyboard/help/KeyboardHelpSection' );
   const HomeKeyNode = require( 'SCENERY_PHET/keyboard/HomeKeyNode' );
   const TwoColumnKeyboardHelpContent = require( 'SCENERY_PHET/keyboard/help/TwoColumnKeyboardHelpContent' );
-  const VBox = require( 'SCENERY/nodes/VBox' );
 
   // strings
   const changeMassHeadingString = require( 'string!GRAVITY_FORCE_LAB/changeMassHeading' );
@@ -132,18 +131,9 @@ define( require => {
         withCheckboxContent: true
       } );
 
-      const leftContent = new VBox( {
-        children: [ moveMassHelpSection, adjustMassHelpSection ],
-        align: 'top',
-        spacing: 30
-      } );
-
-      const rightContent = new VBox( {
-        children: [ generalNavigationHelpSection ],
-        align: 'top',
-        spacing: 30
-      } );
-
+      const leftContent = [ moveMassHelpSection, adjustMassHelpSection ];
+      const rightContent = [ generalNavigationHelpSection ];
+      
       super( leftContent, rightContent, {
         tandem: tandem
       } );
