@@ -80,13 +80,29 @@ define( require => {
         this.alertConstantRadius( constantRadius );
       } );
 
-      model.object1.valueProperty.lazyLink( () => {
-        this.alertMassValueChanged( OBJECT_ONE );
-      } );
+      // create a listener to alert when an object's valueProperty changes.
+      const getObjectValueListenerForEnum = objectEnum => {
+        return () => {
+          const pushedEnumListener = objectPushed => {
+            if ( objectPushed !== null ) {
+              this.alertMassValueChanged( objectEnum );
+            }
+            model.pushedObjectEnumProperty.unlink( pushedEnumListener );
+          };
 
-      model.object2.valueProperty.lazyLink( () => {
-        this.alertMassValueChanged( OBJECT_TWO );
-      } );
+          // There are two ways in which the valueProperty of an object and the position of either object relate.
+          // 1. In which the valueProperty changes and neither position property changes.
+          // 2. In which a valueProperty changes and one of the object position changes. When this happens. The value
+          // will update in this frame, and the position will update in the next frame, see ISLCModel.step().
+          // Here he positionProperty (which the pushedObjectEnumProperty depends on) has not yet been updated. So add
+          // a listener here to handle the second case above. If the next time the pushedObjectEnum is no null, it will
+          // signify that there was most recently a mass change that pushed an object's position. see https://github.com/phetsims/gravity-force-lab-basics/issues/132
+          model.pushedObjectEnumProperty.lazyLink( pushedEnumListener );
+          this.alertMassValueChanged( objectEnum );
+        };
+      };
+      model.object1.valueProperty.lazyLink( getObjectValueListenerForEnum( OBJECT_ONE ) );
+      model.object2.valueProperty.lazyLink( getObjectValueListenerForEnum( OBJECT_TWO ) );
     }
 
     /**
