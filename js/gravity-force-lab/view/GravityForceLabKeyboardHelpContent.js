@@ -131,9 +131,9 @@ define( require => {
         withCheckboxContent: true
       } );
 
-      const leftContent = [ moveMassHelpSection, adjustMassHelpSection ];
-      const rightContent = [ generalNavigationHelpSection ];
-      
+      const leftContent = [ moveMassHelpSection ];
+      const rightContent = [ adjustMassHelpSection, generalNavigationHelpSection ];
+
       super( leftContent, rightContent, {
         tandem: tandem
       } );
