@@ -15,7 +15,6 @@ define( require => {
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const ISLCObjectControlPanel = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectControlPanel' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  const Property = require( 'AXON/Property' );
 
   // strings
   const unitsKgString = require( 'string!GRAVITY_FORCE_LAB/units.kg' );
@@ -76,10 +75,6 @@ define( require => {
 
         tandem: tandem
       } );
-
-      // whenever these Properties change, update the aria-valuetext to keep the on focus text in sync
-      // exists for the lifetime of the sim, no need to dispose.
-      Property.multilink( updateDescriptionProperties, () => this.numberControl.updateOnFocusAriaValueText() );
     }
   }
 
