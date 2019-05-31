@@ -87,8 +87,8 @@ define( require => {
       // when the value changes position, the position will change after the valueProperty has, so link a listener to
       // alert one the positions are correct, this is important to get the alerts like
       // "mass 1 get's bigger and moves mass 2 right"
-      model.object1.valueChangedPositionEmitter.addListener( () => this.alertMassValueChanged( OBJECT_ONE ) );
-      model.object2.valueChangedPositionEmitter.addListener( () => this.alertMassValueChanged( OBJECT_TWO ) );
+      model.object1.valueChangedPositionEmitter.addListener( objectEnum => this.alertMassValueChanged( objectEnum ) );
+      model.object2.valueChangedPositionEmitter.addListener( objectEnum => this.alertMassValueChanged( objectEnum ) );
     }
 
     /**
