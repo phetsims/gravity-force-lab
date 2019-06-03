@@ -36,8 +36,8 @@ define( require => {
      * @param {MassDescriber} massDescriber
      * @param {Tandem} tandem
      */
-    constructor( titleString, valueProperty, massRange, thumbColor, massEnum, updateDescriptionProperties, alertManager,
-                 massDescriber, tandem ) {
+    constructor( titleString, valueProperty, massRange, thumbColor, massEnum, updateDescriptionProperties,
+                 alertManager, massDescriber, tandem ) {
 
       super( titleString, unitsKgString, valueProperty, massRange, {
         // panel options
