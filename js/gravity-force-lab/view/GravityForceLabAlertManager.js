@@ -57,7 +57,7 @@ define( require => {
       // @protected - initialized outside the class declaration as they should be treated like helper functions
       this.massDescriber = massDescriber;
 
-      // @private {Utterance} - utterances for various categories of information, to use Utterance alertStable feature
+      // @private {Utterance} - utterances for various categories of information
       this.scientificNotationUtterance = new ActivationUtterance();
       this.constantRadiusUtterance = new ActivationUtterance();
       this.massChangedUtterance = new ValueChangeUtterance();
