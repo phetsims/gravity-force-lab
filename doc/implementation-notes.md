@@ -1,11 +1,11 @@
-This sim is the translation from existing java simulation. Initial development on the simulation is done by MLL.
 
-In the further development of this sim feature of constant radius is added and color of the mass is changed to show how
-density will vary and for low mass it looks almost airy.
+Please first see the model overview at 
+https://github.com/phetsims/gravity-force-lab/blob/master/doc/model.md
 
-The mass varies from 1 KG to 1000KG and model deals with all the distances in meter. The center in the model
-coordinates is between the masses.
+This sim is a port from the existing java simulation. Initial development on the simulation was done by MLL.
 
+The port added the constant radius feature and changed the color of the mass to show how density will vary. 
+This in part contributes pedagogically too because it looks almost airy when mass is low.
 
 ## Disposal
 
