@@ -20,7 +20,11 @@ define( require => {
       super( model, object1Label, object2Label, options );
     }
 
-    // @override
+    /**
+     * @param {number} distance
+     * @returns {number}
+     * @protected
+     */
     getDistanceIndex( distance ) {
       assert && assert( distance > 0, 'Distance between spheres should always be positive.' );
 

@@ -30,6 +30,15 @@ define( require => {
         descriptionContent: spherePositionHelpTextString
       }, options ) );
     }
+
+    /**
+     * Provide a thin layer for api similarity between REGULAR and BASICS
+     * @param {string} description
+     * @public
+     */
+    setDescription( description ) {
+      this.descriptionContent = description;
+    }
   }
 
   return gravityForceLab.register( 'SpherePositionsPDOMNode', SpherePositionsPDOMNode );

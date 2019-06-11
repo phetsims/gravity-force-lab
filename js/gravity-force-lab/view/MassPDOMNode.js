@@ -5,13 +5,23 @@ define( require => {
 
   // modules
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
+  const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
+  const ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
   const ISLCObjectPDOMNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectPDOMNode' );
-  const MassNodeDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/MassNodeDescriber' );
   const Node = require( 'SCENERY/nodes/Node' );
+  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
 
   // strings
   const mass1AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass1Abbreviated' );
   const mass2AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass2Abbreviated' );
+
+  // a11y strings
+  const sizeAndPositionPatternString = GravityForceLabA11yStrings.sizeAndPositionPattern.value;
+  const redSpherePatternString = GravityForceLabA11yStrings.redSpherePattern.value;
+  const blueSpherePatternString = GravityForceLabA11yStrings.blueSpherePattern.value;
+
+  // constants
+  const { OBJECT_ONE } = ISLCObjectEnum;
 
   class MassPDOMNode extends ISLCObjectPDOMNode {
 
@@ -33,19 +43,23 @@ define( require => {
         // mass/position dynamic description for this Mass. This function will be called bound to "this" before calling.
         wireUpMassAndPositionUpdates: () => {
           model.forceProperty.link( () => {
-            this.massAndPositionNode.innerContent = this.nodeDescriber.getSizeAndPositionItemText();
+            this.massAndPositionNode.innerContent = this.getSizeAndPositionItemText();
           } );
         }
       }, options );
 
-      const nodeDescriber = new MassNodeDescriber( model, objectEnum, massDescriber, positionDescriber, options );
-      options.labelContent = nodeDescriber.getMassSphereString();
-
       super( model, objectEnum, options );
 
-
       // @protected
-      this.nodeDescriber = nodeDescriber;
+      this.objectEnum = objectEnum; // {ISLCObjectEnum}
+      this.mass = massDescriber.getObjectFromEnum( objectEnum ); // {ISLCObject}
+      this.massLabel = massDescriber.getObjectLabelFromEnum( objectEnum ); // {string}
+      this.positionDescriber = positionDescriber; // {PositionDescriber}
+      this.massDescriber = massDescriber; // {MassDescriber}
+
+      // set the accessibleName after member fields have been initialized
+      this.labelContent = this.getMassSphereString();
+
       this.massAndPositionNode = new Node( { tagName: 'li' } );
 
       this.addChild( this.massAndPositionNode );
@@ -66,6 +80,37 @@ define( require => {
           this.forceVectorMagnitudeItemNode.innerContent = forceDescriber.getForceVectorMagnitudeText( this.thisObjectLabel, this.otherObjectLabel );
         } );
       }
+    }
+
+    /**
+     * @returns {string}
+     * @protected
+     */
+    getMassValue() {
+      return this.massDescriber.getFormattedMass( this.mass.valueProperty.get() );
+    }
+
+    /**
+     * @returns {string}
+     * @private
+     */
+    getSizeAndPositionItemText() {
+      return StringUtils.fillIn( sizeAndPositionPatternString, {
+        thisObjectLabel: this.massLabel,
+        size: this.massDescriber.getMassSize( this.mass.valueProperty.get() ),
+        massValue: this.getMassValue(),
+        position: this.positionDescriber.getConvertedPositionFromEnum( this.objectEnum ),
+        unit: this.positionDescriber.unit
+      } );
+    }
+
+    /**
+     * @returns {string}
+     * @private
+     */
+    getMassSphereString() {
+      const pattern = this.objectEnum === OBJECT_ONE ? blueSpherePatternString : redSpherePatternString;
+      return StringUtils.fillIn( pattern, { objectLabel: this.massLabel } );
     }
   }
 
