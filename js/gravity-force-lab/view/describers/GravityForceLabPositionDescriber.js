@@ -10,6 +10,12 @@ define( require => {
 
   class GravityForceLabPositionDescriber extends PositionDescriber {
 
+    /**
+     * @param {GravityForceLabModel} model
+     * @param {string} object1Label
+     * @param {string} object2Label
+     * @param {Object} [options]
+     */
     constructor( model, object1Label, object2Label, options ) {
 
       options = _.extend( {
@@ -24,6 +30,7 @@ define( require => {
      * @param {number} distance
      * @returns {number}
      * @protected
+     * @override
      */
     getDistanceIndex( distance ) {
       assert && assert( distance > 0, 'Distance between spheres should always be positive.' );

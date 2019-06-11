@@ -58,26 +58,13 @@ define( require => {
 
       super();
 
-      // subtypes of ForceDescriber initialize the singleton to the appropriate subtype
+      // @private - describers
       this.forceDescriber = forceDescriber;
       this.positionDescriber = positionDescriber;
       this.massDescriber = massDescriber;
 
-      var mainSummaryDescriptionNode = new Node( { tagName: 'p', innerContent: options.mainDescriptionContent } );
-      var secondSummaryDescriptionNode = new Node( {
-        tagName: 'p',
-        innerContent: options.secondaryDescriptionContent
-      } );
-
-      this.simStateNode = new Node( {
-        tagName: 'ul',
-        labelTagName: 'p',
-        labelContent: options.simStateLabel
-      } );
-
+      // @private - Nodes for PDOM content
       this.forceVectorsSummaryItem = new Node( { tagName: 'li' } );
-
-      // @public - TODO: Why?
       this.objectDistanceSummaryItem = new Node( { tagName: 'li' } );
       this.massValuesSummaryItem = new Node( { tagName: 'li' } );
       this.robotsSummaryItem = new Node( { tagName: 'li' } );
@@ -85,7 +72,19 @@ define( require => {
       // initialize the list contents
       this.updateSimStateList();
 
-      this.simStateNode.children = [
+      const simStateNode = new Node( {
+        tagName: 'ul',
+        labelTagName: 'p',
+        labelContent: options.simStateLabel
+      } );
+
+      var mainSummaryDescriptionNode = new Node( { tagName: 'p', innerContent: options.mainDescriptionContent } );
+      var secondSummaryDescriptionNode = new Node( {
+        tagName: 'p',
+        innerContent: options.secondaryDescriptionContent
+      } );
+
+      simStateNode.children = [
         this.forceVectorsSummaryItem,
         this.objectDistanceSummaryItem,
         this.massValuesSummaryItem,
@@ -103,10 +102,10 @@ define( require => {
       this.children = [
         mainSummaryDescriptionNode,
         secondSummaryDescriptionNode,
-        this.simStateNode,
+        simStateNode,
         interactionHintNode ];
 
-      Property.multilink( [ model.forceProperty, model.forceValuesProperty ], ( force, showValues ) => {
+      Property.multilink( [ model.forceProperty, model.forceValuesProperty ], () => {
         this.updateForceVectorSummary();
         this.updateRobotEffort();
       } );
