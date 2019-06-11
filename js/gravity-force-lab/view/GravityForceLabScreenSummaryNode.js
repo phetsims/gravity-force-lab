@@ -12,9 +12,10 @@ define( require => {
   // modules
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
-  const ISLCDescriber = require( 'INVERSE_SQUARE_LAW_COMMON/view/describers/ISLCDescriber' );
+  const ISLCA11yStrings = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCA11yStrings' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Property = require( 'AXON/Property' );
+  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
 
   // strings
   const massString = require( 'string!INVERSE_SQUARE_LAW_COMMON/mass' );
@@ -23,6 +24,9 @@ define( require => {
   const screenSummaryMainDescriptionString = GravityForceLabA11yStrings.screenSummaryMainDescription.value;
   const screenSummarySecondaryDescriptionString = GravityForceLabA11yStrings.screenSummarySecondaryDescription.value;
   const simStateListLabelString = GravityForceLabA11yStrings.simStateListLabel.value;
+
+  // import from ISLC so that coloumbs-law can use it too
+  const summaryInteractionHintPatternString = ISLCA11yStrings.summaryInteractionHintPattern.value;
 
 
   class GravityForceLabScreenSummaryNode extends Node {
@@ -90,7 +94,10 @@ define( require => {
 
       const interactionHintNode = new Node( {
         tagName: 'p',
-        innerContent: ISLCDescriber.getSummaryInteractionHint( massString )
+        innerContent: StringUtils.fillIn(
+          summaryInteractionHintPatternString,
+          { massOrCharge: massString }
+        )
       } );
 
       this.children = [

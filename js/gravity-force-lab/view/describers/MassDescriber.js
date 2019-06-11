@@ -240,7 +240,7 @@ define( require => {
     getMassChangesAndMovesOtherClause( thisObjectEnum ) {
       const changeDirectionPhrase = this.getMassOrDensityChangeDirectionPhrase( thisObjectEnum );
       const otherObjectLabel = this.getOtherObjectLabelFromEnum( thisObjectEnum );
-      const leftOrRight = this.getPushDirection( this.getOtherObjectEnum( thisObjectEnum ) );
+      const leftOrRight = this.getPushDirection( ISLCObjectEnum.getOtherObjectEnum( thisObjectEnum ) );
       return StringUtils.fillIn( massChangesMovesOtherClausePatternString, {
         changeDirectionPhrase: changeDirectionPhrase,
         otherObjectLabel: otherObjectLabel,
