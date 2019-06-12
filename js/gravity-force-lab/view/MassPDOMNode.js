@@ -96,7 +96,7 @@ define( require => {
      * @private
      */
     getSizeAndPositionItemText() {
-      assert && assert( this.positionDescriber.prototype === GravityForceLabPositionDescriber.prototype,
+      assert && assert( Object.getPrototypeOf( this.positionDescriber ) === GravityForceLabPositionDescriber.prototype,
         'unexpected positionDescriber instance, should be {GravityForceLabPositionDescriber} calling this function' );
 
       return StringUtils.fillIn( sizeAndPositionPatternString, {
