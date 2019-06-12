@@ -129,8 +129,8 @@ define( function( require ) {
       }
     );
 
-    playAreaNode.addChild( new MassPDOMNode( model, OBJECT_ONE, massDescriber, forceDescriber, positionDescriber ) );
-    playAreaNode.addChild( new MassPDOMNode( model, OBJECT_TWO, massDescriber, forceDescriber, positionDescriber ) );
+    playAreaNode.addChild( new MassPDOMNode( model, model.object1, massDescriber, forceDescriber, positionDescriber ) );
+    playAreaNode.addChild( new MassPDOMNode( model, model.object2, massDescriber, forceDescriber, positionDescriber ) );
 
     const massPositionsNode = new SpherePositionsPDOMNode();
     playAreaNode.addChild( massPositionsNode );

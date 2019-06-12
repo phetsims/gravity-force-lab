@@ -256,7 +256,7 @@ define( require => {
      * @returns {string}
      */
     getMassOrDensityChangeDirectionPhrase( objectEnum ) {
-      const isGrowing = objectEnum === OBJECT_ONE ? this.mass1Growing : this.mass2Growing;
+      const isGrowing = ISLCObjectEnum.isObject1( objectEnum ) ? this.mass1Growing : this.mass2Growing;
 
       let directionPhrase = isGrowing ? massGetsBiggerString : massGetsSmallerString;
 
@@ -274,7 +274,7 @@ define( require => {
      * @returns {string}
      */
     getPushDirection( objectEnum ) {
-      return objectEnum === OBJECT_ONE ? leftString : rightString;
+      return ISLCObjectEnum.isObject1( objectEnum ) ? leftString : rightString;
     }
 
     /**

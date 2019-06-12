@@ -6,6 +6,7 @@ define( require => {
   // modules
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
+  const GravityForceLabPositionDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/GravityForceLabPositionDescriber' );
   const ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
   const ISLCObjectPDOMNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectPDOMNode' );
   const Node = require( 'SCENERY/nodes/Node' );
@@ -20,20 +21,17 @@ define( require => {
   const redSpherePatternString = GravityForceLabA11yStrings.redSpherePattern.value;
   const blueSpherePatternString = GravityForceLabA11yStrings.blueSpherePattern.value;
 
-  // constants
-  const { OBJECT_ONE } = ISLCObjectEnum;
-
   class MassPDOMNode extends ISLCObjectPDOMNode {
 
     /**
      * @param {ISLCModel} model
-     * @param {ISLCObjectEnum} objectEnum
+     * @param {ISLCObject} thisObject
      * @param {MassDescriber} massDescriber
      * @param {ForceDescriber} forceDescriber
-     * @param {PositionDescriber} positionDescriber
+     * @param {GravityForceLabPositionDescriber} positionDescriber
      * @param {Object} [options]
      */
-    constructor( model, objectEnum, massDescriber, forceDescriber, positionDescriber, options ) {
+    constructor( model, thisObject, massDescriber, forceDescriber, positionDescriber, options ) {
 
       options = _.extend( {
         object1Label: mass1AbbreviatedString,
@@ -48,12 +46,15 @@ define( require => {
         }
       }, options );
 
-      super( model, objectEnum, options );
+      super( model, thisObject.enum, options );
+
+      // @private
+      this.object = thisObject; // {ISLCObject}
 
       // @protected
-      this.objectEnum = objectEnum; // {ISLCObjectEnum}
-      this.mass = massDescriber.getObjectFromEnum( objectEnum ); // {ISLCObject}
-      this.massLabel = massDescriber.getObjectLabelFromEnum( objectEnum ); // {string}
+      this.objectEnum = thisObject.enum; // {ISLCObjectEnum}
+      this.mass = massDescriber.getObjectFromEnum( this.objectEnum ); // {ISLCObject}
+      this.massLabel = massDescriber.getObjectLabelFromEnum( this.objectEnum ); // {string}
       this.positionDescriber = positionDescriber; // {PositionDescriber}
       this.massDescriber = massDescriber; // {MassDescriber}
 
@@ -95,11 +96,14 @@ define( require => {
      * @private
      */
     getSizeAndPositionItemText() {
+      assert && assert( this.positionDescriber.prototype === GravityForceLabPositionDescriber.prototype,
+        'unexpected positionDescriber instance, should be {GravityForceLabPositionDescriber} calling this function' );
+
       return StringUtils.fillIn( sizeAndPositionPatternString, {
         thisObjectLabel: this.massLabel,
         size: this.massDescriber.getMassSize( this.mass.valueProperty.get() ),
         massValue: this.getMassValue(),
-        position: this.positionDescriber.getConvertedPositionFromEnum( this.objectEnum ),
+        position: this.positionDescriber.getConvertedPosition( this.object ),
         unit: this.positionDescriber.unit
       } );
     }
@@ -109,7 +113,7 @@ define( require => {
      * @private
      */
     getMassSphereString() {
-      const pattern = this.objectEnum === OBJECT_ONE ? blueSpherePatternString : redSpherePatternString;
+      const pattern = ISLCObjectEnum.isObject1( this.objectEnum ) ? blueSpherePatternString : redSpherePatternString;
       return StringUtils.fillIn( pattern, { objectLabel: this.massLabel } );
     }
   }
