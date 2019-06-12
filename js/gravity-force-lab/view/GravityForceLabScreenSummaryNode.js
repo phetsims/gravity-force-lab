@@ -28,7 +28,6 @@ define( require => {
   // import from ISLC so that coloumbs-law can use it too
   const summaryInteractionHintPatternString = ISLCA11yStrings.summaryInteractionHintPattern.value;
 
-
   class GravityForceLabScreenSummaryNode extends Node {
 
     /**
@@ -112,9 +111,9 @@ define( require => {
 
       Property.multilink(
         [ model.object1.positionProperty,
-          model.object1.radiusProperty,
+          model.object1.valueProperty,
           model.object2.positionProperty,
-          model.object2.radiusProperty,
+          model.object2.valueProperty,
           model.constantRadiusProperty // not really needed, but for completeness it is good to have.
         ].concat( options.additionalMassDistanceProperties ),
         () => {
