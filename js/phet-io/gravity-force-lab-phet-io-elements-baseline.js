@@ -2908,7 +2908,7 @@ window.phet.phetio.phetioElementsBaseline =
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.leftArrowButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -3117,7 +3117,7 @@ window.phet.phetio.phetioElementsBaseline =
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.rightArrowButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -3656,7 +3656,7 @@ window.phet.phetio.phetioElementsBaseline =
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.leftArrowButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -3865,7 +3865,7 @@ window.phet.phetio.phetioElementsBaseline =
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.rightArrowButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -4338,7 +4338,7 @@ window.phet.phetio.phetioElementsBaseline =
     "gravityForceLab.gravityForceLabScreen.view.resetAllButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -4624,7 +4624,7 @@ window.phet.phetio.phetioElementsBaseline =
     "gravityForceLab.navigationBar.a11yButtonsHBox.keyboardHelpButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -4712,7 +4712,7 @@ window.phet.phetio.phetioElementsBaseline =
     "gravityForceLab.navigationBar.phetButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
