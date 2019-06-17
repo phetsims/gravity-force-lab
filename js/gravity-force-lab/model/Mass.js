@@ -45,7 +45,7 @@ define( function( require ) {
 
     ISLCObject.call( this, initialMass, initialPosition, valueRange, constantRadiusProperty, tandem, options );
 
-    // @public - mass color is will change with value of constantRadiusProperty (set within sim)
+    // see ISLCObject, mass color is will change with value of constantRadiusProperty (set within sim)
     this.baseColorProperty = new DerivedProperty( [ this.valueProperty, constantRadiusProperty ],
       function( value, constantRadius ) {
         return constantRadius ?

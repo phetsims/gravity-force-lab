@@ -7,58 +7,69 @@
  * @author Aadish Gupta (PhET Interactive Simulations)
  */
 
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
-  var GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var ISLCObjectNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectNode' );
-  var RadialGradient = require( 'SCENERY/util/RadialGradient' );
-  var Tandem = require( 'TANDEM/Tandem' );
+  const Shape = require( 'KITE/Shape' );
+  const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
+  const GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
+  const ISLCObjectNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectNode' );
+  const RadialGradient = require( 'SCENERY/util/RadialGradient' );
+  const Tandem = require( 'TANDEM/Tandem' );
 
   // constants
-  var ARROW_LABEL_COLOR_STRING = '#000';
-  var MASS_NODE_Y_POSITION = 185;
+  const ARROW_LABEL_COLOR_STRING = '#000';
+  const MASS_NODE_Y_POSITION = 185;
 
-  /**
-   * @param {GravityForceLabModel} model
-   * @param {MassModel} massModel
-   * @param {Bounds2} layoutBounds
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {ISLCAlertManager} alertManager
-   * @param {GravityForceLabPositionDescriber} positionDescriber
-   * @param {Object} [options]
-   * @constructor
-   */
-  function MassNode( model, massModel, layoutBounds, modelViewTransform, alertManager, positionDescriber, options ) {
+  class MassNode extends ISLCObjectNode {
 
-    var self = this;
+    /**
+     * @param {GravityForceLabModel} model
+     * @param {Mass} mass
+     * @param {Bounds2} layoutBounds
+     * @param {ModelViewTransform2} modelViewTransform
+     * @param {ISLCAlertManager} alertManager
+     * @param {GravityForceLabPositionDescriber} positionDescriber
+     * @param {Object} [options]
+     */
+    constructor( model, mass, layoutBounds, modelViewTransform, alertManager, positionDescriber, options ) {
 
-    options = _.extend( {
-      label: 'This Mass',
-      otherObjectLabel: 'Other Mass',
-      arrowFill: ARROW_LABEL_COLOR_STRING,
-      arrowLabelFill: ARROW_LABEL_COLOR_STRING,
-      y: MASS_NODE_Y_POSITION,
-      snapToNearest: GravityForceLabConstants.LOCATION_SNAP_VALUE,
-      stepSize: GravityForceLabConstants.LOCATION_STEP_SIZE,
-      maxArrowWidth: 300,
-      tandem: Tandem.required
-    }, options );
+      options = _.extend( {
+        label: 'This Mass',
+        otherObjectLabel: 'Other Mass',
+        arrowFill: ARROW_LABEL_COLOR_STRING,
+        arrowLabelFill: ARROW_LABEL_COLOR_STRING,
+        y: MASS_NODE_Y_POSITION,
+        snapToNearest: GravityForceLabConstants.LOCATION_SNAP_VALUE,
+        stepSize: GravityForceLabConstants.LOCATION_STEP_SIZE,
+        maxArrowWidth: 300,
+        tandem: Tandem.required
+      }, options );
 
-    ISLCObjectNode.call( this, model, massModel, layoutBounds, modelViewTransform, alertManager, positionDescriber, options );
-    model.scientificNotationProperty.link( function( scientificNotation ) {
-      self.setReadoutsInScientificNotation( scientificNotation );
-    } );
-  }
+      super( model, mass, layoutBounds, modelViewTransform, alertManager, positionDescriber, options );
+      model.scientificNotationProperty.link( scientificNotation => {
+        this.setReadoutsInScientificNotation( scientificNotation );
+      } );
 
-  gravityForceLab.register( 'MassNode', MassNode );
+      this.objectModel.radiusProperty.link( () => {
 
-  return inherit( ISLCObjectNode, MassNode, {
-    updateGradient: function( baseColor ) {
-      var radius = this.modelViewTransform.modelToViewDeltaX( this.objectModel.radiusProperty.get() );
+        // a11y - update the focusHighlight with the radius (Accessibility.js setter)
+        this.focusHighlight = Shape.bounds( this.dragNode.bounds.dilated( 5 ) );
+
+        // set the pointer and touch areas
+        const pullerBounds = this.pullerNode.localToParentBounds( this.pullerNode.touchAreaBounds );
+        this.mouseArea = Shape.xor( [ Shape.bounds( pullerBounds ), this.objectCircle.createCircleShape() ] );
+        this.touchArea = this.mouseArea;
+      } );
+    }
+
+    /**
+     * @override
+     * @param {Color} baseColor
+     */
+    updateGradient( baseColor ) {
+      const radius = this.modelViewTransform.modelToViewDeltaX( this.objectModel.radiusProperty.get() );
       this.objectCircle.fill = new RadialGradient( -radius * 0.6, -radius * 0.6, 1, -radius * 0.6, -radius * 0.6, radius )
         .addColorStop( 0, baseColor.colorUtilsBrighter( 0.5 ).toCSS() )
         .addColorStop( 1, baseColor.toCSS() );
@@ -68,9 +79,15 @@ define( function( require ) {
       else {
         this.objectCircle.stroke = null;
       }
-    },
-    redrawForce: function() {
+    }
+
+    /**
+     * @override
+     */
+    redrawForce() {
       ISLCObjectNode.prototype.redrawForce.call( this );
     }
-  } );
+  }
+
+  return gravityForceLab.register( 'MassNode', MassNode );
 } );
