@@ -280,6 +280,7 @@ define( require => {
     /**
      * @param {ISLCObjectEnum} thisObjectEnum
      * @returns {string}
+     * @public
      */
     getRelativeSizeOrDensity( thisObjectEnum ) {
       const thisObject = this.getObjectFromEnum( thisObjectEnum );
@@ -360,13 +361,13 @@ define( require => {
 
   /**
    * @param {number} mass - given the mass of the object.
-   * @param {number} numberOfSizes - for cross checking
+   * @param {number} numberOfRegions - for cross checking
    * @returns {number} - integer array index
    */
-  const getMassSizeIndex = ( mass, numberOfSizes ) => {
+  const getMassSizeIndex = ( mass, numberOfRegions ) => {
     assert && assert( ( typeof mass ) === 'number' );
 
-    assert && assert( numberOfSizes === 7, 'If numberOfSizes changes, this function should too.' );
+    assert && assert( numberOfRegions === 7, 'If numberOfRegions changes, this function should too.' );
     if ( mass < 26 ) {
       return 0;
     }

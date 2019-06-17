@@ -45,12 +45,14 @@ define( require => {
 
     /**
      * @param {number} distance
+     * @param {number} numberOfRegions - for crosscheck
      * @returns {number}
      * @protected
      * @override
      */
-    getDistanceIndex( distance ) {
+    getDistanceIndex( distance, numberOfRegions ) {
       assert && assert( distance > 0, 'Distance between spheres should always be positive.' );
+      assert && assert( numberOfRegions === 9, 'If numberOfRegions changes, this function should too.' );
 
       if ( distance === 9.6 ) {
         return 0;

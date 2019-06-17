@@ -68,10 +68,13 @@ define( require => {
      *
      * @override
      * @param  {number} force
+     * @param {number} numberOfRegions - for crosscheck
      * @returns {number} - integer within the range of force strings, see ForceDescriber.js
      */
-    getForceVectorIndex( force ) {
+    getForceVectorIndex( force, numberOfRegions ) {
       const convertedForce = convertForceToMicronewtons( force );
+      assert && assert( numberOfRegions === 7, 'If numberOfRegions changes, this function should too.' );
+
       if ( convertedForce < 0.041713 ) {
         return 0;
       }
