@@ -1,5 +1,12 @@
 // Copyright 2019, University of Colorado Boulder
 
+/**
+ * Responsible for logic associated with the formation of audio description strings related to the mass of the
+ * ISLCObjects.
+ *
+ * @author Michael Kauzmann (PhET Interactive Simulations)
+ * @author Michael Barlow (PhET Interactive Simulations)
+ */
 define( require => {
   'use strict';
 
@@ -85,7 +92,6 @@ define( require => {
     twiceTheSizeOfString,
     muchMuchLargerThanString
   ];
-
   const RELATIVE_DENSITY_STRINGS = [
     notDenseComparedToString,
     halfAsDenseAsString,
@@ -97,12 +103,16 @@ define( require => {
     twiceAsDenseAsString,
     extremelyDenseComparedToString
   ];
-
   assert && assert( RELATIVE_DENSITY_STRINGS.length === RELATIVE_SIZE_STRINGS.length, 'same number of strings expected' );
 
   const { OBJECT_ONE } = ISLCObjectEnum;
 
   class MassDescriber extends ISLCDescriber {
+
+    /**
+     * @param {GravityForceLabModel} model
+     * @param {Object} [options]
+     */
     constructor( model, options ) {
       options = _.extend( {
         object1Label: mass1AbbreviatedString,
@@ -117,12 +127,11 @@ define( require => {
 
       super( model, options.object1Label, options.object2Label );
 
+      // @private
       this.mass1Growing = false;
       this.mass2Growing = false;
       this.convertMassValue = options.convertMassValue;
       this.formatMassValue = options.formatMassValue;
-
-      // @private
       this.constantRadiusProperty = model.constantRadiusProperty;
 
       model.object1.valueProperty.link( ( newMass, oldMass ) => {
@@ -137,6 +146,7 @@ define( require => {
     /**
      * summary bullet for mass comparison in the screen summary
      * @returns {string}
+     * @public
      */
     getMassValuesSummaryText() {
       const relativeSize = this.getRelativeSizeOrDensity( OBJECT_ONE );
@@ -153,19 +163,12 @@ define( require => {
     /**
      * Helper function, hard coded from the first object's perspective
      * @returns {string}
+     * @public
      */
     getM1RelativeSize() {
-      return this.getMassRelativeSizeOrDensityToOther( OBJECT_ONE );
-    }
-
-    /**
-     * @param {ISLCObjectEnum} objectEnum
-     * @returns {string}
-     */
-    getMassRelativeSizeOrDensityToOther( objectEnum ) {
-      const relativeSize = this.getRelativeSizeOrDensity( objectEnum );
-      const firstObjectLabel = this.getObjectLabelFromEnum( objectEnum );
-      const secondObjectLabel = this.getOtherObjectLabelFromEnum( objectEnum );
+      const relativeSize = this.getRelativeSizeOrDensity( OBJECT_ONE );
+      const firstObjectLabel = this.getObjectLabelFromEnum( OBJECT_ONE );
+      const secondObjectLabel = this.getOtherObjectLabelFromEnum( OBJECT_ONE );
       return StringUtils.fillIn( objectsRelativeSizePatternString, {
         firstObjectLabel: firstObjectLabel,
         relativeSize: relativeSize,
@@ -177,6 +180,7 @@ define( require => {
      * See options.formatMassValue
      * @param {number} mass
      * @returns {string}
+     * @public
      */
     getFormattedMass( mass ) {
       return this.formatMassValue( this.convertMassValue( mass ) );
@@ -185,15 +189,18 @@ define( require => {
     /**
      * @param {number} massValue
      * @returns {string}
+     * @public
      */
     getMassSize( massValue ) {
-      const massIndex = this.getMassSizeIndex( massValue );
-      return this.getSizeFromIndex( massIndex );
+      const massIndex = getMassSizeIndex( massValue, SIZE_STRINGS.length );
+      assert && assert( Util.isInteger( massIndex ) && massIndex < SIZE_STRINGS.length, 'wrong index for size strings' );
+      return SIZE_STRINGS[ massIndex ];
     }
 
     /**
      * @param {ISLCObjectEnum} objectEnum
      * @returns {string}
+     * @public
      */
     getMassAndUnit( objectEnum ) {
       const thisObjectMass = this.getObjectFromEnum( objectEnum ).valueProperty.get();
@@ -207,6 +214,7 @@ define( require => {
      *
      * @param  {ISLCObjectEnum} thisObjectEnum
      * @returns {string}
+     * @public
      */
     getMassOrDensityChangeClause( thisObjectEnum ) {
       const changeDirectionPhrase = this.getMassOrDensityChangeDirectionPhrase( thisObjectEnum );
@@ -219,11 +227,11 @@ define( require => {
      *
      * @param  {ISLCObjectEnum} thisObjectEnum
      * @returns {string}
+     * @public
      */
     getMassChangesAndMovesClause( thisObjectEnum ) {
-
       const changeDirectionPhrase = this.getMassOrDensityChangeDirectionPhrase( thisObjectEnum );
-      const leftOrRight = this.getPushDirection( thisObjectEnum );
+      const leftOrRight = getPushDirection( thisObjectEnum );
       return StringUtils.fillIn( massChangesAndMovesClausePatternString, {
         changeDirectionPhrase: changeDirectionPhrase,
         leftOrRight: leftOrRight
@@ -236,11 +244,12 @@ define( require => {
      *
      * @param  {ISLCObjectEnum} thisObjectEnum
      * @returns {string}
+     * @public
      */
     getMassChangesAndMovesOtherClause( thisObjectEnum ) {
       const changeDirectionPhrase = this.getMassOrDensityChangeDirectionPhrase( thisObjectEnum );
       const otherObjectLabel = this.getOtherObjectLabelFromEnum( thisObjectEnum );
-      const leftOrRight = this.getPushDirection( ISLCObjectEnum.getOtherObjectEnum( thisObjectEnum ) );
+      const leftOrRight = getPushDirection( ISLCObjectEnum.getOtherObjectEnum( thisObjectEnum ) );
       return StringUtils.fillIn( massChangesMovesOtherClausePatternString, {
         changeDirectionPhrase: changeDirectionPhrase,
         otherObjectLabel: otherObjectLabel,
@@ -254,6 +263,7 @@ define( require => {
      *
      * @param  {ISLCObjectEnum} objectEnum
      * @returns {string}
+     * @private
      */
     getMassOrDensityChangeDirectionPhrase( objectEnum ) {
       const isGrowing = ISLCObjectEnum.isObject1( objectEnum ) ? this.mass1Growing : this.mass2Growing;
@@ -268,43 +278,6 @@ define( require => {
     }
 
     /**
-     * Each object can only be pushed in one direction. Returns 'left' or 'right' based on the object passed in.
-     *
-     * @param  {ISLCObjectEnum} objectEnum
-     * @returns {string}
-     */
-    getPushDirection( objectEnum ) {
-      return ISLCObjectEnum.isObject1( objectEnum ) ? leftString : rightString;
-    }
-
-    /**
-     * @param {number} index - should be an index
-     * @returns {string}
-     */
-    getSizeFromIndex( index ) {
-      assert && assert( Util.isInteger( index ) && index < SIZE_STRINGS.length );
-      return SIZE_STRINGS[ index ];
-    }
-
-    /**
-     * @param {number} index - should be an index
-     * @returns {string}
-     */
-    getRelativeSizeFromIndex( index ) {
-      assert && assert( Util.isInteger( index ) && index < RELATIVE_SIZE_STRINGS.length );
-      return RELATIVE_SIZE_STRINGS[ index ];
-    }
-
-    /**
-     * @param {number} index - should be an index
-     * @returns {string}
-     */
-    getRelativeDensityFromIndex( index ) {
-      assert && assert( Util.isInteger( index ) && index < RELATIVE_DENSITY_STRINGS.length );
-      return RELATIVE_DENSITY_STRINGS[ index ];
-    }
-
-    /**
      * @param {ISLCObjectEnum} thisObjectEnum
      * @returns {string}
      */
@@ -312,83 +285,111 @@ define( require => {
       const thisObject = this.getObjectFromEnum( thisObjectEnum );
       const otherObject = this.getOtherObjectFromEnum( thisObjectEnum );
       const ratio = thisObject.valueProperty.value / otherObject.valueProperty.value;
-      const index = this.getRelativeSizeOrDensityIndex( ratio );
+      const index = getRelativeSizeOrDensityIndex( ratio );
 
       // use size or density depending on if constant checkbox is checked.
-      return this.constantRadiusProperty.get() ? this.getRelativeDensityFromIndex( index ) : this.getRelativeSizeFromIndex( index );
-    }
-
-    /**
-     * Returns the mapped integer corresponding to the appropriate qualitative size/density comparison between masses.
-     * There are the same number of size strings as density strings
-     * See https://github.com/phetsims/gravity-force-lab-basics/issues/96#issuecomment-469248664
-     * @param  {number} ratio
-     * @returns {number} - an integer
-     */
-    getRelativeSizeOrDensityIndex( ratio ) {
-      assert && assert( ratio > 0, 'ratio less than or equal to zero?' );
-
-      if ( ratio < .5 ) {
-        return 0;
-      }
-      if ( ratio === .5 ) {
-        return 1;
-      }
-      if ( ratio < .75 ) {
-        return 2;
-      }
-      if ( ratio < 1 ) {
-        return 3;
-      }
-      if ( ratio === 1 ) {
-        return 4;
-      }
-      if ( ratio < 1.5 ) {
-        return 5;
-      }
-      if ( ratio < 2 ) {
-        return 6;
-      }
-      if ( ratio === 2 ) {
-        return 7;
-      }
-      if ( ratio > 2 ) {
-        return 8;
-      }
-
-      assert && assert( false, `unrecognized ratio: ${ratio}` );
-    }
-
-    /**
-     * @param {number} mass - given the mass of the object.
-     * @returns {number}
-     */
-    getMassSizeIndex( mass ) {
-      assert && assert( ( typeof mass ) === 'number' );
-      if ( mass < 26 ) {
-        return 0;
-      }
-      if ( mass < 101 ) {
-        return 1;
-      }
-      if ( mass < 401 ) {
-        return 2;
-      }
-      if ( mass < 601 ) {
-        return 3;
-      }
-      if ( mass < 801 ) {
-        return 4;
-      }
-      if ( mass < 901 ) {
-        return 5;
-      }
-      if ( mass <= 1000 ) {
-        return 6;
-      }
-      assert && assert( false, 'Invalid mass value.' );
+      return this.constantRadiusProperty.get() ? getRelativeDensityFromIndex( index ) : getRelativeSizeFromIndex( index );
     }
   }
+
+  /**
+   * Each object can only be pushed in one direction. Returns 'left' or 'right' based on the object passed in.
+   * @param  {ISLCObjectEnum} objectEnum
+   * @returns {string}
+   */
+  const getPushDirection = objectEnum => ISLCObjectEnum.isObject1( objectEnum ) ? leftString : rightString;
+
+  /**
+   * @param {number} index - should be an index
+   * @returns {string}
+   */
+  const getRelativeSizeFromIndex = index => {
+    assert && assert( Util.isInteger( index ) && index < RELATIVE_SIZE_STRINGS.length );
+    return RELATIVE_SIZE_STRINGS[ index ];
+  };
+
+  /**
+   * @param {number} index - should be an index
+   * @returns {string}
+   */
+  const getRelativeDensityFromIndex = index => {
+    assert && assert( Util.isInteger( index ) && index < RELATIVE_DENSITY_STRINGS.length );
+    return RELATIVE_DENSITY_STRINGS[ index ];
+  };
+
+  /**
+   * Returns the mapped integer corresponding to the appropriate qualitative size/density comparison between masses.
+   * There are the same number of size strings as density strings
+   * See https://github.com/phetsims/gravity-force-lab-basics/issues/96#issuecomment-469248664
+   * @param  {number} ratio
+   * @returns {number} - an integer
+   */
+  const getRelativeSizeOrDensityIndex = ratio => {
+    assert && assert( ratio > 0, 'ratio less than or equal to zero?' );
+
+    if ( ratio < .5 ) {
+      return 0;
+    }
+    if ( ratio === .5 ) {
+      return 1;
+    }
+    if ( ratio < .75 ) {
+      return 2;
+    }
+    if ( ratio < 1 ) {
+      return 3;
+    }
+    if ( ratio === 1 ) {
+      return 4;
+    }
+    if ( ratio < 1.5 ) {
+      return 5;
+    }
+    if ( ratio < 2 ) {
+      return 6;
+    }
+    if ( ratio === 2 ) {
+      return 7;
+    }
+    if ( ratio > 2 ) {
+      return 8;
+    }
+
+    assert && assert( false, `unrecognized ratio: ${ratio}` );
+  };
+
+  /**
+   * @param {number} mass - given the mass of the object.
+   * @param {number} numberOfSizes - for cross checking
+   * @returns {number} - integer array index
+   */
+  const getMassSizeIndex = ( mass, numberOfSizes ) => {
+    assert && assert( ( typeof mass ) === 'number' );
+
+    assert && assert( numberOfSizes === 7, 'If numberOfSizes changes, this function should too.' );
+    if ( mass < 26 ) {
+      return 0;
+    }
+    if ( mass < 101 ) {
+      return 1;
+    }
+    if ( mass < 401 ) {
+      return 2;
+    }
+    if ( mass < 601 ) {
+      return 3;
+    }
+    if ( mass < 801 ) {
+      return 4;
+    }
+    if ( mass < 901 ) {
+      return 5;
+    }
+    if ( mass <= 1000 ) {
+      return 6;
+    }
+    assert && assert( false, 'Invalid mass value.' );
+  };
 
   return gravityForceLab.register( 'MassDescriber', MassDescriber );
 } );

@@ -59,7 +59,7 @@ define( require => {
     }
 
     get forceInScientificNotation() {
-      return this.model.scientificNotationProperty.get();
+      return this.scientificNotationProperty.get();
     }
 
     /**
