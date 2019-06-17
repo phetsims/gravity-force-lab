@@ -188,7 +188,7 @@ define( require => {
       value: 'Change mass of spheres in kilograms.'
     },
     massControlsHelpTextDensity: {
-      value: 'Change density of spheres in kilograms.'
+      value: 'Change density of spheres in kilograms per unit volume.'
     },
     massControlsHelpTextBillions: {
       value: 'Change mass of spheres in billions of kilograms.'
