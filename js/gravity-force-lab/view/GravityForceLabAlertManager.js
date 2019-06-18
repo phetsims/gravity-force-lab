@@ -87,8 +87,8 @@ define( require => {
       // when the value changes position, the position will change after the valueProperty has, so link a listener to
       // alert one the positions are correct, this is important to get the alerts like
       // "mass 1 get's bigger and moves mass 2 right"
-      model.object1.valueChangedPositionEmitter.addListener( objectEnum => this.alertMassValueChanged( objectEnum ) );
-      model.object2.valueChangedPositionEmitter.addListener( objectEnum => this.alertMassValueChanged( objectEnum ) );
+      model.object1.valueChangedPositionEmitter.addListener( objectEnum => this.alertMassValueChanged( objectEnum, true ) );
+      model.object2.valueChangedPositionEmitter.addListener( objectEnum => this.alertMassValueChanged( objectEnum, true ) );
     }
 
     /**
@@ -111,18 +111,11 @@ define( require => {
 
     /**
      * @param {ISLCObjectEnum} objectEnum
+     * @param {boolean} [forceBiggerOverride] - when true, manually override the value of the force "direction change"
+     *                                          from the model. This is to solve a bug where the model decreases force
+     *                                          after a mass pushes the other away, see https://github.com/phetsims/gravity-force-lab-basics/issues/151
      */
-    alertMassValueChanged( objectEnum ) {
-      this.massChangedUtterance.alert = this.getMassValueChangedAlertText( objectEnum );
-      utteranceQueue.addToBack( this.massChangedUtterance );
-    }
-
-    /**
-     * Get the value text for when the mass changes for a given object
-     * @param {ISLCObjectEnum} objectEnum
-     * @returns {string}
-     */
-    getMassValueChangedAlertText( objectEnum ) {
+    alertMassValueChanged( objectEnum, forceBiggerOverride ) {
 
       let massClause = this.massDescriber.getMassOrDensityChangeClause( objectEnum );
 
@@ -134,16 +127,11 @@ define( require => {
         }
       }
 
-      let forceClause = this.forceDescriber.getVectorChangeClause();
-
-      if ( this.model.forceValuesProperty.get() ) {
-        forceClause = this.forceDescriber.getVectorChangeForcesNowClause();
-      }
-
-      return StringUtils.fillIn( massAndForceClausesPatternString, {
+      this.massChangedUtterance.alert = StringUtils.fillIn( massAndForceClausesPatternString, {
         massClause: massClause,
-        forceClause: forceClause
+        forceClause: this.forceDescriber.getVectorChangeClause( forceBiggerOverride )
       } );
+      utteranceQueue.addToBack( this.massChangedUtterance );
     }
   }
 
