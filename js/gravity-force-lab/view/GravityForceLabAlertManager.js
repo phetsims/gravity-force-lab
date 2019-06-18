@@ -106,7 +106,7 @@ define( require => {
      * @param {boolean} [forceBiggerOverride] - when true, manually override the value of the force "direction change"
      *                                          from the model. This is to solve a bug where the model decreases force
      *                                          after a mass pushes the other away, see https://github.com/phetsims/gravity-force-lab-basics/issues/151
-     * @public
+     * @private
      */
     alertMassValueChanged( objectEnum, forceBiggerOverride ) {
 
