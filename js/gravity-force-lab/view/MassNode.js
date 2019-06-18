@@ -25,7 +25,7 @@ define( require => {
   class MassNode extends ISLCObjectNode {
 
     /**
-     * @param {GravityForceLabModel} model
+     * @param {ISLCModel} model
      * @param {Mass} mass
      * @param {Bounds2} layoutBounds
      * @param {ModelViewTransform2} modelViewTransform
@@ -44,13 +44,15 @@ define( require => {
         snapToNearest: GravityForceLabConstants.LOCATION_SNAP_VALUE,
         stepSize: GravityForceLabConstants.LOCATION_STEP_SIZE,
         maxArrowWidth: 300,
+
+        // {function} - to support REGULAR and BASICS without duplicating too much code.
+        finishWiringListeners: () => this.linkToScientificNotationProperty( model ),
+
+        // phet-io
         tandem: Tandem.required
       }, options );
 
       super( model, mass, layoutBounds, modelViewTransform, alertManager, positionDescriber, options );
-      model.scientificNotationProperty.link( scientificNotation => {
-        this.setReadoutsInScientificNotation( scientificNotation );
-      } );
 
       this.objectModel.radiusProperty.link( () => {
 
@@ -62,6 +64,8 @@ define( require => {
         this.mouseArea = Shape.xor( [ Shape.bounds( pullerBounds ), this.objectCircle.createCircleShape() ] );
         this.touchArea = this.mouseArea;
       } );
+
+      options.finishWiringListeners();
     }
 
     /**
@@ -70,7 +74,8 @@ define( require => {
      */
     updateGradient( baseColor ) {
       const radius = this.modelViewTransform.modelToViewDeltaX( this.objectModel.radiusProperty.get() );
-      this.objectCircle.fill = new RadialGradient( -radius * 0.6, -radius * 0.6, 1, -radius * 0.6, -radius * 0.6, radius )
+      this.objectCircle.fill = new RadialGradient(
+        -radius * 0.6, -radius * 0.6, 1, -radius * 0.6, -radius * 0.6, radius )
         .addColorStop( 0, baseColor.colorUtilsBrighter( 0.5 ).toCSS() )
         .addColorStop( 1, baseColor.toCSS() );
       if ( this.model.constantRadiusProperty.get() ) {
@@ -82,10 +87,15 @@ define( require => {
     }
 
     /**
-     * @override
+     * Listener to set the readouts in appropriate scientific notation.
+     * This listener is factored out in case subtypes want to call it when passing in options.
+     * @param {GravityForceLabModel} model
+     * @private
      */
-    redrawForce() {
-      ISLCObjectNode.prototype.redrawForce.call( this );
+    linkToScientificNotationProperty( model ) {
+      model.scientificNotationProperty.link( scientificNotation => {
+        this.setReadoutsInScientificNotation( scientificNotation );
+      } );
     }
   }
 
