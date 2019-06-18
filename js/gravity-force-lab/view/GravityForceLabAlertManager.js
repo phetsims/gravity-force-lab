@@ -26,59 +26,61 @@ define( require => {
     /**
      * @param {GravityForceLabModel|GFLBModel} model
      * @param {MassDescriber} massDescriber
-     * @param {GravityForceLabForceDescriber} forceDescriber
-     * @param {GravityForceLabPositionDescriber} positionDescriber
+     * @param {ForceDescriber} forceDescriber - GFLBForceDescriber inherits directly from ForceDescriber
      * @param options
      */
-    constructor( model, massDescriber, forceDescriber, positionDescriber, options ) {
+    constructor( model, massDescriber, forceDescriber, options ) {
 
       // Basically these options try to support BASICS and REGULAR logic duplication.
       options = _.extend( {
 
-        // only used for gravity-force-lab
+        // {boolean} This should only used for gravity-force-lab
         linkToScientificNotationProperty: true,
 
-        // default listener for when forceValues change
+        // {function} - listener to link to the forceValuesProperty, default listener for REGULAR
         showForceValuesListener: showValues => {
 
-          const scientificNotation = model.scientificNotationProperty.get();
+          const displayScientificNotation = model.scientificNotationProperty.get();
 
-          if ( !showValues || !scientificNotation ) {
+          if ( !showValues || !displayScientificNotation ) {
             this.alertShowForceValues( showValues );
           }
           else {
-            this.alertScientificNotation( scientificNotation );
+            this.alertScientificNotation();
           }
         }
       }, options );
 
-      super( model, forceDescriber, positionDescriber );
+      super( model, forceDescriber );
 
-      // @protected - initialized outside the class declaration as they should be treated like helper functions
+      // @private
       this.massDescriber = massDescriber;
 
-      // @private {Utterance} - utterances for various categories of information
-      this.scientificNotationUtterance = new ActivationUtterance();
-      this.constantRadiusUtterance = new ActivationUtterance();
+      // @private {Utterance} - utterances for various channels of information
       this.massChangedUtterance = new ValueChangeUtterance();
-      this.constantRadiusAlert = StringUtils.fillIn( constantRadiusThinkDensityPatternString, {
+      this.scientificNotationUtterance = new ActivationUtterance();
+
+      const constantRadiusUtterance = new ActivationUtterance();
+      const constantRadiusAlert = StringUtils.fillIn( constantRadiusThinkDensityPatternString, {
 
         // use forceDescriber just for the sim specific object labels, could be any ISLCDescriber
         mass1: forceDescriber.object1Label,
         mass2: forceDescriber.object2Label
       } );
 
-      assert && options.linkToScientificNotationProperty && assert( model instanceof GravityForceLabModel, 'unsupported model for scientific notation' );
-
-      options.linkToScientificNotationProperty && model.scientificNotationProperty.lazyLink( displayInScientificNotation => {
-        this.alertScientificNotation( displayInScientificNotation );
-      } );
-
-      model.forceValuesProperty.lazyLink( options.showForceValuesListener );
-
       model.constantRadiusProperty.lazyLink( constantRadius => {
-        this.alertConstantRadius( constantRadius );
+        constantRadiusUtterance.alert = constantRadius ? constantRadiusAlert :
+                                        massDescriber.getM1RelativeSize();
+        utteranceQueue.addToBack( constantRadiusUtterance );
       } );
+
+      if ( options.linkToScientificNotationProperty ) {
+        assert && assert( model instanceof GravityForceLabModel, 'unsupported model for scientific notation' );
+        options.linkToScientificNotationProperty && model.scientificNotationProperty.lazyLink( () => this.alertScientificNotation() );
+      }
+
+      // use an option to support REGULAR and BASICS
+      model.forceValuesProperty.lazyLink( options.showForceValuesListener );
 
       // link to alert when the value changes
       model.object1.valueProperty.lazyLink( () => this.alertMassValueChanged( OBJECT_ONE ) );
@@ -100,20 +102,11 @@ define( require => {
     }
 
     /**
-     * @param {boolean} constantRadius
-     * @private
-     */
-    alertConstantRadius( constantRadius ) {
-      this.constantRadiusUtterance.alert = constantRadius ? this.constantRadiusAlert :
-                                           this.massDescriber.getM1RelativeSize();
-      utteranceQueue.addToBack( this.constantRadiusUtterance );
-    }
-
-    /**
      * @param {ISLCObjectEnum} objectEnum
      * @param {boolean} [forceBiggerOverride] - when true, manually override the value of the force "direction change"
      *                                          from the model. This is to solve a bug where the model decreases force
      *                                          after a mass pushes the other away, see https://github.com/phetsims/gravity-force-lab-basics/issues/151
+     * @public
      */
     alertMassValueChanged( objectEnum, forceBiggerOverride ) {
 

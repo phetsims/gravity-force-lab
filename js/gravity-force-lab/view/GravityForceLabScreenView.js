@@ -76,7 +76,7 @@ define( function( require ) {
     var positionDescriber = new GravityForceLabPositionDescriber( model, mass1AbbreviatedString, mass2AbbreviatedString );
     const forceDescriber = new GravityForceLabForceDescriber( model, mass1AbbreviatedString, mass2AbbreviatedString, positionDescriber );
 
-    var alertManager = new GravityForceLabAlertManager( model, massDescriber, forceDescriber, positionDescriber );
+    var alertManager = new GravityForceLabAlertManager( model, massDescriber, forceDescriber );
     var summaryNode = new GravityForceLabScreenSummaryNode( model, massDescriber, forceDescriber, positionDescriber );
     var playAreaNode = new PlayAreaNode();
     var controlAreaNode = new ControlAreaNode();

@@ -34,7 +34,7 @@ define( require => {
         units: micronewtonsString,
 
         convertForce: force => {
-          if ( !this.forceInScientificNotation ) {
+          if ( !this.displayInScientificNotion ) {
             return convertForceToMicronewtons( force );
           }
           return force;
@@ -44,7 +44,7 @@ define( require => {
         // in order to use ForceDescriber.getForceInScientificNotationNoHtml for alerts - screen readers don't properly
         // read the &times; entity
         forceValueToString: convertedForce => {
-          if ( this.forceInScientificNotation ) {
+          if ( this.displayInScientificNotion ) {
             return ForceDescriber.getForceInScientificNotation( convertedForce, 2 );
           }
           return convertedForce + '';
@@ -58,7 +58,11 @@ define( require => {
       } );
     }
 
-    get forceInScientificNotation() {
+    /**
+     * @private
+     * @returns {boolean}
+     */
+    get displayInScientificNotion() {
       return this.scientificNotationProperty.get();
     }
 
