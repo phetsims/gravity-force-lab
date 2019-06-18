@@ -190,12 +190,6 @@ define( require => {
     massControlsHelpTextDensity: {
       value: 'Change density of spheres in kilograms per unit volume.'
     },
-    massControlsHelpTextBillions: {
-      value: 'Change mass of spheres in billions of kilograms.'
-    },
-    massControlsHelpTextDensityBillions: {
-      value: 'Change density of spheres in billions of kilograms.'
-    },
     constantSizeCheckboxHelpText: {
       value: 'Keep size of spheres constant while changing mass.'
     },
