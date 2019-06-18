@@ -25,7 +25,7 @@ define( require => {
   const screenSummarySecondaryDescriptionString = GravityForceLabA11yStrings.screenSummarySecondaryDescription.value;
   const simStateListLabelString = GravityForceLabA11yStrings.simStateListLabel.value;
 
-  // import from ISLC so that coloumbs-law can use it too
+  // import from ISLC so that coulombs-law can use it too
   const summaryInteractionHintPatternString = ISLCA11yStrings.summaryInteractionHintPattern.value;
 
   class GravityForceLabScreenSummaryNode extends Node {
@@ -62,11 +62,13 @@ define( require => {
       this.positionDescriber = positionDescriber;
       this.massDescriber = massDescriber;
 
+      const liOptions = { tagName: 'li' };
+
       // @private - Nodes for PDOM content
-      this.forceVectorsSummaryItem = new Node( { tagName: 'li' } );
-      this.objectDistanceSummaryItem = new Node( { tagName: 'li' } );
-      this.massValuesSummaryItem = new Node( { tagName: 'li' } );
-      this.robotsSummaryItem = new Node( { tagName: 'li' } );
+      this.forceVectorsSummaryItem = new Node( liOptions );
+      this.objectDistanceSummaryItem = new Node( liOptions );
+      this.massValuesSummaryItem = new Node( liOptions );
+      this.robotsSummaryItem = new Node( liOptions );
 
       // initialize the list contents
       this.updateSimStateList();
