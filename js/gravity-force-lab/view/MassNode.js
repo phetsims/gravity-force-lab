@@ -36,8 +36,6 @@ define( require => {
     constructor( model, mass, layoutBounds, modelViewTransform, alertManager, positionDescriber, options ) {
 
       options = _.extend( {
-        label: 'This Mass',
-        otherObjectLabel: 'Other Mass',
         arrowFill: ARROW_LABEL_COLOR_STRING,
         arrowLabelFill: ARROW_LABEL_COLOR_STRING,
         y: MASS_NODE_Y_POSITION,
