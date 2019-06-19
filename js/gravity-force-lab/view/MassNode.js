@@ -65,6 +65,12 @@ define( require => {
         this.touchArea = this.mouseArea;
       } );
 
+      this.addInputListener( {
+        focus: () => {
+          positionDescriber.lastMoveCloser = null;
+        }
+      } );
+
       options.finishWiringListeners();
     }
 

@@ -41,14 +41,14 @@ define( require => {
 
       options = _.extend( {
 
-        // {{Property[]}} - a way to provide extra Properties to that will update the mass and distance summary sections
+        // {Property[]} - a way to provide extra Properties to that will update the mass and distance summary sections
         // on change
         additionalMassDistanceProperties: [],
 
         // {string}
         mainDescriptionContent: screenSummaryMainDescriptionString,
 
-        // {sring}
+        // {string}
         secondaryDescriptionContent: screenSummarySecondaryDescriptionString,
 
         // {string}
@@ -104,7 +104,8 @@ define( require => {
         mainSummaryDescriptionNode,
         secondSummaryDescriptionNode,
         simStateNode,
-        interactionHintNode ];
+        interactionHintNode
+      ];
 
       Property.multilink( [ model.forceProperty, model.forceValuesProperty ], () => {
         this.updateForceVectorSummary();
