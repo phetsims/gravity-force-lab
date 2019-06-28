@@ -676,19 +676,18 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "ObjectIO",
       "typeName": "FunctionIO.<StringIO, NullableIO.<StringIO>>"
     },
-    "FunctionIO.<StringIO, ObjectIO, ObjectIO, ObjectIO>": {
-      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> StringIO, ObjectIO, ObjectIO, ObjectIO<br><strong>Return Type:</strong> VoidIO",
+    "FunctionIO.<StringIO, ObjectIO, ObjectIO>": {
+      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> StringIO, ObjectIO, ObjectIO<br><strong>Return Type:</strong> VoidIO",
       "events": [],
       "methodOrder": [],
       "methods": {},
       "parameterTypes": [
         "StringIO",
         "ObjectIO",
-        "ObjectIO",
         "ObjectIO"
       ],
       "supertype": "ObjectIO",
-      "typeName": "FunctionIO.<StringIO, ObjectIO, ObjectIO, ObjectIO>"
+      "typeName": "FunctionIO.<StringIO, ObjectIO, ObjectIO>"
     },
     "FunctionIO.<StringIO, StringIO>": {
       "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> StringIO, StringIO<br><strong>Return Type:</strong> VoidIO",
@@ -886,14 +885,6 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "ObjectIO",
       "typeName": "NullableIO.<Vector2IO>"
     },
-    "NumberControlIO": {
-      "documentation": "A numeric readout with a background",
-      "events": [],
-      "methodOrder": [],
-      "methods": {},
-      "supertype": "NodeIO",
-      "typeName": "NumberControlIO"
-    },
     "NumberIO": {
       "documentation": "Wrapper for the built-in JS number type (floating point, but also represents integers)",
       "events": [],
@@ -989,9 +980,9 @@ window.phet.phetio.phetioTypes = assert &&
           "returnType": "VoidIO"
         },
         "addPhetioElementAddedListener": {
-          "documentation": "Adds a listener that receives a callback when a PhET-iO Element has been added.Arguments for the function: \n<ul><li><strong>phetioID:</strong> {String}\n</li><li><strong>type:</strong> {Object} - the IO Type api\n</li><li><strong>metadata:</strong> {Object} - element specific metadata like documentation and type, see PhetioEngineIO.getPhetioElementMetadata().</li><li><strong>state:</strong> {Object} - a snapshot of the initial state of the PhET-iO Element.</li></ul>",
+          "documentation": "Adds a listener that receives a callback when a PhET-iO Element has been added.Arguments for the function: \n<ul><li><strong>phetioID:</strong> {String}\n</li><li><strong>metadata:</strong> {Object} - element specific metadata like documentation and type, see PhetioEngineIO.getPhetioElementMetadata().</li><li><strong>state:</strong> {Object} - a snapshot of the initial state of the PhET-iO Element.</li></ul>",
           "parameterTypes": [
-            "FunctionIO.<StringIO, ObjectIO, ObjectIO, ObjectIO>"
+            "FunctionIO.<StringIO, ObjectIO, ObjectIO>"
           ],
           "returnType": "VoidIO"
         },
@@ -1588,31 +1579,6 @@ window.phet.phetio.phetioTypes = assert &&
       "methods": {},
       "supertype": "NodeIO",
       "typeName": "RichTextIO"
-    },
-    "SliderIO": {
-      "documentation": "A traditional slider component, with a knob and possibly tick marks",
-      "events": [],
-      "methodOrder": [],
-      "methods": {
-        "setMajorTicksVisible": {
-          "documentation": "Set whether the major tick marks should be shown",
-          "invocableForReadOnlyElements": false,
-          "parameterTypes": [
-            "BooleanIO"
-          ],
-          "returnType": "VoidIO"
-        },
-        "setMinorTicksVisible": {
-          "documentation": "Set whether the minor tick marks should be shown",
-          "invocableForReadOnlyElements": false,
-          "parameterTypes": [
-            "BooleanIO"
-          ],
-          "returnType": "VoidIO"
-        }
-      },
-      "supertype": "NodeIO",
-      "typeName": "SliderIO"
     },
     "StringIO": {
       "documentation": "Wrapper for the built-in JS string type",
