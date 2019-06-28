@@ -30,10 +30,11 @@ define( require => {
      * @param {Bounds2} layoutBounds
      * @param {ModelViewTransform2} modelViewTransform
      * @param {ISLCAlertManager} alertManager
+     * @param {ForceDescriber} forceDescriber
      * @param {GravityForceLabPositionDescriber} positionDescriber
      * @param {Object} [options]
      */
-    constructor( model, mass, layoutBounds, modelViewTransform, alertManager, positionDescriber, options ) {
+    constructor( model, mass, layoutBounds, modelViewTransform, alertManager, forceDescriber, positionDescriber, options ) {
 
       options = _.extend( {
         arrowFill: ARROW_LABEL_COLOR_STRING,
@@ -50,7 +51,7 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
-      super( model, mass, layoutBounds, modelViewTransform, alertManager, positionDescriber, options );
+      super( model, mass, layoutBounds, modelViewTransform, alertManager, forceDescriber, positionDescriber, options );
 
       this.objectModel.radiusProperty.link( () => {
 

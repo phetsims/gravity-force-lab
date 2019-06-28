@@ -101,6 +101,7 @@ define( function( require ) {
       this.layoutBounds,
       modelViewTransform,
       alertManager,
+      forceDescriber,
       positionDescriber,
       {
         label: mass1AbbreviatedString,
@@ -118,6 +119,7 @@ define( function( require ) {
       this.layoutBounds,
       modelViewTransform,
       alertManager,
+      forceDescriber,
       positionDescriber,
       {
         label: mass2AbbreviatedString,
