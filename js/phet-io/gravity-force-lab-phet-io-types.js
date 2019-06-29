@@ -885,6 +885,14 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "ObjectIO",
       "typeName": "NullableIO.<Vector2IO>"
     },
+    "NumberControlIO": {
+      "documentation": "A numeric readout with a background",
+      "events": [],
+      "methodOrder": [],
+      "methods": {},
+      "supertype": "NodeIO",
+      "typeName": "NumberControlIO"
+    },
     "NumberIO": {
       "documentation": "Wrapper for the built-in JS number type (floating point, but also represents integers)",
       "events": [],
@@ -1579,6 +1587,31 @@ window.phet.phetio.phetioTypes = assert &&
       "methods": {},
       "supertype": "NodeIO",
       "typeName": "RichTextIO"
+    },
+    "SliderIO": {
+      "documentation": "A traditional slider component, with a knob and possibly tick marks",
+      "events": [],
+      "methodOrder": [],
+      "methods": {
+        "setMajorTicksVisible": {
+          "documentation": "Set whether the major tick marks should be shown",
+          "invocableForReadOnlyElements": false,
+          "parameterTypes": [
+            "BooleanIO"
+          ],
+          "returnType": "VoidIO"
+        },
+        "setMinorTicksVisible": {
+          "documentation": "Set whether the minor tick marks should be shown",
+          "invocableForReadOnlyElements": false,
+          "parameterTypes": [
+            "BooleanIO"
+          ],
+          "returnType": "VoidIO"
+        }
+      },
+      "supertype": "NodeIO",
+      "typeName": "SliderIO"
     },
     "StringIO": {
       "documentation": "Wrapper for the built-in JS string type",
