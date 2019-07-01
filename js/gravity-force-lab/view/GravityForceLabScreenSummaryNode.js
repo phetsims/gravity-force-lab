@@ -107,7 +107,7 @@ define( require => {
         interactionHintNode
       ];
 
-      Property.multilink( [ model.forceProperty, model.forceValuesProperty ], () => {
+      Property.multilink( [ model.forceProperty, model.showForceValuesProperty ], () => {
         this.updateForceVectorSummary();
         this.updateRobotEffort();
       } );

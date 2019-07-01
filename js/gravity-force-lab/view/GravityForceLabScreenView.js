@@ -220,7 +220,7 @@ define( function( require ) {
         textSize: TEXT_SIZE,
         tandem: tandem.createTandem( 'constantRadiusCheckbox' )
       } ),
-      new ISLCCheckboxItem( forceValuesString, model.forceValuesProperty, {
+      new ISLCCheckboxItem( forceValuesString, model.showForceValuesProperty, {
         accessibleName: forceValuesString,
         descriptionContent: forceValuesCheckboxHelpTextString,
         textSize: TEXT_SIZE,
@@ -273,7 +273,7 @@ define( function( require ) {
       this.addChild( gridNode );
     }
 
-    model.forceValuesProperty.link( function( showValues ) {
+    model.showForceValuesProperty.link( function( showValues ) {
       checkboxItems[ 2 ].enabled = showValues;
     } );
 

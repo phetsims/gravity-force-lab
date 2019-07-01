@@ -36,7 +36,7 @@ define( require => {
         // {boolean} This should only used for gravity-force-lab
         linkToScientificNotationProperty: true,
 
-        // {function} - listener to link to the forceValuesProperty, default listener for REGULAR
+        // {function} - listener to link to the showForceValuesProperty, default listener for REGULAR
         showForceValuesListener: showValues => {
 
           const displayScientificNotation = model.scientificNotationProperty.get();
@@ -79,7 +79,7 @@ define( require => {
       }
 
       // use an option to support REGULAR and BASICS
-      model.forceValuesProperty.lazyLink( options.showForceValuesListener );
+      model.showForceValuesProperty.lazyLink( options.showForceValuesListener );
 
       // link to alert when the value changes
       model.object1.valueProperty.lazyLink( () => this.alertMassValueChanged( model.object1.enum ) );
