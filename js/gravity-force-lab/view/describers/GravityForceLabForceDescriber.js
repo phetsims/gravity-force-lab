@@ -2,6 +2,8 @@
 
 /**
  * This describer is responsible for all gravity-force-lab specific string forming related to force.
+ *
+ * @author Michael Kauzmann (PhET Interactive Simulations)
  */
 define( require => {
   'use strict';

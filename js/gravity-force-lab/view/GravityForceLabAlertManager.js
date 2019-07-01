@@ -2,6 +2,8 @@
 
 /**
  * This alert manager is responsible for all gravity-force-lab specific aria-live alerts.
+ *
+ * @author Michael Kauzmann (PhET Interactive Simulations)
  */
 define( require => {
   'use strict';
