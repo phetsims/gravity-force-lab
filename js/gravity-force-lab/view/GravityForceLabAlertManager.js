@@ -12,7 +12,6 @@ define( require => {
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
   const GravityForceLabModel = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/model/GravityForceLabModel' );
   const ISLCAlertManager = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCAlertManager' );
-  const ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const utteranceQueue = require( 'SCENERY_PHET/accessibility/utteranceQueue' );
   const ValueChangeUtterance = require( 'SCENERY_PHET/accessibility/ValueChangeUtterance' );
@@ -20,9 +19,6 @@ define( require => {
   // a11y strings
   const constantRadiusThinkDensityPatternString = GravityForceLabA11yStrings.constantRadiusThinkDensityPattern.value;
   const massAndForceClausesPatternString = GravityForceLabA11yStrings.massAndForceClausesPattern.value;
-
-  // constants
-  const { OBJECT_ONE, OBJECT_TWO } = ISLCObjectEnum;
 
   class GravityForceLabAlertManager extends ISLCAlertManager {
 
@@ -86,10 +82,10 @@ define( require => {
       model.forceValuesProperty.lazyLink( options.showForceValuesListener );
 
       // link to alert when the value changes
-      model.object1.valueProperty.lazyLink( () => this.alertMassValueChanged( OBJECT_ONE ) );
-      model.object2.valueProperty.lazyLink( () => this.alertMassValueChanged( OBJECT_TWO ) );
+      model.object1.valueProperty.lazyLink( () => this.alertMassValueChanged( model.object1.enum ) );
+      model.object2.valueProperty.lazyLink( () => this.alertMassValueChanged( model.object2.enum ) );
 
-      // when the value changes position, the position will change after the valueProperty has, so link a listener to
+      // When the value changes position, the position will change after the valueProperty has, so link a listener to
       // alert one the positions are correct, this is important to get the alerts like
       // "mass 1 get's bigger and moves mass 2 right"
       model.object1.valueChangedPositionEmitter.addListener( objectEnum => this.alertMassValueChanged( objectEnum, true ) );
