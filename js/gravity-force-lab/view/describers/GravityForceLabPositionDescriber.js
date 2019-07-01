@@ -47,6 +47,7 @@ define( require => {
     }
 
     /**
+     * These empirically determined values were designed, see https://docs.google.com/document/d/1-37qAgde2XrlXBQae2SgjartM35_EnzDD9pdtd3nXAM/edit#heading=h.nhqxjbby3dgu
      * @param {number} distance
      * @param {number} numberOfRegions - for crosscheck
      * @returns {number}

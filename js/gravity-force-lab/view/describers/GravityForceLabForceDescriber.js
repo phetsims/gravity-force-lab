@@ -72,6 +72,7 @@ define( require => {
     /**
      * Returns the mapped index based on the given force value. Force values in ISLC sims range from piconewtons to
      * newtons, so it's necessary for sim-specific subtypes to specify this logic.
+     * These empirically determined values were designed, see https://docs.google.com/document/d/1-37qAgde2XrlXBQae2SgjartM35_EnzDD9pdtd3nXAM/edit#heading=h.nhqxjbby3dgu
      *
      * @override
      * @param  {number} force

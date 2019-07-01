@@ -321,7 +321,8 @@ define( require => {
   /**
    * Returns the mapped integer corresponding to the appropriate qualitative size/density comparison between masses.
    * There are the same number of size strings as density strings
-   * See https://github.com/phetsims/gravity-force-lab-basics/issues/96#issuecomment-469248664
+   * These empirically determined values were designed, see https://docs.google.com/document/d/1-37qAgde2XrlXBQae2SgjartM35_EnzDD9pdtd3nXAM/edit#heading=h.nhqxjbby3dgu
+   *
    * @param  {number} ratio
    * @returns {number} - an integer
    */
@@ -360,6 +361,7 @@ define( require => {
   };
 
   /**
+   * These empirically determined values were designed, see https://docs.google.com/document/d/1-37qAgde2XrlXBQae2SgjartM35_EnzDD9pdtd3nXAM/edit#heading=h.nhqxjbby3dgu
    * @param {number} mass - given the mass of the object.
    * @param {number} numberOfRegions - for cross checking
    * @returns {number} - integer array index
