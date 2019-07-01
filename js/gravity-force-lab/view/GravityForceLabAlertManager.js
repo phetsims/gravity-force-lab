@@ -1,5 +1,8 @@
 // Copyright 2018-2019, University of Colorado Boulder
 
+/**
+ * This alert manager is responsible for all gravity-force-lab specific aria-live alerts.
+ */
 define( require => {
   'use strict';
 
