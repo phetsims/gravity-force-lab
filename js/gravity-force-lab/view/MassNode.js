@@ -11,11 +11,12 @@ define( require => {
   'use strict';
 
   // modules
-  const Shape = require( 'KITE/Shape' );
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
   const ISLCObjectNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectNode' );
+  const merge = require( 'PHET_CORE/merge' );
   const RadialGradient = require( 'SCENERY/util/RadialGradient' );
+  const Shape = require( 'KITE/Shape' );
   const Tandem = require( 'TANDEM/Tandem' );
 
   // constants
@@ -36,13 +37,15 @@ define( require => {
      */
     constructor( model, mass, layoutBounds, modelViewTransform, alertManager, forceDescriber, positionDescriber, options ) {
 
-      options = _.extend( {
-        arrowFill: ARROW_LABEL_COLOR_STRING,
-        arrowLabelFill: ARROW_LABEL_COLOR_STRING,
+      options = merge( {
+        arrowNodeOptions: {
+          arrowFill: ARROW_LABEL_COLOR_STRING,
+          arrowLabelFill: ARROW_LABEL_COLOR_STRING,
+          maxArrowWidth: 300
+        },
         y: MASS_NODE_Y_POSITION,
         snapToNearest: GravityForceLabConstants.LOCATION_SNAP_VALUE,
         stepSize: GravityForceLabConstants.LOCATION_STEP_SIZE,
-        maxArrowWidth: 300,
 
         // {function} - to support REGULAR and BASICS without duplicating too much code.
         finishWiringListeners: () => this.linkToScientificNotationProperty( model ),
