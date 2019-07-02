@@ -12,7 +12,6 @@ define( function( require ) {
 
   // modules
   var AccessiblePeer = require( 'SCENERY/accessibility/AccessiblePeer' );
-  var BooleanProperty = require( 'AXON/BooleanProperty' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var ControlAreaNode = require( 'SCENERY_PHET/accessibility/nodes/ControlAreaNode' );
   var DefaultDirection = require( 'INVERSE_SQUARE_LAW_COMMON/view/DefaultDirection' );
@@ -213,12 +212,6 @@ define( function( require ) {
       massControlsNode.descriptionContent = constantRadius ? massControlsHelpTextDensityString : massControlsHelpTextString;
     } );
 
-    const scientificNotationCheckboxTandem = tandem.createTandem( 'scientificNotationCheckbox' );
-    const scientificCheckboxEnabledProperty = new BooleanProperty( true, {
-      tandem: scientificNotationCheckboxTandem.createTandem( 'enabledProperty' ),
-      phetioFeatured: true
-    } );
-
     var checkboxItems = [
       {
         label: constantSizeString, property: model.constantRadiusProperty,
@@ -240,12 +233,12 @@ define( function( require ) {
       },
       {
         label: scientificNotationString, property: model.scientificNotationProperty,
-        tandem: scientificNotationCheckboxTandem,
+        tandem: tandem.createTandem( 'scientificNotationCheckbox' ),
         options: {
           accessibleName: scientificNotationString,
           descriptionContent: scientificNotationCheckboxHelpTextString,
           textSize: CHECKBOX_TEXT_SIZE,
-          enabledProperty: scientificCheckboxEnabledProperty
+          enabledProperty: model.showForceValuesProperty // showing force values toggles this checkbox's enabled
         }
       }
     ];
@@ -288,10 +281,6 @@ define( function( require ) {
         { stroke: 'rgba( 250, 100, 100, 0.6 )' } );
       this.addChild( gridNode );
     }
-
-    model.showForceValuesProperty.link( function( showValues ) {
-      scientificCheckboxEnabledProperty.value = showValues;
-    } );
 
     mass1Node.addInputListener( {
       focus: function() {

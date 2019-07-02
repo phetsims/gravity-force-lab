@@ -950,7 +950,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "gravityForceLab.gravityForceLabScreen.model.showForceValuesProperty": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -1203,7 +1203,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "gravityForceLab.gravityForceLabScreen.view.forceValuesCheckbox.property": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -4831,15 +4831,15 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.scientificNotationCheckbox.enabledProperty": {
-      "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
+      "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
-      "phetioReadOnly": false,
+      "phetioReadOnly": true,
       "phetioState": true,
       "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO.<BooleanIO>"
+      "phetioTypeName": "LinkedElementIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.scientificNotationCheckbox.labelNode": {
       "phetioDocumentation": "",
