@@ -12,6 +12,7 @@ define( function( require ) {
 
   // modules
   var AccessiblePeer = require( 'SCENERY/accessibility/AccessiblePeer' );
+  var BooleanProperty = require( 'AXON/BooleanProperty' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var ControlAreaNode = require( 'SCENERY_PHET/accessibility/nodes/ControlAreaNode' );
   var DefaultDirection = require( 'INVERSE_SQUARE_LAW_COMMON/view/DefaultDirection' );
@@ -24,7 +25,6 @@ define( function( require ) {
   var GravityForceLabScreenSummaryNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabScreenSummaryNode' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ISLCA11yStrings = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCA11yStrings' );
-  var ISLCCheckboxItem = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCCheckboxItem' );
   var ISLCCheckboxPanel = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCCheckboxPanel' );
   var ISLCGridNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCGridNode' );
   var ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
@@ -65,6 +65,7 @@ define( function( require ) {
   var SHOW_GRID = ISLCQueryParameters.showGrid;
   var OBJECT_ONE = ISLCObjectEnum.OBJECT_ONE;
   var OBJECT_TWO = ISLCObjectEnum.OBJECT_TWO;
+  var CHECKBOX_TEXT_SIZE = 15;
 
   function GravityForceLabScreenView( model, tandem ) {
     ScreenView.call( this, {
@@ -212,27 +213,41 @@ define( function( require ) {
       massControlsNode.descriptionContent = constantRadius ? massControlsHelpTextDensityString : massControlsHelpTextString;
     } );
 
-    var TEXT_SIZE = 15;
+    const scientificNotationCheckboxTandem = tandem.createTandem( 'scientificNotationCheckbox' );
+    const scientificCheckboxEnabledProperty = new BooleanProperty( true, {
+      tandem: scientificNotationCheckboxTandem.createTandem( 'enabledProperty' ),
+      phetioFeatured: true
+    } );
 
     var checkboxItems = [
-      new ISLCCheckboxItem( constantSizeString, model.constantRadiusProperty, {
-        accessibleName: constantSizeString,
-        descriptionContent: constantSizeCheckboxHelpTextString,
-        textSize: TEXT_SIZE,
-        tandem: tandem.createTandem( 'constantRadiusCheckbox' )
-      } ),
-      new ISLCCheckboxItem( forceValuesString, model.showForceValuesProperty, {
-        accessibleName: forceValuesString,
-        descriptionContent: forceValuesCheckboxHelpTextString,
-        textSize: TEXT_SIZE,
-        tandem: tandem.createTandem( 'forceValuesCheckbox' )
-      } ),
-      new ISLCCheckboxItem( scientificNotationString, model.scientificNotationProperty, {
-        accessibleName: scientificNotationString,
-        descriptionContent: scientificNotationCheckboxHelpTextString,
-        textSize: TEXT_SIZE,
-        tandem: tandem.createTandem( 'scientificNotationCheckbox' )
-      } )
+      {
+        label: constantSizeString, property: model.constantRadiusProperty,
+        tandem: tandem.createTandem( 'constantRadiusCheckbox' ),
+        options: {
+          accessibleName: constantSizeString,
+          descriptionContent: constantSizeCheckboxHelpTextString,
+          textSize: CHECKBOX_TEXT_SIZE
+        }
+      },
+      {
+        label: forceValuesString, property: model.showForceValuesProperty,
+        tandem: tandem.createTandem( 'forceValuesCheckbox' ),
+        options: {
+          accessibleName: forceValuesString,
+          descriptionContent: forceValuesCheckboxHelpTextString,
+          textSize: CHECKBOX_TEXT_SIZE
+        }
+      },
+      {
+        label: scientificNotationString, property: model.scientificNotationProperty,
+        tandem: scientificNotationCheckboxTandem,
+        options: {
+          accessibleName: scientificNotationString,
+          descriptionContent: scientificNotationCheckboxHelpTextString,
+          textSize: CHECKBOX_TEXT_SIZE,
+          enabledProperty: scientificCheckboxEnabledProperty
+        }
+      }
     ];
 
     var parameterControlPanel = new ISLCCheckboxPanel( checkboxItems, {
@@ -275,7 +290,7 @@ define( function( require ) {
     }
 
     model.showForceValuesProperty.link( function( showValues ) {
-      checkboxItems[ 2 ].enabled = showValues;
+      scientificCheckboxEnabledProperty.value = showValues;
     } );
 
     mass1Node.addInputListener( {
