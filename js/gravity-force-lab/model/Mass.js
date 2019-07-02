@@ -16,7 +16,6 @@ define( function( require ) {
   var DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var ISLCConstants = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCConstants' );
   var ISLCObject = require( 'INVERSE_SQUARE_LAW_COMMON/model/ISLCObject' );
 
   // constants
