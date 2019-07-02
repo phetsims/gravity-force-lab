@@ -9,10 +9,10 @@ define( function( require ) {
   'use strict';
 
   // modules
+  const GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
   var GravityForceLabKeyboardHelpContent = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabKeyboardHelpContent' );
   var GravityForceLabModel = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/model/GravityForceLabModel' );
   var GravityForceLabScreenView = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabScreenView' );
-  var Property = require( 'AXON/Property' );
   var Screen = require( 'JOIST/Screen' );
   var Sim = require( 'JOIST/Sim' );
   var SimLauncher = require( 'JOIST/SimLauncher' );
@@ -49,7 +49,10 @@ define( function( require ) {
         function( model ) {
           return new GravityForceLabScreenView( model, gravityForceLabScreenTandem.createTandem( 'view' ) );
         },
-        { backgroundColorProperty: new Property( 'white' ), tandem: gravityForceLabScreenTandem }
+        {
+          backgroundColorProperty: GravityForceLabConstants.BACKGROUND_COLOR_PROPERTY,
+          tandem: gravityForceLabScreenTandem
+        }
       )
     ], simOptions ).start();
   } );

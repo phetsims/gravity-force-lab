@@ -12,6 +12,7 @@ define( require => {
   // modules
   const Color = require( 'SCENERY/util/Color' );
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
+  const Property = require( 'AXON/Property' );
   const Range = require( 'DOT/Range' );
 
   // constants
@@ -22,6 +23,7 @@ define( require => {
   const MASS_RED_COLOR = new Color( '#f00' );
 
   const GravityForceLabConstants = {
+    BACKGROUND_COLOR_PROPERTY: new Property( 'white' ),
     MASS_RED_COLOR: MASS_RED_COLOR,
     MASS_BLUE_COLOR: MASS_BLUE_COLOR,
     MIN_MASS: MIN_MASS,

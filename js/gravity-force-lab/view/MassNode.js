@@ -41,7 +41,8 @@ define( require => {
         arrowNodeOptions: {
           arrowFill: ARROW_LABEL_COLOR_STRING,
           arrowLabelFill: ARROW_LABEL_COLOR_STRING,
-          maxArrowWidth: 300
+          maxArrowWidth: 300,
+          backgroundFill: GravityForceLabConstants.BACKGROUND_COLOR_PROPERTY
         },
         y: MASS_NODE_Y_POSITION,
         snapToNearest: GravityForceLabConstants.LOCATION_SNAP_VALUE,
