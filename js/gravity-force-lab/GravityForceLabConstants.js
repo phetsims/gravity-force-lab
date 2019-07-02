@@ -32,7 +32,6 @@ define( require => {
     LOCATION_SNAP_VALUE: 0.1,
     LOCATION_STEP_SIZE: 0.5,
     MASS_RANGE: new Range( MIN_MASS, MAX_MASS ),
-    CONSTANT_RADIUS: 0.5, // in meters
     MASS_DENSITY: 150 // kg/m^3
   };
 

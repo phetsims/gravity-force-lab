@@ -36,10 +36,6 @@ define( function( require ) {
    */
   function Mass( initialMass, initialPosition, valueRange, density, constantRadiusProperty, baseColor, tandem, options ) {
 
-    options = _.extend( {
-      constantRadius: ISLCConstants.CONSTANT_RADIUS // in meters
-    }, options );
-
     // @private
     this.density = density;
 
