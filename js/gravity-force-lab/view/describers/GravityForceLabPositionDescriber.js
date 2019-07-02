@@ -31,7 +31,7 @@ define( require => {
     constructor( model, object1Label, object2Label, options ) {
 
       options = _.extend( {
-        convertDistanceMetric: distance => Util.toFixedNumber( distance, 1 )
+        formatDisplayDistance: distance => Util.toFixedNumber( distance, 1 )
       }, options );
 
       super( model, object1Label, object2Label, options );
@@ -45,7 +45,7 @@ define( require => {
     getConvertedPosition( object ) {
 
       // offset the position because the position is normally based on the center as 0
-      return this.convertDistanceMetric( object.positionProperty.get() + CENTER_OFFSET );
+      return this.formatDisplayDistance( object.positionProperty.get() + CENTER_OFFSET );
     }
 
     /**
