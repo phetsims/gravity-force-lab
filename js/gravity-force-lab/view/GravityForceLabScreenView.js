@@ -14,6 +14,7 @@ define( function( require ) {
   var AccessiblePeer = require( 'SCENERY/accessibility/AccessiblePeer' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var ControlAreaNode = require( 'SCENERY_PHET/accessibility/nodes/ControlAreaNode' );
+  var DefaultDirection = require( 'INVERSE_SQUARE_LAW_COMMON/view/DefaultDirection' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
   var GravityForceLabAlertManager = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabAlertManager' );
@@ -106,7 +107,7 @@ define( function( require ) {
       {
         label: mass1AbbreviatedString,
         otherObjectLabel: mass2AbbreviatedString,
-        defaultDirection: 'left',
+        defaultDirection: DefaultDirection.LEFT,
         arrowColor: '#66f',
         forceArrowHeight: 85,
         tandem: tandem.createTandem( 'mass1Node' )
@@ -124,7 +125,7 @@ define( function( require ) {
       {
         label: mass2AbbreviatedString,
         otherObjectLabel: mass1AbbreviatedString,
-        defaultDirection: 'right',
+        defaultDirection: DefaultDirection.RIGHT,
         arrowColor: '#f66',
         forceArrowHeight: 135,
         tandem: tandem.createTandem( 'mass2Node' )
