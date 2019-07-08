@@ -45,9 +45,9 @@ define( function( require ) {
   var constantSizeString = require( 'string!INVERSE_SQUARE_LAW_COMMON/constantSize' );
   var forceValuesString = require( 'string!INVERSE_SQUARE_LAW_COMMON/forceValues' );
   var mass1AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass1Abbreviated' );
-  var mass1String = require( 'string!INVERSE_SQUARE_LAW_COMMON/mass1' );
+  var mass1String = require( 'string!GRAVITY_FORCE_LAB/mass1' );
   var mass2AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass2Abbreviated' );
-  var mass2String = require( 'string!INVERSE_SQUARE_LAW_COMMON/mass2' );
+  var mass2String = require( 'string!GRAVITY_FORCE_LAB/mass2' );
   var scientificNotationString = require( 'string!INVERSE_SQUARE_LAW_COMMON/scientificNotation' );
   var unitsMetersString = require( 'string!INVERSE_SQUARE_LAW_COMMON/units.meters' );
 
