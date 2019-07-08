@@ -244,6 +244,9 @@ define( require => {
 
     micronewtons: {
       value: 'micronewtons'
+    },
+    mass: {
+      value: 'mass'
     }
   };
 

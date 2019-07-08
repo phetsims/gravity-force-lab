@@ -17,13 +17,11 @@ define( require => {
   const Property = require( 'AXON/Property' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
 
-  // strings
-  const massString = require( 'string!INVERSE_SQUARE_LAW_COMMON/mass' );
-
   // a11y strings
   const screenSummaryMainDescriptionString = GravityForceLabA11yStrings.screenSummaryMainDescription.value;
   const screenSummarySecondaryDescriptionString = GravityForceLabA11yStrings.screenSummarySecondaryDescription.value;
   const simStateListLabelString = GravityForceLabA11yStrings.simStateListLabel.value;
+  const massString = GravityForceLabA11yStrings.mass.value;
 
   // import from ISLC so that coulombs-law can use it too
   const summaryInteractionHintPatternString = ISLCA11yStrings.summaryInteractionHintPattern.value;
