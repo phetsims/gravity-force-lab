@@ -2,17 +2,8 @@
   "gravity-force-lab.title": {
     "value": "Gravity Force Lab"
   },
-  "mass1": {
-    "value": "Mass 1"
-  },
-  "mass2": {
-    "value": "Mass 2"
-  },
   "units.kg": {
     "value": "kg"
-  },
-  "units.meters": {
-    "value": "meters"
   },
   "mass1Abbreviated": {
     "value": "m1"
