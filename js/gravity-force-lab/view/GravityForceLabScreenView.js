@@ -42,7 +42,7 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
 
   // strings
-  var constantSizeString = require( 'string!INVERSE_SQUARE_LAW_COMMON/constantSize' );
+  var constantSizeString = require( 'string!GRAVITY_FORCE_LAB/constantSize' );
   var forceValuesString = require( 'string!INVERSE_SQUARE_LAW_COMMON/forceValues' );
   var mass1AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass1Abbreviated' );
   var mass1String = require( 'string!GRAVITY_FORCE_LAB/mass1' );

@@ -17,6 +17,9 @@
   "mass2Abbreviated": {
     "value": "m2"
   },
+  "constantSize": {
+    "value": "Constant Size"
+  },
   "moveSpheresHeading": {
     "value": "Move Spheres"
   },
