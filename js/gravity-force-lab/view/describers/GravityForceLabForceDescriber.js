@@ -45,9 +45,7 @@ define( require => {
           return force;
         },
 
-        // TODO: forceValueToString is used in both alerts and descriptive text. These contexts will need to be distinguished
-        // in order to use ForceDescriber.getForceInScientificNotationNoHtml for alerts - screen readers don't properly
-        // read the &times; entity
+        // TODO: forceValueToString is used in both alerts and descriptive text.
         forceValueToString: convertedForce => {
           if ( this.displayInScientificNotion ) {
             return ForceDescriber.getForceInScientificNotation( convertedForce, 2 );
