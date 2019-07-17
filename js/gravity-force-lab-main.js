@@ -23,7 +23,7 @@ define( function( require ) {
 
   // strings
   var gravityForceLabTitleString = require( 'string!GRAVITY_FORCE_LAB/gravity-force-lab.title' );
-  var keyboardHelpContent = new GravityForceLabKeyboardHelpContent( Tandem.rootTandem.createTandem( 'keyboardHelpContent' ) );
+  var keyboardHelpContent = new GravityForceLabKeyboardHelpContent( Tandem.globalTandem.createTandem( 'keyboardHelpContent' ) );
 
   var simOptions = {
     credits: {
