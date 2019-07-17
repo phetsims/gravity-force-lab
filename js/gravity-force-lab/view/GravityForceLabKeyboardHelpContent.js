@@ -78,10 +78,9 @@ define( require => {
   class GravityForceLabKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
 
     /**
-     * @param {Tandem} tandem
      * @param {Object} options
      */
-    constructor( tandem, options ) {
+    constructor( options ) {
 
       options = _.extend( {
 
@@ -134,9 +133,7 @@ define( require => {
       const leftContent = [ moveMassHelpSection ];
       const rightContent = [ adjustMassHelpSection, generalNavigationHelpSection ];
 
-      super( leftContent, rightContent, {
-        tandem: tandem
-      } );
+      super( leftContent, rightContent );
     }
   }
 
