@@ -67,22 +67,22 @@ define( function( require ) {
   var CHECKBOX_TEXT_SIZE = 15;
 
   function GravityForceLabScreenView( model, tandem ) {
-    ScreenView.call( this, {
-      layoutBounds: new Bounds2( 0, 0, 768, 464 ),
-      addScreenSummaryNode: true,
-      tandem: tandem
-    } );
+
     // force text isn't retrieved direclty in the screenview, we simply initialize and access it in various nodes
     const massDescriber = new MassDescriber( model );
     var positionDescriber = new GravityForceLabPositionDescriber( model, mass1AbbreviatedString, mass2AbbreviatedString );
     const forceDescriber = new GravityForceLabForceDescriber( model, mass1AbbreviatedString, mass2AbbreviatedString, positionDescriber );
 
+    ScreenView.call( this, {
+      layoutBounds: new Bounds2( 0, 0, 768, 464 ),
+      screenSummaryContent: new GravityForceLabScreenSummaryNode( model, massDescriber, forceDescriber, positionDescriber ),
+      tandem: tandem
+    } );
+
     var alertManager = new GravityForceLabAlertManager( model, massDescriber, forceDescriber );
-    var summaryNode = new GravityForceLabScreenSummaryNode( model, massDescriber, forceDescriber, positionDescriber );
     var playAreaNode = new PlayAreaNode();
     var controlAreaNode = new ControlAreaNode();
 
-    this.screenSummaryNode.addChild( summaryNode );
     this.addChild( playAreaNode );
     this.addChild( controlAreaNode );
 
@@ -176,7 +176,7 @@ define( function( require ) {
 
 
     // a list of Properties to that, when changed, should trigger an update in descriptions in the MassControl
-    const propertiesToMonitorForDescriptionChanges = [ model.forceProperty, model.constantRadiusProperty ];
+    const propertiesToMonitorForDescriptionChanges = [model.forceProperty, model.constantRadiusProperty];
 
     // mass controls
     var massControl1 = new MassControl(
