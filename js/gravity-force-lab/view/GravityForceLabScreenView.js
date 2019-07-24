@@ -13,7 +13,6 @@ define( function( require ) {
   // modules
   var AccessiblePeer = require( 'SCENERY/accessibility/AccessiblePeer' );
   var Bounds2 = require( 'DOT/Bounds2' );
-  var ControlAreaNode = require( 'SCENERY_PHET/accessibility/nodes/ControlAreaNode' );
   var DefaultDirection = require( 'INVERSE_SQUARE_LAW_COMMON/view/DefaultDirection' );
   var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   var GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
@@ -35,7 +34,6 @@ define( function( require ) {
   var MassPDOMNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassPDOMNode' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var PlayAreaNode = require( 'SCENERY_PHET/accessibility/nodes/PlayAreaNode' );
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var SpherePositionsPDOMNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/SpherePositionsPDOMNode' );
@@ -80,11 +78,6 @@ define( function( require ) {
     } );
 
     var alertManager = new GravityForceLabAlertManager( model, massDescriber, forceDescriber );
-    var playAreaNode = new PlayAreaNode();
-    var controlAreaNode = new ControlAreaNode();
-
-    this.addChild( playAreaNode );
-    this.addChild( controlAreaNode );
 
     // Create the model-view transform.  The primary units used in the model are meters, so significant zoom is used.
     // The multipliers for the 2nd parameter can be used to adjust where the point (0, 0) in the model, which is
@@ -132,18 +125,18 @@ define( function( require ) {
       }
     );
 
-    playAreaNode.addChild( new MassPDOMNode( model, model.object1, massDescriber, forceDescriber, positionDescriber ) );
-    playAreaNode.addChild( new MassPDOMNode( model, model.object2, massDescriber, forceDescriber, positionDescriber ) );
+    this.playAreaNode.addChild( new MassPDOMNode( model, model.object1, massDescriber, forceDescriber, positionDescriber ) );
+    this.playAreaNode.addChild( new MassPDOMNode( model, model.object2, massDescriber, forceDescriber, positionDescriber ) );
 
     const massPositionsNode = new SpherePositionsPDOMNode();
-    playAreaNode.addChild( massPositionsNode );
+    this.playAreaNode.addChild( massPositionsNode );
     massPositionsNode.addChild( mass1Node );
     massPositionsNode.addChild( mass2Node );
 
     // the arrows and their labels should be above both masses (and their markers) but below
     // the ruler and control panels
-    playAreaNode.addChild( mass1Node.arrowNode );
-    playAreaNode.addChild( mass2Node.arrowNode );
+    this.playAreaNode.addChild( mass1Node.arrowNode );
+    this.playAreaNode.addChild( mass2Node.arrowNode );
 
     // @private - added to object for animation stepping
     var gravityForceLabRuler = new ISLCRulerNode(
@@ -157,7 +150,7 @@ define( function( require ) {
         snapToNearest: GravityForceLabConstants.LOCATION_SNAP_VALUE
       }
     );
-    playAreaNode.addChild( gravityForceLabRuler );
+    this.playAreaNode.addChild( gravityForceLabRuler );
 
     var massControlsNode = new Node( {
       labelTagName: 'h3',
@@ -165,7 +158,7 @@ define( function( require ) {
       tagName: 'ul',
       descriptionContent: massControlsHelpTextString
     } );
-    playAreaNode.addChild( massControlsNode );
+    this.playAreaNode.addChild( massControlsNode );
 
     // the list of mass controls is aria-labelledby the its label sibling, see https://github.com/phetsims/gravity-force-lab/issues/132
     massControlsNode.addAriaLabelledbyAssociation( {
@@ -251,7 +244,7 @@ define( function( require ) {
       minWidth: 170,
       align: 'left'
     } );
-    controlAreaNode.addChild( parameterControlPanel );
+    this.controlAreaNode.addChild( parameterControlPanel );
 
     var resetAllButton = new ResetAllButton( {
       listener: function() {
@@ -261,7 +254,7 @@ define( function( require ) {
       scale: 0.81,
       tandem: tandem.createTandem( 'resetAllButton' )
     } );
-    controlAreaNode.addChild( resetAllButton );
+    this.controlAreaNode.addChild( resetAllButton );
 
     // positioning the nodes
     parameterControlPanel.right = this.layoutBounds.width - 15;
