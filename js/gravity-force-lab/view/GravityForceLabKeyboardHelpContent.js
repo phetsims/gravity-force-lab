@@ -85,7 +85,7 @@ define( require => {
       options = _.extend( {
 
         // omit the "change mass in smaller steps" row when true
-        omitChangeMassSmallSteps: false
+        isBasics: false
       }, options );
 
 
@@ -117,7 +117,7 @@ define( require => {
       const adjustMassRows = [ increaseMassRow, decreaseMassRow, changeMassSmallStepsRow, changeMassLargeStepsRow, jumpToMinMassRow, jumpToMaxMassRow ];
 
       // leave out row if option is supplied
-      if ( options.omitChangeMassSmallSteps ) {
+      if ( !options.isBasics ) {
         adjustMassRows.splice( adjustMassRows.indexOf( changeMassSmallStepsRow ), 1 );
       }
 
@@ -130,8 +130,14 @@ define( require => {
         withCheckboxContent: true
       } );
 
-      const leftContent = [ moveMassHelpSection ];
-      const rightContent = [ adjustMassHelpSection, generalNavigationHelpSection ];
+      const grabDragHelpContent = KeyboardHelpSection.getGrabReleaseHelpSection( 'Ruler', 'ruler', {} );
+
+      const leftContent = [ moveMassHelpSection, adjustMassHelpSection ];
+      const rightContent = [ generalNavigationHelpSection ];
+
+      if ( !options.isBasics ) {
+        rightContent.unshift( grabDragHelpContent, new MoveOrJumpGrabbedRulerHelpSection() );
+      }
 
       super( leftContent, rightContent );
     }
@@ -149,6 +155,37 @@ define( require => {
     const iconNode = ICON_CREATOR[ iconID ]();
     return KeyboardHelpSection.labelWithIcon( labelString, iconNode, descriptionString );
   };
+
+  /**
+   * @param {Object} [options]
+   * @constructor
+   */
+  class MoveOrJumpGrabbedRulerHelpSection extends KeyboardHelpSection {
+
+    /**
+     * @param {Object} [options]
+     */
+    constructor( options ) {
+      options = _.extend( {
+
+        // icon options
+        arrowKeysScale: 0.55
+      }, options );
+
+      const moveRulerIcon = KeyboardHelpSection.arrowOrWasdKeysRowIcon();
+      const moveRulerRow = KeyboardHelpSection.labelWithIcon( 'Move Grabbed Ruler', moveRulerIcon,
+        'Move grabbed ruler up, left, down, or right with Arrow keys, or with letter keys W, A, S, or D.' );
+
+      const shiftPlusArrowKeys = KeyboardHelpSection.shiftPlusIcon( KeyboardHelpSection.arrowKeysRowIcon() );
+      const shiftPlusWASDKeys = KeyboardHelpSection.shiftPlusIcon( KeyboardHelpSection.wasdRowIcon() );
+      const row = KeyboardHelpSection.labelWithIconList( moveInSmallerStepsString,
+        [ shiftPlusArrowKeys, shiftPlusWASDKeys ], 'Move in smaller steps with Shift plus Arrow keys, or Shift plus letter keys W, A, S, or D.' );
+
+      // TODO: jump keys
+
+      super( 'Move or Jump Grabbed Ruler', [ moveRulerRow, row ], options );
+    }
+  }
 
   return gravityForceLab.register( 'GravityForceLabKeyboardHelpContent', GravityForceLabKeyboardHelpContent );
 } );
