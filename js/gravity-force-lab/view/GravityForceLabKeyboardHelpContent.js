@@ -178,12 +178,16 @@ define( require => {
 
       const shiftPlusArrowKeys = KeyboardHelpSection.shiftPlusIcon( KeyboardHelpSection.arrowKeysRowIcon() );
       const shiftPlusWASDKeys = KeyboardHelpSection.shiftPlusIcon( KeyboardHelpSection.wasdRowIcon() );
-      const row = KeyboardHelpSection.labelWithIconList( moveInSmallerStepsString,
+      const moveInSmallerStepsRow = KeyboardHelpSection.labelWithIconList( moveInSmallerStepsString,
         [ shiftPlusArrowKeys, shiftPlusWASDKeys ], 'Move in smaller steps with Shift plus Arrow keys, or Shift plus letter keys W, A, S, or D.' );
 
-      // TODO: jump keys
 
-      super( 'Move or Jump Grabbed Ruler', [ moveRulerRow, row ], options );
+      const jumpStartRow = KeyboardHelpSection.createJumpKeyRow( 'S',
+        'Jump start of ruler to center of m1 sphere', 'Jump start of ruler to center of m1 sphere with J plus S.' );
+      const jumpHomeRow = KeyboardHelpSection.createJumpKeyRow( 'H', 'Jump to home position', 'Jump to home position with J plus H.' );
+
+
+      super( 'Move or Jump Grabbed Ruler', [ moveRulerRow, moveInSmallerStepsRow, jumpStartRow, jumpHomeRow ], options );
     }
   }
 
