@@ -8,13 +8,6 @@ window.phet.phetio.phetioTypes = assert &&
       ],
       "methodOrder": [],
       "methods": {
-        "addListener": {
-          "documentation": "Adds a listener which will be called when the emitter emits.",
-          "parameterTypes": [
-            "FunctionIO.<>"
-          ],
-          "returnType": "VoidIO"
-        },
         "execute": {
           "documentation": "Executes the function the Action is wrapping.",
           "invocableForReadOnlyElements": false,
@@ -33,13 +26,6 @@ window.phet.phetio.phetioTypes = assert &&
       ],
       "methodOrder": [],
       "methods": {
-        "addListener": {
-          "documentation": "Adds a listener which will be called when the emitter emits.",
-          "parameterTypes": [
-            "FunctionIO.<BooleanIO>"
-          ],
-          "returnType": "VoidIO"
-        },
         "execute": {
           "documentation": "Executes the function the Action is wrapping.",
           "invocableForReadOnlyElements": false,
@@ -62,13 +48,6 @@ window.phet.phetio.phetioTypes = assert &&
       ],
       "methodOrder": [],
       "methods": {
-        "addListener": {
-          "documentation": "Adds a listener which will be called when the emitter emits.",
-          "parameterTypes": [
-            "FunctionIO.<DOMEventIO>"
-          ],
-          "returnType": "VoidIO"
-        },
         "execute": {
           "documentation": "Executes the function the Action is wrapping.",
           "invocableForReadOnlyElements": false,
@@ -91,13 +70,6 @@ window.phet.phetio.phetioTypes = assert &&
       ],
       "methodOrder": [],
       "methods": {
-        "addListener": {
-          "documentation": "Adds a listener which will be called when the emitter emits.",
-          "parameterTypes": [
-            "FunctionIO.<EventIO, VoidIO, VoidIO>"
-          ],
-          "returnType": "VoidIO"
-        },
         "execute": {
           "documentation": "Executes the function the Action is wrapping.",
           "invocableForReadOnlyElements": false,
@@ -124,13 +96,6 @@ window.phet.phetio.phetioTypes = assert &&
       ],
       "methodOrder": [],
       "methods": {
-        "addListener": {
-          "documentation": "Adds a listener which will be called when the emitter emits.",
-          "parameterTypes": [
-            "FunctionIO.<NullableIO.<EventIO>, VoidIO>"
-          ],
-          "returnType": "VoidIO"
-        },
         "execute": {
           "documentation": "Executes the function the Action is wrapping.",
           "invocableForReadOnlyElements": false,
@@ -155,13 +120,6 @@ window.phet.phetio.phetioTypes = assert &&
       ],
       "methodOrder": [],
       "methods": {
-        "addListener": {
-          "documentation": "Adds a listener which will be called when the emitter emits.",
-          "parameterTypes": [
-            "FunctionIO.<NumberIO, NumberIO>"
-          ],
-          "returnType": "VoidIO"
-        },
         "execute": {
           "documentation": "Executes the function the Action is wrapping.",
           "invocableForReadOnlyElements": false,
@@ -186,13 +144,6 @@ window.phet.phetio.phetioTypes = assert &&
       ],
       "methodOrder": [],
       "methods": {
-        "addListener": {
-          "documentation": "Adds a listener which will be called when the emitter emits.",
-          "parameterTypes": [
-            "FunctionIO.<NumberIO, Vector2IO, DOMEventIO>"
-          ],
-          "returnType": "VoidIO"
-        },
         "execute": {
           "documentation": "Executes the function the Action is wrapping.",
           "invocableForReadOnlyElements": false,
@@ -219,13 +170,6 @@ window.phet.phetio.phetioTypes = assert &&
       ],
       "methodOrder": [],
       "methods": {
-        "addListener": {
-          "documentation": "Adds a listener which will be called when the emitter emits.",
-          "parameterTypes": [
-            "FunctionIO.<NumberIO>"
-          ],
-          "returnType": "VoidIO"
-        },
         "execute": {
           "documentation": "Executes the function the Action is wrapping.",
           "invocableForReadOnlyElements": false,
@@ -248,13 +192,6 @@ window.phet.phetio.phetioTypes = assert &&
       ],
       "methodOrder": [],
       "methods": {
-        "addListener": {
-          "documentation": "Adds a listener which will be called when the emitter emits.",
-          "parameterTypes": [
-            "FunctionIO.<Vector2IO, DOMEventIO>"
-          ],
-          "returnType": "VoidIO"
-        },
         "execute": {
           "documentation": "Executes the function the Action is wrapping.",
           "invocableForReadOnlyElements": false,
@@ -279,13 +216,6 @@ window.phet.phetio.phetioTypes = assert &&
       ],
       "methodOrder": [],
       "methods": {
-        "addListener": {
-          "documentation": "Adds a listener which will be called when the emitter emits.",
-          "parameterTypes": [
-            "FunctionIO.<Vector2IO, VoidIO>"
-          ],
-          "returnType": "VoidIO"
-        },
         "execute": {
           "documentation": "Executes the function the Action is wrapping.",
           "invocableForReadOnlyElements": false,
@@ -500,30 +430,6 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "ObjectIO",
       "typeName": "FunctionIO.<ColorIO>"
     },
-    "FunctionIO.<DOMEventIO>": {
-      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> DOMEventIO<br><strong>Return Type:</strong> VoidIO",
-      "events": [],
-      "methodOrder": [],
-      "methods": {},
-      "parameterTypes": [
-        "DOMEventIO"
-      ],
-      "supertype": "ObjectIO",
-      "typeName": "FunctionIO.<DOMEventIO>"
-    },
-    "FunctionIO.<EventIO, VoidIO, VoidIO>": {
-      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> EventIO, VoidIO, VoidIO<br><strong>Return Type:</strong> VoidIO",
-      "events": [],
-      "methodOrder": [],
-      "methods": {},
-      "parameterTypes": [
-        "EventIO",
-        "VoidIO",
-        "VoidIO"
-      ],
-      "supertype": "ObjectIO",
-      "typeName": "FunctionIO.<EventIO, VoidIO, VoidIO>"
-    },
     "FunctionIO.<NullableIO.<BooleanIO>, NullableIO.<NullableIO.<BooleanIO>>>": {
       "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> NullableIO.<BooleanIO>, NullableIO.<NullableIO.<BooleanIO>><br><strong>Return Type:</strong> VoidIO",
       "events": [],
@@ -546,18 +452,6 @@ window.phet.phetio.phetioTypes = assert &&
       ],
       "supertype": "ObjectIO",
       "typeName": "FunctionIO.<NullableIO.<BooleanIO>>"
-    },
-    "FunctionIO.<NullableIO.<EventIO>, VoidIO>": {
-      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> NullableIO.<EventIO>, VoidIO<br><strong>Return Type:</strong> VoidIO",
-      "events": [],
-      "methodOrder": [],
-      "methods": {},
-      "parameterTypes": [
-        "NullableIO.<EventIO>",
-        "VoidIO"
-      ],
-      "supertype": "ObjectIO",
-      "typeName": "FunctionIO.<NullableIO.<EventIO>, VoidIO>"
     },
     "FunctionIO.<NullableIO.<FocusIO>, NullableIO.<NullableIO.<FocusIO>>>": {
       "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> NullableIO.<FocusIO>, NullableIO.<NullableIO.<FocusIO>><br><strong>Return Type:</strong> VoidIO",
@@ -593,31 +487,6 @@ window.phet.phetio.phetioTypes = assert &&
       ],
       "supertype": "ObjectIO",
       "typeName": "FunctionIO.<NumberIO, NullableIO.<NumberIO>>"
-    },
-    "FunctionIO.<NumberIO, NumberIO>": {
-      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> NumberIO, NumberIO<br><strong>Return Type:</strong> VoidIO",
-      "events": [],
-      "methodOrder": [],
-      "methods": {},
-      "parameterTypes": [
-        "NumberIO",
-        "NumberIO"
-      ],
-      "supertype": "ObjectIO",
-      "typeName": "FunctionIO.<NumberIO, NumberIO>"
-    },
-    "FunctionIO.<NumberIO, Vector2IO, DOMEventIO>": {
-      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> NumberIO, Vector2IO, DOMEventIO<br><strong>Return Type:</strong> VoidIO",
-      "events": [],
-      "methodOrder": [],
-      "methods": {},
-      "parameterTypes": [
-        "NumberIO",
-        "Vector2IO",
-        "DOMEventIO"
-      ],
-      "supertype": "ObjectIO",
-      "typeName": "FunctionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
     "FunctionIO.<NumberIO>": {
       "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> NumberIO<br><strong>Return Type:</strong> VoidIO",
@@ -712,18 +581,6 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "ObjectIO",
       "typeName": "FunctionIO.<StringIO>"
     },
-    "FunctionIO.<Vector2IO, DOMEventIO>": {
-      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> Vector2IO, DOMEventIO<br><strong>Return Type:</strong> VoidIO",
-      "events": [],
-      "methodOrder": [],
-      "methods": {},
-      "parameterTypes": [
-        "Vector2IO",
-        "DOMEventIO"
-      ],
-      "supertype": "ObjectIO",
-      "typeName": "FunctionIO.<Vector2IO, DOMEventIO>"
-    },
     "FunctionIO.<Vector2IO, NullableIO.<Vector2IO>>": {
       "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> Vector2IO, NullableIO.<Vector2IO><br><strong>Return Type:</strong> VoidIO",
       "events": [],
@@ -735,18 +592,6 @@ window.phet.phetio.phetioTypes = assert &&
       ],
       "supertype": "ObjectIO",
       "typeName": "FunctionIO.<Vector2IO, NullableIO.<Vector2IO>>"
-    },
-    "FunctionIO.<Vector2IO, VoidIO>": {
-      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> Vector2IO, VoidIO<br><strong>Return Type:</strong> VoidIO",
-      "events": [],
-      "methodOrder": [],
-      "methods": {},
-      "parameterTypes": [
-        "Vector2IO",
-        "VoidIO"
-      ],
-      "supertype": "ObjectIO",
-      "typeName": "FunctionIO.<Vector2IO, VoidIO>"
     },
     "FunctionIO.<Vector2IO>": {
       "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> Vector2IO<br><strong>Return Type:</strong> VoidIO",
