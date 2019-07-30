@@ -125,18 +125,15 @@ define( function( require ) {
       }
     );
 
-    this.playAreaNode.addChild( new MassPDOMNode( model, model.object1, massDescriber, forceDescriber, positionDescriber ) );
-    this.playAreaNode.addChild( new MassPDOMNode( model, model.object2, massDescriber, forceDescriber, positionDescriber ) );
-
     const massPositionsNode = new SpherePositionsPDOMNode();
-    this.playAreaNode.addChild( massPositionsNode );
+    this.addChild( massPositionsNode );
     massPositionsNode.addChild( mass1Node );
     massPositionsNode.addChild( mass2Node );
 
     // the arrows and their labels should be above both masses (and their markers) but below
     // the ruler and control panels
-    this.playAreaNode.addChild( mass1Node.arrowNode );
-    this.playAreaNode.addChild( mass2Node.arrowNode );
+    this.addChild( mass1Node.arrowNode );
+    this.addChild( mass2Node.arrowNode );
 
     // @private - added to object for animation stepping
     var gravityForceLabRuler = new ISLCRulerNode(
@@ -150,7 +147,7 @@ define( function( require ) {
         snapToNearest: GravityForceLabConstants.LOCATION_SNAP_VALUE
       }
     );
-    this.playAreaNode.addChild( gravityForceLabRuler );
+    this.addChild( gravityForceLabRuler );
 
     var massControlsNode = new Node( {
       labelTagName: 'h3',
@@ -158,7 +155,7 @@ define( function( require ) {
       tagName: 'div',
       descriptionContent: massControlsHelpTextString
     } );
-    this.playAreaNode.addChild( massControlsNode );
+    this.addChild( massControlsNode );
 
     // the list of mass controls is aria-labelledby the its label sibling, see https://github.com/phetsims/gravity-force-lab/issues/132
     massControlsNode.addAriaLabelledbyAssociation( {
@@ -169,7 +166,7 @@ define( function( require ) {
 
 
     // a list of Properties to that, when changed, should trigger an update in descriptions in the MassControl
-    const propertiesToMonitorForDescriptionChanges = [model.forceProperty, model.constantRadiusProperty];
+    const propertiesToMonitorForDescriptionChanges = [ model.forceProperty, model.constantRadiusProperty ];
 
     // mass controls
     var massControl1 = new MassControl(
@@ -244,7 +241,7 @@ define( function( require ) {
       minWidth: 170,
       align: 'left'
     } );
-    this.controlAreaNode.addChild( parameterControlPanel );
+    this.addChild( parameterControlPanel );
 
     var resetAllButton = new ResetAllButton( {
       listener: function() {
@@ -254,7 +251,28 @@ define( function( require ) {
       scale: 0.81,
       tandem: tandem.createTandem( 'resetAllButton' )
     } );
-    this.controlAreaNode.addChild( resetAllButton );
+    this.addChild( resetAllButton );
+
+    // PDOM Order
+    // All Nodes must be added as children (accessibleOrder alone won't word), but these don't need to be in the
+    // main scene graph
+    this.playAreaNode.children = [
+      new MassPDOMNode( model, model.object1, massDescriber, forceDescriber, positionDescriber ),
+      new MassPDOMNode( model, model.object2, massDescriber, forceDescriber, positionDescriber )
+    ];
+
+    this.playAreaNode.accessibleOrder = [
+      null, // space for the MassPDOMNodes above to live
+      massPositionsNode,
+      mass1Node.arrowNode,
+      mass2Node.arrowNode,
+      massControlsNode
+    ];
+    this.controlAreaNode.accessibleOrder = [
+      parameterControlPanel,
+      gravityForceLabRuler,
+      resetAllButton
+    ];
 
     // positioning the nodes
     parameterControlPanel.right = this.layoutBounds.width - 15;
