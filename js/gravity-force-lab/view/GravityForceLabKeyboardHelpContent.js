@@ -34,6 +34,14 @@ define( require => {
   const moveSphereLabelString = require( 'string!GRAVITY_FORCE_LAB/moveSphereLabel' );
   const moveSpheresHeadingString = require( 'string!GRAVITY_FORCE_LAB/moveSpheresHeading' );
 
+  const moveGrabbedRulerString = require( 'string!GRAVITY_FORCE_LAB/moveGrabbedRuler' );
+  const moveGrabbedRulerPDOMString = require( 'string!GRAVITY_FORCE_LAB/moveGrabbedRulerPDOM' );
+  const moveInSmallerStepsPDOMString = require( 'string!GRAVITY_FORCE_LAB/moveInSmallerStepsPDOM' );
+  const jumpStartOfSphereString = require( 'string!GRAVITY_FORCE_LAB/jumpStartOfSphere' );
+  const jumpStartOfSpherePDOMString = require( 'string!GRAVITY_FORCE_LAB/jumpStartOfSpherePDOM' );
+  const jumpHomeString = require( 'string!GRAVITY_FORCE_LAB/jumpHome' );
+  const jumpHomePDOMString = require( 'string!GRAVITY_FORCE_LAB/jumpHomePDOM' );
+
   // a11y strings
   const moveSphereDescriptionString = GravityForceLabA11yStrings.moveSphereDescription.value;
   const moveInSmallerStepsDescriptionString = GravityForceLabA11yStrings.moveInSmallerStepsDescription.value;
@@ -117,7 +125,7 @@ define( require => {
       const adjustMassRows = [ increaseMassRow, decreaseMassRow, changeMassSmallStepsRow, changeMassLargeStepsRow, jumpToMinMassRow, jumpToMaxMassRow ];
 
       // leave out row if option is supplied
-      if ( !options.isBasics ) {
+      if ( options.isBasics ) {
         adjustMassRows.splice( adjustMassRows.indexOf( changeMassSmallStepsRow ), 1 );
       }
 
@@ -173,18 +181,19 @@ define( require => {
       }, options );
 
       const moveRulerIcon = KeyboardHelpSection.arrowOrWasdKeysRowIcon();
-      const moveRulerRow = KeyboardHelpSection.labelWithIcon( 'Move Grabbed Ruler', moveRulerIcon,
-        'Move grabbed ruler up, left, down, or right with Arrow keys, or with letter keys W, A, S, or D.' );
+      const moveRulerRow = KeyboardHelpSection.labelWithIcon( moveGrabbedRulerString, moveRulerIcon,
+        moveGrabbedRulerPDOMString );
 
       const shiftPlusArrowKeys = KeyboardHelpSection.shiftPlusIcon( KeyboardHelpSection.arrowKeysRowIcon() );
       const shiftPlusWASDKeys = KeyboardHelpSection.shiftPlusIcon( KeyboardHelpSection.wasdRowIcon() );
       const moveInSmallerStepsRow = KeyboardHelpSection.labelWithIconList( moveInSmallerStepsString,
-        [ shiftPlusArrowKeys, shiftPlusWASDKeys ], 'Move in smaller steps with Shift plus Arrow keys, or Shift plus letter keys W, A, S, or D.' );
+        [ shiftPlusArrowKeys, shiftPlusWASDKeys ], moveInSmallerStepsPDOMString );
 
 
       const jumpStartRow = KeyboardHelpSection.createJumpKeyRow( 'S',
-        'Jump start of ruler to center of m1 sphere', 'Jump start of ruler to center of m1 sphere with J plus S.' );
-      const jumpHomeRow = KeyboardHelpSection.createJumpKeyRow( 'H', 'Jump to home position', 'Jump to home position with J plus H.' );
+        jumpStartOfSphereString, jumpStartOfSpherePDOMString );
+
+      const jumpHomeRow = KeyboardHelpSection.createJumpKeyRow( 'H', jumpHomeString, jumpHomePDOMString );
 
 
       super( 'Move or Jump Grabbed Ruler', [ moveRulerRow, moveInSmallerStepsRow, jumpStartRow, jumpHomeRow ], options );
