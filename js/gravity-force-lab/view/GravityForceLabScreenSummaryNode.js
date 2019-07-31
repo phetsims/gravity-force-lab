@@ -73,7 +73,6 @@ define( require => {
 
       const simStateNode = new Node( {
         tagName: 'ul',
-        labelTagName: 'p',
         labelContent: options.simStateLabel
       } );
 
