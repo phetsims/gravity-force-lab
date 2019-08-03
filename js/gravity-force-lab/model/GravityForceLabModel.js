@@ -28,17 +28,22 @@ define( function( require ) {
    */
   function GravityForceLabModel( tandem ) {
 
+    // @public
     this.rulerPositionProperty = new Vector2Property( new Vector2( 0, -0.90 ), {
-      tandem: tandem.createTandem( 'rulerPositionProperty' )
-    } ); // @public
+      tandem: tandem.createTandem( 'rulerPositionProperty' ),
+      phetioDocumentation: 'The position of the ruler in model coodinates'
+    } );
 
+    // @public
     this.constantRadiusProperty = new BooleanProperty( false, {
-      tandem: tandem.createTandem( 'constantRadiusProperty' )
-    } ); // @public
+      tandem: tandem.createTandem( 'constantRadiusProperty' ),
+      phetioDocumentation: 'Use this to toggle if the masses have a constantly sized radius, even when the mass changes.'
+    } );
 
     // @public {Boolean} - whether or not the sim is in 'scientific notation mode'
     this.scientificNotationProperty = new BooleanProperty( false, {
-      tandem: tandem.createTandem( 'scientificNotationProperty' )
+      tandem: tandem.createTandem( 'scientificNotationProperty' ),
+      phetioDocumentation: 'Whether or not to display the force using scientific notation'
     } );
 
     // pass initial masses and positions into the model

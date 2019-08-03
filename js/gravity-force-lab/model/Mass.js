@@ -41,16 +41,12 @@ define( function( require ) {
     ISLCObject.call( this, initialMass, initialPosition, valueRange, constantRadiusProperty, tandem, options );
 
     // see ISLCObject, mass color is will change with value of constantRadiusProperty (set within sim)
-    this.baseColorProperty = new DerivedProperty( [this.valueProperty, constantRadiusProperty],
+    this.baseColorProperty = new DerivedProperty( [ this.valueProperty, constantRadiusProperty ],
       function( value, constantRadius ) {
         return constantRadius ?
                baseColor.colorUtilsBrighter( 1 - Math.abs( value ) / valueRange.max ) :
                baseColor.colorUtilsBrighter( baseColorModifier );
-      }, {
-        tandem: tandem.createTandem( 'baseColorProperty' ),
-        phetioType: DerivedPropertyIO( ColorIO )
-      }
-    );
+      } );
   }
 
   gravityForceLab.register( 'Mass', Mass );

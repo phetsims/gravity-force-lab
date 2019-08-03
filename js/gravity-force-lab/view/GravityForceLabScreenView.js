@@ -140,7 +140,7 @@ define( function( require ) {
       model,
       this.layoutBounds.height,
       modelViewTransform,
-      tandem.createTandem( 'gravityForceLabRuler' ),
+      tandem.createTandem( 'ruler' ),
       {
         unitString: unitsMetersString,
         backgroundFill: 'rgb(236, 225, 113)',
@@ -202,10 +202,11 @@ define( function( require ) {
       massControlsNode.descriptionContent = constantRadius ? massControlsHelpTextDensityString : massControlsHelpTextString;
     } );
 
+    const controlPanelTandem = tandem.createTandem( 'parameterControlPanel' );
     var checkboxItems = [
       {
         label: constantSizeString, property: model.constantRadiusProperty,
-        tandem: tandem.createTandem( 'constantRadiusCheckbox' ),
+        tandem: controlPanelTandem.createTandem( 'constantRadiusCheckbox' ),
         options: {
           accessibleName: constantSizeString,
           descriptionContent: constantSizeCheckboxHelpTextString,
@@ -214,7 +215,7 @@ define( function( require ) {
       },
       {
         label: forceValuesString, property: model.showForceValuesProperty,
-        tandem: tandem.createTandem( 'forceValuesCheckbox' ),
+        tandem: controlPanelTandem.createTandem( 'forceValuesCheckbox' ),
         options: {
           accessibleName: forceValuesString,
           descriptionContent: forceValuesCheckboxHelpTextString,
@@ -223,7 +224,7 @@ define( function( require ) {
       },
       {
         label: scientificNotationString, property: model.scientificNotationProperty,
-        tandem: tandem.createTandem( 'scientificNotationCheckbox' ),
+        tandem: controlPanelTandem.createTandem( 'scientificNotationCheckbox' ),
         options: {
           accessibleName: scientificNotationString,
           descriptionContent: scientificNotationCheckboxHelpTextString,
@@ -234,7 +235,7 @@ define( function( require ) {
     ];
 
     var parameterControlPanel = new ISLCCheckboxPanel( checkboxItems, {
-      tandem: tandem.createTandem( 'parameterControlPanel' ),
+      tandem: controlPanelTandem,
       fill: '#FDF498',
       xMargin: 10,
       yMargin: 10,
