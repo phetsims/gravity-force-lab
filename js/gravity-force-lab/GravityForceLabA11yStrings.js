@@ -208,7 +208,7 @@ define( require => {
       value: 'Move sphere left and right with the Left and Right Arrow keys.'
     },
     moveInSmallerStepsDescription: {
-      value: 'Move in smaller steps with shift plus arrow keys.'
+      value: 'Move in smaller steps with Shift plus Left and Right Arrow keys.'
     },
     moveInLargerStepsDescription: {
       value: 'Move in larger steps with Page Up and Page Down keys.'
@@ -219,23 +219,32 @@ define( require => {
     jumpToRightDescription: {
       value: 'Jump to right with End key.'
     },
-    increaseMassDescription: {
-      value: 'Increase mass with Up or Right Arrow key.'
-    },
-    decreaseMassDescription: {
-      value: 'Decrease mass with Down or Left Arrow key.'
+    changeMassPDOM: {
+      value: 'Change mass with Left and Right Arrow keys.'
     },
     changeMassInLargerStepsDescription: {
       value: 'Change mass in larger steps with Page Up and Page Down keys.'
     },
     changeMassInSmallerStepsDescription: {
-      value: 'Change mass in smaller steps with shift plus arrow keys.'
+      value: 'Change mass in smaller steps with Shift plus Arrow keys.'
     },
     jumpToMaximumMassDescription: {
       value: 'Jump to maximum mass with End key.'
     },
     jumpToMinimumMassDescription: {
       value: 'Jump to minimum mass with Home key.'
+    },
+    moveGrabbedRulerPDOM: {
+      value: 'Move grabbed ruler up, left, down, or right with Arrow keys, or with letter keys W, A, S, or D.'
+    },
+    moveInSmallerStepsPDOM: {
+      value: 'Move in smaller steps with Shift plus Arrow keys, or Shift plus letter keys W, A, S, or D.'
+    },
+    jumpStartOfSpherePDOM: {
+      value: 'Jump start of ruler to center of m1 sphere with J plus S.'
+    },
+    jumpHomePDOM: {
+      value: 'Jump to home position with J plus H.'
     },
 
     ///////////

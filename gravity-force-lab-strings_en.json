@@ -41,11 +41,8 @@
   "changeMassHeading": {
     "value": "Change Mass"
   },
-  "increaseMass": {
-    "value": "Increase mass"
-  },
-  "decreaseMass": {
-    "value": "Decrease mass"
+  "changeMassLabel": {
+    "value": "Change Mass"
   },
   "changeMassInLargerSteps": {
     "value": "Change mass in larger steps"
@@ -62,22 +59,13 @@
   "moveGrabbedRuler": {
     "value": "Move grabbed ruler"
   },
-  "moveGrabbedRulerPDOM": {
-    "value": "Move grabbed ruler up, left, down, or right with Arrow keys, or with letter keys W, A, S, or D."
-  },
-  "moveInSmallerStepsPDOM": {
-    "value": "Move in smaller steps with Shift plus Arrow keys, or Shift plus letter keys W, A, S, or D."
+  "moveOrJumpGrabbedRuler": {
+    "value": "Move or Jump Grabbed Ruler"
   },
   "jumpStartOfSphere": {
     "value": "Jump start of ruler to<br>center of m1 sphere"
   },
-  "jumpStartOfSpherePDOM": {
-    "value": "Jump start of ruler to center of m1 sphere with J plus S."
-  },
   "jumpHome": {
     "value": "Jump to home position"
-  },
-  "jumpHomePDOM": {
-    "value": "Jump to home position with J plus H."
   }
 }

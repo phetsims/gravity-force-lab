@@ -5,26 +5,26 @@
  *
  * @author Jesse Greenberg (PhET Interactive Simulations)
  * @author Michael Barlow
+ * @author Michael Kauzmann (PhET Interactive Simulations)
  */
 define( require => {
   'use strict';
 
   // modules
-  const ArrowKeyNode = require( 'SCENERY_PHET/keyboard/ArrowKeyNode' );
   const EndKeyNode = require( 'SCENERY_PHET/keyboard/EndKeyNode' );
   const GeneralKeyboardHelpSection = require( 'SCENERY_PHET/keyboard/help/GeneralKeyboardHelpSection' );
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
-  const KeyboardHelpSection = require( 'SCENERY_PHET/keyboard/help/KeyboardHelpSection' );
   const HomeKeyNode = require( 'SCENERY_PHET/keyboard/HomeKeyNode' );
+  const KeyboardHelpSection = require( 'SCENERY_PHET/keyboard/help/KeyboardHelpSection' );
+  const Node = require( 'SCENERY/nodes/Node' );
   const TwoColumnKeyboardHelpContent = require( 'SCENERY_PHET/keyboard/help/TwoColumnKeyboardHelpContent' );
 
   // strings
   const changeMassHeadingString = require( 'string!GRAVITY_FORCE_LAB/changeMassHeading' );
+  const changeMassLabelString = require( 'string!GRAVITY_FORCE_LAB/changeMassLabel' );
   const changeMassInLargerStepsString = require( 'string!GRAVITY_FORCE_LAB/changeMassInLargerSteps' );
   const changeMassInSmallerStepsString = require( 'string!GRAVITY_FORCE_LAB/changeMassInSmallerSteps' );
-  const decreaseMassString = require( 'string!GRAVITY_FORCE_LAB/decreaseMass' );
-  const increaseMassString = require( 'string!GRAVITY_FORCE_LAB/increaseMass' );
   const jumpToLeftString = require( 'string!GRAVITY_FORCE_LAB/jumpToLeft' );
   const jumpToMaximumMassString = require( 'string!GRAVITY_FORCE_LAB/jumpToMaximumMass' );
   const jumpToMinimumMassString = require( 'string!GRAVITY_FORCE_LAB/jumpToMinimumMass' );
@@ -34,13 +34,12 @@ define( require => {
   const moveSphereLabelString = require( 'string!GRAVITY_FORCE_LAB/moveSphereLabel' );
   const moveSpheresHeadingString = require( 'string!GRAVITY_FORCE_LAB/moveSpheresHeading' );
 
-  const moveGrabbedRulerString = require( 'string!GRAVITY_FORCE_LAB/moveGrabbedRuler' );
-  const moveGrabbedRulerPDOMString = require( 'string!GRAVITY_FORCE_LAB/moveGrabbedRulerPDOM' );
-  const moveInSmallerStepsPDOMString = require( 'string!GRAVITY_FORCE_LAB/moveInSmallerStepsPDOM' );
-  const jumpStartOfSphereString = require( 'string!GRAVITY_FORCE_LAB/jumpStartOfSphere' );
-  const jumpStartOfSpherePDOMString = require( 'string!GRAVITY_FORCE_LAB/jumpStartOfSpherePDOM' );
+  const rulerCapitalizedString = require( 'string!SCENERY_PHET/rulerCapitalized' );
+  const rulerString = require( 'string!SCENERY_PHET/ruler' );
   const jumpHomeString = require( 'string!GRAVITY_FORCE_LAB/jumpHome' );
-  const jumpHomePDOMString = require( 'string!GRAVITY_FORCE_LAB/jumpHomePDOM' );
+  const jumpStartOfSphereString = require( 'string!GRAVITY_FORCE_LAB/jumpStartOfSphere' );
+  const moveOrJumpGrabbedRulerString = require( 'string!GRAVITY_FORCE_LAB/moveOrJumpGrabbedRuler' );
+  const moveGrabbedRulerString = require( 'string!GRAVITY_FORCE_LAB/moveGrabbedRuler' );
 
   // a11y strings
   const moveSphereDescriptionString = GravityForceLabA11yStrings.moveSphereDescription.value;
@@ -48,12 +47,15 @@ define( require => {
   const moveInLargerStepsDescriptionString = GravityForceLabA11yStrings.moveInLargerStepsDescription.value;
   const jumpToLeftDescriptionString = GravityForceLabA11yStrings.jumpToLeftDescription.value;
   const jumpToRightDescriptionString = GravityForceLabA11yStrings.jumpToRightDescription.value;
-  const increaseMassDescriptionString = GravityForceLabA11yStrings.increaseMassDescription.value;
-  const decreaseMassDescriptionString = GravityForceLabA11yStrings.decreaseMassDescription.value;
+  const changeMassPDOMString = GravityForceLabA11yStrings.changeMassPDOM.value;
   const changeMassInLargerStepsDescriptionString = GravityForceLabA11yStrings.changeMassInLargerStepsDescription.value;
   const changeMassInSmallerStepsDescriptionString = GravityForceLabA11yStrings.changeMassInSmallerStepsDescription.value;
   const jumpToMaximumMassDescriptionString = GravityForceLabA11yStrings.jumpToMaximumMassDescription.value;
   const jumpToMinimumMassDescriptionString = GravityForceLabA11yStrings.jumpToMinimumMassDescription.value;
+  const moveGrabbedRulerPDOMString = GravityForceLabA11yStrings.moveGrabbedRulerPDOM.value;
+  const moveInSmallerStepsPDOMString = GravityForceLabA11yStrings.moveInSmallerStepsPDOM.value;
+  const jumpStartOfSpherePDOMString = GravityForceLabA11yStrings.jumpStartOfSpherePDOM.value;
+  const jumpHomePDOMString = GravityForceLabA11yStrings.jumpHomePDOM.value;
 
   class GravityForceLabKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
 
@@ -67,52 +69,46 @@ define( require => {
         isBasics: false
       }, options );
 
-      const homeIcon = new HomeKeyNode();
-      const endIcon = new EndKeyNode();
-      const leftRightIcon = KeyboardHelpSection.leftRightArrowKeysRowIcon();
-      const downOrLeftIcon = KeyboardHelpSection.iconOrIcon( new ArrowKeyNode( 'down' ), new ArrowKeyNode( 'left' ) );
-      const upOrRightIcon = KeyboardHelpSection.iconOrIcon( new ArrowKeyNode( 'up' ), new ArrowKeyNode( 'right' ) );
-      const pageUpPageDownIcon = KeyboardHelpSection.pageUpPageDownRowIcon();
-      const shiftPlusArrowsIcon = KeyboardHelpSection.shiftPlusIcon( KeyboardHelpSection.leftRightArrowKeysRowIcon() );
-      const shiftPlusAllArrowsIcon = KeyboardHelpSection.shiftPlusIcon( KeyboardHelpSection.arrowKeysRowIcon() );
-
       // Mass movement help dialog section
       // move mass section
       const moveMassRow = KeyboardHelpSection.labelWithIcon(
-        moveSphereLabelString, leftRightIcon, moveSphereDescriptionString );
+        moveSphereLabelString, KeyboardHelpSection.leftRightArrowKeysRowIcon(), moveSphereDescriptionString );
 
       const moveSmallStepsRow = KeyboardHelpSection.labelWithIcon(
-        moveInSmallerStepsString, shiftPlusArrowsIcon, moveInSmallerStepsDescriptionString );
+        moveInSmallerStepsString,
+        KeyboardHelpSection.shiftPlusIcon( KeyboardHelpSection.leftRightArrowKeysRowIcon() ),
+        moveInSmallerStepsDescriptionString );
+
       // 'move in larger steps' section
       const moveLargeStepsRow = KeyboardHelpSection.labelWithIcon(
-        moveInLargerStepsString, pageUpPageDownIcon, moveInLargerStepsDescriptionString );
+        moveInLargerStepsString, KeyboardHelpSection.pageUpPageDownRowIcon(), moveInLargerStepsDescriptionString );
 
       // 'jump to left' section
-      const jumpLeftRow = KeyboardHelpSection.labelWithIcon( jumpToLeftString, homeIcon, jumpToLeftDescriptionString );
+      const jumpLeftRow = KeyboardHelpSection.labelWithIcon( jumpToLeftString, new HomeKeyNode(), jumpToLeftDescriptionString );
 
       // 'jump to right' section
-      const jumpRightRow = KeyboardHelpSection.labelWithIcon( jumpToRightString, endIcon, jumpToRightDescriptionString );
+      const jumpRightRow = KeyboardHelpSection.labelWithIcon( jumpToRightString, new EndKeyNode(), jumpToRightDescriptionString );
 
       const moveMassRows = [ moveMassRow, moveSmallStepsRow, moveLargeStepsRow, jumpLeftRow, jumpRightRow ];
       const moveMassHelpSection = new KeyboardHelpSection( moveSpheresHeadingString, moveMassRows );
 
       // Mass adjustment help section
-      const increaseMassRow = KeyboardHelpSection.labelWithIcon(
-        increaseMassString, upOrRightIcon, increaseMassDescriptionString );
-      const decreaseMassRow = KeyboardHelpSection.labelWithIcon(
-        decreaseMassString, downOrLeftIcon, decreaseMassDescriptionString );
+      const changeMassIcon = options.isBasics ? KeyboardHelpSection.upDownArrowKeysRowIcon() : KeyboardHelpSection.leftRightArrowKeysRowIcon();
+
+      // Surrounded in Node for DAG layout constraints. Otherwise changeMassIcon will be positioned overwritten.
+      const shiftPlusChangeMassIcon = KeyboardHelpSection.shiftPlusIcon( new Node( { children: [ changeMassIcon ] } ) );
+      const changeMassRow = KeyboardHelpSection.labelWithIcon( changeMassLabelString, changeMassIcon, changeMassPDOMString );
       const changeMassSmallStepsRow = KeyboardHelpSection.labelWithIcon(
-        changeMassInSmallerStepsString, shiftPlusAllArrowsIcon, changeMassInSmallerStepsDescriptionString );
+        changeMassInSmallerStepsString, shiftPlusChangeMassIcon, changeMassInSmallerStepsDescriptionString );
       const changeMassLargeStepsRow = KeyboardHelpSection.labelWithIcon(
-        changeMassInLargerStepsString, pageUpPageDownIcon, changeMassInLargerStepsDescriptionString );
+        changeMassInLargerStepsString, KeyboardHelpSection.pageUpPageDownRowIcon(), changeMassInLargerStepsDescriptionString );
       const jumpToMinMassRow = KeyboardHelpSection.labelWithIcon(
-        jumpToMinimumMassString, homeIcon, jumpToMinimumMassDescriptionString );
+        jumpToMinimumMassString, new HomeKeyNode(), jumpToMinimumMassDescriptionString );
       const jumpToMaxMassRow = KeyboardHelpSection.labelWithIcon(
-        jumpToMaximumMassString, endIcon, jumpToMaximumMassDescriptionString );
+        jumpToMaximumMassString, new EndKeyNode(), jumpToMaximumMassDescriptionString );
 
       const adjustMassRows = [
-        increaseMassRow,
-        decreaseMassRow,
+        changeMassRow,
         changeMassSmallStepsRow,
         changeMassLargeStepsRow,
         jumpToMinMassRow,
@@ -133,7 +129,7 @@ define( require => {
         withCheckboxContent: true
       } );
 
-      const grabDragHelpContent = KeyboardHelpSection.getGrabReleaseHelpSection( 'Ruler', 'ruler', {} );
+      const grabDragHelpContent = KeyboardHelpSection.getGrabReleaseHelpSection( rulerCapitalizedString, rulerString, {} );
 
       const leftContent = [ moveMassHelpSection, adjustMassHelpSection ];
       const rightContent = [ generalNavigationHelpSection ];
@@ -178,7 +174,7 @@ define( require => {
       const jumpHomeRow = KeyboardHelpSection.createJumpKeyRow( 'H', jumpHomeString, jumpHomePDOMString );
 
 
-      super( 'Move or Jump Grabbed Ruler', [ moveRulerRow, moveInSmallerStepsRow, jumpStartRow, jumpHomeRow ], options );
+      super( moveOrJumpGrabbedRulerString, [ moveRulerRow, moveInSmallerStepsRow, jumpStartRow, jumpHomeRow ], options );
     }
   }
 
