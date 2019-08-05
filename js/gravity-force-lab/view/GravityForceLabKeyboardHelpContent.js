@@ -55,74 +55,69 @@ define( require => {
   const jumpToMaximumMassDescriptionString = GravityForceLabA11yStrings.jumpToMaximumMassDescription.value;
   const jumpToMinimumMassDescriptionString = GravityForceLabA11yStrings.jumpToMinimumMassDescription.value;
 
-  // helper functions that return icons for the dialog
-  const ICON_CREATOR = {
-    home: () => {
-      return new HomeKeyNode();
-    },
-    end: () => {
-      return new EndKeyNode();
-    },
-    leftRight: () => {
-      return KeyboardHelpSection.leftRightArrowKeysRowIcon();
-    },
-    downOrLeft: () => {
-      return KeyboardHelpSection.iconOrIcon( new ArrowKeyNode( 'down' ), new ArrowKeyNode( 'left' ) );
-    },
-    upOrRight: () => {
-      return KeyboardHelpSection.iconOrIcon( new ArrowKeyNode( 'up' ), new ArrowKeyNode( 'right' ) );
-    },
-    pageUpPageDown: () => {
-      return KeyboardHelpSection.pageUpPageDownRowIcon();
-    },
-    shiftPlusArrows: () => {
-      return KeyboardHelpSection.shiftPlusIcon( KeyboardHelpSection.leftRightArrowKeysRowIcon() );
-    },
-    shiftPlusAllArrows: () => {
-      return KeyboardHelpSection.shiftPlusIcon( KeyboardHelpSection.arrowKeysRowIcon() );
-    }
-  };
-
   class GravityForceLabKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
 
     /**
-     * @param {Object} options
+     * @param {Object} [options]
      */
     constructor( options ) {
-
       options = _.extend( {
 
         // omit the "change mass in smaller steps" row when true
         isBasics: false
       }, options );
 
+      const homeIcon = new HomeKeyNode();
+      const endIcon = new EndKeyNode();
+      const leftRightIcon = KeyboardHelpSection.leftRightArrowKeysRowIcon();
+      const downOrLeftIcon = KeyboardHelpSection.iconOrIcon( new ArrowKeyNode( 'down' ), new ArrowKeyNode( 'left' ) );
+      const upOrRightIcon = KeyboardHelpSection.iconOrIcon( new ArrowKeyNode( 'up' ), new ArrowKeyNode( 'right' ) );
+      const pageUpPageDownIcon = KeyboardHelpSection.pageUpPageDownRowIcon();
+      const shiftPlusArrowsIcon = KeyboardHelpSection.shiftPlusIcon( KeyboardHelpSection.leftRightArrowKeysRowIcon() );
+      const shiftPlusAllArrowsIcon = KeyboardHelpSection.shiftPlusIcon( KeyboardHelpSection.arrowKeysRowIcon() );
 
       // Mass movement help dialog section
       // move mass section
-      const moveMassRow = constructRow( moveSphereLabelString, moveSphereDescriptionString, 'leftRight' );
+      const moveMassRow = KeyboardHelpSection.labelWithIcon(
+        moveSphereLabelString, leftRightIcon, moveSphereDescriptionString );
 
-      const moveSmallStepsRow = constructRow( moveInSmallerStepsString, moveInSmallerStepsDescriptionString, 'shiftPlusArrows' );
+      const moveSmallStepsRow = KeyboardHelpSection.labelWithIcon(
+        moveInSmallerStepsString, shiftPlusArrowsIcon, moveInSmallerStepsDescriptionString );
       // 'move in larger steps' section
-      const moveLargeStepsRow = constructRow( moveInLargerStepsString, moveInLargerStepsDescriptionString, 'pageUpPageDown' );
+      const moveLargeStepsRow = KeyboardHelpSection.labelWithIcon(
+        moveInLargerStepsString, pageUpPageDownIcon, moveInLargerStepsDescriptionString );
 
       // 'jump to left' section
-      const jumpLeftRow = constructRow( jumpToLeftString, jumpToLeftDescriptionString, 'home' );
+      const jumpLeftRow = KeyboardHelpSection.labelWithIcon( jumpToLeftString, homeIcon, jumpToLeftDescriptionString );
 
       // 'jump to right' section
-      const jumpRightRow = constructRow( jumpToRightString, jumpToRightDescriptionString, 'end' );
+      const jumpRightRow = KeyboardHelpSection.labelWithIcon( jumpToRightString, endIcon, jumpToRightDescriptionString );
 
       const moveMassRows = [ moveMassRow, moveSmallStepsRow, moveLargeStepsRow, jumpLeftRow, jumpRightRow ];
       const moveMassHelpSection = new KeyboardHelpSection( moveSpheresHeadingString, moveMassRows );
 
       // Mass adjustment help section
-      const increaseMassRow = constructRow( increaseMassString, increaseMassDescriptionString, 'upOrRight' );
-      const decreaseMassRow = constructRow( decreaseMassString, decreaseMassDescriptionString, 'downOrLeft' );
-      const changeMassSmallStepsRow = constructRow( changeMassInSmallerStepsString, changeMassInSmallerStepsDescriptionString, 'shiftPlusAllArrows' );
-      const changeMassLargeStepsRow = constructRow( changeMassInLargerStepsString, changeMassInLargerStepsDescriptionString, 'pageUpPageDown' );
-      const jumpToMinMassRow = constructRow( jumpToMinimumMassString, jumpToMinimumMassDescriptionString, 'home' );
-      const jumpToMaxMassRow = constructRow( jumpToMaximumMassString, jumpToMaximumMassDescriptionString, 'end' );
+      const increaseMassRow = KeyboardHelpSection.labelWithIcon(
+        increaseMassString, upOrRightIcon, increaseMassDescriptionString );
+      const decreaseMassRow = KeyboardHelpSection.labelWithIcon(
+        decreaseMassString, downOrLeftIcon, decreaseMassDescriptionString );
+      const changeMassSmallStepsRow = KeyboardHelpSection.labelWithIcon(
+        changeMassInSmallerStepsString, shiftPlusAllArrowsIcon, changeMassInSmallerStepsDescriptionString );
+      const changeMassLargeStepsRow = KeyboardHelpSection.labelWithIcon(
+        changeMassInLargerStepsString, pageUpPageDownIcon, changeMassInLargerStepsDescriptionString );
+      const jumpToMinMassRow = KeyboardHelpSection.labelWithIcon(
+        jumpToMinimumMassString, homeIcon, jumpToMinimumMassDescriptionString );
+      const jumpToMaxMassRow = KeyboardHelpSection.labelWithIcon(
+        jumpToMaximumMassString, endIcon, jumpToMaximumMassDescriptionString );
 
-      const adjustMassRows = [ increaseMassRow, decreaseMassRow, changeMassSmallStepsRow, changeMassLargeStepsRow, jumpToMinMassRow, jumpToMaxMassRow ];
+      const adjustMassRows = [
+        increaseMassRow,
+        decreaseMassRow,
+        changeMassSmallStepsRow,
+        changeMassLargeStepsRow,
+        jumpToMinMassRow,
+        jumpToMaxMassRow
+      ];
 
       // leave out row if option is supplied
       if ( options.isBasics ) {
@@ -150,19 +145,6 @@ define( require => {
       super( leftContent, rightContent );
     }
   }
-
-  /**
-   * Construct a row for the help dialog, assembling a label with an icon using HelpSection. Usages will look like:
-   * constructRow( 'jump to the end', 'end' );
-   *
-   * @param {string} labelString - the text label for the row (visual)
-   * @param {string} descriptionString - must be one of the keys in ICON_CREATOR
-   * @param {string} iconID - must be one of ICON_CREATOR keys, see that above
-   */
-  const constructRow = ( labelString, descriptionString, iconID ) => {
-    const iconNode = ICON_CREATOR[ iconID ]();
-    return KeyboardHelpSection.labelWithIcon( labelString, iconNode, descriptionString );
-  };
 
   /**
    * @param {Object} [options]
