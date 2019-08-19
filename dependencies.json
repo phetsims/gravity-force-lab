@@ -1,5 +1,5 @@
 {
-  "comment": "# gravity-force-lab 2.1.11 Mon Aug 05 2019 15:57:53 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# gravity-force-lab 2.1.11 Mon Aug 19 2019 14:05:00 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "a707328cc11048787a807714496af23e0bd25be1",
     "branch": "HEAD"
@@ -21,12 +21,12 @@
     "branch": "HEAD"
   },
   "gravity-force-lab": {
-    "sha": "b6efc455be289b47d6322ba88a701371dcad54fb",
+    "sha": "ab1500aa9815ed39d7e7bfd63f8a4f1dbd150d9f",
     "branch": "2.1"
   },
   "joist": {
-    "sha": "3463661cfb3810aa783ec94e2877875c93275653",
-    "branch": "HEAD"
+    "sha": "ac4dfa40ae8214da66e098b04f621908714e6edb",
+    "branch": "gravity-force-lab-2.1"
   },
   "kite": {
     "sha": "6059ebb0210f3aeeb4b6863445ed94245e54fef1",
@@ -53,8 +53,8 @@
     "branch": "HEAD"
   },
   "scenery-phet": {
-    "sha": "b04d8086939d00a810ba53f53e8f68f5671251ae",
-    "branch": "HEAD"
+    "sha": "6c653996c4b258b506335ed99e163b795ce22c8f",
+    "branch": "gravity-force-lab-2.1"
   },
   "sherpa": {
     "sha": "785a536c157f34ab1af195b0d40cff3fff023a2b",
