@@ -85,6 +85,10 @@ define( require => {
       value: 'As {{changeDirectionPhrase}} and moves {{otherObjectLabel}} {{leftOrRight}}'
     },
 
+    sentencePattern: {
+      value: '{{sentence}}.'
+    },
+
     // relative mass sizes
     muchMuchSmallerThan: {
       value: 'much much smaller than'

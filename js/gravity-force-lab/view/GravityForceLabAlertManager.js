@@ -21,6 +21,7 @@ define( require => {
   // a11y strings
   const constantRadiusThinkDensityPatternString = GravityForceLabA11yStrings.constantRadiusThinkDensityPattern.value;
   const massAndForceClausesPatternString = GravityForceLabA11yStrings.massAndForceClausesPattern.value;
+  const sentencePatternString = GravityForceLabA11yStrings.sentencePattern.value;
 
   class GravityForceLabAlertManager extends ISLCAlertManager {
 
@@ -90,8 +91,18 @@ define( require => {
       // When the value changes position, the position will change after the valueProperty has, so link a listener to
       // alert one the positions are correct, this is important to get the alerts like
       // "mass 1 get's bigger and moves mass 2 right"
-      model.object1.valueChangedPositionEmitter.addListener( objectEnum => this.alertMassValueChanged( objectEnum, true ) );
-      model.object2.valueChangedPositionEmitter.addListener( objectEnum => this.alertMassValueChanged( objectEnum, true ) );
+      const secondaryPositionChangedListener = objectEnum => {
+
+        // handle the case where the position changed from the constant radius being toggled
+        if ( model.object1.constantRadiusChangedSinceLastStep || model.object2.constantRadiusChangedSinceLastStep ) {
+          this.alertConstantSizeChangedPosition();
+        }
+        else { // value specific assumption
+          this.alertMassValueChanged( objectEnum, true );
+        }
+      };
+      model.object1.positionChangedFromSecondarySourceEmitter.addListener( secondaryPositionChangedListener );
+      model.object2.positionChangedFromSecondarySourceEmitter.addListener( secondaryPositionChangedListener );
     }
 
     /**
@@ -123,7 +134,17 @@ define( require => {
 
       this.massChangedUtterance.alert = StringUtils.fillIn( massAndForceClausesPatternString, {
         massClause: massClause,
-        forceClause: this.forceDescriber.getVectorChangeClause( forceBiggerOverride )
+        forceClause: this.forceDescriber.getVectorChangeClause( forceBiggerOverride, false )
+      } );
+      utteranceQueue.addToBack( this.massChangedUtterance );
+    }
+
+    /**
+     * @private
+     */
+    alertConstantSizeChangedPosition() {
+      this.massChangedUtterance.alert = StringUtils.fillIn( sentencePatternString, {
+        sentence: this.forceDescriber.getVectorChangeClause( false, true )
       } );
       utteranceQueue.addToBack( this.massChangedUtterance );
     }
