@@ -222,11 +222,14 @@ define( require => {
     changeMassPDOM: {
       value: 'Change mass with Left and Right Arrow keys.'
     },
+    changeMassBasicsPDOM: {
+      value: 'Change mass with Up and Down Arrow keys.'
+    },
     changeMassInLargerStepsDescription: {
       value: 'Change mass in larger steps with Page Up and Page Down keys.'
     },
     changeMassInSmallerStepsDescription: {
-      value: 'Change mass in smaller steps with Shift plus Arrow keys.'
+      value: 'Change mass in smaller steps with Shift plus Left and Right Arrow keys.'
     },
     jumpToMaximumMassDescription: {
       value: 'Jump to maximum mass with End key.'

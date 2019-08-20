@@ -48,6 +48,7 @@ define( require => {
   const jumpToLeftDescriptionString = GravityForceLabA11yStrings.jumpToLeftDescription.value;
   const jumpToRightDescriptionString = GravityForceLabA11yStrings.jumpToRightDescription.value;
   const changeMassPDOMString = GravityForceLabA11yStrings.changeMassPDOM.value;
+  const changeMassBasicsPDOMString = GravityForceLabA11yStrings.changeMassBasicsPDOM.value;
   const changeMassInLargerStepsDescriptionString = GravityForceLabA11yStrings.changeMassInLargerStepsDescription.value;
   const changeMassInSmallerStepsDescriptionString = GravityForceLabA11yStrings.changeMassInSmallerStepsDescription.value;
   const jumpToMaximumMassDescriptionString = GravityForceLabA11yStrings.jumpToMaximumMassDescription.value;
@@ -97,7 +98,8 @@ define( require => {
 
       // Surrounded in Node for DAG layout constraints. Otherwise changeMassIcon will be positioned overwritten.
       const shiftPlusChangeMassIcon = KeyboardHelpSection.shiftPlusIcon( new Node( { children: [ changeMassIcon ] } ) );
-      const changeMassRow = KeyboardHelpSection.labelWithIcon( changeMassLabelString, changeMassIcon, changeMassPDOMString );
+      const changeMassRow = KeyboardHelpSection.labelWithIcon( changeMassLabelString, changeMassIcon,
+        options.isBasics ? changeMassBasicsPDOMString : changeMassPDOMString ); // up/down vs left/right
       const changeMassSmallStepsRow = KeyboardHelpSection.labelWithIcon(
         changeMassInSmallerStepsString, shiftPlusChangeMassIcon, changeMassInSmallerStepsDescriptionString );
       const changeMassLargeStepsRow = KeyboardHelpSection.labelWithIcon(
