@@ -11,16 +11,15 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var BooleanProperty = require( 'AXON/BooleanProperty' );
-  var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
-  var GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var ISLCModel = require( 'INVERSE_SQUARE_LAW_COMMON/model/ISLCModel' );
-  var Mass = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/model/Mass' );
-  var PhysicalConstants = require( 'PHET_CORE/PhysicalConstants' );
-  var Range = require( 'DOT/Range' );
-  var Vector2 = require( 'DOT/Vector2' );
-  var Vector2Property = require( 'DOT/Vector2Property' );
+  const BooleanProperty = require( 'AXON/BooleanProperty' );
+  const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
+  const GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const ISLCModel = require( 'INVERSE_SQUARE_LAW_COMMON/model/ISLCModel' );
+  const Mass = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/model/Mass' );
+  const PhysicalConstants = require( 'PHET_CORE/PhysicalConstants' );
+  const Vector2 = require( 'DOT/Vector2' );
+  const Vector2Property = require( 'DOT/Vector2Property' );
 
   /**
    * @param {Tandem} tandem
@@ -53,22 +52,21 @@ define( function( require ) {
     var position1 = -2; // in meters
     var position2 = 2; // in meters
 
-    var minMassValue = 1; // in kg
-    var maxMassValue = 1000; // in kg
-    var valueRange = new Range( minMassValue, maxMassValue );
-
     var baseColor1 = GravityForceLabConstants.MASS_BLUE_COLOR;
     var baseColor2 = GravityForceLabConstants.MASS_RED_COLOR;
 
     var density = 150; // in kg/m^3
 
-    var mass1 = new Mass( massValue1, position1, valueRange, density, this.constantRadiusProperty, baseColor1, tandem.createTandem( 'mass1' ) );
-    var mass2 = new Mass( massValue2, position2, valueRange, density, this.constantRadiusProperty, baseColor2, tandem.createTandem( 'mass2' ) );
+    var mass1 = new Mass( massValue1, position1, GravityForceLabConstants.MASS_RANGE, density,
+      this.constantRadiusProperty, baseColor1, tandem.createTandem( 'mass1' ) );
+    var mass2 = new Mass( massValue2, position2, GravityForceLabConstants.MASS_RANGE, density,
+      this.constantRadiusProperty, baseColor2, tandem.createTandem( 'mass2' ) );
 
     // leverage ISLCModel, in "mass" mode
-    ISLCModel.call( this, PhysicalConstants.GRAVITATIONAL_CONSTANT, mass1, mass2, GravityForceLabConstants.PULL_LOCATION_RANGE, tandem, {
-      snapObjectsToNearest: 0.1 // in meters
-    } );
+    ISLCModel.call( this, PhysicalConstants.GRAVITATIONAL_CONSTANT, mass1, mass2,
+      GravityForceLabConstants.PULL_LOCATION_RANGE, tandem, {
+        snapObjectsToNearest: 0.1 // in meters
+      } );
   }
 
   gravityForceLab.register( 'GravityForceLabModel', GravityForceLabModel );

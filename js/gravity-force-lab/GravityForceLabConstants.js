@@ -16,7 +16,7 @@ define( require => {
   const Range = require( 'DOT/Range' );
 
   // constants
-  const MIN_MASS = 1; // kg
+  const MIN_MASS = 10; // kg
   const MAX_MASS = 1000; // kg
   const MAX_DISTANCE_FROM_CENTER = 4.8; // meters, empirically determined boundary for masses
   const MASS_BLUE_COLOR = new Color( '#00f' );
@@ -26,8 +26,6 @@ define( require => {
     BACKGROUND_COLOR_PROPERTY: new Property( 'white' ),
     MASS_RED_COLOR: MASS_RED_COLOR,
     MASS_BLUE_COLOR: MASS_BLUE_COLOR,
-    MIN_MASS: MIN_MASS,
-    MAX_MASS: MAX_MASS,
     PULL_LOCATION_RANGE: new Range( -MAX_DISTANCE_FROM_CENTER, MAX_DISTANCE_FROM_CENTER ),
     LOCATION_SNAP_VALUE: 0.1,
     LOCATION_STEP_SIZE: 0.5,

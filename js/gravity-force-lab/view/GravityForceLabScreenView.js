@@ -66,7 +66,7 @@ define( function( require ) {
 
   function GravityForceLabScreenView( model, tandem ) {
 
-    // force text isn't retrieved direclty in the screenview, we simply initialize and access it in various nodes
+    // force text isn't retrieved directly in the screenview, we simply initialize and access it in various Nodes
     const massDescriber = new MassDescriber( model );
     var positionDescriber = new GravityForceLabPositionDescriber( model, mass1AbbreviatedString, mass2AbbreviatedString );
     const forceDescriber = new GravityForceLabForceDescriber( model, mass1AbbreviatedString, mass2AbbreviatedString, positionDescriber );

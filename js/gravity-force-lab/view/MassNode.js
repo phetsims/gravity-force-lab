@@ -22,8 +22,8 @@ define( require => {
   // constants
   const ARROW_LABEL_COLOR_STRING = '#000';
   const MASS_NODE_Y_POSITION = 185;
-  const MIN_ARROW_WIDTH = .5; // this way the force arrow never disappears when set to the minimum force (which isn't 0)
-  const MAX_ARROW_WIDTH = 300;
+  const MIN_ARROW_WIDTH = 1; // this way the force arrow never disappears when set to the minimum force (which isn't 0)
+  const MAX_ARROW_WIDTH = 700;
 
   class MassNode extends ISLCObjectNode {
 
