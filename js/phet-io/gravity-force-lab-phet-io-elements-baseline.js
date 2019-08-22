@@ -889,18 +889,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.model.separationProperty": {
-      "phetioDocumentation": "The distance between the two objects' centers",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "DerivedPropertyIO.<NumberIO>"
-    },
     "gravityForceLab.gravityForceLabScreen.model.forceProperty": {
       "phetioDocumentation": "The force of one object on the other (in Newtons)",
       "phetioDynamicElement": false,
@@ -1032,6 +1020,18 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
+    },
+    "gravityForceLab.gravityForceLabScreen.model.separationProperty": {
+      "phetioDocumentation": "The distance between the two objects' centers",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "DerivedPropertyIO.<NumberIO>"
     },
     "gravityForceLab.gravityForceLabScreen.model.showForceValuesProperty": {
       "phetioDocumentation": "Whether or not the force values should be displayed",
