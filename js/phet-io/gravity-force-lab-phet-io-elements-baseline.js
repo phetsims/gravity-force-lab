@@ -3326,16 +3326,16 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.scientificNotationCheckbox.enabledProperty": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
-      "phetioReadOnly": true,
+      "phetioReadOnly": false,
       "phetioState": true,
       "phetioStudioControl": true,
-      "phetioTypeName": "LinkedElementIO"
+      "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.scientificNotationCheckbox.labelNode": {
       "phetioDocumentation": "",

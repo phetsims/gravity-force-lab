@@ -228,8 +228,7 @@ define( function( require ) {
         options: {
           accessibleName: scientificNotationString,
           descriptionContent: scientificNotationCheckboxHelpTextString,
-          textSize: CHECKBOX_TEXT_SIZE,
-          enabledProperty: model.showForceValuesProperty // showing force values toggles this checkbox's enabled
+          textSize: CHECKBOX_TEXT_SIZE
         }
       }
     ];
