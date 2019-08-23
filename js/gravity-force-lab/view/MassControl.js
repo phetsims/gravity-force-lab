@@ -15,6 +15,7 @@ define( require => {
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const ISLCObjectControlPanel = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectControlPanel' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const Util = require( 'DOT/Util' );
 
   // strings
   const unitsKgString = require( 'string!GRAVITY_FORCE_LAB/units.kg' );
@@ -46,7 +47,6 @@ define( require => {
         yMargin: 10,
 
         numberControlOptions: {
-          delta: 10,
           sliderOptions: {
             thumbSize: THUMB_SIZE,
             trackSize: TRACK_SIZE,
@@ -54,6 +54,7 @@ define( require => {
             minorTickSpacing: 0,
             thumbFill: thumbColor.colorUtilsBrighter( 0.15 ),
             thumbFillHighlighted: thumbColor.colorUtilsBrighter( 0.35 ),
+            constrainValue: v => Util.roundToInterval( v, 10 ),
 
             // a11y
             keyboardStep: 50,
