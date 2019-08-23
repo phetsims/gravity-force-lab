@@ -22,8 +22,9 @@ define( require => {
   // constants
   const ARROW_LABEL_COLOR_STRING = '#000';
   const MASS_NODE_Y_POSITION = 185;
-  const MIN_ARROW_WIDTH = 1; // this way the force arrow never disappears when set to the minimum force (which isn't 0)
+  const MIN_ARROW_WIDTH = .1; // this way the force arrow never disappears when set to the minimum force (which isn't 0)
   const MAX_ARROW_WIDTH = 700;
+  const FORCE_THRESHOLD_PERCENT = 1.6 * Math.pow( 10, -4 ); // the percent of force when we convert between the two arrow mappings
 
   class MassNode extends ISLCObjectNode {
 
@@ -45,7 +46,9 @@ define( require => {
           arrowLabelFill: ARROW_LABEL_COLOR_STRING,
           maxArrowWidth: MAX_ARROW_WIDTH,
           minArrowWidth: MIN_ARROW_WIDTH,
-          backgroundFill: GravityForceLabConstants.BACKGROUND_COLOR_PROPERTY
+          backgroundFill: GravityForceLabConstants.BACKGROUND_COLOR_PROPERTY,
+          forceThresholdPercent: FORCE_THRESHOLD_PERCENT,
+          mapArrowWidthWithTwoFunctions: true
         },
         y: MASS_NODE_Y_POSITION,
         snapToNearest: GravityForceLabConstants.LOCATION_SNAP_VALUE,
