@@ -46,6 +46,7 @@ define( require => {
         yMargin: 10,
 
         numberControlOptions: {
+          delta: 10,
           sliderOptions: {
             thumbSize: THUMB_SIZE,
             trackSize: TRACK_SIZE,
