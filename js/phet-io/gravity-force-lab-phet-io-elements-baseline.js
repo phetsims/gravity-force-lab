@@ -922,7 +922,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioPlayback": false,
       "phetioReadOnly": false,
       "phetioState": true,
-      "phetioStudioControl": true,
+      "phetioStudioControl": false,
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.model.mass1.radiusProperty": {
@@ -970,7 +970,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioPlayback": false,
       "phetioReadOnly": false,
       "phetioState": true,
-      "phetioStudioControl": true,
+      "phetioStudioControl": false,
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.model.mass2.radiusProperty": {
