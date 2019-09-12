@@ -46,8 +46,8 @@ define( function( require ) {
     } );
 
     // pass initial masses and positions into the model
-    var massValue1 = 50; // mass in kg
-    var massValue2 = 200; // mass in kg
+    var massValue1 = 100; // mass in kg
+    var massValue2 = 400; // mass in kg
 
     var position1 = -2; // in meters
     var position2 = 2; // in meters
