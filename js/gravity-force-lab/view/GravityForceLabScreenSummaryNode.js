@@ -76,8 +76,8 @@ define( require => {
         labelContent: options.simStateLabel
       } );
 
-      var mainSummaryDescriptionNode = new Node( { tagName: 'p', innerContent: options.mainDescriptionContent } );
-      var secondSummaryDescriptionNode = new Node( {
+      const mainSummaryDescriptionNode = new Node( { tagName: 'p', innerContent: options.mainDescriptionContent } );
+      const secondSummaryDescriptionNode = new Node( {
         tagName: 'p',
         innerContent: options.secondaryDescriptionContent
       } );

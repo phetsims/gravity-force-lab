@@ -19,13 +19,13 @@ define( require => {
   const Tandem = require( 'TANDEM/Tandem' );
 
   // constants
-  var tandem = Tandem.rootTandem;
+  const tandem = Tandem.rootTandem;
 
   // strings
   const gravityForceLabTitleString = require( 'string!GRAVITY_FORCE_LAB/gravity-force-lab.title' );
-  var keyboardHelpContent = new GravityForceLabKeyboardHelpContent();
+  const keyboardHelpContent = new GravityForceLabKeyboardHelpContent();
 
-  var simOptions = {
+  const simOptions = {
     credits: {
       softwareDevelopment: 'John Blanco, Aadish Gupta, Sam Reid',
       team: 'Wendy Adams, Trish Loeblein, Ariel Paul, Noah Podolefsky, Amy Rouinfar, Carl Wieman',
@@ -38,7 +38,7 @@ define( require => {
 
   SimLauncher.launch( function() {
 
-    var gravityForceLabScreenTandem = tandem.createTandem( 'gravityForceLabScreen' );
+    const gravityForceLabScreenTandem = tandem.createTandem( 'gravityForceLabScreen' );
 
     // create and start the sim
     new Sim( gravityForceLabTitleString, [
