@@ -7,14 +7,14 @@
  * @author Sam Reid (PhET Interactive Simulations)
  * @author Jesse Greenberg (PhET Interactive Simulations)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var DerivedProperty = require( 'AXON/DerivedProperty' );
-  var gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var ISLCObject = require( 'INVERSE_SQUARE_LAW_COMMON/model/ISLCObject' );
+  const DerivedProperty = require( 'AXON/DerivedProperty' );
+  const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const ISLCObject = require( 'INVERSE_SQUARE_LAW_COMMON/model/ISLCObject' );
 
   // constants
   // scale to brighten the base color to achieve rgba(150, 150, 255) but still be red or blue
