@@ -50,25 +50,25 @@ define( require => {
   const unitsMetersString = require( 'string!INVERSE_SQUARE_LAW_COMMON/units.meters' );
 
   // a11y Strings
-  var massControlsLabelString = GravityForceLabA11yStrings.massControlsLabel.value;
-  var massControlsHelpTextString = GravityForceLabA11yStrings.massControlsHelpText.value;
-  var massControlsHelpTextDensityString = GravityForceLabA11yStrings.massControlsHelpTextDensity.value;
-  var constantSizeCheckboxHelpTextString = GravityForceLabA11yStrings.constantSizeCheckboxHelpText.value;
-  var forceValuesCheckboxHelpTextString = GravityForceLabA11yStrings.forceValuesCheckboxHelpText.value;
-  var scientificNotationCheckboxHelpTextString = ISLCA11yStrings.scientificNotationCheckboxHelpText.value;
+  const massControlsLabelString = GravityForceLabA11yStrings.massControlsLabel.value;
+  const massControlsHelpTextString = GravityForceLabA11yStrings.massControlsHelpText.value;
+  const massControlsHelpTextDensityString = GravityForceLabA11yStrings.massControlsHelpTextDensity.value;
+  const constantSizeCheckboxHelpTextString = GravityForceLabA11yStrings.constantSizeCheckboxHelpText.value;
+  const forceValuesCheckboxHelpTextString = GravityForceLabA11yStrings.forceValuesCheckboxHelpText.value;
+  const scientificNotationCheckboxHelpTextString = ISLCA11yStrings.scientificNotationCheckboxHelpText.value;
 
   // constants
-  var CONTROL_SCALE = 0.72;
-  var SHOW_GRID = ISLCQueryParameters.showGrid;
-  var OBJECT_ONE = ISLCObjectEnum.OBJECT_ONE;
-  var OBJECT_TWO = ISLCObjectEnum.OBJECT_TWO;
-  var CHECKBOX_TEXT_SIZE = 15;
+  const CONTROL_SCALE = 0.72;
+  const SHOW_GRID = ISLCQueryParameters.showGrid;
+  const OBJECT_ONE = ISLCObjectEnum.OBJECT_ONE;
+  const OBJECT_TWO = ISLCObjectEnum.OBJECT_TWO;
+  const CHECKBOX_TEXT_SIZE = 15;
 
   function GravityForceLabScreenView( model, tandem ) {
 
     // force text isn't retrieved directly in the screenview, we simply initialize and access it in various Nodes
     const massDescriber = new MassDescriber( model );
-    var positionDescriber = new GravityForceLabPositionDescriber( model, mass1AbbreviatedString, mass2AbbreviatedString );
+    const positionDescriber = new GravityForceLabPositionDescriber( model, mass1AbbreviatedString, mass2AbbreviatedString );
     const forceDescriber = new GravityForceLabForceDescriber( model, mass1AbbreviatedString, mass2AbbreviatedString, positionDescriber );
 
     ScreenView.call( this, {
@@ -77,19 +77,19 @@ define( require => {
       tandem: tandem
     } );
 
-    var alertManager = new GravityForceLabAlertManager( model, massDescriber, forceDescriber );
+    const alertManager = new GravityForceLabAlertManager( model, massDescriber, forceDescriber );
 
     // Create the model-view transform.  The primary units used in the model are meters, so significant zoom is used.
     // The multipliers for the 2nd parameter can be used to adjust where the point (0, 0) in the model, which is
     // between the two masses.
-    var modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
+    const modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
       Vector2.ZERO,
       new Vector2( this.layoutBounds.width / 2, this.layoutBounds.height / 2 ),
       50
     );
 
     // add the mass nodes to the screen
-    var mass1Node = new MassNode(
+    const mass1Node = new MassNode(
       model,
       model.object1,
       this.layoutBounds,
@@ -107,7 +107,7 @@ define( require => {
       }
     );
 
-    var mass2Node = new MassNode(
+    const mass2Node = new MassNode(
       model,
       model.object2,
       this.layoutBounds,
@@ -136,7 +136,7 @@ define( require => {
     this.addChild( mass2Node.arrowNode );
 
     // @private - added to object for animation stepping
-    var gravityForceLabRuler = new ISLCRulerNode(
+    const gravityForceLabRuler = new ISLCRulerNode(
       model,
       this.layoutBounds.height,
       modelViewTransform,
@@ -149,7 +149,7 @@ define( require => {
     );
     this.addChild( gravityForceLabRuler );
 
-    var massControlsNode = new Node( {
+    const massControlsNode = new Node( {
       labelTagName: 'h3',
       labelContent: massControlsLabelString,
       tagName: 'div',
@@ -169,7 +169,7 @@ define( require => {
     const propertiesToMonitorForDescriptionChanges = [ model.forceProperty, model.constantRadiusProperty ];
 
     // mass controls
-    var massControl1 = new MassControl(
+    const massControl1 = new MassControl(
       mass1String,
       model.object1.valueProperty,
       GravityForceLabConstants.MASS_RANGE,
@@ -184,7 +184,7 @@ define( require => {
     massControl1.scale( CONTROL_SCALE );
     massControlsNode.addChild( massControl1 );
 
-    var massControl2 = new MassControl(
+    const massControl2 = new MassControl(
       mass2String,
       model.object2.valueProperty,
       GravityForceLabConstants.MASS_RANGE,
@@ -203,7 +203,7 @@ define( require => {
     } );
 
     const controlPanelTandem = tandem.createTandem( 'parameterControlPanel' );
-    var checkboxItems = [
+    const checkboxItems = [
       {
         label: constantSizeString, property: model.constantRadiusProperty,
         tandem: controlPanelTandem.createTandem( 'constantRadiusCheckbox' ),
@@ -233,7 +233,7 @@ define( require => {
       }
     ];
 
-    var parameterControlPanel = new ISLCCheckboxPanel( checkboxItems, {
+    const parameterControlPanel = new ISLCCheckboxPanel( checkboxItems, {
       tandem: controlPanelTandem,
       fill: '#FDF498',
       xMargin: 10,
@@ -243,7 +243,7 @@ define( require => {
     } );
     this.addChild( parameterControlPanel );
 
-    var resetAllButton = new ResetAllButton( {
+    const resetAllButton = new ResetAllButton( {
       listener: function() {
         model.reset();
         gravityForceLabRuler.reset();
@@ -285,7 +285,7 @@ define( require => {
     resetAllButton.top = parameterControlPanel.bottom + 13.5;
 
     if ( SHOW_GRID ) {
-      var gridNode = new ISLCGridNode(
+      const gridNode = new ISLCGridNode(
         GravityForceLabConstants.LOCATION_SNAP_VALUE,
         this.layoutBounds,
         modelViewTransform,

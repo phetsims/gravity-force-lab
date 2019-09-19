@@ -18,7 +18,7 @@ define( require => {
 
   // constants
   // scale to brighten the base color to achieve rgba(150, 150, 255) but still be red or blue
-  var baseColorModifier = 0.59;
+  const baseColorModifier = 0.59;
 
   /**
    * @param {number} initialMass
@@ -59,8 +59,8 @@ define( require => {
      * @param {number} mass
      */
     calculateRadius: function( mass ) {
-      var sphereVolume = mass / this.density;
-      var sphereRadius = Math.pow( ( 3 * sphereVolume ) / ( 4 * Math.PI ), 1 / 3 );
+      const sphereVolume = mass / this.density;
+      const sphereRadius = Math.pow( ( 3 * sphereVolume ) / ( 4 * Math.PI ), 1 / 3 );
       return sphereRadius;
     }
   } );

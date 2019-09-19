@@ -46,20 +46,20 @@ define( require => {
     } );
 
     // pass initial masses and positions into the model
-    var massValue1 = 100; // mass in kg
-    var massValue2 = 400; // mass in kg
+    const massValue1 = 100; // mass in kg
+    const massValue2 = 400; // mass in kg
 
-    var position1 = -2; // in meters
-    var position2 = 2; // in meters
+    const position1 = -2; // in meters
+    const position2 = 2; // in meters
 
-    var baseColor1 = GravityForceLabConstants.MASS_BLUE_COLOR;
-    var baseColor2 = GravityForceLabConstants.MASS_RED_COLOR;
+    const baseColor1 = GravityForceLabConstants.MASS_BLUE_COLOR;
+    const baseColor2 = GravityForceLabConstants.MASS_RED_COLOR;
 
-    var density = 150; // in kg/m^3
+    const density = 150; // in kg/m^3
 
-    var mass1 = new Mass( massValue1, position1, GravityForceLabConstants.MASS_RANGE, density,
+    const mass1 = new Mass( massValue1, position1, GravityForceLabConstants.MASS_RANGE, density,
       this.constantRadiusProperty, baseColor1, tandem.createTandem( 'mass1' ) );
-    var mass2 = new Mass( massValue2, position2, GravityForceLabConstants.MASS_RANGE, density,
+    const mass2 = new Mass( massValue2, position2, GravityForceLabConstants.MASS_RANGE, density,
       this.constantRadiusProperty, baseColor2, tandem.createTandem( 'mass2' ) );
 
     // leverage ISLCModel, in "mass" mode
