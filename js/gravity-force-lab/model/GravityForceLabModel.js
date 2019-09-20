@@ -28,7 +28,7 @@ define( require => {
   function GravityForceLabModel( tandem ) {
 
     // @public
-    this.rulerPositionProperty = new Vector2Property( new Vector2( 0, -0.90 ), {
+    this.rulerPositionProperty = new Vector2Property( new Vector2( 0, -1 ), {
       tandem: tandem.createTandem( 'rulerPositionProperty' ),
       phetioDocumentation: 'The position of the ruler in model coodinates'
     } );
