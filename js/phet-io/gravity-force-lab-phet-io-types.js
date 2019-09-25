@@ -649,7 +649,7 @@ window.phet.phetio.phetioTypes = assert &&
           "returnType": "VoidIO"
         },
         "setValue": {
-          "documentation": "Sets the value of the property. If the value differs from the previous value, listeners are notified with the new value.",
+          "documentation": "Sets the value of the Property. If the value differs from the previous value, listeners are notified with the new value.",
           "invocableForReadOnlyElements": false,
           "parameterTypes": [
             "NumberIO"
@@ -940,7 +940,7 @@ window.phet.phetio.phetioTypes = assert &&
           "returnType": "VoidIO"
         },
         "setValue": {
-          "documentation": "Sets the value of the property. If the value differs from the previous value, listeners are notified with the new value.",
+          "documentation": "Sets the value of the Property. If the value differs from the previous value, listeners are notified with the new value.",
           "invocableForReadOnlyElements": false,
           "parameterTypes": [
             "BooleanIO"
@@ -984,7 +984,7 @@ window.phet.phetio.phetioTypes = assert &&
           "returnType": "VoidIO"
         },
         "setValue": {
-          "documentation": "Sets the value of the property. If the value differs from the previous value, listeners are notified with the new value.",
+          "documentation": "Sets the value of the Property. If the value differs from the previous value, listeners are notified with the new value.",
           "invocableForReadOnlyElements": false,
           "parameterTypes": [
             "NullableIO<BooleanIO>"
@@ -1028,7 +1028,7 @@ window.phet.phetio.phetioTypes = assert &&
           "returnType": "VoidIO"
         },
         "setValue": {
-          "documentation": "Sets the value of the property. If the value differs from the previous value, listeners are notified with the new value.",
+          "documentation": "Sets the value of the Property. If the value differs from the previous value, listeners are notified with the new value.",
           "invocableForReadOnlyElements": false,
           "parameterTypes": [
             "NullableIO<FocusIO>"
@@ -1072,7 +1072,7 @@ window.phet.phetio.phetioTypes = assert &&
           "returnType": "VoidIO"
         },
         "setValue": {
-          "documentation": "Sets the value of the property. If the value differs from the previous value, listeners are notified with the new value.",
+          "documentation": "Sets the value of the Property. If the value differs from the previous value, listeners are notified with the new value.",
           "invocableForReadOnlyElements": false,
           "parameterTypes": [
             "NumberIO"
@@ -1116,7 +1116,7 @@ window.phet.phetio.phetioTypes = assert &&
           "returnType": "VoidIO"
         },
         "setValue": {
-          "documentation": "Sets the value of the property. If the value differs from the previous value, listeners are notified with the new value.",
+          "documentation": "Sets the value of the Property. If the value differs from the previous value, listeners are notified with the new value.",
           "invocableForReadOnlyElements": false,
           "parameterTypes": [
             "RangeIO"
@@ -1160,7 +1160,7 @@ window.phet.phetio.phetioTypes = assert &&
           "returnType": "VoidIO"
         },
         "setValue": {
-          "documentation": "Sets the value of the property. If the value differs from the previous value, listeners are notified with the new value.",
+          "documentation": "Sets the value of the Property. If the value differs from the previous value, listeners are notified with the new value.",
           "invocableForReadOnlyElements": false,
           "parameterTypes": [
             "StringIO"
@@ -1204,7 +1204,7 @@ window.phet.phetio.phetioTypes = assert &&
           "returnType": "VoidIO"
         },
         "setValue": {
-          "documentation": "Sets the value of the property. If the value differs from the previous value, listeners are notified with the new value.",
+          "documentation": "Sets the value of the Property. If the value differs from the previous value, listeners are notified with the new value.",
           "invocableForReadOnlyElements": false,
           "parameterTypes": [
             "Vector2IO"
