@@ -6,10 +6,10 @@ define( require => {
   // modules
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
-  const GravityForceLabPositionDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/GravityForceLabPositionDescriber' );
   const ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
   const ISLCObjectPDOMNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectPDOMNode' );
   const Node = require( 'SCENERY/nodes/Node' );
+  const Property = require( 'AXON/Property' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
 
   // strings
@@ -17,7 +17,8 @@ define( require => {
   const mass2AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass2Abbreviated' );
 
   // a11y strings
-  const sizeAndPositionPatternString = GravityForceLabA11yStrings.sizeAndPositionPattern.value;
+  const sizePatternString = GravityForceLabA11yStrings.sizePattern.value;
+  const sizeAndDistancePatternString = GravityForceLabA11yStrings.sizeAndDistancePattern.value;
   const redSpherePatternString = GravityForceLabA11yStrings.redSpherePattern.value;
   const blueSpherePatternString = GravityForceLabA11yStrings.blueSpherePattern.value;
 
@@ -35,15 +36,7 @@ define( require => {
 
       options = _.extend( {
         object1Label: mass1AbbreviatedString,
-        object2Label: mass2AbbreviatedString,
-
-        // function to be called in this constructor that will wire up the necessary listeners to update the
-        // mass/position dynamic description for this Mass. This function will be called bound to "this" before calling.
-        wireUpMassAndPositionUpdates: () => {
-          model.forceProperty.link( () => {
-            this.massAndPositionNode.innerContent = this.getSizeAndPositionItemText();
-          } );
-        }
+        object2Label: mass2AbbreviatedString
       }, options );
 
       super( model, thisObject.enum, options );
@@ -65,8 +58,16 @@ define( require => {
 
       this.addChild( this.massAndPositionNode );
 
-      // call the function responsible for updating the mass/position bullet in the PDOM.
-      options.wireUpMassAndPositionUpdates.call( this );
+      // update the mass and position Node content whenever these dependencies change.
+      Property.multilink( [
+        model.forceProperty,
+        model.constantRadiusProperty,
+
+        // We need to link to these in addition to the forceProperty because of a listener order of ops issue found
+        // in https://github.com/phetsims/gravity-force-lab-basics/issues/103
+        model.object1.positionProperty,
+        model.object2.positionProperty
+      ], () => this.updateMassAndPositionElement() );
 
       model.forceProperty.link( () => {
         const forceBetweenContent = forceDescriber.getForceBetweenAndVectorText( this.thisObjectLabel, this.otherObjectLabel );
@@ -92,19 +93,21 @@ define( require => {
     }
 
     /**
-     * @returns {string}
-     * @private
+     * Update the mass and positions sentence in the PDOM Node, can be called on demand by subtypes.
+     * @protected
      */
-    getSizeAndPositionItemText() {
-      assert && assert( Object.getPrototypeOf( this.positionDescriber ) === GravityForceLabPositionDescriber.prototype,
-        'unexpected positionDescriber instance, should be {GravityForceLabPositionDescriber} calling this function' );
-
-      return StringUtils.fillIn( sizeAndPositionPatternString, {
+    updateMassAndPositionElement() {
+      const sizeText = StringUtils.fillIn( sizePatternString, {
         thisObjectLabel: this.massLabel,
-        size: this.massDescriber.getMassSize( this.mass.valueProperty.get() ),
         massValue: this.getMassValue(),
-        position: this.positionDescriber.getConvertedPosition( this.object ),
-        unit: this.positionDescriber.unit
+        units: this.massDescriber.unit
+      } );
+
+      this.massAndPositionNode.innerContent = StringUtils.fillIn( sizeAndDistancePatternString, {
+        size: sizeText,
+        distance: this.positionDescriber.getDistanceClause( this.objectEnum ),
+        relativeSize: this.massDescriber.getRelativeSizeOrDensity( this.objectEnum ),
+        otherObjectLabel: this.massDescriber.getOtherObjectLabelFromEnum( this.objectEnum )
       } );
     }
 

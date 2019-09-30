@@ -45,17 +45,11 @@ define( require => {
       value: '{{position}} meter'
     },
 
-    // for GFL
-    sizeAndPositionPattern: {
-      value: '{{thisObjectLabel}} is {{size}} at {{massValue}} kilograms and at {{position}} {{unit}} mark.'
-    },
-
-    // for GFL:B
-    sizePattern: {
-      value: '{{thisObjectLabel}} is {{massValue}} kilograms'
-    },
     sizeAndDistancePattern: {
       value: '{{size}}, {{relativeSize}} {{otherObjectLabel}}, and also {{distance}}.'
+    },
+    sizePattern: {
+      value: '{{thisObjectLabel}} is {{massValue}} kilograms'
     },
 
 
