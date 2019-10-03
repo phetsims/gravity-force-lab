@@ -1,5 +1,5 @@
 {
-  "comment": "# gravity-force-lab 2.1.14-rc.2 Wed Sep 25 2019 16:31:27 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# gravity-force-lab 2.1.14 Thu Oct 03 2019 12:00:46 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "a707328cc11048787a807714496af23e0bd25be1",
     "branch": "HEAD"
@@ -21,7 +21,7 @@
     "branch": "HEAD"
   },
   "gravity-force-lab": {
-    "sha": "d5f980f2eae581d1fe5e95fe77803b573e5fcdaf",
+    "sha": "892aad478722eea6a5c55d1d79b6ca6b1c52910d",
     "branch": "2.1"
   },
   "joist": {
