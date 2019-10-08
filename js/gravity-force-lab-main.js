@@ -30,6 +30,7 @@ define( require => {
       softwareDevelopment: 'John Blanco, Aadish Gupta, Sam Reid',
       team: 'Wendy Adams, Trish Loeblein, Ariel Paul, Noah Podolefsky, Amy Rouinfar, Carl Wieman',
       qualityAssurance: 'Steele Dalton, Bryce Griebenow, Elise Morgan, Oliver Orejola, Ben Roberts, Bryan Yoelin',
+      graphicArts: 'Mariah Hermsmeyer',
       thanks: 'Thanks to Mobile Learner Labs for working with the PhET development team to convert this simulation to HTML5.'
     },
     keyboardHelpNode: keyboardHelpContent,
