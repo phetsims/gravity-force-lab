@@ -58,6 +58,7 @@ define( require => {
 
             // a11y
             keyboardStep: 50,
+            roundToStepSize: true,
             pageKeyboardStep: 100,
             accessibleName: titleString,
             a11yCreateAriaValueText: () => massDescriber.getMassAndUnit( massEnum )
