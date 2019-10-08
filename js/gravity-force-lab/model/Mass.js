@@ -6,6 +6,7 @@
  * @author Aadish Gupta (PhET Interactive Simulations)
  * @author Sam Reid (PhET Interactive Simulations)
  * @author Jesse Greenberg (PhET Interactive Simulations)
+ * @author Michael Kauzmann (PhET Interactive Simulations)
  */
 define( require => {
   'use strict';
@@ -13,43 +14,43 @@ define( require => {
   // modules
   const DerivedProperty = require( 'AXON/DerivedProperty' );
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const ISLCObject = require( 'INVERSE_SQUARE_LAW_COMMON/model/ISLCObject' );
 
   // constants
   // scale to brighten the base color to achieve rgba(150, 150, 255) but still be red or blue
   const baseColorModifier = 0.59;
 
-  /**
-   * @param {number} initialMass
-   * @param {Vector2} initialPosition
-   * @param {Range} valueRange
-   * @param {number} density
-   * @param {Property.<boolean>} constantRadiusProperty
-   * @param {Color} baseColor
-   * @param {Tandem} tandem
-   * @param {Object} [options]
-   * @constructor
-   */
-  function Mass( initialMass, initialPosition, valueRange, density, constantRadiusProperty, baseColor, tandem, options ) {
+  class Mass extends ISLCObject {
 
-    // @private
-    this.density = density;
+    /**
+     * @param {number} initialMass
+     * @param {Vector2} initialPosition
+     * @param {Range} valueRange
+     * @param {number} density
+     * @param {Property.<boolean>} constantRadiusProperty
+     * @param {Color} baseColor
+     * @param {Tandem} tandem
+     * @param {Object} [options]
+     */
+    constructor( initialMass, initialPosition, valueRange, density, constantRadiusProperty, baseColor, tandem, options ) {
 
-    ISLCObject.call( this, initialMass, initialPosition, valueRange, constantRadiusProperty, tandem, options );
+      super( initialMass, initialPosition, valueRange, constantRadiusProperty,
+        mass => Mass.calculateRadius( mass, density ),
+        tandem, options );
 
-    // see ISLCObject, mass color is will change with value of constantRadiusProperty (set within sim)
-    this.baseColorProperty = new DerivedProperty( [ this.valueProperty, constantRadiusProperty ],
-      function( value, constantRadius ) {
-        return constantRadius ?
-               baseColor.colorUtilsBrighter( 1 - Math.abs( value ) / valueRange.max ) :
-               baseColor.colorUtilsBrighter( baseColorModifier );
-      } );
-  }
+      // @private
+      this.density = density;
 
-  gravityForceLab.register( 'Mass', Mass );
 
-  return inherit( ISLCObject, Mass, {
+      // see ISLCObject, mass color is will change with value of constantRadiusProperty (set within sim)
+      this.baseColorProperty = new DerivedProperty( [ this.valueProperty, constantRadiusProperty ],
+        function( value, constantRadius ) {
+          return constantRadius ?
+                 baseColor.colorUtilsBrighter( 1 - Math.abs( value ) / valueRange.max ) :
+                 baseColor.colorUtilsBrighter( baseColorModifier );
+        } );
+
+    }
 
     /**
      * calculates the radius based on mass of object maintaining constant density
@@ -57,11 +58,12 @@ define( require => {
      * @public
      * @override
      * @param {number} mass
+     * @param {number} density
      */
-    calculateRadius: function( mass ) {
-      const sphereVolume = mass / this.density;
-      const sphereRadius = Math.pow( ( 3 * sphereVolume ) / ( 4 * Math.PI ), 1 / 3 );
-      return sphereRadius;
+    static calculateRadius( mass, density ) {
+      return Math.pow( ( 3 * mass / density ) / ( 4 * Math.PI ), 1 / 3 );
     }
-  } );
+  }
+
+  return gravityForceLab.register( 'Mass', Mass );
 } );
