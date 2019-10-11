@@ -13,6 +13,7 @@ define( require => {
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
   const ISLCA11yStrings = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCA11yStrings' );
+  const merge = require( 'PHET_CORE/merge' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Property = require( 'AXON/Property' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
@@ -37,7 +38,7 @@ define( require => {
      */
     constructor( model, massDescriber, forceDescriber, positionDescriber, options ) {
 
-      options = _.extend( {
+      options = merge( {
 
         // {Property[]} - a way to provide extra Properties to that will update the mass and distance summary sections
         // on change

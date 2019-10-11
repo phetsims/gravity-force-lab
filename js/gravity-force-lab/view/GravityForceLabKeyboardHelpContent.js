@@ -17,14 +17,15 @@ define( require => {
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
   const HomeKeyNode = require( 'SCENERY_PHET/keyboard/HomeKeyNode' );
   const KeyboardHelpSection = require( 'SCENERY_PHET/keyboard/help/KeyboardHelpSection' );
+  const merge = require( 'PHET_CORE/merge' );
   const Node = require( 'SCENERY/nodes/Node' );
   const TwoColumnKeyboardHelpContent = require( 'SCENERY_PHET/keyboard/help/TwoColumnKeyboardHelpContent' );
 
   // strings
   const changeMassHeadingString = require( 'string!GRAVITY_FORCE_LAB/changeMassHeading' );
-  const changeMassLabelString = require( 'string!GRAVITY_FORCE_LAB/changeMassLabel' );
   const changeMassInLargerStepsString = require( 'string!GRAVITY_FORCE_LAB/changeMassInLargerSteps' );
   const changeMassInSmallerStepsString = require( 'string!GRAVITY_FORCE_LAB/changeMassInSmallerSteps' );
+  const changeMassLabelString = require( 'string!GRAVITY_FORCE_LAB/changeMassLabel' );
   const jumpToLeftString = require( 'string!GRAVITY_FORCE_LAB/jumpToLeft' );
   const jumpToMaximumMassString = require( 'string!GRAVITY_FORCE_LAB/jumpToMaximumMass' );
   const jumpToMinimumMassString = require( 'string!GRAVITY_FORCE_LAB/jumpToMinimumMass' );
@@ -34,12 +35,12 @@ define( require => {
   const moveSphereLabelString = require( 'string!GRAVITY_FORCE_LAB/moveSphereLabel' );
   const moveSpheresHeadingString = require( 'string!GRAVITY_FORCE_LAB/moveSpheresHeading' );
 
-  const rulerCapitalizedString = require( 'string!SCENERY_PHET/rulerCapitalized' );
-  const rulerString = require( 'string!SCENERY_PHET/ruler' );
   const jumpHomeString = require( 'string!GRAVITY_FORCE_LAB/jumpHome' );
   const jumpStartOfSphereString = require( 'string!GRAVITY_FORCE_LAB/jumpStartOfSphere' );
-  const moveOrJumpGrabbedRulerString = require( 'string!GRAVITY_FORCE_LAB/moveOrJumpGrabbedRuler' );
   const moveGrabbedRulerString = require( 'string!GRAVITY_FORCE_LAB/moveGrabbedRuler' );
+  const moveOrJumpGrabbedRulerString = require( 'string!GRAVITY_FORCE_LAB/moveOrJumpGrabbedRuler' );
+  const rulerCapitalizedString = require( 'string!SCENERY_PHET/rulerCapitalized' );
+  const rulerString = require( 'string!SCENERY_PHET/ruler' );
 
   // a11y strings
   const moveSphereDescriptionString = GravityForceLabA11yStrings.moveSphereDescription.value;
@@ -64,7 +65,7 @@ define( require => {
      * @param {Object} [options]
      */
     constructor( options ) {
-      options = _.extend( {
+      options = merge( {
 
         // omit the "change mass in smaller steps" row when true
         isBasics: false
@@ -154,7 +155,7 @@ define( require => {
      * @param {Object} [options]
      */
     constructor( options ) {
-      options = _.extend( {
+      options = merge( {
 
         // icon options
         arrowKeysScale: 0.55

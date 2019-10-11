@@ -16,6 +16,7 @@ define( require => {
   const ISLCA11yStrings = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCA11yStrings' );
   const ISLCDescriber = require( 'INVERSE_SQUARE_LAW_COMMON/view/describers/ISLCDescriber' );
   const ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
+  const merge = require( 'PHET_CORE/merge' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Util = require( 'DOT/Util' );
 
@@ -114,7 +115,7 @@ define( require => {
      * @param {Object} [options]
      */
     constructor( model, options ) {
-      options = _.extend( {
+      options = merge( {
         object1Label: mass1AbbreviatedString,
         object2Label: mass2AbbreviatedString,
 

@@ -10,6 +10,7 @@ define( require => {
   // modules
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const ISLCA11yStrings = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCA11yStrings' );
+  const merge = require( 'PHET_CORE/merge' );
   const Node = require( 'SCENERY/nodes/Node' );
 
   // a11y strings
@@ -23,7 +24,7 @@ define( require => {
      */
     constructor( options ) {
 
-      super( _.extend( {
+      super( merge( {
         tagName: 'div',
         labelTagName: 'h3',
         labelContent: spherePositionsString,

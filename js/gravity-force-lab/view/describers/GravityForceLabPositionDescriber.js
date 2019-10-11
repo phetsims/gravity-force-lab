@@ -11,6 +11,7 @@ define( require => {
   // modules
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
+  const merge = require( 'PHET_CORE/merge' );
   const PositionDescriber = require( 'INVERSE_SQUARE_LAW_COMMON/view/describers/PositionDescriber' );
   const Util = require( 'DOT/Util' );
 
@@ -30,7 +31,7 @@ define( require => {
      */
     constructor( model, object1Label, object2Label, options ) {
 
-      options = _.extend( {
+      options = merge( {
         formatDisplayDistance: distance => Util.toFixedNumber( distance, 1 )
       }, options );
 

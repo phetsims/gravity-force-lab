@@ -8,6 +8,7 @@ define( require => {
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
   const ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
   const ISLCObjectPDOMNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectPDOMNode' );
+  const merge = require( 'PHET_CORE/merge' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Property = require( 'AXON/Property' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
@@ -34,7 +35,7 @@ define( require => {
      */
     constructor( model, thisObject, massDescriber, forceDescriber, positionDescriber, options ) {
 
-      options = _.extend( {
+      options = merge( {
         object1Label: mass1AbbreviatedString,
         object2Label: mass2AbbreviatedString
       }, options );

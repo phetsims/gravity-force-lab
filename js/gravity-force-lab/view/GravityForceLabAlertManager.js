@@ -14,6 +14,7 @@ define( require => {
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
   const GravityForceLabModel = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/model/GravityForceLabModel' );
   const ISLCAlertManager = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCAlertManager' );
+  const merge = require( 'PHET_CORE/merge' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const utteranceQueue = require( 'SCENERY_PHET/accessibility/utteranceQueue' );
   const ValueChangeUtterance = require( 'SCENERY_PHET/accessibility/ValueChangeUtterance' );
@@ -34,7 +35,7 @@ define( require => {
     constructor( model, massDescriber, forceDescriber, options ) {
 
       // Basically these options try to support BASICS and REGULAR logic duplication.
-      options = _.extend( {
+      options = merge( {
 
         // {boolean} This should only used for gravity-force-lab
         linkToScientificNotationProperty: true,
