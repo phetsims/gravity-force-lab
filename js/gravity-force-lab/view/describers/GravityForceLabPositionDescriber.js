@@ -58,37 +58,35 @@ define( require => {
      * @override
      */
     getDistanceIndex( distance, numberOfRegions ) {
-      assert && assert( distance > 0, 'Distance between spheres should always be positive.' );
+      assert && assert( distance >=.6, 'Distance between spheres should always be positive.' );
       assert && assert( numberOfRegions === 9, 'If numberOfRegions changes, this function should too.' );
 
-      if ( distance === 9.6 ) {
-        return 0;
-      }
-      if ( distance >= 8.5 ) {
-        return 1;
-      }
-      if ( distance >= 6.9 ) {
-        return 2;
-      }
-      if ( distance >= 5.3 ) {
-        return 3;
-      }
-      if ( distance >= 3.7 ) {
-        return 4;
-      }
-      if ( distance >= 2.2 ) {
-        return 5;
-      }
-      if ( distance >= 1.0 ) {
-        return 6;
-      }
-      if ( distance >= 0.4 ) {
-        return 7;
-      }
-      if ( distance <= 0.3 ) {
+      if ( distance === .6 ) {
         return 8;
       }
-      assert && assert( false, 'Invalid distance value' );
+      if ( distance < 1.6 ) {
+        return 7;
+      }
+      if ( distance < 2.6 ) {
+        return 6;
+      }
+      if ( distance < 3.6 ) {
+        return 5;
+      }
+      if ( distance < 5.6 ) {
+        return 4;
+      }
+      if ( distance < 7.6 ) {
+        return 3;
+      }
+      if ( distance < 8.6 ) {
+        return 2;
+      }
+      if ( distance < 9.6 ) {
+        return 1;
+      }
+      return 0;
+
     }
   }
 

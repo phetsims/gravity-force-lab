@@ -83,28 +83,25 @@ define( require => {
       const convertedForce = convertForceToMicronewtons( force );
       assert && assert( numberOfRegions === 7, 'If numberOfRegions changes, this function should too.' );
 
-      if ( convertedForce < 0.041713 ) {
+      if ( convertedForce < 0.166852 ) {
         return 0;
       }
-      if ( convertedForce < 0.074155 ) {
+      if ( convertedForce < 2.206307 ) {
         return 1;
       }
-      if ( convertedForce < 0.260698 ) {
+      if ( convertedForce < 4.412615 ) {
         return 2;
       }
-      if ( convertedForce < 0.789805 ) {
+      if ( convertedForce < 8.687337 ) {
         return 3;
       }
-      if ( convertedForce < 1.564182 ) {
+      if ( convertedForce < 19.856768 ) {
         return 4;
       }
-      if ( convertedForce < 2.309288 ) {
+      if ( convertedForce < 35.300920 ) {
         return 5;
       }
-      if ( convertedForce >= 2.309288 ) {
-        return 6;
-      }
-      throw new Error( 'Invalid force value' );
+      return 6;
     }
   }
 
