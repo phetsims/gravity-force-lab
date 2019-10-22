@@ -9,15 +9,15 @@ define( require => {
   'use strict';
 
   // modules
-  const ActivationUtterance = require( 'SCENERY_PHET/accessibility/ActivationUtterance' );
+  const ActivationUtterance = require( 'UTTERANCE_QUEUE/ActivationUtterance' );
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
   const GravityForceLabModel = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/model/GravityForceLabModel' );
   const ISLCAlertManager = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCAlertManager' );
   const merge = require( 'PHET_CORE/merge' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  const utteranceQueue = require( 'SCENERY_PHET/accessibility/utteranceQueue' );
-  const ValueChangeUtterance = require( 'SCENERY_PHET/accessibility/ValueChangeUtterance' );
+  const utteranceQueue = require( 'UTTERANCE_QUEUE/utteranceQueue' );
+  const ValueChangeUtterance = require( 'UTTERANCE_QUEUE/ValueChangeUtterance' );
 
   // a11y strings
   const constantRadiusThinkDensityPatternString = GravityForceLabA11yStrings.constantRadiusThinkDensityPattern.value;
