@@ -10,16 +10,9 @@ define( require => {
 
   // modules
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
-  const GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
   const merge = require( 'PHET_CORE/merge' );
   const PositionDescriber = require( 'INVERSE_SQUARE_LAW_COMMON/view/describers/PositionDescriber' );
   const Util = require( 'DOT/Util' );
-
-  // constants
-  // In km. Model coordinates have the center as 0, but some descriptions, like "X meter mark", need to
-  // count starting at the absolute left location. This offset get's us from the center to the edge of Object/puller
-  // space.
-  const CENTER_OFFSET = GravityForceLabConstants.PULL_LOCATION_RANGE.max;
 
   class GravityForceLabPositionDescriber extends PositionDescriber {
 
@@ -39,17 +32,6 @@ define( require => {
     }
 
     /**
-     * get the converted position of the provided ISLCObject offset from the edge of the track, see CENTER_OFFSET.
-     * @param {ISLCObject} object
-     * @returns {number}
-     */
-    getConvertedPosition( object ) {
-
-      // offset the position because the position is normally based on the center as 0
-      return this.formatDisplayDistance( object.positionProperty.get() + CENTER_OFFSET );
-    }
-
-    /**
      * These empirically determined values were designed, see https://docs.google.com/document/d/1-37qAgde2XrlXBQae2SgjartM35_EnzDD9pdtd3nXAM/edit#heading=h.nhqxjbby3dgu
      * @param {number} distance
      * @param {number} numberOfRegions - for crosscheck
@@ -58,10 +40,12 @@ define( require => {
      * @override
      */
     getDistanceIndex( distance, numberOfRegions ) {
-      assert && assert( distance >=.6, 'Distance between spheres should always be positive.' );
+      assert && assert( distance >= 0, 'Distance between spheres should always be positive.' );
       assert && assert( numberOfRegions === 9, 'If numberOfRegions changes, this function should too.' );
 
-      if ( distance === .6 ) {
+      // Though this is technically the min, the model can be set to the wrong value, and the rely on that "snap"
+      // functionality to bring the distance back into the correct range on next model step. So support values less than.
+      if ( distance <= .6 ) {
         return 8;
       }
       if ( distance < 1.6 ) {
@@ -86,7 +70,6 @@ define( require => {
         return 1;
       }
       return 0;
-
     }
   }
 
