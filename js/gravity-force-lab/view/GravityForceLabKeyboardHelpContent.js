@@ -171,11 +171,10 @@ define( require => {
         [ shiftPlusArrowKeys, shiftPlusWASDKeys ], moveInSmallerStepsPDOMString );
 
 
-      const jumpStartRow = KeyboardHelpSection.createJumpKeyRow( 'S',
+      const jumpStartRow = KeyboardHelpSection.createJumpKeyRow( 'C',
         jumpStartOfSphereString, jumpStartOfSpherePDOMString );
 
       const jumpHomeRow = KeyboardHelpSection.createJumpKeyRow( 'H', jumpHomeString, jumpHomePDOMString );
-
 
       super( moveOrJumpGrabbedRulerString, [ moveRulerRow, moveInSmallerStepsRow, jumpStartRow, jumpHomeRow ], options );
     }

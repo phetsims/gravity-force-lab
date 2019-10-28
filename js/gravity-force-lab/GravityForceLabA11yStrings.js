@@ -242,7 +242,7 @@ define( require => {
       value: 'Move in smaller steps with Shift plus Arrow keys, or Shift plus letter keys W, A, S, or D.'
     },
     jumpStartOfSpherePDOM: {
-      value: 'Jump start of ruler to center of m1 sphere with J plus S.'
+      value: 'Jump start of ruler to center of m1 sphere with J plus C.'
     },
     jumpHomePDOM: {
       value: 'Jump to home position with J plus H.'
