@@ -9,8 +9,9 @@ define( require => {
   'use strict';
 
   // modules
-  const SoundClip = require( 'TAMBO/sound-generators/SoundClip' );
+  const merge = require( 'PHET_CORE/merge' );
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
+  const SoundClip = require( 'TAMBO/sound-generators/SoundClip' );
 
   // sounds
   const massSound = require( 'sound!GRAVITY_FORCE_LAB/rubber-band-v3.mp3' );
@@ -29,10 +30,20 @@ define( require => {
      */
     constructor( massProperty, massRange, resetInProgressProperty, options ) {
 
+      options = merge( {
+
+        // {number} - the minimum amount of time, in seconds, between plays of the sound clip
+        lockoutTime: 0
+
+      }, options );
+
       // Rate changes should never affect the mass sound that is already playing.
       options.rateChangesAffectPlayingSounds = false;
 
       super( massSound, options );
+
+      // variable to track when last play occurred
+      let timeOfLastPlay = Number.NEGATIVE_INFINITY;
 
       // function for playing the mass sound
       const massListener = mass => {
@@ -40,7 +51,7 @@ define( require => {
         // range checking
         assert && assert( massRange.contains( mass ), 'mass value out of range' );
 
-        if ( !resetInProgressProperty.value ) {
+        if ( !resetInProgressProperty.value && ( Date.now() - timeOfLastPlay ) / 1000 >= options.lockoutTime ) {
 
           // convert the mass to a playback rate, see the design document for an explanation
           const normalizedMass = ( mass - massRange.min ) / ( massRange.max - massRange.min );
@@ -49,6 +60,7 @@ define( require => {
           const playbackSpeed = Math.pow( 2, midiNote / 12 );
           this.setPlaybackRate( playbackSpeed );
           this.play();
+          timeOfLastPlay = Date.now();
         }
       };
       massProperty.lazyLink( massListener );

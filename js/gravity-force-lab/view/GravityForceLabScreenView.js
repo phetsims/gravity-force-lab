@@ -251,13 +251,13 @@ define( require => {
       model.object1.valueProperty,
       GravityForceLabConstants.MASS_RANGE,
       model.resetInProgressProperty,
-      { initialOutputLevel: 0.7 }
+      { initialOutputLevel: 0.7, lockoutTime: 0.2 }
     ) );
     soundManager.addSoundGenerator( new MassSoundGenerator(
       model.object2.valueProperty,
       GravityForceLabConstants.MASS_RANGE,
       model.resetInProgressProperty,
-      { initialOutputLevel: 0.7 }
+      { initialOutputLevel: 0.7, lockoutTime: 0.2 }
     ) );
 
     const resetAllButton = new ResetAllButton( {
