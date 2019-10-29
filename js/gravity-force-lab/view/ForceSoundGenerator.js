@@ -37,10 +37,13 @@ define( require => {
       options = merge( {
         initialOutputLevel: 0.7,
 
-        // {number} number of octaves that the playback rate will span, larger numbers increase pitch range
+        // {number} - number of octaves that the playback rate will span, larger numbers increase pitch range
         playbackRateSpanOctaves: 2,
 
-        // {number} center offset of playback rate, larger numbers mean higher pitch range
+        // {number} - Center offset of playback rate, positive numbers move the pitch range up, negative numbers move it
+        // down, and a value of zero indicates no offset, so the pitch range will center around the inherent pitch of
+        // the source loop.  This offset is added to the calculated playback rate, so a value of 1 would move the range
+        // up an octave, -1 would move it down an octave, 0.5 would move it up a perfect fifth, etc.
         playbackRateCenterOffset: 0
       }, options );
 
