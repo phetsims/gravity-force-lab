@@ -17,8 +17,6 @@ define( require => {
   const FADE_START_DELAY = 0.2; // in seconds, time to wait before starting fade
   const FADE_TIME = 0.15; // in seconds, duration of fade out
   const DELAY_BEFORE_STOP = 0.1; // in seconds, amount of time from full fade to stop of sound, done to avoid glitches
-  const PITCH_RANGE_IN_SEMI_TONES = 36;
-  const PITCH_CENTER_OFFSET = 2;
 
   // sounds
 
@@ -39,10 +37,11 @@ define( require => {
       options = merge( {
         initialOutputLevel: 0.7,
 
-        // {number} min and max playback rate, default to ~3 octaves
-        // TODO make this a range
-        minPlaybackRate: 1 / 3,
-        maxPlaybackRate: 3
+        // {number} number of octaves that the playback rate will span, larger numbers increase pitch range
+        playbackRateSpanOctaves: 2,
+
+        // {number} center offset of playback rate, larger numbers mean higher pitch range
+        playbackRateCenterOffset: 0
       }, options );
 
       // these options must be set in order for the sound generation to work properly
@@ -70,18 +69,8 @@ define( require => {
 
           // calculate the playback rate based on the amount of force, see the design document for detailed explanation
           const normalizedForce = Math.log( force / forceRange.min ) / Math.log( forceRange.max / forceRange.min );
-          const centerForce = normalizedForce - 0.5;
-          const midiNote = PITCH_RANGE_IN_SEMI_TONES / 2 * centerForce + PITCH_CENTER_OFFSET;
-          const playbackRate = Math.pow( 2, midiNote / 12 );
-          console.log( '----------------' );
-          console.log( 'playbackRate = ' + playbackRate );
-
-          const normalizedForce2 = ( force - forceRange.min ) / forceRange.getLength();
-          console.log( 'normalizedForce2 = ' + normalizedForce2 );
-          const playbackRateAlt = options.minPlaybackRate + normalizedForce * ( options.maxPlaybackRate - options.minPlaybackRate );
-          console.log( 'playbackRateAlt = ' + playbackRateAlt );
-          const playbackRateAltAlt = options.minPlaybackRate + normalizedForce2 * ( options.maxPlaybackRate - options.minPlaybackRate );
-          console.log( 'playbackRateAltAlt = ' + playbackRateAltAlt );
+          const playbackRate = Math.pow( 2, ( normalizedForce - 0.5 ) * options.playbackRateSpanOctaves ) +
+                               options.playbackRateCenterOffset;
 
           this.setPlaybackRate( playbackRate );
           this.setOutputLevel( this.nonFadedOutputLevel );
