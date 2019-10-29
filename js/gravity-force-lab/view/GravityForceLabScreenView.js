@@ -33,6 +33,7 @@ define( require => {
   const MassDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/MassDescriber' );
   const MassNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassNode' );
   const MassPDOMNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassPDOMNode' );
+  const MassSoundGenerator = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassSoundGenerator' );
   const ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Range = require( 'DOT/Range' );
@@ -244,6 +245,20 @@ define( require => {
       { initialOutputLevel: 0.2 }
     );
     soundManager.addSoundGenerator( this.forceSoundGenerator );
+
+    // sound generation for the mass values
+    soundManager.addSoundGenerator( new MassSoundGenerator(
+      model.object1.valueProperty,
+      GravityForceLabConstants.MASS_RANGE,
+      model.resetInProgressProperty,
+      { initialOutputLevel: 0.7 }
+    ) );
+    soundManager.addSoundGenerator( new MassSoundGenerator(
+      model.object2.valueProperty,
+      GravityForceLabConstants.MASS_RANGE,
+      model.resetInProgressProperty,
+      { initialOutputLevel: 0.7 }
+    ) );
 
     const resetAllButton = new ResetAllButton( {
       listener: () => {
