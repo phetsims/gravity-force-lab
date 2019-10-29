@@ -126,14 +126,8 @@ define( require => {
     );
 
     const massPositionsNode = new SpherePositionsPDOMNode();
-    this.addChild( massPositionsNode );
     massPositionsNode.addChild( mass1Node );
     massPositionsNode.addChild( mass2Node );
-
-    // the arrows and their labels should be above both masses (and their markers) but below
-    // the ruler and control panels
-    this.addChild( mass1Node.arrowNode );
-    this.addChild( mass2Node.arrowNode );
 
     // @private - added to object for animation stepping
     const gravityForceLabRuler = new ISLCRulerNode(
@@ -147,7 +141,6 @@ define( require => {
         snapToNearest: GravityForceLabConstants.LOCATION_SNAP_VALUE
       }
     );
-    this.addChild( gravityForceLabRuler );
 
     const massControlsNode = new Node( {
       labelTagName: 'h3',
@@ -155,7 +148,6 @@ define( require => {
       tagName: 'div',
       descriptionContent: massControlsHelpTextString
     } );
-    this.addChild( massControlsNode );
 
     // the list of mass controls is aria-labelledby the its label sibling, see https://github.com/phetsims/gravity-force-lab/issues/132
     massControlsNode.addAriaLabelledbyAssociation( {
@@ -241,7 +233,6 @@ define( require => {
       minWidth: 170,
       align: 'left'
     } );
-    this.addChild( parameterControlPanel );
 
     const resetAllButton = new ResetAllButton( {
       listener: function() {
@@ -251,7 +242,20 @@ define( require => {
       scale: 0.81,
       tandem: tandem.createTandem( 'resetAllButton' )
     } );
-    this.addChild( resetAllButton );
+
+    // child order
+    this.children = [
+      massPositionsNode,
+
+      // the arrows and their labels should be above both masses (and their markers) but below
+      // the ruler and control panels
+      mass1Node.arrowNode,
+      mass2Node.arrowNode,
+      gravityForceLabRuler,
+      massControlsNode,
+      parameterControlPanel,
+      resetAllButton
+    ];
 
     // PDOM Order
     // All Nodes must be added as children (accessibleOrder alone won't word), but these don't need to be in the
