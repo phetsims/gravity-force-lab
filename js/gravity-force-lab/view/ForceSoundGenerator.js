@@ -28,18 +28,26 @@ define( require => {
   class ForceSoundGenerator extends SoundClip {
 
     /**
-     * @param {GFLBModel} model
+     * @param {NumberProperty} forceProperty
+     * @param {Range} forceRange
      * @param {BooleanProperty} resetInProgressProperty
      * @param {Object} [options]
      * @constructor
      */
-    constructor( model, options ) {
+    constructor( forceProperty, forceRange, resetInProgressProperty, options ) {
 
       options = merge( {
         initialOutputLevel: 0.7,
-        loop: true,
-        trimSilence: false
+
+        // {number} min and max playback rate, default to ~3 octaves
+        // TODO make this a range
+        minPlaybackRate: 1 / 3,
+        maxPlaybackRate: 3
       }, options );
+
+      // these options must be set in order for the sound generation to work properly
+      options.loop = true;
+      options.trimSilence = false;
 
       // options checking
       assert && assert( !options || !options.loop || options.loop === true, 'must be a loop to work correctly' );
@@ -58,13 +66,22 @@ define( require => {
       // function for starting the force sound or adjusting the volume
       const forceListener = force => {
 
-        if ( !model.resetInProgressProperty.value ) {
+        if ( !resetInProgressProperty.value ) {
 
           // calculate the playback rate based on the amount of force, see the design document for detailed explanation
-          const normalizedForce = Math.log( force / model.getMinForce() ) / Math.log( model.getMaxForce() / model.getMinForce() );
+          const normalizedForce = Math.log( force / forceRange.min ) / Math.log( forceRange.max / forceRange.min );
           const centerForce = normalizedForce - 0.5;
           const midiNote = PITCH_RANGE_IN_SEMI_TONES / 2 * centerForce + PITCH_CENTER_OFFSET;
           const playbackRate = Math.pow( 2, midiNote / 12 );
+          console.log( '----------------' );
+          console.log( 'playbackRate = ' + playbackRate );
+
+          const normalizedForce2 = ( force - forceRange.min ) / forceRange.getLength();
+          console.log( 'normalizedForce2 = ' + normalizedForce2 );
+          const playbackRateAlt = options.minPlaybackRate + normalizedForce * ( options.maxPlaybackRate - options.minPlaybackRate );
+          console.log( 'playbackRateAlt = ' + playbackRateAlt );
+          const playbackRateAltAlt = options.minPlaybackRate + normalizedForce2 * ( options.maxPlaybackRate - options.minPlaybackRate );
+          console.log( 'playbackRateAltAlt = ' + playbackRateAltAlt );
 
           this.setPlaybackRate( playbackRate );
           this.setOutputLevel( this.nonFadedOutputLevel );
@@ -76,10 +93,10 @@ define( require => {
           this.fadeCountdownTime = FADE_START_DELAY + FADE_TIME + DELAY_BEFORE_STOP;
         }
       };
-      model.forceProperty.lazyLink( forceListener );
+      forceProperty.lazyLink( forceListener );
 
       // @private {function}
-      this.disposeForceSoundGenerator = () => { model.forceProperty.unlink( forceListener ); };
+      this.disposeForceSoundGenerator = () => { forceProperty.unlink( forceListener ); };
     }
 
     /**

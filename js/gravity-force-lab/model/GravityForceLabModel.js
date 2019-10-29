@@ -45,6 +45,12 @@ define( require => {
       phetioDocumentation: 'Whether or not to display the force using scientific notation'
     } );
 
+    // @public (read-only) {Boolean} - whether or not the model is in the process of being reset
+    this.resetInProgressProperty = new BooleanProperty( false, {
+      tandem: tandem.createTandem( 'resetInProgressProperty' ),
+      phetioDocumentation: 'Whether or not a reset is occurring in the model'
+    } );
+
     // pass initial masses and positions into the model
     const massValue1 = 100; // mass in kg
     const massValue2 = 400; // mass in kg
@@ -75,10 +81,12 @@ define( require => {
 
     // @public
     reset: function() {
+      this.resetInProgressProperty.set( true );
       this.rulerPositionProperty.reset();
       this.scientificNotationProperty.reset();
       this.constantRadiusProperty.reset();
       ISLCModel.prototype.reset.call( this );
+      this.resetInProgressProperty.set( false );
     }
   } );
 } );

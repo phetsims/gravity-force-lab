@@ -14,6 +14,7 @@ define( require => {
   const AccessiblePeer = require( 'SCENERY/accessibility/AccessiblePeer' );
   const Bounds2 = require( 'DOT/Bounds2' );
   const DefaultDirection = require( 'INVERSE_SQUARE_LAW_COMMON/view/DefaultDirection' );
+  const ForceSoundGenerator = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/ForceSoundGenerator' );
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
   const GravityForceLabAlertManager = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabAlertManager' );
@@ -34,8 +35,10 @@ define( require => {
   const MassPDOMNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassPDOMNode' );
   const ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   const Node = require( 'SCENERY/nodes/Node' );
+  const Range = require( 'DOT/Range' );
   const ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   const ScreenView = require( 'JOIST/ScreenView' );
+  const soundManager = require( 'TAMBO/soundManager' );
   const SpherePositionsPDOMNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/SpherePositionsPDOMNode' );
   const Vector2 = require( 'DOT/Vector2' );
 
@@ -156,7 +159,6 @@ define( require => {
       thisElementName: AccessiblePeer.PRIMARY_SIBLING
     } );
 
-
     // a list of Properties to that, when changed, should trigger an update in descriptions in the MassControl
     const propertiesToMonitorForDescriptionChanges = [ model.forceProperty, model.constantRadiusProperty ];
 
@@ -234,10 +236,20 @@ define( require => {
       align: 'left'
     } );
 
+    // @private - sound generation for the force sound
+    this.forceSoundGenerator = new ForceSoundGenerator(
+      model.forceProperty,
+      new Range( model.getMinForce(), model.getMaxForce() ),
+      model.resetInProgressProperty,
+      { initialOutputLevel: 0.2 }
+    );
+    soundManager.addSoundGenerator( this.forceSoundGenerator );
+
     const resetAllButton = new ResetAllButton( {
-      listener: function() {
+      listener: () => {
         model.reset();
         gravityForceLabRuler.reset();
+        this.forceSoundGenerator.reset();
       },
       scale: 0.81,
       tandem: tandem.createTandem( 'resetAllButton' )
@@ -311,5 +323,15 @@ define( require => {
 
   gravityForceLab.register( 'GravityForceLabScreenView', GravityForceLabScreenView );
 
-  return inherit( ScreenView, GravityForceLabScreenView );
+  return inherit( ScreenView, GravityForceLabScreenView, {
+
+    /**
+     * step the view
+     * @param {number} dt
+     * @public
+     */
+    step( dt ) {
+      this.forceSoundGenerator.step( dt );
+    }
+  } );
 } );
