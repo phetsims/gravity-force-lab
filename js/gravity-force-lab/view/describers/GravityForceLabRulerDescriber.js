@@ -45,11 +45,6 @@ define( require => {
       this.modelViewTransform = modelViewTransform;
       this.positionDescriber = positionDescriber;
       this.viewYPositions = viewYPositions;
-
-      rulerPositionProperty.link( ( x ) => {
-        console.log( modelViewTransform.modelToViewPosition( x ) );
-        this.getCurrentVerticalRegion();
-      } );
     }
 
     getCentersApartDistance() {
