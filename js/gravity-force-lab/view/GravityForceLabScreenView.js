@@ -260,12 +260,12 @@ define( require => {
     // PDOM Order
     // All Nodes must be added as children (accessibleOrder alone won't word), but these don't need to be in the
     // main scene graph
-    this.playAreaNode.children = [
+    this.pdomPlayAreaNode.children = [
       new MassPDOMNode( model, model.object1, massDescriber, forceDescriber, positionDescriber ),
       new MassPDOMNode( model, model.object2, massDescriber, forceDescriber, positionDescriber )
     ];
 
-    this.playAreaNode.accessibleOrder = [
+    this.pdomPlayAreaNode.accessibleOrder = [
       null, // space for the MassPDOMNodes above to live
       massPositionsNode,
       mass1Node.arrowNode,
