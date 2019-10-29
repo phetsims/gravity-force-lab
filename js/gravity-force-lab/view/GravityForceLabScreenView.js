@@ -21,6 +21,7 @@ define( require => {
   const GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
   const GravityForceLabForceDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/GravityForceLabForceDescriber' );
   const GravityForceLabPositionDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/GravityForceLabPositionDescriber' );
+  const GravityForceLabRulerDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/GravityForceLabRulerDescriber' );
   const GravityForceLabScreenSummaryNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabScreenSummaryNode' );
   const inherit = require( 'PHET_CORE/inherit' );
   const ISLCA11yStrings = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCA11yStrings' );
@@ -132,19 +133,6 @@ define( require => {
     const massPositionsNode = new SpherePositionsPDOMNode();
     massPositionsNode.addChild( mass1Node );
     massPositionsNode.addChild( mass2Node );
-
-    // @private - added to object for animation stepping
-    const gravityForceLabRuler = new ISLCRulerNode(
-      model,
-      this.layoutBounds.height,
-      modelViewTransform,
-      tandem.createTandem( 'ruler' ),
-      {
-        unitString: unitsMetersString,
-        backgroundFill: 'rgb(236, 225, 113)',
-        snapToNearest: GravityForceLabConstants.LOCATION_SNAP_VALUE
-      }
-    );
 
     const massControlsNode = new Node( {
       labelTagName: 'h3',
@@ -269,6 +257,31 @@ define( require => {
       scale: 0.81,
       tandem: tandem.createTandem( 'resetAllButton' )
     } );
+
+    // create down here because it needs locations of other items in the screen view
+    const rulerDescriber = new GravityForceLabRulerDescriber( model.rulerPositionProperty, modelViewTransform, [
+      mass2Node.top,
+      mass1Node.top,
+      mass1Node.localToGlobalPoint( new Vector2( 0, mass1Node.dragNode.top ) ).y,
+      mass1Node.center.x,
+      mass1Node.localToGlobalPoint( new Vector2( 0, mass1Node.dragNode.bottom ) ).y,
+      massControl1.top,
+      this.layoutBounds.bottom
+    ], positionDescriber );
+
+    // @private - added to object for animation stepping
+    const gravityForceLabRuler = new ISLCRulerNode(
+      model,
+      this.layoutBounds.height,
+      modelViewTransform,
+      rulerDescriber,
+      tandem.createTandem( 'ruler' ),
+      {
+        unitString: unitsMetersString,
+        backgroundFill: 'rgb(236, 225, 113)',
+        snapToNearest: GravityForceLabConstants.LOCATION_SNAP_VALUE
+      }
+    );
 
     // child order
     this.children = [

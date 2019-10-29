@@ -249,6 +249,32 @@ define( require => {
     },
 
     ///////////
+    // Ruler //
+    ///////////
+
+    grabbedAlertPattern: {
+      value: 'Grabbed. {{verticalRegion}} {{centersApart}} {{supplementalHint}}'
+    },
+    jumpKeyboardHint: {
+      value: 'Press J plus C keys to jump ruler and align zero mark at center of m1.'
+    },
+    moveKeyboardHint: {
+      value: '  Move ruler left and right with letter keys A and D.'
+    },
+    gestureHint: {
+      value: '  Drag finger to move ruler.'
+    },
+    keyboardReleaseHint: {
+      value: '  Space to release.'
+    },
+    gestrureReleaseHint: {
+      value: '  Lift to release.'
+    },
+    centersApartPattern: {
+      value: '  Centers of spheres {{distanceAndUnits}} apart.'
+    },
+
+    ///////////
     // Units //
     ///////////
 
