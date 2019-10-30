@@ -2,6 +2,7 @@
 window.phet.phetio.phetioElementsBaseline = assert &&
   {
     "gravityForceLab.general.activeProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Determines whether the entire simulation is running and processing user input. Setting this property to false pauses the simulation, and prevents user interaction.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -14,6 +15,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.general.barrierRectangle": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Semi-transparent barrier used to block input events when a dialog is shown, also fades out the background",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -26,6 +28,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "gravityForceLab.general.barrierRectangle.inputListener.firedEmitter": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "A function that executes. No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -38,6 +41,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO<>"
     },
     "gravityForceLab.general.barrierRectangle.inputListener.pressAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br/><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -50,6 +54,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<EventIO>"
     },
     "gravityForceLab.general.barrierRectangle.inputListener.releaseAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -62,6 +67,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<NullableIO<EventIO>>"
     },
     "gravityForceLab.general.barrierRectangle.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -74,6 +80,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.general.barrierRectangle.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -86,6 +93,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.general.barrierRectangle.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -98,6 +106,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.general.browserTabVisibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Indicates whether the browser tab containing the simulation is currently visible",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -110,6 +119,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.general.controller.input.changeAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits when the PDOM root gets the change DOM event. The arguments are:<br/><ol><li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -122,6 +132,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<DOMEventIO>"
     },
     "gravityForceLab.general.controller.input.clickAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits when the PDOM root gets the click DOM event. The arguments are:<br/><ol><li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -134,6 +145,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<DOMEventIO>"
     },
     "gravityForceLab.general.controller.input.focusinAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits when the PDOM root gets the focusin DOM event. The arguments are:<br/><ol><li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -146,6 +158,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<DOMEventIO>"
     },
     "gravityForceLab.general.controller.input.focusoutAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits when the PDOM root gets the focusout DOM event. The arguments are:<br/><ol><li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -158,6 +171,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<DOMEventIO>"
     },
     "gravityForceLab.general.controller.input.inputAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits when the PDOM root gets the input DOM event. The arguments are:<br/><ol><li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -170,6 +184,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<DOMEventIO>"
     },
     "gravityForceLab.general.controller.input.keydownAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits when the PDOM root gets the keydown DOM event. The arguments are:<br/><ol><li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -182,6 +197,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<DOMEventIO>"
     },
     "gravityForceLab.general.controller.input.keyupAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits when the PDOM root gets the keyup DOM event. The arguments are:<br/><ol><li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -194,6 +210,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<DOMEventIO>"
     },
     "gravityForceLab.general.controller.input.mouseDownAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits when a mouse button is pressed The arguments are:<br/><ol><li>point: Vector2IO</li><br/><li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -206,6 +223,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<Vector2IO, DOMEventIO>"
     },
     "gravityForceLab.general.controller.input.mouseMovedAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits when the mouse is moved The arguments are:<br/><ol><li>point: Vector2IO</li><br/><li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -218,6 +236,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<Vector2IO, DOMEventIO>"
     },
     "gravityForceLab.general.controller.input.mouseOutAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits when the mouse moves out of the display The arguments are:<br/><ol><li>point: Vector2IO</li><br/><li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -230,6 +249,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<Vector2IO, DOMEventIO>"
     },
     "gravityForceLab.general.controller.input.mouseOverAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits when the mouse is moved over a Node The arguments are:<br/><ol><li>point: Vector2IO</li><br/><li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -242,6 +262,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<Vector2IO, DOMEventIO>"
     },
     "gravityForceLab.general.controller.input.mouseUpAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits when a mouse button is released The arguments are:<br/><ol><li>point: Vector2IO</li><br/><li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -254,6 +275,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<Vector2IO, DOMEventIO>"
     },
     "gravityForceLab.general.controller.input.penCancelAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits when a pen is canceled The arguments are:<br/><ol><li>id: NumberIO</li><br/><li>point: Vector2IO</li><br/><li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -266,6 +288,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<NumberIO, Vector2IO, DOMEventIO>"
     },
     "gravityForceLab.general.controller.input.penEndAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits when a pen is lifted The arguments are:<br/><ol><li>id: NumberIO</li><br/><li>point: Vector2IO</li><br/><li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -278,6 +301,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<NumberIO, Vector2IO, DOMEventIO>"
     },
     "gravityForceLab.general.controller.input.penMoveAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits when a pen is moved The arguments are:<br/><ol><li>id: NumberIO</li><br/><li>point: Vector2IO</li><br/><li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -290,6 +314,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<NumberIO, Vector2IO, DOMEventIO>"
     },
     "gravityForceLab.general.controller.input.penStartAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits when a pen touches the screen The arguments are:<br/><ol><li>id: NumberIO</li><br/><li>point: Vector2IO</li><br/><li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -302,6 +327,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<NumberIO, Vector2IO, DOMEventIO>"
     },
     "gravityForceLab.general.controller.input.touchCancelAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits when a touch is canceled The arguments are:<br/><ol><li>id: NumberIO</li><br/><li>point: Vector2IO</li><br/><li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -314,6 +340,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<NumberIO, Vector2IO, DOMEventIO>"
     },
     "gravityForceLab.general.controller.input.touchEndAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits when a touch ends The arguments are:<br/><ol><li>id: NumberIO</li><br/><li>point: Vector2IO</li><br/><li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -326,6 +353,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<NumberIO, Vector2IO, DOMEventIO>"
     },
     "gravityForceLab.general.controller.input.touchMoveAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits when a touch moves The arguments are:<br/><ol><li>id: NumberIO</li><br/><li>point: Vector2IO</li><br/><li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -338,6 +366,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<NumberIO, Vector2IO, DOMEventIO>"
     },
     "gravityForceLab.general.controller.input.touchStartAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits when a touch begins The arguments are:<br/><ol><li>id: NumberIO</li><br/><li>point: Vector2IO</li><br/><li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -350,6 +379,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<NumberIO, Vector2IO, DOMEventIO>"
     },
     "gravityForceLab.general.controller.input.validatePointersAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "A function that executes. No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -362,6 +392,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<>"
     },
     "gravityForceLab.general.controller.input.wheelScrollAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits when the mouse wheel scrolls The arguments are:<br/><ol><li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -374,6 +405,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<DOMEventIO>"
     },
     "gravityForceLab.general.focusProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Stores the current focus for the simulation, null if there is not focus. This is not updated based on mouse or touch input, only keyboard and other alternative inputs.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -386,6 +418,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<FocusIO>>"
     },
     "gravityForceLab.general.navigationBar.a11yButtonsHBox.keyboardHelpButton": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -398,6 +431,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "gravityForceLab.general.navigationBar.a11yButtonsHBox.keyboardHelpButton.enabledProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -410,6 +444,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.general.navigationBar.a11yButtonsHBox.keyboardHelpButton.firedEmitter": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -422,6 +457,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO<>"
     },
     "gravityForceLab.general.navigationBar.a11yButtonsHBox.keyboardHelpButton.keyboardHelpDialogCapsule": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -434,6 +470,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PhetioCapsuleIO<DialogIO>"
     },
     "gravityForceLab.general.navigationBar.a11yButtonsHBox.keyboardHelpButton.keyboardHelpDialogCapsule.prototype": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": true,
       "phetioEventType": "MODEL",
@@ -446,6 +483,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "DialogIO"
     },
     "gravityForceLab.general.navigationBar.a11yButtonsHBox.keyboardHelpButton.keyboardHelpDialogCapsule.prototype.closeButton": {
+      "isDynamicElementPrototype": true,
       "phetioDocumentation": "",
       "phetioDynamicElement": true,
       "phetioEventType": "MODEL",
@@ -458,6 +496,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "gravityForceLab.general.navigationBar.a11yButtonsHBox.keyboardHelpButton.keyboardHelpDialogCapsule.prototype.closeButton.enabledProperty": {
+      "isDynamicElementPrototype": true,
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": true,
       "phetioEventType": "MODEL",
@@ -470,6 +509,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.general.navigationBar.a11yButtonsHBox.keyboardHelpButton.keyboardHelpDialogCapsule.prototype.closeButton.firedEmitter": {
+      "isDynamicElementPrototype": true,
       "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": true,
       "phetioEventType": "USER",
@@ -482,6 +522,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO<>"
     },
     "gravityForceLab.general.navigationBar.a11yButtonsHBox.keyboardHelpButton.keyboardHelpDialogCapsule.prototype.closeButton.opacityProperty": {
+      "isDynamicElementPrototype": true,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": true,
       "phetioEventType": "MODEL",
@@ -494,6 +535,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.general.navigationBar.a11yButtonsHBox.keyboardHelpButton.keyboardHelpDialogCapsule.prototype.closeButton.pickableProperty": {
+      "isDynamicElementPrototype": true,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": true,
       "phetioEventType": "MODEL",
@@ -506,6 +548,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.general.navigationBar.a11yButtonsHBox.keyboardHelpButton.keyboardHelpDialogCapsule.prototype.closeButton.pressListener.pressAction": {
+      "isDynamicElementPrototype": true,
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br/><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": true,
       "phetioEventType": "USER",
@@ -518,6 +561,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<EventIO>"
     },
     "gravityForceLab.general.navigationBar.a11yButtonsHBox.keyboardHelpButton.keyboardHelpDialogCapsule.prototype.closeButton.pressListener.releaseAction": {
+      "isDynamicElementPrototype": true,
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<EventIO></li></ol>",
       "phetioDynamicElement": true,
       "phetioEventType": "USER",
@@ -530,6 +574,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<NullableIO<EventIO>>"
     },
     "gravityForceLab.general.navigationBar.a11yButtonsHBox.keyboardHelpButton.keyboardHelpDialogCapsule.prototype.closeButton.visibleProperty": {
+      "isDynamicElementPrototype": true,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": true,
       "phetioEventType": "MODEL",
@@ -542,6 +587,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.general.navigationBar.a11yButtonsHBox.keyboardHelpButton.keyboardHelpDialogCapsule.prototype.isShowingProperty": {
+      "isDynamicElementPrototype": true,
       "phetioDocumentation": "",
       "phetioDynamicElement": true,
       "phetioEventType": "MODEL",
@@ -554,6 +600,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.general.navigationBar.a11yButtonsHBox.keyboardHelpButton.keyboardHelpDialogCapsule.prototype.opacityProperty": {
+      "isDynamicElementPrototype": true,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": true,
       "phetioEventType": "MODEL",
@@ -566,6 +613,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.general.navigationBar.a11yButtonsHBox.keyboardHelpButton.keyboardHelpDialogCapsule.prototype.pickableProperty": {
+      "isDynamicElementPrototype": true,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": true,
       "phetioEventType": "MODEL",
@@ -578,6 +626,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.general.navigationBar.a11yButtonsHBox.keyboardHelpButton.keyboardHelpDialogCapsule.prototype.visibleProperty": {
+      "isDynamicElementPrototype": true,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": true,
       "phetioEventType": "MODEL",
@@ -590,6 +639,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.general.navigationBar.a11yButtonsHBox.keyboardHelpButton.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -602,6 +652,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.general.navigationBar.a11yButtonsHBox.keyboardHelpButton.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -614,6 +665,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.general.navigationBar.a11yButtonsHBox.keyboardHelpButton.pressListener.pressAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br/><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -626,6 +678,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<EventIO>"
     },
     "gravityForceLab.general.navigationBar.a11yButtonsHBox.keyboardHelpButton.pressListener.releaseAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -638,6 +691,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<NullableIO<EventIO>>"
     },
     "gravityForceLab.general.navigationBar.a11yButtonsHBox.keyboardHelpButton.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -650,6 +704,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.general.navigationBar.phetButton": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "The button that appears at the right side of the navigation bar, which shows a menu when pressed",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -662,6 +717,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PhetButtonIO"
     },
     "gravityForceLab.general.navigationBar.phetButton.enabledProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -674,6 +730,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.general.navigationBar.phetButton.firedEmitter": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -686,6 +743,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO<>"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "This menu is displayed when the PhET button is pressed.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -698,6 +756,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PhetMenuIO"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -710,6 +769,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PhetioCapsuleIO<DialogIO>"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.prototype": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": true,
       "phetioEventType": "MODEL",
@@ -722,6 +782,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "DialogIO"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.prototype.closeButton": {
+      "isDynamicElementPrototype": true,
       "phetioDocumentation": "",
       "phetioDynamicElement": true,
       "phetioEventType": "MODEL",
@@ -734,6 +795,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.prototype.closeButton.enabledProperty": {
+      "isDynamicElementPrototype": true,
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": true,
       "phetioEventType": "MODEL",
@@ -746,6 +808,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.prototype.closeButton.firedEmitter": {
+      "isDynamicElementPrototype": true,
       "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": true,
       "phetioEventType": "USER",
@@ -758,6 +821,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO<>"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.prototype.closeButton.opacityProperty": {
+      "isDynamicElementPrototype": true,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": true,
       "phetioEventType": "MODEL",
@@ -770,6 +834,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.prototype.closeButton.pickableProperty": {
+      "isDynamicElementPrototype": true,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": true,
       "phetioEventType": "MODEL",
@@ -782,6 +847,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.prototype.closeButton.pressListener.pressAction": {
+      "isDynamicElementPrototype": true,
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br/><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": true,
       "phetioEventType": "USER",
@@ -794,6 +860,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<EventIO>"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.prototype.closeButton.pressListener.releaseAction": {
+      "isDynamicElementPrototype": true,
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<EventIO></li></ol>",
       "phetioDynamicElement": true,
       "phetioEventType": "USER",
@@ -806,6 +873,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<NullableIO<EventIO>>"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.prototype.closeButton.visibleProperty": {
+      "isDynamicElementPrototype": true,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": true,
       "phetioEventType": "MODEL",
@@ -818,6 +886,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.prototype.isShowingProperty": {
+      "isDynamicElementPrototype": true,
       "phetioDocumentation": "",
       "phetioDynamicElement": true,
       "phetioEventType": "MODEL",
@@ -830,6 +899,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.prototype.opacityProperty": {
+      "isDynamicElementPrototype": true,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": true,
       "phetioEventType": "MODEL",
@@ -842,6 +912,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.prototype.pickableProperty": {
+      "isDynamicElementPrototype": true,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": true,
       "phetioEventType": "MODEL",
@@ -854,6 +925,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.prototype.visibleProperty": {
+      "isDynamicElementPrototype": true,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": true,
       "phetioEventType": "MODEL",
@@ -866,6 +938,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutMenuItem": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "This menu item shows a dialog with information about the simulation.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -878,6 +951,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutMenuItem.inputListener.firedEmitter": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "A function that executes. No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -890,6 +964,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO<>"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutMenuItem.inputListener.pressAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br/><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -902,6 +977,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<EventIO>"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutMenuItem.inputListener.releaseAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -914,6 +990,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<NullableIO<EventIO>>"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutMenuItem.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -926,6 +1003,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutMenuItem.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -938,6 +1016,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutMenuItem.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -950,6 +1029,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.screenshotMenuItem": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "This menu item captures a screenshot from the simulation and saves it to the file system.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -962,6 +1042,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.inputListener.firedEmitter": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "A function that executes. No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -974,6 +1055,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO<>"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.inputListener.pressAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br/><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -986,6 +1068,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<EventIO>"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.inputListener.releaseAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -998,6 +1081,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<NullableIO<EventIO>>"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1010,6 +1094,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1022,6 +1107,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1034,6 +1120,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.general.navigationBar.phetButton.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Set whether the phetButton will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1046,6 +1133,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.general.navigationBar.phetButton.pressListener.pressAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br/><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -1058,6 +1146,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<EventIO>"
     },
     "gravityForceLab.general.navigationBar.phetButton.pressListener.releaseAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -1070,6 +1159,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<NullableIO<EventIO>>"
     },
     "gravityForceLab.general.navigationBar.titleTextNode": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Displays the title of the simulation in the navigation bar (bottom left)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1082,6 +1172,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "TextIO"
     },
     "gravityForceLab.general.navigationBar.titleTextNode.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1094,6 +1185,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.general.navigationBar.titleTextNode.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1106,6 +1198,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.general.navigationBar.titleTextNode.textProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1118,6 +1211,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<StringIO>"
     },
     "gravityForceLab.general.navigationBar.titleTextNode.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1130,6 +1224,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.general.phetioCommandProcessor": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Processes messages from the wrapper frame and returns the results. This serves as the source of PhET-iO data stream messages when commands are invoked from the wrapper.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1142,6 +1237,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PhetioCommandProcessorIO"
     },
     "gravityForceLab.general.resizeAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Executes when the sim is resized The arguments are:<br/><ol><li>width: NumberIO</li><br/><li>height: NumberIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1154,6 +1250,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<NumberIO, NumberIO>"
     },
     "gravityForceLab.general.screenIndexProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Indicates which screen is selected (0-indexed)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1166,6 +1263,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.general.soundEnabledProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1178,6 +1276,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.general.stepSimulationAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>dt: NumberIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1190,6 +1289,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<NumberIO>"
     },
     "gravityForceLab.general.utteranceQueue": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1202,6 +1302,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "UtteranceQueueIO"
     },
     "gravityForceLab.gravityForceLabScreen.activeProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Indicates whether the screen is active.  For single-screen simulations, the screen is always active.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1214,6 +1315,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.model.constantRadiusProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Use this to toggle if the masses have a constantly sized radius, even when the mass changes.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1226,6 +1328,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.model.forceProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "The force of one object on the other (in Newtons)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1238,6 +1341,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "DerivedPropertyIO<NumberIO>"
     },
     "gravityForceLab.gravityForceLabScreen.model.mass1.enabledRangeProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "The range for position of this object based on the radius and location of both objects",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1250,6 +1354,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<RangeIO>"
     },
     "gravityForceLab.gravityForceLabScreen.model.mass1.positionProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "The position of the object along the track, in meters.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1262,6 +1367,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.model.mass1.radiusProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "The radius of the object",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1274,6 +1380,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "DerivedPropertyIO<NumberIO>"
     },
     "gravityForceLab.gravityForceLabScreen.model.mass1.valueProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "The value of the object",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1286,6 +1393,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.model.mass2.enabledRangeProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "The range for position of this object based on the radius and location of both objects",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1298,6 +1406,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<RangeIO>"
     },
     "gravityForceLab.gravityForceLabScreen.model.mass2.positionProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "The position of the object along the track, in meters.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1310,6 +1419,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.model.mass2.radiusProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "The radius of the object",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1322,6 +1432,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "DerivedPropertyIO<NumberIO>"
     },
     "gravityForceLab.gravityForceLabScreen.model.mass2.valueProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "The value of the object",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1333,7 +1444,21 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "gravityForceLab.gravityForceLabScreen.model.resetInProgressProperty": {
+      "isDynamicElementPrototype": false,
+      "phetioDocumentation": "Whether or not a reset is occurring in the model",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": false,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<BooleanIO>"
+    },
     "gravityForceLab.gravityForceLabScreen.model.rulerPositionProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "The position of the ruler in model coodinates",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1346,6 +1471,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<Vector2IO>"
     },
     "gravityForceLab.gravityForceLabScreen.model.scientificNotationProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Whether or not to display the force using scientific notation",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1358,6 +1484,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.model.separationProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "The distance between the two objects' centers",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1370,6 +1497,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "DerivedPropertyIO<NumberIO>"
     },
     "gravityForceLab.gravityForceLabScreen.model.showForceValuesProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Whether or not the force values should be displayed",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1382,6 +1510,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1394,6 +1523,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1406,6 +1536,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.centerOfMassLineNode": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1418,6 +1549,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.centerOfMassLineNode.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1430,6 +1562,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.centerOfMassLineNode.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1442,6 +1575,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.centerOfMassLineNode.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1454,6 +1588,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.dragListener.dragAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits whenever a drag occurs with an EventIO argument. The arguments are:<br/><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -1466,6 +1601,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<EventIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.dragListener.pressAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br/><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -1478,6 +1614,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<EventIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.dragListener.releaseAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -1490,6 +1627,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<NullableIO<EventIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.forceDisplayNode": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1502,6 +1640,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.forceDisplayNode.arrowNode": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1514,6 +1653,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.forceDisplayNode.arrowNode.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1526,6 +1666,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.forceDisplayNode.arrowNode.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1538,6 +1679,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.forceDisplayNode.arrowNode.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1550,6 +1692,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.forceDisplayNode.forceText": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "This text updates from the model as the force changes, and cannot be edited.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1562,6 +1705,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "RichTextIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.forceDisplayNode.forceText.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1574,6 +1718,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.forceDisplayNode.forceText.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1586,6 +1731,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.forceDisplayNode.forceText.textProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1598,6 +1744,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<StringIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.forceDisplayNode.forceText.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1610,6 +1757,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.forceDisplayNode.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1622,6 +1770,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.forceDisplayNode.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1634,6 +1783,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.forceDisplayNode.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1646,6 +1796,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.labelText": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1658,6 +1809,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "RichTextIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.labelText.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1670,6 +1822,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.labelText.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1682,6 +1835,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.labelText.textProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1694,6 +1848,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<StringIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.labelText.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1706,6 +1861,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1718,6 +1874,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1730,6 +1887,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1742,6 +1900,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1754,6 +1913,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.centerOfMassLineNode": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1766,6 +1926,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.centerOfMassLineNode.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1778,6 +1939,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.centerOfMassLineNode.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1790,6 +1952,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.centerOfMassLineNode.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1802,6 +1965,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.dragListener.dragAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits whenever a drag occurs with an EventIO argument. The arguments are:<br/><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -1814,6 +1978,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<EventIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.dragListener.pressAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br/><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -1826,6 +1991,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<EventIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.dragListener.releaseAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -1838,6 +2004,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<NullableIO<EventIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.forceDisplayNode": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1850,6 +2017,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.forceDisplayNode.arrowNode": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1862,6 +2030,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.forceDisplayNode.arrowNode.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1874,6 +2043,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.forceDisplayNode.arrowNode.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1886,6 +2056,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.forceDisplayNode.arrowNode.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1898,6 +2069,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.forceDisplayNode.forceText": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "This text updates from the model as the force changes, and cannot be edited.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1910,6 +2082,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "RichTextIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.forceDisplayNode.forceText.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1922,6 +2095,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.forceDisplayNode.forceText.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1934,6 +2108,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.forceDisplayNode.forceText.textProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1946,6 +2121,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<StringIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.forceDisplayNode.forceText.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1958,6 +2134,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.forceDisplayNode.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1970,6 +2147,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.forceDisplayNode.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1982,6 +2160,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.forceDisplayNode.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -1994,6 +2173,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.labelText": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2006,6 +2186,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "RichTextIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.labelText.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2018,6 +2199,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.labelText.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2030,6 +2212,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.labelText.textProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2042,6 +2225,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<StringIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.labelText.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2054,6 +2238,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2066,6 +2251,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2078,6 +2264,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2090,6 +2277,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2102,6 +2290,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2114,6 +2303,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberControlIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.leftArrowButton": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2126,6 +2316,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.leftArrowButton.enabledProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2138,6 +2329,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.leftArrowButton.firedEmitter": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -2150,6 +2342,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO<>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.leftArrowButton.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2162,6 +2355,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.leftArrowButton.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2174,6 +2368,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.leftArrowButton.pressListener.pressAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br/><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -2186,6 +2381,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<EventIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.leftArrowButton.pressListener.releaseAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -2198,6 +2394,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<NullableIO<EventIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.leftArrowButton.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2210,6 +2407,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.numberDisplay": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2222,6 +2420,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberDisplayIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.numberDisplay.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2234,6 +2433,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.numberDisplay.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2246,6 +2446,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.numberDisplay.valueText": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2258,6 +2459,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "TextIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.numberDisplay.valueText.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2270,6 +2472,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.numberDisplay.valueText.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2282,6 +2485,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.numberDisplay.valueText.textProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2294,6 +2498,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<StringIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.numberDisplay.valueText.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2306,6 +2511,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.numberDisplay.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2318,6 +2524,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2330,6 +2537,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2342,6 +2550,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.rightArrowButton": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2354,6 +2563,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.rightArrowButton.enabledProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2366,6 +2576,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.rightArrowButton.firedEmitter": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -2378,6 +2589,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO<>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.rightArrowButton.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2390,6 +2602,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.rightArrowButton.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2402,6 +2615,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.rightArrowButton.pressListener.pressAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br/><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -2414,6 +2628,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<EventIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.rightArrowButton.pressListener.releaseAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -2426,6 +2641,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<NullableIO<EventIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.rightArrowButton.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2438,6 +2654,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2450,6 +2667,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "SliderIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.enabledProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2462,6 +2680,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.enabledRangeProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2474,6 +2693,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<RangeIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2486,6 +2706,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2498,6 +2719,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.thumb": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2510,6 +2732,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.thumb.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2522,6 +2745,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.thumb.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2534,6 +2758,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.thumb.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2546,6 +2771,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.thumbInputListener": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -2558,6 +2784,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.thumbInputListener.dragAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2570,6 +2797,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<Vector2IO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.thumbInputListener.dragEndAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2582,6 +2810,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<Vector2IO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.thumbInputListener.dragStartAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2594,6 +2823,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<Vector2IO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.thumbInputListener.isDraggingProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2606,6 +2836,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.track.trackInputListener": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -2618,6 +2849,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.track.trackInputListener.dragAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2630,6 +2862,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<Vector2IO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.track.trackInputListener.dragEndAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2642,6 +2875,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<Vector2IO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.track.trackInputListener.dragStartAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2654,6 +2888,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<Vector2IO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.track.trackInputListener.isDraggingProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2666,6 +2901,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.valueProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2678,6 +2914,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "LinkedElementIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2690,6 +2927,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.titleNode": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2702,6 +2940,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "TextIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.titleNode.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2714,6 +2953,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.titleNode.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2726,6 +2966,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.titleNode.textProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2738,6 +2979,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<StringIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.titleNode.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2750,6 +2992,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2762,6 +3005,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2774,6 +3018,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2786,6 +3031,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2798,6 +3044,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2810,6 +3057,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2822,6 +3070,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberControlIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.leftArrowButton": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2834,6 +3083,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.leftArrowButton.enabledProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2846,6 +3096,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.leftArrowButton.firedEmitter": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -2858,6 +3109,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO<>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.leftArrowButton.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2870,6 +3122,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.leftArrowButton.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2882,6 +3135,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.leftArrowButton.pressListener.pressAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br/><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -2894,6 +3148,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<EventIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.leftArrowButton.pressListener.releaseAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -2906,6 +3161,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<NullableIO<EventIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.leftArrowButton.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2918,6 +3174,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.numberDisplay": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2930,6 +3187,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberDisplayIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.numberDisplay.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2942,6 +3200,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.numberDisplay.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2954,6 +3213,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.numberDisplay.valueText": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2966,6 +3226,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "TextIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.numberDisplay.valueText.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2978,6 +3239,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.numberDisplay.valueText.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -2990,6 +3252,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.numberDisplay.valueText.textProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3002,6 +3265,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<StringIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.numberDisplay.valueText.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3014,6 +3278,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.numberDisplay.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3026,6 +3291,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3038,6 +3304,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3050,6 +3317,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.rightArrowButton": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3062,6 +3330,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.rightArrowButton.enabledProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3074,6 +3343,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.rightArrowButton.firedEmitter": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -3086,6 +3356,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO<>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.rightArrowButton.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3098,6 +3369,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.rightArrowButton.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3110,6 +3382,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.rightArrowButton.pressListener.pressAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br/><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -3122,6 +3395,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<EventIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.rightArrowButton.pressListener.releaseAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -3134,6 +3408,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<NullableIO<EventIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.rightArrowButton.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3146,6 +3421,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3158,6 +3434,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "SliderIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.enabledProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3170,6 +3447,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.enabledRangeProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3182,6 +3460,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<RangeIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3194,6 +3473,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3206,6 +3486,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.thumb": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3218,6 +3499,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.thumb.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3230,6 +3512,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.thumb.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3242,6 +3525,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.thumb.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3254,6 +3538,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.thumbInputListener": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -3266,6 +3551,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.thumbInputListener.dragAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3278,6 +3564,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<Vector2IO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.thumbInputListener.dragEndAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3290,6 +3577,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<Vector2IO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.thumbInputListener.dragStartAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3302,6 +3590,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<Vector2IO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.thumbInputListener.isDraggingProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3314,6 +3603,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.track.trackInputListener": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -3326,6 +3616,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.track.trackInputListener.dragAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3338,6 +3629,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<Vector2IO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.track.trackInputListener.dragEndAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3350,6 +3642,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<Vector2IO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.track.trackInputListener.dragStartAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3362,6 +3655,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<Vector2IO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.track.trackInputListener.isDraggingProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3374,6 +3668,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.valueProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3386,6 +3681,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "LinkedElementIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3398,6 +3694,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.titleNode": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3410,6 +3707,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "TextIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.titleNode.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3422,6 +3720,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.titleNode.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3434,6 +3733,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.titleNode.textProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3446,6 +3746,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<StringIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.titleNode.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3458,6 +3759,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3470,6 +3772,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3482,6 +3785,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3494,6 +3798,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3506,6 +3811,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3518,6 +3824,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3530,6 +3837,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantRadiusCheckbox": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -3542,6 +3850,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantRadiusCheckbox.enabledProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3554,6 +3863,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantRadiusCheckbox.labelNode": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3566,6 +3876,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "TextIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantRadiusCheckbox.labelNode.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3578,6 +3889,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantRadiusCheckbox.labelNode.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3590,6 +3902,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantRadiusCheckbox.labelNode.textProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3602,6 +3915,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<StringIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantRadiusCheckbox.labelNode.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3614,6 +3928,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantRadiusCheckbox.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3626,6 +3941,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantRadiusCheckbox.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3638,6 +3954,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantRadiusCheckbox.property": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3650,6 +3967,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "LinkedElementIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantRadiusCheckbox.toggleAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state. The arguments are:<br/><ol><li>isChecked: BooleanIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -3662,6 +3980,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantRadiusCheckbox.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3674,6 +3993,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesCheckbox": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -3686,6 +4006,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesCheckbox.enabledProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3698,6 +4019,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesCheckbox.labelNode": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3710,6 +4032,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "TextIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesCheckbox.labelNode.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3722,6 +4045,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesCheckbox.labelNode.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3734,6 +4058,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesCheckbox.labelNode.textProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3746,6 +4071,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<StringIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesCheckbox.labelNode.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3758,6 +4084,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesCheckbox.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3770,6 +4097,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesCheckbox.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3782,6 +4110,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesCheckbox.property": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3794,6 +4123,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "LinkedElementIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesCheckbox.toggleAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state. The arguments are:<br/><ol><li>isChecked: BooleanIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -3806,6 +4136,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesCheckbox.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3818,6 +4149,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3830,6 +4162,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3842,6 +4175,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.scientificNotationCheckbox": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -3854,6 +4188,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.scientificNotationCheckbox.enabledProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3866,6 +4201,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.scientificNotationCheckbox.labelNode": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3878,6 +4214,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "TextIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.scientificNotationCheckbox.labelNode.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3890,6 +4227,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.scientificNotationCheckbox.labelNode.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3902,6 +4240,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.scientificNotationCheckbox.labelNode.textProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3914,6 +4253,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<StringIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.scientificNotationCheckbox.labelNode.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3926,6 +4266,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.scientificNotationCheckbox.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3938,6 +4279,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.scientificNotationCheckbox.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3950,6 +4292,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.scientificNotationCheckbox.property": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3962,6 +4305,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "LinkedElementIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.scientificNotationCheckbox.toggleAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state. The arguments are:<br/><ol><li>isChecked: BooleanIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -3974,6 +4318,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.scientificNotationCheckbox.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3986,6 +4331,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -3998,6 +4344,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4010,6 +4357,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.resetAllButton": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "The orange, round button that can be used to restore the initial state",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4022,6 +4370,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ResetAllButtonIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.resetAllButton.enabledProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4034,6 +4383,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.resetAllButton.firedEmitter": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -4046,6 +4396,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO<>"
     },
     "gravityForceLab.gravityForceLabScreen.view.resetAllButton.isFiringProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Temporarily becomes true while the Reset All button is firing.  Commonly used to disable audio effects during reset.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4058,6 +4409,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "DerivedPropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.resetAllButton.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4070,6 +4422,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.resetAllButton.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4082,6 +4435,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.resetAllButton.pressListener.pressAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br/><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -4094,6 +4448,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<EventIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.resetAllButton.pressListener.releaseAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<EventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -4106,6 +4461,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<NullableIO<EventIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.resetAllButton.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4118,6 +4474,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.ruler": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4130,6 +4487,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.ruler.dragHandler": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -4142,6 +4500,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.ruler.dragHandler.dragAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4154,6 +4513,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<Vector2IO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.ruler.dragHandler.dragEndAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4166,6 +4526,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<Vector2IO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.ruler.dragHandler.dragStartAction": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4178,6 +4539,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO<Vector2IO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.ruler.dragHandler.isDraggingProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4190,6 +4552,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.ruler.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4202,6 +4565,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.ruler.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4214,6 +4578,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.ruler.unitsLabel": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4226,6 +4591,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "TextIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.ruler.unitsLabel.opacityProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4238,6 +4604,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.ruler.unitsLabel.pickableProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4250,6 +4617,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.ruler.unitsLabel.textProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4262,6 +4630,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<StringIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.ruler.unitsLabel.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4274,6 +4643,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.ruler.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4286,6 +4656,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.view.visibleProperty": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4298,6 +4669,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "phetioEngine": {
+      "isDynamicElementPrototype": false,
       "phetioDocumentation": "Central point for PhET-iO interoperability",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
