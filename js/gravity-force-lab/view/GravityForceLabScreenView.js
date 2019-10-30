@@ -225,29 +225,6 @@ define( require => {
       align: 'left'
     } );
 
-    // @private - sound generation for the force sound
-    this.forceSoundGenerator = new ForceSoundGenerator(
-      model.forceProperty,
-      new Range( model.getMinForce(), model.getMaxForce() ),
-      model.resetInProgressProperty,
-      { initialOutputLevel: 0.2 }
-    );
-    soundManager.addSoundGenerator( this.forceSoundGenerator );
-
-    // sound generation for the mass values
-    soundManager.addSoundGenerator( new MassSoundGenerator(
-      model.object1.valueProperty,
-      GravityForceLabConstants.MASS_RANGE,
-      model.resetInProgressProperty,
-      { initialOutputLevel: 0.7, lockoutTime: 0.2 }
-    ) );
-    soundManager.addSoundGenerator( new MassSoundGenerator(
-      model.object2.valueProperty,
-      GravityForceLabConstants.MASS_RANGE,
-      model.resetInProgressProperty,
-      { initialOutputLevel: 0.7, lockoutTime: 0.2 }
-    ) );
-
     const resetAllButton = new ResetAllButton( {
       listener: () => {
         model.reset();
@@ -347,6 +324,29 @@ define( require => {
         positionDescriber.lastMoveCloser = null;
       }
     } );
+
+    // @private - sound generation for the force sound
+    this.forceSoundGenerator = new ForceSoundGenerator(
+      model.forceProperty,
+      new Range( model.getMinForce(), model.getMaxForce() ),
+      resetAllButton.buttonModel.isFiringProperty,
+      { initialOutputLevel: 0.2 }
+    );
+    soundManager.addSoundGenerator( this.forceSoundGenerator );
+
+    // sound generation for the mass values
+    soundManager.addSoundGenerator( new MassSoundGenerator(
+      model.object1.valueProperty,
+      GravityForceLabConstants.MASS_RANGE,
+      resetAllButton.buttonModel.isFiringProperty,
+      { initialOutputLevel: 0.7, lockoutTime: 0.2 }
+    ) );
+    soundManager.addSoundGenerator( new MassSoundGenerator(
+      model.object2.valueProperty,
+      GravityForceLabConstants.MASS_RANGE,
+      resetAllButton.buttonModel.isFiringProperty,
+      { initialOutputLevel: 0.7, lockoutTime: 0.2 }
+    ) );
   }
 
   gravityForceLab.register( 'GravityForceLabScreenView', GravityForceLabScreenView );
