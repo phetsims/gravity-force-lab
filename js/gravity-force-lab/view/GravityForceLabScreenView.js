@@ -230,6 +230,7 @@ define( require => {
         model.reset();
         gravityForceLabRuler.reset();
         this.forceSoundGenerator.reset();
+        rulerDescriber.reset();
       },
       scale: 0.81,
       tandem: tandem.createTandem( 'resetAllButton' )

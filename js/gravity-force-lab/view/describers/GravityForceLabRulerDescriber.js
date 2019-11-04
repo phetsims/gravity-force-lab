@@ -15,21 +15,29 @@ define( require => {
 
   // a11y strings
   const grabbedAlertPatternString = GravityForceLabA11yStrings.grabbedAlertPattern.value;
-  // const jumpKeyboardHintString = GravityForceLabA11yStrings.jumpKeyboardHint.value;
-  // const moveKeyboardHintString = GravityForceLabA11yStrings.moveKeyboardHint.value;
-  // const gestureHintString = GravityForceLabA11yStrings.gestureHint.value;
-  // const keyboardReleaseHintString = GravityForceLabA11yStrings.keyboardReleaseHint.value;
-  // const gestrureReleaseHintString = GravityForceLabA11yStrings.gestrureReleaseHint.value;
+  const hintPatternString = GravityForceLabA11yStrings.hintPattern.value;
   const centersApartPatternString = GravityForceLabA11yStrings.centersApartPattern.value;
+  const jumpKeyboardHintString = GravityForceLabA11yStrings.jumpKeyboardHint.value;
+  const moveKeyboardHintString = GravityForceLabA11yStrings.moveKeyboardHint.value;
+  const gestureHintString = GravityForceLabA11yStrings.gestureHint.value;
+  const keyboardReleaseHintString = GravityForceLabA11yStrings.keyboardReleaseHint.value;
+
+  const coveringM2String = GravityForceLabA11yStrings.coveringM2.value;
+  const coveringM1String = GravityForceLabA11yStrings.coveringM1.value;
+  const justAboveCentersString = GravityForceLabA11yStrings.justAboveCenters.value;
+  const coveringCentersString = GravityForceLabA11yStrings.coveringCenters.value;
+  const justBelowCentersString = GravityForceLabA11yStrings.justBelowCenters.value;
+  const inHomePositionString = GravityForceLabA11yStrings.inHomePosition.value;
+  const behindMassControlsString = GravityForceLabA11yStrings.behindMassControls.value;
 
   const RULER_VERTICAL_REGIONS = [
-    'Covering force vector of m2.',
-    'Covering force vector of m1.',
-    'Just above centers.',
-    'Covering centers.',
-    'Just below centers.',
-    'In home position below spheres.',
-    'Behind mass controls.'
+    coveringM2String,
+    coveringM1String,
+    justAboveCentersString,
+    coveringCentersString,
+    justBelowCentersString,
+    inHomePositionString,
+    behindMassControlsString
   ];
 
 
@@ -39,32 +47,63 @@ define( require => {
     constructor( rulerPositionProperty, modelViewTransform, viewYPositions, positionDescriber ) {
 
       assert && assert( RULER_VERTICAL_REGIONS.length === viewYPositions.length, 'Unexpected number of y positions' );
-      // options = merge( {}, options );
 
+      // @private
       this.rulerPositionProperty = rulerPositionProperty;
       this.modelViewTransform = modelViewTransform;
       this.positionDescriber = positionDescriber;
       this.viewYPositions = viewYPositions;
+      this.grabbedCount = 0;
     }
 
+    /**
+     * @private
+     * @returns {*|string}
+     */
     getCentersApartDistance() {
       return StringUtils.fillIn( centersApartPatternString, {
         distanceAndUnits: this.positionDescriber.getDistanceAndUnits()
       } );
     }
 
+    /**
+     * @private
+     * @returns {string}
+     */
     getHint() {
-      return '';
+
+      // No hints on or after the third grab
+      if ( this.grabbedCount >= 3 ) {
+        return '';
+      }
+      if ( phet.joist.sim.supportsTouchA11y ) {
+        return gestureHintString;
+      }
+
+      return StringUtils.fillIn( hintPatternString, {
+        playHint: this.grabbedCount === 1 ? jumpKeyboardHintString : moveKeyboardHintString,
+        releaseHint: keyboardReleaseHintString
+      } );
     }
 
+    /**
+     * @public
+     * @returns {string} - the alert for successfully grabbing the ruler.
+     */
     getRulerGrabbedAlertable() {
-      return StringUtils.fillIn( grabbedAlertPatternString,{
+      this.grabbedCount++; // first increment the counter for how many times this has been grabbed.
+
+      return StringUtils.fillIn( grabbedAlertPatternString, {
         verticalRegion: this.getCurrentVerticalRegion(),
         centersApart: this.getCentersApartDistance(),
         supplementalHint: this.getHint()
       } );
     }
 
+    /**
+     * @private
+     * @returns {*}
+     */
     getCurrentVerticalRegion() {
       const viewY = this.modelViewTransform.modelToViewY( this.rulerPositionProperty.value.y );
       console.log( viewY );
@@ -75,6 +114,13 @@ define( require => {
         }
 
       }
+    }
+
+    /**
+     * @public
+     */
+    reset() {
+      this.grabbedCount = 0;
     }
   }
 

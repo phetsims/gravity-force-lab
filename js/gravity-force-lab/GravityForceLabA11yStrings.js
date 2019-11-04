@@ -255,23 +255,46 @@ define( require => {
     grabbedAlertPattern: {
       value: 'Grabbed. {{verticalRegion}} {{centersApart}} {{supplementalHint}}'
     },
+    hintPattern: {
+      value: '{{playHint}} {{releaseHint}}'
+    },
     jumpKeyboardHint: {
       value: 'Press J plus C keys to jump ruler and align zero mark at center of m1.'
     },
     moveKeyboardHint: {
-      value: '  Move ruler left and right with letter keys A and D.'
+      value: 'Move ruler left and right with letter keys A and D.'
     },
     gestureHint: {
-      value: '  Drag finger to move ruler.'
+      value: 'Drag finger to move ruler. Lift to release.'
     },
     keyboardReleaseHint: {
-      value: '  Space to release.'
-    },
-    gestrureReleaseHint: {
-      value: '  Lift to release.'
+      value: 'Space to release.'
     },
     centersApartPattern: {
-      value: '  Centers of spheres {{distanceAndUnits}} apart.'
+      value: 'Centers of spheres {{distanceAndUnits}} apart.'
+    },
+
+    // vertical ruler positions
+    coveringM2: {
+      value: 'Covering force vector of m2.'
+    },
+    coveringM1: {
+      value: 'Covering force vector of m1.'
+    },
+    justAboveCenters: {
+      value: 'Just above centers.'
+    },
+    coveringCenters: {
+      value: 'Covering centers.'
+    },
+    justBelowCenters: {
+      value: 'Just below centers.'
+    },
+    inHomePosition: {
+      value: 'In home position below spheres.'
+    },
+    behindMassControls: {
+      value: 'Behind mass controls.'
     },
 
     ///////////
