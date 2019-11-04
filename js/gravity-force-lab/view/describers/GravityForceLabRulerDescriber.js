@@ -76,7 +76,7 @@ define( require => {
       if ( this.grabbedCount >= 3 ) {
         return '';
       }
-      if ( phet.joist.sim.supportsTouchA11y ) {
+      if ( phet.joist.sim.supportsGestureA11y ) {
         return gestureHintString;
       }
 
