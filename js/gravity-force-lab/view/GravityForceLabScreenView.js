@@ -27,6 +27,7 @@ define( require => {
   const ISLCA11yStrings = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCA11yStrings' );
   const ISLCCheckboxPanel = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCCheckboxPanel' );
   const ISLCGridNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCGridNode' );
+  const ISLCRulerRegionsNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCRulerRegionsNode' );
   const ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
   const ISLCQueryParameters = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCQueryParameters' );
   const ISLCRulerNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCRulerNode' );
@@ -65,6 +66,7 @@ define( require => {
   // constants
   const CONTROL_SCALE = 0.72;
   const SHOW_GRID = ISLCQueryParameters.showGrid;
+  const SHOW_RULER_REGIONS = ISLCQueryParameters.showRulerRegions;
   const OBJECT_ONE = ISLCObjectEnum.OBJECT_ONE;
   const OBJECT_TWO = ISLCObjectEnum.OBJECT_TWO;
   const CHECKBOX_TEXT_SIZE = 15;
@@ -237,7 +239,7 @@ define( require => {
     } );
 
     // create down here because it needs locations of other items in the screen view
-    const rulerDescriber = new GravityForceLabRulerDescriber( model.rulerPositionProperty, modelViewTransform, [
+    const rulerRegionPositions = [
       mass2Node.top,
       mass1Node.top,
       mass1Node.localToGlobalPoint( new Vector2( 0, mass1Node.dragNode.top ) ).y,
@@ -245,7 +247,9 @@ define( require => {
       mass1Node.localToGlobalPoint( new Vector2( 0, mass1Node.dragNode.bottom ) ).y,
       massControl1.top,
       this.layoutBounds.bottom
-    ], positionDescriber );
+    ];
+    const rulerDescriber = new GravityForceLabRulerDescriber( model.rulerPositionProperty, modelViewTransform,
+      rulerRegionPositions, positionDescriber );
 
     // @private - added to object for animation stepping
     const gravityForceLabRuler = new ISLCRulerNode(
@@ -312,6 +316,10 @@ define( require => {
         this.layoutBounds,
         modelViewTransform,
         { stroke: 'rgba( 250, 100, 100, 0.6 )' } );
+      this.addChild( gridNode );
+    }
+    if ( SHOW_RULER_REGIONS ) {
+      const gridNode = new ISLCRulerRegionsNode( rulerRegionPositions, this.layoutBounds );
       this.addChild( gridNode );
     }
 
