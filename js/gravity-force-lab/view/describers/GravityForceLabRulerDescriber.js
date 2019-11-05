@@ -47,9 +47,14 @@ define( require => {
     RULER_VERTICAL_REGIONS.indexOf( justBelowCentersString ) );
   const SHOW_RULER_REGIONS = ISLCQueryParameters.showRulerRegions;
 
-  /**
-   */
   class GravityForceLabRulerDescriber {
+
+    /**
+     * @param {Property.<number>} rulerPositionProperty
+     * @param {ModelViewTransform2} modelViewTransform
+     * @param {Array.<number>} viewYPositions - a list of Y positions, least (top) to greatest (bottom)
+     * @param {PositionDescriber} positionDescriber
+     */
     constructor( rulerPositionProperty, modelViewTransform, viewYPositions, positionDescriber ) {
 
       assert && assert( RULER_VERTICAL_REGIONS.length === viewYPositions.length, 'Unexpected number of y positions' );
