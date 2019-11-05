@@ -28,10 +28,10 @@ define( require => {
   const ISLCA11yStrings = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCA11yStrings' );
   const ISLCCheckboxPanel = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCCheckboxPanel' );
   const ISLCGridNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCGridNode' );
-  const ISLCRulerRegionsNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCRulerRegionsNode' );
   const ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
   const ISLCQueryParameters = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCQueryParameters' );
   const ISLCRulerNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCRulerNode' );
+  const ISLCRulerRegionsNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCRulerRegionsNode' );
   const MassControl = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassControl' );
   const MassDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/MassDescriber' );
   const MassNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassNode' );
@@ -240,16 +240,26 @@ define( require => {
       tandem: tandem.createTandem( 'resetAllButton' )
     } );
 
+    // positioning the nodes
+    // Do this before the ruler, so the ruler can have the correct region positions
+    resetAllButton.bottom = this.layoutBounds.bottom - 7.4;
+    parameterControlPanel.right = resetAllButton.right = this.layoutBounds.width - 15;
+    parameterControlPanel.bottom = resetAllButton.top - 13.5;
+    massControl2.top = massControl1.top = parameterControlPanel.top;
+    massControl2.right = parameterControlPanel.left - 45;
+    massControl1.right = massControl2.left - 45;
+
     // create down here because it needs locations of other items in the screen view
     const rulerRegionPositions = [
       mass2Node.top,
       mass1Node.top,
-      mass1Node.localToGlobalPoint( new Vector2( 0, mass1Node.dragNode.top ) ).y,
-      mass1Node.center.x,
+      mass1Node.localToGlobalPoint( mass1Node.centerPoint.center ).y -20,
+      mass1Node.localToGlobalPoint( mass1Node.centerPoint.center ).y +20,
       mass1Node.localToGlobalPoint( new Vector2( 0, mass1Node.dragNode.bottom ) ).y,
       massControl1.top,
       this.layoutBounds.bottom
     ];
+
     const rulerDescriber = new GravityForceLabRulerDescriber( model.rulerPositionProperty, modelViewTransform,
       rulerRegionPositions, positionDescriber );
 
@@ -301,16 +311,6 @@ define( require => {
       gravityForceLabRuler,
       resetAllButton
     ];
-
-    // positioning the nodes
-    parameterControlPanel.right = this.layoutBounds.width - 15;
-    parameterControlPanel.top = gravityForceLabRuler.bottom + 15;
-    massControl2.right = parameterControlPanel.left - 45;
-    massControl2.top = parameterControlPanel.top;
-    massControl1.right = massControl2.left - 45;
-    massControl1.top = parameterControlPanel.top;
-    resetAllButton.right = parameterControlPanel.right;
-    resetAllButton.top = parameterControlPanel.bottom + 13.5;
 
     if ( SHOW_GRID ) {
       const gridNode = new ISLCGridNode(

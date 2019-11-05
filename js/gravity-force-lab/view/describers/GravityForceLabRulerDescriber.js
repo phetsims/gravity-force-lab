@@ -11,6 +11,7 @@ define( require => {
   // modules
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
+  const ISLCQueryParameters = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCQueryParameters' );
   const Range = require( 'DOT/Range' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
 
@@ -44,6 +45,7 @@ define( require => {
   // These regions are treated differently, as they are in the range that suggests pedagogically relevant interaction.
   const TARGET_REGIONS_RANGE = new Range( RULER_VERTICAL_REGIONS.indexOf( justAboveCentersString ),
     RULER_VERTICAL_REGIONS.indexOf( justBelowCentersString ) );
+  const SHOW_RULER_REGIONS = ISLCQueryParameters.showRulerRegions;
 
   /**
    */
@@ -58,6 +60,9 @@ define( require => {
       this.positionDescriber = positionDescriber;
       this.viewYPositions = viewYPositions;
       this.grabbedCount = 0;
+
+      // Don't need to unlink
+      SHOW_RULER_REGIONS && this.rulerPositionProperty.link( () => console.log( this.getCurrentVerticalRegion() ) );
     }
 
     /**
