@@ -12,6 +12,7 @@ define( require => {
 
   // modules
   const AccessiblePeer = require( 'SCENERY/accessibility/AccessiblePeer' );
+  const BoundarySoundGenerator = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/BoundarySoundGenerator' );
   const Bounds2 = require( 'DOT/Bounds2' );
   const DefaultDirection = require( 'INVERSE_SQUARE_LAW_COMMON/view/DefaultDirection' );
   const ForceSoundGenerator = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/ForceSoundGenerator' );
@@ -70,6 +71,7 @@ define( require => {
   const OBJECT_ONE = ISLCObjectEnum.OBJECT_ONE;
   const OBJECT_TWO = ISLCObjectEnum.OBJECT_TWO;
   const CHECKBOX_TEXT_SIZE = 15;
+  const BOUNDARY_SOUNDS_LEVEL = 1;
 
   function GravityForceLabScreenView( model, tandem ) {
 
@@ -356,6 +358,14 @@ define( require => {
       resetAllButton.buttonModel.isFiringProperty,
       { initialOutputLevel: 0.7, lockoutTime: 0.2 }
     ) );
+
+    // sound generation for masses reaching the inner or outer motion boundaries
+    soundManager.addSoundGenerator( new BoundarySoundGenerator( model.object1, model, {
+      initialOutputLevel: BOUNDARY_SOUNDS_LEVEL
+    } ) );
+    soundManager.addSoundGenerator( new BoundarySoundGenerator( model.object2, model, {
+      initialOutputLevel: BOUNDARY_SOUNDS_LEVEL
+    } ) );
   }
 
   gravityForceLab.register( 'GravityForceLabScreenView', GravityForceLabScreenView );
