@@ -11,6 +11,7 @@ define( require => {
   // modules
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
+  const Range = require( 'DOT/Range' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
 
   // a11y strings
@@ -40,6 +41,9 @@ define( require => {
     behindMassControlsString
   ];
 
+  // These regions are treated differently, as they are in the range that suggests pedagogically relevant interaction.
+  const TARGET_REGIONS_RANGE = new Range( RULER_VERTICAL_REGIONS.indexOf( justAboveCentersString ),
+    RULER_VERTICAL_REGIONS.indexOf( justBelowCentersString ) );
 
   /**
    */
@@ -79,9 +83,17 @@ define( require => {
       if ( phet.joist.sim.supportsGestureA11y ) {
         return gestureHintString;
       }
+      let playHint = jumpKeyboardHintString;
+      const regionIndex = this.getVerticalRegionIndex();
+
+      // if on the second grab, the user still isn't in a measurable location, then repeat the first hint to jump to the
+      // center.
+      if ( this.grabbedCount === 2 && TARGET_REGIONS_RANGE.contains( regionIndex ) ) {
+        playHint = moveKeyboardHintString;
+      }
 
       return StringUtils.fillIn( hintPatternString, {
-        playHint: this.grabbedCount === 1 ? jumpKeyboardHintString : moveKeyboardHintString,
+        playHint: playHint,
         releaseHint: keyboardReleaseHintString
       } );
     }
@@ -102,18 +114,23 @@ define( require => {
 
     /**
      * @private
+     * @returns {number} - integer index of the region
+     */
+    getVerticalRegionIndex() {
+      const viewY = this.modelViewTransform.modelToViewY( this.rulerPositionProperty.value.y );
+      for ( let i = 0; i < this.viewYPositions.length; i++ ) {
+        if ( viewY <= this.viewYPositions[ i ] ) {
+          return i;
+        }
+      }
+    }
+
+    /**
+     * @private
      * @returns {*}
      */
     getCurrentVerticalRegion() {
-      const viewY = this.modelViewTransform.modelToViewY( this.rulerPositionProperty.value.y );
-      console.log( viewY );
-      for ( let i = 0; i < this.viewYPositions.length; i++ ) {
-        if ( viewY <= this.viewYPositions[ i ] ) {
-          console.log( RULER_VERTICAL_REGIONS[ i ] );
-          return RULER_VERTICAL_REGIONS[ i ];
-        }
-
-      }
+      return RULER_VERTICAL_REGIONS[ this.getVerticalRegionIndex() ];
     }
 
     /**
