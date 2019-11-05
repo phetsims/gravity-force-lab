@@ -100,8 +100,7 @@ define( require => {
     updateMassAndPositionElement() {
       const sizeText = StringUtils.fillIn( sizePatternString, {
         thisObjectLabel: this.massLabel,
-        massValue: this.getMassValue(),
-        units: this.massDescriber.unit
+        massValue: this.getMassValue()
       } );
 
       this.massAndPositionNode.innerContent = StringUtils.fillIn( sizeAndDistancePatternString, {

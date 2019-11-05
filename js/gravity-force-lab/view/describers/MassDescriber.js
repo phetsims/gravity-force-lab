@@ -29,6 +29,7 @@ define( require => {
   const massValuesAndComparisonSummaryPatternString = GravityForceLabA11yStrings.massValuesAndComparisonSummaryPattern.value;
   const massAndUnitPatternString = GravityForceLabA11yStrings.massAndUnitPattern.value;
   const objectsRelativeSizePatternString = GravityForceLabA11yStrings.objectsRelativeSizePattern.value;
+  const massMaxMinBorderTextString = GravityForceLabA11yStrings.massMaxMinBorderText.value;
 
   // size
   const tinyString = ISLCA11yStrings.tiny.value;
@@ -112,9 +113,10 @@ define( require => {
 
     /**
      * @param {GravityForceLabModel} model
+     * @param {ForceDescriber} forceDescriber
      * @param {Object} [options]
      */
-    constructor( model, options ) {
+    constructor( model, forceDescriber, options ) {
       options = merge( {
         object1Label: mass1AbbreviatedString,
         object2Label: mass2AbbreviatedString,
@@ -129,6 +131,7 @@ define( require => {
       super( model, options.object1Label, options.object2Label );
 
       // @private
+      this.forceDescriber = forceDescriber;
       this.mass1Growing = false;
       this.mass2Growing = false;
       this.convertMassValue = options.convertMassValue;
@@ -291,6 +294,21 @@ define( require => {
 
       // use size or density depending on if constant checkbox is checked.
       return this.constantRadiusProperty.get() ? getRelativeDensityFromIndex( index ) : getRelativeSizeFromIndex( index );
+    }
+
+    /**
+     * @public
+     * @param {ISLCObjectEnum} thisObjectEnum
+     * @returns {string}
+     */
+    getMassMaxMinText( thisObjectEnum ) {
+      return StringUtils.fillIn( massMaxMinBorderTextString, {
+        relativeSize: this.getRelativeSizeOrDensity( thisObjectEnum ),
+        otherObjectLabel: this.getOtherObjectLabelFromEnum( thisObjectEnum ),
+        forceVectorSize: this.forceDescriber.getForceVectorSize(),
+        force: this.forceDescriber.getFormattedForce(),
+        unit: this.forceDescriber.units
+      } );
     }
   }
 

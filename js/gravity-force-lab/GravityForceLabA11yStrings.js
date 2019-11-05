@@ -197,6 +197,9 @@ define( require => {
     forceValuesCheckboxHelpText: {
       value: 'Explore force values in micronewtons.'
     },
+    massMaxMinBorderText: {
+      value: '{{relativeSize}} {{otherObjectLabel}}, {{forceVectorSize}}, forces {{force}} {{unit}}.'
+    },
 
     /************************************
      Keyboard Help Content

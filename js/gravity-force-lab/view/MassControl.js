@@ -28,7 +28,7 @@ define( require => {
 
     /**
      * @param {string} titleString
-     * @param {Property.<number>} valueProperty
+     * @param {NumberProperty} valueProperty
      * @param {Range} massRange
      * @param {Color} thumbColor
      * @param {ISLCObjectEnum} massEnum
@@ -39,6 +39,8 @@ define( require => {
      */
     constructor( titleString, valueProperty, massRange, thumbColor, massEnum, updateDescriptionProperties,
                  alertManager, massDescriber, tandem ) {
+
+      let currentMass = valueProperty.value;
 
       super( titleString, unitsKgString, valueProperty, massRange, {
         // panel options
@@ -55,12 +57,25 @@ define( require => {
             thumbFill: thumbColor.colorUtilsBrighter( 0.15 ),
             thumbFillHighlighted: thumbColor.colorUtilsBrighter( 0.35 ),
             constrainValue: v => Util.roundToInterval( v, 10 ),
+            startDrag() {
+              currentMass = valueProperty.value;
+            },
 
             // a11y
             keyboardStep: 50,
             roundToStepSize: true,
             pageKeyboardStep: 100,
             accessibleName: titleString,
+
+            // on end interaction, if alert a special alert if the mass started at the min/max and didnt' change.
+            a11yCreateValueChangeAlert: () => {
+
+              // no change and at max or min
+              if ( currentMass === valueProperty.value && ( currentMass === massRange.max || currentMass === massRange.min ) ) {
+                return alertManager.alertMassMinMaxEdge( massEnum );
+              }
+              return null; // regular mass changed alerts come from model changes
+            },
             a11yCreateAriaValueText: () => massDescriber.getMassAndUnit( massEnum )
           },
           titleNodeOptions: { font: new PhetFont( 24 ) },

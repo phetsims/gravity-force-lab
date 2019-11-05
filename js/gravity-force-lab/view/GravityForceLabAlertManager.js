@@ -141,6 +141,16 @@ define( require => {
     }
 
     /**
+     * Alert the "border" alert when attempting to change the mass, but already at the min or max of it, see https://github.com/phetsims/gravity-force-lab/issues/155
+     * @private
+     * @param {ISLCObjectEnum} thisObjectEnum
+     */
+    alertMassMinMaxEdge( thisObjectEnum ) {
+      this.massChangedUtterance.alert = this.massDescriber.getMassMaxMinText( thisObjectEnum);
+      utteranceQueue.addToBack( this.massChangedUtterance );
+    }
+
+    /**
      * @private
      */
     alertConstantSizeChangedPosition() {
