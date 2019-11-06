@@ -12,9 +12,11 @@ define( require => {
 
   // modules
   const Dimension2 = require( 'DOT/Dimension2' );
+  const Enumeration = require( 'PHET_CORE/Enumeration' );
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const ISLCObjectControlPanel = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectControlPanel' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const Property = require( 'AXON/Property' );
   const Util = require( 'DOT/Util' );
 
   // strings
@@ -23,6 +25,7 @@ define( require => {
   // constants
   const TRACK_SIZE = new Dimension2( 170, 3 );
   const THUMB_SIZE = new Dimension2( 22, 42 );
+  const SliderDragState = new Enumeration( [ 'NOT_DRAGGING', 'DRAGGING_VIA_POINTER', 'DRAGGING_VIA_KEYBOARD' ] );
 
   class MassControl extends ISLCObjectControlPanel {
 
@@ -57,8 +60,17 @@ define( require => {
             thumbFill: thumbColor.colorUtilsBrighter( 0.15 ),
             thumbFillHighlighted: thumbColor.colorUtilsBrighter( 0.35 ),
             constrainValue: v => Util.roundToInterval( v, 10 ),
-            startDrag() {
+            startDrag: event => {
               currentMass = valueProperty.value;
+              if ( event.type === 'enter' || event.type === 'move' || event.type === 'down' ) {
+                this.sliderDragStateProperty.set( SliderDragState.DRAGGING_VIA_POINTER );
+              }
+              else if ( event.type === 'keydown' ) {
+                this.sliderDragStateProperty.set( SliderDragState.DRAGGING_VIA_KEYBOARD );
+              }
+            },
+            endDrag: () => {
+              this.sliderDragStateProperty.set( SliderDragState.NOT_DRAGGING );
             },
 
             // a11y
@@ -93,8 +105,14 @@ define( require => {
 
         tandem: tandem
       } );
+
+      // @public (read-only) - drag state of the slider
+      this.sliderDragStateProperty = new Property( SliderDragState.NOT_DRAGGING );
     }
   }
+
+  // statics
+  MassControl.SliderDragState = SliderDragState;
 
   return gravityForceLab.register( 'MassControl', MassControl );
 } );

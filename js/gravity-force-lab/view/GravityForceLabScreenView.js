@@ -15,6 +15,7 @@ define( require => {
   const BoundarySoundGenerator = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/BoundarySoundGenerator' );
   const Bounds2 = require( 'DOT/Bounds2' );
   const DefaultDirection = require( 'INVERSE_SQUARE_LAW_COMMON/view/DefaultDirection' );
+  const DerivedProperty = require( 'AXON/DerivedProperty' );
   const ForceSoundGenerator = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/ForceSoundGenerator' );
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
@@ -72,6 +73,8 @@ define( require => {
   const OBJECT_TWO = ISLCObjectEnum.OBJECT_TWO;
   const CHECKBOX_TEXT_SIZE = 15;
   const BOUNDARY_SOUNDS_LEVEL = 1;
+  const MASS_SOUND_LEVEL = 0.7;
+  const MASS_SOUND_THRESHOLDS = [ 10, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000 ];
 
   function GravityForceLabScreenView( model, tandem ) {
 
@@ -253,8 +256,8 @@ define( require => {
     const rulerRegionPositions = [
       mass2Node.top,
       mass1Node.top,
-      mass1Node.localToGlobalPoint( mass1Node.centerPoint.center ).y -20,
-      mass1Node.localToGlobalPoint( mass1Node.centerPoint.center ).y +20,
+      mass1Node.localToGlobalPoint( mass1Node.centerPoint.center ).y - 20,
+      mass1Node.localToGlobalPoint( mass1Node.centerPoint.center ).y + 20,
       mass1Node.localToGlobalPoint( new Vector2( 0, mass1Node.dragNode.bottom ) ).y,
       massControl1.top,
       this.layoutBounds.bottom
@@ -346,17 +349,32 @@ define( require => {
     soundManager.addSoundGenerator( this.forceSoundGenerator );
 
     // sound generation for the mass values
+    const massSliderDraggingViaPointer = new DerivedProperty(
+      [ massControl1.sliderDragStateProperty, massControl2.sliderDragStateProperty ],
+      ( massControl1SliderDragState, massControl2SliderDragState ) => {
+        return ( massControl1SliderDragState === MassControl.SliderDragState.DRAGGING_VIA_POINTER ||
+                 massControl2SliderDragState === MassControl.SliderDragState.DRAGGING_VIA_POINTER );
+      }
+    );
     soundManager.addSoundGenerator( new MassSoundGenerator(
       model.object1.valueProperty,
       GravityForceLabConstants.MASS_RANGE,
       resetAllButton.buttonModel.isFiringProperty,
-      { initialOutputLevel: 0.7, lockoutTime: 0.2 }
+      {
+        initialOutputLevel: MASS_SOUND_LEVEL,
+        playBasedOnThresholdsProperty: massSliderDraggingViaPointer,
+        thresholdValues: MASS_SOUND_THRESHOLDS
+      }
     ) );
     soundManager.addSoundGenerator( new MassSoundGenerator(
       model.object2.valueProperty,
       GravityForceLabConstants.MASS_RANGE,
       resetAllButton.buttonModel.isFiringProperty,
-      { initialOutputLevel: 0.7, lockoutTime: 0.2 }
+      {
+        initialOutputLevel: MASS_SOUND_LEVEL,
+        playBasedOnThresholdsProperty: massSliderDraggingViaPointer,
+        thresholdValues: MASS_SOUND_THRESHOLDS
+      }
     ) );
 
     // sound generation for masses reaching the inner or outer motion boundaries
