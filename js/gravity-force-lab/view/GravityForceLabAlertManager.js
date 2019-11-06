@@ -16,8 +16,7 @@ define( require => {
   const ISLCAlertManager = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCAlertManager' );
   const merge = require( 'PHET_CORE/merge' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  const utteranceQueue = require( 'UTTERANCE_QUEUE/utteranceQueue' );
-  const ValueChangeUtterance = require( 'UTTERANCE_QUEUE/ValueChangeUtterance' );
+const ValueChangeUtterance = require( 'UTTERANCE_QUEUE/ValueChangeUtterance' );
 
   // a11y strings
   const constantRadiusThinkDensityPatternString = GravityForceLabA11yStrings.constantRadiusThinkDensityPattern.value;
@@ -74,7 +73,7 @@ define( require => {
       model.constantRadiusProperty.lazyLink( constantRadius => {
         constantRadiusUtterance.alert = constantRadius ? constantRadiusAlert :
                                         massDescriber.getM1RelativeSize();
-        utteranceQueue.addToBack( constantRadiusUtterance );
+        phet.joist.sim.display.utteranceQueue.addToBack( constantRadiusUtterance );
       } );
 
       if ( options.linkToScientificNotationProperty ) {
@@ -111,7 +110,7 @@ define( require => {
      */
     alertScientificNotation() {
       this.scientificNotationUtterance.alert = this.forceDescriber.getScientificNotationAlertText();
-      utteranceQueue.addToBack( this.scientificNotationUtterance );
+      phet.joist.sim.display.utteranceQueue.addToBack( this.scientificNotationUtterance );
     }
 
     /**
@@ -137,7 +136,7 @@ define( require => {
         massClause: massClause,
         forceClause: this.forceDescriber.getVectorChangeClause( forceBiggerOverride, false )
       } );
-      utteranceQueue.addToBack( this.massChangedUtterance );
+      phet.joist.sim.display.utteranceQueue.addToBack( this.massChangedUtterance );
     }
 
     /**
@@ -147,7 +146,7 @@ define( require => {
      */
     alertMassMinMaxEdge( thisObjectEnum ) {
       this.massChangedUtterance.alert = this.massDescriber.getMassMaxMinText( thisObjectEnum);
-      utteranceQueue.addToBack( this.massChangedUtterance );
+      phet.joist.sim.display.utteranceQueue.addToBack( this.massChangedUtterance );
     }
 
     /**
@@ -157,7 +156,7 @@ define( require => {
       this.massChangedUtterance.alert = StringUtils.fillIn( sentencePatternString, {
         sentence: this.forceDescriber.getVectorChangeClause( false, true )
       } );
-      utteranceQueue.addToBack( this.massChangedUtterance );
+      phet.joist.sim.display.utteranceQueue.addToBack( this.massChangedUtterance );
     }
   }
 
