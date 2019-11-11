@@ -262,7 +262,7 @@ define( require => {
       value: '{{playHint}} {{releaseHint}}'
     },
     jumpKeyboardHint: {
-      value: 'Press J plus C keys to jump ruler and align zero mark at center of m1.'
+      value: 'Press J plus C keys to jump ruler to center of m1.'
     },
     moveKeyboardHint: {
       value: 'Move ruler left and right with letter keys A and D.'
@@ -274,7 +274,7 @@ define( require => {
       value: 'Space to release.'
     },
     centersApartPattern: {
-      value: 'Centers of spheres {{distanceAndUnits}} apart.'
+      value: 'Centers {{distanceAndUnits}} apart.'
     },
     jumpCenterMassAlert: {
       value: 'Ruler zero mark at center of {{object1}}. {{centersApart}}'
@@ -297,7 +297,7 @@ define( require => {
       value: 'Just below centers.'
     },
     inHomePosition: {
-      value: 'In home position below spheres.'
+      value: 'In home position below mass spheres.'
     },
     behindMassControls: {
       value: 'Behind mass controls.'
