@@ -263,8 +263,8 @@ define( require => {
       this.layoutBounds.bottom
     ];
 
-    const rulerDescriber = new GravityForceLabRulerDescriber( model.rulerPositionProperty, modelViewTransform,
-      rulerRegionPositions, positionDescriber );
+    const rulerDescriber = new GravityForceLabRulerDescriber( model, mass1AbbreviatedString, mass2AbbreviatedString,
+      modelViewTransform, rulerRegionPositions, positionDescriber );
 
     // @private - added to object for animation stepping
     const gravityForceLabRuler = new ISLCRulerNode(

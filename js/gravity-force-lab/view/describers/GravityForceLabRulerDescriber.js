@@ -11,6 +11,8 @@ define( require => {
   // modules
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
+  const ISLCDescriber = require( 'INVERSE_SQUARE_LAW_COMMON/view/describers/ISLCDescriber' );
+  const ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
   const ISLCQueryParameters = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCQueryParameters' );
   const Range = require( 'DOT/Range' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
@@ -23,6 +25,7 @@ define( require => {
   const moveKeyboardHintString = GravityForceLabA11yStrings.moveKeyboardHint.value;
   const gestureHintString = GravityForceLabA11yStrings.gestureHint.value;
   const keyboardReleaseHintString = GravityForceLabA11yStrings.keyboardReleaseHint.value;
+  const jumpCenterMassAlertString = GravityForceLabA11yStrings.jumpCenterMassAlert.value;
 
   const coveringM2String = GravityForceLabA11yStrings.coveringM2.value;
   const coveringM1String = GravityForceLabA11yStrings.coveringM1.value;
@@ -47,20 +50,24 @@ define( require => {
     RULER_VERTICAL_REGIONS.indexOf( justBelowCentersString ) );
   const SHOW_RULER_REGIONS = ISLCQueryParameters.showRulerRegions;
 
-  class GravityForceLabRulerDescriber {
+  class GravityForceLabRulerDescriber extends ISLCDescriber {
 
     /**
-     * @param {Property.<number>} rulerPositionProperty
+     * @param {GravityForceLabModel} model
+     * @param {string} object1Label
+     * @param {string} object2Label
      * @param {ModelViewTransform2} modelViewTransform
      * @param {Array.<number>} viewYPositions - a list of Y positions, least (top) to greatest (bottom)
      * @param {PositionDescriber} positionDescriber
      */
-    constructor( rulerPositionProperty, modelViewTransform, viewYPositions, positionDescriber ) {
+    constructor( model, object1Label, object2Label, modelViewTransform, viewYPositions, positionDescriber ) {
 
       assert && assert( RULER_VERTICAL_REGIONS.length === viewYPositions.length, 'Unexpected number of y positions' );
 
+      super( model, object1Label, object2Label );
+
       // @private
-      this.rulerPositionProperty = rulerPositionProperty;
+      this.rulerPositionProperty = model.rulerPositionProperty;
       this.modelViewTransform = modelViewTransform;
       this.positionDescriber = positionDescriber;
       this.viewYPositions = viewYPositions;
@@ -141,6 +148,27 @@ define( require => {
      */
     getCurrentVerticalRegion() {
       return RULER_VERTICAL_REGIONS[ this.getVerticalRegionIndex() ];
+    }
+
+    /**
+     * Get current vertical position when in home position. Should only be called when the ruler is currently in home
+     * position.
+     */
+    getHomePositionString() {
+      const currentRegion = this.getCurrentVerticalRegion();
+      assert && assert( currentRegion === inHomePositionString, 'getHomePositionString called when ruler not in home position' );
+      return currentRegion;
+    }
+
+    /**
+     * @public
+     * @returns {string}
+     */
+    getJumpCenterMassAlert() {
+      return StringUtils.fillIn( jumpCenterMassAlertString, {
+        centersApart: this.getCentersApartDistance(),
+        object1: this.getObjectLabelFromEnum( ISLCObjectEnum.OBJECT_ONE )
+      } );
     }
 
     /**

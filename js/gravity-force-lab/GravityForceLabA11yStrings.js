@@ -276,6 +276,9 @@ define( require => {
     centersApartPattern: {
       value: 'Centers of spheres {{distanceAndUnits}} apart.'
     },
+    jumpCenterMassAlert: {
+      value: 'Ruler zero mark at center of {{object1}}. {{centersApart}}'
+    },
 
     // vertical ruler positions
     coveringM2: {
