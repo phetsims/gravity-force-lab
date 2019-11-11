@@ -305,7 +305,7 @@ define( require => {
       return StringUtils.fillIn( massMaxMinBorderTextString, {
         relativeSize: this.getRelativeSizeOrDensity( thisObjectEnum ),
         otherObjectLabel: this.getOtherObjectLabelFromEnum( thisObjectEnum ),
-        forceVectorSize: this.forceDescriber.getForceVectorSize(),
+        forceVectorSize: this.forceDescriber.getForceVectorSize( false ),
         force: this.forceDescriber.getFormattedForce(),
         unit: this.forceDescriber.units
       } );
