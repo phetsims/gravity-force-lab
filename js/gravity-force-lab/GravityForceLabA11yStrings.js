@@ -112,6 +112,35 @@ define( require => {
       value: 'much much larger than'
     },
 
+    // relative mass sizes capitalized
+    muchMuchSmallerThanCapitalized: {
+      value: 'Much much smaller than'
+    },
+    halfTheSizeOfCapitalized: {
+      value: 'Half the size of'
+    },
+    muchSmallerThanCapitalized: {
+      value: 'Much smaller than'
+    },
+    smallerButComparableToCapitalized: {
+      value: 'Smaller but comparable to'
+    },
+    sameSizeAsCapitalized: {
+      value: 'Same size as'
+    },
+    largerButComparableToCapitalized: {
+      value: 'Larger but comparable to'
+    },
+    muchLargerThanCapitalized: {
+      value: 'Much larger than'
+    },
+    twiceTheSizeOfCapitalized: {
+      value: 'Twice the size of'
+    },
+    muchMuchLargerThanCapitalized: {
+      value: 'Much much larger than'
+    },
+
     // relative densities
     notDenseComparedTo: {
       value: 'not dense compared to'
@@ -139,6 +168,35 @@ define( require => {
     },
     extremelyDenseComparedTo: {
       value: 'extremely dense compared to'
+    },
+
+    // relative densities capitalized
+    notDenseComparedToCapitalized: {
+      value: 'Not dense compared to'
+    },
+    halfAsDenseAsCapitalized: {
+      value: 'Half as dense as'
+    },
+    muchLessDenseThanCapitalized: {
+      value: 'Much less dense than'
+    },
+    lessDenseButComparableToCapitalized: {
+      value: 'Less dense but comparable to'
+    },
+    asDenseAsCapitalized: {
+      value: 'As dense as'
+    },
+    denseButComparableToCapitalized: {
+      value: 'Denser but comparable to'
+    },
+    muchDenseThanCapitalized: {
+      value: 'Much denser than'
+    },
+    twiceAsDenseAsCapitalized: {
+      value: 'Twice as dense as'
+    },
+    extremelyDenseComparedToCapitalized: {
+      value: 'Extremely dense compared to'
     },
 
     massGetsSmaller: {

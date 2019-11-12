@@ -51,6 +51,17 @@ define( require => {
   const twiceTheSizeOfString = GravityForceLabA11yStrings.twiceTheSizeOf.value;
   const muchMuchLargerThanString = GravityForceLabA11yStrings.muchMuchLargerThan.value;
 
+  // relative size capitalized
+  const muchMuchSmallerThanCapitalizedString = GravityForceLabA11yStrings.muchMuchSmallerThanCapitalized.value;
+  const halfTheSizeOfCapitalizedString = GravityForceLabA11yStrings.halfTheSizeOfCapitalized.value;
+  const muchSmallerThanCapitalizedString = GravityForceLabA11yStrings.muchSmallerThanCapitalized.value;
+  const smallerButComparableToCapitalizedString = GravityForceLabA11yStrings.smallerButComparableToCapitalized.value;
+  const comparableToCapitalizedString = GravityForceLabA11yStrings.sameSizeAsCapitalized.value;
+  const largerButComparableToCapitalizedString = GravityForceLabA11yStrings.largerButComparableToCapitalized.value;
+  const muchLargerThanCapitalizedString = GravityForceLabA11yStrings.muchLargerThanCapitalized.value;
+  const twiceTheSizeOfCapitalizedString = GravityForceLabA11yStrings.twiceTheSizeOfCapitalized.value;
+  const muchMuchLargerThanCapitalizedString = GravityForceLabA11yStrings.muchMuchLargerThanCapitalized.value;
+
   // relative density
   const notDenseComparedToString = GravityForceLabA11yStrings.notDenseComparedTo.value;
   const halfAsDenseAsString = GravityForceLabA11yStrings.halfAsDenseAs.value;
@@ -61,6 +72,17 @@ define( require => {
   const muchDenseThanString = GravityForceLabA11yStrings.muchDenseThan.value;
   const twiceAsDenseAsString = GravityForceLabA11yStrings.twiceAsDenseAs.value;
   const extremelyDenseComparedToString = GravityForceLabA11yStrings.extremelyDenseComparedTo.value;
+
+  // relative density capitalized
+  const notDenseComparedToCapitalizedString = GravityForceLabA11yStrings.notDenseComparedToCapitalized.value;
+  const halfAsDenseAsCapitalizedString = GravityForceLabA11yStrings.halfAsDenseAsCapitalized.value;
+  const muchLessDenseThanCapitalizedString = GravityForceLabA11yStrings.muchLessDenseThanCapitalized.value;
+  const lessDenseButComparableToCapitalizedString = GravityForceLabA11yStrings.lessDenseButComparableToCapitalized.value;
+  const asDenseAsCapitalizedString = GravityForceLabA11yStrings.asDenseAsCapitalized.value;
+  const denseButComparableToCapitalizedString = GravityForceLabA11yStrings.denseButComparableToCapitalized.value;
+  const muchDenseThanCapitalizedString = GravityForceLabA11yStrings.muchDenseThanCapitalized.value;
+  const twiceAsDenseAsCapitalizedString = GravityForceLabA11yStrings.twiceAsDenseAsCapitalized.value;
+  const extremelyDenseComparedToCapitalizedString = GravityForceLabA11yStrings.extremelyDenseComparedToCapitalized.value;
 
   const massChangeClausePatternString = GravityForceLabA11yStrings.massChangeClausePattern.value;
   const massChangesAndMovesClausePatternString = GravityForceLabA11yStrings.massChangesAndMovesClausePattern.value;
@@ -104,6 +126,28 @@ define( require => {
     muchDenseThanString,
     twiceAsDenseAsString,
     extremelyDenseComparedToString
+  ];
+  const RELATIVE_SIZE_CAPITALIZED_STRINGS = [
+    muchMuchSmallerThanCapitalizedString,
+    halfTheSizeOfCapitalizedString,
+    muchSmallerThanCapitalizedString,
+    smallerButComparableToCapitalizedString,
+    comparableToCapitalizedString,
+    largerButComparableToCapitalizedString,
+    muchLargerThanCapitalizedString,
+    twiceTheSizeOfCapitalizedString,
+    muchMuchLargerThanCapitalizedString
+  ];
+  const RELATIVE_DENSITY_CAPITALIZED_STRINGS = [
+    notDenseComparedToCapitalizedString,
+    halfAsDenseAsCapitalizedString,
+    muchLessDenseThanCapitalizedString,
+    lessDenseButComparableToCapitalizedString,
+    asDenseAsCapitalizedString,
+    denseButComparableToCapitalizedString,
+    muchDenseThanCapitalizedString,
+    twiceAsDenseAsCapitalizedString,
+    extremelyDenseComparedToCapitalizedString
   ];
   assert && assert( RELATIVE_DENSITY_STRINGS.length === RELATIVE_SIZE_STRINGS.length, 'same number of strings expected' );
 
@@ -283,17 +327,18 @@ define( require => {
 
     /**
      * @param {ISLCObjectEnum} thisObjectEnum
+     * @param {boolean} capitalized
      * @returns {string}
      * @public
      */
-    getRelativeSizeOrDensity( thisObjectEnum ) {
+    getRelativeSizeOrDensity( thisObjectEnum, capitalized = false ) {
       const thisObject = this.getObjectFromEnum( thisObjectEnum );
       const otherObject = this.getOtherObjectFromEnum( thisObjectEnum );
       const ratio = thisObject.valueProperty.value / otherObject.valueProperty.value;
       const index = getRelativeSizeOrDensityIndex( ratio );
 
       // use size or density depending on if constant checkbox is checked.
-      return this.constantRadiusProperty.get() ? getRelativeDensityFromIndex( index ) : getRelativeSizeFromIndex( index );
+      return this.constantRadiusProperty.get() ? getRelativeDensityFromIndex( index, capitalized ) : getRelativeSizeFromIndex( index, capitalized );
     }
 
     /**
@@ -303,7 +348,7 @@ define( require => {
      */
     getMassMaxMinText( thisObjectEnum ) {
       return StringUtils.fillIn( massMaxMinBorderTextString, {
-        relativeSize: this.getRelativeSizeOrDensity( thisObjectEnum ),
+        relativeSize: this.getRelativeSizeOrDensity( thisObjectEnum, true ),
         otherObjectLabel: this.getOtherObjectLabelFromEnum( thisObjectEnum ),
         forceVectorSize: this.forceDescriber.getForceVectorSize( false ),
         force: this.forceDescriber.getFormattedForce(),
@@ -321,20 +366,24 @@ define( require => {
 
   /**
    * @param {number} index - should be an index
+   * @param {boolean} capitalized - if the phrase should be capitalized
    * @returns {string}
    */
-  const getRelativeSizeFromIndex = index => {
-    assert && assert( Util.isInteger( index ) && index < RELATIVE_SIZE_STRINGS.length );
-    return RELATIVE_SIZE_STRINGS[ index ];
+  const getRelativeSizeFromIndex = ( index, capitalized ) => {
+    const array = capitalized ? RELATIVE_SIZE_CAPITALIZED_STRINGS : RELATIVE_SIZE_STRINGS;
+    assert && assert( Util.isInteger( index ) && index < array.length );
+    return array[ index ];
   };
 
   /**
    * @param {number} index - should be an index
+   * @param {boolean} capitalized - if the phrase should be capitalized
    * @returns {string}
    */
-  const getRelativeDensityFromIndex = index => {
-    assert && assert( Util.isInteger( index ) && index < RELATIVE_DENSITY_STRINGS.length );
-    return RELATIVE_DENSITY_STRINGS[ index ];
+  const getRelativeDensityFromIndex = ( index, capitalized ) => {
+    const array = capitalized ? RELATIVE_DENSITY_CAPITALIZED_STRINGS : RELATIVE_DENSITY_STRINGS;
+    assert && assert( Util.isInteger( index ) && index < array.length );
+    return array[ index ];
   };
 
   /**
