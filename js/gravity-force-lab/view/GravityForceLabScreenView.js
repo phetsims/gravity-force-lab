@@ -12,7 +12,7 @@ define( require => {
 
   // modules
   const AccessiblePeer = require( 'SCENERY/accessibility/AccessiblePeer' );
-  const BoundarySoundGenerator = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/BoundarySoundGenerator' );
+  const MassBoundarySoundGenerator = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassBoundarySoundGenerator' );
   const Bounds2 = require( 'DOT/Bounds2' );
   const DefaultDirection = require( 'INVERSE_SQUARE_LAW_COMMON/view/DefaultDirection' );
   const DerivedProperty = require( 'AXON/DerivedProperty' );
@@ -378,10 +378,10 @@ define( require => {
     ) );
 
     // sound generation for masses reaching the inner or outer motion boundaries
-    soundManager.addSoundGenerator( new BoundarySoundGenerator( model.object1, model, {
+    soundManager.addSoundGenerator( new MassBoundarySoundGenerator( model.object1, model, 'left', {
       initialOutputLevel: BOUNDARY_SOUNDS_LEVEL
     } ) );
-    soundManager.addSoundGenerator( new BoundarySoundGenerator( model.object2, model, {
+    soundManager.addSoundGenerator( new MassBoundarySoundGenerator( model.object2, model, 'right', {
       initialOutputLevel: BOUNDARY_SOUNDS_LEVEL
     } ) );
   }
