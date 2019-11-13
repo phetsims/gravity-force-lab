@@ -40,11 +40,13 @@ define( require => {
 
       // function for playing the appropriate boundary sound
       const positionListener = position => {
-        if ( position === model.getObjectMinPosition( movableObject ) ) {
-          massSidePosition === 'left' ? outerBoundarySoundClip.play() : innerBoundarySoundClip.play();
-        }
-        else if ( position === model.getObjectMaxPosition( movableObject ) ) {
-          massSidePosition === 'left' ? innerBoundarySoundClip.play() : outerBoundarySoundClip.play();
+        if ( !model.massWasPushed() ) {
+          if ( position === model.getObjectMinPosition( movableObject ) ) {
+            massSidePosition === 'left' ? outerBoundarySoundClip.play() : innerBoundarySoundClip.play();
+          }
+          else if ( position === model.getObjectMaxPosition( movableObject ) ) {
+            massSidePosition === 'left' ? innerBoundarySoundClip.play() : outerBoundarySoundClip.play();
+          }
         }
       };
       movableObject.positionProperty.link( positionListener );
