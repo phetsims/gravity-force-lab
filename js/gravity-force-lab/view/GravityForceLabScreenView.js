@@ -12,7 +12,6 @@ define( require => {
 
   // modules
   const AccessiblePeer = require( 'SCENERY/accessibility/AccessiblePeer' );
-  const MassBoundarySoundGenerator = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassBoundarySoundGenerator' );
   const Bounds2 = require( 'DOT/Bounds2' );
   const DefaultDirection = require( 'INVERSE_SQUARE_LAW_COMMON/view/DefaultDirection' );
   const DerivedProperty = require( 'AXON/DerivedProperty' );
@@ -33,6 +32,7 @@ define( require => {
   const ISLCQueryParameters = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCQueryParameters' );
   const ISLCRulerNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCRulerNode' );
   const ISLCRulerRegionsNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCRulerRegionsNode' );
+  const MassBoundarySoundGenerator = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassBoundarySoundGenerator' );
   const MassControl = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassControl' );
   const MassDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/MassDescriber' );
   const MassNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassNode' );
@@ -266,11 +266,19 @@ define( require => {
     const rulerDescriber = new GravityForceLabRulerDescriber( model, mass1AbbreviatedString, mass2AbbreviatedString,
       modelViewTransform, rulerRegionPositions, positionDescriber );
 
+    // ruler drag bounds (in model coordinate frame) - assumes a single point scale inverted Y mapping
+    const halfModelHeight = modelViewTransform.viewToModelDeltaY( this.layoutBounds.height / 2 );
+    const minX = model.leftObjectBoundary;
+    const minY = halfModelHeight; // bottom bound because Y is inverted
+    const maxX = model.rightObjectBoundary;
+    const maxY = -halfModelHeight; // top bound because Y is inverted
+
     // @private - added to object for animation stepping
     const gravityForceLabRuler = new ISLCRulerNode(
-      model,
-      this.layoutBounds.height,
+      model.rulerPositionProperty,
+      new Bounds2( minX, minY, maxX, maxY ),
       modelViewTransform,
+      () => model.object1.positionProperty.value, // wrap this in a closure instead of exposing this all to the ruler.
       rulerDescriber,
       tandem.createTandem( 'ruler' ),
       {
