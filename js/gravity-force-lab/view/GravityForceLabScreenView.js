@@ -267,11 +267,10 @@ define( require => {
       modelViewTransform, rulerRegionPositions, positionDescriber );
 
     // ruler drag bounds (in model coordinate frame) - assumes a single point scale inverted Y mapping
-    const halfModelHeight = modelViewTransform.viewToModelDeltaY( this.layoutBounds.height / 2 );
     const minX = model.leftObjectBoundary;
-    const minY = halfModelHeight; // bottom bound because Y is inverted
+    const minY = modelViewTransform.viewToModelY( massControl2.top + 10 ); // bottom bound because Y is inverted
     const maxX = model.rightObjectBoundary;
-    const maxY = -halfModelHeight; // top bound because Y is inverted
+    const maxY = -modelViewTransform.viewToModelDeltaY( this.layoutBounds.height / 2 ); // top bound because Y is inverted
 
     // @private - added to object for animation stepping
     const gravityForceLabRuler = new ISLCRulerNode(
