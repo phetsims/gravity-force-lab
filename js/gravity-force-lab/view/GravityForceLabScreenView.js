@@ -11,7 +11,6 @@ define( require => {
   'use strict';
 
   // modules
-  const AccessiblePeer = require( 'SCENERY/accessibility/AccessiblePeer' );
   const Bounds2 = require( 'DOT/Bounds2' );
   const DefaultDirection = require( 'INVERSE_SQUARE_LAW_COMMON/view/DefaultDirection' );
   const DerivedProperty = require( 'AXON/DerivedProperty' );
@@ -146,13 +145,6 @@ define( require => {
       labelContent: massControlsLabelString,
       tagName: 'div',
       descriptionContent: massControlsHelpTextString
-    } );
-
-    // the list of mass controls is aria-labelledby the its label sibling, see https://github.com/phetsims/gravity-force-lab/issues/132
-    massControlsNode.addAriaLabelledbyAssociation( {
-      otherNode: massControlsNode,
-      otherElementName: AccessiblePeer.LABEL_SIBLING,
-      thisElementName: AccessiblePeer.PRIMARY_SIBLING
     } );
 
     // a list of Properties to that, when changed, should trigger an update in descriptions in the MassControl
