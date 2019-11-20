@@ -73,7 +73,7 @@ const ValueChangeUtterance = require( 'UTTERANCE_QUEUE/ValueChangeUtterance' );
       model.constantRadiusProperty.lazyLink( constantRadius => {
         constantRadiusUtterance.alert = constantRadius ? constantRadiusAlert :
                                         massDescriber.getM1RelativeSize();
-        phet.joist.sim.display.utteranceQueue.addToBack( constantRadiusUtterance );
+        phet.joist.sim.utteranceQueue.addToBack( constantRadiusUtterance );
       } );
 
       if ( options.linkToScientificNotationProperty ) {
@@ -110,7 +110,7 @@ const ValueChangeUtterance = require( 'UTTERANCE_QUEUE/ValueChangeUtterance' );
      */
     alertScientificNotation() {
       this.scientificNotationUtterance.alert = this.forceDescriber.getScientificNotationAlertText();
-      phet.joist.sim.display.utteranceQueue.addToBack( this.scientificNotationUtterance );
+      phet.joist.sim.utteranceQueue.addToBack( this.scientificNotationUtterance );
     }
 
     /**
@@ -136,7 +136,7 @@ const ValueChangeUtterance = require( 'UTTERANCE_QUEUE/ValueChangeUtterance' );
         massClause: massClause,
         forceClause: this.forceDescriber.getVectorChangeClause( forceBiggerOverride, false )
       } );
-      phet.joist.sim.display.utteranceQueue.addToBack( this.massChangedUtterance );
+      phet.joist.sim.utteranceQueue.addToBack( this.massChangedUtterance );
     }
 
     /**
@@ -146,7 +146,7 @@ const ValueChangeUtterance = require( 'UTTERANCE_QUEUE/ValueChangeUtterance' );
      */
     alertMassMinMaxEdge( thisObjectEnum ) {
       this.massChangedUtterance.alert = this.massDescriber.getMassMaxMinText( thisObjectEnum);
-      phet.joist.sim.display.utteranceQueue.addToBack( this.massChangedUtterance );
+      phet.joist.sim.utteranceQueue.addToBack( this.massChangedUtterance );
     }
 
     /**
@@ -156,7 +156,7 @@ const ValueChangeUtterance = require( 'UTTERANCE_QUEUE/ValueChangeUtterance' );
       this.massChangedUtterance.alert = StringUtils.fillIn( sentencePatternString, {
         sentence: this.forceDescriber.getVectorChangeClause( false, true )
       } );
-      phet.joist.sim.display.utteranceQueue.addToBack( this.massChangedUtterance );
+      phet.joist.sim.utteranceQueue.addToBack( this.massChangedUtterance );
     }
   }
 
