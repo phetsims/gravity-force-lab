@@ -16,6 +16,7 @@ define( require => {
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const ISLCObjectControlPanel = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectControlPanel' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const Playable = require( 'TAMBO/Playable' );
   const Property = require( 'AXON/Property' );
   const Util = require( 'DOT/Util' );
 
@@ -95,8 +96,10 @@ define( require => {
             font: new PhetFont( 18 ),
             xMargin: 20,
             yMargin: 4
+          },
+          arrowButtonOptions: {
+            soundPlayer: Playable.NO_SOUND
           }
-
         },
 
         tickLabelOptions: {
