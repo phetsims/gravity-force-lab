@@ -35,7 +35,7 @@ define( require => {
   const MassControl = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassControl' );
   const MassDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/MassDescriber' );
   const MassNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassNode' );
-  const MassPDOMNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassPDOMNode' );
+  const MassDescriptionNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassDescriptionNode' );
   const MassSoundGenerator = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/MassSoundGenerator' );
   const ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   const Node = require( 'SCENERY/nodes/Node' );
@@ -297,12 +297,12 @@ define( require => {
     // All Nodes must be added as children (accessibleOrder alone won't word), but these don't need to be in the
     // main scene graph
     this.pdomPlayAreaNode.children = [
-      new MassPDOMNode( model, model.object1, massDescriber, forceDescriber, positionDescriber ),
-      new MassPDOMNode( model, model.object2, massDescriber, forceDescriber, positionDescriber )
+      new MassDescriptionNode( model, model.object1, massDescriber, forceDescriber, positionDescriber ),
+      new MassDescriptionNode( model, model.object2, massDescriber, forceDescriber, positionDescriber )
     ];
 
     this.pdomPlayAreaNode.accessibleOrder = [
-      null, // space for the MassPDOMNodes above to live
+      null, // space for the MassDescriptionNodes above to live
       massPositionsNode,
       mass1Node.arrowNode,
       mass2Node.arrowNode,

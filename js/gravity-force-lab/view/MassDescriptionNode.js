@@ -23,7 +23,7 @@ define( require => {
   const redSpherePatternString = GravityForceLabA11yStrings.redSpherePattern.value;
   const blueSpherePatternString = GravityForceLabA11yStrings.blueSpherePattern.value;
 
-  class MassPDOMNode extends ISLCObjectPDOMNode {
+  class MassDescriptionNode extends ISLCObjectPDOMNode {
 
     /**
      * @param {ISLCModel} model
@@ -121,5 +121,5 @@ define( require => {
     }
   }
 
-  return gravityForceLab.register( 'MassPDOMNode', MassPDOMNode );
+  return gravityForceLab.register( 'MassDescriptionNode', MassDescriptionNode );
 } );
