@@ -43,7 +43,7 @@ define( require => {
   const ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   const ScreenView = require( 'JOIST/ScreenView' );
   const soundManager = require( 'TAMBO/soundManager' );
-  const SpherePositionsPDOMNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/SpherePositionsPDOMNode' );
+  const SpherePositionsDescriptionNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/SpherePositionsDescriptionNode' );
   const Vector2 = require( 'DOT/Vector2' );
 
   // strings
@@ -136,7 +136,7 @@ define( require => {
       }
     );
 
-    const massPositionsNode = new SpherePositionsPDOMNode();
+    const massPositionsNode = new SpherePositionsDescriptionNode();
     massPositionsNode.addChild( mass1Node );
     massPositionsNode.addChild( mass2Node );
 

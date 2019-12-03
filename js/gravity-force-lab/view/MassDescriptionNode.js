@@ -7,7 +7,7 @@ define( require => {
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
   const ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
-  const ISLCObjectPDOMNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectPDOMNode' );
+  const ISLCObjectDescriptionNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectDescriptionNode' );
   const merge = require( 'PHET_CORE/merge' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Property = require( 'AXON/Property' );
@@ -23,7 +23,7 @@ define( require => {
   const redSpherePatternString = GravityForceLabA11yStrings.redSpherePattern.value;
   const blueSpherePatternString = GravityForceLabA11yStrings.blueSpherePattern.value;
 
-  class MassDescriptionNode extends ISLCObjectPDOMNode {
+  class MassDescriptionNode extends ISLCObjectDescriptionNode {
 
     /**
      * @param {ISLCModel} model

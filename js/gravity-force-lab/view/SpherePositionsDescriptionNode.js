@@ -17,7 +17,7 @@ define( require => {
   const spherePositionsString = ISLCA11yStrings.spherePositions.value;
   const spherePositionHelpTextString = ISLCA11yStrings.spherePositionHelpText.value;
 
-  class SpherePositionsPDOMNode extends Node {
+  class SpherePositionsDescriptionNode extends Node {
 
     /**
      * @param {Object} [options]
@@ -42,5 +42,5 @@ define( require => {
     }
   }
 
-  return gravityForceLab.register( 'SpherePositionsPDOMNode', SpherePositionsPDOMNode );
+  return gravityForceLab.register( 'SpherePositionsDescriptionNode', SpherePositionsDescriptionNode );
 } );
