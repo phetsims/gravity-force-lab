@@ -26,7 +26,7 @@ define( require => {
   // constants
   const TRACK_SIZE = new Dimension2( 170, 3 );
   const THUMB_SIZE = new Dimension2( 22, 42 );
-  const SliderDragState = new Enumeration( [ 'NOT_DRAGGING', 'DRAGGING_VIA_POINTER', 'DRAGGING_VIA_KEYBOARD' ] );
+  const SliderDragState = Enumeration.byKeys( [ 'NOT_DRAGGING', 'DRAGGING_VIA_POINTER', 'DRAGGING_VIA_KEYBOARD' ] );
 
   class MassControl extends ISLCObjectControlPanel {
 
