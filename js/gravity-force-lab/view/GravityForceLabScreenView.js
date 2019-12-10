@@ -12,9 +12,9 @@ define( require => {
 
   // modules
   const Bounds2 = require( 'DOT/Bounds2' );
+  const ContinuousPropertySoundGenerator = require( 'TAMBO/sound-generators/ContinuousPropertySoundGenerator' );
   const DefaultDirection = require( 'INVERSE_SQUARE_LAW_COMMON/view/DefaultDirection' );
   const DerivedProperty = require( 'AXON/DerivedProperty' );
-  const ForceSoundGenerator = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/ForceSoundGenerator' );
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
   const GravityForceLabAlertManager = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabAlertManager' );
@@ -63,6 +63,9 @@ define( require => {
   const constantSizeCheckboxHelpTextString = GravityForceLabA11yStrings.constantSizeCheckboxHelpText.value;
   const forceValuesCheckboxHelpTextString = GravityForceLabA11yStrings.forceValuesCheckboxHelpText.value;
   const scientificNotationCheckboxHelpTextString = ISLCA11yStrings.scientificNotationCheckboxHelpText.value;
+
+  // sounds
+  const forceSound = require( 'sound!GRAVITY_FORCE_LAB/saturated-sine-loop-trimmed.wav' );
 
   // constants
   const CONTROL_SCALE = 0.72;
@@ -339,8 +342,9 @@ define( require => {
     } );
 
     // @private - sound generation for the force sound
-    this.forceSoundGenerator = new ForceSoundGenerator(
+    this.forceSoundGenerator = new ContinuousPropertySoundGenerator(
       model.forceProperty,
+      forceSound,
       new Range( model.getMinForce(), model.getMaxForce() ),
       resetAllButton.buttonModel.isFiringProperty,
       { initialOutputLevel: 0.2 }
