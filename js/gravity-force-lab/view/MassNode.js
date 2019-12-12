@@ -58,7 +58,7 @@ define( require => {
         finishWiringListeners: () => this.linkToScientificNotationProperty( model ),
 
         // phet-io
-        tandem: Tandem.required
+        tandem: Tandem.REQUIRED
       }, options );
 
       super( model, mass, layoutBounds, modelViewTransform, alertManager, forceDescriber, positionDescriber, options );
