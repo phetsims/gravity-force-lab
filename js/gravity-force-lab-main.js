@@ -13,7 +13,6 @@ define( require => {
   const GravityForceLabKeyboardHelpContent = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabKeyboardHelpContent' );
   const GravityForceLabModel = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/model/GravityForceLabModel' );
   const GravityForceLabScreenView = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabScreenView' );
-  const islcSoundOptionsDialogContent = require( 'INVERSE_SQUARE_LAW_COMMON/view/islcSoundOptionsDialogContent' );
   const Screen = require( 'JOIST/Screen' );
   const Sim = require( 'JOIST/Sim' );
   const SimLauncher = require( 'JOIST/SimLauncher' );
@@ -35,10 +34,7 @@ define( require => {
       thanks: 'Thanks to Mobile Learner Labs for working with the PhET development team to convert this simulation to HTML5.'
     },
     keyboardHelpNode: keyboardHelpContent,
-    accessibility: true,
-    createOptionsDialogContent: phet.chipper.queryParameters.supportsSound ?
-                                () => islcSoundOptionsDialogContent.getContent() :
-                                null
+    accessibility: true
   };
 
   SimLauncher.launch( function() {
