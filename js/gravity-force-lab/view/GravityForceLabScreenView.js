@@ -74,7 +74,9 @@ define( require => {
   const OBJECT_ONE = ISLCObjectEnum.OBJECT_ONE;
   const OBJECT_TWO = ISLCObjectEnum.OBJECT_TWO;
   const CHECKBOX_TEXT_SIZE = 15;
+  // TODO - @Ashton-Morris - please adjust level if needed, see https://github.com/phetsims/gravity-force-lab/issues/181
   const BOUNDARY_SOUNDS_LEVEL = 1;
+  // TODO - @Ashton-Morris - please adjust level if needed, see https://github.com/phetsims/gravity-force-lab/issues/181
   const MASS_SOUND_LEVEL = 0.7;
   const MASS_SOUND_THRESHOLDS = [ 10, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000 ];
 
@@ -341,6 +343,7 @@ define( require => {
       }
     } );
 
+    // TODO - @Ashton-Morris - please adjust level if needed, see https://github.com/phetsims/gravity-force-lab/issues/181
     // @private - sound generation for the force sound
     this.forceSoundGenerator = new ContinuousPropertySoundGenerator(
       model.forceProperty,
