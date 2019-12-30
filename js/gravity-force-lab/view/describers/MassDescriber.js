@@ -18,7 +18,7 @@ define( require => {
   const ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
   const merge = require( 'PHET_CORE/merge' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  const Util = require( 'DOT/Util' );
+  const Utils = require( 'DOT/Utils' );
 
   // strings
   const mass1AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass1Abbreviated' );
@@ -241,7 +241,7 @@ define( require => {
      */
     getMassSize( massValue ) {
       const massIndex = getMassSizeIndex( massValue, SIZE_STRINGS.length );
-      assert && assert( Util.isInteger( massIndex ) && massIndex < SIZE_STRINGS.length, 'wrong index for size strings' );
+      assert && assert( Utils.isInteger( massIndex ) && massIndex < SIZE_STRINGS.length, 'wrong index for size strings' );
       return SIZE_STRINGS[ massIndex ];
     }
 
@@ -371,7 +371,7 @@ define( require => {
    */
   const getRelativeSizeFromIndex = ( index, capitalized ) => {
     const array = capitalized ? RELATIVE_SIZE_CAPITALIZED_STRINGS : RELATIVE_SIZE_STRINGS;
-    assert && assert( Util.isInteger( index ) && index < array.length );
+    assert && assert( Utils.isInteger( index ) && index < array.length );
     return array[ index ];
   };
 
@@ -382,7 +382,7 @@ define( require => {
    */
   const getRelativeDensityFromIndex = ( index, capitalized ) => {
     const array = capitalized ? RELATIVE_DENSITY_CAPITALIZED_STRINGS : RELATIVE_DENSITY_STRINGS;
-    assert && assert( Util.isInteger( index ) && index < array.length );
+    assert && assert( Utils.isInteger( index ) && index < array.length );
     return array[ index ];
   };
 

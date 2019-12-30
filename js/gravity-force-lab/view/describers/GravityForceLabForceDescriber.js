@@ -12,7 +12,7 @@ define( require => {
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const ForceDescriber = require( 'INVERSE_SQUARE_LAW_COMMON/view/describers/ForceDescriber' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
-  const Util = require( 'DOT/Util' );
+  const Utils = require( 'DOT/Utils' );
 
   // strings
   const unitsNewtonsString = require( 'string!INVERSE_SQUARE_LAW_COMMON/units.newtons' );
@@ -23,7 +23,7 @@ define( require => {
   // constants
   const MICRO_CONVERSION_FACTOR = 1e6;
   const convertForceToMicronewtons = force => {
-    return Util.toFixedNumber( force * MICRO_CONVERSION_FACTOR, 6 );
+    return Utils.toFixedNumber( force * MICRO_CONVERSION_FACTOR, 6 );
   };
 
   class GravityForceLabForceDescriber extends ForceDescriber {

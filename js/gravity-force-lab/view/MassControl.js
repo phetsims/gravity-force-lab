@@ -18,7 +18,7 @@ define( require => {
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Playable = require( 'TAMBO/Playable' );
   const Property = require( 'AXON/Property' );
-  const Util = require( 'DOT/Util' );
+  const Utils = require( 'DOT/Utils' );
 
   // strings
   const unitsKgString = require( 'string!GRAVITY_FORCE_LAB/units.kg' );
@@ -60,7 +60,7 @@ define( require => {
             minorTickSpacing: 0,
             thumbFill: thumbColor.colorUtilsBrighter( 0.15 ),
             thumbFillHighlighted: thumbColor.colorUtilsBrighter( 0.35 ),
-            constrainValue: v => Util.roundToInterval( v, 10 ),
+            constrainValue: v => Utils.roundToInterval( v, 10 ),
             startDrag: event => {
               currentMass = valueProperty.value;
               if ( event.type === 'enter' || event.type === 'move' || event.type === 'down' ) {
