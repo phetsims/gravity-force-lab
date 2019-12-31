@@ -1,9 +1,11 @@
 // Copyright 2019, University of Colorado Boulder
 
 /**
+ * This describer is responsible for the descriptions associated with the moveable ruler. Unlike other describers, this
+ * type also alerts based on the movement of the ruler. This is a bit non-traditional, but made sense based on the
+ * modularity of ruler specific content.
  *
- * @author Michael Barlow (PhET Interactive Simulations)
- * @author Jesse Greenberg (PhET Interactive Simulations)
+ * @author Michael Kauzmann (PhET Interactive Simulations)
  */
 define( require => {
   'use strict';
@@ -16,9 +18,11 @@ define( require => {
   const ISLCQueryParameters = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCQueryParameters' );
   const Range = require( 'DOT/Range' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  const Utterance = require( 'UTTERANCE_QUEUE/Utterance' );
 
   // a11y strings
   const grabbedAlertPatternString = GravityForceLabA11yStrings.grabbedAlertPattern.value;
+  const regionAndDistancePatternString = GravityForceLabA11yStrings.regionAndDistancePattern.value;
   const hintPatternString = GravityForceLabA11yStrings.hintPattern.value;
   const centersApartPatternString = GravityForceLabA11yStrings.centersApartPattern.value;
   const jumpKeyboardHintString = GravityForceLabA11yStrings.jumpKeyboardHint.value;
@@ -71,10 +75,40 @@ define( require => {
       this.modelViewTransform = modelViewTransform;
       this.positionDescriber = positionDescriber;
       this.viewYPositions = viewYPositions;
-      this.grabbedCount = 0;
+      this.grabbedCount = 0; // for grabbed alert
+      this.horizontalDistanceThisGrab = 0; // for horizontal movement alerts
+      this.previousVerticalRegionIndex = this.getVerticalRegionIndex(); // for vertical movement alerts
+      this.movementUtterance = new Utterance(); // utterance to alert vertical and horizontal movement alerts
+
+      // When the ruler changes position, potentially alert that change.
+      this.rulerPositionProperty.lazyLink( ( newValue, oldValue ) => {
+
+        // handle horizontal case
+        this.horizontalDistanceThisGrab += Math.abs( oldValue.minus( newValue ).x );
+        if ( this.horizontalDistanceThisGrab >= 1 ) {
+          this.alertRulerMovement();
+          this.horizontalDistanceThisGrab = 0;
+        }
+
+        // handle vertical case
+        const currentVerticalRegionIndex = this.getVerticalRegionIndex();
+        if ( this.previousVerticalRegionIndex !== currentVerticalRegionIndex ) {
+          this.alertRulerMovement();
+          this.previousVerticalRegionIndex = currentVerticalRegionIndex;
+        }
+      } );
 
       // Don't need to unlink
       SHOW_RULER_REGIONS && this.rulerPositionProperty.link( () => console.log( this.getCurrentVerticalRegion() ) );
+    }
+
+    /**
+     * This alert is for whenever the ruler is moved around normally (not when moved with jumping shortcuts)
+     * @private
+     */
+    alertRulerMovement() {
+      this.movementUtterance.alert = this.getRegionAndDistance();
+      phet.joist.sim.utteranceQueue.addToBack( this.movementUtterance );
     }
 
     /**
@@ -91,7 +125,7 @@ define( require => {
      * @private
      * @returns {string}
      */
-    getHint() {
+    getGrabbedHint() {
 
       // No hints on or after the third grab
       if ( this.grabbedCount >= 3 ) {
@@ -116,18 +150,39 @@ define( require => {
     }
 
     /**
+     * Get the region and distance string.
+     * @public
+     * @returns {string}.
+     */
+    getRegionAndDistance() {
+      return StringUtils.fillIn( regionAndDistancePatternString, {
+        verticalRegion: this.getCurrentVerticalRegion(),
+        centersApart: this.getCentersApartDistance()
+      } );
+    }
+
+    /**
+     * This should only be called after `onGrab` to make sure that ruler describer state is in sync
      * @public
      * @returns {string} - the alert for successfully grabbing the ruler.
      */
     getRulerGrabbedAlertable() {
-      this.grabbedCount++; // first increment the counter for how many times this has been grabbed.
-
       return StringUtils.fillIn( grabbedAlertPatternString, {
-        verticalRegion: this.getCurrentVerticalRegion(),
-        centersApart: this.getCentersApartDistance(),
-        supplementalHint: this.getHint()
+        regionAndDistance: this.getRegionAndDistance(),
+        supplementalHint: this.getGrabbedHint()
       } );
     }
+
+    /**
+     * Callback for when the ruler is grabbed, to update the state internal to this describer. This should be called
+     * whenever the ruler is grabbed.
+     * @public
+     */
+    onGrab() {
+      this.grabbedCount++;
+      this.horizontalDistanceThisGrab = 0; // reset
+    }
+
 
     /**
      * @private

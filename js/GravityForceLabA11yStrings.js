@@ -310,8 +310,12 @@ define( require => {
     // Ruler //
     ///////////
 
+    regionAndDistancePattern: {
+      value: '{{verticalRegion}} {{centersApart}}'
+    },
+
     grabbedAlertPattern: {
-      value: 'Grabbed. {{verticalRegion}} {{centersApart}} {{supplementalHint}}'
+      value: 'Grabbed. {{regionAndDistance}} {{supplementalHint}}'
     },
     hintPattern: {
       value: '{{playHint}} {{releaseHint}}'
