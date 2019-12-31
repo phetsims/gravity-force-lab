@@ -46,8 +46,8 @@ define( require => {
     const massValue1 = 100; // mass in kg
     const massValue2 = 400; // mass in kg
 
-    const position1 = -2; // in meters
-    const position2 = 2; // in meters
+    const position1 = -3; // in meters
+    const position2 = 1; // in meters
 
     const baseColor1 = GravityForceLabConstants.MASS_BLUE_COLOR;
     const baseColor2 = GravityForceLabConstants.MASS_RED_COLOR;
