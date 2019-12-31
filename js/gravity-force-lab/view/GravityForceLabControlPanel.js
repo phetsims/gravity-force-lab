@@ -74,6 +74,7 @@ define( require => {
       ];
       const radioButtonGroup = new VerticalAquaRadioButtonGroup( model.forceValuesDisplayProperty, radioButtonContent, {
         selectedLineWidth: 4,
+        labelTagName: 'h3',
         labelContent: forceValuesString,
         descriptionContent: forceValuesHelpTextString,
         tandem: options.tandem.createTandem( 'forceValuesRadioButtonGroup' )
