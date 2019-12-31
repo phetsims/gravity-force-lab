@@ -19,13 +19,12 @@ define( require => {
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
   const GravityForceLabAlertManager = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabAlertManager' );
   const GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
+  const GravityForceLabControlPanel = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabControlPanel' );
   const GravityForceLabForceDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/GravityForceLabForceDescriber' );
   const GravityForceLabPositionDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/GravityForceLabPositionDescriber' );
   const GravityForceLabRulerDescriber = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/describers/GravityForceLabRulerDescriber' );
   const GravityForceLabScreenSummaryNode = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabScreenSummaryNode' );
   const inherit = require( 'PHET_CORE/inherit' );
-  const ISLCA11yStrings = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCA11yStrings' );
-  const ISLCCheckboxPanel = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCCheckboxPanel' );
   const ISLCGridNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCGridNode' );
   const ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
   const ISLCQueryParameters = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCQueryParameters' );
@@ -47,22 +46,16 @@ define( require => {
   const Vector2 = require( 'DOT/Vector2' );
 
   // strings
-  const constantSizeString = require( 'string!GRAVITY_FORCE_LAB/constantSize' );
-  const forceValuesString = require( 'string!INVERSE_SQUARE_LAW_COMMON/forceValues' );
   const mass1AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass1Abbreviated' );
   const mass1String = require( 'string!GRAVITY_FORCE_LAB/mass1' );
   const mass2AbbreviatedString = require( 'string!GRAVITY_FORCE_LAB/mass2Abbreviated' );
   const mass2String = require( 'string!GRAVITY_FORCE_LAB/mass2' );
-  const scientificNotationString = require( 'string!INVERSE_SQUARE_LAW_COMMON/scientificNotation' );
   const unitsMetersString = require( 'string!INVERSE_SQUARE_LAW_COMMON/units.meters' );
 
   // a11y Strings
   const massControlsLabelString = GravityForceLabA11yStrings.massControlsLabel.value;
   const massControlsHelpTextString = GravityForceLabA11yStrings.massControlsHelpText.value;
   const massControlsHelpTextDensityString = GravityForceLabA11yStrings.massControlsHelpTextDensity.value;
-  const constantSizeCheckboxHelpTextString = GravityForceLabA11yStrings.constantSizeCheckboxHelpText.value;
-  const forceValuesCheckboxHelpTextString = GravityForceLabA11yStrings.forceValuesCheckboxHelpText.value;
-  const scientificNotationCheckboxHelpTextString = ISLCA11yStrings.scientificNotationCheckboxHelpText.value;
 
   // sounds
   const forceSound = require( 'sound!GRAVITY_FORCE_LAB/saturated-sine-loop-trimmed.wav' );
@@ -73,7 +66,6 @@ define( require => {
   const SHOW_RULER_REGIONS = ISLCQueryParameters.showRulerRegions;
   const OBJECT_ONE = ISLCObjectEnum.OBJECT_ONE;
   const OBJECT_TWO = ISLCObjectEnum.OBJECT_TWO;
-  const CHECKBOX_TEXT_SIZE = 15;
   // TODO - @Ashton-Morris - please adjust level if needed, see https://github.com/phetsims/gravity-force-lab/issues/181
   const BOUNDARY_SOUNDS_LEVEL = 1;
   // TODO - @Ashton-Morris - please adjust level if needed, see https://github.com/phetsims/gravity-force-lab/issues/181
@@ -189,43 +181,12 @@ define( require => {
       massControlsNode.descriptionContent = constantRadius ? massControlsHelpTextDensityString : massControlsHelpTextString;
     } );
 
-    const controlPanelTandem = tandem.createTandem( 'parameterControlPanel' );
-    const checkboxItems = [
-      {
-        label: constantSizeString, property: model.constantRadiusProperty,
-        tandem: controlPanelTandem.createTandem( 'constantRadiusCheckbox' ),
-        options: {
-          accessibleName: constantSizeString,
-          descriptionContent: constantSizeCheckboxHelpTextString,
-          textSize: CHECKBOX_TEXT_SIZE
-        }
-      },
-      {
-        label: forceValuesString, property: model.showForceValuesProperty,
-        tandem: controlPanelTandem.createTandem( 'forceValuesCheckbox' ),
-        options: {
-          accessibleName: forceValuesString,
-          descriptionContent: forceValuesCheckboxHelpTextString,
-          textSize: CHECKBOX_TEXT_SIZE
-        }
-      },
-      {
-        label: scientificNotationString, property: model.scientificNotationProperty,
-        tandem: controlPanelTandem.createTandem( 'scientificNotationCheckbox' ),
-        options: {
-          accessibleName: scientificNotationString,
-          descriptionContent: scientificNotationCheckboxHelpTextString,
-          textSize: CHECKBOX_TEXT_SIZE
-        }
-      }
-    ];
-
-    const parameterControlPanel = new ISLCCheckboxPanel( checkboxItems, {
-      tandem: controlPanelTandem,
+    const parameterControlPanel = new GravityForceLabControlPanel( model, {
+      tandem: tandem.createTandem( 'parameterControlPanel' ),
       fill: '#FDF498',
       xMargin: 10,
       yMargin: 10,
-      minWidth: 170,
+      minWidth: 150,
       align: 'left'
     } );
 
@@ -243,11 +204,12 @@ define( require => {
     // positioning the nodes
     // Do this before the ruler, so the ruler can have the correct region positions
     resetAllButton.bottom = this.layoutBounds.bottom - 7.4;
-    parameterControlPanel.right = resetAllButton.right = this.layoutBounds.width - 15;
-    parameterControlPanel.bottom = resetAllButton.top - 13.5;
+    resetAllButton.right = this.layoutBounds.width - 15;
+    parameterControlPanel.right = resetAllButton.left - 15;
+    parameterControlPanel.bottom = resetAllButton.bottom ;
     massControl2.top = massControl1.top = parameterControlPanel.top;
-    massControl2.right = parameterControlPanel.left - 45;
-    massControl1.right = massControl2.left - 45;
+    massControl2.right = parameterControlPanel.left - 35;
+    massControl1.right = massControl2.left - 35;
 
     // create down here because it needs locations of other items in the screen view
     const rulerRegionPositions = [

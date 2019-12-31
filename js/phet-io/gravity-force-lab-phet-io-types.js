@@ -347,6 +347,14 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "ActionIO<NullableIO<SceneryEventIO>>",
       "typeName": "EmitterIO<NullableIO<SceneryEventIO>>"
     },
+    "EnumerationIO(DECIMAL|SCIENTIFIC|HIDDEN)": {
+      "documentation": "Possible values: DECIMAL,SCIENTIFIC,HIDDEN.",
+      "events": [],
+      "methodOrder": [],
+      "methods": {},
+      "supertype": "ObjectIO",
+      "typeName": "EnumerationIO(DECIMAL|SCIENTIFIC|HIDDEN)"
+    },
     "EventIO": {
       "documentation": "A DOM Event",
       "events": [],
@@ -394,6 +402,19 @@ window.phet.phetio.phetioTypes = assert &&
       ],
       "supertype": "ObjectIO",
       "typeName": "FunctionIO(BooleanIO,NullableIO<BooleanIO>)=>VoidIO"
+    },
+    "FunctionIO(EnumerationIO(DECIMAL|SCIENTIFIC|HIDDEN),NullableIO<EnumerationIO(DECIMAL|SCIENTIFIC|HIDDEN)>)=>VoidIO": {
+      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> EnumerationIO(DECIMAL|SCIENTIFIC|HIDDEN), NullableIO<EnumerationIO(DECIMAL|SCIENTIFIC|HIDDEN)><br><strong>Return Type:</strong> VoidIO",
+      "events": [],
+      "methodOrder": [],
+      "methods": {},
+      "parameterTypes": [
+        "EnumerationIO(DECIMAL|SCIENTIFIC|HIDDEN)",
+        "NullableIO<EnumerationIO(DECIMAL|SCIENTIFIC|HIDDEN)>",
+        "VoidIO"
+      ],
+      "supertype": "ObjectIO",
+      "typeName": "FunctionIO(EnumerationIO(DECIMAL|SCIENTIFIC|HIDDEN),NullableIO<EnumerationIO(DECIMAL|SCIENTIFIC|HIDDEN)>)=>VoidIO"
     },
     "FunctionIO(NullableIO<BooleanIO>,NullableIO<NullableIO<BooleanIO>>)=>VoidIO": {
       "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> NullableIO<BooleanIO>, NullableIO<NullableIO<BooleanIO>><br><strong>Return Type:</strong> VoidIO",
@@ -550,6 +571,17 @@ window.phet.phetio.phetioTypes = assert &&
       ],
       "supertype": "ObjectIO",
       "typeName": "NullableIO<BooleanIO>"
+    },
+    "NullableIO<EnumerationIO(DECIMAL|SCIENTIFIC|HIDDEN)>": {
+      "documentation": "A wrapper to wrap another IOType, adding support for null.",
+      "events": [],
+      "methodOrder": [],
+      "methods": {},
+      "parameterTypes": [
+        "EnumerationIO(DECIMAL|SCIENTIFIC|HIDDEN)"
+      ],
+      "supertype": "ObjectIO",
+      "typeName": "NullableIO<EnumerationIO(DECIMAL|SCIENTIFIC|HIDDEN)>"
     },
     "NullableIO<FocusIO>": {
       "documentation": "A wrapper to wrap another IOType, adding support for null.",
@@ -1005,6 +1037,50 @@ window.phet.phetio.phetioTypes = assert &&
       ],
       "supertype": "ObjectIO",
       "typeName": "PropertyIO<BooleanIO>"
+    },
+    "PropertyIO<EnumerationIO(DECIMAL|SCIENTIFIC|HIDDEN)>": {
+      "documentation": "Observable values that send out notifications when the value changes. This differs from the traditional listener pattern in that added listeners also receive a callback with the current value when the listeners are registered. This is a widely-used pattern in PhET-iO simulations.",
+      "events": [
+        "changed"
+      ],
+      "methodOrder": [
+        "link",
+        "lazyLink"
+      ],
+      "methods": {
+        "getValue": {
+          "documentation": "Gets the current value.",
+          "parameterTypes": [],
+          "returnType": "EnumerationIO(DECIMAL|SCIENTIFIC|HIDDEN)"
+        },
+        "lazyLink": {
+          "documentation": "Adds a listener which will be called when the value changes. This method is like \"link\", but without the current-value callback on registration. The listener takes two arguments, the new value and the previous value.",
+          "parameterTypes": [
+            "FunctionIO(EnumerationIO(DECIMAL|SCIENTIFIC|HIDDEN),NullableIO<EnumerationIO(DECIMAL|SCIENTIFIC|HIDDEN)>)=>VoidIO"
+          ],
+          "returnType": "VoidIO"
+        },
+        "link": {
+          "documentation": "Adds a listener which will be called when the value changes. On registration, the listener is also called with the current value. The listener takes two arguments, the new value and the previous value.",
+          "parameterTypes": [
+            "FunctionIO(EnumerationIO(DECIMAL|SCIENTIFIC|HIDDEN),NullableIO<EnumerationIO(DECIMAL|SCIENTIFIC|HIDDEN)>)=>VoidIO"
+          ],
+          "returnType": "VoidIO"
+        },
+        "setValue": {
+          "documentation": "Sets the value of the Property. If the value differs from the previous value, listeners are notified with the new value.",
+          "invocableForReadOnlyElements": false,
+          "parameterTypes": [
+            "EnumerationIO(DECIMAL|SCIENTIFIC|HIDDEN)"
+          ],
+          "returnType": "VoidIO"
+        }
+      },
+      "parameterTypes": [
+        "EnumerationIO(DECIMAL|SCIENTIFIC|HIDDEN)"
+      ],
+      "supertype": "ObjectIO",
+      "typeName": "PropertyIO<EnumerationIO(DECIMAL|SCIENTIFIC|HIDDEN)>"
     },
     "PropertyIO<NullableIO<BooleanIO>>": {
       "documentation": "Observable values that send out notifications when the value changes. This differs from the traditional listener pattern in that added listeners also receive a callback with the current value when the listeners are registered. This is a widely-used pattern in PhET-iO simulations.",

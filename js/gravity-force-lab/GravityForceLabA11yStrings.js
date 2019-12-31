@@ -252,9 +252,6 @@ define( require => {
     constantRadiusThinkDensityPattern: {
       value: '{{mass1}} and {{mass2}} set to same size.'
     },
-    forceValuesCheckboxHelpText: {
-      value: 'Explore force values in micronewtons.'
-    },
     massMaxMinBorderText: {
       value: '{{relativeSize}} {{otherObjectLabel}}, {{forceVectorSize}}, forces {{force}} {{unit}}.'
     },
