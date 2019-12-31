@@ -9,10 +9,10 @@ define( require => {
   'use strict';
 
   // modules
-  const GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
-  const GravityForceLabKeyboardHelpContent = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabKeyboardHelpContent' );
-  const GravityForceLabModel = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/model/GravityForceLabModel' );
-  const GravityForceLabScreenView = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/view/GravityForceLabScreenView' );
+  const GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/GravityForceLabConstants' );
+  const GravityForceLabKeyboardHelpContent = require( 'GRAVITY_FORCE_LAB/view/GravityForceLabKeyboardHelpContent' );
+  const GravityForceLabModel = require( 'GRAVITY_FORCE_LAB/model/GravityForceLabModel' );
+  const GravityForceLabScreenView = require( 'GRAVITY_FORCE_LAB/view/GravityForceLabScreenView' );
   const Screen = require( 'JOIST/Screen' );
   const Sim = require( 'JOIST/Sim' );
   const SimLauncher = require( 'JOIST/SimLauncher' );

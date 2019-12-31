@@ -13,7 +13,7 @@ define( require => {
   // modules
   const ForceValuesDisplayEnum = require( 'INVERSE_SQUARE_LAW_COMMON/model/ForceValuesDisplayEnum' );
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
-  const GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
+  const GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/GravityForceLabConstants' );
   const ISLCObjectNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectNode' );
   const merge = require( 'PHET_CORE/merge' );
   const RadialGradient = require( 'SCENERY/util/RadialGradient' );

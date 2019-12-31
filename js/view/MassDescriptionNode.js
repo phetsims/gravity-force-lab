@@ -5,7 +5,7 @@ define( require => {
 
   // modules
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
-  const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
+  const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/GravityForceLabA11yStrings' );
   const ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
   const ISLCObjectDescriptionNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectDescriptionNode' );
   const merge = require( 'PHET_CORE/merge' );
