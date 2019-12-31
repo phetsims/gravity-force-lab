@@ -83,12 +83,12 @@ define( require => {
       const constantSizeCheckboxTandem = options.tandem.createTandem( 'constantRadiusCheckbox' );
       const constantSizeCheckbox = new Checkbox( new Text( constantSizeString,
         ISLCCheckboxPanel.getCheckboxTextOptions( constantSizeCheckboxTandem ) ),
-        model.constantRadiusProperty, {
+        model.constantRadiusProperty, merge( {}, ISLCCheckboxPanel.CHECKBOX_OPTIONS, {
           tandem: constantSizeCheckboxTandem,
           accessibleName: constantSizeString,
           descriptionContent: constantSizeCheckboxHelpTextString,
           textSize: CHECKBOX_TEXT_SIZE
-        } );
+        } ) );
 
       super( new VBox( {
         children: [

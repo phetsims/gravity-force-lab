@@ -27,6 +27,7 @@ define( require => {
   const TRACK_SIZE = new Dimension2( 170, 3 );
   const THUMB_SIZE = new Dimension2( 22, 42 );
   const SliderDragState = Enumeration.byKeys( [ 'NOT_DRAGGING', 'DRAGGING_VIA_POINTER', 'DRAGGING_VIA_KEYBOARD' ] );
+  const CONTROL_SCALE = 0.72;
 
   class MassControl extends ISLCObjectControlPanel {
 
@@ -49,10 +50,11 @@ define( require => {
       super( titleString, unitsKgString, valueProperty, massRange, {
         // panel options
         fill: '#FDF498',
-        xMargin: 15,
-        yMargin: 10,
+        xMargin: 9,
+        yMargin: 9,
 
         numberControlOptions: {
+          scale: CONTROL_SCALE, // scale down the control to fit the screen a bit better
           sliderOptions: {
             thumbSize: THUMB_SIZE,
             trackSize: TRACK_SIZE,

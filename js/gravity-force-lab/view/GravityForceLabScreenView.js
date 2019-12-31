@@ -61,7 +61,6 @@ define( require => {
   const forceSound = require( 'sound!GRAVITY_FORCE_LAB/saturated-sine-loop-trimmed.wav' );
 
   // constants
-  const CONTROL_SCALE = 0.72;
   const SHOW_GRID = ISLCQueryParameters.showGrid;
   const SHOW_RULER_REGIONS = ISLCQueryParameters.showRulerRegions;
   const OBJECT_ONE = ISLCObjectEnum.OBJECT_ONE;
@@ -159,8 +158,6 @@ define( require => {
       massDescriber,
       tandem.createTandem( 'massControl1' )
     );
-
-    massControl1.scale( CONTROL_SCALE );
     massControlsNode.addChild( massControl1 );
 
     const massControl2 = new MassControl(
@@ -174,7 +171,6 @@ define( require => {
       massDescriber,
       tandem.createTandem( 'massControl2' )
     );
-    massControl2.scale( CONTROL_SCALE );
     massControlsNode.addChild( massControl2 );
 
     model.constantRadiusProperty.link( function( constantRadius ) {
