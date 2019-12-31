@@ -10,13 +10,14 @@ define( require => {
 
   // modules
   const ActivationUtterance = require( 'UTTERANCE_QUEUE/ActivationUtterance' );
+  const ForceValuesDisplayEnum = require( 'INVERSE_SQUARE_LAW_COMMON/model/ForceValuesDisplayEnum' );
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
   const GravityForceLabModel = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/model/GravityForceLabModel' );
   const ISLCAlertManager = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCAlertManager' );
   const merge = require( 'PHET_CORE/merge' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-const ValueChangeUtterance = require( 'UTTERANCE_QUEUE/ValueChangeUtterance' );
+  const ValueChangeUtterance = require( 'UTTERANCE_QUEUE/ValueChangeUtterance' );
 
   // a11y strings
   const constantRadiusThinkDensityPatternString = GravityForceLabA11yStrings.constantRadiusThinkDensityPattern.value;
@@ -37,12 +38,12 @@ const ValueChangeUtterance = require( 'UTTERANCE_QUEUE/ValueChangeUtterance' );
       options = merge( {
 
         // {boolean} This should only used for gravity-force-lab
-        linkToScientificNotationProperty: true,
+        linkToForceValuesDisplayProperty: true,
 
         // {function} - listener to link to the showForceValuesProperty, default listener for REGULAR
         showForceValuesListener: showValues => {
 
-          const displayScientificNotation = model.scientificNotationProperty.get();
+          const displayScientificNotation = model.forceValuesDisplayProperty.value === ForceValuesDisplayEnum.SCIENTIFIC;
 
           if ( !showValues || !displayScientificNotation ) {
             this.alertShowForceValues( showValues );
@@ -76,9 +77,9 @@ const ValueChangeUtterance = require( 'UTTERANCE_QUEUE/ValueChangeUtterance' );
         phet.joist.sim.utteranceQueue.addToBack( constantRadiusUtterance );
       } );
 
-      if ( options.linkToScientificNotationProperty ) {
+      if ( options.linkToForceValuesDisplayProperty ) {
         assert && assert( model instanceof GravityForceLabModel, 'unsupported model for scientific notation' );
-        options.linkToScientificNotationProperty && model.scientificNotationProperty.lazyLink( () => this.alertScientificNotation() );
+        options.linkToForceValuesDisplayProperty && model.forceValuesDisplayProperty.lazyLink( () => this.alertScientificNotation() );
       }
 
       // use an option to support REGULAR and BASICS
@@ -145,7 +146,7 @@ const ValueChangeUtterance = require( 'UTTERANCE_QUEUE/ValueChangeUtterance' );
      * @param {ISLCObjectEnum} thisObjectEnum
      */
     alertMassMinMaxEdge( thisObjectEnum ) {
-      this.massChangedUtterance.alert = this.massDescriber.getMassMaxMinText( thisObjectEnum);
+      this.massChangedUtterance.alert = this.massDescriber.getMassMaxMinText( thisObjectEnum );
       phet.joist.sim.utteranceQueue.addToBack( this.massChangedUtterance );
     }
 

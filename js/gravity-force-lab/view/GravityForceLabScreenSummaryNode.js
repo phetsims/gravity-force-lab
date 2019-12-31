@@ -123,7 +123,7 @@ define( require => {
         }
       );
 
-      model.scientificNotationProperty && model.scientificNotationProperty.link( () => {
+      model.forceValuesDisplayProperty && model.forceValuesDisplayProperty.link( () => {
         this.updateForceVectorSummary();
       } );
     }

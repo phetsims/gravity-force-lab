@@ -1,4 +1,4 @@
-// Copyright 2018-2019, University of Colorado Boulder
+// Copyright 2019, University of Colorado Boulder
 
 /**
  * A Panel that has control UI for adjusting the sim. This includes radio buttons for the force values display, and a
@@ -12,8 +12,7 @@ define( require => {
 
   // modules
   const Checkbox = require( 'SUN/Checkbox' );
-  const Enumeration = require( 'PHET_CORE/Enumeration' );
-  const EnumerationProperty = require( 'AXON/EnumerationProperty' );
+  const ForceValuesDisplayEnum = require( 'INVERSE_SQUARE_LAW_COMMON/model/ForceValuesDisplayEnum' );
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
   const HSeparator = require( 'SUN/HSeparator' );
@@ -41,8 +40,6 @@ define( require => {
   // constants
   const CHECKBOX_TEXT_SIZE = 15;
 
-  const ForceValuesDisplay = Enumeration.byKeys( [ 'DECIMAL', 'SCIENTIFIC', 'HIDDEN' ] );
-
   class GravityForceLabControlPanel extends ISLCPanel {
 
     /**
@@ -55,49 +52,27 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
-      // TODO: move this to the model
-      const forceValuesDisplayProperty = new EnumerationProperty( ForceValuesDisplay, ForceValuesDisplay.DECIMAL, {
-        tandem: options.tandem.createTandem( 'forceValuesDisplayProperty' )
-      } );
-      forceValuesDisplayProperty.lazyLink( newValue => {
-        switch( newValue ) {
-          case ForceValuesDisplay.DECIMAL: {
-            model.showForceValuesProperty.value = true;
-            model.scientificNotationProperty.value = false;
-            break;
-          }
-          case ForceValuesDisplay.SCIENTIFIC: {
-            model.showForceValuesProperty.value = true;
-            model.scientificNotationProperty.value = true;
-            break;
-          }
-          default: {
-            model.showForceValuesProperty.value = false;
-            model.scientificNotationProperty.value = false;
-          }
-        }
-      } );
       const radioButtonContent = [
         {
-          value: ForceValuesDisplay.DECIMAL,
+          value: ForceValuesDisplayEnum.DECIMAL,
           node: new Text( decimalNotationString, ISLCCheckboxPanel.getCheckboxTextOptions( options.tandem.createTandem( 'item1' ) ) ),
           tandemName: 'decimalNotationRadioButton',
           labelContent: decimalNotationString
         }, // bigger than the others
         {
-          value: ForceValuesDisplay.SCIENTIFIC,
+          value: ForceValuesDisplayEnum.SCIENTIFIC,
           node: new Text( scientificNotationString, ISLCCheckboxPanel.getCheckboxTextOptions( options.tandem.createTandem( 'item2' ) ) ),
           tandemName: 'scientificNotationRadioButton',
           labelContent: scientificNotationString
         },
         {
-          value: ForceValuesDisplay.HIDDEN,
+          value: ForceValuesDisplayEnum.HIDDEN,
           node: new Text( hiddenString, ISLCCheckboxPanel.getCheckboxTextOptions( options.tandem.createTandem( 'item3' ) ) ),
           tandemName: 'hiddenRadioButton',
           labelContent: hiddenString
         }
       ];
-      const radioButtonGroup = new VerticalAquaRadioButtonGroup( forceValuesDisplayProperty, radioButtonContent, {
+      const radioButtonGroup = new VerticalAquaRadioButtonGroup( model.forceValuesDisplayProperty, radioButtonContent, {
         selectedLineWidth: 4,
         labelContent: forceValuesString,
         descriptionContent: forceValuesHelpTextString,
@@ -108,12 +83,10 @@ define( require => {
       const constantSizeCheckbox = new Checkbox( new Text( constantSizeString,
         ISLCCheckboxPanel.getCheckboxTextOptions( constantSizeCheckboxTandem ) ),
         model.constantRadiusProperty, {
-
           tandem: constantSizeCheckboxTandem,
           accessibleName: constantSizeString,
           descriptionContent: constantSizeCheckboxHelpTextString,
           textSize: CHECKBOX_TEXT_SIZE
-
         } );
 
       super( new VBox( {

@@ -9,8 +9,9 @@ define( require => {
   'use strict';
 
   // modules
-  const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const ForceDescriber = require( 'INVERSE_SQUARE_LAW_COMMON/view/describers/ForceDescriber' );
+  const ForceValuesDisplayEnum = require( 'INVERSE_SQUARE_LAW_COMMON/model/ForceValuesDisplayEnum' );
+  const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
   const Utils = require( 'DOT/Utils' );
 
@@ -39,7 +40,7 @@ define( require => {
         units: micronewtonsString,
 
         convertForce: force => {
-          if ( !this.displayInScientificNotion ) {
+          if ( this.forceValuesDisplayProperty.value !== ForceValuesDisplayEnum.SCIENTIFIC ) {
             return convertForceToMicronewtons( force );
           }
           return force;
@@ -47,8 +48,8 @@ define( require => {
 
         // TODO: forceValueToString is used in both alerts and descriptive text.
         forceValueToString: convertedForce => {
-          if ( this.displayInScientificNotion ) {
-            return ForceDescriber.getForceInScientificNotation( convertedForce, 2 );
+          if ( this.forceValuesDisplayProperty.value === ForceValuesDisplayEnum.SCIENTIFIC ) {
+            return ForceDescriber.getForceInScientificNotation( convertedForce, 2 ); // TODO: this "2" is a magic number
           }
           return convertedForce + '';
         }
@@ -56,17 +57,9 @@ define( require => {
 
       super( model, object1Label, object2Label, positionDescriber, options );
 
-      model.scientificNotationProperty.link( showScientificNotation => {
-        this.units = showScientificNotation ? unitsNewtonsString : micronewtonsString;
+      model.forceValuesDisplayProperty.link( forceValuesDisplay => {
+        this.units = forceValuesDisplay === ForceValuesDisplayEnum.SCIENTIFIC ? unitsNewtonsString : micronewtonsString;
       } );
-    }
-
-    /**
-     * @private
-     * @returns {boolean}
-     */
-    get displayInScientificNotion() {
-      return this.scientificNotationProperty.get();
     }
 
     /**

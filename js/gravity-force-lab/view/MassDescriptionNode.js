@@ -78,8 +78,8 @@ define( require => {
         this.forceVectorMagnitudeItemNode.innerContent = forceMagnitudeContent;
       } );
 
-      if ( model.scientificNotationProperty ) {
-        model.scientificNotationProperty.link( () => {
+      if ( model.forceValuesDisplayProperty ) {
+        model.forceValuesDisplayProperty.link( () => {
           this.forceVectorMagnitudeItemNode.innerContent = forceDescriber.getForceVectorMagnitudeText( this.thisObjectLabel, this.otherObjectLabel );
         } );
       }

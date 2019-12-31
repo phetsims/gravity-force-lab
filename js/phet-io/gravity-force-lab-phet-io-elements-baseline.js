@@ -1535,6 +1535,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "DerivedPropertyIO<NumberIO>"
     },
+    "gravityForceLab.gravityForceLabScreen.model.forceValuesDisplayProperty": {
+      "phetioDocumentation": "This determines the display type for the force values: in decimal or scientific notation, and also hidden.",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": false,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<EnumerationIO(DECIMAL|SCIENTIFIC|HIDDEN)>"
+    },
     "gravityForceLab.gravityForceLabScreen.model.mass1.enabledRangeProperty": {
       "phetioDocumentation": "The range for position of this object based on the radius and location of both objects",
       "phetioDynamicElement": false,
@@ -1640,7 +1653,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.model.rulerPositionProperty": {
-      "phetioDocumentation": "The position of the ruler in model coodinates",
+      "phetioDocumentation": "The position of the ruler in model coordinates",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -1651,19 +1664,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<Vector2IO>"
-    },
-    "gravityForceLab.gravityForceLabScreen.model.scientificNotationProperty": {
-      "phetioDocumentation": "Whether or not to display the force using scientific notation",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": false,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "gravityForceLab.gravityForceLabScreen.model.separationProperty": {
       "phetioDocumentation": "The distance between the two objects' centers",
@@ -4173,19 +4173,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<BooleanIO>"
-    },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayProperty": {
-      "phetioDocumentation": "",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": false,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<EnumerationIO(DECIMAL|SCIENTIFIC|HIDDEN)>"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup": {
       "phetioDocumentation": "",

@@ -11,6 +11,7 @@ define( require => {
   'use strict';
 
   // modules
+  const ForceValuesDisplayEnum = require( 'INVERSE_SQUARE_LAW_COMMON/model/ForceValuesDisplayEnum' );
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
   const ISLCObjectNode = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectNode' );
@@ -55,7 +56,7 @@ define( require => {
         stepSize: GravityForceLabConstants.LOCATION_STEP_SIZE,
 
         // {function} - to support REGULAR and BASICS without duplicating too much code.
-        finishWiringListeners: () => this.linkToScientificNotationProperty( model ),
+        finishWiringListeners: () => this.linkToForceValuesDisplayProperty( model ),
 
         // phet-io
         tandem: Tandem.REQUIRED
@@ -107,9 +108,9 @@ define( require => {
      * @param {GravityForceLabModel} model
      * @private
      */
-    linkToScientificNotationProperty( model ) {
-      model.scientificNotationProperty.link( scientificNotation => {
-        this.setReadoutsInScientificNotation( scientificNotation );
+    linkToForceValuesDisplayProperty( model ) {
+      model.forceValuesDisplayProperty.link( forceDisplay => {
+        this.setReadoutsInScientificNotation( forceDisplay === ForceValuesDisplayEnum.SCIENTIFIC );
       } );
     }
   }

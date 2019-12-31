@@ -6,16 +6,19 @@
  * @author Anton Ulyanov (Mlearner)
  * @author Aadish Gupta (PhET Interactive Simulations)
  * @author Jesse Greenberg (PhET Interactive Simulations)
+ * @author Michael Kauzmann (PhET Interactive Simulations)
  */
 define( require => {
   'use strict';
 
   // modules
   const BooleanProperty = require( 'AXON/BooleanProperty' );
+  const EnumerationProperty = require( 'AXON/EnumerationProperty' );
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabConstants = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabConstants' );
   const inherit = require( 'PHET_CORE/inherit' );
   const ISLCModel = require( 'INVERSE_SQUARE_LAW_COMMON/model/ISLCModel' );
+  const ForceValuesDisplayEnum = require( 'INVERSE_SQUARE_LAW_COMMON/model/ForceValuesDisplayEnum' );
   const Mass = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/model/Mass' );
   const PhysicalConstants = require( 'PHET_CORE/PhysicalConstants' );
   const Vector2 = require( 'DOT/Vector2' );
@@ -30,19 +33,13 @@ define( require => {
     // @public
     this.rulerPositionProperty = new Vector2Property( new Vector2( 0, -1 ), {
       tandem: tandem.createTandem( 'rulerPositionProperty' ),
-      phetioDocumentation: 'The position of the ruler in model coodinates'
+      phetioDocumentation: 'The position of the ruler in model coordinates'
     } );
 
     // @public
     this.constantRadiusProperty = new BooleanProperty( false, {
       tandem: tandem.createTandem( 'constantRadiusProperty' ),
       phetioDocumentation: 'Use this to toggle if the masses have a constantly sized radius, even when the mass changes.'
-    } );
-
-    // @public {Boolean} - whether or not the sim is in 'scientific notation mode'
-    this.scientificNotationProperty = new BooleanProperty( false, {
-      tandem: tandem.createTandem( 'scientificNotationProperty' ),
-      phetioDocumentation: 'Whether or not to display the force using scientific notation'
     } );
 
     // pass initial masses and positions into the model
@@ -67,6 +64,19 @@ define( require => {
       GravityForceLabConstants.PULL_LOCATION_RANGE, tandem, {
         snapObjectsToNearest: 0.1 // in meters
       } );
+
+    // @public
+    this.forceValuesDisplayProperty = new EnumerationProperty( ForceValuesDisplayEnum, ForceValuesDisplayEnum.DECIMAL, {
+      tandem: tandem.createTandem( 'forceValuesDisplayProperty' ),
+      phetioDocumentation: 'This determines the display type for the force values: in decimal or scientific ' +
+                           'notation, and also hidden.'
+    } );
+
+    // ISLC code listens substantially to showForceValuesProperty, so keep that in sync as the display type changes.
+    this.forceValuesDisplayProperty.lazyLink( newValue => {
+      this.showForceValuesProperty.value = newValue === ForceValuesDisplayEnum.DECIMAL ||
+                                           newValue === ForceValuesDisplayEnum.SCIENTIFIC;
+    } );
   }
 
   gravityForceLab.register( 'GravityForceLabModel', GravityForceLabModel );
@@ -76,7 +86,7 @@ define( require => {
     // @public
     reset: function() {
       this.rulerPositionProperty.reset();
-      this.scientificNotationProperty.reset();
+      this.forceValuesDisplayProperty.reset();
       this.constantRadiusProperty.reset();
       ISLCModel.prototype.reset.call( this );
     }
