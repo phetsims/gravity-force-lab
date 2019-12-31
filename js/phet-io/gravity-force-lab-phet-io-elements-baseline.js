@@ -4174,7 +4174,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4187,7 +4187,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.decimalNotationRadioButton": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4200,7 +4200,20 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.decimalNotationRadioButton.enabledProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.decimalNotationRadioButton": {
+      "phetioDocumentation": "",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": false,
+      "phetioState": false,
+      "phetioStudioControl": true,
+      "phetioTypeName": "NodeIO"
+    },
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.decimalNotationRadioButton.enabledProperty": {
       "phetioDocumentation": "Determines whether the AquaRadioButton is enabled (pressable) or disabled (grayed-out)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4213,7 +4226,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.decimalNotationRadioButton.inputListener.firedEmitter": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.decimalNotationRadioButton.inputListener.firedEmitter": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -4226,7 +4239,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO<NullableIO<SceneryEventIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.decimalNotationRadioButton.inputListener.pressAction": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.decimalNotationRadioButton.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -4239,7 +4252,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO<SceneryEventIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.decimalNotationRadioButton.inputListener.releaseAction": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.decimalNotationRadioButton.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -4252,7 +4265,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO<NullableIO<SceneryEventIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.decimalNotationRadioButton.labelText": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.decimalNotationRadioButton.labelText": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4265,7 +4278,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "TextIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.decimalNotationRadioButton.labelText.opacityProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.decimalNotationRadioButton.labelText.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4278,7 +4291,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.decimalNotationRadioButton.labelText.pickableProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.decimalNotationRadioButton.labelText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4291,7 +4304,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.decimalNotationRadioButton.labelText.textProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.decimalNotationRadioButton.labelText.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4304,7 +4317,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<StringIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.decimalNotationRadioButton.labelText.visibleProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.decimalNotationRadioButton.labelText.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4317,7 +4330,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.decimalNotationRadioButton.opacityProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.decimalNotationRadioButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4330,7 +4343,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.decimalNotationRadioButton.pickableProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.decimalNotationRadioButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4343,7 +4356,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.decimalNotationRadioButton.property": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.decimalNotationRadioButton.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4356,7 +4369,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.decimalNotationRadioButton.visibleProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.decimalNotationRadioButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4369,7 +4382,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.hiddenRadioButton": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.hiddenRadioButton": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4382,7 +4395,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.hiddenRadioButton.enabledProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.hiddenRadioButton.enabledProperty": {
       "phetioDocumentation": "Determines whether the AquaRadioButton is enabled (pressable) or disabled (grayed-out)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4395,7 +4408,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.hiddenRadioButton.inputListener.firedEmitter": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.hiddenRadioButton.inputListener.firedEmitter": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -4408,7 +4421,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO<NullableIO<SceneryEventIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.hiddenRadioButton.inputListener.pressAction": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.hiddenRadioButton.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -4421,7 +4434,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO<SceneryEventIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.hiddenRadioButton.inputListener.releaseAction": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.hiddenRadioButton.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -4434,7 +4447,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO<NullableIO<SceneryEventIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.hiddenRadioButton.labelText": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.hiddenRadioButton.labelText": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4447,7 +4460,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "TextIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.hiddenRadioButton.labelText.opacityProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.hiddenRadioButton.labelText.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4460,7 +4473,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.hiddenRadioButton.labelText.pickableProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.hiddenRadioButton.labelText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4473,7 +4486,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.hiddenRadioButton.labelText.textProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.hiddenRadioButton.labelText.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4486,7 +4499,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<StringIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.hiddenRadioButton.labelText.visibleProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.hiddenRadioButton.labelText.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4499,7 +4512,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.hiddenRadioButton.opacityProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.hiddenRadioButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4512,7 +4525,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.hiddenRadioButton.pickableProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.hiddenRadioButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4525,7 +4538,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.hiddenRadioButton.property": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.hiddenRadioButton.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4538,7 +4551,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.hiddenRadioButton.visibleProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.hiddenRadioButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4551,7 +4564,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.opacityProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4564,7 +4577,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.pickableProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4577,7 +4590,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.scientificNotationRadioButton": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.scientificNotationRadioButton": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4590,7 +4603,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.scientificNotationRadioButton.enabledProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.scientificNotationRadioButton.enabledProperty": {
       "phetioDocumentation": "Determines whether the AquaRadioButton is enabled (pressable) or disabled (grayed-out)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4603,7 +4616,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.scientificNotationRadioButton.inputListener.firedEmitter": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.scientificNotationRadioButton.inputListener.firedEmitter": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -4616,7 +4629,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO<NullableIO<SceneryEventIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.scientificNotationRadioButton.inputListener.pressAction": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.scientificNotationRadioButton.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -4629,7 +4642,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO<SceneryEventIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.scientificNotationRadioButton.inputListener.releaseAction": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.scientificNotationRadioButton.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -4642,7 +4655,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO<NullableIO<SceneryEventIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.scientificNotationRadioButton.labelText": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.scientificNotationRadioButton.labelText": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4655,7 +4668,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "TextIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.scientificNotationRadioButton.labelText.opacityProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.scientificNotationRadioButton.labelText.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4668,7 +4681,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.scientificNotationRadioButton.labelText.pickableProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.scientificNotationRadioButton.labelText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4681,7 +4694,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.scientificNotationRadioButton.labelText.textProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.scientificNotationRadioButton.labelText.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4694,7 +4707,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<StringIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.scientificNotationRadioButton.labelText.visibleProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.scientificNotationRadioButton.labelText.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4707,7 +4720,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.scientificNotationRadioButton.opacityProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.scientificNotationRadioButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4720,7 +4733,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.scientificNotationRadioButton.pickableProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.scientificNotationRadioButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4733,7 +4746,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.scientificNotationRadioButton.property": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.scientificNotationRadioButton.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4746,7 +4759,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.scientificNotationRadioButton.visibleProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.scientificNotationRadioButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4759,7 +4772,111 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesRadioButtonGroup.visibleProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.visibleProperty": {
+      "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": false,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<BooleanIO>"
+    },
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesText": {
+      "phetioDocumentation": "",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": false,
+      "phetioState": false,
+      "phetioStudioControl": true,
+      "phetioTypeName": "TextIO"
+    },
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesText.opacityProperty": {
+      "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": false,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "NumberPropertyIO"
+    },
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesText.pickableProperty": {
+      "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": false,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
+    },
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesText.textProperty": {
+      "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": false,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<StringIO>"
+    },
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesText.visibleProperty": {
+      "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": false,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<BooleanIO>"
+    },
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.opacityProperty": {
+      "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": false,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "NumberPropertyIO"
+    },
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.pickableProperty": {
+      "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": false,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
+    },
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
