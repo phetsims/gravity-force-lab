@@ -17,7 +17,7 @@ define( require => {
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/gravity-force-lab/GravityForceLabA11yStrings' );
   const HSeparator = require( 'SUN/HSeparator' );
   const ISLCA11yStrings = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCA11yStrings' );
-  const ISLCCheckboxPanel = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCCheckboxPanel' );
+  const ISLCConstants = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCConstants' );
   const ISLCPanel = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCPanel' );
   const merge = require( 'PHET_CORE/merge' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
@@ -39,6 +39,7 @@ define( require => {
 
   // constants
   const CHECKBOX_TEXT_SIZE = 15;
+  const TEXT_TANDEM_NAME = 'labelText';
 
   class GravityForceLabControlPanel extends ISLCPanel {
 
@@ -52,23 +53,35 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
+      const forceValuesGroupTandem = options.tandem.createTandem( 'forceValuesRadioButtonGroup' );
+
+      // create these "throw away" Tandems in order to have the proper
+      const decimalNotationTandem = forceValuesGroupTandem.createTandem( 'decimalNotationRadioButton' );
+      const scientificNotationTandem = forceValuesGroupTandem.createTandem( 'scientificNotationRadioButton' );
+      const hiddenTandem = forceValuesGroupTandem.createTandem( 'hiddenRadioButton' );
       const radioButtonContent = [
         {
           value: ForceValuesDisplayEnum.DECIMAL,
-          node: new Text( decimalNotationString, ISLCCheckboxPanel.getCheckboxTextOptions( options.tandem.createTandem( 'item1' ) ) ),
-          tandemName: 'decimalNotationRadioButton',
+          node: new Text( decimalNotationString, merge( {}, ISLCConstants.UI_TEXT_OPTIONS, {
+            tandem: decimalNotationTandem.createTandem( TEXT_TANDEM_NAME )
+          } ) ),
+          tandemName: decimalNotationTandem.name,
           labelContent: decimalNotationString
-        }, // bigger than the others
+        },
         {
           value: ForceValuesDisplayEnum.SCIENTIFIC,
-          node: new Text( scientificNotationString, ISLCCheckboxPanel.getCheckboxTextOptions( options.tandem.createTandem( 'item2' ) ) ),
-          tandemName: 'scientificNotationRadioButton',
+          node: new Text( scientificNotationString, merge( {}, ISLCConstants.UI_TEXT_OPTIONS, {
+            tandem: scientificNotationTandem.createTandem( TEXT_TANDEM_NAME )
+          } ) ),
+          tandemName: scientificNotationTandem.name,
           labelContent: scientificNotationString
         },
         {
           value: ForceValuesDisplayEnum.HIDDEN,
-          node: new Text( hiddenString, ISLCCheckboxPanel.getCheckboxTextOptions( options.tandem.createTandem( 'item3' ) ) ),
-          tandemName: 'hiddenRadioButton',
+          node: new Text( hiddenString, merge( {}, ISLCConstants.UI_TEXT_OPTIONS, {
+            tandem: hiddenTandem.createTandem( TEXT_TANDEM_NAME )
+          } ) ),
+          tandemName: hiddenTandem.name,
           labelContent: hiddenString
         }
       ];
@@ -77,18 +90,21 @@ define( require => {
         labelTagName: 'h3',
         labelContent: forceValuesString,
         descriptionContent: forceValuesHelpTextString,
-        tandem: options.tandem.createTandem( 'forceValuesRadioButtonGroup' )
+        tandem: forceValuesGroupTandem
       } );
 
       const constantSizeCheckboxTandem = options.tandem.createTandem( 'constantRadiusCheckbox' );
-      const constantSizeCheckbox = new Checkbox( new Text( constantSizeString,
-        ISLCCheckboxPanel.getCheckboxTextOptions( constantSizeCheckboxTandem ) ),
-        model.constantRadiusProperty, merge( {}, ISLCCheckboxPanel.CHECKBOX_OPTIONS, {
+      const constantSizeText = new Text( constantSizeString, merge( {}, ISLCConstants.UI_TEXT_OPTIONS, {
+        tandem: constantSizeCheckboxTandem.createTandem( TEXT_TANDEM_NAME )
+      } ) );
+      const constantSizeCheckbox = new Checkbox( constantSizeText, model.constantRadiusProperty,
+        merge( {}, ISLCConstants.CHECKBOX_OPTIONS, {
           tandem: constantSizeCheckboxTandem,
           accessibleName: constantSizeString,
           descriptionContent: constantSizeCheckboxHelpTextString,
           textSize: CHECKBOX_TEXT_SIZE
-        } ) );
+        } )
+      );
 
       super( new VBox( {
         children: [

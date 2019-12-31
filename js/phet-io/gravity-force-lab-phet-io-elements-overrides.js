@@ -7,6 +7,9 @@ window.phet.phetio.phetioElementsOverrides =
     "gravityForceLab.gravityForceLabScreen.model.forceProperty": {
       "phetioFeatured": true
     },
+    "gravityForceLab.gravityForceLabScreen.model.forceValuesDisplayProperty": {
+      "phetioFeatured": true
+    },
     "gravityForceLab.gravityForceLabScreen.model.mass1.positionProperty": {
       "phetioFeatured": true
     },
@@ -22,13 +25,7 @@ window.phet.phetio.phetioElementsOverrides =
     "gravityForceLab.gravityForceLabScreen.model.rulerPositionProperty": {
       "phetioFeatured": true
     },
-    "gravityForceLab.gravityForceLabScreen.model.scientificNotationProperty": {
-      "phetioFeatured": true
-    },
     "gravityForceLab.gravityForceLabScreen.model.separationProperty": {
-      "phetioFeatured": true
-    },
-    "gravityForceLab.gravityForceLabScreen.model.showForceValuesProperty": {
       "phetioFeatured": true
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.centerOfMassLineNode.visibleProperty": {
