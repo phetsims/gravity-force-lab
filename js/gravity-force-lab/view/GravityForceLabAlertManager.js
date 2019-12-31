@@ -40,18 +40,9 @@ define( require => {
         // {boolean} This should only used for gravity-force-lab
         linkToForceValuesDisplayProperty: true,
 
-        // {function} - listener to link to the showForceValuesProperty, default listener for REGULAR
-        showForceValuesListener: showValues => {
-
-          const displayScientificNotation = model.forceValuesDisplayProperty.value === ForceValuesDisplayEnum.SCIENTIFIC;
-
-          if ( !showValues || !displayScientificNotation ) {
-            this.alertShowForceValues( showValues );
-          }
-          else {
-            this.alertScientificNotation();
-          }
-        }
+        // {function} - listener to link to the showForceValuesProperty, default listener for REGULAR is null because
+        // this is only used in BASICS
+        showForceValuesListener: null
       }, options );
 
       super( model, forceDescriber );
@@ -77,13 +68,24 @@ define( require => {
         phet.joist.sim.utteranceQueue.addToBack( constantRadiusUtterance );
       } );
 
+      // use an option to support REGULAR and BASICS
       if ( options.linkToForceValuesDisplayProperty ) {
         assert && assert( model instanceof GravityForceLabModel, 'unsupported model for scientific notation' );
-        options.linkToForceValuesDisplayProperty && model.forceValuesDisplayProperty.lazyLink( () => this.alertScientificNotation() );
-      }
+        options.linkToForceValuesDisplayProperty && model.forceValuesDisplayProperty.lazyLink( () => {
 
-      // use an option to support REGULAR and BASICS
-      model.showForceValuesProperty.lazyLink( options.showForceValuesListener );
+          if ( model.forceValuesDisplayProperty.value === ForceValuesDisplayEnum.SCIENTIFIC ) {
+            this.alertScientificNotation();
+          }
+          else {
+            this.alertShowForceValues( model.forceValuesDisplayProperty.value !== ForceValuesDisplayEnum.HIDDEN );
+          }
+        } );
+      }
+      else {
+        assert && assert( options.showForceValuesListener,
+          'showForceValuesProperty is linked to if not linking to forceValuesDisplayProperty.' );
+        model.showForceValuesProperty.lazyLink( options.showForceValuesListener );
+      }
 
       // link to alert when the value changes
       model.object1.valueProperty.lazyLink( () => this.alertMassValueChanged( model.object1.enum ) );
