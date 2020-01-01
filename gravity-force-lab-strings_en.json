@@ -57,15 +57,15 @@
     "value": "Jump to minimum mass"
   },
   "moveGrabbedRuler": {
-    "value": "Move grabbed ruler"
+    "value": "Jump or Move grabbed ruler"
   },
   "moveOrJumpGrabbedRuler": {
-    "value": "Move or Jump Grabbed Ruler"
+    "value": "Jump or Move Grabbed Ruler"
   },
   "jumpStartOfSphere": {
     "value": "Jump start of ruler to<br>center of m1 sphere"
   },
   "jumpHome": {
-    "value": "Jump to home position"
+    "value": "Jump and release ruler<br>to home position"
   }
 }

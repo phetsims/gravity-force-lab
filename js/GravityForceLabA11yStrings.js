@@ -261,7 +261,7 @@ define( require => {
      ************************************/
 
     moveSphereDescription: {
-      value: 'Move sphere left and right with the Left and Right Arrow keys.'
+      value: 'Move sphere left and right with Left and Right Arrow keys.'
     },
     moveInSmallerStepsDescription: {
       value: 'Move in smaller steps with Shift plus Left and Right Arrow keys.'
@@ -303,7 +303,7 @@ define( require => {
       value: 'Jump start of ruler to center of m1 sphere with J plus C.'
     },
     jumpHomePDOM: {
-      value: 'Jump to home position with J plus H.'
+      value: 'Jump and release ruler to home position with J plus H.'
     },
 
     ///////////

@@ -176,7 +176,7 @@ define( require => {
 
       const jumpHomeRow = KeyboardHelpSection.createJumpKeyRow( 'H', jumpHomeString, jumpHomePDOMString );
 
-      super( moveOrJumpGrabbedRulerString, [ moveRulerRow, moveInSmallerStepsRow, jumpStartRow, jumpHomeRow ], options );
+      super( moveOrJumpGrabbedRulerString, [ jumpStartRow, jumpHomeRow, moveRulerRow, moveInSmallerStepsRow ], options );
     }
   }
 
