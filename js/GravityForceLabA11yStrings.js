@@ -323,7 +323,7 @@ define( require => {
       value: '{{playHint}} {{releaseHint}}'
     },
     jumpKeyboardHint: {
-      value: 'Press J plus C keys to jump ruler to center of m1.'
+      value: 'Hold J plus C keys to jump ruler to center of m1.'
     },
     moveKeyboardHint: {
       value: 'Move ruler left and right with letter keys A and D.'
