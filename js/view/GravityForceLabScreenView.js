@@ -269,11 +269,11 @@ define( require => {
       massPositionsNode,
       mass1Node.arrowNode,
       mass2Node.arrowNode,
-      massControlsNode
+      massControlsNode,
+      gravityForceLabRuler
     ];
     this.pdomControlAreaNode.accessibleOrder = [
       parameterControlPanel,
-      gravityForceLabRuler,
       resetAllButton
     ];
 

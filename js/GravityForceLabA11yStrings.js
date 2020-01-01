@@ -16,10 +16,10 @@ define( require => {
 
     // Screen Summary Strings
     screenSummaryMainDescription: {
-      value: 'The Play Area has two mass spheres, a blue sphere labeled m1 and a red sphere labeled m2. A force vector arrow starts at the center of each sphere and points directly at the opposite sphere. Spheres can be moved closer or farther from one another along a track. The mass of each sphere can be increased or decreased. Each sphere is held in place by a robot.'
+      value: 'The Play Area has two mass spheres, a blue sphere labeled m1 and a red sphere labeled m2. A force vector arrow starts at the center of each sphere and points directly at the opposite sphere. Spheres can be moved closer or farther from one another along a measured track. The mass of each sphere can be increased or decreased. Each sphere is held in place by a robot. Optionally, a moveable ruler can be used to measure distance between the spheres\' centers.'
     },
     screenSummarySecondaryDescription: {
-      value: 'In the Control Area, checkboxes change force notations and mass representations. There is a moveable ruler to take measurements, if needed, and a button to reset the sim.'
+      value: 'In the Control Area, there are options to change force notations and mass representations, and a button to reset the sim.'
     },
     simStateListLabel: {
       value: 'Currently, force on m1 by m2 is equal in magnitude and opposite in direction of force on m2 by m1.'
