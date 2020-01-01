@@ -26,7 +26,8 @@ define( require => {
   const releaseAndExploreHintString = GravityForceLabA11yStrings.releaseAndExploreHint.value;
   const hintPatternString = GravityForceLabA11yStrings.hintPattern.value;
   const centersApartPatternString = GravityForceLabA11yStrings.centersApartPattern.value;
-  const jumpKeyboardHintString = GravityForceLabA11yStrings.jumpKeyboardHint.value;
+  const grabbedJumpKeyboardHintString = GravityForceLabA11yStrings.grabbedJumpKeyboardHint.value;
+  const jumpCenterKeyboardHintString = GravityForceLabA11yStrings.jumpCenterKeyboardHint.value;
   const moveKeyboardHintString = GravityForceLabA11yStrings.moveKeyboardHint.value;
   const gestureHintString = GravityForceLabA11yStrings.gestureHint.value;
   const keyboardReleaseHintString = GravityForceLabA11yStrings.keyboardReleaseHint.value;
@@ -80,8 +81,12 @@ define( require => {
       this.horizontalDistanceThisGrab = 0; // for horizontal movement alerts
       this.previousVerticalRegionIndex = this.getVerticalRegionIndex(); // for vertical movement alerts
       this.previousRulerPosition = this.rulerPositionProperty.value;
-      this.movementUtterance = new Utterance(); // utterance to alert vertical and horizontal movement alerts
       this.justMovementAlerted = false;
+
+      // @private - alerts for different ruler specific alerts
+      this.jumpCenterUtterance = new Utterance();
+      this.jumpHomeUtterance = new Utterance();
+      this.movementUtterance = new Utterance(); // utterance to alert vertical and horizontal movement alerts
       this.releaseAndExploreUtterance = new Utterance( {
         alert: releaseAndExploreHintString,
         predicate: () => this.releaseAndExploreUtterance.numberOfTimesAlerted < 2 // only alert for the first two time.
@@ -152,7 +157,7 @@ define( require => {
       if ( phet.joist.sim.supportsGestureA11y ) {
         return gestureHintString;
       }
-      let playHint = jumpKeyboardHintString;
+      let playHint = grabbedJumpKeyboardHintString;
       const regionIndex = this.getVerticalRegionIndex();
 
       // if on the second grab, the user still isn't in a measurable location, then repeat the first hint to jump to the
@@ -235,13 +240,32 @@ define( require => {
 
     /**
      * @public
+     * Alert that the ruler has jumped to the home position
+     */
+    alertJumpHome() {
+      this.jumpHomeUtterance.alert = this.getHomePositionString();
+      phet.joist.sim.utteranceQueue.addToBack( this.jumpHomeUtterance );
+    }
+
+    /**
+     * @public
      * @returns {string}
      */
     getJumpCenterMassAlert() {
       return StringUtils.fillIn( jumpCenterMassAlertString, {
         centersApart: this.getCentersApartDistance(),
-        object1: this.getObjectLabelFromEnum( ISLCObjectEnum.OBJECT_ONE )
+        object1: this.getObjectLabelFromEnum( ISLCObjectEnum.OBJECT_ONE ),
+        supplementalHint: this.jumpCenterUtterance.numberOfTimesAlerted < 2 ? jumpCenterKeyboardHintString : ''
       } );
+    }
+
+    /**
+     * @public
+     * Alert that the ruler has jumped to the center of a mass
+     */
+    alertJumpCenterMass() {
+      this.jumpCenterUtterance.alert = this.getJumpCenterMassAlert();
+      phet.joist.sim.utteranceQueue.addToBack( this.jumpCenterUtterance );
     }
 
     /**
@@ -250,6 +274,8 @@ define( require => {
     reset() {
       this.grabbedCount = 0;
       this.releaseAndExploreUtterance.reset();
+      this.jumpCenterUtterance.reset();
+      this.jumpHomeUtterance.reset();
       this.movementUtterance.reset();
     }
   }

@@ -322,8 +322,11 @@ define( require => {
     hintPattern: {
       value: '{{playHint}} {{releaseHint}}'
     },
-    jumpKeyboardHint: {
+    grabbedJumpKeyboardHint: {
       value: 'Hold J plus C keys to jump ruler to center of m1.'
+    },
+    jumpCenterKeyboardHint: {
+      value: 'Hold J plus H keys to release ruler in home position.'
     },
     moveKeyboardHint: {
       value: 'Move ruler left and right with letter keys A and D.'
@@ -338,7 +341,7 @@ define( require => {
       value: 'Centers {{distanceAndUnits}} apart.'
     },
     jumpCenterMassAlert: {
-      value: 'Ruler zero mark at center of {{object1}}. {{centersApart}}'
+      value: 'Ruler zero mark at center of {{object1}}. {{centersApart}} {{supplementalHint}}'
     },
 
     // vertical ruler positions
