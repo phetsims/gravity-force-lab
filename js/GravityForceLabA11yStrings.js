@@ -313,7 +313,9 @@ define( require => {
     regionAndDistancePattern: {
       value: '{{verticalRegion}} {{centersApart}}'
     },
-
+    releaseAndExploreHint: {
+      value: 'Release ruler to explore position and mass of spheres.'
+    },
     grabbedAlertPattern: {
       value: 'Grabbed. {{regionAndDistance}} {{supplementalHint}}'
     },

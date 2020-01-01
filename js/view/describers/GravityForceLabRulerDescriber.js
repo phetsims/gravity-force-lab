@@ -23,6 +23,7 @@ define( require => {
   // a11y strings
   const grabbedAlertPatternString = GravityForceLabA11yStrings.grabbedAlertPattern.value;
   const regionAndDistancePatternString = GravityForceLabA11yStrings.regionAndDistancePattern.value;
+  const releaseAndExploreHintString = GravityForceLabA11yStrings.releaseAndExploreHint.value;
   const hintPatternString = GravityForceLabA11yStrings.hintPattern.value;
   const centersApartPatternString = GravityForceLabA11yStrings.centersApartPattern.value;
   const jumpKeyboardHintString = GravityForceLabA11yStrings.jumpKeyboardHint.value;
@@ -78,28 +79,44 @@ define( require => {
       this.grabbedCount = 0; // for grabbed alert
       this.horizontalDistanceThisGrab = 0; // for horizontal movement alerts
       this.previousVerticalRegionIndex = this.getVerticalRegionIndex(); // for vertical movement alerts
+      this.previousRulerPosition = this.rulerPositionProperty.value;
       this.movementUtterance = new Utterance(); // utterance to alert vertical and horizontal movement alerts
-
-      // When the ruler changes position, potentially alert that change.
-      this.rulerPositionProperty.lazyLink( ( newValue, oldValue ) => {
-
-        // handle horizontal case
-        this.horizontalDistanceThisGrab += Math.abs( oldValue.minus( newValue ).x );
-        if ( this.horizontalDistanceThisGrab >= 1 ) {
-          this.alertRulerMovement();
-          this.horizontalDistanceThisGrab = 0;
-        }
-
-        // handle vertical case
-        const currentVerticalRegionIndex = this.getVerticalRegionIndex();
-        if ( this.previousVerticalRegionIndex !== currentVerticalRegionIndex ) {
-          this.alertRulerMovement();
-          this.previousVerticalRegionIndex = currentVerticalRegionIndex;
-        }
+      this.justMovementAlerted = false;
+      this.releaseAndExploreUtterance = new Utterance( {
+        alert: releaseAndExploreHintString,
+        predicate: () => this.releaseAndExploreUtterance.numberOfTimesAlerted < 2 // only alert for the first two time.
       } );
 
       // Don't need to unlink
       SHOW_RULER_REGIONS && this.rulerPositionProperty.link( () => console.log( this.getCurrentVerticalRegion() ) );
+    }
+
+    /**
+     * Callback for when the ruler has just been dragged.
+     * @public
+     */
+    onDrag() {
+
+      // if the previous drag triggered a movement alert, then alert the release hint now.
+      if ( this.justMovementAlerted ) {
+        phet.joist.sim.utteranceQueue.addToBack( this.releaseAndExploreUtterance );
+        this.justMovementAlerted = false;
+      }
+
+      // handle horizontal case
+      this.horizontalDistanceThisGrab += Math.abs( this.previousRulerPosition.minus( this.rulerPositionProperty.value ).x );
+      if ( this.horizontalDistanceThisGrab >= 1 ) {
+        this.alertRulerMovement();
+        this.horizontalDistanceThisGrab = 0;
+      }
+      this.previousRulerPosition = this.rulerPositionProperty.value;
+
+      // handle vertical case
+      const currentVerticalRegionIndex = this.getVerticalRegionIndex();
+      if ( this.previousVerticalRegionIndex !== currentVerticalRegionIndex ) {
+        this.alertRulerMovement();
+        this.previousVerticalRegionIndex = currentVerticalRegionIndex;
+      }
     }
 
     /**
@@ -109,6 +126,7 @@ define( require => {
     alertRulerMovement() {
       this.movementUtterance.alert = this.getRegionAndDistance();
       phet.joist.sim.utteranceQueue.addToBack( this.movementUtterance );
+      this.justMovementAlerted = true;
     }
 
     /**
@@ -231,6 +249,8 @@ define( require => {
      */
     reset() {
       this.grabbedCount = 0;
+      this.releaseAndExploreUtterance.reset();
+      this.movementUtterance.reset();
     }
   }
 
