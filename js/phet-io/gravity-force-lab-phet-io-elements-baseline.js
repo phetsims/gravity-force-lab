@@ -4356,19 +4356,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.decimalNotationRadioButton.property": {
-      "phetioDocumentation": "",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": true,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "LinkedElementIO"
-    },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.decimalNotationRadioButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
@@ -4538,19 +4525,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.hiddenRadioButton.property": {
-      "phetioDocumentation": "",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": true,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "LinkedElementIO"
-    },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.hiddenRadioButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
@@ -4589,6 +4563,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
+    },
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.property": {
+      "phetioDocumentation": "",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": true,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "LinkedElementIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.scientificNotationRadioButton": {
       "phetioDocumentation": "",
@@ -4745,19 +4732,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
-    },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.scientificNotationRadioButton.property": {
-      "phetioDocumentation": "",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": true,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "LinkedElementIO"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.scientificNotationRadioButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
