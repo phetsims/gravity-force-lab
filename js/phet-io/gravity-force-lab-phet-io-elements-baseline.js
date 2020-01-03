@@ -4226,7 +4226,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.decimalNotationRadioButton.inputListener.firedEmitter": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.decimalNotationRadioButton.fireListener.firedEmitter": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -4239,7 +4239,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO<NullableIO<SceneryEventIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.decimalNotationRadioButton.inputListener.pressAction": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.decimalNotationRadioButton.fireListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -4252,7 +4252,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO<SceneryEventIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.decimalNotationRadioButton.inputListener.releaseAction": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.decimalNotationRadioButton.fireListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -4408,7 +4408,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.hiddenRadioButton.inputListener.firedEmitter": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.hiddenRadioButton.fireListener.firedEmitter": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -4421,7 +4421,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO<NullableIO<SceneryEventIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.hiddenRadioButton.inputListener.pressAction": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.hiddenRadioButton.fireListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -4434,7 +4434,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO<SceneryEventIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.hiddenRadioButton.inputListener.releaseAction": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.hiddenRadioButton.fireListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -4616,7 +4616,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.scientificNotationRadioButton.inputListener.firedEmitter": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.scientificNotationRadioButton.fireListener.firedEmitter": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -4629,7 +4629,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO<NullableIO<SceneryEventIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.scientificNotationRadioButton.inputListener.pressAction": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.scientificNotationRadioButton.fireListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -4642,7 +4642,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO<SceneryEventIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.scientificNotationRadioButton.inputListener.releaseAction": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.scientificNotationRadioButton.fireListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
