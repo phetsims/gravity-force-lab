@@ -338,7 +338,7 @@ define( require => {
       value: 'Space to release.'
     },
     centersApartPattern: {
-      value: 'Centers {{distanceAndUnits}} apart.'
+      value: 'Centers of spheres {{distanceAndUnits}} apart.'
     },
     jumpCenterMassAlert: {
       value: 'Ruler zero mark at center of {{object1}}. {{centersApart}} {{supplementalHint}}'
