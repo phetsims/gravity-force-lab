@@ -269,10 +269,19 @@ define( require => {
     }
 
     /**
+     * Expected to be called after the model is reset
      * @public
      */
     reset() {
+
+      // reset local state
       this.grabbedCount = 0;
+      this.horizontalDistanceThisGrab = 0;
+      this.previousVerticalRegionIndex = this.getVerticalRegionIndex();
+      this.previousRulerPosition = this.rulerPositionProperty.value;
+      this.justMovementAlerted = false;
+
+      // reset utterances
       this.releaseAndExploreUtterance.reset();
       this.jumpCenterUtterance.reset();
       this.jumpHomeUtterance.reset();
