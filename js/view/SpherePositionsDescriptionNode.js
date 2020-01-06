@@ -12,33 +12,37 @@ define( require => {
   const ISLCA11yStrings = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCA11yStrings' );
   const merge = require( 'PHET_CORE/merge' );
   const Node = require( 'SCENERY/nodes/Node' );
+  const Property = require( 'AXON/Property' );
 
   // a11y strings
   const spherePositionsString = ISLCA11yStrings.spherePositions.value;
-  const spherePositionHelpTextString = ISLCA11yStrings.spherePositionHelpText.value;
 
   class SpherePositionsDescriptionNode extends Node {
 
     /**
+     * @param {ISLCModel} model
+     * @param {PositionDescriber} positionDescriber
      * @param {Object} [options]
      */
-    constructor( options ) {
+    constructor( model, positionDescriber, options ) {
 
-      super( merge( {
+      options = merge( {
         tagName: 'div',
         labelTagName: 'h3',
         labelContent: spherePositionsString,
-        descriptionContent: spherePositionHelpTextString
-      }, options ) );
-    }
+        additionalDescriptionDependencies: [] // {Property[]} to be added to the multilink
+      }, options );
 
-    /**
-     * Provide a thin layer for api similarity between REGULAR and BASICS
-     * @param {string} description
-     * @public
-     */
-    setDescription( description ) {
-      this.descriptionContent = description;
+      super( options );
+
+      Property.multilink( [
+
+          // Linking to `model.separationProperty` caused the same bug as in GFLB#103, so we are linking to
+          // both objects' positionProperty instead.
+          model.object1.positionProperty,
+          model.object2.positionProperty ].concat( options.additionalDescriptionDependencies ),
+        () => { this.descriptionContent = positionDescriber.getSpherePositionsHelpText(); }
+      );
     }
   }
 

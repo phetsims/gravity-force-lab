@@ -132,7 +132,7 @@ define( require => {
       }
     );
 
-    const massPositionsNode = new SpherePositionsDescriptionNode();
+    const massPositionsNode = new SpherePositionsDescriptionNode( model, positionDescriber );
     massPositionsNode.addChild( mass1Node );
     massPositionsNode.addChild( mass2Node );
 
@@ -202,7 +202,7 @@ define( require => {
     resetAllButton.bottom = this.layoutBounds.bottom - 7.4;
     resetAllButton.right = this.layoutBounds.width - 15;
     parameterControlPanel.right = resetAllButton.left - 15;
-    parameterControlPanel.bottom = resetAllButton.bottom ;
+    parameterControlPanel.bottom = resetAllButton.bottom;
     massControl2.top = massControl1.top = parameterControlPanel.top;
     massControl2.right = parameterControlPanel.left - 35;
     massControl1.right = massControl2.left - 35;
