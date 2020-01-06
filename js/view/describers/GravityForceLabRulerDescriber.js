@@ -85,12 +85,16 @@ define( require => {
 
       // @private - alerts for different ruler specific alerts
       this.jumpCenterUtterance = new Utterance();
-      this.jumpHomeUtterance = new Utterance();
       this.movementUtterance = new Utterance(); // utterance to alert vertical and horizontal movement alerts
       this.releaseAndExploreUtterance = new Utterance( {
         alert: releaseAndExploreHintString,
         predicate: () => this.releaseAndExploreUtterance.numberOfTimesAlerted < 2 // only alert for the first two time.
       } );
+
+      // @private - This alert follows a change in focus (release of the ruler) and "Release" alert - give
+      // VoiceOver time to describe these before the jump alert so that no alerts get skipped, see
+      // https://github.com/phetsims/gravity-force-lab/issues/225
+      this.jumpHomeUtterance = new Utterance( { alertStableDelay: 1000 } );
 
       // Don't need to unlink
       SHOW_RULER_REGIONS && this.rulerPositionProperty.link( () => console.log( this.getCurrentVerticalRegion() ) );
