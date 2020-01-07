@@ -4018,7 +4018,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantRadiusCheckbox": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantSizeCheckbox": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -4031,7 +4031,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantRadiusCheckbox.enabledProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantSizeCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4044,7 +4044,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantRadiusCheckbox.labelText": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantSizeCheckbox.labelText": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4057,7 +4057,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "TextIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantRadiusCheckbox.labelText.opacityProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantSizeCheckbox.labelText.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4070,7 +4070,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantRadiusCheckbox.labelText.pickableProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantSizeCheckbox.labelText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4083,7 +4083,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantRadiusCheckbox.labelText.textProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantSizeCheckbox.labelText.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4096,7 +4096,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<StringIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantRadiusCheckbox.labelText.visibleProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantSizeCheckbox.labelText.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4109,7 +4109,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantRadiusCheckbox.opacityProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantSizeCheckbox.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4122,7 +4122,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantRadiusCheckbox.pickableProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantSizeCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4135,7 +4135,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantRadiusCheckbox.property": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantSizeCheckbox.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -4148,7 +4148,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantRadiusCheckbox.toggleAction": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantSizeCheckbox.toggleAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state. The arguments are:<br/><ol><li>isChecked: BooleanIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -4161,7 +4161,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO<BooleanIO>"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantRadiusCheckbox.visibleProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantSizeCheckbox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",

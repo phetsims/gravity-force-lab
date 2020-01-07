@@ -48,7 +48,7 @@ define( require => {
         tandem: options.tandem.createTandem( 'forceValuesDisplayControl' )
       } );
 
-      const constantSizeCheckboxTandem = options.tandem.createTandem( 'constantRadiusCheckbox' );
+      const constantSizeCheckboxTandem = options.tandem.createTandem( 'constantSizeCheckbox' );
       const constantSizeText = new Text( constantSizeString, merge( {}, ISLCConstants.UI_TEXT_OPTIONS, {
         tandem: constantSizeCheckboxTandem.createTandem( 'labelText' )
       } ) );
