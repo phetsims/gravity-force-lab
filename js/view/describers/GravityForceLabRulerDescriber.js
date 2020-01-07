@@ -1,4 +1,4 @@
-// Copyright 2019, University of Colorado Boulder
+// Copyright 2019-2020, University of Colorado Boulder
 
 /**
  * This describer is responsible for the descriptions associated with the moveable ruler. Unlike other describers, this
