@@ -1562,7 +1562,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<RangeIO>"
     },
     "gravityForceLab.gravityForceLabScreen.model.mass1.positionProperty": {
-      "phetioDocumentation": "The position of the object along the track, in meters.",
+      "phetioDocumentation": "The position of the object along the track, in meters. The origin is in the center between the two objects.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -1614,7 +1614,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<RangeIO>"
     },
     "gravityForceLab.gravityForceLabScreen.model.mass2.positionProperty": {
-      "phetioDocumentation": "The position of the object along the track, in meters.",
+      "phetioDocumentation": "The position of the object along the track, in meters. The origin is in the center between the two objects.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,

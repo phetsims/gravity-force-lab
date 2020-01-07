@@ -24,6 +24,12 @@ define( require => {
   const Vector2 = require( 'DOT/Vector2' );
   const Vector2Property = require( 'DOT/Vector2Property' );
 
+  // constants
+  const MASS_OPTIONS = {
+    leftObjectBoundary: GravityForceLabConstants.PULL_LOCATION_RANGE.min,
+    rightObjectBoundary: GravityForceLabConstants.PULL_LOCATION_RANGE.max
+  };
+
   /**
    * @param {Tandem} tandem
    * @constructor
@@ -55,9 +61,9 @@ define( require => {
     const density = 150; // in kg/m^3
 
     const mass1 = new Mass( massValue1, position1, GravityForceLabConstants.MASS_RANGE, density,
-      this.constantRadiusProperty, baseColor1, tandem.createTandem( 'mass1' ) );
+      this.constantRadiusProperty, baseColor1, tandem.createTandem( 'mass1' ), MASS_OPTIONS );
     const mass2 = new Mass( massValue2, position2, GravityForceLabConstants.MASS_RANGE, density,
-      this.constantRadiusProperty, baseColor2, tandem.createTandem( 'mass2' ) );
+      this.constantRadiusProperty, baseColor2, tandem.createTandem( 'mass2' ), MASS_OPTIONS );
 
     // leverage ISLCModel, in "mass" mode
     ISLCModel.call( this, PhysicalConstants.GRAVITATIONAL_CONSTANT, mass1, mass2,
