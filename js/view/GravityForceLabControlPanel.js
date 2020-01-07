@@ -57,7 +57,8 @@ define( require => {
           tandem: constantSizeCheckboxTandem,
           accessibleName: constantSizeString,
           descriptionContent: constantSizeCheckboxHelpTextString,
-          textSize: CHECKBOX_TEXT_SIZE
+          textSize: CHECKBOX_TEXT_SIZE,
+          spacing: 4
         } )
       );
 
