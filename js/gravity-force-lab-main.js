@@ -27,10 +27,12 @@ define( require => {
 
   const simOptions = {
     credits: {
-      softwareDevelopment: 'John Blanco, Aadish Gupta, Sam Reid',
-      team: 'Wendy Adams, Trish Loeblein, Ariel Paul, Noah Podolefsky, Amy Rouinfar, Carl Wieman',
+      softwareDevelopment: 'Michael Barlow, John Blanco, Aadish Gupta, Michael Kauzmann, Sam Reid',
+      team: 'Wendy Adams, Trish Loeblein, Emily B. Moore, Ariel Paul, Noah Podolefsky, Taliesin Smith, Amy Rouinfar, ' +
+            'Brianna Tomlinson, Carl Wieman',
       qualityAssurance: 'Steele Dalton, Bryce Griebenow, Elise Morgan, Oliver Orejola, Ben Roberts, Bryan Yoelin',
       graphicArts: 'Mariah Hermsmeyer',
+      soundDesign: 'Ashton Morris',
       thanks: 'Thanks to Mobile Learner Labs for working with the PhET development team to convert this simulation to HTML5.'
     },
     keyboardHelpNode: keyboardHelpContent,
