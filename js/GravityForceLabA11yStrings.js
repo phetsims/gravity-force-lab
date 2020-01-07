@@ -328,9 +328,6 @@ define( require => {
     jumpCenterKeyboardHint: {
       value: 'Hold J plus H keys to release ruler in home position.'
     },
-    moveKeyboardHint: {
-      value: 'Move ruler left and right with letter keys A and D.'
-    },
     gestureHint: {
       value: 'Drag finger to move ruler. Lift to release.'
     },

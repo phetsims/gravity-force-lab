@@ -16,7 +16,6 @@ define( require => {
   const ISLCDescriber = require( 'INVERSE_SQUARE_LAW_COMMON/view/describers/ISLCDescriber' );
   const ISLCObjectEnum = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectEnum' );
   const ISLCQueryParameters = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCQueryParameters' );
-  const Range = require( 'DOT/Range' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Utterance = require( 'UTTERANCE_QUEUE/Utterance' );
 
@@ -28,7 +27,6 @@ define( require => {
   const centersApartPatternString = GravityForceLabA11yStrings.centersApartPattern.value;
   const grabbedJumpKeyboardHintString = GravityForceLabA11yStrings.grabbedJumpKeyboardHint.value;
   const jumpCenterKeyboardHintString = GravityForceLabA11yStrings.jumpCenterKeyboardHint.value;
-  const moveKeyboardHintString = GravityForceLabA11yStrings.moveKeyboardHint.value;
   const gestureHintString = GravityForceLabA11yStrings.gestureHint.value;
   const keyboardReleaseHintString = GravityForceLabA11yStrings.keyboardReleaseHint.value;
   const jumpCenterMassAlertString = GravityForceLabA11yStrings.jumpCenterMassAlert.value;
@@ -41,6 +39,7 @@ define( require => {
   const inHomePositionString = GravityForceLabA11yStrings.inHomePosition.value;
   const behindMassControlsString = GravityForceLabA11yStrings.behindMassControls.value;
 
+  // constants
   const RULER_VERTICAL_REGIONS = [
     coveringM2String,
     coveringM1String,
@@ -50,10 +49,6 @@ define( require => {
     inHomePositionString,
     behindMassControlsString
   ];
-
-  // These regions are treated differently, as they are in the range that suggests pedagogically relevant interaction.
-  const TARGET_REGIONS_RANGE = new Range( RULER_VERTICAL_REGIONS.indexOf( justAboveCentersString ),
-    RULER_VERTICAL_REGIONS.indexOf( justBelowCentersString ) );
   const SHOW_RULER_REGIONS = ISLCQueryParameters.showRulerRegions;
 
   class GravityForceLabRulerDescriber extends ISLCDescriber {
@@ -158,20 +153,15 @@ define( require => {
       if ( this.grabbedCount >= 3 ) {
         return '';
       }
+
+      // gesture hint
       if ( phet.joist.sim.supportsGestureA11y ) {
         return gestureHintString;
       }
-      let playHint = grabbedJumpKeyboardHintString;
-      const regionIndex = this.getVerticalRegionIndex();
 
-      // if on the second grab, the user still isn't in a measurable location, then repeat the first hint to jump to the
-      // center.
-      if ( this.grabbedCount === 2 && TARGET_REGIONS_RANGE.contains( regionIndex ) ) {
-        playHint = moveKeyboardHintString;
-      }
-
+      // keyboard hint
       return StringUtils.fillIn( hintPatternString, {
-        playHint: playHint,
+        playHint: grabbedJumpKeyboardHintString,
         releaseHint: keyboardReleaseHintString
       } );
     }
