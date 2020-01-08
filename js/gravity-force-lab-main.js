@@ -28,7 +28,7 @@ define( require => {
   const simOptions = {
     credits: {
       softwareDevelopment: 'Michael Barlow, John Blanco, Aadish Gupta, Michael Kauzmann, Sam Reid',
-      team: 'Wendy Adams, Trish Loeblein, Emily B. Moore, Ariel Paul, Noah Podolefsky, Taliesin Smith, Amy Rouinfar, ' +
+      team: 'Wendy Adams, Trish Loeblein, Emily B. Moore, Ariel Paul, Noah Podolefsky, Amy Rouinfar, Taliesin Smith, ' +
             'Brianna Tomlinson, Carl Wieman',
       qualityAssurance: 'Steele Dalton, Bryce Griebenow, Elise Morgan, Oliver Orejola, Ben Roberts, Bryan Yoelin',
       graphicArts: 'Mariah Hermsmeyer',
