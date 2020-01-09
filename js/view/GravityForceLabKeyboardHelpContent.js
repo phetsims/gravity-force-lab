@@ -129,7 +129,7 @@ define( require => {
       KeyboardHelpSection.alignHelpSectionIcons( [ moveMassHelpSection, adjustMassHelpSection ] );
 
       const generalNavigationHelpSection = new GeneralKeyboardHelpSection( {
-        withCheckboxContent: true,
+        withCheckboxContent: !options.isBasics,
         withGroupContent: true
       } );
 
