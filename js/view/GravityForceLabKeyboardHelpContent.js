@@ -129,8 +129,8 @@ define( require => {
       KeyboardHelpSection.alignHelpSectionIcons( [ moveMassHelpSection, adjustMassHelpSection ] );
 
       const generalNavigationHelpSection = new GeneralKeyboardHelpSection( {
-        withCheckboxContent: !options.isBasics,
-        withGroupContent: true
+        withCheckboxContent: true,
+        withGroupContent: !options.isBasics
       } );
 
       const grabDragHelpContent = KeyboardHelpSection.getGrabReleaseHelpSection( rulerCapitalizedString, rulerString, {} );
