@@ -15,8 +15,11 @@ define( require => {
   const GravityForceLabA11yStrings = {
 
     // Screen Summary Strings
-    screenSummaryMainDescription: {
-      value: 'The Play Area has two mass spheres, a blue sphere labeled m1 and a red sphere labeled m2. A force vector arrow starts at the center of each sphere and points directly at the opposite sphere. Spheres can be moved closer or farther from one another along a measured track. The mass of each sphere can be increased or decreased. Each sphere is held in place by a robot. Optionally, a moveable ruler can be used to measure distance between the spheres\' centers.'
+    screenSummaryPlayAreaOverview: {
+      value: 'The Play Area has two mass spheres, a blue sphere labeled m1 and a red sphere labeled m2. A force vector arrow starts at the center of each sphere and points directly at the opposite sphere.'
+    },
+    screenSummaryPlayAreaControls: {
+      value: 'Spheres can be moved closer or farther from one another along a measured track. The mass of each sphere can be increased or decreased. Each sphere is held in place by a robot. Optionally, a moveable ruler can be used to measure distance between the spheres\' centers.'
     },
     screenSummarySecondaryDescription: {
       value: 'In the Control Area, there are options to change force notations and mass representations, and a button to reset the sim.'

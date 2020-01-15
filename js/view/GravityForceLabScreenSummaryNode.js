@@ -19,7 +19,8 @@ define( require => {
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
 
   // a11y strings
-  const screenSummaryMainDescriptionString = GravityForceLabA11yStrings.screenSummaryMainDescription.value;
+  const screenSummaryPlayAreaOverviewString = GravityForceLabA11yStrings.screenSummaryPlayAreaOverview.value;
+  const screenSummaryPlayAreaControlsString = GravityForceLabA11yStrings.screenSummaryPlayAreaControls.value;
   const screenSummarySecondaryDescriptionString = GravityForceLabA11yStrings.screenSummarySecondaryDescription.value;
   const simStateListLabelString = GravityForceLabA11yStrings.simStateListLabel.value;
   const massString = GravityForceLabA11yStrings.mass.value;
@@ -45,7 +46,8 @@ define( require => {
         additionalMassDistanceProperties: [],
 
         // {string}
-        mainDescriptionContent: screenSummaryMainDescriptionString,
+        screenSummaryPlayAreaOverview: screenSummaryPlayAreaOverviewString,
+        screenSummaryPlayAreaControls: screenSummaryPlayAreaControlsString,
 
         // {string}
         secondaryDescriptionContent: screenSummarySecondaryDescriptionString,
@@ -77,7 +79,8 @@ define( require => {
         labelContent: options.simStateLabel
       } );
 
-      const mainSummaryDescriptionNode = new Node( { tagName: 'p', innerContent: options.mainDescriptionContent } );
+      const screenSummaryPlayAreaOverviewNode = new Node( { tagName: 'p', innerContent: options.screenSummaryPlayAreaOverview } );
+      const screenSummaryPlayAreaControlsNode = new Node( { tagName: 'p', innerContent: options.screenSummaryPlayAreaControls } );
       const secondSummaryDescriptionNode = new Node( {
         tagName: 'p',
         innerContent: options.secondaryDescriptionContent
@@ -99,7 +102,8 @@ define( require => {
       } );
 
       this.children = [
-        mainSummaryDescriptionNode,
+        screenSummaryPlayAreaOverviewNode,
+        screenSummaryPlayAreaControlsNode,
         secondSummaryDescriptionNode,
         simStateNode,
         interactionHintNode
