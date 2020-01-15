@@ -325,7 +325,7 @@ define( require => {
       GravityForceLabConstants.MASS_RANGE,
       resetAllButton.buttonModel.isFiringProperty,
       {
-        initialOutputLevel: MASS_SOUND_LEVEL,
+        initialOutputLevel: 0,
         playBasedOnThresholdsProperty: massSliderDraggingViaPointer,
         thresholdValues: MASS_SOUND_THRESHOLDS
       }
