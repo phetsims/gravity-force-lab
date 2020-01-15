@@ -68,7 +68,7 @@ define( require => {
   // TODO - @Ashton-Morris - please adjust level if needed, see https://github.com/phetsims/gravity-force-lab/issues/181
   const BOUNDARY_SOUNDS_LEVEL = 1;
   // TODO - @Ashton-Morris - please adjust level if needed, see https://github.com/phetsims/gravity-force-lab/issues/181
-  const MASS_SOUND_LEVEL = 0.7;
+  const MASS_SOUND_LEVEL = 0;
   const MASS_SOUND_THRESHOLDS = [ 10, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000 ];
 
   function GravityForceLabScreenView( model, tandem ) {
@@ -325,7 +325,7 @@ define( require => {
       GravityForceLabConstants.MASS_RANGE,
       resetAllButton.buttonModel.isFiringProperty,
       {
-        initialOutputLevel: 0,
+        initialOutputLevel: MASS_SOUND_LEVEL,
         playBasedOnThresholdsProperty: massSliderDraggingViaPointer,
         thresholdValues: MASS_SOUND_THRESHOLDS
       }
