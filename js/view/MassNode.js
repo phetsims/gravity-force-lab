@@ -52,8 +52,8 @@ define( require => {
           mapArrowWidthWithTwoFunctions: true
         },
         y: MASS_NODE_Y_POSITION,
-        snapToNearest: GravityForceLabConstants.LOCATION_SNAP_VALUE,
-        stepSize: GravityForceLabConstants.LOCATION_STEP_SIZE,
+        snapToNearest: GravityForceLabConstants.POSITION_SNAP_VALUE,
+        stepSize: GravityForceLabConstants.POSITION_STEP_SIZE,
 
         // {function} - to support REGULAR and BASICS without duplicating too much code.
         finishWiringListeners: () => this.linkToForceValuesDisplayProperty( model ),

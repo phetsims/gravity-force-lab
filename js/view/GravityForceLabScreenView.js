@@ -207,7 +207,7 @@ define( require => {
     massControl2.right = parameterControlPanel.left - 35;
     massControl1.right = massControl2.left - 35;
 
-    // create down here because it needs locations of other items in the screen view
+    // create down here because it needs positions of other items in the screen view
     const rulerRegionPositions = [
       mass2Node.top,
       mass1Node.top,
@@ -238,7 +238,7 @@ define( require => {
       {
         unitString: unitsMetersString,
         backgroundFill: 'rgb(236, 225, 113)',
-        snapToNearest: GravityForceLabConstants.LOCATION_SNAP_VALUE
+        snapToNearest: GravityForceLabConstants.POSITION_SNAP_VALUE
       }
     );
 
@@ -279,7 +279,7 @@ define( require => {
 
     if ( SHOW_GRID ) {
       const gridNode = new ISLCGridNode(
-        GravityForceLabConstants.LOCATION_SNAP_VALUE,
+        GravityForceLabConstants.POSITION_SNAP_VALUE,
         this.layoutBounds,
         modelViewTransform,
         { stroke: 'rgba( 250, 100, 100, 0.6 )' } );

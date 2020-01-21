@@ -1549,7 +1549,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<EnumerationIO(DECIMAL|SCIENTIFIC|HIDDEN)>"
     },
     "gravityForceLab.gravityForceLabScreen.model.mass1.enabledRangeProperty": {
-      "phetioDocumentation": "The range for position of this object based on the radius and location of both objects",
+      "phetioDocumentation": "The range for position of this object based on the radius and position of both objects",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -1601,7 +1601,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NumberPropertyIO"
     },
     "gravityForceLab.gravityForceLabScreen.model.mass2.enabledRangeProperty": {
-      "phetioDocumentation": "The range for position of this object based on the radius and location of both objects",
+      "phetioDocumentation": "The range for position of this object based on the radius and position of both objects",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,

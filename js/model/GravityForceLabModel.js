@@ -26,8 +26,8 @@ define( require => {
 
   // constants
   const MASS_OPTIONS = {
-    leftObjectBoundary: GravityForceLabConstants.PULL_LOCATION_RANGE.min,
-    rightObjectBoundary: GravityForceLabConstants.PULL_LOCATION_RANGE.max
+    leftObjectBoundary: GravityForceLabConstants.PULL_POSITION_RANGE.min,
+    rightObjectBoundary: GravityForceLabConstants.PULL_POSITION_RANGE.max
   };
 
   /**
@@ -67,7 +67,7 @@ define( require => {
 
     // leverage ISLCModel, in "mass" mode
     ISLCModel.call( this, PhysicalConstants.GRAVITATIONAL_CONSTANT, mass1, mass2,
-      GravityForceLabConstants.PULL_LOCATION_RANGE, tandem, {
+      GravityForceLabConstants.PULL_POSITION_RANGE, tandem, {
         snapObjectsToNearest: 0.1 // in meters
       } );
 
