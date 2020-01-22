@@ -65,9 +65,7 @@ define( require => {
   const SHOW_RULER_REGIONS = ISLCQueryParameters.showRulerRegions;
   const OBJECT_ONE = ISLCObjectEnum.OBJECT_ONE;
   const OBJECT_TWO = ISLCObjectEnum.OBJECT_TWO;
-  // TODO - @Ashton-Morris - please adjust level if needed, see https://github.com/phetsims/gravity-force-lab/issues/181
   const BOUNDARY_SOUNDS_LEVEL = 1;
-  // TODO - @Ashton-Morris - please adjust level if needed, see https://github.com/phetsims/gravity-force-lab/issues/181
   const MASS_SOUND_LEVEL = 0.7;
   const MASS_SOUND_THRESHOLDS = [ 10, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000 ];
 
@@ -301,14 +299,13 @@ define( require => {
       }
     } );
 
-    // TODO - @Ashton-Morris - please adjust level if needed, see https://github.com/phetsims/gravity-force-lab/issues/181
     // @private - sound generation for the force sound
     this.forceSoundGenerator = new ContinuousPropertySoundGenerator(
       model.forceProperty,
       forceSound,
       new Range( model.getMinForce(), model.getMaxForce() ),
       resetAllButton.buttonModel.isFiringProperty,
-      { initialOutputLevel: 0.2 }
+      { initialOutputLevel: 0.15 }
     );
     soundManager.addSoundGenerator( this.forceSoundGenerator );
 
