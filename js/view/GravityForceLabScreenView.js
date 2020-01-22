@@ -41,6 +41,7 @@ define( require => {
   const Range = require( 'DOT/Range' );
   const ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   const ScreenView = require( 'JOIST/ScreenView' );
+  const SoundLevelEnum = require( 'TAMBO/SoundLevelEnum' );
   const soundManager = require( 'TAMBO/soundManager' );
   const SpherePositionsDescriptionNode = require( 'GRAVITY_FORCE_LAB/view/SpherePositionsDescriptionNode' );
   const Vector2 = require( 'DOT/Vector2' );
@@ -317,26 +318,32 @@ define( require => {
                  massControl2SliderDragState === MassControl.SliderDragState.DRAGGING_VIA_POINTER );
       }
     );
-    soundManager.addSoundGenerator( new MassSoundGenerator(
-      model.object1.valueProperty,
-      GravityForceLabConstants.MASS_RANGE,
-      resetAllButton.buttonModel.isFiringProperty,
-      {
-        initialOutputLevel: MASS_SOUND_LEVEL,
-        playBasedOnThresholdsProperty: massSliderDraggingViaPointer,
-        thresholdValues: MASS_SOUND_THRESHOLDS
-      }
-    ) );
-    soundManager.addSoundGenerator( new MassSoundGenerator(
-      model.object2.valueProperty,
-      GravityForceLabConstants.MASS_RANGE,
-      resetAllButton.buttonModel.isFiringProperty,
-      {
-        initialOutputLevel: MASS_SOUND_LEVEL,
-        playBasedOnThresholdsProperty: massSliderDraggingViaPointer,
-        thresholdValues: MASS_SOUND_THRESHOLDS
-      }
-    ) );
+    soundManager.addSoundGenerator(
+      new MassSoundGenerator(
+        model.object1.valueProperty,
+        GravityForceLabConstants.MASS_RANGE,
+        resetAllButton.buttonModel.isFiringProperty,
+        {
+          initialOutputLevel: MASS_SOUND_LEVEL,
+          playBasedOnThresholdsProperty: massSliderDraggingViaPointer,
+          thresholdValues: MASS_SOUND_THRESHOLDS
+        }
+      ),
+      { sonificationLevel: SoundLevelEnum.ENHANCED }
+    );
+    soundManager.addSoundGenerator(
+      new MassSoundGenerator(
+        model.object2.valueProperty,
+        GravityForceLabConstants.MASS_RANGE,
+        resetAllButton.buttonModel.isFiringProperty,
+        {
+          initialOutputLevel: MASS_SOUND_LEVEL,
+          playBasedOnThresholdsProperty: massSliderDraggingViaPointer,
+          thresholdValues: MASS_SOUND_THRESHOLDS
+        }
+      ),
+      { sonificationLevel: SoundLevelEnum.ENHANCED }
+    );
 
     // sound generation for masses reaching the inner or outer motion boundaries
     soundManager.addSoundGenerator( new MassBoundarySoundGenerator( model.object1, model, 'left', {
