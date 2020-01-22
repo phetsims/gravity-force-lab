@@ -1,6 +1,6 @@
 {
   "name": "gravity-force-lab",
-  "version": "2.2.0-dev.29",
+  "version": "2.2.0-dev.30",
   "license": "GPL-3.0",
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
     ],
     "accessible": true,
     "supportsSound": true,
+    "supportsEnhancedSound": true,
     "simulation": true
   },
   "eslintConfig": {
