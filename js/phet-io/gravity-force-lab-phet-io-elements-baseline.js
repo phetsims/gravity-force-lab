@@ -79,19 +79,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.general.barrierRectangle.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.general.barrierRectangle.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -547,19 +534,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.general.navigationBar.a11yButtonsHBox.keyboardHelpButton.keyboardHelpDialogCapsule.archetype.closeButton.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": true,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.general.navigationBar.a11yButtonsHBox.keyboardHelpButton.keyboardHelpDialogCapsule.archetype.closeButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -638,19 +612,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.general.navigationBar.a11yButtonsHBox.keyboardHelpButton.keyboardHelpDialogCapsule.archetype.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": true,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.general.navigationBar.a11yButtonsHBox.keyboardHelpButton.keyboardHelpDialogCapsule.archetype.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -689,19 +650,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
-    },
-    "gravityForceLab.general.navigationBar.a11yButtonsHBox.keyboardHelpButton.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "gravityForceLab.general.navigationBar.a11yButtonsHBox.keyboardHelpButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -885,19 +833,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.closeButton.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": true,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.closeButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -976,19 +911,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": true,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -1027,19 +949,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
-    },
-    "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.termsPrivacyAndLicensingText.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": true,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.termsPrivacyAndLicensingText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -1106,19 +1015,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.thirdPartyCreditsLinkText.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": true,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.thirdPartyCreditsLinkText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -1183,19 +1079,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
-    },
-    "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.translationCreditsLinkText.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": true,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.translationCreditsLinkText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -1314,19 +1197,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutMenuItem.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.aboutMenuItem.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -1417,19 +1287,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
-    },
-    "gravityForceLab.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "gravityForceLab.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -1522,19 +1379,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.general.navigationBar.titleTextNode.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.general.navigationBar.titleTextNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -1612,19 +1456,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
-    },
-    "gravityForceLab.general.screenIndexProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "gravityForceLab.general.soundManager.enabledProperty": {
       "phetioDocumentation": "",
@@ -1743,19 +1574,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": false,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.model.mass1.positionProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.gravityForceLabScreen.model.mass1.radiusProperty": {
       "phetioDocumentation": "The radius of the object",
       "phetioDynamicElement": false,
@@ -1781,19 +1599,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
-    },
-    "gravityForceLab.gravityForceLabScreen.model.mass1.valueProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.model.mass2.enabledRangeProperty": {
       "phetioDocumentation": "The range for position of this object based on the radius and position of both objects",
@@ -1821,19 +1626,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": false,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.model.mass2.positionProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.gravityForceLabScreen.model.mass2.radiusProperty": {
       "phetioDocumentation": "The radius of the object",
       "phetioDynamicElement": false,
@@ -1859,19 +1651,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
-    },
-    "gravityForceLab.gravityForceLabScreen.model.mass2.valueProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.model.rulerPositionProperty": {
       "phetioDocumentation": "The position of the ruler in model coordinates",
@@ -1963,19 +1742,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
-    },
-    "gravityForceLab.gravityForceLabScreen.view.mass1Node.centerOfMassLineNode.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.centerOfMassLineNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -2081,19 +1847,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.mass1Node.forceDisplayNode.arrowNode.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.forceDisplayNode.arrowNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -2145,19 +1898,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
-    },
-    "gravityForceLab.gravityForceLabScreen.view.mass1Node.forceDisplayNode.forceText.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.forceDisplayNode.forceText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -2211,19 +1951,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.mass1Node.forceDisplayNode.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.forceDisplayNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -2276,19 +2003,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.mass1Node.labelText.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.labelText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -2340,19 +2054,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
-    },
-    "gravityForceLab.gravityForceLabScreen.view.mass1Node.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -2418,19 +2119,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
-    },
-    "gravityForceLab.gravityForceLabScreen.view.mass2Node.centerOfMassLineNode.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.centerOfMassLineNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -2536,19 +2224,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.mass2Node.forceDisplayNode.arrowNode.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.forceDisplayNode.arrowNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -2600,19 +2275,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
-    },
-    "gravityForceLab.gravityForceLabScreen.view.mass2Node.forceDisplayNode.forceText.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.forceDisplayNode.forceText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -2666,19 +2328,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.mass2Node.forceDisplayNode.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.forceDisplayNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -2731,19 +2380,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.mass2Node.labelText.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.labelText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -2795,19 +2431,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
-    },
-    "gravityForceLab.gravityForceLabScreen.view.mass2Node.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -2913,19 +2536,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.leftArrowButton.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.leftArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -3004,19 +2614,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.numberDisplay.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.numberDisplay.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -3055,19 +2652,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
-    },
-    "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.numberDisplay.valueText.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.numberDisplay.valueText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -3134,19 +2718,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -3211,19 +2782,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
-    },
-    "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.rightArrowButton.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.rightArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -3329,19 +2887,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -3380,19 +2925,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
-    },
-    "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.thumb.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.slider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -3602,19 +3134,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.titleNode.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.numberControl.titleNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -3679,19 +3198,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
-    },
-    "gravityForceLab.gravityForceLabScreen.view.massControl1.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -3797,19 +3303,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.leftArrowButton.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.leftArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -3888,19 +3381,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.numberDisplay.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.numberDisplay.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -3939,19 +3419,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
-    },
-    "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.numberDisplay.valueText.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.numberDisplay.valueText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -4018,19 +3485,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -4095,19 +3549,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
-    },
-    "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.rightArrowButton.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.rightArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -4213,19 +3654,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -4264,19 +3692,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
-    },
-    "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.thumb.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.slider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -4486,19 +3901,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.titleNode.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.numberControl.titleNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -4564,19 +3966,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.massControl2.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.gravityForceLabScreen.view.massControl2.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -4615,19 +4004,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
-    },
-    "gravityForceLab.gravityForceLabScreen.view.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel": {
       "phetioDocumentation": "",
@@ -4694,19 +4070,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantSizeCheckbox.labelText.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantSizeCheckbox.labelText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -4758,19 +4121,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
-    },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantSizeCheckbox.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.constantSizeCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -4941,19 +4291,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.decimalNotationRadioButton.labelText.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.decimalNotationRadioButton.labelText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -5005,19 +4342,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
-    },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.decimalNotationRadioButton.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.decimalNotationRadioButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -5136,19 +4460,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.hiddenRadioButton.labelText.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.hiddenRadioButton.labelText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -5201,19 +4512,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.hiddenRadioButton.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.hiddenRadioButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -5252,19 +4550,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
-    },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -5383,19 +4668,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.scientificNotationRadioButton.labelText.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.scientificNotationRadioButton.labelText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -5447,19 +4719,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
-    },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.scientificNotationRadioButton.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesRadioButtonGroup.scientificNotationRadioButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -5526,19 +4785,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesText.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.forceValuesText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -5591,19 +4837,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.forceValuesDisplayControl.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -5642,19 +4875,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
-    },
-    "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -5759,19 +4979,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
-    },
-    "gravityForceLab.gravityForceLabScreen.view.resetAllButton.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.resetAllButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -5916,19 +5123,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "gravityForceLab.gravityForceLabScreen.view.ruler.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
-    },
     "gravityForceLab.gravityForceLabScreen.view.ruler.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -5967,19 +5161,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
-    },
-    "gravityForceLab.gravityForceLabScreen.view.ruler.unitsLabel.opacityProperty.rangeProperty": {
-      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "gravityForceLab.gravityForceLabScreen.view.ruler.unitsLabel.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
