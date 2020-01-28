@@ -13,6 +13,7 @@ define( require => {
   const ForceValuesDisplayEnum = require( 'INVERSE_SQUARE_LAW_COMMON/model/ForceValuesDisplayEnum' );
   const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
   const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/GravityForceLabA11yStrings' );
+  const ISLCConstants = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCConstants' );
   const Utils = require( 'DOT/Utils' );
 
   // strings
@@ -46,10 +47,9 @@ define( require => {
           return force;
         },
 
-        // TODO: forceValueToString is used in both alerts and descriptive text.
         forceValueToString: convertedForce => {
           if ( this.forceValuesDisplayProperty.value === ForceValuesDisplayEnum.SCIENTIFIC ) {
-            return ForceDescriber.getForceInScientificNotation( convertedForce, 2 ); // TODO: this "2" is a magic number
+            return ForceDescriber.getForceInScientificNotation( convertedForce, ISLCConstants.SCIENTIFIC_NOTATION_PRECISION );
           }
           return convertedForce + '';
         }
