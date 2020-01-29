@@ -163,12 +163,12 @@ define( require => {
         arrowKeysScale: 0.55
       }, options );
 
-      const moveRulerIcon = KeyboardHelpSection.arrowOrWasdKeysRowIcon();
+      const moveRulerIcon = KeyboardHelpIconFactory.arrowOrWasdKeysRowIcon();
       const moveRulerRow = KeyboardHelpSection.labelWithIcon( moveGrabbedRulerString, moveRulerIcon,
         moveGrabbedRulerPDOMString );
 
       const shiftPlusArrowKeys = KeyboardHelpSection.shiftPlusIcon( KeyboardHelpIconFactory.arrowKeysRowIcon() );
-      const shiftPlusWASDKeys = KeyboardHelpSection.shiftPlusIcon( KeyboardHelpSection.wasdRowIcon() );
+      const shiftPlusWASDKeys = KeyboardHelpSection.shiftPlusIcon( KeyboardHelpIconFactory.wasdRowIcon() );
       const moveInSmallerStepsRow = KeyboardHelpSection.labelWithIconList( moveInSmallerStepsString,
         [ shiftPlusArrowKeys, shiftPlusWASDKeys ], moveInSmallerStepsPDOMString );
 
