@@ -75,16 +75,16 @@ define( require => {
       // Mass movement help dialog section
       // move mass section
       const moveMassRow = KeyboardHelpSection.labelWithIcon(
-        moveSphereLabelString, KeyboardHelpSection.leftRightArrowKeysRowIcon(), moveSphereDescriptionString );
+        moveSphereLabelString, KeyboardHelpIconFactory.leftRightArrowKeysRowIcon(), moveSphereDescriptionString );
 
       const moveSmallStepsRow = KeyboardHelpSection.labelWithIcon(
         moveInSmallerStepsString,
-        KeyboardHelpSection.shiftPlusIcon( KeyboardHelpSection.leftRightArrowKeysRowIcon() ),
+        KeyboardHelpSection.shiftPlusIcon( KeyboardHelpIconFactory.leftRightArrowKeysRowIcon() ),
         moveInSmallerStepsDescriptionString );
 
       // 'move in larger steps' section
       const moveLargeStepsRow = KeyboardHelpSection.labelWithIcon(
-        moveInLargerStepsString, KeyboardHelpSection.pageUpPageDownRowIcon(), moveInLargerStepsDescriptionString );
+        moveInLargerStepsString, KeyboardHelpIconFactory.pageUpPageDownRowIcon(), moveInLargerStepsDescriptionString );
 
       // 'jump to left' section
       const jumpLeftRow = KeyboardHelpSection.labelWithIcon( jumpToLeftString, new HomeKeyNode(), jumpToLeftDescriptionString );
@@ -96,7 +96,7 @@ define( require => {
       const moveMassHelpSection = new KeyboardHelpSection( moveSpheresHeadingString, moveMassRows );
 
       // Mass adjustment help section
-      const changeMassIcon = options.isBasics ? KeyboardHelpSection.upDownArrowKeysRowIcon() : KeyboardHelpSection.leftRightArrowKeysRowIcon();
+      const changeMassIcon = options.isBasics ? KeyboardHelpIconFactory.upDownArrowKeysRowIcon() : KeyboardHelpIconFactory.leftRightArrowKeysRowIcon();
 
       // Surrounded in Node for DAG layout constraints. Otherwise changeMassIcon will be positioned overwritten.
       const shiftPlusChangeMassIcon = KeyboardHelpSection.shiftPlusIcon( new Node( { children: [ changeMassIcon ] } ) );
@@ -105,7 +105,7 @@ define( require => {
       const changeMassSmallStepsRow = KeyboardHelpSection.labelWithIcon(
         changeMassInSmallerStepsString, shiftPlusChangeMassIcon, changeMassInSmallerStepsDescriptionString );
       const changeMassLargeStepsRow = KeyboardHelpSection.labelWithIcon(
-        changeMassInLargerStepsString, KeyboardHelpSection.pageUpPageDownRowIcon(), changeMassInLargerStepsDescriptionString );
+        changeMassInLargerStepsString, KeyboardHelpIconFactory.pageUpPageDownRowIcon(), changeMassInLargerStepsDescriptionString );
       const jumpToMinMassRow = KeyboardHelpSection.labelWithIcon(
         jumpToMinimumMassString, new HomeKeyNode(), jumpToMinimumMassDescriptionString );
       const jumpToMaxMassRow = KeyboardHelpSection.labelWithIcon(
