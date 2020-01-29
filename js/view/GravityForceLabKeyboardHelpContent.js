@@ -79,7 +79,7 @@ define( require => {
 
       const moveSmallStepsRow = KeyboardHelpSection.labelWithIcon(
         moveInSmallerStepsString,
-        KeyboardHelpSection.shiftPlusIcon( KeyboardHelpIconFactory.leftRightArrowKeysRowIcon() ),
+        KeyboardHelpIconFactory.shiftPlusIcon( KeyboardHelpIconFactory.leftRightArrowKeysRowIcon() ),
         moveInSmallerStepsDescriptionString );
 
       // 'move in larger steps' section
@@ -99,7 +99,7 @@ define( require => {
       const changeMassIcon = options.isBasics ? KeyboardHelpIconFactory.upDownArrowKeysRowIcon() : KeyboardHelpIconFactory.leftRightArrowKeysRowIcon();
 
       // Surrounded in Node for DAG layout constraints. Otherwise changeMassIcon will be positioned overwritten.
-      const shiftPlusChangeMassIcon = KeyboardHelpSection.shiftPlusIcon( new Node( { children: [ changeMassIcon ] } ) );
+      const shiftPlusChangeMassIcon = KeyboardHelpIconFactory.shiftPlusIcon( new Node( { children: [ changeMassIcon ] } ) );
       const changeMassRow = KeyboardHelpSection.labelWithIcon( changeMassLabelString, changeMassIcon,
         options.isBasics ? changeMassBasicsPDOMString : changeMassPDOMString ); // up/down vs left/right
       const changeMassSmallStepsRow = KeyboardHelpSection.labelWithIcon(
@@ -167,8 +167,8 @@ define( require => {
       const moveRulerRow = KeyboardHelpSection.labelWithIcon( moveGrabbedRulerString, moveRulerIcon,
         moveGrabbedRulerPDOMString );
 
-      const shiftPlusArrowKeys = KeyboardHelpSection.shiftPlusIcon( KeyboardHelpIconFactory.arrowKeysRowIcon() );
-      const shiftPlusWASDKeys = KeyboardHelpSection.shiftPlusIcon( KeyboardHelpIconFactory.wasdRowIcon() );
+      const shiftPlusArrowKeys = KeyboardHelpIconFactory.shiftPlusIcon( KeyboardHelpIconFactory.arrowKeysRowIcon() );
+      const shiftPlusWASDKeys = KeyboardHelpIconFactory.shiftPlusIcon( KeyboardHelpIconFactory.wasdRowIcon() );
       const moveInSmallerStepsRow = KeyboardHelpSection.labelWithIconList( moveInSmallerStepsString,
         [ shiftPlusArrowKeys, shiftPlusWASDKeys ], moveInSmallerStepsPDOMString );
 
