@@ -11,6 +11,9 @@
   },
   "phet": {
     "requirejsNamespace": "GRAVITY_FORCE_LAB",
+    "preload": [
+      "../gravity-force-lab/js/view/mechamarkers-controller/mechamarkers-21f16221e414ec2dca68bbfbb866369eea7abd70.js"
+    ],
     "phetLibs": [
       "inverse-square-law-common"
     ],

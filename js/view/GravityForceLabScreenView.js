@@ -33,6 +33,7 @@ define( require => {
   const MassBoundarySoundGenerator = require( 'GRAVITY_FORCE_LAB/view/MassBoundarySoundGenerator' );
   const MassControl = require( 'GRAVITY_FORCE_LAB/view/MassControl' );
   const MassDescriber = require( 'GRAVITY_FORCE_LAB/view/describers/MassDescriber' );
+  const MarkerInput = require( 'GRAVITY_FORCE_LAB/view/mechamarkers-controller/MarkerInput' );
   const MassNode = require( 'GRAVITY_FORCE_LAB/view/MassNode' );
   const MassDescriptionNode = require( 'GRAVITY_FORCE_LAB/view/MassDescriptionNode' );
   const MassSoundGenerator = require( 'GRAVITY_FORCE_LAB/view/MassSoundGenerator' );
@@ -82,6 +83,9 @@ define( require => {
       screenSummaryContent: new GravityForceLabScreenSummaryNode( model, massDescriber, forceDescriber, positionDescriber ),
       tandem: tandem
     } );
+
+    // wire up to marker input
+    MarkerInput.init( model );
 
     const alertManager = new GravityForceLabAlertManager( model, massDescriber, forceDescriber );
 
