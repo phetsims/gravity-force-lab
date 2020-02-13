@@ -1,5 +1,5 @@
 {
-  "comment": "# gravity-force-lab 2.2.0-rc.1 Thu Feb 13 2020 13:18:54 GMT-0900 (Alaskan Standard Time)",
+  "comment": "# gravity-force-lab 2.2.0-rc.1 Thu Feb 13 2020 13:52:26 GMT-0900 (Alaskan Standard Time)",
   "assert": {
     "sha": "a99a9ce9ee0774bf3ef509bf3e31ca7383f67478",
     "branch": "HEAD"
@@ -13,7 +13,7 @@
     "branch": "HEAD"
   },
   "chipper": {
-    "sha": "3a7063ee84d07961aaaf7882b516cf3879047ecf",
+    "sha": "c418715480b60ef76909694f955a9e1ff6bbff9e",
     "branch": "gravity-force-lab-2.2"
   },
   "dot": {
@@ -21,16 +21,16 @@
     "branch": "HEAD"
   },
   "gravity-force-lab": {
-    "sha": "c69635b697150f2397f35a2286926d4bea301755",
+    "sha": "73855498d7015bcf59f1876b82a0701a456318af",
     "branch": "2.2"
   },
   "inverse-square-law-common": {
-    "sha": "dc77a97a58afdaffa5d7acdc8a9572b5c6c69445",
-    "branch": "HEAD"
+    "sha": "dd149e8bd40d47c73feaae82e6f985b32dd26528",
+    "branch": "gravity-force-lab-2.2"
   },
   "joist": {
-    "sha": "36f0b381030a447eecfe0b252b191d5460b02b4c",
-    "branch": "HEAD"
+    "sha": "05cac53209c75db6666175990803f2ba7abdce26",
+    "branch": "gravity-force-lab-2.2"
   },
   "kite": {
     "sha": "38b1dddd294b8bad25408a9834b031efb44efa5f",
@@ -41,12 +41,12 @@
     "branch": "HEAD"
   },
   "phet-io": {
-    "sha": "3af42a48b2b604a064fe929f087c33e387bbe261",
-    "branch": "HEAD"
+    "sha": "00b07587bd70c6f278224b252ddd8327f8147b88",
+    "branch": "gravity-force-lab-2.2"
   },
   "phet-io-wrappers": {
-    "sha": "71c7d09051aea38724df4c77cf2ce4b690669be0",
-    "branch": "HEAD"
+    "sha": "c4b152903158f6f42f2f3dd7e9a130db2fa16d4d",
+    "branch": "gravity-force-lab-2.2"
   },
   "phetcommon": {
     "sha": "0e6f4cfd9174aa75978260d331c86e9bf47ebead",
@@ -61,20 +61,20 @@
     "branch": "HEAD"
   },
   "scenery": {
-    "sha": "e346d039253a7aea26f249236757f4d135949277",
-    "branch": "HEAD"
+    "sha": "da7ba289049ce83fb1d0c475ca143f2f6b2cdb4e",
+    "branch": "gravity-force-lab-2.2"
   },
   "scenery-phet": {
     "sha": "af25310bf7688bfcc25d550607755802e3f117c3",
     "branch": "HEAD"
   },
   "sherpa": {
-    "sha": "af6eeb0c19e5f75b55165c6f7e89259e3931578c",
-    "branch": "HEAD"
+    "sha": "2d529f4d9276e5ecca5d5d07b11965c20849b59b",
+    "branch": "gravity-force-lab-2.2"
   },
   "studio": {
-    "sha": "f2dab9272a800b4200be2b40435a3a8c42573c6c",
-    "branch": "HEAD"
+    "sha": "81b7fed47da439cd3597d1245eed6bed85f1123e",
+    "branch": "gravity-force-lab-2.2"
   },
   "sun": {
     "sha": "e34c37ba99c2166eb929f0fb6a2abeff85c7dc4e",
@@ -85,8 +85,8 @@
     "branch": "HEAD"
   },
   "tandem": {
-    "sha": "b101fb3d879c0ec8c4f72ecba273ec87943370c5",
-    "branch": "HEAD"
+    "sha": "780f08c31f406b4cbb579e360cf12b28ff12226d",
+    "branch": "gravity-force-lab-2.2"
   },
   "utterance-queue": {
     "sha": "0c7f7189eae99c568ae0c30edda86226013cffd8",
