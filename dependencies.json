@@ -1,5 +1,5 @@
 {
-  "comment": "# gravity-force-lab 2.2.0-rc.1 Mon Jan 27 2020 17:47:00 GMT-0900 (Alaskan Standard Time)",
+  "comment": "# gravity-force-lab 2.2.0-rc.1 Thu Feb 13 2020 13:18:54 GMT-0900 (Alaskan Standard Time)",
   "assert": {
     "sha": "a99a9ce9ee0774bf3ef509bf3e31ca7383f67478",
     "branch": "HEAD"
@@ -13,15 +13,15 @@
     "branch": "HEAD"
   },
   "chipper": {
-    "sha": "b99e6aef98d906388bd680b532e1383c1c884d77",
-    "branch": "HEAD"
+    "sha": "3a7063ee84d07961aaaf7882b516cf3879047ecf",
+    "branch": "gravity-force-lab-2.2"
   },
   "dot": {
     "sha": "8c661a7212b512331091c8bdc2a4b8fa94b8b229",
     "branch": "HEAD"
   },
   "gravity-force-lab": {
-    "sha": "8dceef35e020dfb706104d8cd54129ca2ecbdc74",
+    "sha": "c69635b697150f2397f35a2286926d4bea301755",
     "branch": "2.2"
   },
   "inverse-square-law-common": {
@@ -70,6 +70,10 @@
   },
   "sherpa": {
     "sha": "af6eeb0c19e5f75b55165c6f7e89259e3931578c",
+    "branch": "HEAD"
+  },
+  "studio": {
+    "sha": "f2dab9272a800b4200be2b40435a3a8c42573c6c",
     "branch": "HEAD"
   },
   "sun": {
