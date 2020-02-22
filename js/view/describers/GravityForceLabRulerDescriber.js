@@ -155,7 +155,7 @@ define( require => {
       }
 
       // gesture hint
-      if ( phet.joist.sim.supportsGestureA11y ) {
+      if ( phet.joist.sim && phet.joist.sim.supportsGestureA11y ) {
         return gestureHintString;
       }
 
