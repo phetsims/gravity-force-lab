@@ -5,11 +5,7 @@
  *
  * @author Aadish Gupta (PhET Interactive Simulations)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const Namespace = require( 'PHET_CORE/Namespace' );
+import Namespace from '../../phet-core/js/Namespace.js';
 
-  return new Namespace( 'gravityForceLab' );
-} );
+export default new Namespace( 'gravityForceLab' );

@@ -7,117 +7,114 @@
  * @author Aadish Gupta (PhET Interactive Simulations)
  * @author Sam Reid (PhET Interactive Simulations)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const Dimension2 = require( 'DOT/Dimension2' );
-  const Enumeration = require( 'PHET_CORE/Enumeration' );
-  const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
-  const ISLCObjectControlPanel = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCObjectControlPanel' );
-  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  const Playable = require( 'TAMBO/Playable' );
-  const Property = require( 'AXON/Property' );
-  const Utils = require( 'DOT/Utils' );
+import Property from '../../../axon/js/Property.js';
+import Dimension2 from '../../../dot/js/Dimension2.js';
+import Utils from '../../../dot/js/Utils.js';
+import ISLCObjectControlPanel from '../../../inverse-square-law-common/js/view/ISLCObjectControlPanel.js';
+import Enumeration from '../../../phet-core/js/Enumeration.js';
+import PhetFont from '../../../scenery-phet/js/PhetFont.js';
+import Playable from '../../../tambo/js/Playable.js';
+import gravityForceLabStrings from '../gravity-force-lab-strings.js';
+import gravityForceLab from '../gravityForceLab.js';
 
-  // strings
-  const unitsKgString = require( 'string!GRAVITY_FORCE_LAB/units.kg' );
+const unitsKgString = gravityForceLabStrings.units.kg;
 
-  // constants
-  const TRACK_SIZE = new Dimension2( 170, 3 );
-  const THUMB_SIZE = new Dimension2( 22, 42 );
-  const SliderDragState = Enumeration.byKeys( [ 'NOT_DRAGGING', 'DRAGGING_VIA_POINTER', 'DRAGGING_VIA_KEYBOARD' ] );
-  const CONTROL_SCALE = 0.72;
+// constants
+const TRACK_SIZE = new Dimension2( 170, 3 );
+const THUMB_SIZE = new Dimension2( 22, 42 );
+const SliderDragState = Enumeration.byKeys( [ 'NOT_DRAGGING', 'DRAGGING_VIA_POINTER', 'DRAGGING_VIA_KEYBOARD' ] );
+const CONTROL_SCALE = 0.72;
 
-  class MassControl extends ISLCObjectControlPanel {
+class MassControl extends ISLCObjectControlPanel {
 
-    /**
-     * @param {string} titleString
-     * @param {NumberProperty} valueProperty
-     * @param {Range} massRange
-     * @param {Color} thumbColor
-     * @param {ISLCObjectEnum} massEnum
-     * @param {Property[]} updateDescriptionProperties - Properties to monitor to keep descriptions up to date
-     * @param {GravityForceLabAlertManager} alertManager
-     * @param {MassDescriber} massDescriber
-     * @param {Tandem} tandem
-     */
-    constructor( titleString, valueProperty, massRange, thumbColor, massEnum, updateDescriptionProperties,
-                 alertManager, massDescriber, tandem ) {
+  /**
+   * @param {string} titleString
+   * @param {NumberProperty} valueProperty
+   * @param {Range} massRange
+   * @param {Color} thumbColor
+   * @param {ISLCObjectEnum} massEnum
+   * @param {Property[]} updateDescriptionProperties - Properties to monitor to keep descriptions up to date
+   * @param {GravityForceLabAlertManager} alertManager
+   * @param {MassDescriber} massDescriber
+   * @param {Tandem} tandem
+   */
+  constructor( titleString, valueProperty, massRange, thumbColor, massEnum, updateDescriptionProperties,
+               alertManager, massDescriber, tandem ) {
 
-      let currentMass = valueProperty.value;
+    let currentMass = valueProperty.value;
 
-      super( titleString, unitsKgString, valueProperty, massRange, {
-        // panel options
-        fill: '#FDF498',
-        xMargin: 9,
-        yMargin: 9,
+    super( titleString, unitsKgString, valueProperty, massRange, {
+      // panel options
+      fill: '#FDF498',
+      xMargin: 9,
+      yMargin: 9,
 
-        numberControlOptions: {
-          scale: CONTROL_SCALE, // scale down the control to fit the screen a bit better
-          sliderOptions: {
-            thumbSize: THUMB_SIZE,
-            trackSize: TRACK_SIZE,
-            majorTickLength: ( THUMB_SIZE.height / 2 ) + ( TRACK_SIZE.height / 2 ) + 2,
-            minorTickSpacing: 0,
-            thumbFill: thumbColor.colorUtilsBrighter( 0.15 ),
-            thumbFillHighlighted: thumbColor.colorUtilsBrighter( 0.35 ),
-            constrainValue: v => Utils.roundToInterval( v, 10 ),
-            startDrag: event => {
-              currentMass = valueProperty.value;
-              if ( event.type === 'enter' || event.type === 'move' || event.type === 'down' ) {
-                this.sliderDragStateProperty.set( SliderDragState.DRAGGING_VIA_POINTER );
-              }
-              else if ( event.type === 'keydown' ) {
-                this.sliderDragStateProperty.set( SliderDragState.DRAGGING_VIA_KEYBOARD );
-              }
-            },
-            endDrag: () => {
-              this.sliderDragStateProperty.set( SliderDragState.NOT_DRAGGING );
-            },
-
-            // a11y
-            keyboardStep: 50,
-            roundToStepSize: true,
-            pageKeyboardStep: 100,
-            accessibleName: titleString,
-
-            // on end interaction, if alert a special alert if the mass started at the min/max and didnt' change.
-            a11yCreateValueChangeAlert: () => {
-
-              // no change and at max or min
-              if ( currentMass === valueProperty.value && ( currentMass === massRange.max || currentMass === massRange.min ) ) {
-                return alertManager.alertMassMinMaxEdge( massEnum );
-              }
-              return null; // regular mass changed alerts come from model changes
-            },
-            a11yCreateAriaValueText: () => massDescriber.getMassAndUnit( massEnum )
+      numberControlOptions: {
+        scale: CONTROL_SCALE, // scale down the control to fit the screen a bit better
+        sliderOptions: {
+          thumbSize: THUMB_SIZE,
+          trackSize: TRACK_SIZE,
+          majorTickLength: ( THUMB_SIZE.height / 2 ) + ( TRACK_SIZE.height / 2 ) + 2,
+          minorTickSpacing: 0,
+          thumbFill: thumbColor.colorUtilsBrighter( 0.15 ),
+          thumbFillHighlighted: thumbColor.colorUtilsBrighter( 0.35 ),
+          constrainValue: v => Utils.roundToInterval( v, 10 ),
+          startDrag: event => {
+            currentMass = valueProperty.value;
+            if ( event.type === 'enter' || event.type === 'move' || event.type === 'down' ) {
+              this.sliderDragStateProperty.set( SliderDragState.DRAGGING_VIA_POINTER );
+            }
+            else if ( event.type === 'keydown' ) {
+              this.sliderDragStateProperty.set( SliderDragState.DRAGGING_VIA_KEYBOARD );
+            }
           },
-          titleNodeOptions: { font: new PhetFont( 24 ) },
-          numberDisplayOptions: {
-            font: new PhetFont( 18 ),
-            xMargin: 20,
-            yMargin: 4
+          endDrag: () => {
+            this.sliderDragStateProperty.set( SliderDragState.NOT_DRAGGING );
           },
-          arrowButtonOptions: {
-            soundPlayer: Playable.NO_SOUND
-          }
+
+          // a11y
+          keyboardStep: 50,
+          roundToStepSize: true,
+          pageKeyboardStep: 100,
+          accessibleName: titleString,
+
+          // on end interaction, if alert a special alert if the mass started at the min/max and didnt' change.
+          a11yCreateValueChangeAlert: () => {
+
+            // no change and at max or min
+            if ( currentMass === valueProperty.value && ( currentMass === massRange.max || currentMass === massRange.min ) ) {
+              return alertManager.alertMassMinMaxEdge( massEnum );
+            }
+            return null; // regular mass changed alerts come from model changes
+          },
+          a11yCreateAriaValueText: () => massDescriber.getMassAndUnit( massEnum )
         },
-
-        tickLabelOptions: {
-          font: new PhetFont( 14 )
+        titleNodeOptions: { font: new PhetFont( 24 ) },
+        numberDisplayOptions: {
+          font: new PhetFont( 18 ),
+          xMargin: 20,
+          yMargin: 4
         },
+        arrowButtonOptions: {
+          soundPlayer: Playable.NO_SOUND
+        }
+      },
 
-        tandem: tandem
-      } );
+      tickLabelOptions: {
+        font: new PhetFont( 14 )
+      },
 
-      // @public (read-only) - drag state of the slider
-      this.sliderDragStateProperty = new Property( SliderDragState.NOT_DRAGGING );
-    }
+      tandem: tandem
+    } );
+
+    // @public (read-only) - drag state of the slider
+    this.sliderDragStateProperty = new Property( SliderDragState.NOT_DRAGGING );
   }
+}
 
-  // statics
-  MassControl.SliderDragState = SliderDragState;
+// statics
+MassControl.SliderDragState = SliderDragState;
 
-  return gravityForceLab.register( 'MassControl', MassControl );
-} );
+gravityForceLab.register( 'MassControl', MassControl );
+export default MassControl;

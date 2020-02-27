@@ -7,72 +7,68 @@
  * @author Michael Kauzmann (PhET Interactive Simulations)
  */
 
-define( require => {
-  'use strict';
+import ISLCConstants from '../../../inverse-square-law-common/js/ISLCConstants.js';
+import ISLCForceValuesDisplayControl from '../../../inverse-square-law-common/js/view/ISLCForceValuesDisplayControl.js';
+import ISLCPanel from '../../../inverse-square-law-common/js/view/ISLCPanel.js';
+import merge from '../../../phet-core/js/merge.js';
+import Text from '../../../scenery/js/nodes/Text.js';
+import VBox from '../../../scenery/js/nodes/VBox.js';
+import Checkbox from '../../../sun/js/Checkbox.js';
+import HSeparator from '../../../sun/js/HSeparator.js';
+import Tandem from '../../../tandem/js/Tandem.js';
+import gravityForceLabStrings from '../gravity-force-lab-strings.js';
+import gravityForceLab from '../gravityForceLab.js';
+import GravityForceLabA11yStrings from '../GravityForceLabA11yStrings.js';
 
-  // modules
-  const Checkbox = require( 'SUN/Checkbox' );
-  const gravityForceLab = require( 'GRAVITY_FORCE_LAB/gravityForceLab' );
-  const GravityForceLabA11yStrings = require( 'GRAVITY_FORCE_LAB/GravityForceLabA11yStrings' );
-  const HSeparator = require( 'SUN/HSeparator' );
-  const ISLCConstants = require( 'INVERSE_SQUARE_LAW_COMMON/ISLCConstants' );
-  const ISLCForceValuesDisplayControl = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCForceValuesDisplayControl' );
-  const ISLCPanel = require( 'INVERSE_SQUARE_LAW_COMMON/view/ISLCPanel' );
-  const merge = require( 'PHET_CORE/merge' );
-  const Tandem = require( 'TANDEM/Tandem' );
-  const Text = require( 'SCENERY/nodes/Text' );
-  const VBox = require( 'SCENERY/nodes/VBox' );
+const constantSizeString = gravityForceLabStrings.constantSize;
 
-  // strings
-  const constantSizeString = require( 'string!GRAVITY_FORCE_LAB/constantSize' );
+// a11y strings
+const constantSizeCheckboxHelpTextString = GravityForceLabA11yStrings.constantSizeCheckboxHelpText.value;
 
-  // a11y strings
-  const constantSizeCheckboxHelpTextString = GravityForceLabA11yStrings.constantSizeCheckboxHelpText.value;
+// constants
+const CHECKBOX_TEXT_SIZE = 15;
 
-  // constants
-  const CHECKBOX_TEXT_SIZE = 15;
+class GravityForceLabControlPanel extends ISLCPanel {
 
-  class GravityForceLabControlPanel extends ISLCPanel {
+  /**
+   * @param {ISLCModel} model
+   * @param {Options} options
+   */
+  constructor( model, options ) {
 
-    /**
-     * @param {ISLCModel} model
-     * @param {Options} options
-     */
-    constructor( model, options ) {
+    options = merge( {
+      tandem: Tandem.required
+    }, options );
 
-      options = merge( {
-        tandem: Tandem.required
-      }, options );
+    const forceValuesDisplayControl = new ISLCForceValuesDisplayControl( model.forceValuesDisplayProperty, {
+      tandem: options.tandem.createTandem( 'forceValuesDisplayControl' )
+    } );
 
-      const forceValuesDisplayControl = new ISLCForceValuesDisplayControl( model.forceValuesDisplayProperty, {
-        tandem: options.tandem.createTandem( 'forceValuesDisplayControl' )
-      } );
+    const constantSizeCheckboxTandem = options.tandem.createTandem( 'constantSizeCheckbox' );
+    const constantSizeText = new Text( constantSizeString, merge( {}, ISLCConstants.UI_TEXT_OPTIONS, {
+      tandem: constantSizeCheckboxTandem.createTandem( 'labelText' )
+    } ) );
+    const constantSizeCheckbox = new Checkbox( constantSizeText, model.constantRadiusProperty,
+      merge( {}, ISLCConstants.CHECKBOX_OPTIONS, {
+        tandem: constantSizeCheckboxTandem,
+        accessibleName: constantSizeString,
+        descriptionContent: constantSizeCheckboxHelpTextString,
+        textSize: CHECKBOX_TEXT_SIZE,
+        spacing: 4
+      } )
+    );
 
-      const constantSizeCheckboxTandem = options.tandem.createTandem( 'constantSizeCheckbox' );
-      const constantSizeText = new Text( constantSizeString, merge( {}, ISLCConstants.UI_TEXT_OPTIONS, {
-        tandem: constantSizeCheckboxTandem.createTandem( 'labelText' )
-      } ) );
-      const constantSizeCheckbox = new Checkbox( constantSizeText, model.constantRadiusProperty,
-        merge( {}, ISLCConstants.CHECKBOX_OPTIONS, {
-          tandem: constantSizeCheckboxTandem,
-          accessibleName: constantSizeString,
-          descriptionContent: constantSizeCheckboxHelpTextString,
-          textSize: CHECKBOX_TEXT_SIZE,
-          spacing: 4
-        } )
-      );
-
-      super( new VBox( {
-        children: [
-          forceValuesDisplayControl,
-          new HSeparator( forceValuesDisplayControl.width ),
-          constantSizeCheckbox
-        ],
-        spacing: 10,
-        align: 'left'
-      } ), options );
-    }
+    super( new VBox( {
+      children: [
+        forceValuesDisplayControl,
+        new HSeparator( forceValuesDisplayControl.width ),
+        constantSizeCheckbox
+      ],
+      spacing: 10,
+      align: 'left'
+    } ), options );
   }
+}
 
-  return gravityForceLab.register( 'GravityForceLabControlPanel', GravityForceLabControlPanel );
-} );
+gravityForceLab.register( 'GravityForceLabControlPanel', GravityForceLabControlPanel );
+export default GravityForceLabControlPanel;
