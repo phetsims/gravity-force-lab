@@ -1,12 +1,12 @@
 {
-  "comment": "# gravity-force-lab 2.2.0-rc.2 Thu Feb 13 2020 14:06:20 GMT-0900 (Alaskan Standard Time)",
+  "comment": "# gravity-force-lab 2.2.0-rc.2 Mon Mar 02 2020 17:15:09 GMT-0900 (Alaskan Standard Time)",
   "assert": {
     "sha": "a99a9ce9ee0774bf3ef509bf3e31ca7383f67478",
     "branch": "HEAD"
   },
   "axon": {
-    "sha": "be0e559d2bc1ad874de7d42ac801088a27d59e7a",
-    "branch": "HEAD"
+    "sha": "9e40ac443e172b45b6670bff31c872c5fdf1d252",
+    "branch": "gravity-force-lab-2.2"
   },
   "brand": {
     "sha": "addd8be34d2e42cc418fca8198ad4083f9a1ca47",
@@ -21,12 +21,12 @@
     "branch": "HEAD"
   },
   "gravity-force-lab": {
-    "sha": "92f12d762654a4c352cf1e926d7e2be3e2c09024",
+    "sha": "d6f62d4d70ad73bbbff75997d598b4ee43285b4f",
     "branch": "2.2"
   },
   "inverse-square-law-common": {
-    "sha": "dd149e8bd40d47c73feaae82e6f985b32dd26528",
-    "branch": "HEAD"
+    "sha": "1db038a6c293a0695562f67a67d18d2ab2739217",
+    "branch": "gravity-force-lab-2.2"
   },
   "joist": {
     "sha": "05cac53209c75db6666175990803f2ba7abdce26",
@@ -41,12 +41,12 @@
     "branch": "HEAD"
   },
   "phet-io": {
-    "sha": "00b07587bd70c6f278224b252ddd8327f8147b88",
-    "branch": "HEAD"
+    "sha": "f656b2461002fc3d9c5e088fc7aa584ccf66399a",
+    "branch": "gravity-force-lab-2.2"
   },
   "phet-io-wrappers": {
-    "sha": "c4b152903158f6f42f2f3dd7e9a130db2fa16d4d",
-    "branch": "HEAD"
+    "sha": "f03ca42eb02e3d312fe1bd7bbece0a3dfe8b215c",
+    "branch": "gravity-force-lab-2.2"
   },
   "phetcommon": {
     "sha": "0e6f4cfd9174aa75978260d331c86e9bf47ebead",
@@ -61,8 +61,8 @@
     "branch": "HEAD"
   },
   "scenery": {
-    "sha": "da7ba289049ce83fb1d0c475ca143f2f6b2cdb4e",
-    "branch": "HEAD"
+    "sha": "87b1394c1453630729f77dd808578318e621a1f8",
+    "branch": "gravity-force-lab-2.2"
   },
   "scenery-phet": {
     "sha": "af25310bf7688bfcc25d550607755802e3f117c3",
@@ -73,16 +73,16 @@
     "branch": "HEAD"
   },
   "studio": {
-    "sha": "81b7fed47da439cd3597d1245eed6bed85f1123e",
-    "branch": "HEAD"
+    "sha": "5e9a43728bb74755422f1dc1cce17e82eb0dca4e",
+    "branch": "gravity-force-lab-2.2"
   },
   "sun": {
-    "sha": "e34c37ba99c2166eb929f0fb6a2abeff85c7dc4e",
-    "branch": "HEAD"
+    "sha": "c32e557cd113bf4bae577bc7855ceb30391f272d",
+    "branch": "gravity-force-lab-2.2"
   },
   "tambo": {
-    "sha": "03001d27d14818e0c67b30b1f32b29907e2d9eda",
-    "branch": "HEAD"
+    "sha": "4a54b0bc530643bf48a25d000ca9be3d00409c5d",
+    "branch": "gravity-force-lab-2.2"
   },
   "tandem": {
     "sha": "780f08c31f406b4cbb579e360cf12b28ff12226d",
