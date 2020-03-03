@@ -1,12 +1,12 @@
 {
-  "comment": "# gravity-force-lab 2.2.0-rc.2 Mon Mar 02 2020 17:15:09 GMT-0900 (Alaskan Standard Time)",
+  "comment": "# gravity-force-lab 2.2.0-rc.3 Mon Mar 02 2020 18:10:52 GMT-0900 (Alaskan Standard Time)",
   "assert": {
     "sha": "a99a9ce9ee0774bf3ef509bf3e31ca7383f67478",
     "branch": "HEAD"
   },
   "axon": {
     "sha": "9e40ac443e172b45b6670bff31c872c5fdf1d252",
-    "branch": "gravity-force-lab-2.2"
+    "branch": "HEAD"
   },
   "brand": {
     "sha": "addd8be34d2e42cc418fca8198ad4083f9a1ca47",
@@ -21,12 +21,12 @@
     "branch": "HEAD"
   },
   "gravity-force-lab": {
-    "sha": "d6f62d4d70ad73bbbff75997d598b4ee43285b4f",
+    "sha": "f126eac8cf73e03e7ae6c939f458c336dac7b4aa",
     "branch": "2.2"
   },
   "inverse-square-law-common": {
     "sha": "1db038a6c293a0695562f67a67d18d2ab2739217",
-    "branch": "gravity-force-lab-2.2"
+    "branch": "HEAD"
   },
   "joist": {
     "sha": "05cac53209c75db6666175990803f2ba7abdce26",
@@ -42,11 +42,11 @@
   },
   "phet-io": {
     "sha": "f656b2461002fc3d9c5e088fc7aa584ccf66399a",
-    "branch": "gravity-force-lab-2.2"
+    "branch": "HEAD"
   },
   "phet-io-wrappers": {
     "sha": "f03ca42eb02e3d312fe1bd7bbece0a3dfe8b215c",
-    "branch": "gravity-force-lab-2.2"
+    "branch": "HEAD"
   },
   "phetcommon": {
     "sha": "0e6f4cfd9174aa75978260d331c86e9bf47ebead",
@@ -62,7 +62,7 @@
   },
   "scenery": {
     "sha": "dec9a4a9666926a2a9641b72fb68ebe93728a5c6",
-    "branch": "gravity-force-lab-2.2"
+    "branch": "HEAD"
   },
   "scenery-phet": {
     "sha": "af25310bf7688bfcc25d550607755802e3f117c3",
@@ -74,15 +74,15 @@
   },
   "studio": {
     "sha": "5e9a43728bb74755422f1dc1cce17e82eb0dca4e",
-    "branch": "gravity-force-lab-2.2"
+    "branch": "HEAD"
   },
   "sun": {
     "sha": "c32e557cd113bf4bae577bc7855ceb30391f272d",
-    "branch": "gravity-force-lab-2.2"
+    "branch": "HEAD"
   },
   "tambo": {
     "sha": "4a54b0bc530643bf48a25d000ca9be3d00409c5d",
-    "branch": "gravity-force-lab-2.2"
+    "branch": "HEAD"
   },
   "tandem": {
     "sha": "780f08c31f406b4cbb579e360cf12b28ff12226d",
