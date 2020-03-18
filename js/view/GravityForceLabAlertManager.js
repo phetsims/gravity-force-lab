@@ -148,7 +148,7 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
    * @public
    *
    * @param {boolean} constantRadius
-   * @return {string}
+   * @returns {string}
    */
   getConstantRadiusAlert( constantRadius ) {
     const constantRadiusAlert = StringUtils.fillIn( constantRadiusThinkDensityPatternString, {
