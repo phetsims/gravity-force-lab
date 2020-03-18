@@ -52,16 +52,9 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
     this.scientificNotationUtterance = new ActivationUtterance();
 
     const constantRadiusUtterance = new ActivationUtterance();
-    const constantRadiusAlert = StringUtils.fillIn( constantRadiusThinkDensityPatternString, {
-
-      // use forceDescriber just for the sim specific object labels, could be any ISLCDescriber
-      mass1: forceDescriber.object1Label,
-      mass2: forceDescriber.object2Label
-    } );
 
     model.constantRadiusProperty.lazyLink( constantRadius => {
-      constantRadiusUtterance.alert = constantRadius ? constantRadiusAlert :
-                                      massDescriber.getM1RelativeSize();
+      constantRadiusUtterance.alert = this.getConstantRadiusAlert( constantRadius );
       phet.joist.sim.utteranceQueue.addToBack( constantRadiusUtterance );
     } );
 
@@ -121,7 +114,18 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
    * @private
    */
   alertMassValueChanged( objectEnum, forceBiggerOverride ) {
+    phet.joist.sim.utteranceQueue.addToBack( this.getMassValueChangedAlert( objectEnum, forceBiggerOverride ) );
+  }
 
+  /**
+   * Get the alert content for when the mass value changes.
+   * @public
+   *
+   * @param {ISLCObjectEnum} objectEnum
+   * @param {boolean} [forceBiggerOverride]
+   * @returns {Utterance}
+   */
+  getMassValueChangedAlert( objectEnum, forceBiggerOverride ) {
     let massClause = this.massDescriber.getMassOrDensityChangeClause( objectEnum );
 
     // if changing the mass of an object caused one of the masses to move position
@@ -136,7 +140,25 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
       massClause: massClause,
       forceClause: this.forceDescriber.getVectorChangeClause( forceBiggerOverride, false )
     } );
-    phet.joist.sim.utteranceQueue.addToBack( this.massChangedUtterance );
+    return this.massChangedUtterance;
+  }
+
+  /**
+   * Get an alert for when masses radius becomes constant or dynamic.
+   * @public
+   *
+   * @param {boolean} constantRadius
+   * @return {string}
+   */
+  getConstantRadiusAlert( constantRadius ) {
+    const constantRadiusAlert = StringUtils.fillIn( constantRadiusThinkDensityPatternString, {
+
+      // use forceDescriber just for the sim specific object labels, could be any ISLCDescriber
+      mass1: this.forceDescriber.object1Label,
+      mass2: this.forceDescriber.object2Label
+    } );
+
+    return constantRadius ? constantRadiusAlert : this.massDescriber.getM1RelativeSize();
   }
 
   /**
