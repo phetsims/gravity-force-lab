@@ -92,7 +92,9 @@ class MassControl extends ISLCObjectControlPanel {
         },
         titleNodeOptions: { font: new PhetFont( 24 ) },
         numberDisplayOptions: {
-          font: new PhetFont( 18 ),
+          textOptions: {
+            font: new PhetFont( 18 )
+          },
           xMargin: 20,
           yMargin: 4
         },
