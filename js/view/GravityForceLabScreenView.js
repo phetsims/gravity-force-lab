@@ -50,9 +50,9 @@ const mass1String = gravityForceLabStrings.mass1;
 const mass2AbbreviatedString = gravityForceLabStrings.mass2Abbreviated;
 const mass2String = gravityForceLabStrings.mass2;
 const unitsMetersString = inverseSquareLawCommonStrings.units.meters;
-const massControlsLabelString = gravityForceLabStrings.a11y.massControlsLabel;
-const massControlsHelpTextString = gravityForceLabStrings.a11y.massControlsHelpText;
-const massControlsHelpTextDensityString = gravityForceLabStrings.a11y.massControlsHelpTextDensity;
+const massControlsLabelString = gravityForceLabStrings.a11y.controls.massControlsLabel;
+const massControlsHelpTextString = gravityForceLabStrings.a11y.controls.massControlsHelpText;
+const massControlsHelpTextDensityString = gravityForceLabStrings.a11y.controls.massControlsHelpTextDensity;
 
 // sounds
 

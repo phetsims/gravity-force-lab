@@ -22,10 +22,10 @@ const mass2AbbreviatedString = gravityForceLabStrings.mass2Abbreviated;
 
 // a11y strings
 const valuePatternString = ISLCA11yStrings.valuePattern.value;
-const massValuesAndComparisonSummaryPatternString = gravityForceLabStrings.a11y.massValuesAndComparisonSummaryPattern;
-const massAndUnitPatternString = gravityForceLabStrings.a11y.massAndUnitPattern;
-const objectsRelativeSizePatternString = gravityForceLabStrings.a11y.objectsRelativeSizePattern;
-const massMaxMinBorderTextString = gravityForceLabStrings.a11y.massMaxMinBorderText;
+const massValuesAndComparisonSummaryPatternString = gravityForceLabStrings.a11y.screenSummary.massValuesAndComparisonSummaryPattern;
+const massAndUnitPatternString = gravityForceLabStrings.a11y.qualitative.massAndUnitPattern;
+const objectsRelativeSizePatternString = gravityForceLabStrings.a11y.qualitative.objectsRelativeSizePattern;
+const massMaxMinBorderTextString = gravityForceLabStrings.a11y.controls.massMaxMinBorderText;
 
 // size
 const tinyString = ISLCA11yStrings.tiny.value;
@@ -37,56 +37,56 @@ const veryLargeString = ISLCA11yStrings.veryLarge.value;
 const hugeString = ISLCA11yStrings.huge.value;
 
 // relative size
-const muchMuchSmallerThanString = gravityForceLabStrings.a11y.muchMuchSmallerThan;
-const halfTheSizeOfString = gravityForceLabStrings.a11y.halfTheSizeOf;
-const muchSmallerThanString = gravityForceLabStrings.a11y.muchSmallerThan;
-const smallerButComparableToString = gravityForceLabStrings.a11y.smallerButComparableTo;
-const comparableToString = gravityForceLabStrings.a11y.sameSizeAs;
-const largerButComparableToString = gravityForceLabStrings.a11y.largerButComparableTo;
-const muchLargerThanString = gravityForceLabStrings.a11y.muchLargerThan;
-const twiceTheSizeOfString = gravityForceLabStrings.a11y.twiceTheSizeOf;
-const muchMuchLargerThanString = gravityForceLabStrings.a11y.muchMuchLargerThan;
+const muchMuchSmallerThanString = gravityForceLabStrings.a11y.relativeMassSize.muchMuchSmallerThan;
+const halfTheSizeOfString = gravityForceLabStrings.a11y.relativeMassSize.halfTheSizeOf;
+const muchSmallerThanString = gravityForceLabStrings.a11y.relativeMassSize.muchSmallerThan;
+const smallerButComparableToString = gravityForceLabStrings.a11y.relativeMassSize.smallerButComparableTo;
+const comparableToString = gravityForceLabStrings.a11y.relativeMassSize.sameSizeAs;
+const largerButComparableToString = gravityForceLabStrings.a11y.relativeMassSize.largerButComparableTo;
+const muchLargerThanString = gravityForceLabStrings.a11y.relativeMassSize.muchLargerThan;
+const twiceTheSizeOfString = gravityForceLabStrings.a11y.relativeMassSize.twiceTheSizeOf;
+const muchMuchLargerThanString = gravityForceLabStrings.a11y.relativeMassSize.muchMuchLargerThan;
 
 // relative size capitalized
-const muchMuchSmallerThanCapitalizedString = gravityForceLabStrings.a11y.muchMuchSmallerThanCapitalized;
-const halfTheSizeOfCapitalizedString = gravityForceLabStrings.a11y.halfTheSizeOfCapitalized;
-const muchSmallerThanCapitalizedString = gravityForceLabStrings.a11y.muchSmallerThanCapitalized;
-const smallerButComparableToCapitalizedString = gravityForceLabStrings.a11y.smallerButComparableToCapitalized;
-const comparableToCapitalizedString = gravityForceLabStrings.a11y.sameSizeAsCapitalized;
-const largerButComparableToCapitalizedString = gravityForceLabStrings.a11y.largerButComparableToCapitalized;
-const muchLargerThanCapitalizedString = gravityForceLabStrings.a11y.muchLargerThanCapitalized;
-const twiceTheSizeOfCapitalizedString = gravityForceLabStrings.a11y.twiceTheSizeOfCapitalized;
-const muchMuchLargerThanCapitalizedString = gravityForceLabStrings.a11y.muchMuchLargerThanCapitalized;
+const muchMuchSmallerThanCapitalizedString = gravityForceLabStrings.a11y.relativeMassSizeCapitalized.muchMuchSmallerThan;
+const halfTheSizeOfCapitalizedString = gravityForceLabStrings.a11y.relativeMassSizeCapitalized.halfTheSizeOf;
+const muchSmallerThanCapitalizedString = gravityForceLabStrings.a11y.relativeMassSizeCapitalized.muchSmallerThan;
+const smallerButComparableToCapitalizedString = gravityForceLabStrings.a11y.relativeMassSizeCapitalized.smallerButComparableTo;
+const comparableToCapitalizedString = gravityForceLabStrings.a11y.relativeMassSizeCapitalized.sameSizeAs;
+const largerButComparableToCapitalizedString = gravityForceLabStrings.a11y.relativeMassSizeCapitalized.largerButComparableTo;
+const muchLargerThanCapitalizedString = gravityForceLabStrings.a11y.relativeMassSizeCapitalized.muchLargerThan;
+const twiceTheSizeOfCapitalizedString = gravityForceLabStrings.a11y.relativeMassSizeCapitalized.twiceTheSizeOf;
+const muchMuchLargerThanCapitalizedString = gravityForceLabStrings.a11y.relativeMassSizeCapitalized.muchMuchLargerThan;
 
 // relative density
-const notDenseComparedToString = gravityForceLabStrings.a11y.notDenseComparedTo;
-const halfAsDenseAsString = gravityForceLabStrings.a11y.halfAsDenseAs;
-const muchLessDenseThanString = gravityForceLabStrings.a11y.muchLessDenseThan;
-const lessDenseButComparableToString = gravityForceLabStrings.a11y.lessDenseButComparableTo;
-const asDenseAsString = gravityForceLabStrings.a11y.asDenseAs;
-const denseButComparableToString = gravityForceLabStrings.a11y.denseButComparableTo;
-const muchDenseThanString = gravityForceLabStrings.a11y.muchDenseThan;
-const twiceAsDenseAsString = gravityForceLabStrings.a11y.twiceAsDenseAs;
-const extremelyDenseComparedToString = gravityForceLabStrings.a11y.extremelyDenseComparedTo;
+const notDenseComparedToString = gravityForceLabStrings.a11y.relativeMassDensity.notDenseComparedTo;
+const halfAsDenseAsString = gravityForceLabStrings.a11y.relativeMassDensity.halfAsDenseAs;
+const muchLessDenseThanString = gravityForceLabStrings.a11y.relativeMassDensity.muchLessDenseThan;
+const lessDenseButComparableToString = gravityForceLabStrings.a11y.relativeMassDensity.lessDenseButComparableTo;
+const asDenseAsString = gravityForceLabStrings.a11y.relativeMassDensity.asDenseAs;
+const denseButComparableToString = gravityForceLabStrings.a11y.relativeMassDensity.denseButComparableTo;
+const muchDenseThanString = gravityForceLabStrings.a11y.relativeMassDensity.muchDenseThan;
+const twiceAsDenseAsString = gravityForceLabStrings.a11y.relativeMassDensity.twiceAsDenseAs;
+const extremelyDenseComparedToString = gravityForceLabStrings.a11y.relativeMassDensity.extremelyDenseComparedTo;
 
 // relative density capitalized
-const notDenseComparedToCapitalizedString = gravityForceLabStrings.a11y.notDenseComparedToCapitalized;
-const halfAsDenseAsCapitalizedString = gravityForceLabStrings.a11y.halfAsDenseAsCapitalized;
-const muchLessDenseThanCapitalizedString = gravityForceLabStrings.a11y.muchLessDenseThanCapitalized;
-const lessDenseButComparableToCapitalizedString = gravityForceLabStrings.a11y.lessDenseButComparableToCapitalized;
-const asDenseAsCapitalizedString = gravityForceLabStrings.a11y.asDenseAsCapitalized;
-const denseButComparableToCapitalizedString = gravityForceLabStrings.a11y.denseButComparableToCapitalized;
-const muchDenseThanCapitalizedString = gravityForceLabStrings.a11y.muchDenseThanCapitalized;
-const twiceAsDenseAsCapitalizedString = gravityForceLabStrings.a11y.twiceAsDenseAsCapitalized;
-const extremelyDenseComparedToCapitalizedString = gravityForceLabStrings.a11y.extremelyDenseComparedToCapitalized;
+const notDenseComparedToCapitalizedString = gravityForceLabStrings.a11y.relativeMassDensityCapitalized.notDenseComparedTo;
+const halfAsDenseAsCapitalizedString = gravityForceLabStrings.a11y.relativeMassDensityCapitalized.halfAsDenseAs;
+const muchLessDenseThanCapitalizedString = gravityForceLabStrings.a11y.relativeMassDensityCapitalized.muchLessDenseThan;
+const lessDenseButComparableToCapitalizedString = gravityForceLabStrings.a11y.relativeMassDensityCapitalized.lessDenseButComparableTo;
+const asDenseAsCapitalizedString = gravityForceLabStrings.a11y.relativeMassDensityCapitalized.asDenseAs;
+const denseButComparableToCapitalizedString = gravityForceLabStrings.a11y.relativeMassDensityCapitalized.denseButComparableTo;
+const muchDenseThanCapitalizedString = gravityForceLabStrings.a11y.relativeMassDensityCapitalized.muchDenseThan;
+const twiceAsDenseAsCapitalizedString = gravityForceLabStrings.a11y.relativeMassDensityCapitalized.twiceAsDenseAs;
+const extremelyDenseComparedToCapitalizedString = gravityForceLabStrings.a11y.relativeMassDensityCapitalized.extremelyDenseComparedTo;
 
-const massChangeClausePatternString = gravityForceLabStrings.a11y.massChangeClausePattern;
-const massChangesAndMovesClausePatternString = gravityForceLabStrings.a11y.massChangesAndMovesClausePattern;
-const massChangesMovesOtherClausePatternString = gravityForceLabStrings.a11y.massChangesMovesOtherClausePattern;
-const massGetsBiggerString = gravityForceLabStrings.a11y.massGetsBigger;
-const massGetsSmallerString = gravityForceLabStrings.a11y.massGetsSmaller;
-const densityIncreasesString = gravityForceLabStrings.a11y.densityIncreases;
-const densityDecreasesString = gravityForceLabStrings.a11y.densityDecreases;
+const massChangeClausePatternString = gravityForceLabStrings.a11y.qualitative.massChangeClausePattern;
+const massChangesAndMovesClausePatternString = gravityForceLabStrings.a11y.qualitative.massChangesAndMovesClausePattern;
+const massChangesMovesOtherClausePatternString = gravityForceLabStrings.a11y.qualitative.massChangesMovesOtherClausePattern;
+const massGetsBiggerString = gravityForceLabStrings.a11y.propertyChange.massGetsBigger;
+const massGetsSmallerString = gravityForceLabStrings.a11y.propertyChange.massGetsSmaller;
+const densityIncreasesString = gravityForceLabStrings.a11y.propertyChange.densityIncreases;
+const densityDecreasesString = gravityForceLabStrings.a11y.propertyChange.densityDecreases;
 const leftString = ISLCA11yStrings.left.value;
 const rightString = ISLCA11yStrings.right.value;
 
