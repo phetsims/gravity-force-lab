@@ -12,7 +12,7 @@ import Node from '../../../scenery/js/nodes/Node.js';
 import gravityForceLab from '../gravityForceLab.js';
 
 // constants
-const spherePositionsString = inverseSquareLawCommonStrings.a11y.spherePositions;
+const spherePositionsString = inverseSquareLawCommonStrings.a11y.sphere.spherePositions;
 
 class SpherePositionsDescriptionNode extends Node {
 

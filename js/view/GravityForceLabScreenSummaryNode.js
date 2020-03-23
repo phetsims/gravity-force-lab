@@ -21,7 +21,7 @@ const simStateListLabelString = gravityForceLabStrings.a11y.screenSummary.simSta
 const massString = gravityForceLabStrings.a11y.mass;
 
 // import from ISLC so that coulombs-law can use it too
-const summaryInteractionHintPatternString = inverseSquareLawCommonStrings.a11y.summaryInteractionHintPattern;
+const summaryInteractionHintPatternString = inverseSquareLawCommonStrings.a11y.screenSummary.summaryInteractionHintPattern;
 
 class GravityForceLabScreenSummaryNode extends Node {
 
