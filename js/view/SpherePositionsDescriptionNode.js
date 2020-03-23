@@ -6,13 +6,13 @@
  */
 
 import Property from '../../../axon/js/Property.js';
-import ISLCA11yStrings from '../../../inverse-square-law-common/js/ISLCA11yStrings.js';
+import inverseSquareLawCommonStrings from '../../../inverse-square-law-common/js/inverse-square-law-common-strings.js';
 import merge from '../../../phet-core/js/merge.js';
 import Node from '../../../scenery/js/nodes/Node.js';
 import gravityForceLab from '../gravityForceLab.js';
 
-// a11y strings
-const spherePositionsString = ISLCA11yStrings.spherePositions.value;
+// constants
+const spherePositionsString = inverseSquareLawCommonStrings.a11y.spherePositions;
 
 class SpherePositionsDescriptionNode extends Node {
 

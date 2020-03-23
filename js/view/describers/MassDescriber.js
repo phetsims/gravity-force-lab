@@ -9,7 +9,8 @@
  */
 
 import Utils from '../../../../dot/js/Utils.js';
-import ISLCA11yStrings from '../../../../inverse-square-law-common/js/ISLCA11yStrings.js';
+import inverseSquareLawCommonStrings
+  from '../../../../inverse-square-law-common/js/inverse-square-law-common-strings.js';
 import ISLCDescriber from '../../../../inverse-square-law-common/js/view/describers/ISLCDescriber.js';
 import ISLCObjectEnum from '../../../../inverse-square-law-common/js/view/ISLCObjectEnum.js';
 import merge from '../../../../phet-core/js/merge.js';
@@ -17,24 +18,24 @@ import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import gravityForceLab from '../../gravityForceLab.js';
 import gravityForceLabStrings from '../../gravity-force-lab-strings.js';
 
+// constants
 const mass1AbbreviatedString = gravityForceLabStrings.mass1Abbreviated;
 const mass2AbbreviatedString = gravityForceLabStrings.mass2Abbreviated;
 
-// a11y strings
-const valuePatternString = ISLCA11yStrings.valuePattern.value;
+const valuePatternString = inverseSquareLawCommonStrings.a11y.valuePattern;
 const massValuesAndComparisonSummaryPatternString = gravityForceLabStrings.a11y.screenSummary.massValuesAndComparisonSummaryPattern;
 const massAndUnitPatternString = gravityForceLabStrings.a11y.qualitative.massAndUnitPattern;
 const objectsRelativeSizePatternString = gravityForceLabStrings.a11y.qualitative.objectsRelativeSizePattern;
 const massMaxMinBorderTextString = gravityForceLabStrings.a11y.controls.massMaxMinBorderText;
 
 // size
-const tinyString = ISLCA11yStrings.tiny.value;
-const verySmallString = ISLCA11yStrings.verySmall.value;
-const smallString = ISLCA11yStrings.small.value;
-const mediumSizeString = ISLCA11yStrings.mediumSize.value;
-const largeString = ISLCA11yStrings.large.value;
-const veryLargeString = ISLCA11yStrings.veryLarge.value;
-const hugeString = ISLCA11yStrings.huge.value;
+const tinyString = inverseSquareLawCommonStrings.a11y.tiny;
+const verySmallString = inverseSquareLawCommonStrings.a11y.verySmall;
+const smallString = inverseSquareLawCommonStrings.a11y.small;
+const mediumSizeString = inverseSquareLawCommonStrings.a11y.mediumSize;
+const largeString = inverseSquareLawCommonStrings.a11y.large;
+const veryLargeString = inverseSquareLawCommonStrings.a11y.veryLarge;
+const hugeString = inverseSquareLawCommonStrings.a11y.huge;
 
 // relative size
 const muchMuchSmallerThanString = gravityForceLabStrings.a11y.relativeMassSize.muchMuchSmallerThan;
@@ -87,10 +88,9 @@ const massGetsBiggerString = gravityForceLabStrings.a11y.propertyChange.massGets
 const massGetsSmallerString = gravityForceLabStrings.a11y.propertyChange.massGetsSmaller;
 const densityIncreasesString = gravityForceLabStrings.a11y.propertyChange.densityIncreases;
 const densityDecreasesString = gravityForceLabStrings.a11y.propertyChange.densityDecreases;
-const leftString = ISLCA11yStrings.left.value;
-const rightString = ISLCA11yStrings.right.value;
+const leftString = inverseSquareLawCommonStrings.a11y.left;
+const rightString = inverseSquareLawCommonStrings.a11y.right;
 
-// constants
 const SIZE_STRINGS = [
   tinyString,
   verySmallString,
