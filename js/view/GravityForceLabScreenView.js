@@ -28,9 +28,8 @@ import ContinuousPropertySoundGenerator from '../../../tambo/js/sound-generators
 import SoundLevelEnum from '../../../tambo/js/SoundLevelEnum.js';
 import soundManager from '../../../tambo/js/soundManager.js';
 import forceSound from '../../sounds/saturated-sine-loop-trimmed_wav.js';
-import gravityForceLabStrings from '../gravity-force-lab-strings.js';
 import gravityForceLab from '../gravityForceLab.js';
-import GravityForceLabA11yStrings from '../GravityForceLabA11yStrings.js';
+import gravityForceLabStrings from '../gravity-force-lab-strings.js';
 import GravityForceLabConstants from '../GravityForceLabConstants.js';
 import GravityForceLabForceDescriber from './describers/GravityForceLabForceDescriber.js';
 import GravityForceLabPositionDescriber from './describers/GravityForceLabPositionDescriber.js';
@@ -51,11 +50,9 @@ const mass1String = gravityForceLabStrings.mass1;
 const mass2AbbreviatedString = gravityForceLabStrings.mass2Abbreviated;
 const mass2String = gravityForceLabStrings.mass2;
 const unitsMetersString = inverseSquareLawCommonStrings.units.meters;
-
-// a11y Strings
-const massControlsLabelString = GravityForceLabA11yStrings.massControlsLabel.value;
-const massControlsHelpTextString = GravityForceLabA11yStrings.massControlsHelpText.value;
-const massControlsHelpTextDensityString = GravityForceLabA11yStrings.massControlsHelpTextDensity.value;
+const massControlsLabelString = gravityForceLabStrings.a11y.massControlsLabel;
+const massControlsHelpTextString = gravityForceLabStrings.a11y.massControlsHelpText;
+const massControlsHelpTextDensityString = gravityForceLabStrings.a11y.massControlsHelpTextDensity;
 
 // sounds
 

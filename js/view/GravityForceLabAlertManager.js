@@ -13,13 +13,13 @@ import StringUtils from '../../../phetcommon/js/util/StringUtils.js';
 import ActivationUtterance from '../../../utterance-queue/js/ActivationUtterance.js';
 import ValueChangeUtterance from '../../../utterance-queue/js/ValueChangeUtterance.js';
 import gravityForceLab from '../gravityForceLab.js';
-import GravityForceLabA11yStrings from '../GravityForceLabA11yStrings.js';
+import gravityForceLabStrings from '../gravity-force-lab-strings.js';
 import GravityForceLabModel from '../model/GravityForceLabModel.js';
 
 // a11y strings
-const constantRadiusThinkDensityPatternString = GravityForceLabA11yStrings.constantRadiusThinkDensityPattern.value;
-const massAndForceClausesPatternString = GravityForceLabA11yStrings.massAndForceClausesPattern.value;
-const sentencePatternString = GravityForceLabA11yStrings.sentencePattern.value;
+const constantRadiusThinkDensityPatternString = gravityForceLabStrings.a11y.constantRadiusThinkDensityPattern;
+const massAndForceClausesPatternString = gravityForceLabStrings.a11y.massAndForceClausesPattern;
+const sentencePatternString = gravityForceLabStrings.a11y.sentencePattern;
 
 class GravityForceLabAlertManager extends ISLCAlertManager {
 

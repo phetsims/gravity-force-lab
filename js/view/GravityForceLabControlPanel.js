@@ -16,14 +16,13 @@ import VBox from '../../../scenery/js/nodes/VBox.js';
 import Checkbox from '../../../sun/js/Checkbox.js';
 import HSeparator from '../../../sun/js/HSeparator.js';
 import Tandem from '../../../tandem/js/Tandem.js';
-import gravityForceLabStrings from '../gravity-force-lab-strings.js';
 import gravityForceLab from '../gravityForceLab.js';
-import GravityForceLabA11yStrings from '../GravityForceLabA11yStrings.js';
+import gravityForceLabStrings from '../gravity-force-lab-strings.js';
 
 const constantSizeString = gravityForceLabStrings.constantSize;
 
 // a11y strings
-const constantSizeCheckboxHelpTextString = GravityForceLabA11yStrings.constantSizeCheckboxHelpText.value;
+const constantSizeCheckboxHelpTextString = gravityForceLabStrings.a11y.constantSizeCheckboxHelpText;
 
 // constants
 const CHECKBOX_TEXT_SIZE = 15;

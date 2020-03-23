@@ -17,9 +17,8 @@ import TwoColumnKeyboardHelpContent from '../../../scenery-phet/js/keyboard/help
 import HomeKeyNode from '../../../scenery-phet/js/keyboard/HomeKeyNode.js';
 import sceneryPhetStrings from '../../../scenery-phet/js/scenery-phet-strings.js';
 import Node from '../../../scenery/js/nodes/Node.js';
-import gravityForceLabStrings from '../gravity-force-lab-strings.js';
 import gravityForceLab from '../gravityForceLab.js';
-import GravityForceLabA11yStrings from '../GravityForceLabA11yStrings.js';
+import gravityForceLabStrings from '../gravity-force-lab-strings.js';
 
 const changeMassHeadingString = gravityForceLabStrings.changeMassHeading;
 const changeMassInLargerStepsString = gravityForceLabStrings.changeMassInLargerSteps;
@@ -42,21 +41,21 @@ const rulerCapitalizedString = sceneryPhetStrings.rulerCapitalized;
 const rulerString = sceneryPhetStrings.ruler;
 
 // a11y strings
-const moveSphereDescriptionString = GravityForceLabA11yStrings.moveSphereDescription.value;
-const moveInSmallerStepsDescriptionString = GravityForceLabA11yStrings.moveInSmallerStepsDescription.value;
-const moveInLargerStepsDescriptionString = GravityForceLabA11yStrings.moveInLargerStepsDescription.value;
-const jumpToLeftDescriptionString = GravityForceLabA11yStrings.jumpToLeftDescription.value;
-const jumpToRightDescriptionString = GravityForceLabA11yStrings.jumpToRightDescription.value;
-const changeMassPDOMString = GravityForceLabA11yStrings.changeMassPDOM.value;
-const changeMassBasicsPDOMString = GravityForceLabA11yStrings.changeMassBasicsPDOM.value;
-const changeMassInLargerStepsDescriptionString = GravityForceLabA11yStrings.changeMassInLargerStepsDescription.value;
-const changeMassInSmallerStepsDescriptionString = GravityForceLabA11yStrings.changeMassInSmallerStepsDescription.value;
-const jumpToMaximumMassDescriptionString = GravityForceLabA11yStrings.jumpToMaximumMassDescription.value;
-const jumpToMinimumMassDescriptionString = GravityForceLabA11yStrings.jumpToMinimumMassDescription.value;
-const moveGrabbedRulerPDOMString = GravityForceLabA11yStrings.moveGrabbedRulerPDOM.value;
-const moveInSmallerStepsPDOMString = GravityForceLabA11yStrings.moveInSmallerStepsPDOM.value;
-const jumpStartOfSpherePDOMString = GravityForceLabA11yStrings.jumpStartOfSpherePDOM.value;
-const jumpHomePDOMString = GravityForceLabA11yStrings.jumpHomePDOM.value;
+const moveSphereDescriptionString = gravityForceLabStrings.a11y.moveSphereDescription;
+const moveInSmallerStepsDescriptionString = gravityForceLabStrings.a11y.moveInSmallerStepsDescription;
+const moveInLargerStepsDescriptionString = gravityForceLabStrings.a11y.moveInLargerStepsDescription;
+const jumpToLeftDescriptionString = gravityForceLabStrings.a11y.jumpToLeftDescription;
+const jumpToRightDescriptionString = gravityForceLabStrings.a11y.jumpToRightDescription;
+const changeMassPDOMString = gravityForceLabStrings.a11y.changeMassPDOM;
+const changeMassBasicsPDOMString = gravityForceLabStrings.a11y.changeMassBasicsPDOM;
+const changeMassInLargerStepsDescriptionString = gravityForceLabStrings.a11y.changeMassInLargerStepsDescription;
+const changeMassInSmallerStepsDescriptionString = gravityForceLabStrings.a11y.changeMassInSmallerStepsDescription;
+const jumpToMaximumMassDescriptionString = gravityForceLabStrings.a11y.jumpToMaximumMassDescription;
+const jumpToMinimumMassDescriptionString = gravityForceLabStrings.a11y.jumpToMinimumMassDescription;
+const moveGrabbedRulerPDOMString = gravityForceLabStrings.a11y.moveGrabbedRulerPDOM;
+const moveInSmallerStepsPDOMString = gravityForceLabStrings.a11y.moveInSmallerStepsPDOM;
+const jumpStartOfSpherePDOMString = gravityForceLabStrings.a11y.jumpStartOfSpherePDOM;
+const jumpHomePDOMString = gravityForceLabStrings.a11y.jumpHomePDOM;
 
 class GravityForceLabKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
 

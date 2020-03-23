@@ -13,12 +13,12 @@ import ISLCConstants from '../../../../inverse-square-law-common/js/ISLCConstant
 import ForceValuesDisplayEnum from '../../../../inverse-square-law-common/js/model/ForceValuesDisplayEnum.js';
 import ForceDescriber from '../../../../inverse-square-law-common/js/view/describers/ForceDescriber.js';
 import gravityForceLab from '../../gravityForceLab.js';
-import GravityForceLabA11yStrings from '../../GravityForceLabA11yStrings.js';
+import gravityForceLabStrings from '../../gravity-force-lab-strings.js';
 
 const unitsNewtonsString = inverseSquareLawCommonStrings.units.newtons;
 
 // a11y strings
-const micronewtonsString = GravityForceLabA11yStrings.micronewtons.value;
+const micronewtonsString = gravityForceLabStrings.a11y.micronewtons;
 
 // constants
 const MICRO_CONVERSION_FACTOR = 1e6;

@@ -12,14 +12,13 @@ import merge from '../../../phet-core/js/merge.js';
 import StringUtils from '../../../phetcommon/js/util/StringUtils.js';
 import Node from '../../../scenery/js/nodes/Node.js';
 import gravityForceLab from '../gravityForceLab.js';
-import GravityForceLabA11yStrings from '../GravityForceLabA11yStrings.js';
+import gravityForceLabStrings from '../gravity-force-lab-strings.js';
 
-// a11y strings
-const screenSummaryPlayAreaOverviewString = GravityForceLabA11yStrings.screenSummaryPlayAreaOverview.value;
-const screenSummaryPlayAreaControlsString = GravityForceLabA11yStrings.screenSummaryPlayAreaControls.value;
-const screenSummarySecondaryDescriptionString = GravityForceLabA11yStrings.screenSummarySecondaryDescription.value;
-const simStateListLabelString = GravityForceLabA11yStrings.simStateListLabel.value;
-const massString = GravityForceLabA11yStrings.mass.value;
+const screenSummaryPlayAreaOverviewString = gravityForceLabStrings.a11y.screenSummaryPlayAreaOverview;
+const screenSummaryPlayAreaControlsString = gravityForceLabStrings.a11y.screenSummaryPlayAreaControls;
+const screenSummarySecondaryDescriptionString = gravityForceLabStrings.a11y.screenSummarySecondaryDescription;
+const simStateListLabelString = gravityForceLabStrings.a11y.simStateListLabel;
+const massString = gravityForceLabStrings.a11y.mass;
 
 // import from ISLC so that coulombs-law can use it too
 const summaryInteractionHintPatternString = ISLCA11yStrings.summaryInteractionHintPattern.value;

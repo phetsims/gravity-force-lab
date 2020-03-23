@@ -7,18 +7,15 @@ import ISLCObjectEnum from '../../../inverse-square-law-common/js/view/ISLCObjec
 import merge from '../../../phet-core/js/merge.js';
 import StringUtils from '../../../phetcommon/js/util/StringUtils.js';
 import Node from '../../../scenery/js/nodes/Node.js';
-import gravityForceLabStrings from '../gravity-force-lab-strings.js';
 import gravityForceLab from '../gravityForceLab.js';
-import GravityForceLabA11yStrings from '../GravityForceLabA11yStrings.js';
+import gravityForceLabStrings from '../gravity-force-lab-strings.js';
 
 const mass1AbbreviatedString = gravityForceLabStrings.mass1Abbreviated;
 const mass2AbbreviatedString = gravityForceLabStrings.mass2Abbreviated;
-
-// a11y strings
-const sizePatternString = GravityForceLabA11yStrings.sizePattern.value;
-const sizeAndDistancePatternString = GravityForceLabA11yStrings.sizeAndDistancePattern.value;
-const redSpherePatternString = GravityForceLabA11yStrings.redSpherePattern.value;
-const blueSpherePatternString = GravityForceLabA11yStrings.blueSpherePattern.value;
+const sizePatternString = gravityForceLabStrings.a11y.sizePattern;
+const sizeAndDistancePatternString = gravityForceLabStrings.a11y.sizeAndDistancePattern;
+const redSpherePatternString = gravityForceLabStrings.a11y.redSpherePattern;
+const blueSpherePatternString = gravityForceLabStrings.a11y.blueSpherePattern;
 
 class MassDescriptionNode extends ISLCObjectDescriptionNode {
 

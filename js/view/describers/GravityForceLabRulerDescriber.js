@@ -14,27 +14,27 @@ import ISLCObjectEnum from '../../../../inverse-square-law-common/js/view/ISLCOb
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import Utterance from '../../../../utterance-queue/js/Utterance.js';
 import gravityForceLab from '../../gravityForceLab.js';
-import GravityForceLabA11yStrings from '../../GravityForceLabA11yStrings.js';
+import gravityForceLabStrings from '../../gravity-force-lab-strings.js';
 
 // a11y strings
-const grabbedAlertPatternString = GravityForceLabA11yStrings.grabbedAlertPattern.value;
-const regionAndDistancePatternString = GravityForceLabA11yStrings.regionAndDistancePattern.value;
-const releaseAndExploreHintString = GravityForceLabA11yStrings.releaseAndExploreHint.value;
-const hintPatternString = GravityForceLabA11yStrings.hintPattern.value;
-const centersApartPatternString = GravityForceLabA11yStrings.centersApartPattern.value;
-const grabbedJumpKeyboardHintString = GravityForceLabA11yStrings.grabbedJumpKeyboardHint.value;
-const jumpCenterKeyboardHintString = GravityForceLabA11yStrings.jumpCenterKeyboardHint.value;
-const gestureHintString = GravityForceLabA11yStrings.gestureHint.value;
-const keyboardReleaseHintString = GravityForceLabA11yStrings.keyboardReleaseHint.value;
-const jumpCenterMassAlertString = GravityForceLabA11yStrings.jumpCenterMassAlert.value;
+const grabbedAlertPatternString = gravityForceLabStrings.a11y.grabbedAlertPattern;
+const regionAndDistancePatternString = gravityForceLabStrings.a11y.regionAndDistancePattern;
+const releaseAndExploreHintString = gravityForceLabStrings.a11y.releaseAndExploreHint;
+const hintPatternString = gravityForceLabStrings.a11y.hintPattern;
+const centersApartPatternString = gravityForceLabStrings.a11y.centersApartPattern;
+const grabbedJumpKeyboardHintString = gravityForceLabStrings.a11y.grabbedJumpKeyboardHint;
+const jumpCenterKeyboardHintString = gravityForceLabStrings.a11y.jumpCenterKeyboardHint;
+const gestureHintString = gravityForceLabStrings.a11y.gestureHint;
+const keyboardReleaseHintString = gravityForceLabStrings.a11y.keyboardReleaseHint;
+const jumpCenterMassAlertString = gravityForceLabStrings.a11y.jumpCenterMassAlert;
 
-const coveringM2String = GravityForceLabA11yStrings.coveringM2.value;
-const coveringM1String = GravityForceLabA11yStrings.coveringM1.value;
-const justAboveCentersString = GravityForceLabA11yStrings.justAboveCenters.value;
-const coveringCentersString = GravityForceLabA11yStrings.coveringCenters.value;
-const justBelowCentersString = GravityForceLabA11yStrings.justBelowCenters.value;
-const inHomePositionString = GravityForceLabA11yStrings.inHomePosition.value;
-const behindMassControlsString = GravityForceLabA11yStrings.behindMassControls.value;
+const coveringM2String = gravityForceLabStrings.a11y.coveringM2;
+const coveringM1String = gravityForceLabStrings.a11y.coveringM1;
+const justAboveCentersString = gravityForceLabStrings.a11y.justAboveCenters;
+const coveringCentersString = gravityForceLabStrings.a11y.coveringCenters;
+const justBelowCentersString = gravityForceLabStrings.a11y.justBelowCenters;
+const inHomePositionString = gravityForceLabStrings.a11y.inHomePosition;
+const behindMassControlsString = gravityForceLabStrings.a11y.behindMassControls;
 
 // constants
 const RULER_VERTICAL_REGIONS = [
