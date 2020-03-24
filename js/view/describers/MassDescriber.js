@@ -88,8 +88,8 @@ const massGetsBiggerString = gravityForceLabStrings.a11y.propertyChange.massGets
 const massGetsSmallerString = gravityForceLabStrings.a11y.propertyChange.massGetsSmaller;
 const densityIncreasesString = gravityForceLabStrings.a11y.propertyChange.densityIncreases;
 const densityDecreasesString = gravityForceLabStrings.a11y.propertyChange.densityDecreases;
-const leftString = inverseSquareLawCommonStrings.a11y.left;
-const rightString = inverseSquareLawCommonStrings.a11y.right;
+const leftString = inverseSquareLawCommonStrings.a11y.qualitative.left;
+const rightString = inverseSquareLawCommonStrings.a11y.qualitative.right;
 
 const SIZE_STRINGS = [
   tinyString,
