@@ -384,6 +384,41 @@
           "value": "Behind mass controls."
         }
       }
+    },
+    "selfVoicing": {
+      "briefPositionChangeInteractionPattern": {
+        "value": "{{valueText}}. {{forceAlert}}"
+      },
+      "briefMassChangeForceAlertPattern": {
+        "value": "{{massChange}} mass, {{forceChange}} forces."
+      },
+      "briefDensityChangeForceAlertPattern": {
+        "value": "{{densityChange}} density, {{forceChange}} forces."
+      },
+      "briefNewForcePattern": {
+        "value": "Forces now {{value}} newtons."
+      },
+      "briefMassPushAlertPattern": {
+        "value": "{{massChange}} mass moves {{object}} {{direction}}."
+      },
+      "briefMassChangeWithPushAlertPattern": {
+        "value": "{{pushAlert}} {{forceAlert}}"
+      },
+      "briefMassChangeAlertPattern": {
+        "value": "{{propertyChange}} {{forceChange}}"
+      },
+      "biggerCapitalized": {
+        "value": "Bigger"
+      },
+      "smallerCapitalized": {
+        "value": "Smaller"
+      },
+      "more": {
+        "value": "More"
+      },
+      "less": {
+        "value": "Less"
+      }
     }
   }
 }

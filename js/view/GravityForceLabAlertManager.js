@@ -6,8 +6,12 @@
  * @author Michael Kauzmann (PhET Interactive Simulations)
  */
 
+import inverseSquareLawCommonStrings from '../../../inverse-square-law-common/js/inverse-square-law-common-strings.js';
+import ISLCQueryParameters from '../../../inverse-square-law-common/js/ISLCQueryParameters.js';
 import ForceValuesDisplayEnum from '../../../inverse-square-law-common/js/model/ForceValuesDisplayEnum.js';
 import ISLCAlertManager from '../../../inverse-square-law-common/js/view/ISLCAlertManager.js';
+import ISLCObjectEnum from '../../../inverse-square-law-common/js/view/ISLCObjectEnum.js';
+import webSpeaker from '../../../inverse-square-law-common/js/view/webSpeaker.js';
 import merge from '../../../phet-core/js/merge.js';
 import StringUtils from '../../../phetcommon/js/util/StringUtils.js';
 import ActivationUtterance from '../../../utterance-queue/js/ActivationUtterance.js';
@@ -20,6 +24,21 @@ import GravityForceLabModel from '../model/GravityForceLabModel.js';
 const constantRadiusThinkDensityPatternString = gravityForceLabStrings.a11y.controls.constantRadiusThinkDensityPattern;
 const massAndForceClausesPatternString = gravityForceLabStrings.a11y.qualitative.massAndForceClausesPattern;
 const sentencePatternString = gravityForceLabStrings.a11y.sentencePattern;
+const selfVoicingBriefMassChangeForceAlertPatternString = gravityForceLabStrings.a11y.selfVoicing.briefMassChangeForceAlertPattern;
+const selfVoicingBriefNewForceAlertPatternString = inverseSquareLawCommonStrings.a11y.selfVoicing.briefNewForceAlertPattern;
+const selfVoicingBiggerString = inverseSquareLawCommonStrings.a11y.selfVoicing.bigger;
+const selfVoicingSmallerString = inverseSquareLawCommonStrings.a11y.selfVoicing.smaller;
+const selfVoicingBiggerCapitalizedString = gravityForceLabStrings.a11y.selfVoicing.biggerCapitalized;
+const selfVoicingSmallerCapitalizedString = gravityForceLabStrings.a11y.selfVoicing.smallerCapitalized;
+const selfVoicingBriefMassPushAlertPatternString = gravityForceLabStrings.a11y.selfVoicing.briefMassPushAlertPattern;
+const briefMassChangeWithPushAlertPatternString = gravityForceLabStrings.a11y.selfVoicing.briefMassChangeWithPushAlertPattern;
+const briefDensityChangeForceAlertPatternString = gravityForceLabStrings.a11y.selfVoicing.briefDensityChangeForceAlertPattern;
+const briefNewForcePatternString = gravityForceLabStrings.a11y.selfVoicing.briefNewForcePattern;
+const selfVoicingMoreString = gravityForceLabStrings.a11y.selfVoicing.more;
+const selfVoicingLessString = gravityForceLabStrings.a11y.selfVoicing.less;
+const briefMassChangeAlertPatternString = gravityForceLabStrings.a11y.selfVoicing.briefMassChangeAlertPattern;
+const briefNewForceNoValuesAlertString = inverseSquareLawCommonStrings.a11y.selfVoicing.briefNewForceNoValuesAlert;
+const selfVoicingBriefNewForcePatternString = gravityForceLabStrings.a11y.selfVoicing.briefNewForcePattern;
 
 class GravityForceLabAlertManager extends ISLCAlertManager {
 
@@ -92,6 +111,12 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
       }
       else { // value specific assumption
         this.alertMassValueChanged( objectEnum, true );
+
+        if ( ISLCQueryParameters.selfVoicing ) {
+          if ( webSpeaker.getInteractiveModeBrief() ) {
+            webSpeaker.speak( this.getSelfVoicingForceChangeFromMassWithPushAlert( objectEnum ) );
+          }
+        }
       }
     };
     model.object1.positionChangedFromSecondarySourceEmitter.addListener( secondaryPositionChangedListener );
@@ -141,6 +166,111 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
       forceClause: this.forceDescriber.getVectorChangeClause( forceBiggerOverride, false )
     } );
     return this.massChangedUtterance;
+  }
+
+  /**
+   * PROTOTYPE CODE: Get an alert that describes the changing mass value, with varying information depending on whether
+   * force values are visible and masses are at constant size. To be used on the "brief interactive" mode of
+   * self voicing output.
+   * @public
+   *
+   * @param {ISLCObjectEnum} objectEnum
+   * @param {number} currentMass
+   * @param {number} oldMass
+   * @param {string} otherObjectLabel
+   * @returns {string}
+   */
+  getSelfVoicingForceChangeFromMassAlert( objectEnum, currentMass, oldMass, otherObjectLabel ) {
+    let alert;
+
+    const biggerSmallerChangeString = currentMass > oldMass ? selfVoicingBiggerString : selfVoicingSmallerString;
+    const changeStringCapitalized = currentMass > oldMass ? selfVoicingBiggerCapitalizedString : selfVoicingSmallerCapitalizedString;
+    const valueString = this.forceDescriber.getFormattedForce();
+
+    const constantSize = this.model.constantRadiusProperty.get();
+    const forceValuesShown = this.model.showForceValuesProperty.get();
+
+    if ( constantSize ) {
+      const moreLessChangeString = currentMass > oldMass ? selfVoicingMoreString : selfVoicingLessString;
+      const densityChangeString = StringUtils.fillIn( briefDensityChangeForceAlertPatternString, {
+        densityChange: moreLessChangeString,
+        forceChange: biggerSmallerChangeString
+      } );
+      if ( !forceValuesShown ) {
+
+        // forces are not shown, show just describe impact on forces
+        alert = densityChangeString;
+      }
+      else {
+
+        // forces are shown, read the new force value too
+        const newForceString = StringUtils.fillIn( briefNewForcePatternString, {
+          value: valueString
+        } );
+        alert = StringUtils.fillIn( briefMassChangeAlertPatternString, {
+          propertyChange: densityChangeString,
+          forceChange: newForceString
+        } );
+      }
+    }
+    else {
+      const massChangeString = StringUtils.fillIn( selfVoicingBriefMassChangeForceAlertPatternString, {
+        massChange: changeStringCapitalized,
+        forceChange: biggerSmallerChangeString
+      } );
+
+      if ( forceValuesShown ) {
+        const newForceString = StringUtils.fillIn( selfVoicingBriefNewForcePatternString, {
+          value: valueString
+        } );
+
+        alert = StringUtils.fillIn( briefMassChangeWithPushAlertPatternString, {
+          pushAlert: massChangeString,
+          forceAlert: newForceString
+        } );
+      }
+      else {
+        alert = massChangeString;
+      }
+    }
+
+    return alert;
+  }
+
+  /**
+   * PROTOTYPE CODE: Gets an alert to be read when the mass changes AND due to increasing size pushes the other mass a bit.
+   * This is used in the self voicing prototype, when in "brief interactive" output.
+   *
+   * @param {ISLCObjectEnum} objectEnum
+   * @returns {string}
+   */
+  getSelfVoicingForceChangeFromMassWithPushAlert( objectEnum ) {
+    const forceValuesShown = this.model.showForceValuesProperty.get();
+    const valueString = this.forceDescriber.getFormattedForce();
+
+    let newForceString;
+    if ( forceValuesShown ) {
+      newForceString = StringUtils.fillIn( selfVoicingBriefNewForceAlertPatternString, {
+        change: selfVoicingBiggerString,
+        value: valueString
+      } );
+    }
+    else {
+      newForceString = StringUtils.fillIn( briefNewForceNoValuesAlertString, {
+        change: selfVoicingBiggerString
+      } );
+    }
+
+    const pushAlertString = StringUtils.fillIn( selfVoicingBriefMassPushAlertPatternString, {
+      massChange: selfVoicingBiggerCapitalizedString,
+      object: this.forceDescriber.getOtherObjectLabelFromEnum( objectEnum ),
+      direction: this.massDescriber.getPushDirectionText( ISLCObjectEnum.getOtherObjectEnum( objectEnum ) )
+    } );
+
+    return StringUtils.fillIn( briefMassChangeWithPushAlertPatternString, {
+      pushAlert: pushAlertString,
+      forceAlert: newForceString
+    } );
   }
 
   /**

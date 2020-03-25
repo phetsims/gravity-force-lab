@@ -275,7 +275,7 @@ class MassDescriber extends ISLCDescriber {
    */
   getMassChangesAndMovesClause( thisObjectEnum ) {
     const changeDirectionPhrase = this.getMassOrDensityChangeDirectionPhrase( thisObjectEnum );
-    const leftOrRight = getPushDirection( thisObjectEnum );
+    const leftOrRight = this.getPushDirectionText( thisObjectEnum );
     return StringUtils.fillIn( massChangesAndMovesClausePatternString, {
       changeDirectionPhrase: changeDirectionPhrase,
       leftOrRight: leftOrRight
@@ -293,7 +293,7 @@ class MassDescriber extends ISLCDescriber {
   getMassChangesAndMovesOtherClause( thisObjectEnum ) {
     const changeDirectionPhrase = this.getMassOrDensityChangeDirectionPhrase( thisObjectEnum );
     const otherObjectLabel = this.getOtherObjectLabelFromEnum( thisObjectEnum );
-    const leftOrRight = getPushDirection( ISLCObjectEnum.getOtherObjectEnum( thisObjectEnum ) );
+    const leftOrRight = this.getPushDirectionText( ISLCObjectEnum.getOtherObjectEnum( thisObjectEnum ) );
     return StringUtils.fillIn( massChangesMovesOtherClausePatternString, {
       changeDirectionPhrase: changeDirectionPhrase,
       otherObjectLabel: otherObjectLabel,
@@ -351,14 +351,18 @@ class MassDescriber extends ISLCDescriber {
       unit: this.forceDescriber.units
     } );
   }
-}
 
-/**
- * Each object can only be pushed in one direction. Returns 'left' or 'right' based on the object passed in.
- * @param  {ISLCObjectEnum} objectEnum
- * @returns {string}
- */
-const getPushDirection = objectEnum => ISLCObjectEnum.isObject1( objectEnum ) ? leftString : rightString;
+  /**
+   * Each object can only be pushed in one direction. Returns 'left' or 'right' based on the object passed in.
+   * @public
+   *
+   * @param  {ISLCObjectEnum} objectEnum
+   * @returns {string}
+   */
+  getPushDirectionText( objectEnum ) {
+    return ISLCObjectEnum.isObject1( objectEnum ) ? leftString : rightString;
+  }
+}
 
 /**
  * @param {number} index - should be an index
