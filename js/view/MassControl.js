@@ -15,7 +15,7 @@ import ISLCObjectControlPanel from '../../../inverse-square-law-common/js/view/I
 import Enumeration from '../../../phet-core/js/Enumeration.js';
 import PhetFont from '../../../scenery-phet/js/PhetFont.js';
 import Playable from '../../../tambo/js/Playable.js';
-import gravityForceLabStrings from '../gravity-force-lab-strings.js';
+import gravityForceLabStrings from '../gravityForceLabStrings.js';
 import gravityForceLab from '../gravityForceLab.js';
 
 const unitsKgString = gravityForceLabStrings.units.kg;

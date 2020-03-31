@@ -10,7 +10,7 @@ import Screen from '../../joist/js/Screen.js';
 import Sim from '../../joist/js/Sim.js';
 import SimLauncher from '../../joist/js/SimLauncher.js';
 import Tandem from '../../tandem/js/Tandem.js';
-import gravityForceLabStrings from './gravity-force-lab-strings.js';
+import gravityForceLabStrings from './gravityForceLabStrings.js';
 import GravityForceLabConstants from './GravityForceLabConstants.js';
 import GravityForceLabModel from './model/GravityForceLabModel.js';
 import GravityForceLabKeyboardHelpContent from './view/GravityForceLabKeyboardHelpContent.js';

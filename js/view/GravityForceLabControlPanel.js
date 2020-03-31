@@ -17,7 +17,7 @@ import Checkbox from '../../../sun/js/Checkbox.js';
 import HSeparator from '../../../sun/js/HSeparator.js';
 import Tandem from '../../../tandem/js/Tandem.js';
 import gravityForceLab from '../gravityForceLab.js';
-import gravityForceLabStrings from '../gravity-force-lab-strings.js';
+import gravityForceLabStrings from '../gravityForceLabStrings.js';
 
 const constantSizeString = gravityForceLabStrings.constantSize;
 

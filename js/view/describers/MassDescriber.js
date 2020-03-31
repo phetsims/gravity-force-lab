@@ -10,13 +10,13 @@
 
 import Utils from '../../../../dot/js/Utils.js';
 import inverseSquareLawCommonStrings
-  from '../../../../inverse-square-law-common/js/inverse-square-law-common-strings.js';
+  from '../../../../inverse-square-law-common/js/inverseSquareLawCommonStrings.js';
 import ISLCDescriber from '../../../../inverse-square-law-common/js/view/describers/ISLCDescriber.js';
 import ISLCObjectEnum from '../../../../inverse-square-law-common/js/view/ISLCObjectEnum.js';
 import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import gravityForceLab from '../../gravityForceLab.js';
-import gravityForceLabStrings from '../../gravity-force-lab-strings.js';
+import gravityForceLabStrings from '../../gravityForceLabStrings.js';
 
 // constants
 const mass1AbbreviatedString = gravityForceLabStrings.mass1Abbreviated;

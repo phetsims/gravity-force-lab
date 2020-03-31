@@ -14,7 +14,7 @@ import ISLCObjectEnum from '../../../../inverse-square-law-common/js/view/ISLCOb
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import Utterance from '../../../../utterance-queue/js/Utterance.js';
 import gravityForceLab from '../../gravityForceLab.js';
-import gravityForceLabStrings from '../../gravity-force-lab-strings.js';
+import gravityForceLabStrings from '../../gravityForceLabStrings.js';
 
 // a11y strings
 const grabbedAlertPatternString = gravityForceLabStrings.a11y.ruler.grabbedAlertPattern;

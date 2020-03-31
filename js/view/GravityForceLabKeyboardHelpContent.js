@@ -15,10 +15,10 @@ import KeyboardHelpIconFactory from '../../../scenery-phet/js/keyboard/help/Keyb
 import KeyboardHelpSection from '../../../scenery-phet/js/keyboard/help/KeyboardHelpSection.js';
 import TwoColumnKeyboardHelpContent from '../../../scenery-phet/js/keyboard/help/TwoColumnKeyboardHelpContent.js';
 import HomeKeyNode from '../../../scenery-phet/js/keyboard/HomeKeyNode.js';
-import sceneryPhetStrings from '../../../scenery-phet/js/scenery-phet-strings.js';
+import sceneryPhetStrings from '../../../scenery-phet/js/sceneryPhetStrings.js';
 import Node from '../../../scenery/js/nodes/Node.js';
 import gravityForceLab from '../gravityForceLab.js';
-import gravityForceLabStrings from '../gravity-force-lab-strings.js';
+import gravityForceLabStrings from '../gravityForceLabStrings.js';
 
 const changeMassHeadingString = gravityForceLabStrings.changeMassHeading;
 const changeMassInLargerStepsString = gravityForceLabStrings.changeMassInLargerSteps;

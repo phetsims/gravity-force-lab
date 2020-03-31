@@ -6,7 +6,7 @@
  * @author Michael Kauzmann (PhET Interactive Simulations)
  */
 
-import inverseSquareLawCommonStrings from '../../../inverse-square-law-common/js/inverse-square-law-common-strings.js';
+import inverseSquareLawCommonStrings from '../../../inverse-square-law-common/js/inverseSquareLawCommonStrings.js';
 import ISLCQueryParameters from '../../../inverse-square-law-common/js/ISLCQueryParameters.js';
 import ForceValuesDisplayEnum from '../../../inverse-square-law-common/js/model/ForceValuesDisplayEnum.js';
 import ISLCAlertManager from '../../../inverse-square-law-common/js/view/ISLCAlertManager.js';
@@ -17,7 +17,7 @@ import StringUtils from '../../../phetcommon/js/util/StringUtils.js';
 import ActivationUtterance from '../../../utterance-queue/js/ActivationUtterance.js';
 import ValueChangeUtterance from '../../../utterance-queue/js/ValueChangeUtterance.js';
 import gravityForceLab from '../gravityForceLab.js';
-import gravityForceLabStrings from '../gravity-force-lab-strings.js';
+import gravityForceLabStrings from '../gravityForceLabStrings.js';
 import GravityForceLabModel from '../model/GravityForceLabModel.js';
 
 // a11y strings

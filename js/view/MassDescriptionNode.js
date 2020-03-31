@@ -8,7 +8,7 @@ import merge from '../../../phet-core/js/merge.js';
 import StringUtils from '../../../phetcommon/js/util/StringUtils.js';
 import Node from '../../../scenery/js/nodes/Node.js';
 import gravityForceLab from '../gravityForceLab.js';
-import gravityForceLabStrings from '../gravity-force-lab-strings.js';
+import gravityForceLabStrings from '../gravityForceLabStrings.js';
 
 const mass1AbbreviatedString = gravityForceLabStrings.mass1Abbreviated;
 const mass2AbbreviatedString = gravityForceLabStrings.mass2Abbreviated;
