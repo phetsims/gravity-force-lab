@@ -1,6 +1,6 @@
 
 /* eslint-disable */
-window.phet.phetio.phetioElementsOverrides =
+window.phet.phetio.preload.phetioElementsOverrides =
   {
     "gravityForceLab.gravityForceLabScreen.model.constantRadiusProperty": {
       "phetioFeatured": true
