@@ -9,8 +9,7 @@
  */
 
 import Utils from '../../../../dot/js/Utils.js';
-import inverseSquareLawCommonStrings
-  from '../../../../inverse-square-law-common/js/inverseSquareLawCommonStrings.js';
+import inverseSquareLawCommonStrings from '../../../../inverse-square-law-common/js/inverseSquareLawCommonStrings.js';
 import ISLCDescriber from '../../../../inverse-square-law-common/js/view/describers/ISLCDescriber.js';
 import ISLCObjectEnum from '../../../../inverse-square-law-common/js/view/ISLCObjectEnum.js';
 import merge from '../../../../phet-core/js/merge.js';

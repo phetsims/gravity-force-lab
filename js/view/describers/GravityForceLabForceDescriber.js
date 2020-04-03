@@ -7,8 +7,7 @@
  */
 
 import Utils from '../../../../dot/js/Utils.js';
-import inverseSquareLawCommonStrings
-  from '../../../../inverse-square-law-common/js/inverseSquareLawCommonStrings.js';
+import inverseSquareLawCommonStrings from '../../../../inverse-square-law-common/js/inverseSquareLawCommonStrings.js';
 import ISLCConstants from '../../../../inverse-square-law-common/js/ISLCConstants.js';
 import ForceValuesDisplayEnum from '../../../../inverse-square-law-common/js/model/ForceValuesDisplayEnum.js';
 import ForceDescriber from '../../../../inverse-square-law-common/js/view/describers/ForceDescriber.js';
