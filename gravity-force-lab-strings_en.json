@@ -92,12 +92,6 @@
     "redSpherePattern": {
       "value": "{{objectLabel}}, Red Sphere"
     },
-    "valueUnitsPattern": {
-      "value": "{{value}} {{units}}"
-    },
-    "positionMeterPattern": {
-      "value": "{{position}} meter"
-    },
     "sizeAndDistancePattern": {
       "value": "{{size}}, {{relativeSize}} {{otherObjectLabel}}, and also {{distance}}."
     },

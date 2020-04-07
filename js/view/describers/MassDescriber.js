@@ -28,13 +28,13 @@ const objectsRelativeSizePatternString = gravityForceLabStrings.a11y.qualitative
 const massMaxMinBorderTextString = gravityForceLabStrings.a11y.controls.massMaxMinBorderText;
 
 // size
-const tinyString = inverseSquareLawCommonStrings.a11y.tiny;
-const verySmallString = inverseSquareLawCommonStrings.a11y.verySmall;
-const smallString = inverseSquareLawCommonStrings.a11y.small;
-const mediumSizeString = inverseSquareLawCommonStrings.a11y.mediumSize;
-const largeString = inverseSquareLawCommonStrings.a11y.large;
-const veryLargeString = inverseSquareLawCommonStrings.a11y.veryLarge;
-const hugeString = inverseSquareLawCommonStrings.a11y.huge;
+const tinyString = inverseSquareLawCommonStrings.a11y.qualitative.tiny;
+const verySmallString = inverseSquareLawCommonStrings.a11y.qualitative.verySmall;
+const smallString = inverseSquareLawCommonStrings.a11y.qualitative.small;
+const mediumSizeString = inverseSquareLawCommonStrings.a11y.qualitative.mediumSize;
+const largeString = inverseSquareLawCommonStrings.a11y.qualitative.large;
+const veryLargeString = inverseSquareLawCommonStrings.a11y.qualitative.veryLarge;
+const hugeString = inverseSquareLawCommonStrings.a11y.qualitative.huge;
 
 // relative size
 const muchMuchSmallerThanString = gravityForceLabStrings.a11y.relativeMassSize.muchMuchSmallerThan;
