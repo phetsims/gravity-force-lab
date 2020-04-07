@@ -35,7 +35,7 @@ import GravityForceLabForceDescriber from './describers/GravityForceLabForceDesc
 import GravityForceLabPositionDescriber from './describers/GravityForceLabPositionDescriber.js';
 import GravityForceLabRulerDescriber from './describers/GravityForceLabRulerDescriber.js';
 import MassDescriber from './describers/MassDescriber.js';
-import MarkerInput from './mechamarkers-controller/MarkerInput.js';
+import GravityForceLabMarkerInput from './mechamarkers-controller/GravityForceLabMarkerInput.js';
 import GravityForceLabAlertManager from './GravityForceLabAlertManager.js';
 import GravityForceLabControlPanel from './GravityForceLabControlPanel.js';
 import GravityForceLabScreenSummaryNode from './GravityForceLabScreenSummaryNode.js';
@@ -80,7 +80,7 @@ function GravityForceLabScreenView( model, tandem ) {
   } );
 
   // wire up to marker input
-  MarkerInput.init( model );
+  GravityForceLabMarkerInput.init( model );
 
   const alertManager = new GravityForceLabAlertManager( model, massDescriber, forceDescriber );
 

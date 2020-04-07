@@ -33,8 +33,12 @@
       },
       "phet": {
         "requirejsNamespace": "GRAVITY_FORCE_LAB",
+        "preload": [
+          "../tangible/js/preload/mechamarkers-21f16221e414ec2dca68bbfbb866369eea7abd70.js"
+        ],
         "phetLibs": [
-          "inverse-square-law-common"
+          "inverse-square-law-common",
+          "tangible"
         ],
         "runnable": true,
         "supportedBrands": [
@@ -103,7 +107,7 @@
     '../sherpa/lib/TextEncoderLite-3c9f6f0.js',
     '../tandem/js/PhetioIDUtils.js',
     '../chipper/js/SimVersion.js',
-    '../gravity-force-lab/js/view/mechamarkers-controller/mechamarkers-21f16221e414ec2dca68bbfbb866369eea7abd70.js'
+    '../tangible/js/preload/mechamarkers-21f16221e414ec2dca68bbfbb866369eea7abd70.js'
   ];
 
   if ( brand === 'phet-io' ) {
