@@ -1,5 +1,5 @@
 /* eslint-disable */
-window.phet.phetio.phetioTypes = assert &&
+window.phet.preloads.phetio.phetioTypes = assert &&
   {
     "ActionIO<>": {
       "documentation": "Executes when an event occurs.",
@@ -18,28 +18,6 @@ window.phet.phetio.phetioTypes = assert &&
       "parameterTypes": [],
       "supertype": "ObjectIO",
       "typeName": "ActionIO<>"
-    },
-    "ActionIO<BooleanIO>": {
-      "documentation": "Executes when an event occurs.",
-      "events": [
-        "emitted"
-      ],
-      "methodOrder": [],
-      "methods": {
-        "execute": {
-          "documentation": "Executes the function the Action is wrapping.",
-          "invocableForReadOnlyElements": false,
-          "parameterTypes": [
-            "BooleanIO"
-          ],
-          "returnType": "VoidIO"
-        }
-      },
-      "parameterTypes": [
-        "BooleanIO"
-      ],
-      "supertype": "ObjectIO",
-      "typeName": "ActionIO<BooleanIO>"
     },
     "ActionIO<EventIO>": {
       "documentation": "Executes when an event occurs.",
@@ -289,7 +267,18 @@ window.phet.phetio.phetioTypes = assert &&
       "documentation": "A dialog panel",
       "events": [],
       "methodOrder": [],
-      "methods": {},
+      "methods": {
+        "moveBackward": {
+          "documentation": "Move this node one index backward in each of its parents.  If the node is already at the back, this is a no-op.",
+          "parameterTypes": [],
+          "returnType": "VoidIO"
+        },
+        "moveForward": {
+          "documentation": "Move this node one index forward in each of its parents.  If the node is already at the front, this is a no-op.",
+          "parameterTypes": [],
+          "returnType": "VoidIO"
+        }
+      },
       "supertype": "NodeIO",
       "typeName": "DialogIO"
     },
@@ -454,6 +443,19 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "ObjectIO",
       "typeName": "FunctionIO(NullableIO<SceneryEventIO>)=>VoidIO"
     },
+    "FunctionIO(NullableIO<StringIO>,NullableIO<NullableIO<StringIO>>)=>VoidIO": {
+      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> NullableIO<StringIO>, NullableIO<NullableIO<StringIO>><br><strong>Return Type:</strong> VoidIO",
+      "events": [],
+      "methodOrder": [],
+      "methods": {},
+      "parameterTypes": [
+        "NullableIO<StringIO>",
+        "NullableIO<NullableIO<StringIO>>",
+        "VoidIO"
+      ],
+      "supertype": "ObjectIO",
+      "typeName": "FunctionIO(NullableIO<StringIO>,NullableIO<NullableIO<StringIO>>)=>VoidIO"
+    },
     "FunctionIO(NumberIO,NullableIO<NumberIO>)=>VoidIO": {
       "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> NumberIO, NullableIO<NumberIO><br><strong>Return Type:</strong> VoidIO",
       "events": [],
@@ -570,7 +572,18 @@ window.phet.phetio.phetioTypes = assert &&
       "documentation": "The base type for graphical and potentially interactive objects.  NodeIO has nested PropertyIO values for visibility, pickability and opacity.<br><br>Pickable can take one of three values:<br><ul><li>null: pass-through behavior. Nodes with input listeners are pickable, but nodes without input listeners won't block events for nodes behind it.</li><li>false: The node cannot be interacted with, and it blocks events for nodes behind it.</li><li>true: The node can be interacted with (if it has an input listener).</li></ul>For more about Scenery node pickability, please see <a href=\"http://phetsims.github.io/scenery/doc/implementation-notes#pickability\">http://phetsims.github.io/scenery/doc/implementation-notes#pickability</a>",
       "events": [],
       "methodOrder": [],
-      "methods": {},
+      "methods": {
+        "moveBackward": {
+          "documentation": "Move this node one index backward in each of its parents.  If the node is already at the back, this is a no-op.",
+          "parameterTypes": [],
+          "returnType": "VoidIO"
+        },
+        "moveForward": {
+          "documentation": "Move this node one index forward in each of its parents.  If the node is already at the front, this is a no-op.",
+          "parameterTypes": [],
+          "returnType": "VoidIO"
+        }
+      },
       "supertype": "ObjectIO",
       "typeName": "NodeIO"
     },
@@ -628,6 +641,17 @@ window.phet.phetio.phetioTypes = assert &&
       ],
       "supertype": "ObjectIO",
       "typeName": "NullableIO<NullableIO<FocusIO>>"
+    },
+    "NullableIO<NullableIO<StringIO>>": {
+      "documentation": "A wrapper to wrap another IOType, adding support for null.",
+      "events": [],
+      "methodOrder": [],
+      "methods": {},
+      "parameterTypes": [
+        "NullableIO<StringIO>"
+      ],
+      "supertype": "ObjectIO",
+      "typeName": "NullableIO<NullableIO<StringIO>>"
     },
     "NullableIO<NumberIO>": {
       "documentation": "A wrapper to wrap another IOType, adding support for null.",
@@ -699,7 +723,18 @@ window.phet.phetio.phetioTypes = assert &&
       "documentation": "A number control with a title, slider and +/- buttons",
       "events": [],
       "methodOrder": [],
-      "methods": {},
+      "methods": {
+        "moveBackward": {
+          "documentation": "Move this node one index backward in each of its parents.  If the node is already at the back, this is a no-op.",
+          "parameterTypes": [],
+          "returnType": "VoidIO"
+        },
+        "moveForward": {
+          "documentation": "Move this node one index forward in each of its parents.  If the node is already at the front, this is a no-op.",
+          "parameterTypes": [],
+          "returnType": "VoidIO"
+        }
+      },
       "supertype": "NodeIO",
       "typeName": "NumberControlIO"
     },
@@ -707,7 +742,18 @@ window.phet.phetio.phetioTypes = assert &&
       "documentation": "A numeric readout with a background",
       "events": [],
       "methodOrder": [],
-      "methods": {},
+      "methods": {
+        "moveBackward": {
+          "documentation": "Move this node one index backward in each of its parents.  If the node is already at the back, this is a no-op.",
+          "parameterTypes": [],
+          "returnType": "VoidIO"
+        },
+        "moveForward": {
+          "documentation": "Move this node one index forward in each of its parents.  If the node is already at the front, this is a no-op.",
+          "parameterTypes": [],
+          "returnType": "VoidIO"
+        }
+      },
       "supertype": "NodeIO",
       "typeName": "NumberDisplayIO"
     },
@@ -1194,6 +1240,50 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "ObjectIO",
       "typeName": "PropertyIO<NullableIO<FocusIO>>"
     },
+    "PropertyIO<NullableIO<StringIO>>": {
+      "documentation": "Observable values that send out notifications when the value changes. This differs from the traditional listener pattern in that added listeners also receive a callback with the current value when the listeners are registered. This is a widely-used pattern in PhET-iO simulations.",
+      "events": [
+        "changed"
+      ],
+      "methodOrder": [
+        "link",
+        "lazyLink"
+      ],
+      "methods": {
+        "getValue": {
+          "documentation": "Gets the current value.",
+          "parameterTypes": [],
+          "returnType": "NullableIO<StringIO>"
+        },
+        "lazyLink": {
+          "documentation": "Adds a listener which will be called when the value changes. This method is like \"link\", but without the current-value callback on registration. The listener takes two arguments, the new value and the previous value.",
+          "parameterTypes": [
+            "FunctionIO(NullableIO<StringIO>,NullableIO<NullableIO<StringIO>>)=>VoidIO"
+          ],
+          "returnType": "VoidIO"
+        },
+        "link": {
+          "documentation": "Adds a listener which will be called when the value changes. On registration, the listener is also called with the current value. The listener takes two arguments, the new value and the previous value.",
+          "parameterTypes": [
+            "FunctionIO(NullableIO<StringIO>,NullableIO<NullableIO<StringIO>>)=>VoidIO"
+          ],
+          "returnType": "VoidIO"
+        },
+        "setValue": {
+          "documentation": "Sets the value of the Property. If the value differs from the previous value, listeners are notified with the new value.",
+          "invocableForReadOnlyElements": false,
+          "parameterTypes": [
+            "NullableIO<StringIO>"
+          ],
+          "returnType": "VoidIO"
+        }
+      },
+      "parameterTypes": [
+        "NullableIO<StringIO>"
+      ],
+      "supertype": "ObjectIO",
+      "typeName": "PropertyIO<NullableIO<StringIO>>"
+    },
     "PropertyIO<NumberIO>": {
       "documentation": "Observable values that send out notifications when the value changes. This differs from the traditional listener pattern in that added listeners also receive a callback with the current value when the listeners are registered. This is a widely-used pattern in PhET-iO simulations.",
       "events": [
@@ -1423,30 +1513,29 @@ window.phet.phetio.phetioTypes = assert &&
       "typeName": "RangeIO"
     },
     "ReferenceIO": {
-      "documentation": "Uses reference identity for toStateObject/fromStateObject",
+      "documentation": "Uses reference identity for toStateObject/fromStateObject and validates based on its parameter IO Type.",
       "events": [],
       "methodOrder": [],
       "methods": {},
       "supertype": "ObjectIO",
       "typeName": "ReferenceIO"
     },
-    "ResetAllButtonIO": {
-      "documentation": "Button that performs an action while it is being pressed, and stops the action when released",
-      "events": [
-        "pressed",
-        "released",
-        "releasedDisabled"
-      ],
-      "methodOrder": [],
-      "methods": {},
-      "supertype": "NodeIO",
-      "typeName": "ResetAllButtonIO"
-    },
     "RichTextIO": {
       "documentation": "The tandem IO type for the scenery RichText node",
       "events": [],
       "methodOrder": [],
-      "methods": {},
+      "methods": {
+        "moveBackward": {
+          "documentation": "Move this node one index backward in each of its parents.  If the node is already at the back, this is a no-op.",
+          "parameterTypes": [],
+          "returnType": "VoidIO"
+        },
+        "moveForward": {
+          "documentation": "Move this node one index forward in each of its parents.  If the node is already at the front, this is a no-op.",
+          "parameterTypes": [],
+          "returnType": "VoidIO"
+        }
+      },
       "supertype": "NodeIO",
       "typeName": "RichTextIO"
     },

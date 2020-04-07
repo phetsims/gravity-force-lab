@@ -1,6 +1,6 @@
 {
   "name": "gravity-force-lab",
-  "version": "2.3.0-dev.1",
+  "version": "2.3.0-dev.2",
   "license": "GPL-3.0",
   "repository": {
     "type": "git",
@@ -23,7 +23,7 @@
       "phet-io",
       "adapted-from-phet"
     ],
-    "accessible": true,
+    "supportsInteractiveDescriptions": true,
     "supportsSound": true,
     "supportsEnhancedSound": true,
     "simulation": true
