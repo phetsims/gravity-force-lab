@@ -62,7 +62,7 @@ class MassNode extends ISLCObjectNode {
 
     this.objectModel.radiusProperty.link( () => {
 
-      // a11y - update the focusHighlight with the radius (Accessibility.js setter)
+      // a11y - update the focusHighlight with the radius (ParallelPDOM.js setter)
       this.focusHighlight = Shape.bounds( this.dragNode.bounds.dilated( 5 ) );
 
       // set the pointer and touch areas
