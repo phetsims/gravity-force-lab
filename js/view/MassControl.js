@@ -73,7 +73,7 @@ class MassControl extends ISLCObjectControlPanel {
             this.sliderDragStateProperty.set( SliderDragState.NOT_DRAGGING );
           },
 
-          // a11y
+          // pdom
           keyboardStep: 50,
           roundToStepSize: true,
           pageKeyboardStep: 100,
