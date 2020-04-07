@@ -20,7 +20,6 @@ import gravityForceLab from '../gravityForceLab.js';
 import gravityForceLabStrings from '../gravityForceLabStrings.js';
 import GravityForceLabModel from '../model/GravityForceLabModel.js';
 
-// a11y strings
 const constantRadiusThinkDensityPatternString = gravityForceLabStrings.a11y.controls.constantRadiusThinkDensityPattern;
 const massAndForceClausesPatternString = gravityForceLabStrings.a11y.qualitative.massAndForceClausesPattern;
 const sentencePatternString = gravityForceLabStrings.a11y.sentencePattern;

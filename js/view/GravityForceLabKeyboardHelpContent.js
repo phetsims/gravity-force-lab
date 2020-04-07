@@ -40,7 +40,6 @@ const moveOrJumpGrabbedRulerString = gravityForceLabStrings.moveOrJumpGrabbedRul
 const rulerCapitalizedString = sceneryPhetStrings.rulerCapitalized;
 const rulerString = sceneryPhetStrings.ruler;
 
-// a11y strings
 const moveSphereDescriptionString = gravityForceLabStrings.a11y.keyboardHelp.moveSphereDescription;
 const moveInSmallerStepsDescriptionString = gravityForceLabStrings.a11y.keyboardHelp.moveInSmallerStepsDescription;
 const moveInLargerStepsDescriptionString = gravityForceLabStrings.a11y.keyboardHelp.moveInLargerStepsDescription;

@@ -16,7 +16,6 @@ import Utterance from '../../../../utterance-queue/js/Utterance.js';
 import gravityForceLab from '../../gravityForceLab.js';
 import gravityForceLabStrings from '../../gravityForceLabStrings.js';
 
-// a11y strings
 const grabbedAlertPatternString = gravityForceLabStrings.a11y.ruler.grabbedAlertPattern;
 const regionAndDistancePatternString = gravityForceLabStrings.a11y.ruler.regionAndDistancePattern;
 const releaseAndExploreHintString = gravityForceLabStrings.a11y.ruler.releaseAndExploreHint;

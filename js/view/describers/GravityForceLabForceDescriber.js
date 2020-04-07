@@ -16,7 +16,6 @@ import gravityForceLabStrings from '../../gravityForceLabStrings.js';
 
 const unitsNewtonsString = inverseSquareLawCommonStrings.units.newtons;
 
-// a11y strings
 const micronewtonsString = gravityForceLabStrings.a11y.micronewtons;
 
 // constants

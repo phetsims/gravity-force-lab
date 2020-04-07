@@ -21,7 +21,6 @@ import gravityForceLabStrings from '../gravityForceLabStrings.js';
 
 const constantSizeString = gravityForceLabStrings.constantSize;
 
-// a11y strings
 const constantSizeCheckboxHelpTextString = gravityForceLabStrings.a11y.controls.constantSizeCheckboxHelpText;
 
 // constants
