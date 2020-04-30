@@ -84,7 +84,7 @@ function GravityForceLabModel( tandem ) {
 
 gravityForceLab.register( 'GravityForceLabModel', GravityForceLabModel );
 
-export default inherit( ISLCModel, GravityForceLabModel, {
+inherit( ISLCModel, GravityForceLabModel, {
 
   // @public
   reset: function() {
@@ -94,3 +94,5 @@ export default inherit( ISLCModel, GravityForceLabModel, {
     ISLCModel.prototype.reset.call( this );
   }
 } );
+
+export default GravityForceLabModel;

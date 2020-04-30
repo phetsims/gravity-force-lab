@@ -351,7 +351,7 @@ function GravityForceLabScreenView( model, tandem ) {
 
 gravityForceLab.register( 'GravityForceLabScreenView', GravityForceLabScreenView );
 
-export default inherit( ScreenView, GravityForceLabScreenView, {
+inherit( ScreenView, GravityForceLabScreenView, {
 
   /**
    * step the view
@@ -362,3 +362,5 @@ export default inherit( ScreenView, GravityForceLabScreenView, {
     this.forceSoundGenerator.step( dt );
   }
 } );
+
+export default GravityForceLabScreenView;
