@@ -81,6 +81,7 @@ class MassNode extends ISLCObjectNode {
   }
 
   /**
+   * @protected
    * @override
    * @param {Color} baseColor
    */

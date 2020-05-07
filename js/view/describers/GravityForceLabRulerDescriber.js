@@ -221,6 +221,7 @@ class GravityForceLabRulerDescriber extends ISLCDescriber {
   /**
    * Get current vertical position when in home position. Should only be called when the ruler is currently in home
    * position.
+   * @private
    */
   getHomePositionString() {
     const currentRegion = this.getCurrentVerticalRegion();
