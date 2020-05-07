@@ -8,7 +8,7 @@
 
 import Screen from '../../joist/js/Screen.js';
 import Sim from '../../joist/js/Sim.js';
-import SimLauncher from '../../joist/js/SimLauncher.js';
+import simLauncher from '../../joist/js/simLauncher.js';
 import Tandem from '../../tandem/js/Tandem.js';
 import gravityForceLabStrings from './gravityForceLabStrings.js';
 import GravityForceLabConstants from './GravityForceLabConstants.js';
@@ -36,7 +36,7 @@ const simOptions = {
   keyboardHelpNode: keyboardHelpContent
 };
 
-SimLauncher.launch( function() {
+simLauncher.launch( function() {
 
   const gravityForceLabScreenTandem = tandem.createTandem( 'gravityForceLabScreen' );
 
