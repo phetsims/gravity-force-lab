@@ -383,8 +383,11 @@
       "briefPositionChangeInteractionPattern": {
         "value": "{{valueText}}. {{forceAlert}}"
       },
+      "briefMassChangeForceAlertWithValuePattern": {
+        "value": "Forces {{forceChange}}, now {{value}} newtons."
+      },
       "briefMassChangeForceAlertPattern": {
-        "value": "{{massChange}} mass, {{forceChange}} forces."
+        "value": "Forces {{forceChange}}."
       },
       "briefDensityChangeForceAlertPattern": {
         "value": "{{densityChange}} density, {{forceChange}} forces."
@@ -393,7 +396,7 @@
         "value": "Forces now {{value}} newtons."
       },
       "briefMassPushAlertPattern": {
-        "value": "{{massChange}} mass moves {{object}} {{direction}}."
+        "value": "{{object1}} moves {{object2}} {{direction}}. {{forceAlert}}"
       },
       "briefMassChangeWithPushAlertPattern": {
         "value": "{{pushAlert}} {{forceAlert}}"
