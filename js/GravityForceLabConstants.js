@@ -15,7 +15,7 @@ import gravityForceLab from './gravityForceLab.js';
 // constants
 const MIN_MASS = 10; // kg
 const MAX_MASS = 1000; // kg
-const MAX_DISTANCE_FROM_CENTER = 4.8; // meters, empirically determined boundary for masses
+const MAX_DISTANCE_FROM_CENTER = 5; // meters, empirically determined boundary for masses
 const MASS_BLUE_COLOR = new Color( '#00f' );
 const MASS_RED_COLOR = new Color( '#f00' );
 
