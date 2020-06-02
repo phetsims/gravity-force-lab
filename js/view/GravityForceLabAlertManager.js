@@ -9,6 +9,7 @@
 import inverseSquareLawCommonStrings from '../../../inverse-square-law-common/js/inverseSquareLawCommonStrings.js';
 import ISLCQueryParameters from '../../../inverse-square-law-common/js/ISLCQueryParameters.js';
 import ForceValuesDisplayEnum from '../../../inverse-square-law-common/js/model/ForceValuesDisplayEnum.js';
+import cursorSpeakerModel from '../../../inverse-square-law-common/js/view/CursorSpeakerModel.js';
 import ISLCAlertManager from '../../../inverse-square-law-common/js/view/ISLCAlertManager.js';
 import ISLCObjectEnum from '../../../inverse-square-law-common/js/view/ISLCObjectEnum.js';
 import webSpeaker from '../../../inverse-square-law-common/js/view/webSpeaker.js';
@@ -107,8 +108,8 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
       else { // value specific assumption
         this.alertMassValueChanged( objectEnum, true );
 
-        if ( ISLCQueryParameters.selfVoicing ) {
-          if ( webSpeaker.getInteractiveModeBrief() ) {
+        if ( ISLCQueryParameters.selfVoicing === 'cursor' ) {
+          if ( cursorSpeakerModel.getInteractiveModeBrief() ) {
             webSpeaker.speak( this.getSelfVoicingForceChangeFromMassWithPushAlert( objectEnum ) );
           }
         }
