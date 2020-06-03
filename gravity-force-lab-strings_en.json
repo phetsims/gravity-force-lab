@@ -415,6 +415,11 @@
       },
       "less": {
         "value": "Less"
+      },
+      "levels": {
+        "distanceArrowPattern": {
+          "value": "{{distance}} kilometers"
+        }
       }
     }
   }
