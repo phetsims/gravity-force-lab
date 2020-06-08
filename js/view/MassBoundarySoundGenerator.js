@@ -13,8 +13,6 @@ import outerBoundarySound from '../../../tambo/sounds/boundary-reached_mp3.js';
 import innerBoundarySound from '../../sounds/scrunched-mass-collision-sonic-womp_mp3.js';
 import gravityForceLab from '../gravityForceLab.js';
 
-// sounds
-
 class MassBoundarySoundGenerator extends SoundGenerator {
 
   /**

@@ -54,8 +54,6 @@ const massControlsLabelString = gravityForceLabStrings.a11y.controls.massControl
 const massControlsHelpTextString = gravityForceLabStrings.a11y.controls.massControlsHelpText;
 const massControlsHelpTextDensityString = gravityForceLabStrings.a11y.controls.massControlsHelpTextDensity;
 
-// sounds
-
 // constants
 const SHOW_GRID = ISLCQueryParameters.showGrid;
 const SHOW_RULER_REGIONS = ISLCQueryParameters.showRulerRegions;

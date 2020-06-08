@@ -12,8 +12,6 @@ import SoundClip from '../../../tambo/js/sound-generators/SoundClip.js';
 import massSound from '../../sounds/rubber-band-v3_mp3.js';
 import gravityForceLab from '../gravityForceLab.js';
 
-// sounds
-
 // constants
 const PITCH_RANGE_IN_SEMI_TONES = 30;
 
