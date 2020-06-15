@@ -51,6 +51,9 @@ define( require => {
           forceThresholdPercent: FORCE_THRESHOLD_PERCENT,
           mapArrowWidthWithTwoFunctions: true
         },
+        pullerNodeOptions: {
+          ropeLength: 40
+        },
         y: MASS_NODE_Y_POSITION,
         snapToNearest: GravityForceLabConstants.POSITION_SNAP_VALUE,
         stepSize: GravityForceLabConstants.POSITION_STEP_SIZE,
