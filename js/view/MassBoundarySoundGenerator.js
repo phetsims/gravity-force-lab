@@ -29,9 +29,9 @@ class MassBoundarySoundGenerator extends SoundGenerator {
     assert && assert( massSidePosition === 'left' || massSidePosition === 'right' );
 
     const innerBoundarySoundClip = new SoundClip( innerBoundarySound );
-    innerBoundarySoundClip.connect( this.masterGainNode );
+    innerBoundarySoundClip.connect( this.soundSourceDestination );
     const outerBoundarySoundClip = new SoundClip( outerBoundarySound );
-    outerBoundarySoundClip.connect( this.masterGainNode );
+    outerBoundarySoundClip.connect( this.soundSourceDestination );
 
     // function for playing the appropriate boundary sound
     const positionListener = position => {
