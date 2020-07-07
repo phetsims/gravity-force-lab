@@ -108,7 +108,7 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
       else { // value specific assumption
         this.alertMassValueChanged( objectEnum, true );
 
-        if ( ISLCQueryParameters.selfVoicing === 'cursor' ) {
+        if ( ISLCQueryParameters.selfVoicing === 'paradigm1' ) {
           if ( cursorSpeakerModel.getInteractiveModeBrief() ) {
             webSpeaker.speak( this.getSelfVoicingForceChangeFromMassWithPushAlert( objectEnum ) );
           }
