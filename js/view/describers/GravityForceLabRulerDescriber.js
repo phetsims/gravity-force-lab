@@ -20,7 +20,6 @@ const grabbedAlertPatternString = gravityForceLabStrings.a11y.ruler.grabbedAlert
 const regionAndDistancePatternString = gravityForceLabStrings.a11y.ruler.regionAndDistancePattern;
 const releaseAndExploreHintString = gravityForceLabStrings.a11y.ruler.releaseAndExploreHint;
 const hintPatternString = gravityForceLabStrings.a11y.ruler.hintPattern;
-const centersApartPatternString = gravityForceLabStrings.a11y.ruler.centersApartPattern;
 const grabbedJumpKeyboardHintString = gravityForceLabStrings.a11y.ruler.grabbedJumpKeyboardHint;
 const jumpCenterKeyboardHintString = gravityForceLabStrings.a11y.ruler.jumpCenterKeyboardHint;
 const gestureHintString = gravityForceLabStrings.a11y.ruler.gestureHint;
@@ -131,16 +130,6 @@ class GravityForceLabRulerDescriber extends ISLCDescriber {
 
   /**
    * @private
-   * @returns {*|string}
-   */
-  getCentersApartDistance() {
-    return StringUtils.fillIn( centersApartPatternString, {
-      distanceAndUnits: this.positionDescriber.getDistanceAndUnits()
-    } );
-  }
-
-  /**
-   * @private
    * @returns {string}
    */
   getGrabbedHint() {
@@ -170,7 +159,7 @@ class GravityForceLabRulerDescriber extends ISLCDescriber {
   getRegionAndDistance() {
     return StringUtils.fillIn( regionAndDistancePatternString, {
       verticalRegion: this.getCurrentVerticalRegion(),
-      centersApart: this.getCentersApartDistance()
+      centersApart: this.positionDescriber.getCentersApartDistance()
     } );
   }
 
@@ -244,7 +233,7 @@ class GravityForceLabRulerDescriber extends ISLCDescriber {
    */
   getJumpCenterMassAlert() {
     return StringUtils.fillIn( jumpCenterMassAlertString, {
-      centersApart: this.getCentersApartDistance(),
+      centersApart: this.positionDescriber.getCentersApartDistance(),
       object1: this.getObjectLabelFromEnum( ISLCObjectEnum.OBJECT_ONE ),
       supplementalHint: this.jumpCenterUtterance.numberOfTimesAlerted < 2 ? jumpCenterKeyboardHintString : ''
     } );
