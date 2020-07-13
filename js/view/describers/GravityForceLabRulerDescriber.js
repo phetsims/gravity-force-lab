@@ -1,7 +1,7 @@
 // Copyright 2019-2020, University of Colorado Boulder
 
 /**
- * This describer is responsible for the descriptions associated with the moveable ruler. Unlike other describers, this
+ * This describer is responsible for the descriptions associated with the movable ruler. Unlike other describers, this
  * type also alerts based on the movement of the ruler. This is a bit non-traditional, but made sense based on the
  * modularity of ruler specific content.
  *
