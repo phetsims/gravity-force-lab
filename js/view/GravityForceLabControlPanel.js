@@ -35,7 +35,7 @@ class GravityForceLabControlPanel extends ISLCPanel {
   constructor( model, options ) {
 
     options = merge( {
-      tandem: Tandem.required
+      tandem: Tandem.REQUIRED
     }, options );
 
     const forceValuesDisplayControl = new ISLCForceValuesDisplayControl( model.forceValuesDisplayProperty, {
