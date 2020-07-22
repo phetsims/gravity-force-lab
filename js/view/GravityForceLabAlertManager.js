@@ -12,6 +12,7 @@ import ForceValuesDisplayEnum from '../../../inverse-square-law-common/js/model/
 import cursorSpeakerModel from '../../../inverse-square-law-common/js/view/CursorSpeakerModel.js';
 import ISLCAlertManager from '../../../inverse-square-law-common/js/view/ISLCAlertManager.js';
 import ISLCObjectEnum from '../../../inverse-square-law-common/js/view/ISLCObjectEnum.js';
+import levelSpeakerModel from '../../../inverse-square-law-common/js/view/levelSpeakerModel.js';
 import webSpeaker from '../../../inverse-square-law-common/js/view/webSpeaker.js';
 import merge from '../../../phet-core/js/merge.js';
 import StringUtils from '../../../phetcommon/js/util/StringUtils.js';
@@ -112,6 +113,11 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
           if ( cursorSpeakerModel.getInteractiveModeBrief() ) {
             webSpeaker.speak( this.getSelfVoicingForceChangeFromMassWithPushAlert( objectEnum ) );
           }
+        }
+        else if ( ISLCQueryParameters.selfVoicing === 'paradigm2' || ISLCQueryParameters.selfVoicing === 'paradigm3' ) {
+          const valueText = this.massDescriber.getMassAndUnit( objectEnum );
+          const massChangedUtterance = this.getMassValueChangedAlert( objectEnum );
+          levelSpeakerModel.speakAllResponses( valueText, massChangedUtterance.alert, null );
         }
       }
     };
