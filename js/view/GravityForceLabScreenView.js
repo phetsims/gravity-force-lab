@@ -298,8 +298,11 @@ function GravityForceLabScreenView( model, tandem ) {
     model.forceProperty,
     forceSound,
     new Range( model.getMinForce(), model.getMaxForce() ),
-    resetAllButton.buttonModel.isFiringProperty,
-    { initialOutputLevel: 0.15 }
+    {
+      initialOutputLevel: 0.15,
+      resetInProgressProperty: resetAllButton.buttonModel.isFiringProperty,
+      trimSilence: false // a very precise sound file is used, so make sure it doesn't get changed
+    }
   );
   soundManager.addSoundGenerator( this.forceSoundGenerator );
 
