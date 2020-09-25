@@ -111,6 +111,15 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
           if ( webSpeaker.getInteractiveModeBrief() ) {
             webSpeaker.speak( this.getSelfVoicingForceChangeFromMassWithPushAlert( objectEnum ) );
           }
+          else if ( webSpeaker.getInteractiveModeVerbose() ) {
+            const massChangedUtterance = this.getMassValueChangedAlert( objectEnum );
+            const valueText = this.massDescriber.getMassAndUnit( objectEnum );
+
+            webSpeaker.speak( StringUtils.fillIn( '{{valueText}}. {{massAlert}}', {
+              valueText: valueText,
+              massAlert: massChangedUtterance.alert
+            } ) );
+          }
         }
       }
     };
