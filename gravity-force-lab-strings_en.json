@@ -390,7 +390,7 @@
         "value": "Forces {{forceChange}}."
       },
       "briefDensityChangeForceAlertPattern": {
-        "value": "{{densityChange}} density, {{forceChange}} forces."
+        "value": "{{densityChange}} density, force arrows {{forceChange}}."
       },
       "briefNewForcePattern": {
         "value": "Forces now {{value}} newtons."
