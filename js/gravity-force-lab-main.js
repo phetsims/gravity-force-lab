@@ -10,8 +10,8 @@ import Screen from '../../joist/js/Screen.js';
 import Sim from '../../joist/js/Sim.js';
 import simLauncher from '../../joist/js/simLauncher.js';
 import Tandem from '../../tandem/js/Tandem.js';
-import gravityForceLabStrings from './gravityForceLabStrings.js';
 import GravityForceLabConstants from './GravityForceLabConstants.js';
+import gravityForceLabStrings from './gravityForceLabStrings.js';
 import GravityForceLabModel from './model/GravityForceLabModel.js';
 import GravityForceLabKeyboardHelpContent from './view/GravityForceLabKeyboardHelpContent.js';
 import GravityForceLabScreenView from './view/GravityForceLabScreenView.js';
@@ -20,7 +20,6 @@ import GravityForceLabScreenView from './view/GravityForceLabScreenView.js';
 const tandem = Tandem.ROOT;
 
 const gravityForceLabTitleString = gravityForceLabStrings[ 'gravity-force-lab' ].title;
-const keyboardHelpContent = new GravityForceLabKeyboardHelpContent();
 
 const simOptions = {
   credits: {
@@ -33,7 +32,7 @@ const simOptions = {
     soundDesign: 'Ashton Morris',
     thanks: 'Thanks to Mobile Learner Labs for working with the PhET development team to convert this simulation to HTML5.'
   },
-  keyboardHelpNode: keyboardHelpContent
+  hasKeyboardHelpContent: true
 };
 
 simLauncher.launch( function() {
@@ -51,7 +50,8 @@ simLauncher.launch( function() {
       },
       {
         backgroundColorProperty: GravityForceLabConstants.BACKGROUND_COLOR_PROPERTY,
-        tandem: gravityForceLabScreenTandem
+        tandem: gravityForceLabScreenTandem,
+        keyboardHelpNode: new GravityForceLabKeyboardHelpContent()
       }
     )
   ], simOptions ).start();
