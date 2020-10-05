@@ -153,11 +153,6 @@ class MoveOrJumpGrabbedRulerHelpSection extends KeyboardHelpSection {
    * @param {Object} [options]
    */
   constructor( options ) {
-    options = merge( {
-
-      // icon options
-      arrowKeysScale: 0.55
-    }, options );
 
     const moveRulerIcon = KeyboardHelpIconFactory.arrowOrWasdKeysRowIcon();
     const moveRulerRow = KeyboardHelpSection.labelWithIcon( moveGrabbedRulerString, moveRulerIcon,
