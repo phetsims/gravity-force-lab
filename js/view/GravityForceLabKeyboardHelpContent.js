@@ -126,8 +126,7 @@ class GravityForceLabKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
     KeyboardHelpSection.alignHelpSectionIcons( [ moveMassHelpSection, adjustMassHelpSection ] );
 
     const generalNavigationHelpSection = new GeneralKeyboardHelpSection( {
-      withCheckboxContent: true,
-      withGroupContent: !options.isBasics
+      withCheckboxContent: true
     } );
 
     const grabDragHelpContent = KeyboardHelpSection.getGrabReleaseHelpSection( rulerCapitalizedString, rulerString, {} );
