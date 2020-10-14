@@ -9,12 +9,11 @@
  */
 
 import merge from '../../../phet-core/js/merge.js';
-import EndKeyNode from '../../../scenery-phet/js/keyboard/EndKeyNode.js';
 import GeneralKeyboardHelpSection from '../../../scenery-phet/js/keyboard/help/GeneralKeyboardHelpSection.js';
 import KeyboardHelpIconFactory from '../../../scenery-phet/js/keyboard/help/KeyboardHelpIconFactory.js';
 import KeyboardHelpSection from '../../../scenery-phet/js/keyboard/help/KeyboardHelpSection.js';
 import TwoColumnKeyboardHelpContent from '../../../scenery-phet/js/keyboard/help/TwoColumnKeyboardHelpContent.js';
-import HomeKeyNode from '../../../scenery-phet/js/keyboard/HomeKeyNode.js';
+import TextKeyNode from '../../../scenery-phet/js/keyboard/TextKeyNode.js';
 import sceneryPhetStrings from '../../../scenery-phet/js/sceneryPhetStrings.js';
 import Node from '../../../scenery/js/nodes/Node.js';
 import gravityForceLab from '../gravityForceLab.js';
@@ -83,10 +82,10 @@ class GravityForceLabKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
       moveInLargerStepsString, KeyboardHelpIconFactory.pageUpPageDownRowIcon(), moveInLargerStepsDescriptionString );
 
     // 'jump to left' section
-    const jumpLeftRow = KeyboardHelpSection.labelWithIcon( jumpToLeftString, new HomeKeyNode(), jumpToLeftDescriptionString );
+    const jumpLeftRow = KeyboardHelpSection.labelWithIcon( jumpToLeftString, TextKeyNode.home(), jumpToLeftDescriptionString );
 
     // 'jump to right' section
-    const jumpRightRow = KeyboardHelpSection.labelWithIcon( jumpToRightString, new EndKeyNode(), jumpToRightDescriptionString );
+    const jumpRightRow = KeyboardHelpSection.labelWithIcon( jumpToRightString, TextKeyNode.end(), jumpToRightDescriptionString );
 
     const moveMassRows = [ moveMassRow, moveSmallStepsRow, moveLargeStepsRow, jumpLeftRow, jumpRightRow ];
     const moveMassHelpSection = new KeyboardHelpSection( moveSpheresHeadingString, moveMassRows );
@@ -103,9 +102,9 @@ class GravityForceLabKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
     const changeMassLargeStepsRow = KeyboardHelpSection.labelWithIcon(
       changeMassInLargerStepsString, KeyboardHelpIconFactory.pageUpPageDownRowIcon(), changeMassInLargerStepsDescriptionString );
     const jumpToMinMassRow = KeyboardHelpSection.labelWithIcon(
-      jumpToMinimumMassString, new HomeKeyNode(), jumpToMinimumMassDescriptionString );
+      jumpToMinimumMassString, TextKeyNode.home(), jumpToMinimumMassDescriptionString );
     const jumpToMaxMassRow = KeyboardHelpSection.labelWithIcon(
-      jumpToMaximumMassString, new EndKeyNode(), jumpToMaximumMassDescriptionString );
+      jumpToMaximumMassString, TextKeyNode.end(), jumpToMaximumMassDescriptionString );
 
     const adjustMassRows = [
       changeMassRow,
