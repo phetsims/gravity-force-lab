@@ -88,9 +88,6 @@ window.phet.preloads.phetio.phetioElementsOverrides =
     "gravityForceLab.gravityForceLabScreen.view.ruler.opacityProperty": {
       "phetioFeatured": true
     },
-    "gravityForceLab.gravityForceLabScreen.view.ruler.pickableProperty": {
-      "phetioFeatured": true
-    },
     "gravityForceLab.gravityForceLabScreen.view.ruler.visibleProperty": {
       "phetioFeatured": true
     }
