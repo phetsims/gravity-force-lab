@@ -117,7 +117,8 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
         else if ( ISLCQueryParameters.selfVoicing === 'paradigm2' || ISLCQueryParameters.selfVoicing === 'paradigm3' ) {
           const valueText = this.massDescriber.getMassAndUnit( objectEnum );
           const massChangedUtterance = this.getMassValueChangedAlert( objectEnum );
-          levelSpeakerModel.speakAllResponses( valueText, massChangedUtterance.alert, null );
+          const response = levelSpeakerModel.collectResponses( valueText, massChangedUtterance.alert, null );
+          phet.joist.sim.selfVoicingUtteranceQueue.addToBack( response );
         }
       }
     };
