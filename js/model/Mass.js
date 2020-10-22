@@ -41,7 +41,7 @@ class Mass extends ISLCObject {
 
     // see ISLCObject, mass color is will change with value of constantRadiusProperty (set within sim)
     this.baseColorProperty = new DerivedProperty( [ this.valueProperty, constantRadiusProperty ],
-      function( value, constantRadius ) {
+      ( value, constantRadius ) => {
         return constantRadius ?
                baseColor.colorUtilsBrighter( 1 - Math.abs( value ) / valueRange.max ) :
                baseColor.colorUtilsBrighter( baseColorModifier );

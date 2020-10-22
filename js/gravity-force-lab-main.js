@@ -35,19 +35,15 @@ const simOptions = {
   hasKeyboardHelpContent: true
 };
 
-simLauncher.launch( function() {
+simLauncher.launch( () => {
 
   const gravityForceLabScreenTandem = tandem.createTandem( 'gravityForceLabScreen' );
 
   // create and start the sim
   new Sim( gravityForceLabTitleString, [
     new Screen(
-      function() {
-        return new GravityForceLabModel( gravityForceLabScreenTandem.createTandem( 'model' ) );
-      },
-      function( model ) {
-        return new GravityForceLabScreenView( model, gravityForceLabScreenTandem.createTandem( 'view' ) );
-      },
+      () => new GravityForceLabModel( gravityForceLabScreenTandem.createTandem( 'model' ) ),
+      model => new GravityForceLabScreenView( model, gravityForceLabScreenTandem.createTandem( 'view' ) ),
       {
         backgroundColorProperty: GravityForceLabConstants.BACKGROUND_COLOR_PROPERTY,
         tandem: gravityForceLabScreenTandem,

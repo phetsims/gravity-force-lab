@@ -165,7 +165,7 @@ class GravityForceLabScreenView extends ScreenView {
     );
     massControlsNode.addChild( massControl2 );
 
-    model.constantRadiusProperty.link( function( constantRadius ) {
+    model.constantRadiusProperty.link( constantRadius => {
       massControlsNode.descriptionContent = constantRadius ? massControlsHelpTextDensityString : massControlsHelpTextString;
     } );
 
@@ -283,12 +283,12 @@ class GravityForceLabScreenView extends ScreenView {
     }
 
     mass1Node.addInputListener( {
-      focus: function() {
+      focus: () => {
         positionDescriber.lastMoveCloser = null;
       }
     } );
     mass2Node.addInputListener( {
-      focus: function() {
+      focus: () => {
         positionDescriber.lastMoveCloser = null;
       }
     } );
