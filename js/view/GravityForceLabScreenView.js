@@ -227,7 +227,7 @@ class GravityForceLabScreenView extends ScreenView {
       () => model.object1.positionProperty.value, // wrap this in a closure instead of exposing this all to the ruler.
       rulerDescriber,
       tandem.createTandem( 'ruler' ), {
-        pickablePropertyInstrumented: true,
+        pickablePropertyPhetioInstrumented: true,
         unitString: unitsMetersString,
         backgroundFill: 'rgb(236, 225, 113)',
         snapToNearest: GravityForceLabConstants.POSITION_SNAP_VALUE
