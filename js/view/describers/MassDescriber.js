@@ -8,7 +8,6 @@
  * @author Michael Barlow (PhET Interactive Simulations)
  */
 
-import Utils from '../../../../dot/js/Utils.js';
 import inverseSquareLawCommonStrings from '../../../../inverse-square-law-common/js/inverseSquareLawCommonStrings.js';
 import ISLCDescriber from '../../../../inverse-square-law-common/js/view/describers/ISLCDescriber.js';
 import ISLCObjectEnum from '../../../../inverse-square-law-common/js/view/ISLCObjectEnum.js';
@@ -236,7 +235,7 @@ class MassDescriber extends ISLCDescriber {
    */
   getMassSize( massValue ) {
     const massIndex = getMassSizeIndex( massValue, SIZE_STRINGS.length );
-    assert && assert( Utils.isInteger( massIndex ) && massIndex < SIZE_STRINGS.length, 'wrong index for size strings' );
+    assert && assert( Number.isInteger( massIndex ) && massIndex < SIZE_STRINGS.length, 'wrong index for size strings' );
     return SIZE_STRINGS[ massIndex ];
   }
 
@@ -313,7 +312,7 @@ class MassDescriber extends ISLCDescriber {
 
     let directionPhrase = isGrowing ? massGetsBiggerString : massGetsSmallerString;
 
-    // specific density related verbage 
+    // specific density related verbage
     if ( this.constantRadiusProperty.get() ) {
       directionPhrase = isGrowing ? densityIncreasesString : densityDecreasesString;
     }
@@ -370,7 +369,7 @@ class MassDescriber extends ISLCDescriber {
  */
 const getRelativeSizeFromIndex = ( index, capitalized ) => {
   const array = capitalized ? RELATIVE_SIZE_CAPITALIZED_STRINGS : RELATIVE_SIZE_STRINGS;
-  assert && assert( Utils.isInteger( index ) && index < array.length );
+  assert && assert( Number.isInteger( index ) && index < array.length );
   return array[ index ];
 };
 
@@ -381,7 +380,7 @@ const getRelativeSizeFromIndex = ( index, capitalized ) => {
  */
 const getRelativeDensityFromIndex = ( index, capitalized ) => {
   const array = capitalized ? RELATIVE_DENSITY_CAPITALIZED_STRINGS : RELATIVE_DENSITY_STRINGS;
-  assert && assert( Utils.isInteger( index ) && index < array.length );
+  assert && assert( Number.isInteger( index ) && index < array.length );
   return array[ index ];
 };
 
