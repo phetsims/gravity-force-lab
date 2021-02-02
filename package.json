@@ -20,7 +20,7 @@
       "phet-io",
       "adapted-from-phet"
     ],
-    "supportsInteractiveDescriptions": true,
+    "supportsInteractiveDescription": true,
     "supportsSound": true,
     "supportsEnhancedSound": true,
     "simulation": true
