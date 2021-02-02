@@ -249,14 +249,14 @@ class GravityForceLabScreenView extends ScreenView {
     ];
 
     // PDOM Order
-    // All Nodes must be added as children (accessibleOrder alone won't word), but these don't need to be in the
+    // All Nodes must be added as children (pdomOrder alone won't word), but these don't need to be in the
     // main scene graph
     this.pdomPlayAreaNode.children = [
       new MassDescriptionNode( model, model.object1, massDescriber, forceDescriber, positionDescriber ),
       new MassDescriptionNode( model, model.object2, massDescriber, forceDescriber, positionDescriber )
     ];
 
-    this.pdomPlayAreaNode.accessibleOrder = [
+    this.pdomPlayAreaNode.pdomOrder = [
       null, // space for the MassDescriptionNodes above to live
       massPositionsNode,
       mass1Node.arrowNode,
@@ -264,7 +264,7 @@ class GravityForceLabScreenView extends ScreenView {
       massControlsNode,
       gravityForceLabRuler
     ];
-    this.pdomControlAreaNode.accessibleOrder = [
+    this.pdomControlAreaNode.pdomOrder = [
       parameterControlPanel,
       resetAllButton
     ];
