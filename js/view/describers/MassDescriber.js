@@ -395,13 +395,13 @@ const getRelativeDensityFromIndex = ( index, capitalized ) => {
 const getRelativeSizeOrDensityIndex = ratio => {
   assert && assert( ratio > 0, 'ratio less than or equal to zero?' );
 
-  if ( ratio < .5 ) {
+  if ( ratio < 0.5 ) {
     return 0;
   }
-  if ( ratio === .5 ) {
+  if ( ratio === 0.5 ) {
     return 1;
   }
-  if ( ratio < .75 ) {
+  if ( ratio < 0.75 ) {
     return 2;
   }
   if ( ratio < 1 ) {

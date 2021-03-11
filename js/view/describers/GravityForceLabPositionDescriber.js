@@ -42,7 +42,7 @@ class GravityForceLabPositionDescriber extends PositionDescriber {
 
     // Though this is technically the min, the model can be set to the wrong value, and the rely on that "snap"
     // functionality to bring the distance back into the correct range on next model step. So support values less than.
-    if ( distance <= .6 ) {
+    if ( distance <= 0.6 ) {
       return 8;
     }
     if ( distance < 1.6 ) {
