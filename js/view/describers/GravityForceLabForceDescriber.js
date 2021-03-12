@@ -47,7 +47,7 @@ class GravityForceLabForceDescriber extends ForceDescriber {
         if ( this.forceValuesDisplayProperty.value === ForceValuesDisplayEnum.SCIENTIFIC ) {
           return ForceDescriber.getForceInScientificNotation( convertedForce, ISLCConstants.SCIENTIFIC_NOTATION_PRECISION );
         }
-        return convertedForce + '';
+        return `${convertedForce}`;
       }
     };
 
