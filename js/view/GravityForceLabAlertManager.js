@@ -118,7 +118,7 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
           const valueText = this.massDescriber.getMassAndUnit( objectEnum );
           const massChangedUtterance = this.getMassValueChangedAlert( objectEnum );
           const response = levelSpeakerModel.collectResponses( valueText, massChangedUtterance.alert, null );
-          phet.joist.sim.selfVoicingUtteranceQueue.addToBack( response );
+          phet.joist.sim.voicingUtteranceQueue.addToBack( response );
         }
       }
     };
