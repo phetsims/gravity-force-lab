@@ -25,17 +25,17 @@ import GravityForceLabModel from '../model/GravityForceLabModel.js';
 const constantRadiusThinkDensityPatternString = gravityForceLabStrings.a11y.controls.constantRadiusThinkDensityPattern;
 const massAndForceClausesPatternString = gravityForceLabStrings.a11y.qualitative.massAndForceClausesPattern;
 const sentencePatternString = gravityForceLabStrings.a11y.sentencePattern;
-const selfVoicingBriefMassChangeForceAlertWithValuePatternString = gravityForceLabStrings.a11y.voicing.briefMassChangeForceAlertWithValuePattern;
-const selfVoicingBriefMassChangeForceAlertPatternString = gravityForceLabStrings.a11y.voicing.briefMassChangeForceAlertPattern;
-const selfVoicingBiggerString = inverseSquareLawCommonStrings.a11y.voicing.bigger;
-const selfVoicingSmallerString = inverseSquareLawCommonStrings.a11y.voicing.smaller;
-const selfVoicingBriefMassPushAlertPatternString = gravityForceLabStrings.a11y.voicing.briefMassPushAlertPattern;
+const voicingBriefMassChangeForceAlertWithValuePatternString = gravityForceLabStrings.a11y.voicing.briefMassChangeForceAlertWithValuePattern;
+const voicingBriefMassChangeForceAlertPatternString = gravityForceLabStrings.a11y.voicing.briefMassChangeForceAlertPattern;
+const voicingBiggerString = inverseSquareLawCommonStrings.a11y.voicing.bigger;
+const voicingSmallerString = inverseSquareLawCommonStrings.a11y.voicing.smaller;
+const voicingBriefMassPushAlertPatternString = gravityForceLabStrings.a11y.voicing.briefMassPushAlertPattern;
 const briefDensityChangeForceAlertPatternString = gravityForceLabStrings.a11y.voicing.briefDensityChangeForceAlertPattern;
-const selfVoicingMoreString = gravityForceLabStrings.a11y.voicing.more;
-const selfVoicingLessString = gravityForceLabStrings.a11y.voicing.less;
+const voicingMoreString = gravityForceLabStrings.a11y.voicing.more;
+const voicingLessString = gravityForceLabStrings.a11y.voicing.less;
 const briefMassChangeAlertPatternString = gravityForceLabStrings.a11y.voicing.briefMassChangeAlertPattern;
-const selfVoicingBriefNewForcePatternString = gravityForceLabStrings.a11y.voicing.briefNewForcePattern;
-const selfVoicingBriefPositionChangeInteractionPatternString = gravityForceLabStrings.a11y.voicing.briefPositionChangeInteractionPattern;
+const voicingBriefNewForcePatternString = gravityForceLabStrings.a11y.voicing.briefNewForcePattern;
+const voicingBriefPositionChangeInteractionPatternString = gravityForceLabStrings.a11y.voicing.briefPositionChangeInteractionPattern;
 
 class GravityForceLabAlertManager extends ISLCAlertManager {
 
@@ -109,12 +109,12 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
       else { // value specific assumption
         this.alertMassValueChanged( objectEnum, true );
 
-        if ( ISLCQueryParameters.selfVoicing === 'paradigm1' ) {
+        if ( ISLCQueryParameters.voicing === 'paradigm1' ) {
           if ( cursorSpeakerModel.getInteractiveModeBrief() ) {
             webSpeaker.speak( this.getSelfVoicingForceChangeFromMassWithPushAlert( objectEnum ) );
           }
         }
-        else if ( ISLCQueryParameters.selfVoicing === 'paradigm2' || ISLCQueryParameters.selfVoicing === 'paradigm3' ) {
+        else if ( ISLCQueryParameters.voicing === 'paradigm2' || ISLCQueryParameters.voicing === 'paradigm3' ) {
           const valueText = this.massDescriber.getMassAndUnit( objectEnum );
           const massChangedUtterance = this.getMassValueChangedAlert( objectEnum );
           const response = levelSpeakerModel.collectResponses( valueText, massChangedUtterance.alert, null );
@@ -186,14 +186,14 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
   getSelfVoicingForceChangeFromMassAlert( objectEnum, currentMass, oldMass, otherObjectLabel ) {
     let alert;
 
-    const biggerSmallerChangeString = currentMass > oldMass ? selfVoicingBiggerString : selfVoicingSmallerString;
+    const biggerSmallerChangeString = currentMass > oldMass ? voicingBiggerString : voicingSmallerString;
     const valueString = this.forceDescriber.getFormattedForce();
 
     const constantSize = this.model.constantRadiusProperty.get();
     const forceValuesShown = this.model.showForceValuesProperty.get();
 
     if ( constantSize ) {
-      const moreLessChangeString = currentMass > oldMass ? selfVoicingMoreString : selfVoicingLessString;
+      const moreLessChangeString = currentMass > oldMass ? voicingMoreString : voicingLessString;
       const densityChangeString = StringUtils.fillIn( briefDensityChangeForceAlertPatternString, {
         densityChange: moreLessChangeString,
         forceChange: biggerSmallerChangeString
@@ -206,7 +206,7 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
       else {
 
         // forces are shown, read the new force value too
-        const newForceString = StringUtils.fillIn( selfVoicingBriefNewForcePatternString, {
+        const newForceString = StringUtils.fillIn( voicingBriefNewForcePatternString, {
           value: valueString
         } );
         alert = StringUtils.fillIn( briefMassChangeAlertPatternString, {
@@ -217,13 +217,13 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
     }
     else {
       if ( forceValuesShown ) {
-        alert = StringUtils.fillIn( selfVoicingBriefMassChangeForceAlertWithValuePatternString, {
+        alert = StringUtils.fillIn( voicingBriefMassChangeForceAlertWithValuePatternString, {
           forceChange: biggerSmallerChangeString,
           value: valueString
         } );
       }
       else {
-        alert = StringUtils.fillIn( selfVoicingBriefMassChangeForceAlertPatternString, {
+        alert = StringUtils.fillIn( voicingBriefMassChangeForceAlertPatternString, {
           forceChange: biggerSmallerChangeString
         } );
       }
@@ -247,18 +247,18 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
 
     let newForceString;
     if ( forceValuesShown ) {
-      newForceString = StringUtils.fillIn( selfVoicingBriefMassChangeForceAlertWithValuePatternString, {
-        forceChange: selfVoicingBiggerString,
+      newForceString = StringUtils.fillIn( voicingBriefMassChangeForceAlertWithValuePatternString, {
+        forceChange: voicingBiggerString,
         value: valueString
       } );
     }
     else {
-      newForceString = StringUtils.fillIn( selfVoicingBriefMassChangeForceAlertPatternString, {
-        forceChange: selfVoicingBiggerString
+      newForceString = StringUtils.fillIn( voicingBriefMassChangeForceAlertPatternString, {
+        forceChange: voicingBiggerString
       } );
     }
 
-    const pushAlertString = StringUtils.fillIn( selfVoicingBriefMassPushAlertPatternString, {
+    const pushAlertString = StringUtils.fillIn( voicingBriefMassPushAlertPatternString, {
       object1: this.forceDescriber.getObjectLabelFromEnum( objectEnum ),
       object2: this.forceDescriber.getOtherObjectLabelFromEnum( objectEnum ),
       direction: this.massDescriber.getPushDirectionText( ISLCObjectEnum.getOtherObjectEnum( objectEnum ) ),
@@ -266,7 +266,7 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
     } );
 
     const valueText = this.massDescriber.getMassAndUnit( objectEnum );
-    return StringUtils.fillIn( selfVoicingBriefPositionChangeInteractionPatternString, {
+    return StringUtils.fillIn( voicingBriefPositionChangeInteractionPatternString, {
       valueText: valueText,
       forceAlert: pushAlertString
     } );
