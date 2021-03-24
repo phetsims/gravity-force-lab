@@ -376,7 +376,7 @@
         }
       }
     },
-    "selfVoicing": {
+    "voicing": {
       "briefPositionChangeInteractionPattern": {
         "value": "{{valueText}}. {{forceAlert}}"
       },
