@@ -111,7 +111,7 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
 
         if ( ISLCQueryParameters.voicing === 'paradigm1' ) {
           if ( cursorSpeakerModel.getInteractiveModeBrief() ) {
-            webSpeaker.speak( this.getSelfVoicingForceChangeFromMassWithPushAlert( objectEnum ) );
+            webSpeaker.speak( this.getVoicingForceChangeFromMassWithPushAlert( objectEnum ) );
           }
         }
         else if ( ISLCQueryParameters.voicing === 'paradigm2' || ISLCQueryParameters.voicing === 'paradigm3' ) {
@@ -240,7 +240,7 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
    * @param {ISLCObjectEnum} objectEnum
    * @returns {string}
    */
-  getSelfVoicingForceChangeFromMassWithPushAlert( objectEnum ) {
+  getVoicingForceChangeFromMassWithPushAlert( objectEnum ) {
 
     const forceValuesShown = this.model.showForceValuesProperty.get();
     const valueString = this.forceDescriber.getFormattedForce();
