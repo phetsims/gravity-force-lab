@@ -7,13 +7,9 @@
  */
 
 import inverseSquareLawCommonStrings from '../../../inverse-square-law-common/js/inverseSquareLawCommonStrings.js';
-import ISLCQueryParameters from '../../../inverse-square-law-common/js/ISLCQueryParameters.js';
 import ForceValuesDisplayEnum from '../../../inverse-square-law-common/js/model/ForceValuesDisplayEnum.js';
-import cursorSpeakerModel from '../../../inverse-square-law-common/js/view/CursorSpeakerModel.js';
 import ISLCAlertManager from '../../../inverse-square-law-common/js/view/ISLCAlertManager.js';
 import ISLCObjectEnum from '../../../inverse-square-law-common/js/view/ISLCObjectEnum.js';
-import levelSpeakerModel from '../../../scenery-phet/js/accessibility/speaker/levelSpeakerModel.js';
-import webSpeaker from '../../../scenery/js/accessibility/speaker/webSpeaker.js';
 import merge from '../../../phet-core/js/merge.js';
 import StringUtils from '../../../phetcommon/js/util/StringUtils.js';
 import ActivationUtterance from '../../../utterance-queue/js/ActivationUtterance.js';
@@ -102,18 +98,6 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
       }
       else { // value specific assumption
         this.alertMassValueChanged( objectEnum, true );
-
-        if ( ISLCQueryParameters.voicing === 'paradigm1' ) {
-          if ( cursorSpeakerModel.getInteractiveModeBrief() ) {
-            webSpeaker.speak( this.getVoicingForceChangeFromMassWithPushAlert( objectEnum ) );
-          }
-        }
-        else if ( ISLCQueryParameters.voicing === 'paradigm2' || ISLCQueryParameters.voicing === 'paradigm3' ) {
-          const valueText = this.massDescriber.getMassAndUnit( objectEnum );
-          const massChangedUtterance = this.getMassValueChangedAlert( objectEnum );
-          const response = levelSpeakerModel.collectResponses( valueText, massChangedUtterance.alert, null );
-          phet.joist.sim.voicingUtteranceQueue.addToBack( response );
-        }
       }
     };
     model.object1.positionChangedFromSecondarySourceEmitter.addListener( secondaryPositionChangedListener );
