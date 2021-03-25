@@ -28,13 +28,7 @@ const sentencePatternString = gravityForceLabStrings.a11y.sentencePattern;
 const voicingBriefMassChangeForceAlertWithValuePatternString = gravityForceLabStrings.a11y.voicing.briefMassChangeForceAlertWithValuePattern;
 const voicingBriefMassChangeForceAlertPatternString = gravityForceLabStrings.a11y.voicing.briefMassChangeForceAlertPattern;
 const voicingBiggerString = inverseSquareLawCommonStrings.a11y.voicing.bigger;
-const voicingSmallerString = inverseSquareLawCommonStrings.a11y.voicing.smaller;
 const voicingBriefMassPushAlertPatternString = gravityForceLabStrings.a11y.voicing.briefMassPushAlertPattern;
-const briefDensityChangeForceAlertPatternString = gravityForceLabStrings.a11y.voicing.briefDensityChangeForceAlertPattern;
-const voicingMoreString = gravityForceLabStrings.a11y.voicing.more;
-const voicingLessString = gravityForceLabStrings.a11y.voicing.less;
-const briefMassChangeAlertPatternString = gravityForceLabStrings.a11y.voicing.briefMassChangeAlertPattern;
-const voicingBriefNewForcePatternString = gravityForceLabStrings.a11y.voicing.briefNewForcePattern;
 const voicingBriefPositionChangeInteractionPatternString = gravityForceLabStrings.a11y.voicing.briefPositionChangeInteractionPattern;
 
 class GravityForceLabAlertManager extends ISLCAlertManager {
@@ -169,67 +163,6 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
       forceClause: this.forceDescriber.getVectorChangeClause( forceBiggerOverride, false )
     } );
     return this.massChangedUtterance;
-  }
-
-  /**
-   * PROTOTYPE CODE: Get an alert that describes the changing mass value, with varying information depending on whether
-   * force values are visible and masses are at constant size. To be used on the "brief interactive" mode of
-   * self voicing output.
-   * @public
-   *
-   * @param {ISLCObjectEnum} objectEnum
-   * @param {number} currentMass
-   * @param {number} oldMass
-   * @param {string} otherObjectLabel
-   * @returns {string}
-   */
-  getSelfVoicingForceChangeFromMassAlert( objectEnum, currentMass, oldMass, otherObjectLabel ) {
-    let alert;
-
-    const biggerSmallerChangeString = currentMass > oldMass ? voicingBiggerString : voicingSmallerString;
-    const valueString = this.forceDescriber.getFormattedForce();
-
-    const constantSize = this.model.constantRadiusProperty.get();
-    const forceValuesShown = this.model.showForceValuesProperty.get();
-
-    if ( constantSize ) {
-      const moreLessChangeString = currentMass > oldMass ? voicingMoreString : voicingLessString;
-      const densityChangeString = StringUtils.fillIn( briefDensityChangeForceAlertPatternString, {
-        densityChange: moreLessChangeString,
-        forceChange: biggerSmallerChangeString
-      } );
-      if ( !forceValuesShown ) {
-
-        // forces are not shown, show just describe impact on forces
-        alert = densityChangeString;
-      }
-      else {
-
-        // forces are shown, read the new force value too
-        const newForceString = StringUtils.fillIn( voicingBriefNewForcePatternString, {
-          value: valueString
-        } );
-        alert = StringUtils.fillIn( briefMassChangeAlertPatternString, {
-          propertyChange: densityChangeString,
-          forceChange: newForceString
-        } );
-      }
-    }
-    else {
-      if ( forceValuesShown ) {
-        alert = StringUtils.fillIn( voicingBriefMassChangeForceAlertWithValuePatternString, {
-          forceChange: biggerSmallerChangeString,
-          value: valueString
-        } );
-      }
-      else {
-        alert = StringUtils.fillIn( voicingBriefMassChangeForceAlertPatternString, {
-          forceChange: biggerSmallerChangeString
-        } );
-      }
-    }
-
-    return alert;
   }
 
   /**
