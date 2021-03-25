@@ -151,7 +151,7 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
 
   /**
    * PROTOTYPE CODE: Gets an alert to be read when the mass changes AND due to increasing size pushes the other mass a bit.
-   * This is used in the self voicing prototype, when in "brief interactive" output.
+   * This is used in the voicing prototype, when in "brief interactive" output.
    * @private
    *
    * @param {ISLCObjectEnum} objectEnum
