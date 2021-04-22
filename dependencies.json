@@ -1,5 +1,5 @@
 {
-  "comment": "# gravity-force-lab 2.2.2 Mon Mar 08 2021 14:28:07 GMT-0500 (Eastern Standard Time)",
+  "comment": "# gravity-force-lab 2.2.2 Thu Apr 22 2021 14:25:54 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "a99a9ce9ee0774bf3ef509bf3e31ca7383f67478",
     "branch": "HEAD"
@@ -21,7 +21,7 @@
     "branch": "HEAD"
   },
   "gravity-force-lab": {
-    "sha": "75316ebd77c701069cd3c903925f27995e714c51",
+    "sha": "f6ed5a0f3c6160ff14bda8e1b6455fde83769b2c",
     "branch": "2.2"
   },
   "inverse-square-law-common": {
@@ -54,15 +54,15 @@
   },
   "phetmarks": {
     "sha": "c50856f93447eccdfd9def8ffe988fb9251034fa",
-    "branch": "gravity-force-lab-2.2"
+    "branch": "HEAD"
   },
   "query-string-machine": {
     "sha": "d0435aa45cc13c17aa1c8c9c21882539123249db",
     "branch": "HEAD"
   },
   "scenery": {
-    "sha": "dec9a4a9666926a2a9641b72fb68ebe93728a5c6",
-    "branch": "HEAD"
+    "sha": "abc5298b7bd5134469c6225e6254026ca2837fcb",
+    "branch": "gravity-force-lab-2.2"
   },
   "scenery-phet": {
     "sha": "3b566835c709946f0c54bf517482e801049d4420",
