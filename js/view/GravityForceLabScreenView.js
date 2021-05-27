@@ -248,7 +248,7 @@ class GravityForceLabScreenView extends ScreenView {
       resetAllButton
     ];
 
-    // PDOM Order
+    // pdom
     // All Nodes must be added as children (pdomOrder alone won't word), but these don't need to be in the
     // main scene graph
     this.pdomPlayAreaNode.children = [
