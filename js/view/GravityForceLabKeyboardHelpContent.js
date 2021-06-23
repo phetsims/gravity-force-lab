@@ -1,7 +1,7 @@
 // Copyright 2018-2020, University of Colorado Boulder
 
 /**
- * Content for the "Hot Keys and Help" dialog that can be brought up from the sim navigation bar.
+ * Content for the "Keyboard Shortcuts" dialog that can be brought up from the sim navigation bar.
  *
  * @author Jesse Greenberg (PhET Interactive Simulations)
  * @author Michael Barlow
