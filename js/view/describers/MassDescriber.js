@@ -423,7 +423,7 @@ const getRelativeSizeOrDensityIndex = ratio => {
     return 8;
   }
 
-  assert && assert( false, `unrecognized ratio: ${ratio}` );
+  throw new Error( `unrecognized ratio: ${ratio}` );
 };
 
 /**
@@ -457,7 +457,7 @@ const getMassSizeIndex = ( mass, numberOfRegions ) => {
   if ( mass <= 1000 ) {
     return 6;
   }
-  assert && assert( false, 'Invalid mass value.' );
+  throw new Error( 'Invalid mass value.' );
 };
 
 gravityForceLab.register( 'MassDescriber', MassDescriber );

@@ -197,6 +197,7 @@ class GravityForceLabRulerDescriber extends ISLCDescriber {
         return i;
       }
     }
+    throw new Error( 'value out of range: ' + viewY );
   }
 
   /**
