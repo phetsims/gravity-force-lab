@@ -249,15 +249,14 @@ class GravityForceLabScreenView extends ScreenView {
     ];
 
     // pdom
-    // All Nodes must be added as children (pdomOrder alone won't word), but these don't need to be in the
-    // main scene graph
-    this.pdomPlayAreaNode.children = [
-      new MassDescriptionNode( model, model.object1, massDescriber, forceDescriber, positionDescriber ),
-      new MassDescriptionNode( model, model.object2, massDescriber, forceDescriber, positionDescriber )
-    ];
+    const mass1DescriptionNode = new MassDescriptionNode( model, model.object1, massDescriber, forceDescriber, positionDescriber );
+    const mass2DescriptionNode = new MassDescriptionNode( model, model.object2, massDescriber, forceDescriber, positionDescriber );
+    this.addChild( mass1DescriptionNode );
+    this.addChild( mass2DescriptionNode );
 
     this.pdomPlayAreaNode.pdomOrder = [
-      null, // space for the MassDescriptionNodes above to live
+      mass1DescriptionNode,
+      mass2DescriptionNode,
       massPositionsNode,
       mass1Node.arrowNode,
       mass2Node.arrowNode,
