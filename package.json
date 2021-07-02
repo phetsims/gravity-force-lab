@@ -21,10 +21,10 @@
       "adapted-from-phet"
     ],
     "features":{
+      "supportsSound": true,
       "supportsEnhancedSound": true,
       "supportsInteractiveDescription": true
     },
-    "supportsSound": true,
     "simulation": true,
     "phet-io": {
       "compareDesignedAPIChanges": true
