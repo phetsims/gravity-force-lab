@@ -15,8 +15,8 @@ import StringUtils from '../../../phetcommon/js/util/StringUtils.js';
 import voicingManager from '../../../scenery/js/accessibility/voicing/voicingManager.js';
 import voicingUtteranceQueue from '../../../scenery/js/accessibility/voicing/voicingUtteranceQueue.js';
 import ActivationUtterance from '../../../utterance-queue/js/ActivationUtterance.js';
+import Utterance from '../../../utterance-queue/js/Utterance.js';
 import ValueChangeUtterance from '../../../utterance-queue/js/ValueChangeUtterance.js';
-import VoicingUtterance from '../../../utterance-queue/js/VoicingUtterance.js';
 import gravityForceLab from '../gravityForceLab.js';
 import gravityForceLabStrings from '../gravityForceLabStrings.js';
 import GravityForceLabModel from '../model/GravityForceLabModel.js';
@@ -257,9 +257,11 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
 
     // this will happen after the UI component for constant size has been changed, use an Utterance that won't
     // cancel the Voicing response from that interaction
-    const contextResponseUtterance = new VoicingUtterance( {
+    const contextResponseUtterance = new Utterance( {
       alert: voicingAlertString,
-      cancelOther: false
+      announcerOptions: {
+        cancelOther: false
+      }
     } );
     voicingUtteranceQueue.addToBack( contextResponseUtterance );
   }
