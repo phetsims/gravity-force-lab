@@ -14,7 +14,7 @@ import Utils from '../../../dot/js/Utils.js';
 import ISLCObjectControlPanel from '../../../inverse-square-law-common/js/view/ISLCObjectControlPanel.js';
 import Enumeration from '../../../phet-core/js/Enumeration.js';
 import PhetFont from '../../../scenery-phet/js/PhetFont.js';
-import Playable from '../../../tambo/js/Playable.js';
+import SoundPlayer from '../../../tambo/js/SoundPlayer.js';
 import gravityForceLabStrings from '../gravityForceLabStrings.js';
 import gravityForceLab from '../gravityForceLab.js';
 
@@ -99,7 +99,7 @@ class MassControl extends ISLCObjectControlPanel {
           yMargin: 4
         },
         arrowButtonOptions: {
-          soundPlayer: Playable.NO_SOUND
+          soundPlayer: SoundPlayer.NO_SOUND
         }
       },
 
