@@ -10,6 +10,7 @@ import Property from '../../../axon/js/Property.js';
 import inverseSquareLawCommonStrings from '../../../inverse-square-law-common/js/inverseSquareLawCommonStrings.js';
 import merge from '../../../phet-core/js/merge.js';
 import StringUtils from '../../../phetcommon/js/util/StringUtils.js';
+import PDOMSiblingStyle from '../../../scenery/js/accessibility/pdom/PDOMSiblingStyle.js';
 import Node from '../../../scenery/js/nodes/Node.js';
 import gravityForceLab from '../gravityForceLab.js';
 import gravityForceLabStrings from '../gravityForceLabStrings.js';
@@ -66,6 +67,19 @@ class GravityForceLabScreenSummaryNode extends Node {
     this.massValuesSummaryItem = new Node( liOptions );
     this.robotsSummaryItem = new Node( liOptions );
 
+    const listItemChildren = [
+      this.forceVectorsSummaryItem,
+      this.objectDistanceSummaryItem,
+      this.massValuesSummaryItem,
+      this.robotsSummaryItem
+    ];
+
+    // pdom - we are trying out removing the list style with CSS as a way to optimize the
+    // output with a screen reader, see https://github.com/phetsims/scenery/issues/1256
+    listItemChildren.forEach( listItemNode => {
+      listItemNode.setPDOMClass( PDOMSiblingStyle.LIST_ITEM_CLASS_NAME );
+    } );
+
     // initialize the list contents
     this.updateSimStateList();
 
@@ -87,12 +101,7 @@ class GravityForceLabScreenSummaryNode extends Node {
       innerContent: options.secondaryDescriptionContent
     } );
 
-    simStateNode.children = [
-      this.forceVectorsSummaryItem,
-      this.objectDistanceSummaryItem,
-      this.massValuesSummaryItem,
-      this.robotsSummaryItem
-    ];
+    simStateNode.children = listItemChildren;
 
     const interactionHintNode = new Node( {
       tagName: 'p',
