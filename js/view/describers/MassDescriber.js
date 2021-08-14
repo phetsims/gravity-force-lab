@@ -24,7 +24,8 @@ const valuePatternString = inverseSquareLawCommonStrings.a11y.valuePattern;
 const massValuesAndComparisonSummaryPatternString = gravityForceLabStrings.a11y.screenSummary.massValuesAndComparisonSummaryPattern;
 const massAndUnitPatternString = gravityForceLabStrings.a11y.qualitative.massAndUnitPattern;
 const objectsRelativeSizePatternString = gravityForceLabStrings.a11y.qualitative.objectsRelativeSizePattern;
-const massMaxMinBorderTextString = gravityForceLabStrings.a11y.controls.massMaxMinBorderText;
+const massMaxMinBorderTextWithForceString = gravityForceLabStrings.a11y.controls.massMaxMinBorderTextWithForce;
+const massMaxMinBorderTextWithoutForceString = gravityForceLabStrings.a11y.controls.massMaxMinBorderTextWithoutForce;
 
 // size
 const tinyString = inverseSquareLawCommonStrings.a11y.qualitative.tiny;
@@ -175,6 +176,7 @@ class MassDescriber extends ISLCDescriber {
     this.convertMassValue = options.convertMassValue;
     this.formatMassValue = options.formatMassValue;
     this.constantRadiusProperty = model.constantRadiusProperty;
+    this.showForceValuesProperty = model.showForceValuesProperty;
 
     model.object1.valueProperty.link( ( newMass, oldMass ) => {
       this.mass1Growing = ( newMass - oldMass ) > 0;
@@ -336,18 +338,43 @@ class MassDescriber extends ISLCDescriber {
   }
 
   /**
+   * Get a description of the mass relative to the other mass, when a mass value is at its min or max
+   * value. Certain information is excluded if that content is invisible:
+   * Will return something like:
+   *
+   * "Half the size of mass 1, force arrows tiny, force arrows 8.3 newtons." OR
+   * "Much much larger than mass 1, force arrows very small."
+   *
    * @public
+   *
    * @param {ISLCObjectEnum} thisObjectEnum
    * @returns {string}
    */
   getMassMaxMinText( thisObjectEnum ) {
-    return StringUtils.fillIn( massMaxMinBorderTextString, {
-      relativeSize: this.getRelativeSizeOrDensity( thisObjectEnum, true ),
-      otherObjectLabel: this.getOtherObjectLabelFromEnum( thisObjectEnum ),
-      forceVectorSize: this.forceDescriber.getForceVectorsSize(),
-      force: this.forceDescriber.getFormattedForce(),
-      unit: this.forceDescriber.units
-    } );
+    let descriptionString = '';
+
+    const relativeSizeString = this.getRelativeSizeOrDensity( thisObjectEnum, true );
+    const otherObjectLabelString = this.getOtherObjectLabelFromEnum( thisObjectEnum );
+    const forceVectorSizeString = this.forceDescriber.getForceVectorsSize();
+
+    if ( this.showForceValuesProperty.value ) {
+      descriptionString = StringUtils.fillIn( massMaxMinBorderTextWithForceString, {
+        relativeSize: relativeSizeString,
+        otherObjectLabel: otherObjectLabelString,
+        forceVectorSize: forceVectorSizeString,
+        force: this.forceDescriber.getFormattedForce(),
+        unit: this.forceDescriber.units
+      } );
+    }
+    else {
+      descriptionString = StringUtils.fillIn( massMaxMinBorderTextWithoutForceString, {
+        relativeSize: relativeSizeString,
+        otherObjectLabel: otherObjectLabelString,
+        forceVectorSize: forceVectorSizeString
+      } );
+    }
+
+    return descriptionString;
   }
 
   /**

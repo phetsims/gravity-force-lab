@@ -273,8 +273,11 @@
       "constantRadiusThinkDensityPattern": {
         "value": "{{mass1}} and {{mass2}} set to same size."
       },
-      "massMaxMinBorderText": {
+      "massMaxMinBorderTextWithForce": {
         "value": "{{relativeSize}} {{otherObjectLabel}}, {{forceVectorSize}}, forces {{force}} {{unit}}."
+      },
+      "massMaxMinBorderTextWithoutForce": {
+        "value": "{{relativeSize}} {{otherObjectLabel}}, {{forceVectorSize}}."
       }
     },
     "keyboardHelp": {
