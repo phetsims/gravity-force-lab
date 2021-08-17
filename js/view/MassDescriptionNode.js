@@ -4,9 +4,9 @@
 import Property from '../../../axon/js/Property.js';
 import ISLCObjectDescriptionNode from '../../../inverse-square-law-common/js/view/ISLCObjectDescriptionNode.js';
 import ISLCObjectEnum from '../../../inverse-square-law-common/js/view/ISLCObjectEnum.js';
+import PDOMListItemNode from '../../../inverse-square-law-common/js/view/PDOMListItemNode.js';
 import merge from '../../../phet-core/js/merge.js';
 import StringUtils from '../../../phetcommon/js/util/StringUtils.js';
-import Node from '../../../scenery/js/nodes/Node.js';
 import gravityForceLab from '../gravityForceLab.js';
 import gravityForceLabStrings from '../gravityForceLabStrings.js';
 
@@ -49,7 +49,7 @@ class MassDescriptionNode extends ISLCObjectDescriptionNode {
     // set the accessibleName after member fields have been initialized
     this.labelContent = this.getMassSphereString();
 
-    this.massAndPositionNode = new Node( { tagName: 'li' } );
+    this.massAndPositionNode = new PDOMListItemNode();
 
     this.addChild( this.massAndPositionNode );
 
