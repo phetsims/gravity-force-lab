@@ -11,7 +11,7 @@ import inverseSquareLawCommonStrings from '../../../inverse-square-law-common/js
 import PDOMListItemNode from '../../../inverse-square-law-common/js/view/PDOMListItemNode.js';
 import merge from '../../../phet-core/js/merge.js';
 import StringUtils from '../../../phetcommon/js/util/StringUtils.js';
-// import PDOMSiblingStyle from '../../../scenery/js/accessibility/pdom/PDOMSiblingStyle.js';
+import PDOMSiblingStyle from '../../../scenery/js/accessibility/pdom/PDOMSiblingStyle.js';
 import Node from '../../../scenery/js/nodes/Node.js';
 import gravityForceLab from '../gravityForceLab.js';
 import gravityForceLabStrings from '../gravityForceLabStrings.js';
@@ -71,11 +71,11 @@ class GravityForceLabScreenSummaryNode extends Node {
 
     const simStateNode = new Node( {
       tagName: 'ul',
-      // ariaRole: 'list',
+      ariaRole: 'list',
       labelContent: options.simStateLabel
     } );
 
-    // simStateNode.setPDOMClass( PDOMSiblingStyle.LIST_ITEM_CLASS_NAME );
+    simStateNode.setPDOMClass( PDOMSiblingStyle.LIST_ITEM_CLASS_NAME );
 
     const screenSummaryPlayAreaOverviewNode = new Node( {
       tagName: 'p',
