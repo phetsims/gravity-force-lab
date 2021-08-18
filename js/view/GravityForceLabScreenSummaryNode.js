@@ -8,10 +8,8 @@
 
 import Property from '../../../axon/js/Property.js';
 import inverseSquareLawCommonStrings from '../../../inverse-square-law-common/js/inverseSquareLawCommonStrings.js';
-import PDOMListItemNode from '../../../inverse-square-law-common/js/view/PDOMListItemNode.js';
 import merge from '../../../phet-core/js/merge.js';
 import StringUtils from '../../../phetcommon/js/util/StringUtils.js';
-import PDOMSiblingStyle from '../../../scenery/js/accessibility/pdom/PDOMSiblingStyle.js';
 import Node from '../../../scenery/js/nodes/Node.js';
 import gravityForceLab from '../gravityForceLab.js';
 import gravityForceLabStrings from '../gravityForceLabStrings.js';
@@ -60,22 +58,21 @@ class GravityForceLabScreenSummaryNode extends Node {
     this.positionDescriber = positionDescriber;
     this.massDescriber = massDescriber;
 
+    const liOptions = { tagName: 'li' };
+
     // @private - Nodes for PDOM content
-    this.forceVectorsSummaryItem = new PDOMListItemNode();
-    this.objectDistanceSummaryItem = new PDOMListItemNode();
-    this.massValuesSummaryItem = new PDOMListItemNode();
-    this.robotsSummaryItem = new PDOMListItemNode();
+    this.forceVectorsSummaryItem = new Node( liOptions );
+    this.objectDistanceSummaryItem = new Node( liOptions );
+    this.massValuesSummaryItem = new Node( liOptions );
+    this.robotsSummaryItem = new Node( liOptions );
 
     // initialize the list contents
     this.updateSimStateList();
 
     const simStateNode = new Node( {
       tagName: 'ul',
-      ariaRole: 'list',
       labelContent: options.simStateLabel
     } );
-
-    simStateNode.setPDOMClass( PDOMSiblingStyle.LIST_ITEM_CLASS_NAME );
 
     const screenSummaryPlayAreaOverviewNode = new Node( {
       tagName: 'p',
