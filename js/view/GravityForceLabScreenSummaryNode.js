@@ -71,7 +71,7 @@ class GravityForceLabScreenSummaryNode extends Node {
 
     const simStateNode = new Node( {
       tagName: 'ul',
-      ariaRole: 'list',
+      // ariaRole: 'list',
       labelContent: options.simStateLabel
     } );
 
