@@ -12,7 +12,7 @@ import ISLCAlertManager from '../../../inverse-square-law-common/js/view/ISLCAle
 import ISLCObjectEnum from '../../../inverse-square-law-common/js/view/ISLCObjectEnum.js';
 import merge from '../../../phet-core/js/merge.js';
 import StringUtils from '../../../phetcommon/js/util/StringUtils.js';
-import responseCollector from '../../../scenery/js/accessibility/voicing/responseCollector.js';
+import responseCollector from '../../../utterance-queue/js/responseCollector.js';
 import voicingUtteranceQueue from '../../../scenery/js/accessibility/voicing/voicingUtteranceQueue.js';
 import ActivationUtterance from '../../../utterance-queue/js/ActivationUtterance.js';
 import Utterance from '../../../utterance-queue/js/Utterance.js';
