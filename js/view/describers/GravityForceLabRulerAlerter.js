@@ -12,6 +12,7 @@ import ISLCQueryParameters from '../../../../inverse-square-law-common/js/ISLCQu
 import ISLCDescriber from '../../../../inverse-square-law-common/js/view/describers/ISLCDescriber.js';
 import ISLCObjectEnum from '../../../../inverse-square-law-common/js/view/ISLCObjectEnum.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import Alerter from '../../../../scenery-phet/js/accessibility/describers/Alerter.js';
 import Utterance from '../../../../utterance-queue/js/Utterance.js';
 import gravityForceLab from '../../gravityForceLab.js';
 import gravityForceLabStrings from '../../gravityForceLabStrings.js';
@@ -46,7 +47,7 @@ const RULER_VERTICAL_REGIONS = [
 ];
 const SHOW_RULER_REGIONS = ISLCQueryParameters.showRulerRegions;
 
-class GravityForceLabRulerDescriber extends ISLCDescriber {
+class GravityForceLabRulerAlerter extends Alerter {
 
   /**
    * @param {GravityForceLabModel} model
@@ -55,12 +56,13 @@ class GravityForceLabRulerDescriber extends ISLCDescriber {
    * @param {ModelViewTransform2} modelViewTransform
    * @param {Array.<number>} viewYPositions - a list of Y positions, least (top) to greatest (bottom)
    * @param {PositionDescriber} positionDescriber
+   * @param {Object} [options]
    */
-  constructor( model, object1Label, object2Label, modelViewTransform, viewYPositions, positionDescriber ) {
+  constructor( model, object1Label, object2Label, modelViewTransform, viewYPositions, positionDescriber, options ) {
 
     assert && assert( RULER_VERTICAL_REGIONS.length === viewYPositions.length, 'Unexpected number of y positions' );
 
-    super( model, object1Label, object2Label );
+    super( options );
 
     // @private
     this.rulerPositionProperty = model.rulerPositionProperty;
@@ -72,6 +74,9 @@ class GravityForceLabRulerDescriber extends ISLCDescriber {
     this.previousVerticalRegionIndex = this.getVerticalRegionIndex(); // for vertical movement alerts
     this.previousRulerPosition = this.rulerPositionProperty.value;
     this.justMovementAlerted = false;
+
+    // Used as a utility for getting either object label with only a reference to the other
+    this.islcDescriber = new ISLCDescriber( model, object1Label, object2Label );
 
     // @private - alerts for different ruler specific alerts
     this.jumpCenterUtterance = new Utterance();
@@ -98,7 +103,7 @@ class GravityForceLabRulerDescriber extends ISLCDescriber {
 
     // if the previous drag triggered a movement alert, then alert the release hint now.
     if ( this.justMovementAlerted ) {
-      phet.joist.sim.utteranceQueue.addToBack( this.releaseAndExploreUtterance );
+      this.alertDescriptionUtterance( this.releaseAndExploreUtterance );
       this.justMovementAlerted = false;
     }
 
@@ -124,7 +129,7 @@ class GravityForceLabRulerDescriber extends ISLCDescriber {
    */
   alertRulerMovement() {
     this.movementUtterance.alert = this.getRegionAndDistance();
-    phet.joist.sim.utteranceQueue.addToBack( this.movementUtterance );
+    this.alertDescriptionUtterance( this.movementUtterance );
     this.justMovementAlerted = true;
   }
 
@@ -225,7 +230,7 @@ class GravityForceLabRulerDescriber extends ISLCDescriber {
    */
   alertJumpHome() {
     this.jumpHomeUtterance.alert = this.getHomePositionString();
-    phet.joist.sim.utteranceQueue.addToBack( this.jumpHomeUtterance );
+    this.alertDescriptionUtterance( this.jumpHomeUtterance );
   }
 
   /**
@@ -235,7 +240,7 @@ class GravityForceLabRulerDescriber extends ISLCDescriber {
   getJumpCenterMassAlert() {
     return StringUtils.fillIn( jumpCenterMassAlertString, {
       centersApart: this.positionDescriber.getCentersApartDistance(),
-      object1: this.getObjectLabelFromEnum( ISLCObjectEnum.OBJECT_ONE ),
+      object1: this.islcDescriber.getObjectLabelFromEnum( ISLCObjectEnum.OBJECT_ONE ),
       supplementalHint: this.jumpCenterUtterance.numberOfTimesAlerted < 2 ? jumpCenterKeyboardHintString : ''
     } );
   }
@@ -246,7 +251,7 @@ class GravityForceLabRulerDescriber extends ISLCDescriber {
    */
   alertJumpCenterMass() {
     this.jumpCenterUtterance.alert = this.getJumpCenterMassAlert();
-    phet.joist.sim.utteranceQueue.addToBack( this.jumpCenterUtterance );
+    this.alertDescriptionUtterance( this.jumpCenterUtterance );
   }
 
   /**
@@ -270,5 +275,5 @@ class GravityForceLabRulerDescriber extends ISLCDescriber {
   }
 }
 
-gravityForceLab.register( 'GravityForceLabRulerDescriber', GravityForceLabRulerDescriber );
-export default GravityForceLabRulerDescriber;
+gravityForceLab.register( 'GravityForceLabRulerAlerter', GravityForceLabRulerAlerter );
+export default GravityForceLabRulerAlerter;

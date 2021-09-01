@@ -32,7 +32,7 @@ import GravityForceLabConstants from '../GravityForceLabConstants.js';
 import gravityForceLabStrings from '../gravityForceLabStrings.js';
 import GravityForceLabForceDescriber from './describers/GravityForceLabForceDescriber.js';
 import GravityForceLabPositionDescriber from './describers/GravityForceLabPositionDescriber.js';
-import GravityForceLabRulerDescriber from './describers/GravityForceLabRulerDescriber.js';
+import GravityForceLabRulerAlerter from './describers/GravityForceLabRulerAlerter.js';
 import MassDescriber from './describers/MassDescriber.js';
 import GravityForceLabAlertManager from './GravityForceLabAlertManager.js';
 import GravityForceLabControlPanel from './GravityForceLabControlPanel.js';
@@ -212,8 +212,10 @@ class GravityForceLabScreenView extends ScreenView {
       this.layoutBounds.bottom
     ];
 
-    const rulerDescriber = new GravityForceLabRulerDescriber( model, mass1AbbreviatedString, mass2AbbreviatedString,
-      modelViewTransform, rulerRegionPositions, positionDescriber );
+    const rulerDescriber = new GravityForceLabRulerAlerter( model, mass1AbbreviatedString, mass2AbbreviatedString,
+      modelViewTransform, rulerRegionPositions, positionDescriber, {
+        descriptionAlertNode: this // Use the ScreenView to alert description
+      } );
 
     // ruler drag bounds (in model coordinate frame) - assumes a single point scale inverted Y mapping
     const minX = model.leftObjectBoundary;
