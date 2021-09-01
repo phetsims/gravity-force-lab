@@ -76,7 +76,9 @@ class GravityForceLabScreenView extends ScreenView {
       tandem: tandem
     } );
 
-    const alertManager = new GravityForceLabAlertManager( model, massDescriber, forceDescriber );
+    const alertManager = new GravityForceLabAlertManager( model, massDescriber, forceDescriber, {
+      descriptionAlertNode: this
+    } );
 
     // Create the model-view transform.  The primary units used in the model are meters, so significant zoom is used.
     // The multipliers for the 2nd parameter can be used to adjust where the point (0, 0) in the model, which is
