@@ -15,7 +15,7 @@ import KeyboardHelpSection from '../../../scenery-phet/js/keyboard/help/Keyboard
 import TwoColumnKeyboardHelpContent from '../../../scenery-phet/js/keyboard/help/TwoColumnKeyboardHelpContent.js';
 import TextKeyNode from '../../../scenery-phet/js/keyboard/TextKeyNode.js';
 import sceneryPhetStrings from '../../../scenery-phet/js/sceneryPhetStrings.js';
-import Node from '../../../scenery/js/nodes/Node.js';
+import { Node } from '../../../scenery/js/imports.js';
 import gravityForceLab from '../gravityForceLab.js';
 import gravityForceLabStrings from '../gravityForceLabStrings.js';
 

@@ -11,7 +11,7 @@ import ForceValuesDisplayEnum from '../../../inverse-square-law-common/js/model/
 import ISLCObjectNode from '../../../inverse-square-law-common/js/view/ISLCObjectNode.js';
 import Shape from '../../../kite/js/Shape.js';
 import merge from '../../../phet-core/js/merge.js';
-import RadialGradient from '../../../scenery/js/util/RadialGradient.js';
+import { RadialGradient } from '../../../scenery/js/imports.js';
 import Tandem from '../../../tandem/js/Tandem.js';
 import gravityForceLab from '../gravityForceLab.js';
 import GravityForceLabConstants from '../GravityForceLabConstants.js';

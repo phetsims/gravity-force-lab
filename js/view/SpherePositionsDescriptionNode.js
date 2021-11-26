@@ -8,7 +8,7 @@
 import Property from '../../../axon/js/Property.js';
 import inverseSquareLawCommonStrings from '../../../inverse-square-law-common/js/inverseSquareLawCommonStrings.js';
 import merge from '../../../phet-core/js/merge.js';
-import Node from '../../../scenery/js/nodes/Node.js';
+import { Node } from '../../../scenery/js/imports.js';
 import gravityForceLab from '../gravityForceLab.js';
 
 // constants
