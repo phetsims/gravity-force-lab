@@ -9,7 +9,7 @@
  */
 
 import merge from '../../../phet-core/js/merge.js';
-import GeneralKeyboardHelpSection from '../../../scenery-phet/js/keyboard/help/GeneralKeyboardHelpSection.js';
+import BasicActionsKeyboardHelpSection from '../../../scenery-phet/js/keyboard/help/BasicActionsKeyboardHelpSection.js';
 import KeyboardHelpIconFactory from '../../../scenery-phet/js/keyboard/help/KeyboardHelpIconFactory.js';
 import KeyboardHelpSection from '../../../scenery-phet/js/keyboard/help/KeyboardHelpSection.js';
 import TwoColumnKeyboardHelpContent from '../../../scenery-phet/js/keyboard/help/TwoColumnKeyboardHelpContent.js';
@@ -124,14 +124,14 @@ class GravityForceLabKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
     // align icons for the mass movement and adjustment sections
     KeyboardHelpSection.alignHelpSectionIcons( [ moveMassHelpSection, adjustMassHelpSection ] );
 
-    const generalNavigationHelpSection = new GeneralKeyboardHelpSection( {
+    const basicActionsHelpSection = new BasicActionsKeyboardHelpSection( {
       withCheckboxContent: true
     } );
 
     const grabDragHelpContent = KeyboardHelpSection.getGrabReleaseHelpSection( rulerCapitalizedString, rulerString, {} );
 
     const leftContent = [ moveMassHelpSection, adjustMassHelpSection ];
-    const rightContent = [ generalNavigationHelpSection ];
+    const rightContent = [ basicActionsHelpSection ];
 
     if ( !options.isBasics ) {
       rightContent.unshift( grabDragHelpContent, new MoveOrJumpGrabbedRulerHelpSection() );
