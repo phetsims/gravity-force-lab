@@ -9,7 +9,7 @@
 
 import SoundClip from '../../../tambo/js/sound-generators/SoundClip.js';
 import SoundGenerator from '../../../tambo/js/sound-generators/SoundGenerator.js';
-import outerBoundarySound from '../../../tambo/sounds/boundary-reached_mp3.js';
+import boundaryReached_mp3 from '../../../tambo/sounds/boundary-reached_mp3.js';
 import scrunchedMassCollisionSonicWomp_mp3 from '../../sounds/scrunchedMassCollisionSonicWomp_mp3.js';
 import gravityForceLab from '../gravityForceLab.js';
 
@@ -30,7 +30,7 @@ class MassBoundarySoundGenerator extends SoundGenerator {
 
     const innerBoundarySoundClip = new SoundClip( scrunchedMassCollisionSonicWomp_mp3 );
     innerBoundarySoundClip.connect( this.soundSourceDestination );
-    const outerBoundarySoundClip = new SoundClip( outerBoundarySound );
+    const outerBoundarySoundClip = new SoundClip( boundaryReached_mp3 );
     outerBoundarySoundClip.connect( this.soundSourceDestination );
 
     // function for playing the appropriate boundary sound
