@@ -1,5 +1,5 @@
 {
-  "rubber-band-v3.mp3": {
+  "rubberBand_v3.mp3": {
     "text": [
       "Copyright 2002-2019 University of Colorado Boulder"
     ],
@@ -7,7 +7,7 @@
     "license": "contact phethelp@colorado.edu",
     "notes": "created by Ashton Morris (PhET Interactive Simulations)"
   },
-  "saturated-sine-loop-trimmed.wav": {
+  "saturatedSineLoopTrimmed.wav": {
     "text": [
       "Copyright 2002-2019 University of Colorado Boulder"
     ],
@@ -15,7 +15,7 @@
     "license": "contact phethelp@colorado.edu",
     "notes": "created by Ashton Morris (PhET Interactive Simulations), edited by John Blanco"
   },
-  "scrunched-mass-collision-sonic-womp.mp3": {
+  "scrunchedMassCollisionSonicWomp.mp3": {
     "text": [
       "Copyright 2002-2019 University of Colorado Boulder"
     ],

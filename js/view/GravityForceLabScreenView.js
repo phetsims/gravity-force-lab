@@ -26,7 +26,7 @@ import { Node } from '../../../scenery/js/imports.js';
 import ContinuousPropertySoundGenerator from '../../../tambo/js/sound-generators/ContinuousPropertySoundGenerator.js';
 import SoundLevelEnum from '../../../tambo/js/SoundLevelEnum.js';
 import soundManager from '../../../tambo/js/soundManager.js';
-import forceSound from '../../sounds/saturated-sine-loop-trimmed_wav.js';
+import saturatedSineLoopTrimmed_wav from '../../sounds/saturatedSineLoopTrimmed_wav.js';
 import gravityForceLab from '../gravityForceLab.js';
 import GravityForceLabConstants from '../GravityForceLabConstants.js';
 import gravityForceLabStrings from '../gravityForceLabStrings.js';
@@ -299,7 +299,7 @@ class GravityForceLabScreenView extends ScreenView {
     // @private - sound generation for the force sound
     this.forceSoundGenerator = new ContinuousPropertySoundGenerator(
       model.forceProperty,
-      forceSound,
+      saturatedSineLoopTrimmed_wav,
       new Range( model.getMinForce(), model.getMaxForce() ),
       {
         initialOutputLevel: 0.15,

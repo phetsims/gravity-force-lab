@@ -9,7 +9,7 @@
 import BooleanProperty from '../../../axon/js/BooleanProperty.js';
 import merge from '../../../phet-core/js/merge.js';
 import SoundClip from '../../../tambo/js/sound-generators/SoundClip.js';
-import massSound from '../../sounds/rubber-band-v3_mp3.js';
+import rubberBand_v3_mp3 from '../../sounds/rubberBand_v3_mp3.js';
 import gravityForceLab from '../gravityForceLab.js';
 
 // constants
@@ -51,7 +51,7 @@ class MassSoundGenerator extends SoundClip {
     // if no property is provided, create one that is always false so that sounds are played on every change
     const playBasedOnThresholdsProperty = options.playBasedOnThresholdsProperty || new BooleanProperty( false );
 
-    super( massSound, options );
+    super( rubberBand_v3_mp3, options );
 
     // function for playing the mass sound
     const massListener = ( mass, previousMass ) => {
