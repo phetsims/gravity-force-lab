@@ -159,7 +159,9 @@ class MoveOrJumpGrabbedRulerHelpSection extends KeyboardHelpSection {
     const shiftPlusArrowKeys = KeyboardHelpIconFactory.shiftPlusIcon( KeyboardHelpIconFactory.arrowKeysRowIcon() );
     const shiftPlusWASDKeys = KeyboardHelpIconFactory.shiftPlusIcon( KeyboardHelpIconFactory.wasdRowIcon() );
     const moveInSmallerStepsRow = KeyboardHelpSection.labelWithIconList( moveInSmallerStepsString,
-      [ shiftPlusArrowKeys, shiftPlusWASDKeys ], moveInSmallerStepsPDOMString );
+      [ shiftPlusArrowKeys, shiftPlusWASDKeys ], {
+        labelInnerContent: moveInSmallerStepsPDOMString
+      } );
 
 
     const jumpStartRow = KeyboardHelpSection.createJumpKeyRow( 'C',
