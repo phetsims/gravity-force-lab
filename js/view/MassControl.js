@@ -12,7 +12,7 @@ import Property from '../../../axon/js/Property.js';
 import Dimension2 from '../../../dot/js/Dimension2.js';
 import Utils from '../../../dot/js/Utils.js';
 import ISLCObjectControlPanel from '../../../inverse-square-law-common/js/view/ISLCObjectControlPanel.js';
-import Enumeration from '../../../phet-core/js/Enumeration.js';
+import EnumerationDeprecated from '../../../phet-core/js/EnumerationDeprecated.js';
 import PhetFont from '../../../scenery-phet/js/PhetFont.js';
 import SoundPlayer from '../../../tambo/js/SoundPlayer.js';
 import gravityForceLabStrings from '../gravityForceLabStrings.js';
@@ -23,7 +23,7 @@ const unitsKgString = gravityForceLabStrings.units.kg;
 // constants
 const TRACK_SIZE = new Dimension2( 170, 3 );
 const THUMB_SIZE = new Dimension2( 22, 42 );
-const SliderDragState = Enumeration.byKeys( [ 'NOT_DRAGGING', 'DRAGGING_VIA_POINTER', 'DRAGGING_VIA_KEYBOARD' ] );
+const SliderDragState = EnumerationDeprecated.byKeys( [ 'NOT_DRAGGING', 'DRAGGING_VIA_POINTER', 'DRAGGING_VIA_KEYBOARD' ] );
 const CONTROL_SCALE = 0.72;
 
 class MassControl extends ISLCObjectControlPanel {
