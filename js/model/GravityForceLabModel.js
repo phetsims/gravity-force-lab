@@ -1,4 +1,4 @@
-// Copyright 2013-2020, University of Colorado Boulder
+// Copyright 2013-2022, University of Colorado Boulder
 
 /**
  * Main model for the Gravity Force Lab simulation, which contains physical objects as well as user settings.
