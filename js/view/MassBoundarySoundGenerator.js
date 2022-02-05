@@ -1,4 +1,4 @@
-// Copyright 2019-2021, University of Colorado Boulder
+// Copyright 2019-2022, University of Colorado Boulder
 
 /**
  * MassBoundarySoundGenerator generates the sounds that indicate when the masses have reached their inner and outer motion
