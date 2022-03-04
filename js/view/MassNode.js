@@ -9,7 +9,7 @@
 
 import ForceValuesDisplayEnum from '../../../inverse-square-law-common/js/model/ForceValuesDisplayEnum.js';
 import ISLCObjectNode from '../../../inverse-square-law-common/js/view/ISLCObjectNode.js';
-import Shape from '../../../kite/js/Shape.js';
+import { Shape } from '../../../kite/js/imports.js';
 import merge from '../../../phet-core/js/merge.js';
 import { RadialGradient } from '../../../scenery/js/imports.js';
 import Tandem from '../../../tandem/js/Tandem.js';
