@@ -10,10 +10,9 @@ import inverseSquareLawCommonStrings from '../../../inverse-square-law-common/js
 import ForceValuesDisplayEnum from '../../../inverse-square-law-common/js/model/ForceValuesDisplayEnum.js';
 import ISLCAlertManager from '../../../inverse-square-law-common/js/view/ISLCAlertManager.js';
 import ISLCObjectEnum from '../../../inverse-square-law-common/js/view/ISLCObjectEnum.js';
-import ScreenView from '../../../joist/js/ScreenView.js';
 import merge from '../../../phet-core/js/merge.js';
 import StringUtils from '../../../phetcommon/js/util/StringUtils.js';
-import { voicingUtteranceQueue } from '../../../scenery/js/imports.js';
+import { Voicing } from '../../../scenery/js/imports.js';
 import ActivationUtterance from '../../../utterance-queue/js/ActivationUtterance.js';
 import responseCollector from '../../../utterance-queue/js/responseCollector.js';
 import Utterance from '../../../utterance-queue/js/Utterance.js';
@@ -60,6 +59,14 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
     // @private {Utterance} - utterances for various channels of information
     this.massChangedUtterance = new ValueChangeUtterance();
     this.scientificNotationUtterance = new ActivationUtterance();
+
+    // @public {Utterance} - When the 'constant size' changes and masses push each other away. Needs to be an Utterance
+    // that does not interrupt the response from the UI control that triggered that.
+    this.constantSizeChangedContextResponseUtterance = new Utterance( {
+      announcerOptions: {
+        cancelOther: false
+      }
+    } );
 
     const constantRadiusUtterance = new ActivationUtterance();
 
@@ -243,25 +250,8 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
       contextResponse: contextResponse
     } );
 
-    // I am not sure the best way to provide a Node to speak through. If these assumptions break speak then change
-    // the descriptionAlertNode to be a Node that composes Voicing so that we can use its voicingCanSpeakProperty.
-    assert && assert( this.descriptionAlertNode, 'Need a Node to speak through for Voicing' );
-    assert && assert( this.descriptionAlertNode instanceof ScreenView, 'We are assuming that this speaks through a ScreenView.' );
-    const voicingCanAnnounceProperties = [ this.descriptionAlertNode.voicingVisibleProperty ];
-
-    // this will happen after the UI component for constant size has been changed, use an Utterance that won't
-    // cancel the Voicing response from that interaction
-    const contextResponseUtterance = new Utterance( {
-      alert: voicingAlertString,
-      announcerOptions: {
-        cancelOther: false
-      },
-
-      // I am not sure the best way to do this without going through the UtteranceQueue. We need a Node to speak
-      // through so that
-      canAnnounceProperties: voicingCanAnnounceProperties
-    } );
-    voicingUtteranceQueue.addToBack( contextResponseUtterance );
+    this.constantSizeChangedContextResponseUtterance.alert = voicingAlertString;
+    Voicing.alertUtterance( this.constantSizeChangedContextResponseUtterance );
   }
 }
 
