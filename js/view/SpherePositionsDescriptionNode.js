@@ -5,7 +5,7 @@
  * @author Michael Kauzmann (PhET Interactive Simulations)
  */
 
-import Property from '../../../axon/js/Property.js';
+import Multilink from '../../../axon/js/Multilink.js';
 import inverseSquareLawCommonStrings from '../../../inverse-square-law-common/js/inverseSquareLawCommonStrings.js';
 import merge from '../../../phet-core/js/merge.js';
 import { Node } from '../../../scenery/js/imports.js';
@@ -32,7 +32,7 @@ class SpherePositionsDescriptionNode extends Node {
 
     super( options );
 
-    Property.multilink( [
+    Multilink.multilink( [
 
         // Linking to `model.separationProperty` caused the same bug as in GFLB#103, so we are linking to
         // both objects' positionProperty instead.

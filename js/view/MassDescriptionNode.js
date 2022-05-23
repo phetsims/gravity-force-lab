@@ -1,7 +1,7 @@
 // Copyright 2018-2021, University of Colorado Boulder
 
 
-import Property from '../../../axon/js/Property.js';
+import Multilink from '../../../axon/js/Multilink.js';
 import ISLCObjectDescriptionNode from '../../../inverse-square-law-common/js/view/ISLCObjectDescriptionNode.js';
 import ISLCObjectEnum from '../../../inverse-square-law-common/js/view/ISLCObjectEnum.js';
 import { Node } from '../../../scenery/js/imports.js';
@@ -54,7 +54,7 @@ class MassDescriptionNode extends ISLCObjectDescriptionNode {
     this.addChild( this.massAndPositionNode );
 
     // update the mass and position Node content whenever these dependencies change.
-    Property.multilink( [
+    Multilink.multilink( [
       model.forceProperty,
       model.constantRadiusProperty,
 

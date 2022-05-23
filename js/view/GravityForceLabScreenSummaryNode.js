@@ -6,7 +6,7 @@
  * @author Michael Barlow (PhET Interactive Simulations)
  */
 
-import Property from '../../../axon/js/Property.js';
+import Multilink from '../../../axon/js/Multilink.js';
 import inverseSquareLawCommonStrings from '../../../inverse-square-law-common/js/inverseSquareLawCommonStrings.js';
 import merge from '../../../phet-core/js/merge.js';
 import StringUtils from '../../../phetcommon/js/util/StringUtils.js';
@@ -110,12 +110,12 @@ class GravityForceLabScreenSummaryNode extends Node {
       interactionHintNode
     ];
 
-    Property.multilink( [ model.forceProperty, model.showForceValuesProperty ], () => {
+    Multilink.multilink( [ model.forceProperty, model.showForceValuesProperty ], () => {
       this.updateForceVectorSummary();
       this.updateRobotEffort();
     } );
 
-    Property.multilink(
+    Multilink.multilink(
       [ model.object1.positionProperty,
         model.object1.valueProperty,
         model.object2.positionProperty,
