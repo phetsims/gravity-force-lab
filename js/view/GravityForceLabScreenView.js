@@ -22,7 +22,7 @@ import ISLCRulerRegionsNode from '../../../inverse-square-law-common/js/view/ISL
 import ScreenView from '../../../joist/js/ScreenView.js';
 import ModelViewTransform2 from '../../../phetcommon/js/view/ModelViewTransform2.js';
 import ResetAllButton from '../../../scenery-phet/js/buttons/ResetAllButton.js';
-import { Node } from '../../../scenery/js/imports.js';
+import { Node, Voicing } from '../../../scenery/js/imports.js';
 import ContinuousPropertySoundGenerator from '../../../tambo/js/sound-generators/ContinuousPropertySoundGenerator.js';
 import SoundLevelEnum from '../../../tambo/js/SoundLevelEnum.js';
 import soundManager from '../../../tambo/js/soundManager.js';
@@ -295,6 +295,10 @@ class GravityForceLabScreenView extends ScreenView {
         positionDescriber.lastMoveCloser = null;
       }
     } );
+
+    // voicing - Make sure that the Utterances from Alerters only announce when the content under this ScreenView
+    // is visible
+    Voicing.registerUtteranceToNode( alertManager.constantSizeChangedContextResponseUtterance, this );
 
     // @private - sound generation for the force sound
     this.forceSoundGenerator = new ContinuousPropertySoundGenerator(
