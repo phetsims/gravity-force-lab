@@ -46,15 +46,13 @@ class GravityForceLabControlPanel extends ISLCPanel {
     const constantSizeText = new Text( constantSizeString, merge( {}, ISLCConstants.UI_TEXT_OPTIONS, {
       tandem: constantSizeCheckboxTandem.createTandem( 'labelText' )
     } ) );
-    const constantSizeCheckbox = new Checkbox( constantSizeText, model.constantRadiusProperty,
-      merge( {}, ISLCConstants.CHECKBOX_OPTIONS, {
-        tandem: constantSizeCheckboxTandem,
-        accessibleName: constantSizeString,
-        descriptionContent: constantSizeCheckboxHelpTextString,
-        textSize: CHECKBOX_TEXT_SIZE,
-        spacing: 4
-      } )
-    );
+    const constantSizeCheckbox = new Checkbox( model.constantRadiusProperty, constantSizeText, merge( {}, ISLCConstants.CHECKBOX_OPTIONS, {
+      tandem: constantSizeCheckboxTandem,
+      accessibleName: constantSizeString,
+      descriptionContent: constantSizeCheckboxHelpTextString,
+      textSize: CHECKBOX_TEXT_SIZE,
+      spacing: 4
+    } ) );
 
     super( new VBox( {
       children: [
