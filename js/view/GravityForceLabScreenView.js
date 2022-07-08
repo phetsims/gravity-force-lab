@@ -229,8 +229,8 @@ class GravityForceLabScreenView extends ScreenView {
       new Bounds2( minX, minY, maxX, maxY ),
       modelViewTransform,
       () => model.object1.positionProperty.value, // wrap this in a closure instead of exposing this all to the ruler.
-      rulerDescriber,
-      tandem.createTandem( 'ruler' ), {
+      rulerDescriber, {
+        tandem: tandem.createTandem( 'rulerNode' ),
         phetioInputEnabledPropertyInstrumented: true,
         unitString: unitsMetersString,
         backgroundFill: 'rgb(236, 225, 113)',

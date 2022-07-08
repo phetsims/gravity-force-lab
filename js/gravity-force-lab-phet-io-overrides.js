@@ -73,7 +73,7 @@ window.phet.preloads.phetio.phetioElementsOverrides =
     "gravityForceLab.gravityForceLabScreen.view.parameterControlPanel.visibleProperty": {
       "phetioFeatured": true
     },
-    "gravityForceLab.gravityForceLabScreen.view.ruler.visibleProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.rulerNode.visibleProperty": {
       "phetioFeatured": true
     }
   };
