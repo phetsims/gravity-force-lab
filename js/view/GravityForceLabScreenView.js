@@ -332,7 +332,7 @@ class GravityForceLabScreenView extends ScreenView {
           thresholdValues: MASS_SOUND_THRESHOLDS
         }
       ),
-      { sonificationLevel: SoundLevelEnum.ENHANCED }
+      { sonificationLevel: SoundLevelEnum.EXTRA }
     );
     soundManager.addSoundGenerator(
       new MassSoundGenerator(
@@ -345,7 +345,7 @@ class GravityForceLabScreenView extends ScreenView {
           thresholdValues: MASS_SOUND_THRESHOLDS
         }
       ),
-      { sonificationLevel: SoundLevelEnum.ENHANCED }
+      { sonificationLevel: SoundLevelEnum.EXTRA }
     );
 
     // sound generation for masses reaching the inner or outer motion boundaries
