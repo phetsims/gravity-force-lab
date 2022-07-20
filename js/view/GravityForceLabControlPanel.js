@@ -11,8 +11,7 @@ import ISLCConstants from '../../../inverse-square-law-common/js/ISLCConstants.j
 import ISLCForceValuesDisplayControl from '../../../inverse-square-law-common/js/view/ISLCForceValuesDisplayControl.js';
 import ISLCPanel from '../../../inverse-square-law-common/js/view/ISLCPanel.js';
 import merge from '../../../phet-core/js/merge.js';
-import { Text } from '../../../scenery/js/imports.js';
-import { VBox } from '../../../scenery/js/imports.js';
+import { Text, VBox } from '../../../scenery/js/imports.js';
 import Checkbox from '../../../sun/js/Checkbox.js';
 import HSeparator from '../../../sun/js/HSeparator.js';
 import Tandem from '../../../tandem/js/Tandem.js';
