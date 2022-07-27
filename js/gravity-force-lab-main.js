@@ -32,7 +32,8 @@ const simOptions = {
     soundDesign: 'Ashton Morris',
     thanks: 'Thanks to Mobile Learner Labs for working with the PhET development team to convert this simulation to HTML5.'
   },
-  hasKeyboardHelpContent: true
+  hasKeyboardHelpContent: true,
+  phetioDesigned: true
 };
 
 simLauncher.launch( () => {
