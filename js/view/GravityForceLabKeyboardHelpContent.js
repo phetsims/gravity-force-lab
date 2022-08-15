@@ -12,6 +12,7 @@ import merge from '../../../phet-core/js/merge.js';
 import BasicActionsKeyboardHelpSection from '../../../scenery-phet/js/keyboard/help/BasicActionsKeyboardHelpSection.js';
 import KeyboardHelpIconFactory from '../../../scenery-phet/js/keyboard/help/KeyboardHelpIconFactory.js';
 import KeyboardHelpSection from '../../../scenery-phet/js/keyboard/help/KeyboardHelpSection.js';
+import KeyboardHelpSectionRow from '../../../scenery-phet/js/keyboard/help/KeyboardHelpSectionRow.js';
 import TwoColumnKeyboardHelpContent from '../../../scenery-phet/js/keyboard/help/TwoColumnKeyboardHelpContent.js';
 import TextKeyNode from '../../../scenery-phet/js/keyboard/TextKeyNode.js';
 import sceneryPhetStrings from '../../../scenery-phet/js/sceneryPhetStrings.js';
@@ -69,12 +70,12 @@ class GravityForceLabKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
 
     // Mass movement help dialog section
     // move mass section
-    const moveMassRow = KeyboardHelpSection.labelWithIcon(
+    const moveMassRow = KeyboardHelpSectionRow.labelWithIcon(
       moveSphereLabelString, KeyboardHelpIconFactory.leftRightArrowKeysRowIcon(), {
         labelInnerContent: moveSphereDescriptionString
       } );
 
-    const moveSmallStepsRow = KeyboardHelpSection.labelWithIcon(
+    const moveSmallStepsRow = KeyboardHelpSectionRow.labelWithIcon(
       moveInSmallerStepsString,
       KeyboardHelpIconFactory.shiftPlusIcon( KeyboardHelpIconFactory.leftRightArrowKeysRowIcon() ),
       {
@@ -82,18 +83,18 @@ class GravityForceLabKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
       } );
 
     // 'move in larger steps' section
-    const moveLargeStepsRow = KeyboardHelpSection.labelWithIcon(
+    const moveLargeStepsRow = KeyboardHelpSectionRow.labelWithIcon(
       moveInLargerStepsString, KeyboardHelpIconFactory.pageUpPageDownRowIcon(), {
         labelInnerContent: moveInLargerStepsDescriptionString
       } );
 
     // 'jump to left' section
-    const jumpLeftRow = KeyboardHelpSection.labelWithIcon( jumpToLeftString, TextKeyNode.home(), {
+    const jumpLeftRow = KeyboardHelpSectionRow.labelWithIcon( jumpToLeftString, TextKeyNode.home(), {
       labelInnerContent: jumpToLeftDescriptionString
     } );
 
     // 'jump to right' section
-    const jumpRightRow = KeyboardHelpSection.labelWithIcon( jumpToRightString, TextKeyNode.end(), {
+    const jumpRightRow = KeyboardHelpSectionRow.labelWithIcon( jumpToRightString, TextKeyNode.end(), {
       labelInnerContent: jumpToRightDescriptionString
     } );
 
@@ -105,22 +106,22 @@ class GravityForceLabKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
 
     // Surrounded in Node for DAG layout constraints. Otherwise changeMassIcon will be positioned overwritten.
     const shiftPlusChangeMassIcon = KeyboardHelpIconFactory.shiftPlusIcon( new Node( { children: [ changeMassIcon ] } ) );
-    const changeMassRow = KeyboardHelpSection.labelWithIcon( changeMassLabelString, changeMassIcon, {
+    const changeMassRow = KeyboardHelpSectionRow.labelWithIcon( changeMassLabelString, changeMassIcon, {
       labelInnerContent: options.isBasics ? changeMassBasicsPDOMString : changeMassPDOMString
     } ); // up/down vs left/right
-    const changeMassSmallStepsRow = KeyboardHelpSection.labelWithIcon(
+    const changeMassSmallStepsRow = KeyboardHelpSectionRow.labelWithIcon(
       changeMassInSmallerStepsString, shiftPlusChangeMassIcon, {
         labelInnerContent: changeMassInSmallerStepsDescriptionString
       } );
-    const changeMassLargeStepsRow = KeyboardHelpSection.labelWithIcon(
+    const changeMassLargeStepsRow = KeyboardHelpSectionRow.labelWithIcon(
       changeMassInLargerStepsString, KeyboardHelpIconFactory.pageUpPageDownRowIcon(), {
         labelInnerContent: changeMassInLargerStepsDescriptionString
       } );
-    const jumpToMinMassRow = KeyboardHelpSection.labelWithIcon(
+    const jumpToMinMassRow = KeyboardHelpSectionRow.labelWithIcon(
       jumpToMinimumMassString, TextKeyNode.home(), {
         labelInnerContent: jumpToMinimumMassDescriptionString
       } );
-    const jumpToMaxMassRow = KeyboardHelpSection.labelWithIcon(
+    const jumpToMaxMassRow = KeyboardHelpSectionRow.labelWithIcon(
       jumpToMaximumMassString, TextKeyNode.end(), {
         labelInnerContent: jumpToMaximumMassDescriptionString
       } );
@@ -172,24 +173,24 @@ class MoveOrJumpGrabbedRulerHelpSection extends KeyboardHelpSection {
   constructor( options ) {
 
     const moveRulerIcon = KeyboardHelpIconFactory.arrowOrWasdKeysRowIcon();
-    const moveRulerRow = KeyboardHelpSection.labelWithIcon( moveGrabbedRulerString, moveRulerIcon, {
+    const moveRulerRow = KeyboardHelpSectionRow.labelWithIcon( moveGrabbedRulerString, moveRulerIcon, {
       labelInnerContent: moveGrabbedRulerPDOMString
     } );
 
     const shiftPlusArrowKeys = KeyboardHelpIconFactory.shiftPlusIcon( KeyboardHelpIconFactory.arrowKeysRowIcon() );
     const shiftPlusWASDKeys = KeyboardHelpIconFactory.shiftPlusIcon( KeyboardHelpIconFactory.wasdRowIcon() );
-    const moveInSmallerStepsRow = KeyboardHelpSection.labelWithIconList( moveInSmallerStepsString,
+    const moveInSmallerStepsRow = KeyboardHelpSectionRow.labelWithIconList( moveInSmallerStepsString,
       [ shiftPlusArrowKeys, shiftPlusWASDKeys ], {
         labelInnerContent: moveInSmallerStepsPDOMString
       } );
 
 
-    const jumpStartRow = KeyboardHelpSection.createJumpKeyRow( 'C',
+    const jumpStartRow = KeyboardHelpSectionRow.createJumpKeyRow( 'C',
       jumpStartOfSphereString, {
         labelInnerContent: jumpStartOfSpherePDOMString
       } );
 
-    const jumpHomeRow = KeyboardHelpSection.createJumpKeyRow( 'H', jumpHomeString, {
+    const jumpHomeRow = KeyboardHelpSectionRow.createJumpKeyRow( 'H', jumpHomeString, {
       labelInnerContent: jumpHomePDOMString
     } );
 
