@@ -19,7 +19,7 @@ import GravityForceLabScreenView from './view/GravityForceLabScreenView.js';
 // constants
 const tandem = Tandem.ROOT;
 
-const gravityForceLabTitleString = gravityForceLabStrings[ 'gravity-force-lab' ].title;
+const gravityForceLabTitleStringProperty = gravityForceLabStrings[ 'gravity-force-lab' ].titleStringProperty;
 
 const simOptions = {
   credits: {
@@ -41,7 +41,7 @@ simLauncher.launch( () => {
   const gravityForceLabScreenTandem = tandem.createTandem( 'gravityForceLabScreen' );
 
   // create and start the sim
-  new Sim( gravityForceLabTitleString, [
+  new Sim( gravityForceLabTitleStringProperty, [
     new Screen(
       () => new GravityForceLabModel( gravityForceLabScreenTandem.createTandem( 'model' ) ),
       model => new GravityForceLabScreenView( model, gravityForceLabScreenTandem.createTandem( 'view' ) ),
