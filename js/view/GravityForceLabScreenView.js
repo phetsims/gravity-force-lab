@@ -29,7 +29,7 @@ import soundManager from '../../../tambo/js/soundManager.js';
 import saturatedSineLoopTrimmed_wav from '../../sounds/saturatedSineLoopTrimmed_wav.js';
 import gravityForceLab from '../gravityForceLab.js';
 import GravityForceLabConstants from '../GravityForceLabConstants.js';
-import gravityForceLabStrings from '../gravityForceLabStrings.js';
+import GravityForceLabStrings from '../GravityForceLabStrings.js';
 import GravityForceLabForceDescriber from './describers/GravityForceLabForceDescriber.js';
 import GravityForceLabPositionDescriber from './describers/GravityForceLabPositionDescriber.js';
 import GravityForceLabRulerAlerter from './describers/GravityForceLabRulerAlerter.js';
@@ -44,14 +44,14 @@ import MassNode from './MassNode.js';
 import MassSoundGenerator from './MassSoundGenerator.js';
 import SpherePositionsDescriptionNode from './SpherePositionsDescriptionNode.js';
 
-const mass1AbbreviatedString = gravityForceLabStrings.mass1Abbreviated;
-const mass1String = gravityForceLabStrings.mass1;
-const mass2AbbreviatedString = gravityForceLabStrings.mass2Abbreviated;
-const mass2String = gravityForceLabStrings.mass2;
+const mass1AbbreviatedString = GravityForceLabStrings.mass1Abbreviated;
+const mass1String = GravityForceLabStrings.mass1;
+const mass2AbbreviatedString = GravityForceLabStrings.mass2Abbreviated;
+const mass2String = GravityForceLabStrings.mass2;
 const unitsMetersString = InverseSquareLawCommonStrings.units.meters;
-const massControlsLabelString = gravityForceLabStrings.a11y.controls.massControlsLabel;
-const massControlsHelpTextString = gravityForceLabStrings.a11y.controls.massControlsHelpText;
-const massControlsHelpTextDensityString = gravityForceLabStrings.a11y.controls.massControlsHelpTextDensity;
+const massControlsLabelString = GravityForceLabStrings.a11y.controls.massControlsLabel;
+const massControlsHelpTextString = GravityForceLabStrings.a11y.controls.massControlsHelpText;
+const massControlsHelpTextDensityString = GravityForceLabStrings.a11y.controls.massControlsHelpTextDensity;
 
 // constants
 const SHOW_GRID = ISLCQueryParameters.showGrid;

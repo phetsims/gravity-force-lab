@@ -11,7 +11,7 @@ import Sim from '../../joist/js/Sim.js';
 import simLauncher from '../../joist/js/simLauncher.js';
 import Tandem from '../../tandem/js/Tandem.js';
 import GravityForceLabConstants from './GravityForceLabConstants.js';
-import gravityForceLabStrings from './gravityForceLabStrings.js';
+import GravityForceLabStrings from './GravityForceLabStrings.js';
 import GravityForceLabModel from './model/GravityForceLabModel.js';
 import GravityForceLabKeyboardHelpContent from './view/GravityForceLabKeyboardHelpContent.js';
 import GravityForceLabScreenView from './view/GravityForceLabScreenView.js';
@@ -19,7 +19,7 @@ import GravityForceLabScreenView from './view/GravityForceLabScreenView.js';
 // constants
 const tandem = Tandem.ROOT;
 
-const gravityForceLabTitleStringProperty = gravityForceLabStrings[ 'gravity-force-lab' ].titleStringProperty;
+const gravityForceLabTitleStringProperty = GravityForceLabStrings[ 'gravity-force-lab' ].titleStringProperty;
 
 const simOptions = {
   credits: {

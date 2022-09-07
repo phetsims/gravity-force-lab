@@ -18,17 +18,17 @@ import responseCollector from '../../../utterance-queue/js/responseCollector.js'
 import Utterance from '../../../utterance-queue/js/Utterance.js';
 import ValueChangeUtterance from '../../../utterance-queue/js/ValueChangeUtterance.js';
 import gravityForceLab from '../gravityForceLab.js';
-import gravityForceLabStrings from '../gravityForceLabStrings.js';
+import GravityForceLabStrings from '../GravityForceLabStrings.js';
 import GravityForceLabModel from '../model/GravityForceLabModel.js';
 
-const constantRadiusThinkDensityPatternString = gravityForceLabStrings.a11y.controls.constantRadiusThinkDensityPattern;
-const massAndForceClausesPatternString = gravityForceLabStrings.a11y.qualitative.massAndForceClausesPattern;
-const sentencePatternString = gravityForceLabStrings.a11y.sentencePattern;
-const voicingBriefMassChangeForceAlertWithValuePatternString = gravityForceLabStrings.a11y.voicing.briefMassChangeForceAlertWithValuePattern;
-const voicingBriefMassChangeForceAlertPatternString = gravityForceLabStrings.a11y.voicing.briefMassChangeForceAlertPattern;
+const constantRadiusThinkDensityPatternString = GravityForceLabStrings.a11y.controls.constantRadiusThinkDensityPattern;
+const massAndForceClausesPatternString = GravityForceLabStrings.a11y.qualitative.massAndForceClausesPattern;
+const sentencePatternString = GravityForceLabStrings.a11y.sentencePattern;
+const voicingBriefMassChangeForceAlertWithValuePatternString = GravityForceLabStrings.a11y.voicing.briefMassChangeForceAlertWithValuePattern;
+const voicingBriefMassChangeForceAlertPatternString = GravityForceLabStrings.a11y.voicing.briefMassChangeForceAlertPattern;
 const voicingBiggerString = InverseSquareLawCommonStrings.a11y.voicing.bigger;
-const voicingBriefMassPushAlertPatternString = gravityForceLabStrings.a11y.voicing.briefMassPushAlertPattern;
-const voicingBriefPositionChangeInteractionPatternString = gravityForceLabStrings.a11y.voicing.briefPositionChangeInteractionPattern;
+const voicingBriefMassPushAlertPatternString = GravityForceLabStrings.a11y.voicing.briefMassPushAlertPattern;
+const voicingBriefPositionChangeInteractionPatternString = GravityForceLabStrings.a11y.voicing.briefPositionChangeInteractionPattern;
 
 class GravityForceLabAlertManager extends ISLCAlertManager {
 

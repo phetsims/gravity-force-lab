@@ -16,9 +16,9 @@ import EnumerationDeprecated from '../../../phet-core/js/EnumerationDeprecated.j
 import PhetFont from '../../../scenery-phet/js/PhetFont.js';
 import nullSoundPlayer from '../../../tambo/js/shared-sound-players/nullSoundPlayer.js';
 import gravityForceLab from '../gravityForceLab.js';
-import gravityForceLabStrings from '../gravityForceLabStrings.js';
+import GravityForceLabStrings from '../GravityForceLabStrings.js';
 
-const unitsKgString = gravityForceLabStrings.units.kg;
+const unitsKgString = GravityForceLabStrings.units.kg;
 
 // constants
 const TRACK_SIZE = new Dimension2( 170, 3 );

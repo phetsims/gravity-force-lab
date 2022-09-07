@@ -12,13 +12,13 @@ import merge from '../../../phet-core/js/merge.js';
 import StringUtils from '../../../phetcommon/js/util/StringUtils.js';
 import { Node } from '../../../scenery/js/imports.js';
 import gravityForceLab from '../gravityForceLab.js';
-import gravityForceLabStrings from '../gravityForceLabStrings.js';
+import GravityForceLabStrings from '../GravityForceLabStrings.js';
 
-const screenSummaryPlayAreaOverviewString = gravityForceLabStrings.a11y.screenSummary.playAreaOverview;
-const screenSummaryPlayAreaControlsString = gravityForceLabStrings.a11y.screenSummary.playAreaControls;
-const screenSummarySecondaryDescriptionString = gravityForceLabStrings.a11y.screenSummary.secondaryDescription;
-const simStateListLabelString = gravityForceLabStrings.a11y.screenSummary.simStateListLabel;
-const massString = gravityForceLabStrings.a11y.mass;
+const screenSummaryPlayAreaOverviewString = GravityForceLabStrings.a11y.screenSummary.playAreaOverview;
+const screenSummaryPlayAreaControlsString = GravityForceLabStrings.a11y.screenSummary.playAreaControls;
+const screenSummarySecondaryDescriptionString = GravityForceLabStrings.a11y.screenSummary.secondaryDescription;
+const simStateListLabelString = GravityForceLabStrings.a11y.screenSummary.simStateListLabel;
+const massString = GravityForceLabStrings.a11y.mass;
 
 // import from ISLC so that coulombs-law can use it too
 const summaryInteractionHintPatternString = InverseSquareLawCommonStrings.a11y.screenSummary.summaryInteractionHintPattern;

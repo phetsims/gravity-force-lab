@@ -16,11 +16,11 @@ import Checkbox from '../../../sun/js/Checkbox.js';
 import HSeparator from '../../../sun/js/HSeparator.js';
 import Tandem from '../../../tandem/js/Tandem.js';
 import gravityForceLab from '../gravityForceLab.js';
-import gravityForceLabStrings from '../gravityForceLabStrings.js';
+import GravityForceLabStrings from '../GravityForceLabStrings.js';
 
-const constantSizeString = gravityForceLabStrings.constantSize;
+const constantSizeString = GravityForceLabStrings.constantSize;
 
-const constantSizeCheckboxHelpTextString = gravityForceLabStrings.a11y.controls.constantSizeCheckboxHelpText;
+const constantSizeCheckboxHelpTextString = GravityForceLabStrings.a11y.controls.constantSizeCheckboxHelpText;
 
 // constants
 const CHECKBOX_TEXT_SIZE = 15;
