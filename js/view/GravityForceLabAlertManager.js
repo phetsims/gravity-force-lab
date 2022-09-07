@@ -6,7 +6,7 @@
  * @author Michael Kauzmann (PhET Interactive Simulations)
  */
 
-import inverseSquareLawCommonStrings from '../../../inverse-square-law-common/js/inverseSquareLawCommonStrings.js';
+import InverseSquareLawCommonStrings from '../../../inverse-square-law-common/js/InverseSquareLawCommonStrings.js';
 import ForceValuesDisplayEnum from '../../../inverse-square-law-common/js/model/ForceValuesDisplayEnum.js';
 import ISLCAlertManager from '../../../inverse-square-law-common/js/view/ISLCAlertManager.js';
 import ISLCObjectEnum from '../../../inverse-square-law-common/js/view/ISLCObjectEnum.js';
@@ -26,7 +26,7 @@ const massAndForceClausesPatternString = gravityForceLabStrings.a11y.qualitative
 const sentencePatternString = gravityForceLabStrings.a11y.sentencePattern;
 const voicingBriefMassChangeForceAlertWithValuePatternString = gravityForceLabStrings.a11y.voicing.briefMassChangeForceAlertWithValuePattern;
 const voicingBriefMassChangeForceAlertPatternString = gravityForceLabStrings.a11y.voicing.briefMassChangeForceAlertPattern;
-const voicingBiggerString = inverseSquareLawCommonStrings.a11y.voicing.bigger;
+const voicingBiggerString = InverseSquareLawCommonStrings.a11y.voicing.bigger;
 const voicingBriefMassPushAlertPatternString = gravityForceLabStrings.a11y.voicing.briefMassPushAlertPattern;
 const voicingBriefPositionChangeInteractionPatternString = gravityForceLabStrings.a11y.voicing.briefPositionChangeInteractionPattern;
 

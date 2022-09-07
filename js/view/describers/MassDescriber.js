@@ -8,7 +8,7 @@
  * @author Michael Barlow (PhET Interactive Simulations)
  */
 
-import inverseSquareLawCommonStrings from '../../../../inverse-square-law-common/js/inverseSquareLawCommonStrings.js';
+import InverseSquareLawCommonStrings from '../../../../inverse-square-law-common/js/InverseSquareLawCommonStrings.js';
 import ISLCDescriber from '../../../../inverse-square-law-common/js/view/describers/ISLCDescriber.js';
 import ISLCObjectEnum from '../../../../inverse-square-law-common/js/view/ISLCObjectEnum.js';
 import merge from '../../../../phet-core/js/merge.js';
@@ -20,7 +20,7 @@ import gravityForceLabStrings from '../../gravityForceLabStrings.js';
 const mass1AbbreviatedString = gravityForceLabStrings.mass1Abbreviated;
 const mass2AbbreviatedString = gravityForceLabStrings.mass2Abbreviated;
 
-const valuePatternString = inverseSquareLawCommonStrings.a11y.valuePattern;
+const valuePatternString = InverseSquareLawCommonStrings.a11y.valuePattern;
 const massValuesAndComparisonSummaryPatternString = gravityForceLabStrings.a11y.screenSummary.massValuesAndComparisonSummaryPattern;
 const massAndUnitPatternString = gravityForceLabStrings.a11y.qualitative.massAndUnitPattern;
 const objectsRelativeSizePatternString = gravityForceLabStrings.a11y.qualitative.objectsRelativeSizePattern;
@@ -28,13 +28,13 @@ const massMaxMinBorderTextWithForceString = gravityForceLabStrings.a11y.controls
 const massMaxMinBorderTextWithoutForceString = gravityForceLabStrings.a11y.controls.massMaxMinBorderTextWithoutForce;
 
 // size
-const tinyString = inverseSquareLawCommonStrings.a11y.qualitative.tiny;
-const verySmallString = inverseSquareLawCommonStrings.a11y.qualitative.verySmall;
-const smallString = inverseSquareLawCommonStrings.a11y.qualitative.small;
-const mediumSizeString = inverseSquareLawCommonStrings.a11y.qualitative.mediumSize;
-const largeString = inverseSquareLawCommonStrings.a11y.qualitative.large;
-const veryLargeString = inverseSquareLawCommonStrings.a11y.qualitative.veryLarge;
-const hugeString = inverseSquareLawCommonStrings.a11y.qualitative.huge;
+const tinyString = InverseSquareLawCommonStrings.a11y.qualitative.tiny;
+const verySmallString = InverseSquareLawCommonStrings.a11y.qualitative.verySmall;
+const smallString = InverseSquareLawCommonStrings.a11y.qualitative.small;
+const mediumSizeString = InverseSquareLawCommonStrings.a11y.qualitative.mediumSize;
+const largeString = InverseSquareLawCommonStrings.a11y.qualitative.large;
+const veryLargeString = InverseSquareLawCommonStrings.a11y.qualitative.veryLarge;
+const hugeString = InverseSquareLawCommonStrings.a11y.qualitative.huge;
 
 // relative size
 const muchMuchSmallerThanString = gravityForceLabStrings.a11y.relativeMassSize.muchMuchSmallerThan;
@@ -87,8 +87,8 @@ const massGetsBiggerString = gravityForceLabStrings.a11y.propertyChange.massGets
 const massGetsSmallerString = gravityForceLabStrings.a11y.propertyChange.massGetsSmaller;
 const densityIncreasesString = gravityForceLabStrings.a11y.propertyChange.densityIncreases;
 const densityDecreasesString = gravityForceLabStrings.a11y.propertyChange.densityDecreases;
-const leftString = inverseSquareLawCommonStrings.a11y.qualitative.left;
-const rightString = inverseSquareLawCommonStrings.a11y.qualitative.right;
+const leftString = InverseSquareLawCommonStrings.a11y.qualitative.left;
+const rightString = InverseSquareLawCommonStrings.a11y.qualitative.right;
 
 const SIZE_STRINGS = [
   tinyString,

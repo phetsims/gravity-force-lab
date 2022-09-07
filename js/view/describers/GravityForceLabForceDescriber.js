@@ -7,14 +7,14 @@
  */
 
 import Utils from '../../../../dot/js/Utils.js';
-import inverseSquareLawCommonStrings from '../../../../inverse-square-law-common/js/inverseSquareLawCommonStrings.js';
+import InverseSquareLawCommonStrings from '../../../../inverse-square-law-common/js/InverseSquareLawCommonStrings.js';
 import ISLCConstants from '../../../../inverse-square-law-common/js/ISLCConstants.js';
 import ForceValuesDisplayEnum from '../../../../inverse-square-law-common/js/model/ForceValuesDisplayEnum.js';
 import ForceDescriber from '../../../../inverse-square-law-common/js/view/describers/ForceDescriber.js';
 import gravityForceLab from '../../gravityForceLab.js';
 import gravityForceLabStrings from '../../gravityForceLabStrings.js';
 
-const unitsNewtonsString = inverseSquareLawCommonStrings.units.newtons;
+const unitsNewtonsString = InverseSquareLawCommonStrings.units.newtons;
 
 const micronewtonsString = gravityForceLabStrings.a11y.micronewtons;
 

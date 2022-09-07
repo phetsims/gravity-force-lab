@@ -7,7 +7,7 @@
  */
 
 import Multilink from '../../../axon/js/Multilink.js';
-import inverseSquareLawCommonStrings from '../../../inverse-square-law-common/js/inverseSquareLawCommonStrings.js';
+import InverseSquareLawCommonStrings from '../../../inverse-square-law-common/js/InverseSquareLawCommonStrings.js';
 import merge from '../../../phet-core/js/merge.js';
 import StringUtils from '../../../phetcommon/js/util/StringUtils.js';
 import { Node } from '../../../scenery/js/imports.js';
@@ -21,7 +21,7 @@ const simStateListLabelString = gravityForceLabStrings.a11y.screenSummary.simSta
 const massString = gravityForceLabStrings.a11y.mass;
 
 // import from ISLC so that coulombs-law can use it too
-const summaryInteractionHintPatternString = inverseSquareLawCommonStrings.a11y.screenSummary.summaryInteractionHintPattern;
+const summaryInteractionHintPatternString = InverseSquareLawCommonStrings.a11y.screenSummary.summaryInteractionHintPattern;
 
 class GravityForceLabScreenSummaryNode extends Node {
 

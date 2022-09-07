@@ -15,7 +15,7 @@ import KeyboardHelpSection from '../../../scenery-phet/js/keyboard/help/Keyboard
 import KeyboardHelpSectionRow from '../../../scenery-phet/js/keyboard/help/KeyboardHelpSectionRow.js';
 import TwoColumnKeyboardHelpContent from '../../../scenery-phet/js/keyboard/help/TwoColumnKeyboardHelpContent.js';
 import TextKeyNode from '../../../scenery-phet/js/keyboard/TextKeyNode.js';
-import sceneryPhetStrings from '../../../scenery-phet/js/sceneryPhetStrings.js';
+import SceneryPhetStrings from '../../../scenery-phet/js/SceneryPhetStrings.js';
 import { Node } from '../../../scenery/js/imports.js';
 import gravityForceLab from '../gravityForceLab.js';
 import gravityForceLabStrings from '../gravityForceLabStrings.js';
@@ -37,8 +37,8 @@ const jumpHomeString = gravityForceLabStrings.jumpHome;
 const jumpStartOfSphereString = gravityForceLabStrings.jumpStartOfSphere;
 const moveGrabbedRulerString = gravityForceLabStrings.moveGrabbedRuler;
 const moveOrJumpGrabbedRulerString = gravityForceLabStrings.moveOrJumpGrabbedRuler;
-const rulerCapitalizedString = sceneryPhetStrings.rulerCapitalized;
-const rulerString = sceneryPhetStrings.ruler;
+const rulerCapitalizedString = SceneryPhetStrings.rulerCapitalized;
+const rulerString = SceneryPhetStrings.ruler;
 
 const moveSphereDescriptionString = gravityForceLabStrings.a11y.keyboardHelp.moveSphereDescription;
 const moveInSmallerStepsDescriptionString = gravityForceLabStrings.a11y.keyboardHelp.moveInSmallerStepsDescription;

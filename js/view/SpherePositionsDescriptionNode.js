@@ -6,13 +6,13 @@
  */
 
 import Multilink from '../../../axon/js/Multilink.js';
-import inverseSquareLawCommonStrings from '../../../inverse-square-law-common/js/inverseSquareLawCommonStrings.js';
+import InverseSquareLawCommonStrings from '../../../inverse-square-law-common/js/InverseSquareLawCommonStrings.js';
 import merge from '../../../phet-core/js/merge.js';
 import { Node } from '../../../scenery/js/imports.js';
 import gravityForceLab from '../gravityForceLab.js';
 
 // constants
-const spherePositionsString = inverseSquareLawCommonStrings.a11y.sphere.spherePositions;
+const spherePositionsString = InverseSquareLawCommonStrings.a11y.sphere.spherePositions;
 
 class SpherePositionsDescriptionNode extends Node {
 
