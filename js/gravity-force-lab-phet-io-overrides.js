@@ -37,7 +37,7 @@ window.phet.preloads.phetio.phetioElementsOverrides =
     "gravityForceLab.gravityForceLabScreen.view.mass1Node.forceDisplayNode.visibleProperty": {
       "phetioFeatured": true
     },
-    "gravityForceLab.gravityForceLabScreen.view.mass1Node.labelText.textProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.mass1Node.labelText.stringProperty": {
       "phetioFeatured": true
     },
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.centerOfMassLineNode.visibleProperty": {
@@ -49,7 +49,7 @@ window.phet.preloads.phetio.phetioElementsOverrides =
     "gravityForceLab.gravityForceLabScreen.view.mass2Node.forceDisplayNode.visibleProperty": {
       "phetioFeatured": true
     },
-    "gravityForceLab.gravityForceLabScreen.view.mass2Node.labelText.textProperty": {
+    "gravityForceLab.gravityForceLabScreen.view.mass2Node.labelText.stringProperty": {
       "phetioFeatured": true
     },
     "gravityForceLab.gravityForceLabScreen.view.massControl1.visibleProperty": {
