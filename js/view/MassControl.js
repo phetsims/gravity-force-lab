@@ -90,7 +90,10 @@ class MassControl extends ISLCObjectControlPanel {
           },
           a11yCreateAriaValueText: () => massDescriber.getMassAndUnit( massEnum )
         },
-        titleNodeOptions: { font: new PhetFont( 24 ) },
+        titleNodeOptions: {
+          font: new PhetFont( 24 ),
+          phetioVisiblePropertyInstrumented: true
+        },
         numberDisplayOptions: {
           textOptions: {
             font: new PhetFont( 18 )
