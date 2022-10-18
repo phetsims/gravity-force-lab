@@ -100,7 +100,7 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
 
     // When the value changes position, the position will change after the valueProperty has, so link a listener to
     // alert one the positions are correct, this is important to get the alerts like
-    // "mass 1 get's bigger and moves mass 2 right"
+    // "mass 1 gets bigger and moves mass 2 right"
     const secondaryPositionChangedListener = objectEnum => {
 
       // handle the case where the position changed from the constant radius being toggled
