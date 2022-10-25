@@ -48,7 +48,7 @@ simLauncher.launch( () => {
       {
         backgroundColorProperty: GravityForceLabConstants.BACKGROUND_COLOR_PROPERTY,
         tandem: gravityForceLabScreenTandem,
-        keyboardHelpNode: new GravityForceLabKeyboardHelpContent()
+        createKeyboardHelpNode: () => new GravityForceLabKeyboardHelpContent()
       }
     )
   ], simOptions ).start();
