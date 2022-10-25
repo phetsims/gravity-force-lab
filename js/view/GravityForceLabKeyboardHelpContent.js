@@ -37,8 +37,6 @@ const jumpHomeString = GravityForceLabStrings.jumpHome;
 const jumpStartOfSphereString = GravityForceLabStrings.jumpStartOfSphere;
 const moveGrabbedRulerString = GravityForceLabStrings.moveGrabbedRuler;
 const moveOrJumpGrabbedRulerString = GravityForceLabStrings.moveOrJumpGrabbedRuler;
-const rulerCapitalizedString = SceneryPhetStrings.rulerCapitalized;
-const rulerString = SceneryPhetStrings.ruler;
 
 const moveSphereDescriptionString = GravityForceLabStrings.a11y.keyboardHelp.moveSphereDescription;
 const moveInSmallerStepsDescriptionString = GravityForceLabStrings.a11y.keyboardHelp.moveInSmallerStepsDescription;
@@ -148,7 +146,9 @@ class GravityForceLabKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
       withCheckboxContent: true
     } );
 
-    const grabDragHelpContent = KeyboardHelpSection.getGrabReleaseHelpSection( rulerCapitalizedString, rulerString, {} );
+    const grabDragHelpContent = KeyboardHelpSection.getGrabReleaseHelpSection(
+      SceneryPhetStrings.rulerCapitalizedStringProperty,
+      SceneryPhetStrings.rulerStringProperty );
 
     const leftContent = [ moveMassHelpSection, adjustMassHelpSection ];
     const rightContent = [ basicActionsHelpSection ];
