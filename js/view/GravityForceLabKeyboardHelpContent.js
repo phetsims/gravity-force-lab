@@ -10,6 +10,7 @@
 
 import merge from '../../../phet-core/js/merge.js';
 import BasicActionsKeyboardHelpSection from '../../../scenery-phet/js/keyboard/help/BasicActionsKeyboardHelpSection.js';
+import GrabReleaseKeyboardHelpSection from '../../../scenery-phet/js/keyboard/help/GrabReleaseKeyboardHelpSection.js';
 import KeyboardHelpIconFactory from '../../../scenery-phet/js/keyboard/help/KeyboardHelpIconFactory.js';
 import KeyboardHelpSection from '../../../scenery-phet/js/keyboard/help/KeyboardHelpSection.js';
 import KeyboardHelpSectionRow from '../../../scenery-phet/js/keyboard/help/KeyboardHelpSectionRow.js';
@@ -146,7 +147,7 @@ class GravityForceLabKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
       withCheckboxContent: true
     } );
 
-    const grabDragHelpContent = KeyboardHelpSection.getGrabReleaseHelpSection(
+    const grabDragHelpContent = new GrabReleaseKeyboardHelpSection(
       SceneryPhetStrings.rulerCapitalizedStringProperty,
       SceneryPhetStrings.rulerStringProperty );
 
