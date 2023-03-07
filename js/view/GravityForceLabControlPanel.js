@@ -11,9 +11,8 @@ import ISLCConstants from '../../../inverse-square-law-common/js/ISLCConstants.j
 import ISLCForceValuesDisplayControl from '../../../inverse-square-law-common/js/view/ISLCForceValuesDisplayControl.js';
 import ISLCPanel from '../../../inverse-square-law-common/js/view/ISLCPanel.js';
 import merge from '../../../phet-core/js/merge.js';
-import { Text, VBox } from '../../../scenery/js/imports.js';
+import { HSeparator, Text, VBox } from '../../../scenery/js/imports.js';
 import Checkbox from '../../../sun/js/Checkbox.js';
-import HSeparatorDeprecated from '../../../sun/js/HSeparatorDeprecated.js';
 import Tandem from '../../../tandem/js/Tandem.js';
 import gravityForceLab from '../gravityForceLab.js';
 import GravityForceLabStrings from '../GravityForceLabStrings.js';
@@ -56,7 +55,7 @@ class GravityForceLabControlPanel extends ISLCPanel {
     super( new VBox( {
       children: [
         forceValuesDisplayControl,
-        new HSeparatorDeprecated( forceValuesDisplayControl.width ),
+        new HSeparator(),
         constantSizeCheckbox
       ],
       spacing: 10,
