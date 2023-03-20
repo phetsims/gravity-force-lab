@@ -10,7 +10,7 @@
 
 import ISLCQueryParameters from '../../../../inverse-square-law-common/js/ISLCQueryParameters.js';
 import ISLCDescriber from '../../../../inverse-square-law-common/js/view/describers/ISLCDescriber.js';
-import ISLCObjectEnum from '../../../../inverse-square-law-common/js/view/ISLCObjectEnum.js';
+import ISLCObjectEnum from '../../../../inverse-square-law-common/js/model/ISLCObjectEnum.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import Alerter from '../../../../scenery-phet/js/accessibility/describers/Alerter.js';
 import Utterance from '../../../../utterance-queue/js/Utterance.js';
