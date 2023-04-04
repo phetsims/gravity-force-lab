@@ -195,7 +195,10 @@ class MoveOrJumpGrabbedRulerHelpSection extends KeyboardHelpSection {
       labelInnerContent: jumpHomePDOMString
     } );
 
-    super( moveOrJumpGrabbedRulerString, [ jumpStartRow, jumpHomeRow, moveRulerRow, moveInSmallerStepsRow ], options );
+    const rows = [ jumpStartRow, jumpHomeRow, moveRulerRow, moveInSmallerStepsRow ];
+    super( moveOrJumpGrabbedRulerString, rows, options );
+    this.disposeEmitter.addListener( () => rows.forEach( row => row.dispose() ) );
+
   }
 }
 
