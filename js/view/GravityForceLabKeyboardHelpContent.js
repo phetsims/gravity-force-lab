@@ -197,8 +197,6 @@ class MoveOrJumpGrabbedRulerHelpSection extends KeyboardHelpSection {
 
     const rows = [ jumpStartRow, jumpHomeRow, moveRulerRow, moveInSmallerStepsRow ];
     super( moveOrJumpGrabbedRulerString, rows, options );
-    this.disposeEmitter.addListener( () => rows.forEach( row => row.dispose() ) );
-
   }
 }
 
