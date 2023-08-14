@@ -1,6 +1,6 @@
 
 Please first see the model overview at 
-https://github.com/phetsims/gravity-force-lab/blob/master/doc/model.md
+https://github.com/phetsims/gravity-force-lab/blob/main/doc/model.md
 
 This sim is a port from the existing java simulation. Initial development on the simulation was done by MLL.
 
