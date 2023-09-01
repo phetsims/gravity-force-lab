@@ -183,7 +183,7 @@ class GravityForceLabScreenView extends ScreenView {
     const resetAllButton = new ResetAllButton( {
       listener: () => {
         model.reset();
-        gravityForceLabRuler.reset();
+        rulerNode.reset();
         this.forceSoundGenerator.reset();
         rulerDescriber.reset();
       },
@@ -224,7 +224,7 @@ class GravityForceLabScreenView extends ScreenView {
     const maxY = -modelViewTransform.viewToModelDeltaY( this.layoutBounds.height / 2 ); // top bound because Y is inverted
 
     // @private - added to object for animation stepping
-    const gravityForceLabRuler = new ISLCRulerNode(
+    const rulerNode = new ISLCRulerNode(
       model.rulerPositionProperty,
       new Bounds2( minX, minY, maxX, maxY ),
       modelViewTransform,
@@ -246,7 +246,7 @@ class GravityForceLabScreenView extends ScreenView {
       // the ruler and control panels
       mass1Node.arrowNode,
       mass2Node.arrowNode,
-      gravityForceLabRuler,
+      rulerNode,
       massControlsNode,
       parameterControlPanel,
       resetAllButton
@@ -265,7 +265,7 @@ class GravityForceLabScreenView extends ScreenView {
       mass1Node.arrowNode,
       mass2Node.arrowNode,
       massControlsNode,
-      gravityForceLabRuler
+      rulerNode
     ];
     this.pdomControlAreaNode.pdomOrder = [
       parameterControlPanel,
