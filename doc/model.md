@@ -2,8 +2,7 @@ Model Notes
 ===========
 
 The underlying model for gravitational forces between two masses depicted in this simulation is Newton's law of
-Gravitation.
-Please first see the model overview for the general inverse square law repo at
+Gravitation. Please first see the model overview for the general inverse square law repo at
 https://github.com/phetsims/inverse-square-law-common/blob/main/doc/model.md
 
 Also see the general law of universal gravitation via
