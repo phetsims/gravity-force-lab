@@ -1,9 +1,10 @@
 // Copyright 2018-2023, University of Colorado Boulder
+// @author Michael Kauzmann (PhET Interactive Simulations)
 
 
 import Multilink from '../../../axon/js/Multilink.js';
-import ISLCObjectDescriptionNode from '../../../inverse-square-law-common/js/view/ISLCObjectDescriptionNode.js';
 import ISLCObjectEnum from '../../../inverse-square-law-common/js/model/ISLCObjectEnum.js';
+import ISLCObjectDescriptionNode from '../../../inverse-square-law-common/js/view/ISLCObjectDescriptionNode.js';
 import merge from '../../../phet-core/js/merge.js';
 import StringUtils from '../../../phetcommon/js/util/StringUtils.js';
 import { Node } from '../../../scenery/js/imports.js';
