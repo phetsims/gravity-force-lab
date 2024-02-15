@@ -23,7 +23,7 @@ import ScreenView from '../../../joist/js/ScreenView.js';
 import ModelViewTransform2 from '../../../phetcommon/js/view/ModelViewTransform2.js';
 import ResetAllButton from '../../../scenery-phet/js/buttons/ResetAllButton.js';
 import { Node, Voicing } from '../../../scenery/js/imports.js';
-import ContinuousPropertySoundGenerator from '../../../tambo/js/sound-generators/ContinuousPropertySoundGenerator.js';
+import ContinuousPropertySoundClip from '../../../tambo/js/sound-generators/ContinuousPropertySoundClip.js';
 import SoundLevelEnum from '../../../tambo/js/SoundLevelEnum.js';
 import soundManager from '../../../tambo/js/soundManager.js';
 import saturatedSineLoopTrimmed_wav from '../../sounds/saturatedSineLoopTrimmed_wav.js';
@@ -304,7 +304,7 @@ class GravityForceLabScreenView extends ScreenView {
     Voicing.registerUtteranceToNode( alertManager.constantSizeChangedContextResponseUtterance, this );
 
     // @private - sound generation for the force sound
-    this.forceSoundGenerator = new ContinuousPropertySoundGenerator(
+    this.forceSoundGenerator = new ContinuousPropertySoundClip(
       model.forceProperty,
       saturatedSineLoopTrimmed_wav,
       new Range( model.getMinForce(), model.getMaxForce() ),
