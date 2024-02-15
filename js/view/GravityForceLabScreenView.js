@@ -14,9 +14,9 @@ import Range from '../../../dot/js/Range.js';
 import Vector2 from '../../../dot/js/Vector2.js';
 import InverseSquareLawCommonStrings from '../../../inverse-square-law-common/js/InverseSquareLawCommonStrings.js';
 import ISLCQueryParameters from '../../../inverse-square-law-common/js/ISLCQueryParameters.js';
+import ISLCObjectEnum from '../../../inverse-square-law-common/js/model/ISLCObjectEnum.js';
 import DefaultDirection from '../../../inverse-square-law-common/js/view/DefaultDirection.js';
 import ISLCGridNode from '../../../inverse-square-law-common/js/view/ISLCGridNode.js';
-import ISLCObjectEnum from '../../../inverse-square-law-common/js/model/ISLCObjectEnum.js';
 import ISLCRulerNode from '../../../inverse-square-law-common/js/view/ISLCRulerNode.js';
 import ISLCRulerRegionsNode from '../../../inverse-square-law-common/js/view/ISLCRulerRegionsNode.js';
 import ScreenView from '../../../joist/js/ScreenView.js';
@@ -310,7 +310,7 @@ class GravityForceLabScreenView extends ScreenView {
       new Range( model.getMinForce(), model.getMaxForce() ),
       {
         initialOutputLevel: 0.15,
-        resetInProgressProperty: resetAllButton.buttonModel.isFiringProperty,
+        enableControlProperties: [ DerivedProperty.not( resetAllButton.buttonModel.isFiringProperty ) ],
         trimSilence: false // a very precise sound file is used, so make sure it doesn't get changed
       }
     );
