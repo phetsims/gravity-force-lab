@@ -306,8 +306,8 @@ class GravityForceLabScreenView extends ScreenView {
     // @private - sound generation for the force sound
     this.forceSoundGenerator = new ContinuousPropertySoundClip(
       model.forceProperty,
-      saturatedSineLoopTrimmed_wav,
       new Range( model.getMinForce(), model.getMaxForce() ),
+      saturatedSineLoopTrimmed_wav,
       {
         initialOutputLevel: 0.15,
         enableControlProperties: [ DerivedProperty.not( resetAllButton.buttonModel.isFiringProperty ) ],
