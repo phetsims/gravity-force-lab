@@ -170,6 +170,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO<EventIO>"
     },
+    "gravityForceLab.general.controller.input.gotPointerCaptureAction": {
+      "phetioDocumentation": "Emits when a pointer is captured (normally at the start of an interaction) The arguments are:<br/><ol><li>id: NumberIO</li><br/><li>event: EventIO</li></ol>",
+      "phetioDynamicElement": false,
+      "phetioEventType": "USER",
+      "phetioFeatured": false,
+      "phetioHighFrequency": true,
+      "phetioIsArchetype": false,
+      "phetioPlayback": true,
+      "phetioReadOnly": false,
+      "phetioState": false,
+      "phetioStudioControl": true,
+      "phetioTypeName": "ActionIO<NumberIO, EventIO>"
+    },
     "gravityForceLab.general.controller.input.inputAction": {
       "phetioDocumentation": "Emits when the PDOM root gets the input DOM event. The arguments are:<br/><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
@@ -209,8 +222,21 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO<EventIO>"
     },
+    "gravityForceLab.general.controller.input.lostPointerCaptureAction": {
+      "phetioDocumentation": "Emits when a pointer loses its capture (normally at the end of an interaction) The arguments are:<br/><ol><li>id: NumberIO</li><br/><li>event: EventIO</li></ol>",
+      "phetioDynamicElement": false,
+      "phetioEventType": "USER",
+      "phetioFeatured": false,
+      "phetioHighFrequency": true,
+      "phetioIsArchetype": false,
+      "phetioPlayback": true,
+      "phetioReadOnly": false,
+      "phetioState": false,
+      "phetioStudioControl": true,
+      "phetioTypeName": "ActionIO<NumberIO, EventIO>"
+    },
     "gravityForceLab.general.controller.input.mouseDownAction": {
-      "phetioDocumentation": "Emits when a mouse button is pressed The arguments are:<br/><ol><li>point: Vector2IO</li><br/><li>event: EventIO</li></ol>",
+      "phetioDocumentation": "Emits when a mouse button is pressed The arguments are:<br/><ol><li>id: NullableIO<NumberIO></li><br/><li>point: Vector2IO</li><br/><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -220,7 +246,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO<Vector2IO, EventIO>"
+      "phetioTypeName": "ActionIO<NullableIO<NumberIO>, Vector2IO, EventIO>"
     },
     "gravityForceLab.general.controller.input.mouseMovedAction": {
       "phetioDocumentation": "Emits when the mouse is moved The arguments are:<br/><ol><li>point: Vector2IO</li><br/><li>event: EventIO</li></ol>",
