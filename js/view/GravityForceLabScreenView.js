@@ -311,6 +311,7 @@ class GravityForceLabScreenView extends ScreenView {
       {
         initialOutputLevel: 0.15,
         enableControlProperties: [ DerivedProperty.not( resetAllButton.buttonModel.isFiringProperty ) ],
+        normalizationMappingExponent: 0.15, // more pitch change in lower portion of range
         trimSilence: false // a very precise sound file is used, so make sure it doesn't get changed
       }
     );
