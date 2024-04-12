@@ -310,7 +310,7 @@ class GravityForceLabScreenView extends ScreenView {
       saturatedSineLoopTrimmed_wav,
       {
         initialOutputLevel: 0.15,
-        enableControlProperties: [ DerivedProperty.not( resetAllButton.buttonModel.isFiringProperty ) ],
+        enableControlProperties: [ DerivedProperty.not( ResetAllButton.isResettingAllProperty ) ],
         normalizationMappingExponent: 0.15, // more pitch change in lower portion of range
         trimSilence: false // a very precise sound file is used, so make sure it doesn't get changed
       }
