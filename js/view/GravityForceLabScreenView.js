@@ -329,7 +329,6 @@ class GravityForceLabScreenView extends ScreenView {
       new MassSoundGenerator(
         model.object1.valueProperty,
         GravityForceLabConstants.MASS_RANGE,
-        resetAllButton.buttonModel.isFiringProperty,
         {
           initialOutputLevel: MASS_SOUND_LEVEL,
           playBasedOnThresholdsProperty: massSliderDraggingViaPointer,
@@ -342,7 +341,6 @@ class GravityForceLabScreenView extends ScreenView {
       new MassSoundGenerator(
         model.object2.valueProperty,
         GravityForceLabConstants.MASS_RANGE,
-        resetAllButton.buttonModel.isFiringProperty,
         {
           initialOutputLevel: MASS_SOUND_LEVEL,
           playBasedOnThresholdsProperty: massSliderDraggingViaPointer,
