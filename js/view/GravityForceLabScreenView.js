@@ -187,7 +187,7 @@ class GravityForceLabScreenView extends ScreenView {
       listener: () => {
         model.reset();
         rulerNode.reset();
-        this.forceSoundGenerator.reset();
+        forceSoundGenerator.reset();
         rulerDescriber.reset();
       },
       scale: 0.81,
@@ -303,8 +303,8 @@ class GravityForceLabScreenView extends ScreenView {
     // is visible
     Voicing.registerUtteranceToNode( alertManager.constantSizeChangedContextResponseUtterance, this );
 
-    // @private - sound generation for the force sound
-    this.forceSoundGenerator = new ContinuousPropertySoundClip(
+    // sound generation for the force sound
+    const forceSoundGenerator = new ContinuousPropertySoundClip(
       model.forceProperty,
       new Range( model.getMinForce(), model.getMaxForce() ),
       saturatedSineLoopTrimmed_wav,
@@ -314,7 +314,7 @@ class GravityForceLabScreenView extends ScreenView {
         trimSilence: false // a very precise sound file is used, so make sure it doesn't get changed
       }
     );
-    soundManager.addSoundGenerator( this.forceSoundGenerator );
+    soundManager.addSoundGenerator( forceSoundGenerator );
 
     // sound generation for the mass values
     const massSliderDraggingViaPointer = new DerivedProperty(
@@ -356,15 +356,6 @@ class GravityForceLabScreenView extends ScreenView {
     soundManager.addSoundGenerator( new MassBoundarySoundGenerator( model.object2, model, 'right', {
       initialOutputLevel: BOUNDARY_SOUNDS_LEVEL
     } ) );
-  }
-
-  /**
-   * step the view
-   * @param {number} dt
-   * @public
-   */
-  step( dt ) {
-    this.forceSoundGenerator.step( dt );
   }
 }
 
