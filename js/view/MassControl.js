@@ -80,7 +80,7 @@ class MassControl extends ISLCObjectControlPanel {
           accessibleName: titleString,
 
           // on end interaction, if alert a special alert if the mass started at the min/max and didnt' change.
-          a11yCreateContextResponseAlert: () => {
+          pdomCreateContextResponseAlert: () => {
 
             // no change and at max or min
             if ( currentMass === valueProperty.value && ( currentMass === massRange.max || currentMass === massRange.min ) ) {
@@ -88,7 +88,7 @@ class MassControl extends ISLCObjectControlPanel {
             }
             return null; // regular mass changed alerts come from model changes
           },
-          a11yCreateAriaValueText: () => massDescriber.getMassAndUnit( massEnum )
+          pdomCreateAriaValueText: () => massDescriber.getMassAndUnit( massEnum )
         },
         titleNodeOptions: {
           font: new PhetFont( 24 ),
