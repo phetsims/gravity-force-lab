@@ -21,7 +21,7 @@
     "branch": "HEAD"
   },
   "gravity-force-lab": {
-    "sha": "bf979312e462a5ec9000a3e95805092546608bd1",
+    "sha": "56a9658e41cf58ea647671ddb8a3bb6df0ffdfc2",
     "branch": "2.2"
   },
   "inverse-square-law-common": {
@@ -61,7 +61,7 @@
     "branch": "HEAD"
   },
   "scenery": {
-    "sha": "8dd6c33c2094f93a04aa9ae4e60b34077098cf14",
+    "sha": "2f5a161f82946c9dbb68f45a823dc16583e6b66d",
     "branch": "HEAD"
   },
   "scenery-phet": {
