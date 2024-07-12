@@ -14,7 +14,7 @@ import Utils from '../../../dot/js/Utils.js';
 import ISLCObjectControlPanel from '../../../inverse-square-law-common/js/view/ISLCObjectControlPanel.js';
 import EnumerationDeprecated from '../../../phet-core/js/EnumerationDeprecated.js';
 import PhetFont from '../../../scenery-phet/js/PhetFont.js';
-import nullSoundPlayer from '../../../tambo/js/shared-sound-players/nullSoundPlayer.js';
+import nullSoundPlayer from '../../../tambo/js/nullSoundPlayer.js';
 import gravityForceLab from '../gravityForceLab.js';
 import GravityForceLabStrings from '../GravityForceLabStrings.js';
 
