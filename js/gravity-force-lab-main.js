@@ -31,8 +31,7 @@ const simOptions = {
     graphicArts: 'Mariah Hermsmeyer',
     soundDesign: 'Ashton Morris',
     thanks: 'Thanks to Mobile Learner Labs for working with the PhET development team to convert this simulation to HTML5.'
-  },
-  phetioDesigned: true
+  }
 };
 
 simLauncher.launch( () => {
