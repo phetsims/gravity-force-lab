@@ -26,9 +26,6 @@
       "supportsInteractiveDescription": true
     },
     "simulation": true,
-    "phet-io": {
-      "compareDesignedAPIChanges": true
-    },
     "supportsOutputJS": true,
     "published": true
   },
