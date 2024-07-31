@@ -8,6 +8,7 @@
  * @author Michael Kauzmann (PhET Interactive Simulations)
  */
 
+import ISLCRulerNode from '../../../inverse-square-law-common/js/view/ISLCRulerNode.js';
 import merge from '../../../phet-core/js/merge.js';
 import BasicActionsKeyboardHelpSection from '../../../scenery-phet/js/keyboard/help/BasicActionsKeyboardHelpSection.js';
 import GrabReleaseKeyboardHelpSection from '../../../scenery-phet/js/keyboard/help/GrabReleaseKeyboardHelpSection.js';
@@ -34,8 +35,8 @@ const moveInSmallerStepsString = GravityForceLabStrings.moveInSmallerSteps;
 const moveSphereLabelString = GravityForceLabStrings.moveSphereLabel;
 const moveSpheresHeadingString = GravityForceLabStrings.moveSpheresHeading;
 
-const jumpHomeString = GravityForceLabStrings.jumpHome;
-const jumpStartOfSphereString = GravityForceLabStrings.jumpStartOfSphere;
+const jumpHomeStringProperty = GravityForceLabStrings.jumpHomeStringProperty;
+const jumpStartOfSphereStringProperty = GravityForceLabStrings.jumpStartOfSphereStringProperty;
 const moveGrabbedRulerString = GravityForceLabStrings.moveGrabbedRuler;
 const moveOrJumpGrabbedRulerString = GravityForceLabStrings.moveOrJumpGrabbedRuler;
 
@@ -52,8 +53,8 @@ const jumpToMaximumMassDescriptionString = GravityForceLabStrings.a11y.keyboardH
 const jumpToMinimumMassDescriptionString = GravityForceLabStrings.a11y.keyboardHelp.jumpToMinimumMassDescription;
 const moveGrabbedRulerPDOMString = GravityForceLabStrings.a11y.keyboardHelp.moveGrabbedRulerPDOM;
 const moveInSmallerStepsPDOMString = GravityForceLabStrings.a11y.keyboardHelp.moveInSmallerStepsPDOM;
-const jumpStartOfSpherePDOMString = GravityForceLabStrings.a11y.keyboardHelp.jumpStartOfSpherePDOM;
-const jumpHomePDOMString = GravityForceLabStrings.a11y.keyboardHelp.jumpHomePDOM;
+const jumpStartOfSpherePDOMStringProperty = GravityForceLabStrings.a11y.keyboardHelp.jumpStartOfSpherePDOMStringProperty;
+const jumpHomePDOMStringProperty = GravityForceLabStrings.a11y.keyboardHelp.jumpHomePDOMStringProperty;
 
 class GravityForceLabKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
 
@@ -185,14 +186,14 @@ class MoveOrJumpGrabbedRulerHelpSection extends KeyboardHelpSection {
         labelInnerContent: moveInSmallerStepsPDOMString
       } );
 
+    const jumpStartRow = KeyboardHelpSectionRow.fromHotkeyData( ISLCRulerNode.JUMP_CENTER_HOTKEY_DATA, {
+      labelStringProperty: jumpStartOfSphereStringProperty,
+      pdomLabelStringProperty: jumpStartOfSpherePDOMStringProperty
+    } );
 
-    const jumpStartRow = KeyboardHelpSectionRow.createJumpKeyRow( 'C',
-      jumpStartOfSphereString, {
-        labelInnerContent: jumpStartOfSpherePDOMString
-      } );
-
-    const jumpHomeRow = KeyboardHelpSectionRow.createJumpKeyRow( 'H', jumpHomeString, {
-      labelInnerContent: jumpHomePDOMString
+    const jumpHomeRow = KeyboardHelpSectionRow.fromHotkeyData( ISLCRulerNode.JUMP_HOME_HOTKEY_DATA, {
+      labelStringProperty: jumpHomeStringProperty,
+      pdomLabelStringProperty: jumpHomePDOMStringProperty
     } );
 
     const rows = [ jumpStartRow, jumpHomeRow, moveRulerRow, moveInSmallerStepsRow ];
