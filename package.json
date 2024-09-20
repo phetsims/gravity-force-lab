@@ -38,7 +38,7 @@
         ],
         "parserOptions": {
           "project": [
-            "../gravity-force-lab/tsconfig.json"
+            "../chipper/tsconfig/eslint-all/tsconfig.json"
           ]
         }
       }
