@@ -226,13 +226,16 @@ class GravityForceLabScreenView extends ScreenView {
     const maxX = model.rightObjectBoundary;
     const maxY = -modelViewTransform.viewToModelDeltaY( this.layoutBounds.height / 2 ); // top bound because Y is inverted
 
+    const interactionCueParent = new Node();
+
     // @private - added to object for animation stepping
     const rulerNode = new ISLCRulerNode(
       model.rulerPositionProperty,
       new Bounds2( minX, minY, maxX, maxY ),
       modelViewTransform,
       () => model.object1.positionProperty.value, // wrap this in a closure instead of exposing this all to the ruler.
-      rulerDescriber, {
+      rulerDescriber,
+      interactionCueParent, {
         tandem: tandem.createTandem( 'rulerNode' ),
         phetioInputEnabledPropertyInstrumented: true,
         unitString: unitsMetersString,
@@ -252,7 +255,8 @@ class GravityForceLabScreenView extends ScreenView {
       rulerNode,
       massControlsNode,
       parameterControlPanel,
-      resetAllButton
+      resetAllButton,
+      interactionCueParent
     ];
 
     // pdom
