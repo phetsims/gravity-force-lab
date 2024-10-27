@@ -13,6 +13,7 @@ import StringUtils from '../../../phetcommon/js/util/StringUtils.js';
 import { Node } from '../../../scenery/js/imports.js';
 import gravityForceLab from '../gravityForceLab.js';
 import GravityForceLabStrings from '../GravityForceLabStrings.js';
+import ScreenSummaryContent from '../../../joist/js/ScreenSummaryContent.js';
 
 const screenSummaryPlayAreaOverviewString = GravityForceLabStrings.a11y.screenSummary.playAreaOverview;
 const screenSummaryPlayAreaControlsString = GravityForceLabStrings.a11y.screenSummary.playAreaControls;
@@ -23,7 +24,7 @@ const massString = GravityForceLabStrings.a11y.mass;
 // import from ISLC so that coulombs-law can use it too
 const summaryInteractionHintPatternString = InverseSquareLawCommonStrings.a11y.screenSummary.summaryInteractionHintPattern;
 
-class GravityForceLabScreenSummaryNode extends Node {
+class GravityForceLabScreenSummaryNode extends ScreenSummaryContent {
 
   /**
    * @param {ISLCModel} model
@@ -51,7 +52,11 @@ class GravityForceLabScreenSummaryNode extends Node {
       simStateLabel: simStateListLabelString
     }, options );
 
-    super();
+    super( [
+      options.screenSummaryPlayAreaOverview,
+      options.screenSummaryPlayAreaControls,
+      options.secondaryDescriptionContent
+    ] );
 
     // @private - describers
     this.forceDescriber = forceDescriber;
@@ -74,19 +79,6 @@ class GravityForceLabScreenSummaryNode extends Node {
       labelContent: options.simStateLabel
     } );
 
-    const screenSummaryPlayAreaOverviewNode = new Node( {
-      tagName: 'p',
-      innerContent: options.screenSummaryPlayAreaOverview
-    } );
-    const screenSummaryPlayAreaControlsNode = new Node( {
-      tagName: 'p',
-      innerContent: options.screenSummaryPlayAreaControls
-    } );
-    const secondSummaryDescriptionNode = new Node( {
-      tagName: 'p',
-      innerContent: options.secondaryDescriptionContent
-    } );
-
     simStateNode.children = [
       this.forceVectorsSummaryItem,
       this.objectDistanceSummaryItem,
@@ -102,13 +94,8 @@ class GravityForceLabScreenSummaryNode extends Node {
       )
     } );
 
-    this.children = [
-      screenSummaryPlayAreaOverviewNode,
-      screenSummaryPlayAreaControlsNode,
-      secondSummaryDescriptionNode,
-      simStateNode,
-      interactionHintNode
-    ];
+    this.addChild( simStateNode );
+    this.addChild( interactionHintNode );
 
     Multilink.multilink( [ model.forceProperty, model.showForceValuesProperty ], () => {
       this.updateForceVectorSummary();
