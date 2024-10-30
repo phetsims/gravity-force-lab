@@ -52,6 +52,7 @@ class MassControl extends ISLCObjectControlPanel {
 
       numberControlOptions: {
         scale: CONTROL_SCALE, // scale down the control to fit the screen a bit better
+        accessibleName: titleString,
         sliderOptions: {
           thumbSize: THUMB_SIZE,
           trackSize: TRACK_SIZE,
@@ -77,7 +78,6 @@ class MassControl extends ISLCObjectControlPanel {
           keyboardStep: 50,
           roundToStepSize: true,
           pageKeyboardStep: 100,
-          accessibleName: titleString,
 
           // on end interaction, if alert a special alert if the mass started at the min/max and didnt' change.
           pdomCreateContextResponseAlert: () => {
