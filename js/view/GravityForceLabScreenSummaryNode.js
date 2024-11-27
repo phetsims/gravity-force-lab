@@ -8,12 +8,12 @@
 
 import Multilink from '../../../axon/js/Multilink.js';
 import InverseSquareLawCommonStrings from '../../../inverse-square-law-common/js/InverseSquareLawCommonStrings.js';
+import ScreenSummaryContent from '../../../joist/js/ScreenSummaryContent.js';
 import merge from '../../../phet-core/js/merge.js';
 import StringUtils from '../../../phetcommon/js/util/StringUtils.js';
 import { Node } from '../../../scenery/js/imports.js';
 import gravityForceLab from '../gravityForceLab.js';
 import GravityForceLabStrings from '../GravityForceLabStrings.js';
-import ScreenSummaryContent from '../../../joist/js/ScreenSummaryContent.js';
 
 const screenSummaryPlayAreaOverviewString = GravityForceLabStrings.a11y.screenSummary.playAreaOverview;
 const screenSummaryPlayAreaControlsString = GravityForceLabStrings.a11y.screenSummary.playAreaControls;

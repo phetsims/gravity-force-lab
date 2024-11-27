@@ -8,8 +8,8 @@
 
 import InverseSquareLawCommonStrings from '../../../inverse-square-law-common/js/InverseSquareLawCommonStrings.js';
 import ForceValuesDisplayEnum from '../../../inverse-square-law-common/js/model/ForceValuesDisplayEnum.js';
-import ISLCAlertManager from '../../../inverse-square-law-common/js/view/ISLCAlertManager.js';
 import ISLCObjectEnum from '../../../inverse-square-law-common/js/model/ISLCObjectEnum.js';
+import ISLCAlertManager from '../../../inverse-square-law-common/js/view/ISLCAlertManager.js';
 import merge from '../../../phet-core/js/merge.js';
 import StringUtils from '../../../phetcommon/js/util/StringUtils.js';
 import { Voicing } from '../../../scenery/js/imports.js';
