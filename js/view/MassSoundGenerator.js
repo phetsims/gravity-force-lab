@@ -8,7 +8,7 @@
 
 import BooleanProperty from '../../../axon/js/BooleanProperty.js';
 import merge from '../../../phet-core/js/merge.js';
-import ResetAllButton from '../../../scenery-phet/js/buttons/ResetAllButton.js';
+import isResettingAllProperty from '../../../scenery-phet/js/isResettingAllProperty.js';
 import SoundClip from '../../../tambo/js/sound-generators/SoundClip.js';
 import rubberBand_v3_mp3 from '../../sounds/rubberBand_v3_mp3.js';
 import gravityForceLab from '../gravityForceLab.js';
@@ -59,7 +59,7 @@ class MassSoundGenerator extends SoundClip {
       // range checking
       assert && assert( massRange.contains( mass ), 'mass value out of range' );
 
-      if ( !ResetAllButton.isResettingAllProperty.value ) {
+      if ( !isResettingAllProperty.value ) {
 
         let playForThisChange;
         if ( playBasedOnThresholdsProperty.value ) {
