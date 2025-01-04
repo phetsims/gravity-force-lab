@@ -52,11 +52,13 @@ class GravityForceLabScreenSummaryNode extends ScreenSummaryContent {
       simStateLabel: simStateListLabelString
     }, options );
 
-    super( [
-      options.screenSummaryPlayAreaOverview,
-      options.screenSummaryPlayAreaControls,
-      options.secondaryDescriptionContent
-    ] );
+    super( {
+      additionalContent: [
+        options.screenSummaryPlayAreaOverview,
+        options.screenSummaryPlayAreaControls,
+        options.secondaryDescriptionContent
+      ]
+    } );
 
     // @private - describers
     this.forceDescriber = forceDescriber;
