@@ -22,7 +22,8 @@ import ISLCRulerRegionsNode from '../../../inverse-square-law-common/js/view/ISL
 import ScreenView from '../../../joist/js/ScreenView.js';
 import ModelViewTransform2 from '../../../phetcommon/js/view/ModelViewTransform2.js';
 import ResetAllButton from '../../../scenery-phet/js/buttons/ResetAllButton.js';
-import { Node, Voicing } from '../../../scenery/js/imports.js';
+import Voicing from '../../../scenery/js/accessibility/voicing/Voicing.js';
+import Node from '../../../scenery/js/nodes/Node.js';
 import ContinuousPropertySoundClip from '../../../tambo/js/sound-generators/ContinuousPropertySoundClip.js';
 import SoundLevelEnum from '../../../tambo/js/SoundLevelEnum.js';
 import soundManager from '../../../tambo/js/soundManager.js';

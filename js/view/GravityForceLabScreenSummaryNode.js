@@ -11,7 +11,7 @@ import InverseSquareLawCommonStrings from '../../../inverse-square-law-common/js
 import ScreenSummaryContent from '../../../joist/js/ScreenSummaryContent.js';
 import merge from '../../../phet-core/js/merge.js';
 import StringUtils from '../../../phetcommon/js/util/StringUtils.js';
-import { Node } from '../../../scenery/js/imports.js';
+import Node from '../../../scenery/js/nodes/Node.js';
 import gravityForceLab from '../gravityForceLab.js';
 import GravityForceLabStrings from '../GravityForceLabStrings.js';
 

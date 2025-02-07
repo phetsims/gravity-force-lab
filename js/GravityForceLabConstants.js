@@ -9,7 +9,7 @@
 
 import Property from '../../axon/js/Property.js';
 import Range from '../../dot/js/Range.js';
-import { Color } from '../../scenery/js/imports.js';
+import Color from '../../scenery/js/util/Color.js';
 import gravityForceLab from './gravityForceLab.js';
 
 // constants
