@@ -1,4 +1,4 @@
-// Copyright 2016-2021, University of Colorado Boulder
+// Copyright 2016-2025, University of Colorado Boulder
 
 /**
  * Constants that are shared between the various portions of the Gravity Force Lab simulation.
