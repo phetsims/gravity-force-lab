@@ -103,7 +103,7 @@ class GravityForceLabRulerAlerter extends Alerter {
 
     // if the previous drag triggered a movement alert, then alert the release hint now.
     if ( this.justMovementAlerted ) {
-      this.alertDescriptionUtterance( this.releaseAndExploreUtterance );
+      this.addAccessibleResponse( this.releaseAndExploreUtterance );
       this.justMovementAlerted = false;
     }
 
@@ -129,7 +129,7 @@ class GravityForceLabRulerAlerter extends Alerter {
    */
   alertRulerMovement() {
     this.movementUtterance.alert = this.getRegionAndDistance();
-    this.alertDescriptionUtterance( this.movementUtterance );
+    this.addAccessibleResponse( this.movementUtterance );
     this.justMovementAlerted = true;
   }
 
@@ -230,7 +230,7 @@ class GravityForceLabRulerAlerter extends Alerter {
    */
   alertJumpHome() {
     this.jumpHomeUtterance.alert = this.getHomePositionString();
-    this.alertDescriptionUtterance( this.jumpHomeUtterance );
+    this.addAccessibleResponse( this.jumpHomeUtterance );
   }
 
   /**
@@ -251,7 +251,7 @@ class GravityForceLabRulerAlerter extends Alerter {
    */
   alertJumpCenterMass() {
     this.jumpCenterUtterance.alert = this.getJumpCenterMassAlert();
-    this.alertDescriptionUtterance( this.jumpCenterUtterance );
+    this.addAccessibleResponse( this.jumpCenterUtterance );
   }
 
   /**
