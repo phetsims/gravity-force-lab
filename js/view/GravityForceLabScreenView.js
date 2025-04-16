@@ -135,9 +135,7 @@ class GravityForceLabScreenView extends ScreenView {
     massPositionsNode.addChild( mass2Node );
 
     const massControlsNode = new Node( {
-      labelTagName: 'h3',
-      labelContent: massControlsLabelString,
-      tagName: 'div',
+      accessibleHeading: massControlsLabelString,
       descriptionContent: massControlsHelpTextString
     } );
 

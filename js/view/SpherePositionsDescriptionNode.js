@@ -24,9 +24,7 @@ class SpherePositionsDescriptionNode extends Node {
   constructor( model, positionDescriber, options ) {
 
     options = merge( {
-      tagName: 'div',
-      labelTagName: 'h3',
-      labelContent: spherePositionsString,
+      accessibleHeading: spherePositionsString,
       additionalDescriptionDependencies: [] // {Property[]} to be added to the multilink
     }, options );
 
