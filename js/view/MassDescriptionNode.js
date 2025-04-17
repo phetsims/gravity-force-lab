@@ -48,7 +48,7 @@ class MassDescriptionNode extends ISLCObjectDescriptionNode {
     this.massDescriber = massDescriber; // {MassDescriber}
 
     // set the accessibleName after member fields have been initialized
-    this.labelContent = this.getMassSphereString();
+    this.accessibleHeading = this.getMassSphereString();
 
     this.massAndPositionNode = new Node( { tagName: 'li' } );
 
