@@ -1,5 +1,5 @@
 {
-  "comment": "# gravity-force-lab 2.2.22-rc.1 Thu May 29 2025 00:43:55 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# gravity-force-lab 2.2.22 Wed Jun 11 2025 10:25:36 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "a99a9ce9ee0774bf3ef509bf3e31ca7383f67478",
     "branch": "HEAD"
@@ -21,7 +21,7 @@
     "branch": "HEAD"
   },
   "gravity-force-lab": {
-    "sha": "ee69b773b8b7c7cb61a16009f8caddf5aec7bb3e",
+    "sha": "d92b6f5d23a44d015cae8f68146856e77add7dcc",
     "branch": "2.2"
   },
   "inverse-square-law-common": {
