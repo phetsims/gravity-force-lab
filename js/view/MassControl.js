@@ -80,7 +80,7 @@ class MassControl extends ISLCObjectControlPanel {
           pageKeyboardStep: 100,
 
           // on end interaction, if alert a special alert if the mass started at the min/max and didnt' change.
-          pdomCreateContextResponseAlert: () => {
+          createContextResponseAlert: () => {
 
             // no change and at max or min
             if ( currentMass === valueProperty.value && ( currentMass === massRange.max || currentMass === massRange.min ) ) {
