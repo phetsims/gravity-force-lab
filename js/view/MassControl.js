@@ -88,7 +88,7 @@ class MassControl extends ISLCObjectControlPanel {
             }
             return null; // regular mass changed alerts come from model changes
           },
-          pdomCreateAriaValueText: () => massDescriber.getMassAndUnit( massEnum )
+          createAriaValueText: () => massDescriber.getMassAndUnit( massEnum )
         },
         titleNodeOptions: {
           font: new PhetFont( 24 ),
