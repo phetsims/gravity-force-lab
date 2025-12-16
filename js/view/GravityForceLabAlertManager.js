@@ -72,7 +72,7 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
 
     model.constantRadiusProperty.lazyLink( constantRadius => {
       constantRadiusUtterance.alert = this.getConstantRadiusAlert( constantRadius );
-      this.addAccessibleResponse( constantRadiusUtterance );
+      this.addAccessibleContextResponse( constantRadiusUtterance );
     } );
 
     // use an option to support REGULAR and BASICS
@@ -120,7 +120,7 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
    */
   alertScientificNotation() {
     this.scientificNotationUtterance.alert = this.forceDescriber.getScientificNotationAlertText();
-    this.addAccessibleResponse( this.scientificNotationUtterance );
+    this.addAccessibleContextResponse( this.scientificNotationUtterance );
   }
 
   /**
@@ -132,7 +132,7 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
    */
   alertMassValueChanged( objectEnum, forceBiggerOverride ) {
     const contextResponse = this.getMassValueChangedAlert( objectEnum, forceBiggerOverride );
-    this.addAccessibleResponse( contextResponse );
+    this.addAccessibleContextResponse( contextResponse );
   }
 
   /**
@@ -226,7 +226,7 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
    */
   alertMassMinMaxEdge( thisObjectEnum ) {
     this.massChangedUtterance.alert = this.massDescriber.getMassMaxMinText( thisObjectEnum );
-    this.addAccessibleResponse( this.massChangedUtterance );
+    this.addAccessibleContextResponse( this.massChangedUtterance );
   }
 
   /**
@@ -238,7 +238,7 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
     } );
 
     this.massChangedUtterance.alert = contextResponse;
-    this.addAccessibleResponse( this.massChangedUtterance );
+    this.addAccessibleContextResponse( this.massChangedUtterance );
 
     // voicing - Create the alert to be used with voicing. Ideally this would be the context response for the
     // UI component that controls whether masses are of constant size. But this alert needs information about
