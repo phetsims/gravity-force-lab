@@ -17,7 +17,7 @@ import KeyboardHelpSection from '../../../scenery-phet/js/keyboard/help/Keyboard
 import KeyboardHelpSectionRow from '../../../scenery-phet/js/keyboard/help/KeyboardHelpSectionRow.js';
 import TwoColumnKeyboardHelpContent from '../../../scenery-phet/js/keyboard/help/TwoColumnKeyboardHelpContent.js';
 import TextKeyNode from '../../../scenery-phet/js/keyboard/TextKeyNode.js';
-import SceneryPhetStrings from '../../../scenery-phet/js/SceneryPhetStrings.js';
+import SceneryPhetFluent from '../../../scenery-phet/js/SceneryPhetFluent.js';
 import Node from '../../../scenery/js/nodes/Node.js';
 import gravityForceLab from '../gravityForceLab.js';
 import GravityForceLabStrings from '../GravityForceLabStrings.js';
@@ -149,8 +149,8 @@ class GravityForceLabKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
     } );
 
     const grabDragHelpContent = new GrabReleaseKeyboardHelpSection(
-      SceneryPhetStrings.rulerCapitalizedStringProperty,
-      SceneryPhetStrings.rulerStringProperty );
+      SceneryPhetFluent.rulerCapitalizedStringProperty,
+      SceneryPhetFluent.rulerStringProperty );
 
     const leftContent = [ moveMassHelpSection, adjustMassHelpSection ];
     const rightContent = [ basicActionsHelpSection ];
