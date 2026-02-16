@@ -72,30 +72,30 @@ class GravityForceLabKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
     // move mass section
     const moveMassRow = KeyboardHelpSectionRow.labelWithIcon(
       moveSphereLabelString, KeyboardHelpIconFactory.leftRightArrowKeysRowIcon(), {
-        labelInnerContent: moveSphereDescriptionString
+        accessibleRowDescriptionProperty: moveSphereDescriptionString
       } );
 
     const moveSmallStepsRow = KeyboardHelpSectionRow.labelWithIcon(
       moveInSmallerStepsString,
       KeyboardHelpIconFactory.shiftPlusIcon( KeyboardHelpIconFactory.leftRightArrowKeysRowIcon() ),
       {
-        labelInnerContent: moveInSmallerStepsDescriptionString
+        accessibleRowDescriptionProperty: moveInSmallerStepsDescriptionString
       } );
 
     // 'move in larger steps' section
     const moveLargeStepsRow = KeyboardHelpSectionRow.labelWithIcon(
       moveInLargerStepsString, KeyboardHelpIconFactory.pageUpPageDownRowIcon(), {
-        labelInnerContent: moveInLargerStepsDescriptionString
+        accessibleRowDescriptionProperty: moveInLargerStepsDescriptionString
       } );
 
     // 'jump to left' section
     const jumpLeftRow = KeyboardHelpSectionRow.labelWithIcon( jumpToLeftString, TextKeyNode.home(), {
-      labelInnerContent: jumpToLeftDescriptionString
+      accessibleRowDescriptionProperty: jumpToLeftDescriptionString
     } );
 
     // 'jump to right' section
     const jumpRightRow = KeyboardHelpSectionRow.labelWithIcon( jumpToRightString, TextKeyNode.end(), {
-      labelInnerContent: jumpToRightDescriptionString
+      accessibleRowDescriptionProperty: jumpToRightDescriptionString
     } );
 
     const moveMassRows = [ moveMassRow, moveSmallStepsRow, moveLargeStepsRow, jumpLeftRow, jumpRightRow ];
@@ -107,23 +107,23 @@ class GravityForceLabKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
     // Surrounded in Node for DAG layout constraints. Otherwise changeMassIcon will be positioned overwritten.
     const shiftPlusChangeMassIcon = KeyboardHelpIconFactory.shiftPlusIcon( new Node( { children: [ changeMassIcon ] } ) );
     const changeMassRow = KeyboardHelpSectionRow.labelWithIcon( changeMassLabelString, changeMassIcon, {
-      labelInnerContent: options.isBasics ? changeMassBasicsPDOMString : changeMassPDOMString
+      accessibleRowDescriptionProperty: options.isBasics ? changeMassBasicsPDOMString : changeMassPDOMString
     } ); // up/down vs left/right
     const changeMassSmallStepsRow = KeyboardHelpSectionRow.labelWithIcon(
       changeMassInSmallerStepsString, shiftPlusChangeMassIcon, {
-        labelInnerContent: changeMassInSmallerStepsDescriptionString
+        accessibleRowDescriptionProperty: changeMassInSmallerStepsDescriptionString
       } );
     const changeMassLargeStepsRow = KeyboardHelpSectionRow.labelWithIcon(
       changeMassInLargerStepsString, KeyboardHelpIconFactory.pageUpPageDownRowIcon(), {
-        labelInnerContent: changeMassInLargerStepsDescriptionString
+        accessibleRowDescriptionProperty: changeMassInLargerStepsDescriptionString
       } );
     const jumpToMinMassRow = KeyboardHelpSectionRow.labelWithIcon(
       jumpToMinimumMassString, TextKeyNode.home(), {
-        labelInnerContent: jumpToMinimumMassDescriptionString
+        accessibleRowDescriptionProperty: jumpToMinimumMassDescriptionString
       } );
     const jumpToMaxMassRow = KeyboardHelpSectionRow.labelWithIcon(
       jumpToMaximumMassString, TextKeyNode.end(), {
-        labelInnerContent: jumpToMaximumMassDescriptionString
+        accessibleRowDescriptionProperty: jumpToMaximumMassDescriptionString
       } );
 
     const adjustMassRows = [
@@ -176,7 +176,7 @@ class MoveOrJumpGrabbedRulerHelpSection extends KeyboardHelpSection {
 
     const moveRulerIcon = KeyboardHelpIconFactory.arrowOrWasdKeysRowIcon();
     const moveRulerRow = KeyboardHelpSectionRow.labelWithIcon( moveGrabbedRulerString, moveRulerIcon, {
-      labelInnerContent: moveGrabbedRulerPDOMString
+      accessibleRowDescriptionProperty: moveGrabbedRulerPDOMString
     } );
 
     const shiftPlusArrowKeys = KeyboardHelpIconFactory.shiftPlusIcon( KeyboardHelpIconFactory.arrowKeysRowIcon() );
