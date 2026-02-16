@@ -188,12 +188,12 @@ class MoveOrJumpGrabbedRulerHelpSection extends KeyboardHelpSection {
 
     const jumpStartRow = KeyboardHelpSectionRow.fromHotkeyData( ISLCRulerNode.JUMP_CENTER_HOTKEY_DATA, {
       labelStringProperty: jumpStartOfSphereStringProperty,
-      pdomLabelStringProperty: jumpStartOfSpherePDOMStringProperty
+      accessibleRowDescriptionProperty: jumpStartOfSpherePDOMStringProperty
     } );
 
     const jumpHomeRow = KeyboardHelpSectionRow.fromHotkeyData( ISLCRulerNode.JUMP_HOME_HOTKEY_DATA, {
       labelStringProperty: jumpHomeStringProperty,
-      pdomLabelStringProperty: jumpHomePDOMStringProperty
+      accessibleRowDescriptionProperty: jumpHomePDOMStringProperty
     } );
 
     const rows = [ jumpStartRow, jumpHomeRow, moveRulerRow, moveInSmallerStepsRow ];
