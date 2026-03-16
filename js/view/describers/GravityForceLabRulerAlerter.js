@@ -89,7 +89,7 @@ class GravityForceLabRulerAlerter extends Alerter {
     // @private - This alert follows a change in focus (release of the ruler) and "Release" alert - give
     // VoiceOver time to describe these before the jump alert so that no alerts get skipped, see
     // https://github.com/phetsims/gravity-force-lab/issues/225
-    this.jumpHomeUtterance = new Utterance( { alertStableDelay: 1000 } );
+    this.jumpHomeUtterance = new Utterance( { alertDelay: 1000 } );
 
     // Don't need to unlink
     SHOW_RULER_REGIONS && this.rulerPositionProperty.link( () => console.log( this.getCurrentVerticalRegion() ) );
