@@ -7,4 +7,3 @@ node_modules/
 *.sublime-project
 *.sublime-workspace
 .eslintcache
-package-lock.json
