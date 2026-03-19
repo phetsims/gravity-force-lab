@@ -21,7 +21,7 @@
     "branch": "HEAD"
   },
   "gravity-force-lab": {
-    "sha": "bd28dce0038d0d1e7733fad8b61bb9de0049e534",
+    "sha": "8f3118942a2ec61fdb9603eb6acbca89a0bbb26f",
     "branch": "2.2"
   },
   "inverse-square-law-common": {
@@ -29,7 +29,7 @@
     "branch": "HEAD"
   },
   "joist": {
-    "sha": "5be136e8c793dc98562fb2d821b8c41a7199357d",
+    "sha": "66701c981c60bdddae3033a426b758d0f78a6c95",
     "branch": "HEAD"
   },
   "kite": {
