@@ -11,7 +11,6 @@
 
 import DerivedProperty from '../../../axon/js/DerivedProperty.js';
 import ISLCObject from '../../../inverse-square-law-common/js/model/ISLCObject.js';
-import gravityForceLab from '../gravityForceLab.js';
 
 // constants
 // scale to brighten the base color to achieve rgba(150, 150, 255) but still be red or blue
@@ -62,5 +61,4 @@ class Mass extends ISLCObject {
   }
 }
 
-gravityForceLab.register( 'Mass', Mass );
 export default Mass;

@@ -9,7 +9,6 @@
 import Utils from '../../../../dot/js/Utils.js';
 import PositionDescriber from '../../../../inverse-square-law-common/js/view/describers/PositionDescriber.js';
 import merge from '../../../../phet-core/js/merge.js';
-import gravityForceLab from '../../gravityForceLab.js';
 
 class GravityForceLabPositionDescriber extends PositionDescriber {
 
@@ -29,5 +28,4 @@ class GravityForceLabPositionDescriber extends PositionDescriber {
   }
 }
 
-gravityForceLab.register( 'GravityForceLabPositionDescriber', GravityForceLabPositionDescriber );
 export default GravityForceLabPositionDescriber;

@@ -13,7 +13,6 @@ import ISLCObjectEnum from '../../../../inverse-square-law-common/js/model/ISLCO
 import ISLCDescriber from '../../../../inverse-square-law-common/js/view/describers/ISLCDescriber.js';
 import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
-import gravityForceLab from '../../gravityForceLab.js';
 import GravityForceLabStrings from '../../GravityForceLabStrings.js';
 
 // constants
@@ -487,5 +486,4 @@ const getMassSizeIndex = ( mass, numberOfRegions ) => {
   throw new Error( 'Invalid mass value.' );
 };
 
-gravityForceLab.register( 'MassDescriber', MassDescriber );
 export default MassDescriber;

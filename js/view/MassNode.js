@@ -13,7 +13,6 @@ import Shape from '../../../kite/js/Shape.js';
 import merge from '../../../phet-core/js/merge.js';
 import RadialGradient from '../../../scenery/js/util/RadialGradient.js';
 import Tandem from '../../../tandem/js/Tandem.js';
-import gravityForceLab from '../gravityForceLab.js';
 import GravityForceLabConstants from '../GravityForceLabConstants.js';
 
 // constants
@@ -115,5 +114,4 @@ class MassNode extends ISLCObjectNode {
   }
 }
 
-gravityForceLab.register( 'MassNode', MassNode );
 export default MassNode;

@@ -16,7 +16,6 @@ import Vector2Property from '../../../dot/js/Vector2Property.js';
 import ForceValuesDisplayEnum from '../../../inverse-square-law-common/js/model/ForceValuesDisplayEnum.js';
 import ISLCModel from '../../../inverse-square-law-common/js/model/ISLCModel.js';
 import PhysicalConstants from '../../../phet-core/js/PhysicalConstants.js';
-import gravityForceLab from '../gravityForceLab.js';
 import GravityForceLabConstants from '../GravityForceLabConstants.js';
 import Mass from './Mass.js';
 
@@ -92,7 +91,5 @@ class GravityForceLabModel extends ISLCModel {
     super.reset();
   }
 }
-
-gravityForceLab.register( 'GravityForceLabModel', GravityForceLabModel );
 
 export default GravityForceLabModel;

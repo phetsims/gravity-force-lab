@@ -11,7 +11,6 @@ import merge from '../../../phet-core/js/merge.js';
 import isResettingAllProperty from '../../../scenery-phet/js/isResettingAllProperty.js';
 import SoundClip from '../../../tambo/js/sound-generators/SoundClip.js';
 import rubberBand_v3_mp3 from '../../sounds/rubberBand_v3_mp3.js';
-import gravityForceLab from '../gravityForceLab.js';
 
 // constants
 const PITCH_RANGE_IN_SEMI_TONES = 30;
@@ -103,7 +102,5 @@ class MassSoundGenerator extends SoundClip {
     super.dispose();
   }
 }
-
-gravityForceLab.register( 'MassSoundGenerator', MassSoundGenerator );
 
 export default MassSoundGenerator;

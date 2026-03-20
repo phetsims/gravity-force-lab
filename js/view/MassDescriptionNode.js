@@ -8,7 +8,6 @@ import ISLCObjectDescriptionNode from '../../../inverse-square-law-common/js/vie
 import merge from '../../../phet-core/js/merge.js';
 import StringUtils from '../../../phetcommon/js/util/StringUtils.js';
 import Node from '../../../scenery/js/nodes/Node.js';
-import gravityForceLab from '../gravityForceLab.js';
 import GravityForceLabStrings from '../GravityForceLabStrings.js';
 
 const mass1AbbreviatedString = GravityForceLabStrings.mass1Abbreviated;
@@ -116,5 +115,4 @@ class MassDescriptionNode extends ISLCObjectDescriptionNode {
   }
 }
 
-gravityForceLab.register( 'MassDescriptionNode', MassDescriptionNode );
 export default MassDescriptionNode;

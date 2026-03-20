@@ -10,7 +10,6 @@
 import Property from '../../axon/js/Property.js';
 import Range from '../../dot/js/Range.js';
 import Color from '../../scenery/js/util/Color.js';
-import gravityForceLab from './gravityForceLab.js';
 
 // constants
 const MIN_MASS = 10; // kg
@@ -30,5 +29,4 @@ const GravityForceLabConstants = {
   MASS_DENSITY: 150 // kg/m^3
 };
 
-gravityForceLab.register( 'GravityForceLabConstants', GravityForceLabConstants );
 export default GravityForceLabConstants;

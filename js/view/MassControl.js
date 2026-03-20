@@ -15,7 +15,6 @@ import ISLCObjectControlPanel from '../../../inverse-square-law-common/js/view/I
 import EnumerationDeprecated from '../../../phet-core/js/EnumerationDeprecated.js';
 import PhetFont from '../../../scenery-phet/js/PhetFont.js';
 import nullSoundPlayer from '../../../tambo/js/nullSoundPlayer.js';
-import gravityForceLab from '../gravityForceLab.js';
 import GravityForceLabStrings from '../GravityForceLabStrings.js';
 
 const unitsKgString = GravityForceLabStrings.units.kg;
@@ -121,5 +120,4 @@ class MassControl extends ISLCObjectControlPanel {
 // statics
 MassControl.SliderDragState = SliderDragState;
 
-gravityForceLab.register( 'MassControl', MassControl );
 export default MassControl;

@@ -16,7 +16,6 @@ import VBox from '../../../scenery/js/layout/nodes/VBox.js';
 import Text from '../../../scenery/js/nodes/Text.js';
 import Checkbox from '../../../sun/js/Checkbox.js';
 import Tandem from '../../../tandem/js/Tandem.js';
-import gravityForceLab from '../gravityForceLab.js';
 import GravityForceLabStrings from '../GravityForceLabStrings.js';
 
 const constantSizeString = GravityForceLabStrings.constantSize;
@@ -66,5 +65,4 @@ class GravityForceLabControlPanel extends ISLCPanel {
   }
 }
 
-gravityForceLab.register( 'GravityForceLabControlPanel', GravityForceLabControlPanel );
 export default GravityForceLabControlPanel;

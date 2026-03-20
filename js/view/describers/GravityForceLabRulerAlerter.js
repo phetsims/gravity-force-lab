@@ -14,7 +14,6 @@ import ISLCDescriber from '../../../../inverse-square-law-common/js/view/describ
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import Alerter from '../../../../scenery-phet/js/accessibility/describers/Alerter.js';
 import Utterance from '../../../../utterance-queue/js/Utterance.js';
-import gravityForceLab from '../../gravityForceLab.js';
 import GravityForceLabStrings from '../../GravityForceLabStrings.js';
 
 const grabbedAlertPatternString = GravityForceLabStrings.a11y.ruler.grabbedAlertPattern;
@@ -275,5 +274,4 @@ class GravityForceLabRulerAlerter extends Alerter {
   }
 }
 
-gravityForceLab.register( 'GravityForceLabRulerAlerter', GravityForceLabRulerAlerter );
 export default GravityForceLabRulerAlerter;

@@ -17,7 +17,6 @@ import ActivationUtterance from '../../../utterance-queue/js/ActivationUtterance
 import responseCollector from '../../../utterance-queue/js/responseCollector.js';
 import Utterance from '../../../utterance-queue/js/Utterance.js';
 import ValueChangeUtterance from '../../../utterance-queue/js/ValueChangeUtterance.js';
-import gravityForceLab from '../gravityForceLab.js';
 import GravityForceLabStrings from '../GravityForceLabStrings.js';
 import GravityForceLabModel from '../model/GravityForceLabModel.js';
 
@@ -255,5 +254,4 @@ class GravityForceLabAlertManager extends ISLCAlertManager {
   }
 }
 
-gravityForceLab.register( 'GravityForceLabAlertManager', GravityForceLabAlertManager );
 export default GravityForceLabAlertManager;

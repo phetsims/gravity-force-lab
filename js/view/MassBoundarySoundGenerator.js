@@ -11,7 +11,6 @@ import SoundClip from '../../../tambo/js/sound-generators/SoundClip.js';
 import SoundGenerator from '../../../tambo/js/sound-generators/SoundGenerator.js';
 import boundaryReached_mp3 from '../../../tambo/sounds/boundaryReached_mp3.js';
 import scrunchedMassCollisionSonicWomp_mp3 from '../../sounds/scrunchedMassCollisionSonicWomp_mp3.js';
-import gravityForceLab from '../gravityForceLab.js';
 
 class MassBoundarySoundGenerator extends SoundGenerator {
 
@@ -58,7 +57,5 @@ class MassBoundarySoundGenerator extends SoundGenerator {
     super.dispose();
   }
 }
-
-gravityForceLab.register( 'MassBoundarySoundGenerator', MassBoundarySoundGenerator );
 
 export default MassBoundarySoundGenerator;

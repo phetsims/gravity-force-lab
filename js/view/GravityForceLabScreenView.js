@@ -28,7 +28,6 @@ import ContinuousPropertySoundClip from '../../../tambo/js/sound-generators/Cont
 import SoundLevelEnum from '../../../tambo/js/SoundLevelEnum.js';
 import soundManager from '../../../tambo/js/soundManager.js';
 import saturatedSineLoopTrimmed_wav from '../../sounds/saturatedSineLoopTrimmed_wav.js';
-import gravityForceLab from '../gravityForceLab.js';
 import GravityForceLabConstants from '../GravityForceLabConstants.js';
 import GravityForceLabStrings from '../GravityForceLabStrings.js';
 import GravityForceLabForceDescriber from './describers/GravityForceLabForceDescriber.js';
@@ -362,5 +361,4 @@ class GravityForceLabScreenView extends ScreenView {
   }
 }
 
-gravityForceLab.register( 'GravityForceLabScreenView', GravityForceLabScreenView );
 export default GravityForceLabScreenView;

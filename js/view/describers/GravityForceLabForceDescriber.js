@@ -11,7 +11,6 @@ import InverseSquareLawCommonStrings from '../../../../inverse-square-law-common
 import ISLCConstants from '../../../../inverse-square-law-common/js/ISLCConstants.js';
 import ForceValuesDisplayEnum from '../../../../inverse-square-law-common/js/model/ForceValuesDisplayEnum.js';
 import ForceDescriber from '../../../../inverse-square-law-common/js/view/describers/ForceDescriber.js';
-import gravityForceLab from '../../gravityForceLab.js';
 import GravityForceLabStrings from '../../GravityForceLabStrings.js';
 
 const unitsNewtonsString = InverseSquareLawCommonStrings.units.newtons;
@@ -95,5 +94,4 @@ class GravityForceLabForceDescriber extends ForceDescriber {
   }
 }
 
-gravityForceLab.register( 'GravityForceLabForceDescriber', GravityForceLabForceDescriber );
 export default GravityForceLabForceDescriber;
