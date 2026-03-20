@@ -1,4 +1,4 @@
-// Copyright 2019-2025, University of Colorado Boulder
+// Copyright 2019-2026, University of Colorado Boulder
 
 /**
  * A Panel that has control UI for adjusting the sim. This includes radio buttons for the force values display, and a
